@@ -1,0 +1,651 @@
+import datetime
+import pandas as pd
+import geopandas as gpd
+from dataclasses import dataclass
+import uuid
+from multiprocessing import Pool
+
+from shapely.geometry import MultiPolygon, Polygon
+
+import ipywidgets
+from ipywidgets import IntRangeSlider, IntSlider, Layout, SelectionRangeSlider, VBox, HBox, Label, Button, IntProgress
+
+from functools import partial
+
+import os
+
+@dataclass
+class Input:
+    startdt: datetime.datetime
+    enddt: datetime.datetime
+    deltadt: datetime.timedelta
+        
+    igniteidx: str
+    lcpidx: str
+    barrieridx: str
+        
+    windspeed_lst: list
+    winddirection_lst: list
+        
+    temperature: int
+    humidity: int
+
+class FilePaths:
+    def __init__(self, datadir):
+        self.datadir = datadir
+        self.dfpath = os.path.join(self.datadir, 'test_table.pkl')
+    
+    def create_rundir(self):
+        dtdir = datetime.datetime.now().strftime('%Y%m%d')
+        self.basedir = os.path.join(self.datadir, dtdir)
+        
+        # If dtdir does not exist, make one
+        if not os.path.isdir(self.basedir):
+            os.mkdir(self.basedir)
+        
+        # Find the non-existing folder
+        isdirfound = False
+        for cnt in range(10000):
+            rundir = os.path.join(self.basedir, 'Run_{:04d}'.format(cnt))
+            if not os.path.isdir(rundir):
+                isdirfound = True
+                break
+        
+        if isdirfound:
+            os.mkdir(rundir)
+            return rundir
+        print('Max iteration reached! {}. No empty dir found'.format(cnt))
+        
+class Database:
+    def __init__(self, fp: FilePaths):
+        # Setup params
+        self.fp = fp
+        
+        # TODO
+        # Setup the database for reading
+        
+        
+        try:
+            dftable = pd.read_pickle(self.fp.dfpath)
+        except FileNotFoundError:
+            print(f'\n!!Caution!! Path {self.fp.dfpath} not found! Cannot choose ignition!!\n')
+            raise
+            
+        # Collect the tables in dataframe format
+        # Table 1 - ignition
+        self.gdfignition = gpd.GeoDataFrame(dftable[dftable['filetype'] == 'Ignition'])
+        for (idx, ignition) in self.gdfignition.iterrows():
+            geom = gpd.read_file(ignition['filepath']).loc[0,'geometry']
+            self.gdfignition.loc[idx, 'shape'] = geom.to_wkb()
+
+        gs = gpd.GeoSeries.from_wkb(self.gdfignition['shape'])
+        self.gdfignition['geometry'] = gs
+        self.gdfignition = self.gdfignition.drop(columns='shape').set_crs(epsg=5070)
+        
+        self.gdfignition['description'] = 'Maria2019'
+        
+        # Table 2 - barrier
+        self.dfbarrier = dftable[dftable['filetype'] == 'Barrier'][['filetype', 'filepath']]
+        # Table 3 - landscape
+        self.dflandscape = dftable[dftable['filetype'] == 'Landscape'][['filetype', 'filepath']]
+        # Table 4 - simulation
+        self.gdfsimulation = gpd.GeoDataFrame()
+        
+    def create_rundir(self):
+        return self.fp.create_rundir()
+    
+    def append(self, data: dict):
+        filetype = data['filetype']
+        if filetype == 'Simulation':
+            # Read the output simulation geoms
+            gdf = gpd.read_file(data['filepath'])
+            idxlst = []
+            geomlst = []
+            igniteidxlst = []
+            datetimelst = []
+            filepathlst = []
+            windspeedlst = []
+            winddirectionlst = []
+            configpathlst = []
+            
+            # For each elapsed time
+            minuteslst = gdf['Elapsed_Mi'].unique()
+            
+            for minutespassed in minuteslst:
+                gdf0 = gdf[gdf['Elapsed_Mi'] == minutespassed]
+                polygon_lst = [Polygon(value) for value in gdf0['geometry'].values]
+                multipoly = MultiPolygon()
+                for poly in polygon_lst:
+                    multipoly = multipoly.union(poly.buffer(0))
+                geomlst.append(multipoly)
+                  
+                # unique id
+                uniqueid = uuid.uuid4().hex
+                idxlst.append(uniqueid)
+                
+                igniteidxlst.append(data['igniteidx'])
+                datetimelst.append(data['startdt'] + datetime.timedelta(minutes=minutespassed))
+                filepathlst.append(data['filepath'])
+                windspeedlst.append(data['windspeed'])
+                winddirectionlst.append(data['winddirection'])
+                configpathlst.append(data['configpath'])
+          
+            # Create the gdf for appending
+            gdfappend = gpd.GeoDataFrame({'igniteidx': igniteidxlst,
+                                      'datetime': datetimelst,
+                                      'filepath': filepathlst,
+                                      'windspeed': windspeedlst,
+                                      'winddirection': winddirectionlst,
+                                      'configpath': configpathlst},
+                                     geometry=geomlst,
+                                     index=idxlst,
+                                     crs=self.gdfignition.crs)
+            self.gdfsimulation = self.gdfsimulation.append(gdfappend)
+        else:
+            print(f'filetype = {filetype} not yet implemented!')
+            
+    def startdt(self, igniteidx):
+        return self.gdfignition.loc[igniteidx, 'datetime']
+    
+    def lcppath(self, lcpidx):
+        return self.dflandscape.loc[lcpidx, 'filepath']
+    def ignitepath(self, igniteidx):
+        return self.gdfignition.loc[igniteidx, 'filepath']
+    def barrierpath(self, barrieridx):
+        return self.dfbarrier.loc[barrieridx, 'filepath']
+    
+class User:
+    def __init__(self, fp: FilePaths):
+        # Object to keep the farsite files organized
+        self.fp = fp
+        
+        # Setup the main components
+        self.__setup()
+        
+    def __setup(self):
+        # Setup the interface for data input
+        self.__setup_interface()
+        
+        # setup the database for create/append
+        self.__setup_dbtable()
+        
+    def __setup_interface(self):
+        print('Setting up the interface')
+
+        # Windspeed
+        windspeed_desc = Label('Windspeed')
+        windspeed_widget = IntRangeSlider(min=0, max=50, value=(0,20))
+        windspeed_units = Label('mph')
+
+        windspeedstep_desc = Label('Steps')
+        windspeedstep_widget = IntSlider(min=1, max=windspeed_widget.max)
+
+        windspeed_box = HBox([windspeed_desc, windspeed_widget, windspeedstep_desc, windspeedstep_widget, windspeed_units])
+
+        # Winddirection
+        winddirection_desc = Label('Winddirection')
+        winddirection_widget = IntRangeSlider(min=0, max=355, step=5, value=(0,180))
+        winddirection_units = Label('degrees')
+
+        winddirectionstep_desc = Label('Steps')
+        winddirectionstep_widget = IntSlider(min=5, max=355, step=5)
+
+        winddirection_box = HBox([winddirection_desc, winddirection_widget, winddirectionstep_desc, winddirectionstep_widget, winddirection_units])
+
+        # Temperature
+        temperature_desc = Label('Temperature')
+        temperature_widget = IntSlider(min=-40, max=120, value=60)
+        temperature_units = Label('Fahrenheit')
+
+        temperature_box = HBox([temperature_desc, temperature_widget, temperature_units])
+
+        # Relative humidity
+        relhumid_desc = Label('Relative Humidity')
+        relhumid_widget = IntSlider(min=0, max=100, value=10)
+        relhumid_units = Label('%')
+
+        relhumid_box = HBox([relhumid_desc, relhumid_widget, relhumid_units])
+
+        # Burn time
+        burntime_desc = Label('Burn time')
+        burntime_widget = IntSlider(min=30, max=300, value=3, step=30)
+        burntime_units = Label('minutes')
+
+        burntimestep_desc = Label('Steps')
+        burntimestep_widget = IntSlider(min=30, max=300, step=30)
+
+        burntime_box = HBox([burntime_desc, burntime_widget, burntimestep_desc, burntimestep_widget, burntime_units])
+
+        # Calculate button
+        calculate_widget = Button(description='Calculate Perimeters')
+
+        def setWinddirectionStepMax(change):
+            if change['name'] == 'value':
+                winddirectionstep_widget.max = winddirection_widget.value[1] - winddirection_widget.value[0]
+        def setWindspeedStepMax(change):
+            if change['name'] == 'value':
+                windspeedstep_widget.max = windspeed_widget.value[1] - windspeed_widget.value[0]
+        def setBurntimeStepMax(change):
+            if change['name'] == 'value':
+                burntimestep_widget.max = burntime_widget.value
+
+        def calculateClicked(change):
+            windspeedlow = windspeed_widget.value[0]
+            windspeedhigh = windspeed_widget.value[1]
+            windspeeddelta = windspeedstep_widget.value
+
+            winddirectionlow = winddirection_widget.value[0]
+            winddirectionhigh = winddirection_widget.value[1]
+            winddirectiondelta = winddirectionstep_widget.value
+
+            relhumid = relhumid_widget.value
+            burntime = datetime.timedelta(minutes=burntime_widget.value)
+            burntimestep = datetime.timedelta(minutes=burntimestep_widget.value)
+
+            temperature = temperature_widget.value
+            
+            inputData = {'windspeedlow': windspeedlow, 'windspeedhigh': windspeedhigh, 'windspeeddelta': windspeeddelta,
+                         'winddirectionlow': winddirectionlow, 'winddirectionhigh': winddirectionhigh, 'winddirectiondelta': winddirectiondelta, 
+                         'relhumid': relhumid, 'burntime': burntime, 'burntimestep': burntimestep, 'temperature': temperature}
+
+            self.mainapi = self.calculatePerimeters(inputData)
+
+        # Collect activity
+        windspeed_widget.observe(setWindspeedStepMax)
+        burntime_widget.observe(setBurntimeStepMax)
+        calculate_widget.on_click(calculateClicked)
+        
+        # Loading widget
+        self.loading_widget = IntProgress(
+            value=0,
+            min=0,
+            max=100,
+            description='Calculating:',
+            style={'bar_color': '#0000FF'},
+            orientation='horizontal'
+        )
+
+        value_label = Label(str(self.loading_widget.value) + ' %')
+
+        def update_label(vlabel, *args):
+            vlabel.value = str(args[0]['new']) + ' %'
+
+        self.loading_widget.observe(partial(update_label, value_label))
+
+        loading_box = HBox([self.loading_widget, value_label])
+        
+        
+        self.UI = VBox([windspeed_box, winddirection_box,  burntime_box, temperature_box, relhumid_box, calculate_widget, loading_box])
+    
+    def __setup_dbtable(self):
+        print('Database interaction not yet implemented. Use pickle file for dataframes instead!')
+        
+        self.db = Database(self.fp)
+            
+    def __selectPerimeter(self):
+        # Choose a perimeter from the database
+        print('Choosing a perimeter from the database')
+        self.igniteidx = '9f82e870591748a9a8a01346d174f2a1'
+        
+        # Grab the landscape from gdal
+        print('Collecting lcp file from gdal_translate')
+        
+        # Append the lcp to the database (Check for existence?)
+        self.lcpidx = '43b7f5db36994599861eec4849cc68fd' # Maria fire
+        
+        # Select the barrier
+        self.barrieridx = 'cb47616cd2dc4ccc8fd523bd3a5064bb' # No Barrier
+        
+    def __selectWindParams(self, inputData: dict):
+        # Choose a windspeed range
+        self.windspeedlow = inputData['windspeedlow']
+        self.windspeedhigh = inputData['windspeedhigh']
+        self.windspeeddelta = inputData['windspeeddelta']
+        
+        # Choose a winddirection range
+        self.winddirectionlow = inputData['winddirectionlow']
+        self.winddirectionhigh = inputData['winddirectionhigh']
+        self.winddirectiondelta = inputData['winddirectiondelta']
+        
+    def __selectTimeParams(self, inputData: dict):
+        # Ignition is read from the dftable
+        self.startdt = self.db.startdt(self.igniteidx)
+        
+        self.deltadt = inputData['burntimestep']
+        
+        self.enddt = self.startdt + inputData['burntime']
+    
+    def __selectHumidity(self, inputData: dict):
+        self.humidity = inputData['relhumid']
+        
+    def __selectTemperature(self, inputData: dict):
+        self.temperature = inputData['temperature']
+    
+    def __selectInputParams(self, inputData: dict):
+        # Select ignition perimeter
+        self.__selectPerimeter() # Automatically sets the landcape
+        
+        # Choose windspeed range
+        self.__selectWindParams(inputData)
+        
+        # Choose time parameters
+        self.__selectTimeParams(inputData)
+        
+        # Choose humidity
+        self.__selectHumidity(inputData)
+        
+        # Choose temperature
+        self.__selectTemperature(inputData)
+        
+        
+        windspeed_range = range(self.windspeedlow, self.windspeedhigh, self.windspeeddelta)
+        winddirection_range = range(self.winddirectionlow, self.winddirectionhigh, self.winddirectiondelta)
+        
+        # Remaining params are default at the moment, and automatically set in the ConfigFile
+        self.inputData = Input(startdt = self.startdt, enddt = self.enddt, deltadt = self.deltadt,
+                               igniteidx = self.igniteidx, lcpidx = self.lcpidx, barrieridx = self.barrieridx,
+                               windspeed_lst = list(windspeed_range), winddirection_lst = list(winddirection_range),
+                               humidity = self.humidity, temperature = self.temperature)
+
+
+    def calculatePerimeters(self, inputData):
+        print(inputData)
+        
+        # Select all the parameters
+        self.__selectInputParams(inputData)
+        
+        # Call the main API
+        mainAPI = Main(inputData = self.inputData, 
+                       db = self.db,
+                       loading_widget = self.loading_widget)
+        
+        return mainAPI
+
+class Main:
+    def __init__(self, inputData : Input, db: Database, loading_widget):
+        # Loading widget
+        self.loading_widget = loading_widget
+        
+        # Set the input
+        self.inputData = inputData
+        
+        # Set the filepaths
+#         self.fp = fp
+        
+        # Database
+#         self.dftable = dftable
+        self.db = db
+        
+        self.runfile_lst = []
+        self.runfile_done = {}
+        for ws in self.inputData.windspeed_lst:
+            for wd in self.inputData.winddirection_lst:
+                # Set Run file
+                runfile = Run_File(mainapi = self, db = self.db, windspeed = ws, winddirection = wd, 
+                                   startdt = self.inputData.startdt, enddt = self.inputData.enddt, deltadt = self.inputData.deltadt,
+                                   lcpidx = self.inputData.lcpidx, 
+                                   igniteidx = self.inputData.igniteidx, 
+                                   barrieridx = self.inputData.barrieridx,
+                                   temperature = self.inputData.temperature,
+                                   humidity = self.inputData.humidity)
+                
+                # Create runfile and configfiles
+                self.runfile_lst.append(runfile)
+                self.runfile_done[runfile] = 0
+                
+        self.__setup_farsite()
+        
+    def __setup_farsite(self):
+        self.farsite_lst = []
+        for runfile in self.runfile_lst:
+            self.farsite_lst.append(FarsiteManual(runfile))
+    
+    def run_farsite(self, numproc=1):
+        
+        if numproc == 1:
+            for farsite in self.farsite_lst:
+                farsite.updatedb(farsite.run_command())
+        else:
+            pool = Pool(processes=numproc)
+
+            # Run for each FarsiteManual
+            for farsite in self.farsite_lst:
+                pool.apply_async(farsite.run_command, callback=farsite.updatedb)
+
+            pool.close()
+            pool.join()
+
+        
+        
+    def update_loading(self):
+        # Count the number of runfiles done
+        count = 0.0
+        for (runfile, value) in self.runfile_done.items():
+            count += value
+        
+        self.loading_widget.value = int(count/len(self.runfile_lst)*100)
+            
+class Run_File:
+    def __init__(self, mainapi: Main, db: Database, windspeed: int, winddirection: int,
+                 startdt: datetime.datetime, enddt: datetime.datetime, deltadt: datetime.timedelta,
+                 lcpidx: str, igniteidx: str, barrieridx: str,
+                 temperature: int, humidity: int):
+        
+        # Setup the parameters
+        self.mainapi = mainapi
+        self.windspeed = windspeed
+        self.winddirection = winddirection
+        self.startdt = startdt
+        self.enddt = enddt
+        self.deltadt = deltadt
+        self.db = db
+        self.temperature = temperature
+        self.humidity = humidity
+        
+        # Set Config file
+        self.configfile = Config_File(FARSITE_START_TIME = self.startdt,
+                                 FARSITE_END_TIME = self.enddt,
+                                 windspeed = self.windspeed,
+                                 winddirection = self.winddirection)
+        
+        # Set additional information
+        self.configfile.FARSITE_TIMESTEP = int(self.deltadt.total_seconds()/60)
+        self.configfile.temperature = self.temperature
+        self.configfile.humidity = self.humidity
+        
+        # Directory to keep the input files
+        rundir = db.create_rundir()
+        
+        # Input filepaths
+        self.configpath = os.path.join(rundir, 'config')
+        self.runpath = os.path.join(rundir, 'run')        
+        self.outpath = os.path.join(rundir, 'out')
+        
+        # Read the remaining filepaths
+        self.lcppath = self.db.lcppath(lcpidx)
+        self.ignitepath = self.db.ignitepath(igniteidx)
+        self.barrierpath = self.db.barrierpath(barrieridx)
+        
+        # Keep a record of igniteidx to update the table with simulation data
+        self.igniteidx = igniteidx
+
+    def tostring(self):
+        return '{lcpath} {cfgpath} {ignitepath} {barrierpath} {outpath} -1'.format(
+                                lcpath =  self.lcppath, 
+                                cfgpath = self.configpath, 
+                                ignitepath = self.ignitepath, 
+                                barrierpath = self.barrierpath, 
+                                outpath = self.outpath)
+    
+    def tofile(self):
+        # Write Runfile
+#         print('Writing to runfile')
+        with open(self.runpath, mode='w') as file:
+            file.write(self.tostring())
+#         print('Writing to configfile')
+        # Write configfile
+        with open(self.configpath, mode='w') as file:
+            file.write(self.configfile.tostring())
+#         print('Writing is done')
+            
+    def updatedb(self):
+        data = {'filetype': 'Simulation',
+                'igniteidx': self.igniteidx,
+                'startdt': self.startdt,
+                'filepath': self.outpath + '_Perimeters.shp',
+                'windspeed': self.windspeed,
+                'winddirection': self.winddirection,
+                'configpath': self.configpath}
+                
+        self.db.append(data)
+        
+        # Calculation done for runfile
+        self.mainapi.runfile_done[self] = 1
+        
+        # Update the loading widget
+        self.mainapi.update_loading()
+        
+#         self.dftable.loc[uniqueid, 'filetype'] = 'Simulation'
+#         self.dftable.loc[uniqueid, 'igniteidx'] = self.igniteidx
+#         self.dftable.loc[uniqueid, 'datetime'] = self.startdt
+#         self.dftable.loc[uniqueid, 'filepath'] = self.outpath + '_Perimeters.shp'
+            
+        return 0
+#TODO: Read all the values in the params and create the config file accordingly
+# This is a config file parser
+
+class Config_File:
+    def __init__(self, 
+                 FARSITE_START_TIME: datetime, 
+                 FARSITE_END_TIME: datetime, 
+                 windspeed: float, winddirection: float):
+        self.__set_default()
+        
+        # Set the parameters
+        self.FARSITE_TIMESTEP = int((FARSITE_END_TIME - FARSITE_START_TIME).total_seconds()/60)
+        self.FARSITE_START_TIME = datetime.datetime(2019, 9, 9, 19, 0)
+        self.FARSITE_END_TIME = self.FARSITE_START_TIME + (FARSITE_END_TIME - FARSITE_START_TIME)
+        self.windspeed = windspeed
+        self.winddirection = winddirection
+
+    def __set_default(self):
+        self.version = 1.0
+        self.FARSITE_DISTANCE_RES = 30
+        self.FARSITE_PERIMETER_RES = 60
+        self.FARSITE_MIN_IGNITION_VERTEX_DISTANCE = 15.0
+        self.FARSITE_SPOT_GRID_RESOLUTION = 60.0
+        self.FARSITE_SPOT_PROBABILITY = 0.9
+        self.FARSITE_SPOT_IGNITION_DELAY = 0
+        self.FARSITE_MINIMUM_SPOT_DISTANCE = 60
+        self.FARSITE_ACCELERATION_ON = 1
+        self.FARSITE_FILL_BARRIERS = 1
+        self.SPOTTING_SEED = 253114
+        
+        self.FUEL_MOISTURES_DATA = [[0, 3, 4, 6, 30, 60]]
+        
+        self.RAWS_ELEVATION = 2501
+        self.RAWS_UNITS = 'English'
+        # Add self.raws from the init
+              
+        self.FOLIAR_MOISTURE_CONTENT = 100
+        self.CROWN_FIRE_METHOD = 'ScottReinhardt'
+        
+        self.WRITE_OUTPUTS_EACH_TIMESTEP = 0
+        
+        self.temperature = 66
+        self.humidity = 8
+        self.precipitation = 0
+        self.cloudcover = 0
+        
+    def tostring(self):
+        config_text = 'FARSITE INPUTS FILE VERSION {}\n'.format(self.version)
+        
+        str_start = '{month} {day} {time}'.format(
+                            month = self.FARSITE_START_TIME.month,
+                            day = self.FARSITE_START_TIME.day,
+                            time = '{}{:02d}'.format(
+                                    self.FARSITE_START_TIME.hour,
+                                    self.FARSITE_START_TIME.minute))
+        config_text += 'FARSITE_START_TIME: {}\n'.format(str_start)
+
+        str_end = '{month} {day} {time}'.format(
+                            month = self.FARSITE_END_TIME.month,
+                            day = self.FARSITE_END_TIME.day,
+                            time = '{}{:02d}'.format(
+                                    self.FARSITE_END_TIME.hour,
+                                    self.FARSITE_END_TIME.minute))
+        config_text += 'FARSITE_END_TIME: {}\n'.format(str_end)
+        
+        config_text += 'FARSITE_TIMESTEP: {}\n'.format(self.FARSITE_TIMESTEP)
+        config_text += 'FARSITE_DISTANCE_RES: {}\n'.format(self.FARSITE_DISTANCE_RES)
+        config_text += 'FARSITE_PERIMETER_RES: {}\n'.format(self.FARSITE_PERIMETER_RES)
+        config_text += 'FARSITE_MIN_IGNITION_VERTEX_DISTANCE: {}\n'.format(self.FARSITE_MIN_IGNITION_VERTEX_DISTANCE)
+        config_text += 'FARSITE_SPOT_GRID_RESOLUTION: {}\n'.format(self.FARSITE_SPOT_GRID_RESOLUTION)
+        config_text += 'FARSITE_SPOT_PROBABILITY: {}\n'.format(self.FARSITE_SPOT_PROBABILITY)
+        config_text += 'FARSITE_SPOT_IGNITION_DELAY: {}\n'.format(self.FARSITE_SPOT_IGNITION_DELAY)
+        config_text += 'FARSITE_MINIMUM_SPOT_DISTANCE: {}\n'.format(self.FARSITE_MINIMUM_SPOT_DISTANCE)
+        config_text += 'FARSITE_ACCELERATION_ON: {}\n'.format(self.FARSITE_ACCELERATION_ON)
+        config_text += 'FARSITE_FILL_BARRIERS: {}\n'.format(self.FARSITE_FILL_BARRIERS)
+        config_text += 'SPOTTING_SEED: {}\n'.format(self.SPOTTING_SEED)
+        
+        # Fuel moistures
+        config_text += 'FUEL_MOISTURES_DATA: {}\n'.format(len(self.FUEL_MOISTURES_DATA))
+        for data in self.FUEL_MOISTURES_DATA:
+            config_text += '{} {} {} {} {} {}\n'.format(data[0], data[1], data[2],
+                                                      data[3], data[4], data[5])
+            
+        config_text += 'RAWS_ELEVATION: {}\n'.format(self.RAWS_ELEVATION)
+        config_text += 'RAWS_UNITS: {}\n'.format(self.RAWS_UNITS)
+        
+        # Weather data (currently only a single weather data)
+        config_text += 'RAWS: 1\n'
+        config_text += '{year} {month} {day} {time} {temperature} {humidity} {precipitation} {windspeed} {winddirection} {cloudcover}\n'.format(
+                                year = self.FARSITE_START_TIME.year,
+                                month = self.FARSITE_START_TIME.month,
+                                day = self.FARSITE_START_TIME.day,
+                                time = '{}{:02d}'.format(
+                                    self.FARSITE_START_TIME.hour, 
+                                    self.FARSITE_START_TIME.minute),
+                                temperature = self.temperature,
+                                humidity = self.humidity,
+                                precipitation = self.precipitation,
+                                windspeed = self.windspeed,
+                                winddirection = self.winddirection,
+                                cloudcover = self.cloudcover
+                            )
+        config_text += 'FOLIAR_MOISTURE_CONTENT: {}\n'.format(self.FOLIAR_MOISTURE_CONTENT)
+        config_text += 'CROWN_FIRE_METHOD: {}\n'.format(self.CROWN_FIRE_METHOD)
+        config_text += 'WRITE_OUTPUTS_EACH_TIMESTEP: {}'.format(self.WRITE_OUTPUTS_EACH_TIMESTEP)
+        
+        return config_text
+    
+class FarsiteManual:
+    def __init__(self, runfile: Run_File, farsitepath = '/home/tcaglar/farsite/TestFARSITE', timeout: int = 1):
+        # Setup farsite manual api
+        self.farsitepath = farsitepath
+        self.timeout = timeout
+        
+        self.runfile = runfile # Create the input files
+        
+        self.__setup_command()
+    def __setup_command(self, ncores=4):
+        # Timeout 1 minute.
+        self.command = f'timeout {self.timeout}m {self.farsitepath} {self.runfile.runpath} {ncores}'  # Run in background
+        
+    def run_command(self):
+        # TODO 
+        # Create the folder defined by the runfile
+#         print(self.command)
+        # Write into the folder
+        self.runfile.tofile()
+#         print('Runfile written')
+        
+        # Run the command in os
+        os.system(self.command)
+
+        self.runfile.updatedb()
+        # Return
+        return 0
+    def updatedb(self, value):
+#         print(value)
+        self.runfile.updatedb()
