@@ -8,7 +8,11 @@ from multiprocessing import Pool
 from shapely.geometry import MultiPolygon, Polygon
 
 import ipywidgets
-from ipywidgets import IntRangeSlider, IntSlider, Layout, SelectionRangeSlider, VBox, HBox, Label, Button, IntProgress
+from ipywidgets import IntRangeSlider, IntSlider, SelectionRangeSlider, SelectionSlider, VBox, HBox, Button
+from ipywidgets import Layout, FloatProgress, HBox, VBox, FloatText, Label, IntProgress
+
+from ipyleaflet import Map, basemaps, basemap_to_tiles, ScaleControl, ZoomControl, LayersControl, WKTLayer, WidgetControl
+from ipyleaflet.leaflet import LayerException
 
 from functools import partial
 
@@ -163,11 +167,11 @@ class User:
         self.__setup()
         
     def __setup(self):
-        # Setup the interface for data input
-        self.__setup_interface()
-        
         # setup the database for create/append
         self.__setup_dbtable()
+        
+        # Setup the interface for data input
+        self.__setup_interface()
         
     def __setup_interface(self):
         print('Setting up the interface')
@@ -249,6 +253,7 @@ class User:
                          'relhumid': relhumid, 'burntime': burntime, 'burntimestep': burntimestep, 'temperature': temperature}
 
             self.mainapi = self.calculatePerimeters(inputData)
+            
 
         # Collect activity
         windspeed_widget.observe(setWindspeedStepMax)
@@ -274,8 +279,96 @@ class User:
 
         loading_box = HBox([self.loading_widget, value_label])
         
+        ###### Choose ignite and compare perimeters
+        # Dependencies
+        def initiate_perimeters(gdf, newigniteid, newcompareid):
+            add_mask_ignite = (gdf['objectid'] == newigniteid)
+            add_mask_compare = (gdf['objectid'] == newcompareid)
+
+            gdf.loc[add_mask_ignite, 'WKTLayerIgnite'].apply(lambda wlayer: m.add_layer(wlayer))
+            gdf.loc[add_mask_compare, 'WKTLayerCompare'].apply(lambda wlayer: m.add_layer(wlayer))
+
+
+        def update_perimeters(gdf, vbox, oldigniteid, newigniteid, oldcompareid, newcompareid):    
+            remove_mask_ignite = (gdf['objectid'] == oldigniteid)
+            remove_mask_compare = (gdf['objectid'] == oldcompareid)
+            add_mask_ignite = (gdf['objectid'] == newigniteid)
+            add_mask_compare = (gdf['objectid'] == newcompareid)
+
+            gdf.loc[remove_mask_ignite, 'WKTLayerIgnite'].apply(lambda wlayer: m.remove_layer(wlayer))
+            gdf.loc[add_mask_ignite, 'WKTLayerIgnite'].apply(lambda wlayer: m.add_layer(wlayer))
+            gdf.loc[remove_mask_compare, 'WKTLayerCompare'].apply(lambda wlayer: m.remove_layer(wlayer))
+            gdf.loc[add_mask_compare, 'WKTLayerCompare'].apply(lambda wlayer: m.add_layer(wlayer))
+
+            vbox.children[1].value = str(gdf.set_index('objectid').loc[newigniteid, 'datetime'])
+            vbox.children[3].value = str(gdf.set_index('objectid').loc[newcompareid, 'datetime'])
+
+            deltadt = gdf.set_index('objectid').loc[newcompareid, 'datetime'] - gdf.set_index('objectid').loc[newigniteid, 'datetime']
+            vbox.children[4].value = str(int(deltadt.total_seconds()/60)) + ' minutes'
+
+        def observe_objectid_slider(m, gdf, vbox, event):
+            self.__selectTimeParams()
+            
+            if event['owner'].description == 'ignite':
+                oldigniteid = event['old']
+                newigniteid = event['new']
+                oldcompareid = vbox.children[2].value
+                newcompareid = vbox.children[2].value
+            elif event['owner'].description == 'compare':
+                oldigniteid = vbox.children[0].value
+                newigniteid = vbox.children[0].value
+                oldcompareid = event['old']
+                newcompareid = event['new']
+
+            update_perimeters(gdf, vbox, oldigniteid, newigniteid, oldcompareid, newcompareid)
         
-        self.UI = VBox([windspeed_box, winddirection_box,  burntime_box, temperature_box, relhumid_box, calculate_widget, loading_box])
+        gdf = self.db.gdfignition.to_crs(epsg=4326)
+        gdf['WKTLayerIgnite'] = gdf.apply(lambda row: WKTLayer(wkt_string = row['geometry'].wkt), axis=1)
+        gdf['WKTLayerCompare'] = gdf.apply(lambda row: WKTLayer(wkt_string = row['geometry'].wkt), axis=1)
+
+        centerlat = 34.178861487501464
+        centerlon = -118.566380281569
+
+        m = Map(
+            basemap=basemaps.Esri.WorldTopoMap,
+            center=(centerlat, centerlon),
+            zoom=10,
+            layout=Layout(height='800px', width='100%'),
+            zoom_control=False
+        )
+
+        objectids = gdf['objectid'].unique()
+
+        igniteid_select = SelectionSlider(description='ignite', options=objectids)
+        ignitedt_label = Label(value=str(gdf.set_index('objectid').loc[igniteid_select.value, 'datetime']))
+
+        compareid_select = SelectionSlider(description='compare', options=objectids)
+        comparedt_label = Label(value=str(gdf.set_index('objectid').loc[compareid_select.value, 'datetime']))
+
+        deltadt = gdf.set_index('objectid').loc[compareid_select.value, 'datetime'] - gdf.set_index('objectid').loc[igniteid_select.value, 'datetime']
+        deltadt_label = Label(value=str(int(deltadt.total_seconds()/60)) + ' minutes')
+
+        vbox = VBox([igniteid_select, ignitedt_label, compareid_select, comparedt_label, deltadt_label])
+
+        igniteid_select.observe(partial(observe_objectid_slider, m, gdf, vbox), names='value')
+        compareid_select.observe(partial(observe_objectid_slider, m, gdf, vbox), names='value')
+
+        initiate_perimeters(gdf, igniteid_select.value, compareid_select.value)
+        
+        igniteid_box = HBox([igniteid_select, ignitedt_label])
+        compareid_box = HBox([compareid_select, comparedt_label, deltadt_label])
+        ## Combine all boxes
+        
+        self.UI = VBox([igniteid_box, compareid_box, windspeed_box, winddirection_box,  burntime_box, temperature_box, relhumid_box, calculate_widget, loading_box])
+        
+        widget_control = WidgetControl(widget = self.UI, position='topright')
+        
+        m.add_control(ZoomControl(position='topleft'))
+        m.add_control(ScaleControl(position='topleft'))
+
+        m.add_control(widget_control)
+        
+        self.m = m
     
     def __setup_dbtable(self):
         print('Database interaction not yet implemented. Use pickle file for dataframes instead!')
@@ -285,8 +378,13 @@ class User:
     def __selectPerimeter(self):
         # Choose a perimeter from the database
         print('Choosing a perimeter from the database')
-        self.igniteidx = '9f82e870591748a9a8a01346d174f2a1'
+#         self.igniteidx = '9f82e870591748a9a8a01346d174f2a1'
         
+        igniteid = self.UI.children[0].children[0].value
+        self.igniteidx = self.db.gdfignition.reset_index().set_index('objectid').loc[igniteid, 'index']
+        
+        compareid = self.UI.children[1].children[0].value
+        self.compareidx = self.db.gdfignition.reset_index().set_index('objectid').loc[compareid, 'index']
         # Grab the landscape from gdal
         print('Collecting lcp file from gdal_translate')
         
@@ -307,14 +405,28 @@ class User:
         self.winddirectionhigh = inputData['winddirectionhigh']
         self.winddirectiondelta = inputData['winddirectiondelta']
         
-    def __selectTimeParams(self, inputData: dict):
+    def __selectTimeParams(self):
         # Ignition is read from the dftable
-        self.startdt = self.db.startdt(self.igniteidx)
+        igniteid = self.UI.children[0].children[0].value
+        self.startdt = self.db.gdfignition.reset_index().set_index('objectid').loc[igniteid, 'datetime']
         
-        self.deltadt = inputData['burntimestep']
+#         self.deltadt = inputData['burntimestep']
+
+#         self.enddt = self.startdt + inputData['burntime']
+
+        compareid = self.UI.children[1].children[0].value
+        self.enddt = self.db.gdfignition.reset_index().set_index('objectid').loc[compareid, 'datetime']
         
-        self.enddt = self.startdt + inputData['burntime']
-    
+        self.deltadt = self.enddt - self.startdt
+        
+        burnwidget = self.UI.children[4].children[1]
+        burnwidget.value = str(int(self.deltadt.total_seconds()/60))
+        burnwidget.disabled = True
+        
+        burnstepwidget = self.UI.children[4].children[3]
+        burnstepwidget.value = burnwidget.value
+        burnstepwidget.disabled = True
+        
     def __selectHumidity(self, inputData: dict):
         self.humidity = inputData['relhumid']
         
@@ -329,7 +441,7 @@ class User:
         self.__selectWindParams(inputData)
         
         # Choose time parameters
-        self.__selectTimeParams(inputData)
+        self.__selectTimeParams()
         
         # Choose humidity
         self.__selectHumidity(inputData)
@@ -404,13 +516,13 @@ class Main:
         
         if numproc == 1:
             for farsite in self.farsite_lst:
-                farsite.updatedb(farsite.run_command())
+                farsite.run_command()
         else:
             pool = Pool(processes=numproc)
 
             # Run for each FarsiteManual
             for farsite in self.farsite_lst:
-                pool.apply_async(farsite.run_command, callback=farsite.updatedb)
+                pool.apply_async(farsite.run_command)
 
             pool.close()
             pool.join()
@@ -503,14 +615,14 @@ class Run_File:
         self.mainapi.runfile_done[self] = 1
         
         # Update the loading widget
-        self.mainapi.update_loading()
+#         self.mainapi.update_loading()
         
 #         self.dftable.loc[uniqueid, 'filetype'] = 'Simulation'
 #         self.dftable.loc[uniqueid, 'igniteidx'] = self.igniteidx
 #         self.dftable.loc[uniqueid, 'datetime'] = self.startdt
 #         self.dftable.loc[uniqueid, 'filepath'] = self.outpath + '_Perimeters.shp'
             
-        return 0
+#         return 0
 #TODO: Read all the values in the params and create the config file accordingly
 # This is a config file parser
 
@@ -630,7 +742,7 @@ class FarsiteManual:
         self.__setup_command()
     def __setup_command(self, ncores=4):
         # Timeout 1 minute.
-        self.command = f'timeout {self.timeout}m {self.farsitepath} {self.runfile.runpath} {ncores}'  # Run in background
+        self.command = f'timeout {self.timeout}m {self.farsitepath} {self.runfile.runpath} {ncores}'  # donot run in background
         
     def run_command(self):
         # TODO 
@@ -643,9 +755,9 @@ class FarsiteManual:
         # Run the command in os
         os.system(self.command)
 
-        self.runfile.updatedb()
-        # Return
-        return 0
-    def updatedb(self, value):
+        self.updatedb()
+#         # Return
+#         return 0
+    def updatedb(self):
 #         print(value)
         self.runfile.updatedb()
