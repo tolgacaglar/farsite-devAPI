@@ -553,22 +553,27 @@ class Main:
         
         self.runfile_lst = []
         self.runfile_done = {}
-        for ws in self.inputData.windspeed_lst:
-            for wd in self.inputData.winddirection_lst:
-                # Set Run file
-                runfile = Run_File(mainapi = self, db = self.db, windspeed = ws, winddirection = wd, 
-                                   startdt = self.inputData.startdt, enddt = self.inputData.enddt, deltadt = self.inputData.deltadt,
-                                   lcpidx = self.inputData.lcpidx, 
-                                   igniteidx = self.inputData.igniteidx,
-                                   compareidx = self.inputData.compareidx,
-                                   description = self.inputData.description,
-                                   barrieridx = self.inputData.barrieridx,
-                                   temperature = self.inputData.temperature,
-                                   humidity = self.inputData.humidity)
-                
-                # Create runfile and configfiles
-                self.runfile_lst.append(runfile)
-                self.runfile_done[runfile] = 0
+        
+        windspeed_lst = [ 1,  1,  1,  0,  1,  1,  1,  1,  3,  1,  2,  3,  2,  2,  2,  2,  3, 3,  3,  5,  4,  5,  6,  6,  8,  9, 10]
+        winddirection_lst = [315,  90,  90, 180, 270, 117, 135, 180, 259, 207, 236, 243, 198, 214, 225, 194, 207, 217, 202, 234, 214, 216, 217, 221, 197, 196, 193]
+        
+#         for ws in self.inputData.windspeed_lst:
+#             for wd in self.inputData.winddirection_lst:
+        for ws, wd in zip(windspeed_lst, winddirection_lst):
+            # Set Run file
+            runfile = Run_File(mainapi = self, db = self.db, windspeed = ws, winddirection = wd, 
+                               startdt = self.inputData.startdt, enddt = self.inputData.enddt, deltadt = self.inputData.deltadt,
+                               lcpidx = self.inputData.lcpidx, 
+                               igniteidx = self.inputData.igniteidx,
+                               compareidx = self.inputData.compareidx,
+                               description = self.inputData.description,
+                               barrieridx = self.inputData.barrieridx,
+                               temperature = self.inputData.temperature,
+                               humidity = self.inputData.humidity)
+
+            # Create runfile and configfiles
+            self.runfile_lst.append(runfile)
+            self.runfile_done[runfile] = 0
                 
         self.__setup_farsite()
         
