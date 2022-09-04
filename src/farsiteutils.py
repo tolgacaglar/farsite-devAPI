@@ -555,7 +555,7 @@ class Main:
         self.runfile_done = {}
         
         windspeed_lst = [1, 1, 1, 0, 1, 1, 1, 1, 3, 1, 2, 3, 2, 2, 2, 3, 2, 3, 3, 3, 4, 4, 5, 6]
-        winddirection_lst = [315,  90,  90, 180, 270, 117, 135, 180, 259, 207, 236, 243, 198, 214, 225, 233, 194, 207, 217, 202, 207, 214, 216, 217]
+        winddirection_lst = [135, 270, 270,   0,  90, 297, 315,   0,  79,  27,  56,  63,  18, 34,  45,  53,  14,  27,  37,  22,  27,  34,  36,  37]
         
 #         for ws in self.inputData.windspeed_lst:
 #             for wd in self.inputData.winddirection_lst:
