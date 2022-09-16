@@ -31,8 +31,8 @@ class Input:
         
     description: str
         
-    windspeed_lst: list
-    winddirection_lst: list
+    windspeed: int
+    winddirection: int
         
     temperature: int
     humidity: int
@@ -200,309 +200,31 @@ class User:
     def __setup(self):
         # setup the database for create/append
         self.__setup_dbtable()
-        
-        # Setup the interface for data input
-        self.__setup_interface()
-        
-    def __setup_interface(self):
-        print('Setting up the interface')
 
-        # Windspeed
-        windspeed_desc = Label('Windspeed')
-        windspeed_widget = IntRangeSlider(min=0, max=50, value=(0,20))
-        windspeed_units = Label('mph')
-
-        windspeedstep_desc = Label('Steps')
-        windspeedstep_widget = IntSlider(min=1, max=windspeed_widget.max)
-
-        windspeed_box = HBox([windspeed_desc, windspeed_widget, windspeedstep_desc, windspeedstep_widget, windspeed_units])
-
-        # Winddirection
-        winddirection_desc = Label('Winddirection')
-        winddirection_widget = IntRangeSlider(min=0, max=355, step=5, value=(0,180))
-        winddirection_units = Label('degrees')
-
-        winddirectionstep_desc = Label('Steps')
-        winddirectionstep_widget = IntSlider(min=5, max=355, step=5)
-
-        winddirection_box = HBox([winddirection_desc, winddirection_widget, winddirectionstep_desc, winddirectionstep_widget, winddirection_units])
-
-        # Temperature
-        temperature_desc = Label('Temperature')
-        temperature_widget = IntSlider(min=-40, max=120, value=60)
-        temperature_units = Label('Fahrenheit')
-
-        temperature_box = HBox([temperature_desc, temperature_widget, temperature_units])
-
-        # Relative humidity
-        relhumid_desc = Label('Relative Humidity')
-        relhumid_widget = IntSlider(min=0, max=100, value=10)
-        relhumid_units = Label('%')
-
-        relhumid_box = HBox([relhumid_desc, relhumid_widget, relhumid_units])
-
-        # Burn time
-        burntime_desc = Label('Burn time')
-        burntime_widget = IntSlider(min=30, max=300, value=3, step=30)
-        burntime_units = Label('minutes')
-
-        burntimestep_desc = Label('Steps')
-        burntimestep_widget = IntSlider(min=30, max=300, step=30)
-
-        burntime_box = HBox([burntime_desc, burntime_widget, burntimestep_desc, burntimestep_widget, burntime_units])
-
-        # Calculate button
-        calculate_widget = Button(description='Calculate Perimeters')
-
-        def setWinddirectionStepMax(change):
-            if change['name'] == 'value':
-                winddirectionstep_widget.max = winddirection_widget.value[1] - winddirection_widget.value[0]
-        def setWindspeedStepMax(change):
-            if change['name'] == 'value':
-                windspeedstep_widget.max = windspeed_widget.value[1] - windspeed_widget.value[0]
-        def setBurntimeStepMax(change):
-            if change['name'] == 'value':
-                burntimestep_widget.max = burntime_widget.value
-
-        def calculateClicked(change):
-            windspeedlow = windspeed_widget.value[0]
-            windspeedhigh = windspeed_widget.value[1]
-            windspeeddelta = windspeedstep_widget.value
-
-            winddirectionlow = winddirection_widget.value[0]
-            winddirectionhigh = winddirection_widget.value[1]
-            winddirectiondelta = winddirectionstep_widget.value
-
-            relhumid = relhumid_widget.value
-            burntime = datetime.timedelta(minutes=burntime_widget.value)
-            burntimestep = datetime.timedelta(minutes=burntimestep_widget.value)
-
-            temperature = temperature_widget.value
-            
-            inputData = {'windspeedlow': windspeedlow, 'windspeedhigh': windspeedhigh, 'windspeeddelta': windspeeddelta,
-                         'winddirectionlow': winddirectionlow, 'winddirectionhigh': winddirectionhigh, 'winddirectiondelta': winddirectiondelta, 
-                         'relhumid': relhumid, 'burntime': burntime, 'burntimestep': burntimestep, 'temperature': temperature}
-
-            self.mainapi = self.calculatePerimeters(inputData)
-            
-
-        # Collect activity
-        windspeed_widget.observe(setWindspeedStepMax)
-        burntime_widget.observe(setBurntimeStepMax)
-        calculate_widget.on_click(calculateClicked)
-
-############################################################################               
-#         # Loading widget
-#         self.loading_widget = IntProgress(
-#             value=0,
-#             min=0,
-#             max=100,
-#             description='Calculating:',
-#             style={'bar_color': '#0000FF'},
-#             orientation='horizontal'
-#         )
-
-#         value_label = Label(str(self.loading_widget.value) + ' %')
-
-#         def update_label(vlabel, *args):
-#             vlabel.value = str(args[0]['new']) + ' %'
-
-#         self.loading_widget.observe(partial(update_label, value_label))
-
-#         loading_box = HBox([self.loading_widget, value_label])
-############################################################################       
-
-        
-        ###### Choose ignite and compare perimeters
-        # Dependencies
-        def initiate_perimeters(gdf, newigniteid, newcompareid):
-            add_mask_ignite = (gdf['objectid'] == newigniteid)
-            add_mask_compare = (gdf['objectid'] == newcompareid)
-
-            gdf['WKTLayerIgnite'] = gdf.apply(lambda row: WKTLayer(wkt_string = row['geometry'].wkt), axis=1)
-            gdf['WKTLayerCompare'] = gdf.apply(lambda row: WKTLayer(wkt_string = row['geometry'].wkt), axis=1)
-            
-            for layer in m.layers:
-                if isinstance(layer, WKTLayer):
-                    m.remove_layer(layer)
-                    
-            gdf.loc[add_mask_ignite, 'WKTLayerIgnite'].apply(lambda wlayer: m.add_layer(wlayer))
-            gdf.loc[add_mask_compare, 'WKTLayerCompare'].apply(lambda wlayer: m.add_layer(wlayer))
-
-
-        def update_perimeters(gdf, vbox, oldigniteid, newigniteid, oldcompareid, newcompareid):    
-            remove_mask_ignite = (gdf['objectid'] == oldigniteid)
-            remove_mask_compare = (gdf['objectid'] == oldcompareid)
-            add_mask_ignite = (gdf['objectid'] == newigniteid)
-            add_mask_compare = (gdf['objectid'] == newcompareid)
-
-            gdf.loc[remove_mask_ignite, 'WKTLayerIgnite'].apply(lambda wlayer: m.remove_layer(wlayer))
-            gdf.loc[add_mask_ignite, 'WKTLayerIgnite'].apply(lambda wlayer: m.add_layer(wlayer))
-            gdf.loc[remove_mask_compare, 'WKTLayerCompare'].apply(lambda wlayer: m.remove_layer(wlayer))
-            gdf.loc[add_mask_compare, 'WKTLayerCompare'].apply(lambda wlayer: m.add_layer(wlayer))
-
-            vbox.children[1].value = str(gdf.set_index('objectid').loc[newigniteid, 'datetime'])
-            vbox.children[3].value = str(gdf.set_index('objectid').loc[newcompareid, 'datetime'])
-
-            deltadt = gdf.set_index('objectid').loc[newcompareid, 'datetime'] - gdf.set_index('objectid').loc[newigniteid, 'datetime']
-            vbox.children[4].value = str(int(deltadt.total_seconds()/60)) + ' minutes'
-
-        def observe_objectid_slider(m, gdf, vbox, event):
-            if event['owner'].options.count(event['old']) == 0: 
-                return None
-            
-            self.__selectTimeParams()
-
-            if event['owner'].description == 'ignite':
-                oldigniteid = event['old']
-                newigniteid = event['new']
-                oldcompareid = vbox.children[2].value
-                newcompareid = vbox.children[2].value
-            elif event['owner'].description == 'compare':
-                oldigniteid = vbox.children[0].value
-                newigniteid = vbox.children[0].value
-                oldcompareid = event['old']
-                newcompareid = event['new']
-
-            update_perimeters(gdf, vbox, oldigniteid, newigniteid, oldcompareid, newcompareid)
-            
-        
-        def observe_fire_dropdown(m, igniteid_select, compareid_select, vbox, event):
-            description = event['new']
-            self.db.filter_selection(description)
-            print(f'filtering selection is done for {description}')
-            compareid_select.options = self.db.gdfignition['objectid']
-            print(f'Compareid options are recalculated')
-            igniteid_select.options = self.db.gdfignition['objectid']
-            print(f'igniteid options are recalculated')
-            
-            
-            m.center = (self.db.gdfignition.iloc[0]['geometry'].centroid.y, 
-                        self.db.gdfignition.iloc[0]['geometry'].centroid.x)
-            print(f'Map is recentered')
-            
-            igniteid_select.unobserve(self.objectid_slider_handle, names='value')
-            compareid_select.unobserve(self.objectid_slider_handle, names='value')
-            gdf = self.db.gdfignition
-            initiate_perimeters(gdf, gdf['objectid'].iloc[0], gdf['objectid'].iloc[0])
-            
-            self.objectid_slider_handle = partial(observe_objectid_slider, m, gdf, vbox)
-            igniteid_select.observe(self.objectid_slider_handle, names='value')
-            compareid_select.observe(self.objectid_slider_handle, names='value')
-            
-            print(f'Perimeters are recalculated')
-            
-
-
-        centerlat = 34.178861487501464
-        centerlon = -118.566380281569
-
-        m = Map(
-            basemap=basemaps.Esri.WorldTopoMap,
-            center=(centerlat, centerlon),
-            zoom=10,
-            layout=Layout(height='800px', width='100%'),
-            zoom_control=False
-        )
-
-        gdf = self.db.gdfignition.to_crs(epsg=4326)
-        
-        objectids = gdf['objectid'].unique()
-
-        igniteid_select = SelectionSlider(description='ignite', options=objectids)
-        ignitedt_label = Label(value=str(gdf.set_index('objectid').loc[igniteid_select.value, 'datetime']))
-
-        compareid_select = SelectionSlider(description='compare', options=objectids)
-        comparedt_label = Label(value=str(gdf.set_index('objectid').loc[compareid_select.value, 'datetime']))
-
-        deltadt = gdf.set_index('objectid').loc[compareid_select.value, 'datetime'] - gdf.set_index('objectid').loc[igniteid_select.value, 'datetime']
-        deltadt_label = Label(value=str(int(deltadt.total_seconds()/60)) + ' minutes')
-
-        fire_select = Dropdown(options=self.db.gdfignitionAll['description'].unique())
-        
-        initiate_perimeters(gdf, igniteid_select.value, compareid_select.value)
-
-        vbox = VBox([igniteid_select, ignitedt_label, compareid_select, comparedt_label, deltadt_label, fire_select])
-
-        self.objectid_slider_handle = partial(observe_objectid_slider, m, gdf, vbox)
-        
-        igniteid_select.observe(self.objectid_slider_handle, names='value')
-        compareid_select.observe(self.objectid_slider_handle, names='value')
-        
-        self.fire_dropdown_handle = partial(observe_fire_dropdown, m, igniteid_select, compareid_select, vbox)
-        fire_select.observe(self.fire_dropdown_handle, names='value')
-
-        igniteid_box = HBox([igniteid_select, ignitedt_label, fire_select])
-        compareid_box = HBox([compareid_select, comparedt_label, deltadt_label])
-        ## Combine all boxes
-        
-        self.UI = VBox([igniteid_box, compareid_box, windspeed_box, winddirection_box,  burntime_box, temperature_box, relhumid_box, calculate_widget])
-        
-        widget_control = WidgetControl(widget = self.UI, position='topright')
-        
-        m.add_control(ZoomControl(position='topleft'))
-        m.add_control(ScaleControl(position='topleft'))
-
-        m.add_control(widget_control)
-        
-        self.m = m
-    
     def __setup_dbtable(self):
         print('Database interaction not yet implemented. Use pickle file for dataframes instead!')
         
         self.db = Database(self.fp)
             
-    def __selectPerimeter(self):
+    def __selectPerimeter(self, inputData: dict):
         # Choose a perimeter from the database
         print('Choosing a perimeter from the database')
-#         self.igniteidx = '9f82e870591748a9a8a01346d174f2a1'
+        self.igniteidx = inputData['igniteidx']
+        self.compareidx = inputData['compareidx']
+        self.lcpidx = inputData['lcpidx']
+        self.barrieridx = inputData['barrieridx']
         
-        igniteid = self.UI.children[0].children[0].value
-        self.igniteidx = self.db.gdfignition.reset_index().set_index('objectid').loc[igniteid, 'index']
-        
-        compareid = self.UI.children[1].children[0].value
-        self.compareidx = self.db.gdfignition.reset_index().set_index('objectid').loc[compareid, 'index']
-        # Grab the landscape from gdal
-        print('Collecting lcp file from gdal_translate')
-        
-        # Append the lcp to the database (Check for existence?)
-        self.lcpidx = self.db.dflandscape.index[0] # Maria fire
-        
-        # Select the barrier
-        self.barrieridx = 'cb47616cd2dc4ccc8fd523bd3a5064bb' # No Barrier
-        
+        self.description = inputData['description']
+
     def __selectWindParams(self, inputData: dict):
-        # Choose a windspeed range
-        self.windspeedlow = inputData['windspeedlow']
-        self.windspeedhigh = inputData['windspeedhigh']
-        self.windspeeddelta = inputData['windspeeddelta']
-        
-        # Choose a winddirection range
-        self.winddirectionlow = inputData['winddirectionlow']
-        self.winddirectionhigh = inputData['winddirectionhigh']
-        self.winddirectiondelta = inputData['winddirectiondelta']
+        self.windspeed = inputData['windspeed']
+        self.winddirection = inputData['winddirection']
         
     def __selectTimeParams(self):
         # Ignition is read from the dftable
-        igniteid = self.UI.children[0].children[0].value
-        self.startdt = self.db.gdfignition.reset_index().set_index('objectid').loc[igniteid, 'datetime']
-        
-#         self.deltadt = inputData['burntimestep']
-
-#         self.enddt = self.startdt + inputData['burntime']
-
-        compareid = self.UI.children[1].children[0].value
-        self.enddt = self.db.gdfignition.reset_index().set_index('objectid').loc[compareid, 'datetime']
-        
+        self.startdt = self.db.gdfignition.loc[self.igniteidx, 'datetime']
+        self.enddt = self.db.gdfignition.loc[self.compareidx, 'datetime']
         self.deltadt = self.enddt - self.startdt
-        
-        burnwidget = self.UI.children[4].children[1]
-        burnwidget.value = str(int(self.deltadt.total_seconds()/60))
-        burnwidget.disabled = True
-        
-        burnstepwidget = self.UI.children[4].children[3]
-        burnstepwidget.value = burnwidget.value
-        burnstepwidget.disabled = True
         
     def __selectHumidity(self, inputData: dict):
         self.humidity = inputData['relhumid']
@@ -512,7 +234,7 @@ class User:
     
     def __selectInputParams(self, inputData: dict):
         # Select ignition perimeter
-        self.__selectPerimeter() # Automatically sets the landcape
+        self.__selectPerimeter(inputData) # Automatically sets the landcape
         
         # Choose windspeed range
         self.__selectWindParams(inputData)
@@ -526,16 +248,12 @@ class User:
         # Choose temperature
         self.__selectTemperature(inputData)
         
-        
-        windspeed_range = range(self.windspeedlow, self.windspeedhigh, self.windspeeddelta)
-        winddirection_range = range(self.winddirectionlow, self.winddirectionhigh, self.winddirectiondelta)
-        
         # Remaining params are default at the moment, and automatically set in the ConfigFile
         self.inputData = Input(startdt = self.startdt, enddt = self.enddt, deltadt = self.deltadt,
                                igniteidx = self.igniteidx, compareidx = self.compareidx, 
-                               description = self.fire_dropdown_handle.args[3].children[5].value,
+                               description = self.description,
                                lcpidx = self.lcpidx, barrieridx = self.barrieridx,
-                               windspeed_lst = list(windspeed_range), winddirection_lst = list(winddirection_range),
+                               windspeed = self.windspeed, winddirection = self.winddirection,
                                humidity = self.humidity, temperature = self.temperature)
 
 
@@ -557,43 +275,34 @@ class Main:
         # Set the input
         self.inputData = inputData
         
-        # Set the filepaths
-#         self.fp = fp
-        
         # Database
-#         self.dftable = dftable
         self.db = db
         
         self.runfile_lst = []
         self.runfile_done = {}
-        
-        windspeed_lst = [1, 1, 1, 0, 1, 1, 1, 1, 3, 1, 2, 3, 2, 2, 2, 3, 2, 3, 3, 3, 4, 4, 5, 6]
-        winddirection_lst = [135, 270, 270,   0,  90, 297, 315,   0,  79,  27,  56,  63,  18, 34,  45,  53,  14,  27,  37,  22,  27,  34,  36,  37]
-        
-#         for ws in self.inputData.windspeed_lst:
-#             for wd in self.inputData.winddirection_lst:
-        for ws, wd in zip(windspeed_lst, winddirection_lst):
-            # Set Run file
-            runfile = Run_File(mainapi = self, db = self.db, windspeed = ws, winddirection = wd, 
-                               startdt = self.inputData.startdt, enddt = self.inputData.enddt, deltadt = self.inputData.deltadt,
-                               lcpidx = self.inputData.lcpidx, 
-                               igniteidx = self.inputData.igniteidx,
-                               compareidx = self.inputData.compareidx,
-                               description = self.inputData.description,
-                               barrieridx = self.inputData.barrieridx,
-                               temperature = self.inputData.temperature,
-                               humidity = self.inputData.humidity)
+                
+        # Set Run file
+        runfile = Run_File(mainapi = self, db = self.db, 
+                           windspeed = self.inputData.windspeed, winddirection = self.inputData.winddirection, 
+                           startdt = self.inputData.startdt, enddt = self.inputData.enddt, deltadt = self.inputData.deltadt,
+                           lcpidx = self.inputData.lcpidx, 
+                           igniteidx = self.inputData.igniteidx,
+                           compareidx = self.inputData.compareidx,
+                           description = self.inputData.description,
+                           barrieridx = self.inputData.barrieridx,
+                           temperature = self.inputData.temperature,
+                           humidity = self.inputData.humidity)
 
-            # Create runfile and configfiles
-            self.runfile_lst.append(runfile)
-            self.runfile_done[runfile] = 0
+        # Create runfile and configfiles
+        self.runfile_lst.append(runfile)
+        self.runfile_done[runfile] = 0
                 
         self.__setup_farsite()
         
     def __setup_farsite(self):
         self.farsite_lst = []
         for runfile in self.runfile_lst:
-            self.farsite_lst.append(FarsiteManual(runfile))
+            self.farsite_lst.append(Farsite(runfile))
     
     def run_farsite(self, numproc=1):
         
@@ -609,18 +318,7 @@ class Main:
 
             pool.close()
             pool.join()
-
-        
-############################################################################       
-#     def update_loading(self):
-#         # Count the number of runfiles done
-#         count = 0.0
-#         for (runfile, value) in self.runfile_done.items():
-#             count += value
-        
-#         self.loading_widget.value = int(count/len(self.runfile_lst)*100)
-############################################################################       
-
+            
 class Run_File:
     def __init__(self, mainapi: Main, db: Database, windspeed: int, winddirection: int,
                  startdt: datetime.datetime, enddt: datetime.datetime, deltadt: datetime.timedelta,
@@ -677,14 +375,12 @@ class Run_File:
     
     def tofile(self):
         # Write Runfile
-#         print('Writing to runfile')
         with open(self.runpath, mode='w') as file:
             file.write(self.tostring())
-#         print('Writing to configfile')
+            
         # Write configfile
         with open(self.configpath, mode='w') as file:
             file.write(self.configfile.tostring())
-#         print('Writing is done')
             
     def updatedb(self):
         data = {'filetype': 'Simulation',
@@ -701,26 +397,12 @@ class Run_File:
         
         # Calculation done for runfile
         self.mainapi.runfile_done[self] = 1
-        
-        # Update the loading widget
-############################################################################       
-#         self.mainapi.update_loading()
-        
-#         self.dftable.loc[uniqueid, 'filetype'] = 'Simulation'
-#         self.dftable.loc[uniqueid, 'igniteidx'] = self.igniteidx
-#         self.dftable.loc[uniqueid, 'datetime'] = self.startdt
-#         self.dftable.loc[uniqueid, 'filepath'] = self.outpath + '_Perimeters.shp'
-            
-#         return 0
-############################################################################       
-#TODO: Read all the values in the params and create the config file accordingly
-# This is a config file parser
 
 class Config_File:
     def __init__(self, 
                  FARSITE_START_TIME: datetime, 
                  FARSITE_END_TIME: datetime, 
-                 windspeed: float, winddirection: float):
+                 windspeed: int, winddirection: int):
         self.__set_default()
         
         # Set the parameters
@@ -821,8 +503,8 @@ class Config_File:
         
         return config_text
     
-class FarsiteManual:
-    def __init__(self, runfile: Run_File, farsitepath = '/home/tcaglar/farsite/TestFARSITE', timeout: int = 5):
+class Farsite:
+    def __init__(self, runfile: Run_File, farsitepath = '/home/jovyan/farsite/TestFARSITE', timeout: int = 5):
         # Setup farsite manual api
         self.farsitepath = farsitepath
         self.timeout = timeout   # in minutes
