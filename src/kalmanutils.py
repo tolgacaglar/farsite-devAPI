@@ -7,7 +7,7 @@ def get_vertices(geom):
     elif isinstance(geom, Polygon):
         geompoly = geom
 
-    return list(geompoly.exterior.coords)
+    return np.array((geompoly.exterior.coords))
 
 def interpolate_perimeter(vertices, dnumber):
     # Changes the number of vertices of the given set of vertices
@@ -134,7 +134,7 @@ def calculate_vectors(rotated_vertices_lst):
 ##################################################
 ######### Observed perimeter uncertainties #######
 ##################################################
-def observed_uncertainties(vectors, winddirection, scale):
+def observed_uncertainties(vectors, windspeed, winddirection, scale):
     windx = np.cos((90-winddirection)*np.pi/180)
     windy = np.sin((90-winddirection)*np.pi/180)
     return ((1 - np.array(vectors).dot(np.array([windx, windy]))))/4*scale
@@ -145,7 +145,7 @@ def calculate_vectors_align(vertices_lst):
     trajectories_lst = calculate_trajectories(rotated_vertices_lst)
     return calculate_vectors(rotated_vertices_lst)
 
-def calculate_uncertainties_observed(vertices, winddirection, scale=1):
+def calculate_uncertainties_observed(vertices, windspeed, winddirection, scale=1):
     # Calculate centroid
     centroid = np.mean(vertices, axis=0)
     
@@ -157,7 +157,7 @@ def calculate_uncertainties_observed(vertices, winddirection, scale=1):
         length = np.sqrt(x**2 + y**2)
         vectors.append((x/length, y/length))
         
-    return observed_uncertainties(vectors, winddirection, scale=scale)
+    return observed_uncertainties(vectors, windspeed, winddirection, scale=scale)
     
     
 def calculate_modified(observe_aligned, observed_velocity_aligned, observed_uncertainties,

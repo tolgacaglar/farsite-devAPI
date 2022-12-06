@@ -117,9 +117,8 @@ class Database:
         self.gdfignition = self.gdfignitionAll[self.gdfignitionAll['description'] == description]
         self.dflandscape = self.dflandscapeAll[self.dflandscapeAll['description'] == description]
         
-        
     def create_rundir(self):
-        return self.fp.create_rundir()
+        return self.fp.create_rundir()    
     
     def append(self, data: dict):
         filetype = data['filetype']
