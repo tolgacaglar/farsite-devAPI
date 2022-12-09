@@ -100,7 +100,7 @@ class Database:
 
         gs = gpd.GeoSeries.from_wkb(self.gdfignitionAll['shape'])
         self.gdfignitionAll['geometry'] = gs
-        self.gdfignitionAll = self.gdfignitionAll.drop(columns='shape').set_crs(epsg=5070).to_crs(epsg=4326)
+        self.gdfignitionAll = self.gdfignitionAll.drop(columns='shape').set_crs(epsg=5070)
         
 #         self.gdfignition['description'] = 'Maria2019'
         
