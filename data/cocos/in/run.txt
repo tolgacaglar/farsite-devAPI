@@ -1,0 +1,1 @@
+landscape.lcp config.txt ignition 0 ../out/ 1

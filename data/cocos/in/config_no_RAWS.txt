@@ -1,0 +1,483 @@
+# switches included in example-config.txt, but not described in farsite-docs.txt
+# FARSITE INPUTS FILE VERSION 1.0
+# NUMBER_PROCESSORS: 4
+# FLAMELENGTH:
+# SPREADRATE:
+# INTENSITY:
+# CROWNSTATE:
+
+# FARSITE_START_TIME: MM DD HHmm
+# Where MM is Month (1-12), DD is day of month, HH is hour(0-24) and mm is minute(0-59) of the fire start time.
+FARSITE_START_TIME: 05 15 0800
+
+# FARSITE_END_TIME: MM DD HHmm
+# Where MM is Month (1-12), DD is day of month, HH is hour(0-24) and mm is minute(0-59) of the fire end time (end of simulation).
+FARSITE_END_TIME: 05 16 0800
+
+# FARSITE_TIMESTEP: X
+# Where X is the Actual Time Step in minutes. 
+# NOTE: there is no Secondary Time Step in the Farsite DLL. 
+FARSITE_TIMESTEP: 30
+
+# FARSITE_DISTANCE_RES: X
+# Where X is a real number representing the distance resolution. 
+# Farsite DLL will check for new fire characteristics when this distance has been covered within a time step.
+FARSITE_DISTANCE_RES: 30.0
+
+# FARSITE_PERIMETER_RES: X
+# Where X is a real number representing the Farsite Perimeter Resolution. 
+# Farsite will have fire vertices every X meters along a perimeter while burning at each time step.
+FARSITE_PERIMETER_RES: 90.0
+
+# FARSITE_MIN_IGNITION_VERTEX_DISTANCE: X
+# Where X is a floating point number representing the MINIMUM distance between vertices in an ignition. 
+# Ignitions shapes with vertices closer than this distance will be thinned to meet this distance parameter. 
+# Too many vertices greatly impacts Farsite performance while yielding no changes in results. 
+# This switch should be no smaller than 1/4 of the FARSITE_PERIMETER_RES value.
+# NOTE: This is an optional switch
+# NOTE: Farsite will automatically add vertices to an ignition if the distance between vertices is greater than the FARSITE_PERIMETER_RES value.
+# Example:
+# FARSITE_MIN_IGNITION_VERTEX_DISTANCE: 15.0
+
+# FARSITE_SPOT_GRID_RESOLUTION: X
+# Where integer X is the resolution of the background spotting grid.
+# NOTE: this is an optional switch
+# NOTE: X should be an integer divisor of the landscape resolution, i.e. if landscape resolution is 30m, 
+# X should be 30, 15, 10, 6, 5, 3, 2, or 1. 
+# The intent is for the background spotting grid to subdivide landscape cells. 
+# The background spotting grid is used to prevent more than one spot fire being started in a spotting grid cell, 
+# so adjust this parameter to your tolerance for spot fire density.
+FARSITE_SPOT_GRID_RESOLUTION: 15.0
+
+# FARSITE_SPOT_PROBABILITY: X
+# Where X is a real number from 0.0 - 1.0 representing the probability that an ember can survive to intersect the landscape. 
+# This probability check is done after an ember is lofted but before ember flight. 
+# Note: Farsite generates a lot of embers. Generally, this probability should not be higher than 0.1 or 
+# Farsite will spend a great deal of time resolving perimeters of spots created by embers.
+# Example: 
+# FARSITE_SPOT_PROBABILITY: 0.05
+FARSITE_SPOT_PROBABILITY: 0.0
+
+# SPOTTING_SEED: X
+# Where X is a positive integer representing the seed to be used to initialize the random number generator for spotting.
+# NOTE: this is an optional switch
+SPOTTING_SEED: 253114
+
+# FARSITE_SPOT_IGNITION_DELAY X
+# Where X is an integer representing the delay time in minutes before a spot fire is started,
+# after an ember lands on a burnable substrate.
+# Note: This switch should be set to zero (0) when acceleration is on.
+FARSITE_SPOT_IGNITION_DELAY: 0
+
+# FARSITE_MINIMUM_SPOT_DISTANCE: X
+# Where X is the distance in meters an ember must travel before it can start a spot fire. 
+# This switch was added to speed up Farsite resolving fire polygons that where generally overrun by surface fire spread.
+FARSITE_MINIMUM_SPOT_DISTANCE: 30
+
+# FARSITE_ACCELERATION_ON: X
+# Where X is either 0 for no acceleration or 1 to use acceleration.
+FARSITE_ACCELERATION_ON: 1
+
+# FARSITE_IGNITION_FILE: Filename
+# Where Filename is the complete path to the ignition shape file. Example:
+# The ignition Filename is not specified here as it is included on the line(s) in the command file
+# although it is identified as a "mandatory" switch in farsite-docs.txt...
+# NOTE: The shapefile format is a popular digital vector storage format for geographic information system (GIS) software.
+#		The shapefile format can spatially describe vector features: points, lines, and polygons, representing, for example, 
+#		water wells, rivers, and lakes. Each item can also have attributes that describe it, such as name or temperature.
+#		The shapefile format lacks the capacity to store topological information, i.e. two polygons representing lakes may overlap.
+#		The shapefile format consists of a *collection of files* with a common filename prefix, ALL stored in the same directory!
+#		The three mandatory files have filename extensions .shp, .shx, and .dbf, where
+#		.shp — shape: the feature geometry itself
+#		.shx — shape index: a positional index of the feature geometry to allow seeking forwards and backwards quickly
+#		.dbf — attribute format; columnar attributes for each shape, in dBase IV format
+# BOTH the *.shp and the *.shx files should be included in the same directory for FARSITE to use the IGNITION file specified
+# on the line(s) in the command file otherwise the error message "no ignition" will be given.
+#
+
+# FARSITE_IGNITION_FILE: /home/rayman/farsite/cocos/square.shp
+
+# FARSITE_BURN_PERIODS: X
+# where X is an integer representing the number of burn period entries, immediately followed by X burn period data entries on X separate lines.
+# Format of burn period data entries on each line:
+# MM DD HHmm1 HHmm2
+# where 
+# MM     = month (1-12)
+# DD     = the day of the month
+# HHmm1  = burn period start hour and minute
+# HHmm2  = burn period end hour and minute.
+# There can be more than one burn period per day but they must not overlap.
+# NOTE: this is an optional switch
+# NOTE: if no burn periods are specified, Farsite DLL will burn for the entire simulation period. 
+
+# FARSITE_BARRIER_FILE: Filename
+# where Filename is the path to the barrier shape file
+# NOTE: this is an optional switch
+# NOTE: Farsite DLL does not create a perimeter with barriers as does FARSITE4, but 
+# sets the underlying fuels to non-burnable for every pixel in the landscape that the barrier crosses.
+
+# FARSITE_FILL_BARRIERS: X
+# Where X is either 0 for false (no barrier fill) or 1 for true (fill the barriers). 
+# NOTE: this is an optional switch
+# Farsite DLL will set all of the pixels inside a barrier polygon to non-burnable.
+
+# CUSTOM_FUELS_FILE: Filename
+# where Filename is the complete path and name of the desired custom fuels file (*.FMD) to use.
+# NOTE: this is an optional switch
+
+# CUSTOM_FUELS_UNITS: X
+# where X is either Metric or English. 
+# NOTE: this is an optional switch and English is the default. 
+# Only to be used when CUSTOM_FUELS_DATA switch is used.
+
+# CUSTOM_FUELS_DATA: X
+# where X is an integer representing the number of custom fuels data entries, immediately followed by X custom fuels data entries on X separate lines.
+# Format of custom fuels data entries on each line must conform to the latest FMD format supported by FlamMap 5 and FARSITE 4 FMD files and of the format
+# and are typically of the format (example:)
+# CUSTOM_FUELS_DATA: 3
+# 28 FM1  0.740  0.000  0.000  0.000  0.000 static 3500 1800 1500  1.000 11 8000 8000                                      Short Grass
+# 29 FM5  1.000  0.500  0.000  0.000  2.000 static 2000 1800 1500  2.000 20 8000 8000                                      Short Brush
+# 30 FM6  1.500  2.500  2.000  0.000  0.000 static 1750 1800 1500  2.500 25 8000 8000                                    Dormant Brush
+# NOTE: this is an optional switch
+
+# FUEL_MOISTURES_DATA: X 
+# where X is an integer representing the number of fuel moisture entries, immediately followed by X fuel moisture entries on X separate lines.
+# where X = the number of fuel model entries
+# Format of fuel moisture entries on each line:
+# Model  FM1   FM10  FM100   FMLiveHerb   FMLiveWoody
+# where
+# Model = Fuel Model (1-256) specified on the landscape fuel theme (if no conversions are used).
+# Fuel models 1-13 must relate to the original 13 standard fuel models (Anderson 1982)
+# FM1   = 1 Hour Fuel Moisture in percent (integer)
+# FM10  = 10 Hour Fuel Moisture in percent (integer)
+# FM100 = 100 Hour Fuel Moisture in percent (integer)
+# FMLiveHerb  = Fuel Moisture of in percent (integer) for "live herbaceous"
+# FMLiveWoody = Fuel Moisture of in percent (integer) for "live woody"
+# NOTE: Fuel Model 0 is required! This is the default moistures to use when a fuel model is encountered
+# in the landscape file (*.LCP) that does not have an entry in the inputs file.
+# Data below is "made up" and based on Aug11.FMS from the flatland example in Farsite WIN32
+FUEL_MOISTURES_DATA: 16
+0 3 4 6 70 100
+1 3 4 6 50 75
+2 3 4 6 50 75
+3 3 4 6 50 75
+4 3 4 6 50 75
+5 3 4 6 75 100
+6 3 4 6 50 100
+7 3 4 6 50 75
+8 4 5 7 75 100
+9 3 4 5 50 75
+10 4 5 7 75 100
+11 3 4 6 50 75
+12 4 5 7 75 100
+13 4 5 7 75 100
+19 4 5 7 75 100
+50 50 50 50 50 50
+
+# WEATHER_DATA_UNITS: units 
+# where units is either METRIC or ENGLISH
+# NOTE: This is typically a mandatory switch, BUT the RAWS switch can used to replace and combine the WIND_DATA and WEATHER_DATA.
+# Hence, if WEATHER_DATA_UNITS is commented out, it is because the RAWS switch was used
+WEATHER_DATA_UNITS: ENGLISH
+
+# WEATHER_DATA: X 
+# where X is the number of weather data entries, followed by X number of weather data records, 1 per line. 
+# NOTE: The weather data records must be in sequential order! No skipping days! 
+# Farsite will start conditioning from as early as possible in the weather stream and condition fuels through the end of the simulation.
+# Weather data entry format:
+# Mth  Day  Pcp  mTH  xTH   mT xT   xH mH   Elv   PST  PET
+# where
+# Mth = month,
+# Day = day,
+# Per = precip in hundredths of an inch (integer e.g. 10 = 0.1 inches),
+# mTH = min_temp_hour 0 - 2400,
+# xTH = max_temp_hour 0 - 2400,
+# mT  = min_temp,
+# xT  = max_temp,
+# mH  = max_humidity,
+# xH  = min_humidity,
+# Elv = elevation,
+# PST = precip_start_time 0-2400
+# PET = precip_end_time   0-2400
+# NOTE: do not leave any blank values
+# NOTE: This is typically a mandatory switch, BUT the RAWS switch can used to replace and combine the WIND_DATA and WEATHER_DATA.
+# Hence, if the WEATHER_DATA is commented out, it is because the RAWS switch was used
+# The data below is based on the olv-may.wtr file used for the cocos fire simulation with Farsite for Windows
+WEATHER_DATA: 9
+05 14 0 0320 1430 77 93 11 4 1172
+05 15 0 0420 1120 76 96 14 5 1172
+05 16 0 2350 1350 73 91 31 7 1172
+05 17 0 2110 1140 59 79 96 29 1172
+05 18 0 0200 1240 57 70 95 58 1172
+05 19 0 0550 1340 57 67 92 55 1172
+05 20 0 0410 1410 55 63 91 56 1172
+05 21 0 0520 1400 53 65 88 52 1172
+05 22 0 0010 1050 56 60 89 76 1172
+
+# WIND_DATA_UNITS: units 
+# where units is either Metric or English
+# NOTE: This is typically a mandatory switch, BUT the RAWS switch can used to replace and combine the WIND_DATA and WEATHER_DATA.
+# Hence, if WIND_DATA_UNITS is commented out, it is because the RAWS switch was used
+WIND_DATA_UNITS: Metric
+
+# WIND_DATA: X 
+# where X is the number of Wind Data records
+# Weather data entry format:
+# Month(1-12) DayOfMonth  Hour(24 hr format)  Speed  Direction  CloudCover
+# Wind Data records should be in ascending order, and should cover the same time frame as the weather data records. 
+# Small gaps are allowed, but Farsite will burn using the most available wind record so hourly wind records are desired.
+# NOTE: This is typically a mandatory switch, BUT the RAWS switch can used to replace and combine the WIND_DATA and WEATHER_DATA.
+# Hence, if WIND_DATA is commented out, it is because the RAWS switch was used
+# NOTE: WIND_DATA below has been "made up" by copying RAWS data (available only for May 13) to May 14 - May 22 and reducing to hourly updates
+WIND_DATA: 216
+5 14 0000 1 246 0  
+5 14 0100 1 273 0  
+5 14 0200 1 352 0  
+5 14 0300 1 239 0  
+5 14 0400 1 237 0  
+5 14 0500 2 263 0  
+5 14 0600 3 248 0  
+5 14 0700 11 251 0  
+5 14 0800 15 249 0  
+5 14 0900 19 252 0  
+5 14 1000 18 256 0  
+5 14 1100 11 241 0  
+5 14 1200 12 262 0  
+5 14 1300 14 259 0  
+5 14 1400 12 267 0  
+5 14 1500 14 257 0  
+5 14 1600 11 260 0  
+5 14 1700 3 147 0  
+5 14 1800 4 115 0  
+5 14 1900 1 98 0  
+5 14 2000 0 82 0  
+5 14 2100 1 150 0  
+5 14 2200 1 150 0  
+5 14 2300 1 8 0
+5 15 0000 1 246 0  
+5 15 0100 1 273 0  
+5 15 0200 1 352 0  
+5 15 0300 1 239 0  
+5 15 0400 1 237 0  
+5 15 0500 2 263 0  
+5 15 0600 3 248 0  
+5 15 0700 11 251 0  
+5 15 0800 15 249 0  
+5 15 0900 19 252 0  
+5 15 1000 18 256 0  
+5 15 1100 11 241 0  
+5 15 1200 12 262 0  
+5 15 1300 14 259 0  
+5 15 1400 12 267 0  
+5 15 1500 14 257 0  
+5 15 1600 11 260 0  
+5 15 1700 3 147 0  
+5 15 1800 4 115 0  
+5 15 1900 1 98 0  
+5 15 2000 0 82 0  
+5 15 2100 1 150 0  
+5 15 2200 1 150 0  
+5 15 2300 1 8 0
+5 16 0000 1 246 0  
+5 16 0100 1 273 0  
+5 16 0200 1 352 0  
+5 16 0300 1 239 0  
+5 16 0400 1 237 0  
+5 16 0500 2 263 0  
+5 16 0600 3 248 0  
+5 16 0700 11 251 0  
+5 16 0800 15 249 0  
+5 16 0900 19 252 0  
+5 16 1000 18 256 0  
+5 16 1100 11 241 0  
+5 16 1200 12 262 0  
+5 16 1300 14 259 0  
+5 16 1400 12 267 0  
+5 16 1500 14 257 0  
+5 16 1600 11 260 0  
+5 16 1700 3 147 0  
+5 16 1800 4 115 0  
+5 16 1900 1 98 0  
+5 16 2000 0 82 0  
+5 16 2100 1 150 0  
+5 16 2200 1 150 0  
+5 16 2300 1 8 0
+5 17 0000 1 246 0  
+5 17 0100 1 273 0  
+5 17 0200 1 352 0  
+5 17 0300 1 239 0  
+5 17 0400 1 237 0  
+5 17 0500 2 263 0  
+5 17 0600 3 248 0  
+5 17 0700 11 251 0  
+5 17 0800 15 249 0  
+5 17 0900 19 252 0  
+5 17 1000 18 256 0  
+5 17 1100 11 241 0  
+5 17 1200 12 262 0  
+5 17 1300 14 259 0  
+5 17 1400 12 267 0  
+5 17 1500 14 257 0  
+5 17 1600 11 260 0  
+5 17 1700 3 147 0  
+5 17 1800 4 115 0  
+5 17 1900 1 98 0  
+5 17 2000 0 82 0  
+5 17 2100 1 150 0  
+5 17 2200 1 150 0  
+5 17 2300 1 8 0
+5 18 0000 1 246 0  
+5 18 0100 1 273 0  
+5 18 0200 1 352 0  
+5 18 0300 1 239 0  
+5 18 0400 1 237 0  
+5 18 0500 2 263 0  
+5 18 0600 3 248 0  
+5 18 0700 11 251 0  
+5 18 0800 15 249 0  
+5 18 0900 19 252 0  
+5 18 1000 18 256 0  
+5 18 1100 11 241 0  
+5 18 1200 12 262 0  
+5 18 1300 14 259 0  
+5 18 1400 12 267 0  
+5 18 1500 14 257 0  
+5 18 1600 11 260 0  
+5 18 1700 3 147 0  
+5 18 1800 4 115 0  
+5 18 1900 1 98 0  
+5 18 2000 0 82 0  
+5 18 2100 1 150 0  
+5 18 2200 1 150 0  
+5 18 2300 1 8 0
+5 19 0000 1 246 0  
+5 19 0100 1 273 0  
+5 19 0200 1 352 0  
+5 19 0300 1 239 0  
+5 19 0400 1 237 0  
+5 19 0500 2 263 0  
+5 19 0600 3 248 0  
+5 19 0700 11 251 0  
+5 19 0800 15 249 0  
+5 19 0900 19 252 0  
+5 19 1000 18 256 0  
+5 19 1100 11 241 0  
+5 19 1200 12 262 0  
+5 19 1300 14 259 0  
+5 19 1400 12 267 0  
+5 19 1500 14 257 0  
+5 19 1600 11 260 0  
+5 19 1700 3 147 0  
+5 19 1800 4 115 0  
+5 19 1900 1 98 0  
+5 19 2000 0 82 0  
+5 19 2100 1 150 0  
+5 19 2200 1 150 0  
+5 19 2300 1 8 0
+5 20 0000 1 246 0  
+5 20 0100 1 273 0  
+5 20 0200 1 352 0  
+5 20 0300 1 239 0  
+5 20 0400 1 237 0  
+5 20 0500 2 263 0  
+5 20 0600 3 248 0  
+5 20 0700 11 251 0  
+5 20 0800 15 249 0  
+5 20 0900 19 252 0  
+5 20 1000 18 256 0  
+5 20 1100 11 241 0  
+5 20 1200 12 262 0  
+5 20 1300 14 259 0  
+5 20 1400 12 267 0  
+5 20 1500 14 257 0  
+5 20 1600 11 260 0  
+5 20 1700 3 147 0  
+5 20 1800 4 115 0  
+5 20 1900 1 98 0  
+5 20 2000 0 82 0  
+5 20 2100 1 150 0  
+5 20 2200 1 150 0  
+5 20 2300 1 8 0
+5 21 0000 1 246 0  
+5 21 0100 1 273 0  
+5 21 0200 1 352 0  
+5 21 0300 1 239 0  
+5 21 0400 1 237 0  
+5 21 0500 2 263 0  
+5 21 0600 3 248 0  
+5 21 0700 11 251 0  
+5 21 0800 15 249 0  
+5 21 0900 19 252 0  
+5 21 1000 18 256 0  
+5 21 1100 11 241 0  
+5 21 1200 12 262 0  
+5 21 1300 14 259 0  
+5 21 1400 12 267 0  
+5 21 1500 14 257 0  
+5 21 1600 11 260 0  
+5 21 1700 3 147 0  
+5 21 1800 4 115 0  
+5 21 1900 1 98 0  
+5 21 2000 0 82 0  
+5 21 2100 1 150 0  
+5 21 2200 1 150 0  
+5 21 2300 1 8 0
+5 22 0000 1 246 0  
+5 22 0100 1 273 0  
+5 22 0200 1 352 0  
+5 22 0300 1 239 0  
+5 22 0400 1 237 0  
+5 22 0500 2 263 0  
+5 22 0600 3 248 0  
+5 22 0700 11 251 0  
+5 22 0800 15 249 0  
+5 22 0900 19 252 0  
+5 22 1000 18 256 0  
+5 22 1100 11 241 0  
+5 22 1200 12 262 0  
+5 22 1300 14 259 0  
+5 22 1400 12 267 0  
+5 22 1500 14 257 0  
+5 22 1600 11 260 0  
+5 22 1700 3 147 0  
+5 22 1800 4 115 0  
+5 22 1900 1 98 0  
+5 22 2000 0 82 0  
+5 22 2100 1 150 0  
+5 22 2200 1 150 0  
+5 22 2300 1 8 0
+  
+
+# RAWS_UNITS: X
+# Where X is either Metric or English. 
+# NOTE: this is an optional switch. English is the default.
+
+# RAWS_ELEVATION: X 
+# Where X is an integer representing the elevation of the RAWS data in either feet or meters, depending on the RAWS_UNITS type. 
+# NOTE: this is an optional switch. 
+# This switch is required when using RAWS for weather (and wind) streams.
+
+# RAWS: X
+# Where X is an integer representing the number of RAWS weather records immediately following this entry at one record per line. 
+# RAWS entry format:
+# Year  Month (1-12)  DayOfMonth  Time (24 hr format)  Temperature  Humidity  Precip Amount  Wind Speed  Wind Direction  Cloud Cover. 
+# NOTE: this is an optional switch
+# NOTE: the RAWS switch is used to replace the WIND_DATA and WEATHER_DATA switches, combining both into one record type. 
+# NOTE: the RAWS data can be specified over a much higher time resolution than the original daily WEATHER_DATA.
+#       It causes Farsite no longer to interpolate the WEATHER_DATA (Pcp  mTH  xTH   mT xT   xH mH   Elv   PST  PET), 
+#       as original WEATHER_DATA is specified only daily. As a result, Farsite will use the most appropriate RAWS record without 
+#       any daily interpolation of temperature, humidity, or rainfall.
+# NOTE: The original WIND_DATA (Speed  Direction  CloudCover) does allow hourly data. Hence, use of the RAWS switch is only
+#       useful if temperature, humidity, or rainfall needs to be specified on an hourly basis.
+
+# FOLIAR_MOISTURE_CONTENT: X 
+# where X is the foliar moisture content in percent. 
+# The default is 100 and 100 percent will be used if this switch is not present.
+FOLIAR_MOISTURE_CONTENT: 100
+
+# CROWN_FIRE_METHOD: cfmethod 
+# where cfmethod is either Finney or ScottRhienhardt
+# Note: If not used the Finney crown fire method will be used.
+CROWN_FIRE_METHOD: ScottRhienhardt
+
+
