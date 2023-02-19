@@ -40,7 +40,7 @@ class Input:
 class FilePaths:
     def __init__(self, datadir):
         self.datadir = datadir
-        self.dfpath = os.path.join(self.datadir, 'test_table.pkl')
+        self.dfpath = os.path.join(self.datadir, 'test_table_ref.pkl')
     
     def create_rundir(self):
         dtdir = datetime.datetime.now().strftime('%Y%m%d')
@@ -417,7 +417,7 @@ class Config_File:
         self.FARSITE_PERIMETER_RES = 60
         self.FARSITE_MIN_IGNITION_VERTEX_DISTANCE = 15.0
         self.FARSITE_SPOT_GRID_RESOLUTION = 60.0
-        self.FARSITE_SPOT_PROBABILITY = 0.9
+        self.FARSITE_SPOT_PROBABILITY = 0  # 0.9
         self.FARSITE_SPOT_IGNITION_DELAY = 0
         self.FARSITE_MINIMUM_SPOT_DISTANCE = 60
         self.FARSITE_ACCELERATION_ON = 1

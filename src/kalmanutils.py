@@ -137,7 +137,9 @@ def calculate_vectors(rotated_vertices_lst):
 def observed_uncertainties(vectors, windspeed, winddirection, scale):
     windx = np.cos((90-winddirection)*np.pi/180)
     windy = np.sin((90-winddirection)*np.pi/180)
-    return ((1 - np.array(vectors).dot(np.array([windx, windy]))))/4*scale
+    return_vals = ((1 - np.array(vectors).dot(np.array([windx, windy]))))/4*scale
+    
+    return np.zeros_like(return_vals) + 50
 
 
 def calculate_vectors_align(vertices_lst):
