@@ -1,5 +1,9 @@
 import numpy as np
 from shapely.geometry import MultiPolygon, Polygon
+import datetime
+import geopandas as gpd
+import pandas as pd
+import random
 
 def get_vertices(geom):
     if isinstance(geom, MultiPolygon):
@@ -256,3 +260,292 @@ def calculate_parameters(ignition, observe, model, winddirection, dt):
     model_velocity_aligned = (model_aligned - ignition_aligned) / dt
     
     return ignition_aligned, model_velocity_aligned, model_aligned, observe_aligned, observed_velocity_aligned, ignition_uncertainties
+
+
+
+
+############################################
+#####  FINAL HELPERS AS OF 05142023 ########
+############################################
+
+class State:
+    def __init__(self, geom):
+        self.geom = geom
+        
+        # Initialize
+        self.vertices = self.calculate_vertices()
+        self.lengths = self.calculate_lengths()
+    def calculate_vertices(self):
+        geom = self.geom
+        
+        if isinstance(geom, MultiPolygon):
+            geompoly = calculate_max_area_geom(geom)
+        elif isinstance(geom, Polygon):
+            geompoly = geom
+
+        return np.array((geompoly.exterior.coords))
+    
+    def calculate_lengths(self):
+        return np.sqrt((np.diff(self.vertices, axis=0)**2).sum(axis=1))
+    
+    def calculate_vector(self):
+        # Returns column vector of the vertices (x0, y0, x1, y1, ...)
+        return self.vertices.reshape(len(self.vertices)*2, 1)
+
+def sample_geometry(current_state, uncertainties):
+    
+    maxlength = current_state.lengths.max()
+    
+    sampled_vertices = []
+    
+    # Choose a random direction
+    theta = random.uniform(0,2*np.pi)
+
+    for (x,y), sigma in zip(current_state.vertices, uncertainties):
+        mu=0
+        # randx = random.gauss(mu, sigma)
+        # randy = random.gauss(mu, sigma)
+        
+        # Choose a normal random radius based on the given sigma
+        radius = abs(random.gauss(mu, sigma))
+        
+        # Calculate x and y distance for the random
+        randx = radius*np.cos(theta)
+        randy = radius*np.sin(theta)
+        
+        sampled_vertices.append((x+randx, y+randy))
+
+    sampled_vertices = np.array(sampled_vertices)
+    # return Polygon(sampled_vertices).buffer(maxlength, join_style=1).buffer(-maxlength, join_style=1)
+    return Polygon(sampled_vertices)
+
+def calculate_max_area_geom(multigeom):
+    max_area = 0
+    max_area_idx = 0
+    for ix, g in enumerate(multigeom.geoms):
+        if g.area > max_area:
+            max_area = g.area
+            max_area_idx = ix
+    return multigeom.geoms[max_area_idx]
+
+
+def calculate(igniteidx, compareidx, usr, label, windspeed = 10, winddirection = 90):
+    lcpidx = '43b7f5db36994599861eec4849cc68fd'        # Index for Maria2019
+    barrieridx = 'cb47616cd2dc4ccc8fd523bd3a5064bb'    # NoBarrier shapefile index
+
+    # Generate df for the next reference ignition only to get the datetime
+    filetype = 'Ignition'
+    # objectid = str(usr.db.gdfignition.loc[igniteidx, 'objectid']) + '_simRef'
+    filepath = f'/home/jovyan/farsite/inputs/maria_ignite/maria_{compareidx}'
+    comparedatetime = usr.db.gdfignition.loc[igniteidx, 'datetime'] + datetime.timedelta(minutes=30)
+    description = 'Maria2019'
+
+    gdfcompare = gpd.GeoDataFrame(index=[compareidx], data = {'filetype': filetype,
+                                          'objectid': label,
+                                          'filepath': filepath,
+                                          'datetime': comparedatetime,
+                                          'description': description,
+                                          'geometry': None})
+
+    usr.db.gdfignition = pd.concat([usr.db.gdfignition, gdfcompare])
+
+    inputData = {'description': description,
+                 'igniteidx'  : igniteidx,
+                 'compareidx' : compareidx,
+                 'lcpidx'     : lcpidx,
+                 'barrieridx' : barrieridx,
+
+                 'windspeed': windspeed, 'winddirection': winddirection,
+                 'relhumid': 90, 'temperature': 20}
+
+    mainapi = usr.calculatePerimeters(inputData)
+    mainapi.run_farsite()
+
+    # Collect the simulated geometry
+    gdfsim = usr.db.gdfsimulation.iloc[-1]
+    gdfsim_geom = gdfsim['geometry']
+    if isinstance(gdfsim_geom, MultiPolygon):
+        gdfsim_geom = calculate_max_area_geom(gdfsim_geom)
+
+    # Update the ignition table with the simulated info
+    usr.db.gdfignition.loc[compareidx, 'filepath'] = usr.db.gdfsimulation.iloc[-1]['filepath']
+    usr.db.gdfignition.loc[compareidx, 'geometry'] = gdfsim_geom
+    
+    gpd.GeoDataFrame({'FID': [0], 'geometry':gdfsim_geom}, 
+                 crs='EPSG:5070').to_file(gdfsim['filepath'])
+    
+    
+    
+def get_coordinates(geom):
+    x,y = geom.exterior.coords.xy
+    x = np.array(x)
+    y = np.array(y)
+    
+    return x,y
+
+def calculate_rms(geom1, geom2):
+    xy1, xy2 = interpolate_geometries([geom1, geom2], vertex_count=100)
+    xy1, xy2 = align_vertices([xy1, xy2])
+    return np.sqrt(np.sum((xy1[:,0] - xy2[:,0])**2 + (xy1[:,1] - xy2[:,1])**2)/xy1.shape[0])
+    
+
+def calculate_area_diff(geom1, geom2):
+    return (geom1.union(geom2) - geom1.intersection(geom2)).area
+
+def align_vertices(interpolated_vertices):
+    minroll_lst = []
+    
+    aligned_vertices = [interpolated_vertices[0]]
+    for i in range(len(interpolated_vertices)-1):
+        right_vertices = interpolated_vertices[i+1]
+
+        # Cycle right_vertices
+        l2perroll = []
+        for roll in range(len(interpolated_vertices[i])-1):
+            diff = aligned_vertices[0] - right_vertices
+            diff2sum = (diff[:,0]**2 + diff[:,1]**2).sum()
+
+            # Calculate diff^2 in
+            l2perroll.append(diff2sum)
+
+            right_vertices = np.roll(right_vertices,1, axis=0)
+
+        minroll_lst.append(np.argmin(l2perroll))
+
+    for i in range(len(interpolated_vertices)-1):
+        aligned_vertices.append(np.roll(interpolated_vertices[i+1], minroll_lst[i], axis=0))
+    
+    return aligned_vertices
+
+def interpolate_geometries(geoms, vertex_count = None):
+    
+    if vertex_count == None:
+        vertex_count = 0
+        for geom in geoms:
+            if isinstance(geom, MultiPolygon):
+                geom = calculate_max_area_geom(geom)
+
+            if vertex_count < len(geom.exterior.coords):
+                vertex_count = len(geom.exterior.coords)
+
+    interpolated_vertices = []
+    for geom in geoms:
+        if isinstance(geom, MultiPolygon):
+            geom = calculate_max_area_geom(geom)
+        
+        geom_state = State(geom)
+        vertices = np.array(interpolate_perimeter(geom_state.calculate_vertices(), vertex_count))
+
+        interpolated_vertices.append(vertices)
+        
+    return interpolated_vertices
+
+def validate_geoms_matrix(X, aligned_geom):
+    Xnew = np.zeros((2*aligned_geom.shape[0], X.shape[1]))
+
+    for i in range(X.shape[1]):
+        X_0 = X[:-2,i]
+        x = X_0[::2]
+        y = X_0[1::2]
+
+        geom = Polygon(zip(x,y)).buffer(0)
+        if isinstance(geom, MultiPolygon):
+            geom = calculate_max_area_geom(geom)
+
+        xx,yy = geom.exterior.xy
+        xx = list(xx)
+        yy = list(yy)
+
+        geom = np.array(interpolate_perimeter(list(zip(xx, yy)), aligned_geom.shape[0]))
+        geom = align_vertices([aligned_geom, geom])[1]
+
+        Xnew[:,i] = geom.flatten()
+
+    X = np.append(Xnew, X[-2:,:], axis=0)
+    return X
+
+def update_EnKF(Xt, Y, aligned_geom):
+    nsamples = Y.shape[1]
+
+    xt = Xt.mean(axis=1, keepdims=True)
+    y = Y.mean(axis=1, keepdims=True)
+
+    Ex = Xt - xt.repeat(nsamples, axis=1)
+    Ey = Y - y.repeat(nsamples, axis=1)
+
+    Py = 1/(nsamples-1)*np.matmul(Ey, Ey.T)
+    Pxy = 1/(nsamples-1)*np.matmul(Ex, Ey.T)
+
+    max_Py = abs(Py).max()
+    max_Pxy = abs(Pxy).max()
+    Py /= max_Py
+    Pxy /= max_Pxy
+
+    Py_inv = np.linalg.pinv(Py, hermitian=True)
+
+    assert(np.allclose(np.matmul(Py_inv, Py), np.eye(Y.shape[0]))), 'Inverse calculation is incorrect'
+
+    K = np.matmul(Pxy, Py_inv)*(max_Pxy/max_Py)
+    # K = np.matmul(Pxy, Py_inv)
+
+    # Note that Xt has additional +2 in it
+    # Remove that with the matrix C
+    C = np.eye(Y.shape[0], Xt.shape[0])
+    #### Update the state ensemble
+    X = Xt + np.matmul(K, (Y - np.matmul(C, Xt)))
+
+    ### TODO ####
+    # Fix invalid geometries
+
+    X = validate_geoms_matrix(X, aligned_geom)
+
+    return X
+
+
+def fill_zeros(A, nonzerolen, nsamples):
+    
+    mu = A[:,:nonzerolen].mean(axis=1)
+    stdev = A[:,:nonzerolen].std(axis=1)
+
+    for i in range(nonzerolen, nsamples):
+        # Calculate uncertainties for each point
+        A[:,i] = np.random.normal(mu, stdev)
+        
+    return A
+
+def create_ensemble_matrix(gdf, nsamples, vertex_count=20, aligned_geom=None, observed=False):
+
+    geoms = gdf['geometry'].tolist()
+    
+    if not observed:
+        wdlst = gdf['winddirection'].tolist()
+        wslst = gdf['windspeed'].tolist()
+    
+    interpolated_vertices = interpolate_geometries(geoms, vertex_count=vertex_count)
+    # Add first list of vertices from the state vector to align. align_vertices aligns all the perimeters w.r.t the first array
+    if aligned_geom is not None:
+        interpolated_vertices = [aligned_geom] + interpolated_vertices
+
+    aligned_vertices = align_vertices(interpolated_vertices)
+    if aligned_geom is not None:
+        aligned_vertices = aligned_vertices[1:]
+    else:
+        aligned_geom = aligned_vertices[0]
+    
+    if vertex_count is None:
+        vertex_count = aligned_vertices[0].shape[0]
+    
+    X = np.zeros((vertex_count*2 + 2*(not observed), nsamples))  # Two additional for each wd ans ws
+    for i, vertices in enumerate(aligned_vertices):
+        if observed:
+            X[:,i] = vertices.flatten()
+        else:
+            X[:-2,i] = vertices.flatten()
+        
+        if not observed:
+            X[-2,i] = wdlst[i]
+            X[-1,i] = wslst[i]
+        
+    X = fill_zeros(X, len(geoms), nsamples)
+    
+    return X, aligned_geom, vertex_count

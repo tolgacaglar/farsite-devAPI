@@ -40,7 +40,7 @@ class Input:
 class FilePaths:
     def __init__(self, datadir):
         self.datadir = datadir
-        self.dfpath = os.path.join(self.datadir, 'test_table_ref.pkl')
+        self.dfpath = os.path.join(self.datadir, 'dbtable_05122023.pkl')
     
     def create_rundir(self):
         dtdir = datetime.datetime.now().strftime('%Y%m%d')
@@ -174,7 +174,8 @@ class Database:
                                          geometry=geomlst,
                                          index=idxlst,
                                          crs=self.gdfignition.crs)
-                self.gdfsimulation = self.gdfsimulation.append(gdfappend)
+                self.gdfsimulation = pd.concat([self.gdfsimulation,
+                                                gdfappend])
         else:
             print(f'filetype = {filetype} not yet implemented!')
             
