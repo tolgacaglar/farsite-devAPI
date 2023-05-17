@@ -329,7 +329,7 @@ def calculate_max_area_geom(multigeom):
     return multigeom.geoms[max_area_idx]
 
 
-def calculate(igniteidx, compareidx, usr, label, windspeed = 10, winddirection = 90):
+def calculate(igniteidx, compareidx, usr, label, windspeed = 10, winddirection = 90, dt=datetime.timedelta(minutes=30)):
     lcpidx = '43b7f5db36994599861eec4849cc68fd'        # Index for Maria2019
     barrieridx = 'cb47616cd2dc4ccc8fd523bd3a5064bb'    # NoBarrier shapefile index
 
@@ -337,7 +337,7 @@ def calculate(igniteidx, compareidx, usr, label, windspeed = 10, winddirection =
     filetype = 'Ignition'
     # objectid = str(usr.db.gdfignition.loc[igniteidx, 'objectid']) + '_simRef'
     filepath = f'/home/jovyan/farsite/inputs/maria_ignite/maria_{compareidx}'
-    comparedatetime = usr.db.gdfignition.loc[igniteidx, 'datetime'] + datetime.timedelta(minutes=30)
+    comparedatetime = usr.db.gdfignition.loc[igniteidx, 'datetime'] + dt
     description = 'Maria2019'
 
     gdfcompare = gpd.GeoDataFrame(index=[compareidx], data = {'filetype': filetype,
@@ -364,8 +364,10 @@ def calculate(igniteidx, compareidx, usr, label, windspeed = 10, winddirection =
     # Collect the simulated geometry
     gdfsim = usr.db.gdfsimulation.iloc[-1]
     gdfsim_geom = gdfsim['geometry']
+    ##########################################################################
     if isinstance(gdfsim_geom, MultiPolygon):
         gdfsim_geom = calculate_max_area_geom(gdfsim_geom)
+    ###########################################################################
 
     # Update the ignition table with the simulated info
     usr.db.gdfignition.loc[compareidx, 'filepath'] = usr.db.gdfsimulation.iloc[-1]['filepath']
