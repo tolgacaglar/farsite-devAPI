@@ -40,7 +40,7 @@ class Input:
 class FilePaths:
     def __init__(self, datadir):
         self.datadir = datadir
-        self.dfpath = os.path.join(self.datadir, 'dbtable_05122023.pkl')
+        self.dfpath = os.path.join(self.datadir, 'dftable_06032023.pkl')
     
     def create_rundir(self):
         dtdir = datetime.datetime.now().strftime('%Y%m%d')
@@ -61,6 +61,7 @@ class FilePaths:
         if isdirfound:
             os.mkdir(rundir)
             return rundir
+        
         print('Max iteration reached! {}. No empty dir found'.format(cnt))
 
 def change_username_jovyan(df, column):
