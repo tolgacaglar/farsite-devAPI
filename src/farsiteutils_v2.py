@@ -75,6 +75,107 @@ def change_username_jovyan(df, column):
         path += path_list[-1]
 
         df.loc[ix, column] = path        
+
+        
+class Database_v2:
+    def __init__(self, fp: FilePaths):
+        # Setup params
+        self.fp = fp
+        
+        # TODO
+        # Setup the database for reading
+        
+        
+        try:
+            dftable = pd.read_pickle(self.fp.dfpath)
+            change_username_jovyan(dftable, 'filepath')
+        except FileNotFoundError:
+            print(f'\n!!Caution!! Path {self.fp.dfpath} not found! Cannot choose ignition!!\n')
+            raise
+            
+        # Collect the tables in dataframe format
+        # Table 1 - ignition
+        self.dfObservationAll = dftable[dftable['filetype'] == 'Observation']
+        
+        # Table 2 - barrier
+        self.dfBarrier = dftable[dftable['filetype'] == 'Barrier'][['filetype', 'filepath']]
+        # Table 3 - landscape
+        self.dfLandscapeAll = dftable[dftable['filetype'] == 'Landscape'][['filetype', 'filepath', 'description']]
+        # Table 4 - simulation
+        self.dfsimulation = pd.DataFrame()
+        
+        self.filter_selection('Maria2019')
+        
+    def filter_selection(self, description):
+        self.dfObservation = self.dfObservationAll[self.dfObservationAll['description'] == description]
+        self.dfLandscape = self.dfLandscapeAll[self.dfLandscapeAll['description'] == description]
+        
+    def create_rundir(self):
+        return self.fp.create_rundir()    
+    
+    def lcppath(self, lcpidx):
+        return self.dfLandscape.loc[lcpidx, 'filepath']
+    def observepath(self, igniteidx):
+        return self.dfObservation.loc[igniteidx, 'filepath']
+    def barrierpath(self, barrieridx):
+        return self.dfBarrier.loc[barrieridx, 'filepath']
+    
+    def append(self, data: dict):
+        filetype = data['filetype']
+        
+        if filetype == 'Simulation':
+            # Read the output simulation geoms
+            if os.path.exists(data['filepath']):
+                gdf = gpd.read_file(data['filepath'])
+                idxlst = []
+                geomlst = []
+                igniteidxlst = []
+                compareidxlst = []
+                descriptionlst = []
+                datetimelst = []
+                filepathlst = []
+                windspeedlst = []
+                winddirectionlst = []
+                configpathlst = []
+
+                # For each elapsed time
+                minuteslst = gdf['Elapsed_Mi'].unique()
+
+                for minutespassed in minuteslst:
+                    gdf0 = gdf[gdf['Elapsed_Mi'] == minutespassed]
+                    polygon_lst = [Polygon(value) for value in gdf0['geometry'].values]
+                    multipoly = MultiPolygon()
+                    for poly in polygon_lst:
+                        multipoly = multipoly.union(poly.buffer(0))
+                    geomlst.append(multipoly)
+
+                    # unique id
+                    uniqueid = uuid.uuid4().hex
+                    idxlst.append(uniqueid)
+
+                    igniteidxlst.append(data['igniteidx'])
+                    compareidxlst.append(data['compareidx'])
+                    descriptionlst.append(data['description'])
+                    datetimelst.append(data['startdt'] + datetime.timedelta(minutes=minutespassed))
+                    filepathlst.append(data['filepath'])
+                    windspeedlst.append(data['windspeed'])
+                    winddirectionlst.append(data['winddirection'])
+                    configpathlst.append(data['configpath'])
+
+                # Create the gdf for appending
+                dfappend = pd.DataFrame({'igniteidx': igniteidxlst,
+                                              'compareidx': compareidxlst,
+                                              'description': descriptionlst,
+                                              'datetime': datetimelst,
+                                              'filepath': filepathlst,
+                                              'windspeed': windspeedlst,
+                                              'winddirection': winddirectionlst,
+                                              'configpath': configpathlst},
+                                         index=idxlst)
+                self.dfsimulation = pd.concat([self.dfsimulation,
+                                                dfappend])
+        else:
+            print(f'filetype = {filetype} not yet implemented!')    
         
 class Database:
     def __init__(self, fp: FilePaths):
@@ -205,7 +306,7 @@ class User:
     def __setup_dbtable(self):
         print('Database interaction not yet implemented. Use pickle file for dataframes instead!')
         
-        self.db = Database(self.fp)
+        self.db = Database_v2(self.fp)
             
     def __selectPerimeter(self, inputData: dict):
         # Choose a perimeter from the database
@@ -223,8 +324,8 @@ class User:
         
     def __selectTimeParams(self):
         # Ignition is read from the dftable
-        self.startdt = self.db.gdfignition.loc[self.igniteidx, 'datetime']
-        self.enddt = self.db.gdfignition.loc[self.compareidx, 'datetime']
+        self.startdt = self.db.dfObservation.loc[self.igniteidx, 'datetime']
+        self.enddt = self.db.dfObservation.loc[self.compareidx, 'datetime']
         self.deltadt = self.enddt - self.startdt
         
     def __selectHumidity(self, inputData: dict):
@@ -271,7 +372,7 @@ class User:
         return mainAPI
 
 class Main:
-    def __init__(self, inputData : Input, db: Database):
+    def __init__(self, inputData : Input, db: Database_v2):
         
         # Set the input
         self.inputData = inputData
@@ -321,7 +422,7 @@ class Main:
             pool.join()
             
 class Run_File:
-    def __init__(self, mainapi: Main, db: Database, windspeed: int, winddirection: int,
+    def __init__(self, mainapi: Main, db: Database_v2, windspeed: int, winddirection: int,
                  startdt: datetime.datetime, enddt: datetime.datetime, deltadt: datetime.timedelta,
                  lcpidx: str, igniteidx: str, compareidx: str, description: str, barrieridx: str,
                  temperature: int, humidity: int):
@@ -358,7 +459,7 @@ class Run_File:
         
         # Read the remaining filepaths
         self.lcppath = self.db.lcppath(lcpidx)
-        self.ignitepath = self.db.ignitepath(igniteidx)
+        self.ignitepath = self.db.observepath(igniteidx)
         self.barrierpath = self.db.barrierpath(barrieridx)
         
         # Keep a record of igniteidx to update the table with simulation data
@@ -515,7 +616,7 @@ class Farsite:
         self.__setup_command()
     def __setup_command(self, ncores=4):
         # Timeout 1 minute.
-        self.command = f'timeout {self.timeout}m {self.farsitepath} {self.runfile.runpath} {ncores}'  # donot run in background
+        self.command = f'timeout {self.timeout}m {self.farsitepath} {self.runfile.runpath} {ncores} > output.out 2> output.err'  # donot run in background
         
     def run_command(self):
         # TODO 

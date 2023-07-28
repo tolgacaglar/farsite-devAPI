@@ -11,7 +11,7 @@ def get_vertices(geom):
     elif isinstance(geom, Polygon):
         geompoly = geom
 
-    return np.array((geompoly.exterior.coords))
+    return np.array((geompoly.exterior.coords[:-1]))
 
 def interpolate_perimeter(vertices, dnumber):
     # Changes the number of vertices of the given set of vertices
@@ -283,7 +283,7 @@ class State:
         elif isinstance(geom, Polygon):
             geompoly = geom
 
-        return np.array((geompoly.exterior.coords))
+        return np.array((geompoly.exterior.coords[:-1]))
     
     def calculate_lengths(self):
         return np.sqrt((np.diff(self.vertices, axis=0)**2).sum(axis=1))
@@ -327,6 +327,54 @@ def calculate_max_area_geom(multigeom):
             max_area = g.area
             max_area_idx = ix
     return multigeom.geoms[max_area_idx]
+
+
+def calculate_v2(igniteidx, compareidx, usr, label, windspeed = 10, winddirection = 90, dt=datetime.timedelta(minutes=30)):
+    lcpidx = '43b7f5db36994599861eec4849cc68fd'        # Index for Maria2019
+    barrieridx = 'cb47616cd2dc4ccc8fd523bd3a5064bb'    # NoBarrier shapefile index
+
+    # Generate df for the next reference ignition only to get the datetime
+    filetype = 'Ignition'
+    # objectid = str(usr.db.gdfignition.loc[igniteidx, 'objectid']) + '_simRef'
+    filepath = f'/home/jovyan/farsite/inputs/maria_ignite/maria_{compareidx}'
+    comparedatetime = usr.db.gdfignition.loc[igniteidx, 'datetime'] + dt
+    description = 'Maria2019'
+
+    gdfcompare = gpd.GeoDataFrame(index=[compareidx], data = {'filetype': filetype,
+                                          'objectid': label,
+                                          'filepath': filepath,
+                                          'datetime': comparedatetime,
+                                          'description': description,
+                                          'geometry': None})
+
+    usr.db.gdfignition = pd.concat([usr.db.gdfignition, gdfcompare])
+
+    inputData = {'description': description,
+                 'igniteidx'  : igniteidx,
+                 'compareidx' : compareidx,
+                 'lcpidx'     : lcpidx,
+                 'barrieridx' : barrieridx,
+
+                 'windspeed': windspeed, 'winddirection': winddirection,
+                 'relhumid': 90, 'temperature': 20}
+
+    mainapi = usr.calculatePerimeters(inputData)
+    mainapi.run_farsite()
+
+    # Collect the simulated geometry
+    gdfsim = usr.db.gdfsimulation.iloc[-1]
+    gdfsim_geom = gdfsim['geometry']
+    ##########################################################################
+    if isinstance(gdfsim_geom, MultiPolygon):
+        gdfsim_geom = calculate_max_area_geom(gdfsim_geom)
+    ###########################################################################
+
+    # Update the ignition table with the simulated info
+    usr.db.gdfignition.loc[compareidx, 'filepath'] = usr.db.gdfsimulation.iloc[-1]['filepath']
+    usr.db.gdfignition.loc[compareidx, 'geometry'] = gdfsim_geom
+    
+    gpd.GeoDataFrame({'FID': [0], 'geometry':gdfsim_geom}, 
+                 crs='EPSG:5070').to_file(gdfsim['filepath'])
 
 
 def calculate(igniteidx, compareidx, usr, label, windspeed = 10, winddirection = 90, dt=datetime.timedelta(minutes=30)):
@@ -383,7 +431,7 @@ def get_coordinates(geom):
     x = np.array(x)
     y = np.array(y)
     
-    return x,y
+    return x[:-1],y[:-1]
 
 def calculate_rms(geom1, geom2):
     xy1, xy2 = interpolate_geometries([geom1, geom2], vertex_count=100)
@@ -427,8 +475,8 @@ def interpolate_geometries(geoms, vertex_count = None):
             if isinstance(geom, MultiPolygon):
                 geom = calculate_max_area_geom(geom)
 
-            if vertex_count < len(geom.exterior.coords):
-                vertex_count = len(geom.exterior.coords)
+            if vertex_count < len(get_coordinates(geom)):
+                vertex_count = len(get_coordinates(geom))
 
     interpolated_vertices = []
     for geom in geoms:
