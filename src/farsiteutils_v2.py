@@ -304,13 +304,13 @@ class User:
         self.__setup_dbtable()
 
     def __setup_dbtable(self):
-        print('Database interaction not yet implemented. Use pickle file for dataframes instead!')
+        # print('Database interaction not yet implemented. Use pickle file for dataframes instead!')
         
         self.db = Database_v2(self.fp)
             
     def __selectPerimeter(self, inputData: dict):
         # Choose a perimeter from the database
-        print('Choosing a perimeter from the database')
+        # print('Choosing a perimeter from the database')
         self.igniteidx = inputData['igniteidx']
         self.compareidx = inputData['compareidx']
         self.lcpidx = inputData['lcpidx']
@@ -360,7 +360,7 @@ class User:
 
 
     def calculatePerimeters(self, inputData):
-        print(inputData)
+        # print(inputData)
         
         # Select all the parameters
         self.__selectInputParams(inputData)
