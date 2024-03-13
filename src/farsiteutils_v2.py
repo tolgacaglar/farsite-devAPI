@@ -175,7 +175,7 @@ class Database_v2:
                 self.dfsimulation = pd.concat([self.dfsimulation,
                                                 dfappend])
         else:
-            print(f'filetype = {filetype} not yet implemented!')    
+            print(f'filetype = {filetype} not yet implemented!')
         
 class Database:
     def __init__(self, fp: FilePaths):
