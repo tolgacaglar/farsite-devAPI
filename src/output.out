@@ -1,9 +1,9 @@
 Farsite $Rev: 2395 $
-Number of parallel threads = 4 (omp_get_num_procs = 256).
+Number of parallel threads = 4 (omp_get_num_procs = 192).
 Loading lcp file for Farsite #1: /home/jovyan/farsite/inputs/landscapes/Maria2019.lcp
-Loading inputs file for Farsite #1: /home/jovyan/data/20240228/Run_09686/config
-Loading ignition file for Farsite #1: /home/jovyan/farsite/inputs/maria_ignite/Reference/maria_9125c0734694416ca22d699074c6bfa2.shp
+Loading inputs file for Farsite #1: /home/jovyan/data/20240314/Run_03965/config
+Loading ignition file for Farsite #1: /home/jovyan/farsite-devAPI/inputs/maria_ignite/Reference/maria_cd73cbab5e9449aaa7bf3c1c5af2d7f9.shp
 Loading barrier file for Farsite #1: /home/jovyan/farsite/inputs/barriers/NoBarrier/NoBarrier.shp
 Launching Farsite #1
 Starting time step 0.000000 (maximum = 18)
-Writing outputs for Farsite #1 to /home/jovyan/data/20240228/Run_09686/out
+Writing outputs for Farsite #1 to /home/jovyan/data/20240314/Run_03965/out
