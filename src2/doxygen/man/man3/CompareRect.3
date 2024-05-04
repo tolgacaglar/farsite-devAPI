@@ -1,0 +1,131 @@
+.TH "CompareRect" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CompareRect
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsx4\&.hpp>\fP
+.PP
+Inherited by \fBIntersections\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCompareRect\fP ()"
+.br
+.ti -1c
+.RI "\fB~CompareRect\fP ()"
+.br
+.ti -1c
+.RI "void \fBInitRect\fP (long FireNum)"
+.br
+.ti -1c
+.RI "void \fBWriteHiLo\fP (long FireNum)"
+.br
+.ti -1c
+.RI "void \fBExchangeRect\fP (long FireNum)"
+.br
+.ti -1c
+.RI "bool \fBXOverlap\fP ()"
+.br
+.ti -1c
+.RI "bool \fBYOverlap\fP ()"
+.br
+.ti -1c
+.RI "bool \fBBoundCross\fP (long Fire1, long Fire2)"
+.br
+.ti -1c
+.RI "void \fBDetermineHiLo\fP (double xpt, double ypt)"
+.br
+.ti -1c
+.RI "bool \fBMergeInAndOutOK1\fP (long Fire1, long Fire2)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBXLO\fP"
+.br
+.ti -1c
+.RI "double \fBXHI\fP"
+.br
+.ti -1c
+.RI "double \fBYLO\fP"
+.br
+.ti -1c
+.RI "double \fBYHI\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB159\fP of file \fBfsx4\&.hpp\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "CompareRect::CompareRect ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB167\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "CompareRect::~CompareRect ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB170\fP of file \fBfsx4\&.hpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bool CompareRect::BoundCross (long Fire1, long Fire2)"
+
+.PP
+Definition at line \fB264\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "void CompareRect::DetermineHiLo (double xpt, double ypt)"
+
+.PP
+Definition at line \fB226\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "void CompareRect::ExchangeRect (long FireNum)"
+
+.PP
+Definition at line \fB528\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "void CompareRect::InitRect (long FireNum)"
+
+.PP
+Definition at line \fB251\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "bool CompareRect::MergeInAndOutOK1 (long Fire1, long Fire2)"
+
+.PP
+Definition at line \fB285\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "void CompareRect::WriteHiLo (long FireNum)"
+
+.PP
+Definition at line \fB240\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "bool CompareRect::XOverlap ()"
+
+.PP
+Definition at line \fB376\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "bool CompareRect::YOverlap ()"
+
+.PP
+Definition at line \fB405\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "double CompareRect::XHI"
+
+.PP
+Definition at line \fB165\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double CompareRect::XLO"
+
+.PP
+Definition at line \fB165\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double CompareRect::YHI"
+
+.PP
+Definition at line \fB165\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double CompareRect::YLO"
+
+.PP
+Definition at line \fB165\fP of file \fBfsx4\&.hpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

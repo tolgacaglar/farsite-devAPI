@@ -1,0 +1,88 @@
+.TH "FarsiteEvent" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FarsiteEvent
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsxsync\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFarsiteEvent\fP ()"
+.br
+.ti -1c
+.RI "\fB~FarsiteEvent\fP ()"
+.br
+.ti -1c
+.RI "bool \fBAllocEvents\fP (long numevents, char *basename, bool ManReset, bool InitState)"
+.br
+.ti -1c
+.RI "bool \fBFreeEvents\fP ()"
+.br
+.ti -1c
+.RI "\fBX_HANDLE\fP \fBGetEvent\fP (long ThreadNum)"
+.br
+.ti -1c
+.RI "bool \fBSetEvent\fP (long ThreadNum)"
+.br
+.ti -1c
+.RI "bool \fBResetEvent\fP (long ThreadNum)"
+.br
+.ti -1c
+.RI "bool \fBWaitForEvents\fP (long numevents, bool All, unsigned long Wait)"
+.br
+.ti -1c
+.RI "bool \fBWaitForOneEvent\fP (long ThreadNum, unsigned long Wait)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB52\fP of file \fBfsxsync\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "FarsiteEvent::FarsiteEvent ()"
+
+.PP
+Definition at line \fB312\fP of file \fBfsxsync\&.cpp\fP\&.
+.SS "FarsiteEvent::~FarsiteEvent ()"
+
+.PP
+Definition at line \fB319\fP of file \fBfsxsync\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bool FarsiteEvent::AllocEvents (long numevents, char * basename, bool ManReset, bool InitState)"
+
+.PP
+Definition at line \fB325\fP of file \fBfsxsync\&.cpp\fP\&.
+.SS "bool FarsiteEvent::FreeEvents ()"
+
+.PP
+Definition at line \fB367\fP of file \fBfsxsync\&.cpp\fP\&.
+.SS "\fBX_HANDLE\fP FarsiteEvent::GetEvent (long ThreadNum)"
+
+.PP
+Definition at line \fB390\fP of file \fBfsxsync\&.cpp\fP\&.
+.SS "bool FarsiteEvent::ResetEvent (long ThreadNum)"
+
+.PP
+Definition at line \fB414\fP of file \fBfsxsync\&.cpp\fP\&.
+.SS "bool FarsiteEvent::SetEvent (long ThreadNum)"
+
+.PP
+Definition at line \fB405\fP of file \fBfsxsync\&.cpp\fP\&.
+.SS "bool FarsiteEvent::WaitForEvents (long numevents, bool All, unsigned long Wait)"
+
+.PP
+Definition at line \fB423\fP of file \fBfsxsync\&.cpp\fP\&.
+.SS "bool FarsiteEvent::WaitForOneEvent (long ThreadNum, unsigned long Wait)"
+
+.PP
+Definition at line \fB431\fP of file \fBfsxsync\&.cpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

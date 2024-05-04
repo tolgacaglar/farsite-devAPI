@@ -1,0 +1,6303 @@
+.TH "C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/ftestrc.h" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/ftestrc.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCM_FILEOPEN0\fP   101"
+.br
+.ti -1c
+.RI "#define \fBCM_FILEOPEN1\fP   102"
+.br
+.ti -1c
+.RI "#define \fBCM_INITCONST\fP   105"
+.br
+.ti -1c
+.RI "#define \fBCM_WTRCONST\fP   106"
+.br
+.ti -1c
+.RI "#define \fBCM_WNDCONST\fP   107"
+.br
+.ti -1c
+.RI "#define \fBCM_SAVEGAREA\fP   110"
+.br
+.ti -1c
+.RI "#define \fBCM_SAVEGPERIMETER\fP   111"
+.br
+.ti -1c
+.RI "#define \fBCM_PROJOPEN\fP   114"
+.br
+.ti -1c
+.RI "#define \fBCM_PROJMAKE\fP   115"
+.br
+.ti -1c
+.RI "#define \fBCM_INITFM\fP   116"
+.br
+.ti -1c
+.RI "#define \fBCM_FILEOPEN4\fP   117"
+.br
+.ti -1c
+.RI "#define \fBCM_RATEREDUCT\fP   118"
+.br
+.ti -1c
+.RI "#define \fBCM_FUELCON\fP   119"
+.br
+.ti -1c
+.RI "#define \fBCM_GENERATE\fP   120"
+.br
+.ti -1c
+.RI "#define \fBCM_OPENWTR1\fP   131"
+.br
+.ti -1c
+.RI "#define \fBCM_OPENWTR2\fP   132"
+.br
+.ti -1c
+.RI "#define \fBCM_OPENWTR3\fP   133"
+.br
+.ti -1c
+.RI "#define \fBCM_OPENWTR4\fP   134"
+.br
+.ti -1c
+.RI "#define \fBCM_OPENWTR5\fP   135"
+.br
+.ti -1c
+.RI "#define \fBCM_OPENWND1\fP   141"
+.br
+.ti -1c
+.RI "#define \fBCM_OPENWND2\fP   142"
+.br
+.ti -1c
+.RI "#define \fBCM_OPENWND3\fP   143"
+.br
+.ti -1c
+.RI "#define \fBCM_OPENWND4\fP   144"
+.br
+.ti -1c
+.RI "#define \fBCM_OPENWND5\fP   145"
+.br
+.ti -1c
+.RI "#define \fBCM_MERGELCP\fP   150"
+.br
+.ti -1c
+.RI "#define \fBCM_EXTRACTLCP\fP   151"
+.br
+.ti -1c
+.RI "#define \fBCM_INFOLCP\fP   152"
+.br
+.ti -1c
+.RI "#define \fBCM_EDITLCP\fP   153"
+.br
+.ti -1c
+.RI "#define \fBCM_DEFWWTYPES\fP   154"
+.br
+.ti -1c
+.RI "#define \fBCM_GENWWTYPES\fP   155"
+.br
+.ti -1c
+.RI "#define \fBBUT_EDITWTR1\fP   180"
+.br
+.ti -1c
+.RI "#define \fBBUT_EDITWTR2\fP   181"
+.br
+.ti -1c
+.RI "#define \fBBUT_EDITWTR3\fP   182"
+.br
+.ti -1c
+.RI "#define \fBBUT_EDITWTR4\fP   183"
+.br
+.ti -1c
+.RI "#define \fBBUT_EDITWTR5\fP   184"
+.br
+.ti -1c
+.RI "#define \fBBUT_EDITWND1\fP   185"
+.br
+.ti -1c
+.RI "#define \fBBUT_EDITWND2\fP   186"
+.br
+.ti -1c
+.RI "#define \fBBUT_EDITWND3\fP   187"
+.br
+.ti -1c
+.RI "#define \fBBUT_EDITWND4\fP   188"
+.br
+.ti -1c
+.RI "#define \fBBUT_EDITWND5\fP   189"
+.br
+.ti -1c
+.RI "#define \fBCHK_BURNPERIOD\fP   190"
+.br
+.ti -1c
+.RI "#define \fBSTAT_BURNPERIOD\fP   191"
+.br
+.ti -1c
+.RI "#define \fBBUT_BURNPERIOD\fP   192"
+.br
+.ti -1c
+.RI "#define \fBBUT_COARSEWOODY\fP   193"
+.br
+.ti -1c
+.RI "#define \fBSTAT_COARSEWOODY\fP   194"
+.br
+.ti -1c
+.RI "#define \fBCHK_COARSEWOODY\fP   195"
+.br
+.ti -1c
+.RI "#define \fBCM_CALCLCP\fP   196"
+.br
+.ti -1c
+.RI "#define \fBCM_EXECUTETERMINATE\fP   197"
+.br
+.ti -1c
+.RI "#define \fBCM_EXECUTERESTART\fP   198"
+.br
+.ti -1c
+.RI "#define \fBCM_EXECUTERESET\fP   199"
+.br
+.ti -1c
+.RI "#define \fBCM_EXECUTESUSPEND\fP   174"
+.br
+.ti -1c
+.RI "#define \fBCM_RESETTHREADS\fP   103"
+.br
+.ti -1c
+.RI "#define \fBCM_CONVERTLCP4\fP   104"
+.br
+.ti -1c
+.RI "#define \fBCM_PAN\fP   179"
+.br
+.ti -1c
+.RI "#define \fBCM_COUNTFIRES\fP   193"
+.br
+.ti -1c
+.RI "#define \fBCM_SAVEWINPOS\fP   156"
+.br
+.ti -1c
+.RI "#define \fBCM_REVIEWVISVECTOR\fP   157"
+.br
+.ti -1c
+.RI "#define \fBCM_ADJGEN\fP   124"
+.br
+.ti -1c
+.RI "#define \fBCM_FMSGEN\fP   121"
+.br
+.ti -1c
+.RI "#define \fBCM_CNVGEN\fP   122"
+.br
+.ti -1c
+.RI "#define \fBCM_FMDGEN\fP   123"
+.br
+.ti -1c
+.RI "#define \fBSTAT_INPTFPJ\fP   158"
+.br
+.ti -1c
+.RI "#define \fBBUT_CLOSEFPJ\fP   175"
+.br
+.ti -1c
+.RI "#define \fBSTAT_INPTFMD\fP   159"
+.br
+.ti -1c
+.RI "#define \fBSTAT_INPTCNV\fP   160"
+.br
+.ti -1c
+.RI "#define \fBSTAT_INPTFMS\fP   161"
+.br
+.ti -1c
+.RI "#define \fBSTAT_INPTADJ\fP   162"
+.br
+.ti -1c
+.RI "#define \fBSTAT_INPTLCP\fP   163"
+.br
+.ti -1c
+.RI "#define \fBSTAT_WND5\fP   164"
+.br
+.ti -1c
+.RI "#define \fBSTAT_WND4\fP   165"
+.br
+.ti -1c
+.RI "#define \fBSTAT_WND3\fP   166"
+.br
+.ti -1c
+.RI "#define \fBSTAT_WND2\fP   167"
+.br
+.ti -1c
+.RI "#define \fBSTAT_WND1\fP   168"
+.br
+.ti -1c
+.RI "#define \fBSTAT_WTR5\fP   169"
+.br
+.ti -1c
+.RI "#define \fBSTAT_WTR4\fP   170"
+.br
+.ti -1c
+.RI "#define \fBSTAT_WTR3\fP   171"
+.br
+.ti -1c
+.RI "#define \fBSTAT_WTR2\fP   172"
+.br
+.ti -1c
+.RI "#define \fBSTAT_WTR1\fP   173"
+.br
+.ti -1c
+.RI "#define \fBCM_MODEL\fP   200"
+.br
+.ti -1c
+.RI "#define \fBCM_TS\fP   201"
+.br
+.ti -1c
+.RI "#define \fBCM_VTS\fP   202"
+.br
+.ti -1c
+.RI "#define \fBCM_PRES\fP   203"
+.br
+.ti -1c
+.RI "#define \fBCM_SRES\fP   204"
+.br
+.ti -1c
+.RI "#define \fBSTAT_TS\fP   209"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VTS\fP   210"
+.br
+.ti -1c
+.RI "#define \fBSTAT_PRES\fP   211"
+.br
+.ti -1c
+.RI "#define \fBSTAT_SRES\fP   212"
+.br
+.ti -1c
+.RI "#define \fBUM_METRIC\fP   214"
+.br
+.ti -1c
+.RI "#define \fBUM_ENGLISH\fP   215"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VIS2\fP   216"
+.br
+.ti -1c
+.RI "#define \fBCHK_VIS2\fP   205"
+.br
+.ti -1c
+.RI "#define \fBCHK_VIS1\fP   206"
+.br
+.ti -1c
+.RI "#define \fBCM_MOISTUREMODEL\fP   217"
+.br
+.ti -1c
+.RI "#define \fBBUT_REMOVEFILE\fP   250"
+.br
+.ti -1c
+.RI "#define \fBLIST_ATTACHEDVECTORS\fP   251"
+.br
+.ti -1c
+.RI "#define \fBBUT_ADDFILE\fP   252"
+.br
+.ti -1c
+.RI "#define \fBCM_GRAPH\fP   253"
+.br
+.ti -1c
+.RI "#define \fBCM_TABLE\fP   254"
+.br
+.ti -1c
+.RI "#define \fBCM_MAPS\fP   255"
+.br
+.ti -1c
+.RI "#define \fBCM_SETTINGS\fP   300"
+.br
+.ti -1c
+.RI "#define \fBID_RASTER\fP   307"
+.br
+.ti -1c
+.RI "#define \fBID_VECTOR\fP   308"
+.br
+.ti -1c
+.RI "#define \fBCM_SHOWDA\fP   315"
+.br
+.ti -1c
+.RI "#define \fBCM_SHOWDP\fP   316"
+.br
+.ti -1c
+.RI "#define \fBCM_SHOWGA\fP   317"
+.br
+.ti -1c
+.RI "#define \fBCM_SHOWGP\fP   318"
+.br
+.ti -1c
+.RI "#define \fBCM_SHOWDS\fP   340"
+.br
+.ti -1c
+.RI "#define \fBCM_SHOWGS\fP   341"
+.br
+.ti -1c
+.RI "#define \fBCM_THD\fP   342"
+.br
+.ti -1c
+.RI "#define \fBCM_THG\fP   343"
+.br
+.ti -1c
+.RI "#define \fBCM_FMD\fP   344"
+.br
+.ti -1c
+.RI "#define \fBCM_FMG\fP   345"
+.br
+.ti -1c
+.RI "#define \fBCM_WINDGUAGE\fP   350"
+.br
+.ti -1c
+.RI "#define \fBCM_WINDGRAPH\fP   351"
+.br
+.ti -1c
+.RI "#define \fBCM_ELCLOCK\fP   352"
+.br
+.ti -1c
+.RI "#define \fBCM_CURCLOCK\fP   353"
+.br
+.ti -1c
+.RI "#define \fBCM_SHOWFD\fP   356"
+.br
+.ti -1c
+.RI "#define \fBCM_SHOWFG\fP   357"
+.br
+.ti -1c
+.RI "#define \fBSEND_CLIPBOARD\fP   358"
+.br
+.ti -1c
+.RI "#define \fBSWITCH_INPUTMODE\fP   369"
+.br
+.ti -1c
+.RI "#define \fBCLEAR_ALLFIRES\fP   359"
+.br
+.ti -1c
+.RI "#define \fBMAP_TEMPERATURE\fP   360"
+.br
+.ti -1c
+.RI "#define \fBMAP_HUMIDITY\fP   361"
+.br
+.ti -1c
+.RI "#define \fBMAP_MIDFLAMEWIND\fP   362"
+.br
+.ti -1c
+.RI "#define \fBMAP_SOLARRADIATION\fP   363"
+.br
+.ti -1c
+.RI "#define \fBMAP_FUELMOISTURE\fP   364"
+.br
+.ti -1c
+.RI "#define \fBMAP_COMBUSTION\fP   365"
+.br
+.ti -1c
+.RI "#define \fBMAP_ENVIRONMENT\fP   366"
+.br
+.ti -1c
+.RI "#define \fBUPDATE_FUELMX\fP   367"
+.br
+.ti -1c
+.RI "#define \fBCHK_DISPENGLISH\fP   107"
+.br
+.ti -1c
+.RI "#define \fBCHK_DISPMETRIC\fP   108"
+.br
+.ti -1c
+.RI "#define \fBCHK_OTPENGLISH\fP   110"
+.br
+.ti -1c
+.RI "#define \fBCHK_OTPMETRIC\fP   111"
+.br
+.ti -1c
+.RI "#define \fBUD_RESOLX\fP   101"
+.br
+.ti -1c
+.RI "#define \fBUD_RESOLY\fP   103"
+.br
+.ti -1c
+.RI "#define \fBCM_TOA\fP   321"
+.br
+.ti -1c
+.RI "#define \fBCM_FLI\fP   322"
+.br
+.ti -1c
+.RI "#define \fBCM_FL\fP   323"
+.br
+.ti -1c
+.RI "#define \fBCM_ROS\fP   324"
+.br
+.ti -1c
+.RI "#define \fBCM_HPUA\fP   325"
+.br
+.ti -1c
+.RI "#define \fBCM_CFIRE\fP   326"
+.br
+.ti -1c
+.RI "#define \fBCM_FDIR\fP   327"
+.br
+.ti -1c
+.RI "#define \fBEDIT_RESOLX\fP   104"
+.br
+.ti -1c
+.RI "#define \fBEDIT_RESOLY\fP   105"
+.br
+.ti -1c
+.RI "#define \fBCHK_REACT\fP   106"
+.br
+.ti -1c
+.RI "#define \fBID_VISONLY\fP   313"
+.br
+.ti -1c
+.RI "#define \fBID_RASTRESDEFAULT\fP   393"
+.br
+.ti -1c
+.RI "#define \fBID_OPTVECTOUT\fP   369"
+.br
+.ti -1c
+.RI "#define \fBID_ARCVECTOUT\fP   301"
+.br
+.ti -1c
+.RI "#define \fBID_GRASSRASTOUT\fP   302"
+.br
+.ti -1c
+.RI "#define \fBID_GRIDRASTOUT\fP   311"
+.br
+.ti -1c
+.RI "#define \fBID_OPTRASTOUT\fP   368"
+.br
+.ti -1c
+.RI "#define \fBCHK_GISLOGFILES\fP   394"
+.br
+.ti -1c
+.RI "#define \fBCHK_RASTERVPONLY\fP   1356"
+.br
+.ti -1c
+.RI "#define \fBCHK_SHAPEFILE\fP   1350"
+.br
+.ti -1c
+.RI "#define \fBCHK_SHAPEVISONLY\fP   1351"
+.br
+.ti -1c
+.RI "#define \fBCHK_SHAPELINES\fP   1352"
+.br
+.ti -1c
+.RI "#define \fBCHK_SHAPEPOLYS\fP   1353"
+.br
+.ti -1c
+.RI "#define \fBCHK_SHAPEBARRIERS\fP   1354"
+.br
+.ti -1c
+.RI "#define \fBCM_DISPLAY\fP   370"
+.br
+.ti -1c
+.RI "#define \fBDISP_WHITE\fP   371"
+.br
+.ti -1c
+.RI "#define \fBDISP_FLI\fP   373"
+.br
+.ti -1c
+.RI "#define \fBDISP_FL\fP   374"
+.br
+.ti -1c
+.RI "#define \fBDISP_ROS\fP   375"
+.br
+.ti -1c
+.RI "#define \fBDISP_HPUA\fP   376"
+.br
+.ti -1c
+.RI "#define \fBDISP_METRIC\fP   377"
+.br
+.ti -1c
+.RI "#define \fBDISP_ENGLISH\fP   378"
+.br
+.ti -1c
+.RI "#define \fBSTAT_MAX\fP   379"
+.br
+.ti -1c
+.RI "#define \fBSTAT_INTERVAL\fP   380"
+.br
+.ti -1c
+.RI "#define \fBSCRL_MAX\fP   381"
+.br
+.ti -1c
+.RI "#define \fBSCRL_INTERVAL\fP   382"
+.br
+.ti -1c
+.RI "#define \fBSCRL_CFMOD\fP   383"
+.br
+.ti -1c
+.RI "#define \fBID_CFMOD\fP   384"
+.br
+.ti -1c
+.RI "#define \fBID_FMODCOLOR\fP   385"
+.br
+.ti -1c
+.RI "#define \fBSCRL_FRED\fP   386"
+.br
+.ti -1c
+.RI "#define \fBSCRL_FGREEN\fP   387"
+.br
+.ti -1c
+.RI "#define \fBSCRL_FBLUE\fP   388"
+.br
+.ti -1c
+.RI "#define \fBID_SENDFMCOLOR\fP   389"
+.br
+.ti -1c
+.RI "#define \fBIDC_COMBOBOX2\fP   393"
+.br
+.ti -1c
+.RI "#define \fBID_FIRECOLOR\fP   392"
+.br
+.ti -1c
+.RI "#define \fBID_SUPERVGA\fP   372"
+.br
+.ti -1c
+.RI "#define \fBCM_LEGEND\fP   390"
+.br
+.ti -1c
+.RI "#define \fBID_REDRAW\fP   391"
+.br
+.ti -1c
+.RI "#define \fBCM_IGNITE\fP   400"
+.br
+.ti -1c
+.RI "#define \fBCM_RUN\fP   401"
+.br
+.ti -1c
+.RI "#define \fBCM_RESTART\fP   402"
+.br
+.ti -1c
+.RI "#define \fBCM_RESUME\fP   404"
+.br
+.ti -1c
+.RI "#define \fBCM_TERMINATE\fP   405"
+.br
+.ti -1c
+.RI "#define \fBCM_ADDFIRES\fP   406"
+.br
+.ti -1c
+.RI "#define \fBCM_ADDBARRIERS\fP   407"
+.br
+.ti -1c
+.RI "#define \fBCM_ADDFUELS\fP   408"
+.br
+.ti -1c
+.RI "#define \fBCM_DURATION\fP   409"
+.br
+.ti -1c
+.RI "#define \fBCM_SUSPEND\fP   410"
+.br
+.ti -1c
+.RI "#define \fBCM_ADDWS\fP   411"
+.br
+.ti -1c
+.RI "#define \fBCM_TORCH\fP   412"
+.br
+.ti -1c
+.RI "#define \fBCM_RESET\fP   413"
+.br
+.ti -1c
+.RI "#define \fBCM_ABOUTFARSITE\fP   414"
+.br
+.ti -1c
+.RI "#define \fBCM_IGNITIONFILE\fP   415"
+.br
+.ti -1c
+.RI "#define \fBCM_WINDOWIN\fP   416"
+.br
+.ti -1c
+.RI "#define \fBCM_SAVEPERIMETERS\fP   417"
+.br
+.ti -1c
+.RI "#define \fBCM_VIEWVECTOR\fP   418"
+.br
+.ti -1c
+.RI "#define \fBCM_VIEWRASTER\fP   419"
+.br
+.ti -1c
+.RI "#define \fBCM_VIEW2DRASTER\fP   420"
+.br
+.ti -1c
+.RI "#define \fBCM_VIEW3DRASTER\fP   421"
+.br
+.ti -1c
+.RI "#define \fBCM_VIEW2DLCP\fP   422"
+.br
+.ti -1c
+.RI "#define \fBCM_VIEW3DLCP\fP   423"
+.br
+.ti -1c
+.RI "#define \fBCM_VIEWBOTHLCP\fP   424"
+.br
+.ti -1c
+.RI "#define \fBCM_REDRAW2D\fP   425"
+.br
+.ti -1c
+.RI "#define \fBCM_REDRAW3D\fP   426"
+.br
+.ti -1c
+.RI "#define \fBCM_VIEWCLEAR\fP   427"
+.br
+.ti -1c
+.RI "#define \fBCM_VIEWERASE\fP   428"
+.br
+.ti -1c
+.RI "#define \fBCM_ERASE3D\fP   429"
+.br
+.ti -1c
+.RI "#define \fBID_ROTATEIGN\fP   450"
+.br
+.ti -1c
+.RI "#define \fBID_RESTOREIGNS\fP   451"
+.br
+.ti -1c
+.RI "#define \fBCM_SIMOPTIONS\fP   452"
+.br
+.ti -1c
+.RI "#define \fBCM_EXPORTPERIM\fP   453"
+.br
+.ti -1c
+.RI "#define \fBCM_STEPTHRU\fP   454"
+.br
+.ti -1c
+.RI "#define \fBCM_IMPORTBARRIERS\fP   455"
+.br
+.ti -1c
+.RI "#define \fBCM_EXPORTBARRIERS\fP   456"
+.br
+.ti -1c
+.RI "#define \fBID_VECTSOUTASGROWN\fP   457"
+.br
+.ti -1c
+.RI "#define \fBID_ADJIGNITIONRATE\fP   458"
+.br
+.ti -1c
+.RI "#define \fBUD_NUMTHREADS\fP   459"
+.br
+.ti -1c
+.RI "#define \fBEDIT_NUMTHREADS\fP   460"
+.br
+.ti -1c
+.RI "#define \fBCM_STOPLOCATION\fP   461"
+.br
+.ti -1c
+.RI "#define \fBCM_KILLWAIT\fP   462"
+.br
+.ti -1c
+.RI "#define \fBCM_KILLMOIST\fP   463"
+.br
+.ti -1c
+.RI "#define \fBCM_EDITVECTORCOLOR\fP   464"
+.br
+.ti -1c
+.RI "#define \fBCM_EDITVECTORSTYLE\fP   465"
+.br
+.ti -1c
+.RI "#define \fBCM_EDITRASTERCOLOR\fP   466"
+.br
+.ti -1c
+.RI "#define \fBCHK_SIMPRESERVE\fP   467"
+.br
+.ti -1c
+.RI "#define \fBCM_EDITLOCATION\fP   469"
+.br
+.ti -1c
+.RI "#define \fBCM_STARTMOIST\fP   470"
+.br
+.ti -1c
+.RI "#define \fBCM_MEASURE\fP   471"
+.br
+.ti -1c
+.RI "#define \fBCM_IMAGE\fP   501"
+.br
+.ti -1c
+.RI "#define \fBCM_GRAPHAREA\fP   502"
+.br
+.ti -1c
+.RI "#define \fBCM_GRAPHPERIMETER\fP   503"
+.br
+.ti -1c
+.RI "#define \fBSCRL_MO\fP   507"
+.br
+.ti -1c
+.RI "#define \fBSCRL_DAY\fP   508"
+.br
+.ti -1c
+.RI "#define \fBSCRL_HR\fP   509"
+.br
+.ti -1c
+.RI "#define \fBSCRL_MIN\fP   510"
+.br
+.ti -1c
+.RI "#define \fBID_STMO\fP   702"
+.br
+.ti -1c
+.RI "#define \fBID_STDY\fP   703"
+.br
+.ti -1c
+.RI "#define \fBID_STHR\fP   704"
+.br
+.ti -1c
+.RI "#define \fBID_STMIN\fP   518"
+.br
+.ti -1c
+.RI "#define \fBID_MO\fP   511"
+.br
+.ti -1c
+.RI "#define \fBID_DY\fP   512"
+.br
+.ti -1c
+.RI "#define \fBID_HR\fP   513"
+.br
+.ti -1c
+.RI "#define \fBID_MIN\fP   514"
+.br
+.ti -1c
+.RI "#define \fBID_DURATIONRESET\fP   516"
+.br
+.ti -1c
+.RI "#define \fBCM_ENDTIME\fP   515"
+.br
+.ti -1c
+.RI "#define \fBCM_STARTTIME\fP   517"
+.br
+.ti -1c
+.RI "#define \fBCM_CONTROL\fP   600"
+.br
+.ti -1c
+.RI "#define \fBCM_METHOD1\fP   605"
+.br
+.ti -1c
+.RI "#define \fBCM_METHOD2\fP   606"
+.br
+.ti -1c
+.RI "#define \fBUD_IGDELAY\fP   104"
+.br
+.ti -1c
+.RI "#define \fBUD_IGPROB\fP   102"
+.br
+.ti -1c
+.RI "#define \fBEDIT_IGPROB\fP   101"
+.br
+.ti -1c
+.RI "#define \fBEDIT_IGDELAY\fP   103"
+.br
+.ti -1c
+.RI "#define \fBCM_LINKDENSITY\fP   620"
+.br
+.ti -1c
+.RI "#define \fBCM_CROWNING\fP   607"
+.br
+.ti -1c
+.RI "#define \fBCM_SURFSPOTTING\fP   608"
+.br
+.ti -1c
+.RI "#define \fBCM_TREESPOTTING\fP   612"
+.br
+.ti -1c
+.RI "#define \fBCM_CONSTBACKING\fP   609"
+.br
+.ti -1c
+.RI "#define \fBCM_SPOTGROWTH\fP   613"
+.br
+.ti -1c
+.RI "#define \fBCM_EXPCHECK\fP   619"
+.br
+.ti -1c
+.RI "#define \fBCM_ONE\fP   705"
+.br
+.ti -1c
+.RI "#define \fBCM_TEN\fP   706"
+.br
+.ti -1c
+.RI "#define \fBCM_HUND\fP   707"
+.br
+.ti -1c
+.RI "#define \fBCM_THOU\fP   708"
+.br
+.ti -1c
+.RI "#define \fBCM_LH\fP   710"
+.br
+.ti -1c
+.RI "#define \fBID_ONE\fP   715"
+.br
+.ti -1c
+.RI "#define \fBID_TEN\fP   716"
+.br
+.ti -1c
+.RI "#define \fBID_HUND\fP   717"
+.br
+.ti -1c
+.RI "#define \fBID_THOU\fP   718"
+.br
+.ti -1c
+.RI "#define \fBID_LH\fP   720"
+.br
+.ti -1c
+.RI "#define \fBSCRL_FMNUMBER\fP   721"
+.br
+.ti -1c
+.RI "#define \fBID_FMNUMBER\fP   722"
+.br
+.ti -1c
+.RI "#define \fBCM_SENDMOIS\fP   723"
+.br
+.ti -1c
+.RI "#define \fBCM_LW\fP   709"
+.br
+.ti -1c
+.RI "#define \fBID_LW\fP   719"
+.br
+.ti -1c
+.RI "#define \fBCM_DUFFMOIS\fP   724"
+.br
+.ti -1c
+.RI "#define \fBID_DUFFMOIS\fP   725"
+.br
+.ti -1c
+.RI "#define \fBCM_SAVEFMS\fP   711"
+.br
+.ti -1c
+.RI "#define \fBSCRL_WNDSPD\fP   801"
+.br
+.ti -1c
+.RI "#define \fBSCRL_WNDDIR\fP   802"
+.br
+.ti -1c
+.RI "#define \fBCM_WNDKPH\fP   803"
+.br
+.ti -1c
+.RI "#define \fBCM_WNDMPH\fP   804"
+.br
+.ti -1c
+.RI "#define \fBID_WNDSPD\fP   805"
+.br
+.ti -1c
+.RI "#define \fBID_WNDDIR\fP   806"
+.br
+.ti -1c
+.RI "#define \fBID_WNDSEND\fP   807"
+.br
+.ti -1c
+.RI "#define \fBSCRL_TEMP\fP   810"
+.br
+.ti -1c
+.RI "#define \fBSCRL_HUMID\fP   811"
+.br
+.ti -1c
+.RI "#define \fBSCRL_CLOUDY\fP   812"
+.br
+.ti -1c
+.RI "#define \fBCM_CELSIUS\fP   813"
+.br
+.ti -1c
+.RI "#define \fBCM_FARENHT\fP   814"
+.br
+.ti -1c
+.RI "#define \fBID_TEMP\fP   815"
+.br
+.ti -1c
+.RI "#define \fBID_HUMID\fP   816"
+.br
+.ti -1c
+.RI "#define \fBID_CLOUDY\fP   817"
+.br
+.ti -1c
+.RI "#define \fBID_WTRSEND\fP   818"
+.br
+.ti -1c
+.RI "#define \fBID_PPT\fP   819"
+.br
+.ti -1c
+.RI "#define \fBSCRL_PPT\fP   820"
+.br
+.ti -1c
+.RI "#define \fBSCRL_FM\fP   901"
+.br
+.ti -1c
+.RI "#define \fBSCRL_FACTOR\fP   902"
+.br
+.ti -1c
+.RI "#define \fBID_FM\fP   903"
+.br
+.ti -1c
+.RI "#define \fBID_FACTOR\fP   904"
+.br
+.ti -1c
+.RI "#define \fBCM_SENDREDUCT\fP   905"
+.br
+.ti -1c
+.RI "#define \fBCM_SAVEADJ\fP   906"
+.br
+.ti -1c
+.RI "#define \fBCM_CUSTOMFM\fP   1001"
+.br
+.ti -1c
+.RI "#define \fBCM_SDEGREES\fP   1002"
+.br
+.ti -1c
+.RI "#define \fBCM_GRASS\fP   1003"
+.br
+.ti -1c
+.RI "#define \fBCM_ADEGREES\fP   1004"
+.br
+.ti -1c
+.RI "#define \fBCM_SPERCENT\fP   1005"
+.br
+.ti -1c
+.RI "#define \fBCM_CUSTOMMOD\fP   1006"
+.br
+.ti -1c
+.RI "#define \fBCM_14COVER\fP   1007"
+.br
+.ti -1c
+.RI "#define \fBCM_PCTCOVER\fP   1008"
+.br
+.ti -1c
+.RI "#define \fBCM_NOREASTFEET\fP   1009"
+.br
+.ti -1c
+.RI "#define \fBCM_NOREASTMETRIC\fP   1010"
+.br
+.ti -1c
+.RI "#define \fBCM_ELENGLISH\fP   1011"
+.br
+.ti -1c
+.RI "#define \fBCM_FUELCONVT\fP   1014"
+.br
+.ti -1c
+.RI "#define \fBCM_ELMETRIC\fP   1012"
+.br
+.ti -1c
+.RI "#define \fBSCRL_TREEHT\fP   1015"
+.br
+.ti -1c
+.RI "#define \fBID_TREEHT\fP   1016"
+.br
+.ti -1c
+.RI "#define \fBCM_TOLLOW\fP   1017"
+.br
+.ti -1c
+.RI "#define \fBCM_TOLMED\fP   1018"
+.br
+.ti -1c
+.RI "#define \fBCM_TOLHIGH\fP   1019"
+.br
+.ti -1c
+.RI "#define \fBCM_CANSET\fP   1020"
+.br
+.ti -1c
+.RI "#define \fBSCRL_HLCB\fP   1023"
+.br
+.ti -1c
+.RI "#define \fBSCRL_BD\fP   1024"
+.br
+.ti -1c
+.RI "#define \fBSCRL_DBH\fP   1025"
+.br
+.ti -1c
+.RI "#define \fBSCRL_FMC\fP   1026"
+.br
+.ti -1c
+.RI "#define \fBID_HLCB\fP   1027"
+.br
+.ti -1c
+.RI "#define \fBID_BD\fP   1028"
+.br
+.ti -1c
+.RI "#define \fBID_DBH\fP   1029"
+.br
+.ti -1c
+.RI "#define \fBID_FMC\fP   1030"
+.br
+.ti -1c
+.RI "#define \fBCM_GF\fP   1031"
+.br
+.ti -1c
+.RI "#define \fBCM_DF\fP   1032"
+.br
+.ti -1c
+.RI "#define \fBCM_WH\fP   1033"
+.br
+.ti -1c
+.RI "#define \fBCM_SF\fP   1034"
+.br
+.ti -1c
+.RI "#define \fBCM_ES\fP   1035"
+.br
+.ti -1c
+.RI "#define \fBCM_PP\fP   1036"
+.br
+.ti -1c
+.RI "#define \fBCM_LP\fP   1037"
+.br
+.ti -1c
+.RI "#define \fBCM_WP\fP   1038"
+.br
+.ti -1c
+.RI "#define \fBCM_WR\fP   1039"
+.br
+.ti -1c
+.RI "#define \fBCAN_METRIC\fP   1021"
+.br
+.ti -1c
+.RI "#define \fBCAN_ENGLISH\fP   1022"
+.br
+.ti -1c
+.RI "#define \fBSCRL_FUELMODEL\fP   1101"
+.br
+.ti -1c
+.RI "#define \fBSCRL_1HR\fP   1102"
+.br
+.ti -1c
+.RI "#define \fBSCRL_10HR\fP   1103"
+.br
+.ti -1c
+.RI "#define \fBSCRL_100HR\fP   1104"
+.br
+.ti -1c
+.RI "#define \fBSCRL_LIVEH\fP   1105"
+.br
+.ti -1c
+.RI "#define \fBSCRL_SAVLIVEW\fP   1106"
+.br
+.ti -1c
+.RI "#define \fBSCRL_LIVEW\fP   1107"
+.br
+.ti -1c
+.RI "#define \fBSCRL_SAV1\fP   1108"
+.br
+.ti -1c
+.RI "#define \fBSCRL_SAVLIVEH\fP   1109"
+.br
+.ti -1c
+.RI "#define \fBSCRL_HDEAD\fP   1110"
+.br
+.ti -1c
+.RI "#define \fBSCRL_HLIVE\fP   1111"
+.br
+.ti -1c
+.RI "#define \fBSCRL_DEPTH\fP   1112"
+.br
+.ti -1c
+.RI "#define \fBSCRL_XMEXT\fP   1113"
+.br
+.ti -1c
+.RI "#define \fBID_FUELMODEL\fP   1114"
+.br
+.ti -1c
+.RI "#define \fBID_1HR\fP   1115"
+.br
+.ti -1c
+.RI "#define \fBID_10HR\fP   1116"
+.br
+.ti -1c
+.RI "#define \fBID_100HR\fP   1117"
+.br
+.ti -1c
+.RI "#define \fBID_LIVEH\fP   1118"
+.br
+.ti -1c
+.RI "#define \fBID_SAVLIVEW\fP   1119"
+.br
+.ti -1c
+.RI "#define \fBID_LIVEW\fP   1120"
+.br
+.ti -1c
+.RI "#define \fBID_SAV1\fP   1121"
+.br
+.ti -1c
+.RI "#define \fBID_SAVLIVEH\fP   1122"
+.br
+.ti -1c
+.RI "#define \fBID_HDEAD\fP   1123"
+.br
+.ti -1c
+.RI "#define \fBID_HLIVE\fP   1124"
+.br
+.ti -1c
+.RI "#define \fBID_DEPTH\fP   1125"
+.br
+.ti -1c
+.RI "#define \fBID_XMEXT\fP   1126"
+.br
+.ti -1c
+.RI "#define \fBCM_SAVEFMD\fP   1127"
+.br
+.ti -1c
+.RI "#define \fBCM_CHANGEFMD\fP   1128"
+.br
+.ti -1c
+.RI "#define \fBCM_ENGLISH\fP   1129"
+.br
+.ti -1c
+.RI "#define \fBCM_METRIC\fP   1130"
+.br
+.ti -1c
+.RI "#define \fBID_LOADUNITS\fP   1131"
+.br
+.ti -1c
+.RI "#define \fBID_HEATUNITS\fP   1132"
+.br
+.ti -1c
+.RI "#define \fBID_SAVUNITS\fP   1133"
+.br
+.ti -1c
+.RI "#define \fBID_DEPTHUNITS\fP   1134"
+.br
+.ti -1c
+.RI "#define \fBCM_WSTATION\fP   1200"
+.br
+.ti -1c
+.RI "#define \fBID_STAT1\fP   1201"
+.br
+.ti -1c
+.RI "#define \fBID_STAT2\fP   1202"
+.br
+.ti -1c
+.RI "#define \fBID_STAT3\fP   1203"
+.br
+.ti -1c
+.RI "#define \fBID_STAT4\fP   1204"
+.br
+.ti -1c
+.RI "#define \fBID_STAT5\fP   1205"
+.br
+.ti -1c
+.RI "#define \fBID_FMOIST1\fP   1206"
+.br
+.ti -1c
+.RI "#define \fBID_FMOIST2\fP   1207"
+.br
+.ti -1c
+.RI "#define \fBID_FMOIST3\fP   1208"
+.br
+.ti -1c
+.RI "#define \fBID_FMOIST4\fP   1209"
+.br
+.ti -1c
+.RI "#define \fBID_FMOIST5\fP   1210"
+.br
+.ti -1c
+.RI "#define \fBID_TEMPHUM1\fP   1211"
+.br
+.ti -1c
+.RI "#define \fBID_TEMPHUM2\fP   1212"
+.br
+.ti -1c
+.RI "#define \fBID_TEMPHUM3\fP   1213"
+.br
+.ti -1c
+.RI "#define \fBID_TEMPHUM4\fP   1214"
+.br
+.ti -1c
+.RI "#define \fBID_TEMPHUM5\fP   1215"
+.br
+.ti -1c
+.RI "#define \fBCM_WSDATA\fP   1216"
+.br
+.ti -1c
+.RI "#define \fBSCRL_FMODCHANGE\fP   1301"
+.br
+.ti -1c
+.RI "#define \fBID_FMODCHANGE\fP   1302"
+.br
+.ti -1c
+.RI "#define \fBCM_FMSENDCHANGE\fP   1303"
+.br
+.ti -1c
+.RI "#define \fBID_FMNEW\fP   1304"
+.br
+.ti -1c
+.RI "#define \fBCM_TOPRINTER\fP   1400"
+.br
+.ti -1c
+.RI "#define \fBCM_TOFILE\fP   1401"
+.br
+.ti -1c
+.RI "#define \fBCM_FILEFARSITE\fP   1402"
+.br
+.ti -1c
+.RI "#define \fBID_BMPPRINT\fP   1403"
+.br
+.ti -1c
+.RI "#define \fBID_BMPCLIPBOARD\fP   1404"
+.br
+.ti -1c
+.RI "#define \fBCM_TOCLIPBOARD\fP   1405"
+.br
+.ti -1c
+.RI "#define \fBSCRL_INITROS\fP   1500"
+.br
+.ti -1c
+.RI "#define \fBSTAT_INITROS\fP   1501"
+.br
+.ti -1c
+.RI "#define \fBID_ELEVFILE\fP   1601"
+.br
+.ti -1c
+.RI "#define \fBID_COVERFILE\fP   1602"
+.br
+.ti -1c
+.RI "#define \fBID_FUELFILE\fP   1603"
+.br
+.ti -1c
+.RI "#define \fBID_ASPECTFILE\fP   1604"
+.br
+.ti -1c
+.RI "#define \fBID_SLOPEFILE\fP   1605"
+.br
+.ti -1c
+.RI "#define \fBCHK_COVERFILE\fP   1606"
+.br
+.ti -1c
+.RI "#define \fBCHK_FUELFILE\fP   1607"
+.br
+.ti -1c
+.RI "#define \fBCHK_ASPECTFILE\fP   1608"
+.br
+.ti -1c
+.RI "#define \fBCHK_SLOPEFILE\fP   1609"
+.br
+.ti -1c
+.RI "#define \fBCHK_ELEVFILE\fP   1610"
+.br
+.ti -1c
+.RI "#define \fBEDIT_LAT\fP   1613"
+.br
+.ti -1c
+.RI "#define \fBUD_LAT\fP   1614"
+.br
+.ti -1c
+.RI "#define \fBCHK_HEIGHTFILE\fP   1638"
+.br
+.ti -1c
+.RI "#define \fBCHK_HLCBFILE\fP   1639"
+.br
+.ti -1c
+.RI "#define \fBCHK_CBDFILE\fP   1640"
+.br
+.ti -1c
+.RI "#define \fBID_HEIGHTFILE\fP   1642"
+.br
+.ti -1c
+.RI "#define \fBID_HLCBFILE\fP   1643"
+.br
+.ti -1c
+.RI "#define \fBID_CBDFILE\fP   1644"
+.br
+.ti -1c
+.RI "#define \fBCHK_BDCONST\fP   1646"
+.br
+.ti -1c
+.RI "#define \fBCHK_HLCBCONST\fP   1647"
+.br
+.ti -1c
+.RI "#define \fBCHK_HEIGHTCONST\fP   1648"
+.br
+.ti -1c
+.RI "#define \fBCHK_COVERCONST\fP   1649"
+.br
+.ti -1c
+.RI "#define \fBCHK_FUELCONST\fP   1650"
+.br
+.ti -1c
+.RI "#define \fBID_HEIGHTUNITS\fP   1651"
+.br
+.ti -1c
+.RI "#define \fBID_BASEUNITS\fP   1652"
+.br
+.ti -1c
+.RI "#define \fBID_DENSITYUNITS\fP   1653"
+.br
+.ti -1c
+.RI "#define \fBCM_NOREASTKM\fP   1654"
+.br
+.ti -1c
+.RI "#define \fBCHK_DUFFFILE\fP   1655"
+.br
+.ti -1c
+.RI "#define \fBCHK_WOODYFILE\fP   1656"
+.br
+.ti -1c
+.RI "#define \fBCHK_WOODYCONST\fP   1657"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ASCIIINPUT\fP   1658"
+.br
+.ti -1c
+.RI "#define \fBCHK_DUFFCONST\fP   1659"
+.br
+.ti -1c
+.RI "#define \fBCM_DUFFMGHA\fP   1660"
+.br
+.ti -1c
+.RI "#define \fBCM_DUFFTA\fP   1661"
+.br
+.ti -1c
+.RI "#define \fBCM_DUFFLOAD\fP   1662"
+.br
+.ti -1c
+.RI "#define \fBID_WOODYFILE\fP   1663"
+.br
+.ti -1c
+.RI "#define \fBID_DUFFFILE\fP   1664"
+.br
+.ti -1c
+.RI "#define \fBCHK_WOODYLINK\fP   1665"
+.br
+.ti -1c
+.RI "#define \fBSTAT_LCPFORMAT\fP   1666"
+.br
+.ti -1c
+.RI "#define \fBIDC_BUTTON1\fP   101"
+.br
+.ti -1c
+.RI "#define \fBBUT_NEWLCP\fP   101"
+.br
+.ti -1c
+.RI "#define \fBBUT_LOADGENLCP\fP   1667"
+.br
+.ti -1c
+.RI "#define \fBBUT_SAVEGENLCP\fP   1668"
+.br
+.ti -1c
+.RI "#define \fBPROG_EXTRACTLCP\fP   1669"
+.br
+.ti -1c
+.RI "#define \fBBUT_EXTRACTOUT\fP   1670"
+.br
+.ti -1c
+.RI "#define \fBBUT_EXTRACTIN\fP   1671"
+.br
+.ti -1c
+.RI "#define \fBPROG_LCPGEN\fP   1672"
+.br
+.ti -1c
+.RI "#define \fBEDIT_LCPDESC\fP   1673"
+.br
+.ti -1c
+.RI "#define \fBEDIT_EXTRACTDESC\fP   1674"
+.br
+.ti -1c
+.RI "#define \fBCMP_SELECTFILE\fP   1700"
+.br
+.ti -1c
+.RI "#define \fBCMP_FILENAME\fP   1701"
+.br
+.ti -1c
+.RI "#define \fBCMP_WHITE\fP   1702"
+.br
+.ti -1c
+.RI "#define \fBCMP_BLACK\fP   1703"
+.br
+.ti -1c
+.RI "#define \fBCMP_GREY\fP   1704"
+.br
+.ti -1c
+.RI "#define \fBCMP_YELLOW\fP   1705"
+.br
+.ti -1c
+.RI "#define \fBCMP_RED\fP   1706"
+.br
+.ti -1c
+.RI "#define \fBCMP_LTRED\fP   1707"
+.br
+.ti -1c
+.RI "#define \fBCMP_BLUE\fP   1708"
+.br
+.ti -1c
+.RI "#define \fBCMP_CYAN\fP   1709"
+.br
+.ti -1c
+.RI "#define \fBCMP_GREEN\fP   1710"
+.br
+.ti -1c
+.RI "#define \fBCMP_LTGREEN\fP   1711"
+.br
+.ti -1c
+.RI "#define \fBCMP_SOLID\fP   1712"
+.br
+.ti -1c
+.RI "#define \fBCMP_DASHED\fP   1713"
+.br
+.ti -1c
+.RI "#define \fBCMP_BOLD\fP   1714"
+.br
+.ti -1c
+.RI "#define \fBCMP_TEMPORARY\fP   1715"
+.br
+.ti -1c
+.RI "#define \fBCMP_PERMANENT\fP   1716"
+.br
+.ti -1c
+.RI "#define \fBID_2DWINDOW\fP   1718"
+.br
+.ti -1c
+.RI "#define \fBID_3DWINDOW\fP   1719"
+.br
+.ti -1c
+.RI "#define \fBCMP_DOTTED\fP   1717"
+.br
+.ti -1c
+.RI "#define \fBCHK_VECTORTOFPJ\fP   1720"
+.br
+.ti -1c
+.RI "#define \fBCM_LANDDISPLAY\fP   1800"
+.br
+.ti -1c
+.RI "#define \fBID_VISHLCB\fP   1820"
+.br
+.ti -1c
+.RI "#define \fBID_VISHEIGHT\fP   1819"
+.br
+.ti -1c
+.RI "#define \fBID_VISCOVER\fP   1818"
+.br
+.ti -1c
+.RI "#define \fBID_VISASPECT\fP   1823"
+.br
+.ti -1c
+.RI "#define \fBID_VISSLOPE\fP   1822"
+.br
+.ti -1c
+.RI "#define \fBID_VISELEV\fP   1817"
+.br
+.ti -1c
+.RI "#define \fBID_VISFUELS\fP   1824"
+.br
+.ti -1c
+.RI "#define \fBID_LIGHTnw\fP   1810"
+.br
+.ti -1c
+.RI "#define \fBID_LIGHTsw\fP   1809"
+.br
+.ti -1c
+.RI "#define \fBID_LIGHTse\fP   1808"
+.br
+.ti -1c
+.RI "#define \fBID_LIGHTne\fP   1807"
+.br
+.ti -1c
+.RI "#define \fBID_LIGHTW\fP   1806"
+.br
+.ti -1c
+.RI "#define \fBID_LIGHTE\fP   1805"
+.br
+.ti -1c
+.RI "#define \fBID_LIGHTS\fP   1804"
+.br
+.ti -1c
+.RI "#define \fBID_LIGHTN\fP   1803"
+.br
+.ti -1c
+.RI "#define \fBID_TOPOSHADE\fP   1802"
+.br
+.ti -1c
+.RI "#define \fBID_GRIDLINES\fP   1801"
+.br
+.ti -1c
+.RI "#define \fBID_VISDENSITY\fP   1821"
+.br
+.ti -1c
+.RI "#define \fBID_GRIDWHITE\fP   1812"
+.br
+.ti -1c
+.RI "#define \fBID_GRIDLTGRAY\fP   1813"
+.br
+.ti -1c
+.RI "#define \fBID_GRIDDKGRAY\fP   1814"
+.br
+.ti -1c
+.RI "#define \fBID_GRIDBLACK\fP   1815"
+.br
+.ti -1c
+.RI "#define \fBRBUT_COLORNONE\fP   101"
+.br
+.ti -1c
+.RI "#define \fBRBUT_VISCWD\fP   102"
+.br
+.ti -1c
+.RI "#define \fBEDIT_GRIDRES\fP   103"
+.br
+.ti -1c
+.RI "#define \fBUD_GRIDRES\fP   104"
+.br
+.ti -1c
+.RI "#define \fBRBUT_VISDUFF\fP   105"
+.br
+.ti -1c
+.RI "#define \fBRBUT_COLORRCX\fP   106"
+.br
+.ti -1c
+.RI "#define \fBRBUT_COLORHPA\fP   107"
+.br
+.ti -1c
+.RI "#define \fBRBUT_COLORFML\fP   108"
+.br
+.ti -1c
+.RI "#define \fBRBUT_COLORROS\fP   109"
+.br
+.ti -1c
+.RI "#define \fBRBUT_COLORFLI\fP   110"
+.br
+.ti -1c
+.RI "#define \fBSTAT_GRIDUNITS\fP   111"
+.br
+.ti -1c
+.RI "#define \fBIDC_EXITMERGER\fP   1901"
+.br
+.ti -1c
+.RI "#define \fBIDC_MERGEFILES\fP   1902"
+.br
+.ti -1c
+.RI "#define \fBCHK_5LCP\fP   1903"
+.br
+.ti -1c
+.RI "#define \fBCHK_4LCP\fP   1904"
+.br
+.ti -1c
+.RI "#define \fBID_5NORTH\fP   1905"
+.br
+.ti -1c
+.RI "#define \fBID_5SOUTH\fP   1906"
+.br
+.ti -1c
+.RI "#define \fBID_5ROWS\fP   1907"
+.br
+.ti -1c
+.RI "#define \fBID_5COLS\fP   1908"
+.br
+.ti -1c
+.RI "#define \fBID_5HEIGHT\fP   1909"
+.br
+.ti -1c
+.RI "#define \fBID_5WIDTH\fP   1910"
+.br
+.ti -1c
+.RI "#define \fBID_5EAST\fP   1911"
+.br
+.ti -1c
+.RI "#define \fBID_5WEST\fP   1912"
+.br
+.ti -1c
+.RI "#define \fBSTAT_5LCP\fP   1913"
+.br
+.ti -1c
+.RI "#define \fBSTAT_4LCP\fP   1914"
+.br
+.ti -1c
+.RI "#define \fBCHK_1LCP\fP   1915"
+.br
+.ti -1c
+.RI "#define \fBSTAT_1LCP\fP   1916"
+.br
+.ti -1c
+.RI "#define \fBCHK_2LCP\fP   1917"
+.br
+.ti -1c
+.RI "#define \fBSTAT_2LCP\fP   1918"
+.br
+.ti -1c
+.RI "#define \fBCHK_3LCP\fP   1919"
+.br
+.ti -1c
+.RI "#define \fBSTAT_3LCP\fP   1920"
+.br
+.ti -1c
+.RI "#define \fBID_MERGERESULT\fP   1921"
+.br
+.ti -1c
+.RI "#define \fBID_MERGEWINDOW\fP   1922"
+.br
+.ti -1c
+.RI "#define \fBPROG_MRGLCP\fP   1923"
+.br
+.ti -1c
+.RI "#define \fBEDIT_MERGEDESC\fP   1924"
+.br
+.ti -1c
+.RI "#define \fBID_EXOUTNORTH\fP   2000"
+.br
+.ti -1c
+.RI "#define \fBSCRL_NORTH\fP   2001"
+.br
+.ti -1c
+.RI "#define \fBID_EXINNORTH\fP   2002"
+.br
+.ti -1c
+.RI "#define \fBID_EXINEAST\fP   2003"
+.br
+.ti -1c
+.RI "#define \fBID_EXITEXTRACT\fP   2004"
+.br
+.ti -1c
+.RI "#define \fBID_EXTRACTLCP\fP   2005"
+.br
+.ti -1c
+.RI "#define \fBSTAT_EXTRACTRESULTS\fP   2006"
+.br
+.ti -1c
+.RI "#define \fBCHK_EXTRACTFROM\fP   2007"
+.br
+.ti -1c
+.RI "#define \fBCHK_EXTRACTTO\fP   2008"
+.br
+.ti -1c
+.RI "#define \fBSCRL_WEST\fP   2009"
+.br
+.ti -1c
+.RI "#define \fBSCRL_EAST\fP   2010"
+.br
+.ti -1c
+.RI "#define \fBID_EXOUTEAST\fP   2011"
+.br
+.ti -1c
+.RI "#define \fBID_EXINWEST\fP   2012"
+.br
+.ti -1c
+.RI "#define \fBID_EXOUTWEST\fP   2013"
+.br
+.ti -1c
+.RI "#define \fBSTAT_EXTRACTFROM\fP   2014"
+.br
+.ti -1c
+.RI "#define \fBSTAT_EXTRACTTO\fP   2015"
+.br
+.ti -1c
+.RI "#define \fBID_EXINSOUTH\fP   2016"
+.br
+.ti -1c
+.RI "#define \fBID_EXOUTSOUTH\fP   2017"
+.br
+.ti -1c
+.RI "#define \fBSCRL_SOUTH\fP   2018"
+.br
+.ti -1c
+.RI "#define \fBSTAT_INROW\fP   2019"
+.br
+.ti -1c
+.RI "#define \fBSTAT_INCOL\fP   2020"
+.br
+.ti -1c
+.RI "#define \fBSTAT_OUTCOL\fP   2021"
+.br
+.ti -1c
+.RI "#define \fBSTAT_OUTROW\fP   2022"
+.br
+.ti -1c
+.RI "#define \fBID_EXTRACTGRAPH\fP   2023"
+.br
+.ti -1c
+.RI "#define \fBID_EVIEWPORT\fP   2024"
+.br
+.ti -1c
+.RI "#define \fBCM_CHANGEVIEWPORT\fP   2102"
+.br
+.ti -1c
+.RI "#define \fBCM_MAKEBOOKMARK\fP   2103"
+.br
+.ti -1c
+.RI "#define \fBCM_GETBOOKMARK\fP   2104"
+.br
+.ti -1c
+.RI "#define \fBCM_FIREACCEL\fP   2105"
+.br
+.ti -1c
+.RI "#define \fBID_VPCONTROL\fP   2200"
+.br
+.ti -1c
+.RI "#define \fBSCRL_VPSOUTH\fP   2203"
+.br
+.ti -1c
+.RI "#define \fBSCRL_VPNORTH\fP   2204"
+.br
+.ti -1c
+.RI "#define \fBSCRL_VPEAST\fP   2201"
+.br
+.ti -1c
+.RI "#define \fBSCRL_VPWEST\fP   2202"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VPUTMeast\fP   2208"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VPUTMwest\fP   2210"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VPUTMnorth\fP   2205"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VPUTMsouth\fP   2206"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VPUTMS\fP   2207"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VPUTME\fP   2209"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VPUTMW\fP   2211"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VPUTMN\fP   2212"
+.br
+.ti -1c
+.RI "#define \fBID_VPMAXIMIZE\fP   2213"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VPOUTROW\fP   2214"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VPOUTCOL\fP   2215"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VPINROW\fP   2216"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VPINCOL\fP   2217"
+.br
+.ti -1c
+.RI "#define \fBID_VPZOOMWINDOW\fP   2218"
+.br
+.ti -1c
+.RI "#define \fBBUT_VPOUT\fP   2220"
+.br
+.ti -1c
+.RI "#define \fBBUT_VPIN\fP   2221"
+.br
+.ti -1c
+.RI "#define \fBBUT_VPFIRE\fP   2222"
+.br
+.ti -1c
+.RI "#define \fBID_MINSCALE\fP   2301"
+.br
+.ti -1c
+.RI "#define \fBID_MAXSCALE\fP   2302"
+.br
+.ti -1c
+.RI "#define \fBSTAT_RMINELEV\fP   2303"
+.br
+.ti -1c
+.RI "#define \fBSTAT_RMAXELEV\fP   2304"
+.br
+.ti -1c
+.RI "#define \fBSTAT_RMINHEIGHT\fP   2305"
+.br
+.ti -1c
+.RI "#define \fBSTAT_RMAXHEIGHT\fP   2306"
+.br
+.ti -1c
+.RI "#define \fBSTAT_RFILENAME\fP   2307"
+.br
+.ti -1c
+.RI "#define \fBCHK_RFILENAME\fP   2308"
+.br
+.ti -1c
+.RI "#define \fBEDIT_DENSITY\fP   2401"
+.br
+.ti -1c
+.RI "#define \fBRBUT_EDITPOLYS\fP   2402"
+.br
+.ti -1c
+.RI "#define \fBRBUT_EDITCELLS\fP   2403"
+.br
+.ti -1c
+.RI "#define \fBSTAT_LCPFILENAME\fP   2404"
+.br
+.ti -1c
+.RI "#define \fBSTAT_YCOORD\fP   2452"
+.br
+.ti -1c
+.RI "#define \fBSTAT_XCOORD\fP   2405"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CURELEV\fP   2406"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CURSLOPE\fP   2407"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CURASPECT\fP   2408"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CURFUEL\fP   2409"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CURCOVER\fP   2410"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CURHEIGHT\fP   2411"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CURBASE\fP   2412"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CURDENSITY\fP   2413"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CURWOODY\fP   2414"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CURDUFF\fP   2415"
+.br
+.ti -1c
+.RI "#define \fBEDIT_WOODY\fP   2416"
+.br
+.ti -1c
+.RI "#define \fBEDIT_DUFF\fP   2417"
+.br
+.ti -1c
+.RI "#define \fBEDIT_BASE\fP   2418"
+.br
+.ti -1c
+.RI "#define \fBEDIT_HEIGHT\fP   2419"
+.br
+.ti -1c
+.RI "#define \fBEDIT_COVER\fP   2420"
+.br
+.ti -1c
+.RI "#define \fBEDIT_FUEL\fP   2421"
+.br
+.ti -1c
+.RI "#define \fBEDIT_ASPECT\fP   2422"
+.br
+.ti -1c
+.RI "#define \fBEDIT_SLOPE\fP   2423"
+.br
+.ti -1c
+.RI "#define \fBEDIT_ELEV\fP   2424"
+.br
+.ti -1c
+.RI "#define \fBCHK_EDITELEV\fP   2425"
+.br
+.ti -1c
+.RI "#define \fBCHK_EDITSLOPE\fP   2426"
+.br
+.ti -1c
+.RI "#define \fBCHK_ENEWSLOPE\fP   2427"
+.br
+.ti -1c
+.RI "#define \fBCHK_EDITASPECT\fP   2428"
+.br
+.ti -1c
+.RI "#define \fBCHK_EDITFUEL\fP   2429"
+.br
+.ti -1c
+.RI "#define \fBCHK_EDITCOVER\fP   2430"
+.br
+.ti -1c
+.RI "#define \fBCHK_EDITHEIGHT\fP   2433"
+.br
+.ti -1c
+.RI "#define \fBCHK_EDITBASE\fP   2431"
+.br
+.ti -1c
+.RI "#define \fBCHK_EDITDENSITY\fP   2432"
+.br
+.ti -1c
+.RI "#define \fBCHK_EDITDUFF\fP   2434"
+.br
+.ti -1c
+.RI "#define \fBCHK_EDITWOODY\fP   2435"
+.br
+.ti -1c
+.RI "#define \fBBUT_EXPORTLCPASCII\fP   2436"
+.br
+.ti -1c
+.RI "#define \fBBUT_SAVEEDITLCP\fP   2437"
+.br
+.ti -1c
+.RI "#define \fBBUT_LOADEDITLCP\fP   2438"
+.br
+.ti -1c
+.RI "#define \fBBUT_SAVEEDIT\fP   2439"
+.br
+.ti -1c
+.RI "#define \fBBUT_EXPORTASCII\fP   2440"
+.br
+.ti -1c
+.RI "#define \fBBUT_EDITCALC\fP   2441"
+.br
+.ti -1c
+.RI "#define \fBRBUT_CELL\fP   2442"
+.br
+.ti -1c
+.RI "#define \fBRBUT_POLY\fP   2443"
+.br
+.ti -1c
+.RI "#define \fBCHK_ENEWHLCB\fP   2444"
+.br
+.ti -1c
+.RI "#define \fBCHK_ENEWDENSITY\fP   2445"
+.br
+.ti -1c
+.RI "#define \fBCHK_ENEWHT\fP   2446"
+.br
+.ti -1c
+.RI "#define \fBCHK_ENEWCOVER\fP   2447"
+.br
+.ti -1c
+.RI "#define \fBCHK_ENEWFUEL\fP   2448"
+.br
+.ti -1c
+.RI "#define \fBCHK_ENEWASPECT\fP   2449"
+.br
+.ti -1c
+.RI "#define \fBCHK_ENEWELEV\fP   2450"
+.br
+.ti -1c
+.RI "#define \fBID_EDITLANDSCAPE\fP   2451"
+.br
+.ti -1c
+.RI "#define \fBID_DIR1\fP   2501"
+.br
+.ti -1c
+.RI "#define \fBID_DIR2\fP   2502"
+.br
+.ti -1c
+.RI "#define \fBID_DIR3\fP   2503"
+.br
+.ti -1c
+.RI "#define \fBID_DIR4\fP   2568"
+.br
+.ti -1c
+.RI "#define \fBID_DIR5\fP   2504"
+.br
+.ti -1c
+.RI "#define \fBID_DIR6\fP   2505"
+.br
+.ti -1c
+.RI "#define \fBID_DIR7\fP   2506"
+.br
+.ti -1c
+.RI "#define \fBID_DIR8\fP   2507"
+.br
+.ti -1c
+.RI "#define \fBID_CLD7\fP   2508"
+.br
+.ti -1c
+.RI "#define \fBID_CLD8\fP   2509"
+.br
+.ti -1c
+.RI "#define \fBID_CLD6\fP   2510"
+.br
+.ti -1c
+.RI "#define \fBID_CLD5\fP   2511"
+.br
+.ti -1c
+.RI "#define \fBID_CLD4\fP   2512"
+.br
+.ti -1c
+.RI "#define \fBID_CLD3\fP   2513"
+.br
+.ti -1c
+.RI "#define \fBID_CLD2\fP   2514"
+.br
+.ti -1c
+.RI "#define \fBID_CLD1\fP   2515"
+.br
+.ti -1c
+.RI "#define \fBID_SPD8\fP   2516"
+.br
+.ti -1c
+.RI "#define \fBID_SPD7\fP   2517"
+.br
+.ti -1c
+.RI "#define \fBID_SPD6\fP   2518"
+.br
+.ti -1c
+.RI "#define \fBID_SPD5\fP   2519"
+.br
+.ti -1c
+.RI "#define \fBID_SPD4\fP   2520"
+.br
+.ti -1c
+.RI "#define \fBID_SPD3\fP   2521"
+.br
+.ti -1c
+.RI "#define \fBID_SPD2\fP   2522"
+.br
+.ti -1c
+.RI "#define \fBID_SPD1\fP   2523"
+.br
+.ti -1c
+.RI "#define \fBID_WDTIME8\fP   2524"
+.br
+.ti -1c
+.RI "#define \fBID_WDTIME7\fP   2525"
+.br
+.ti -1c
+.RI "#define \fBID_WDTIME6\fP   2526"
+.br
+.ti -1c
+.RI "#define \fBID_WDTIME5\fP   2527"
+.br
+.ti -1c
+.RI "#define \fBID_WDTIME4\fP   2528"
+.br
+.ti -1c
+.RI "#define \fBID_WDTIME3\fP   2529"
+.br
+.ti -1c
+.RI "#define \fBID_WDTIME2\fP   2530"
+.br
+.ti -1c
+.RI "#define \fBID_WDTIME1\fP   2531"
+.br
+.ti -1c
+.RI "#define \fBSCRL_WDEF\fP   2532"
+.br
+.ti -1c
+.RI "#define \fBSCRL_TEMPHI\fP   2533"
+.br
+.ti -1c
+.RI "#define \fBSCRL_TEMPLO\fP   2534"
+.br
+.ti -1c
+.RI "#define \fBSCRL_HUMIDLO\fP   2535"
+.br
+.ti -1c
+.RI "#define \fBID_WWCHART\fP   2537"
+.br
+.ti -1c
+.RI "#define \fBID_WINDSTATUS\fP   2538"
+.br
+.ti -1c
+.RI "#define \fBBUT_WWWINDOPEN\fP   2541"
+.br
+.ti -1c
+.RI "#define \fBCHK_WWFILESAVE\fP   2542"
+.br
+.ti -1c
+.RI "#define \fBCHK_WWFILERET\fP   2543"
+.br
+.ti -1c
+.RI "#define \fBID_WWFILE\fP   2544"
+.br
+.ti -1c
+.RI "#define \fBCOMBO_WWTYPE\fP   2545"
+.br
+.ti -1c
+.RI "#define \fBSCRL_WWRAIN\fP   2546"
+.br
+.ti -1c
+.RI "#define \fBSCRL_WWELEV\fP   2547"
+.br
+.ti -1c
+.RI "#define \fBID_WWELEV\fP   2548"
+.br
+.ti -1c
+.RI "#define \fBID_WWRAIN\fP   2549"
+.br
+.ti -1c
+.RI "#define \fBID_WWENGLISH\fP   2550"
+.br
+.ti -1c
+.RI "#define \fBID_WWMETRIC\fP   2551"
+.br
+.ti -1c
+.RI "#define \fBSCRL_TIMEHI\fP   2552"
+.br
+.ti -1c
+.RI "#define \fBSCRL_HUMIDHI\fP   2540"
+.br
+.ti -1c
+.RI "#define \fBSCRL_TIMELO\fP   2553"
+.br
+.ti -1c
+.RI "#define \fBCHK_HALFHR\fP   2554"
+.br
+.ti -1c
+.RI "#define \fBCHK_QUARTERHR\fP   2555"
+.br
+.ti -1c
+.RI "#define \fBCHK_1HR\fP   2556"
+.br
+.ti -1c
+.RI "#define \fBCHK_2HR\fP   2557"
+.br
+.ti -1c
+.RI "#define \fBCHK_4HR\fP   2558"
+.br
+.ti -1c
+.RI "#define \fBCHK_6HR\fP   2559"
+.br
+.ti -1c
+.RI "#define \fBID_TIMEHI\fP   2560"
+.br
+.ti -1c
+.RI "#define \fBID_TIMELO\fP   2561"
+.br
+.ti -1c
+.RI "#define \fBID_HUMIDLO\fP   2562"
+.br
+.ti -1c
+.RI "#define \fBID_TEMPLO\fP   2563"
+.br
+.ti -1c
+.RI "#define \fBID_TEMPHI\fP   2564"
+.br
+.ti -1c
+.RI "#define \fBID_HUMIDHI\fP   2565"
+.br
+.ti -1c
+.RI "#define \fBID_NEXT\fP   2569"
+.br
+.ti -1c
+.RI "#define \fBCHK_WWFILESAVEAS\fP   2570"
+.br
+.ti -1c
+.RI "#define \fBBUT_EDITTABLE\fP   2601"
+.br
+.ti -1c
+.RI "#define \fBID_SAVEWGN\fP   2604"
+.br
+.ti -1c
+.RI "#define \fBID_RETRIEVEWGN\fP   2605"
+.br
+.ti -1c
+.RI "#define \fBID_RETRIEVEWWD\fP   2606"
+.br
+.ti -1c
+.RI "#define \fBBUT_RETRIEVEWWD\fP   2607"
+.br
+.ti -1c
+.RI "#define \fBBUT_RETRIEVEWGN\fP   2608"
+.br
+.ti -1c
+.RI "#define \fBBUT_SAVEWGN\fP   2609"
+.br
+.ti -1c
+.RI "#define \fBBUT_WGGENERATE\fP   2610"
+.br
+.ti -1c
+.RI "#define \fBBUT_WGEXTREME\fP   2611"
+.br
+.ti -1c
+.RI "#define \fBBUT_WGHIGH\fP   2612"
+.br
+.ti -1c
+.RI "#define \fBBUT_WGMODERATE\fP   2613"
+.br
+.ti -1c
+.RI "#define \fBBUT_WGLOW\fP   2614"
+.br
+.ti -1c
+.RI "#define \fBBUT_WGNEXT\fP   2602"
+.br
+.ti -1c
+.RI "#define \fBBUT_WGOTHER\fP   2603"
+.br
+.ti -1c
+.RI "#define \fBBUT_WGNONE\fP   2615"
+.br
+.ti -1c
+.RI "#define \fBID_WWD7\fP   2616"
+.br
+.ti -1c
+.RI "#define \fBID_WWD6\fP   2617"
+.br
+.ti -1c
+.RI "#define \fBID_WWD5\fP   2618"
+.br
+.ti -1c
+.RI "#define \fBID_WWD4\fP   2619"
+.br
+.ti -1c
+.RI "#define \fBID_WWD3\fP   2620"
+.br
+.ti -1c
+.RI "#define \fBID_WWD2\fP   2621"
+.br
+.ti -1c
+.RI "#define \fBID_WWD1\fP   2622"
+.br
+.ti -1c
+.RI "#define \fBID_DY7\fP   2623"
+.br
+.ti -1c
+.RI "#define \fBID_DY6\fP   2624"
+.br
+.ti -1c
+.RI "#define \fBID_DY5\fP   2625"
+.br
+.ti -1c
+.RI "#define \fBID_DY4\fP   2626"
+.br
+.ti -1c
+.RI "#define \fBID_DY3\fP   2627"
+.br
+.ti -1c
+.RI "#define \fBID_DY2\fP   2628"
+.br
+.ti -1c
+.RI "#define \fBID_DY1\fP   2629"
+.br
+.ti -1c
+.RI "#define \fBID_MO7\fP   2630"
+.br
+.ti -1c
+.RI "#define \fBID_MO4\fP   2631"
+.br
+.ti -1c
+.RI "#define \fBID_MO5\fP   2632"
+.br
+.ti -1c
+.RI "#define \fBID_MO6\fP   2633"
+.br
+.ti -1c
+.RI "#define \fBID_MO3\fP   2634"
+.br
+.ti -1c
+.RI "#define \fBID_MO2\fP   2635"
+.br
+.ti -1c
+.RI "#define \fBID_MO1\fP   2636"
+.br
+.ti -1c
+.RI "#define \fBSCRL_EDITTABLE\fP   2637"
+.br
+.ti -1c
+.RI "#define \fBSCRL_WGMONTH\fP   2638"
+.br
+.ti -1c
+.RI "#define \fBSCRL_WGDAY\fP   2639"
+.br
+.ti -1c
+.RI "#define \fBID_WGENDMONTH\fP   2640"
+.br
+.ti -1c
+.RI "#define \fBID_WGSTARTMONTH\fP   2641"
+.br
+.ti -1c
+.RI "#define \fBID_WGENDDAY\fP   2642"
+.br
+.ti -1c
+.RI "#define \fBID_WGSTARTDAY\fP   2643"
+.br
+.ti -1c
+.RI "#define \fBCHK_WGSTART\fP   2644"
+.br
+.ti -1c
+.RI "#define \fBCHK_WGEND\fP   2645"
+.br
+.ti -1c
+.RI "#define \fBSCRL_CONSTLCP\fP   2701"
+.br
+.ti -1c
+.RI "#define \fBID_CONSTLCP\fP   2702"
+.br
+.ti -1c
+.RI "#define \fBID_CONSTLCPNAME\fP   2703"
+.br
+.ti -1c
+.RI "#define \fBID_ACCELSAVE\fP   2801"
+.br
+.ti -1c
+.RI "#define \fBID_ACCELGET\fP   2802"
+.br
+.ti -1c
+.RI "#define \fBID_ACCELTRANS\fP   2803"
+.br
+.ti -1c
+.RI "#define \fBID_ACCELLINETIME\fP   2804"
+.br
+.ti -1c
+.RI "#define \fBID_ACCELPTTIME\fP   2805"
+.br
+.ti -1c
+.RI "#define \fBID_ACCELFUELMOD\fP   2806"
+.br
+.ti -1c
+.RI "#define \fBID_ACCELLINECONST\fP   2807"
+.br
+.ti -1c
+.RI "#define \fBID_ACCELPTCONST\fP   2808"
+.br
+.ti -1c
+.RI "#define \fBSCRL_ACCELFUELMOD\fP   2809"
+.br
+.ti -1c
+.RI "#define \fBSCRL_ACCELTRANS\fP   2810"
+.br
+.ti -1c
+.RI "#define \fBSCRL_ACCELLINE\fP   2811"
+.br
+.ti -1c
+.RI "#define \fBSCRL_ACCELPT\fP   2812"
+.br
+.ti -1c
+.RI "#define \fBBUT_ACCELGET\fP   2813"
+.br
+.ti -1c
+.RI "#define \fBBUT_ACCELSAVE\fP   2814"
+.br
+.ti -1c
+.RI "#define \fBCTL_ACCELGRAPH\fP   2815"
+.br
+.ti -1c
+.RI "#define \fBCHK_ACCELON\fP   2816"
+.br
+.ti -1c
+.RI "#define \fBCHK_ACCELOFF\fP   2817"
+.br
+.ti -1c
+.RI "#define \fBBUT_ACCELGRASS\fP   2818"
+.br
+.ti -1c
+.RI "#define \fBBUT_ACCELSHRUB\fP   2819"
+.br
+.ti -1c
+.RI "#define \fBBUT_ACCELTIMBER\fP   2820"
+.br
+.ti -1c
+.RI "#define \fBBUT_ACCELSLASH\fP   2821"
+.br
+.ti -1c
+.RI "#define \fBBUT_ACCELDEFAULT\fP   2822"
+.br
+.ti -1c
+.RI "#define \fBCHK_FUELMODEL\fP   2823"
+.br
+.ti -1c
+.RI "#define \fBCHK_FUELTYPES\fP   2824"
+.br
+.ti -1c
+.RI "#define \fBCM_INPUTDIALOG\fP   2900"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VV5\fP   2901"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VV4\fP   2902"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VV1\fP   2903"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VV3\fP   2904"
+.br
+.ti -1c
+.RI "#define \fBSTAT_VV2\fP   2905"
+.br
+.ti -1c
+.RI "#define \fBCHK_VV5\fP   2906"
+.br
+.ti -1c
+.RI "#define \fBCHK_VV4\fP   2907"
+.br
+.ti -1c
+.RI "#define \fBCHK_VV1\fP   2908"
+.br
+.ti -1c
+.RI "#define \fBCHK_VV3\fP   2909"
+.br
+.ti -1c
+.RI "#define \fBCHK_VV2\fP   2910"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CONVTO\fP   3001"
+.br
+.ti -1c
+.RI "#define \fBBUT_CONVCHANGE\fP   3002"
+.br
+.ti -1c
+.RI "#define \fBBUT_CONVSAVE\fP   3004"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CONVFROM\fP   3005"
+.br
+.ti -1c
+.RI "#define \fBSCRL_CONVTO\fP   3006"
+.br
+.ti -1c
+.RI "#define \fBSCRL_CONVFROM\fP   3007"
+.br
+.ti -1c
+.RI "#define \fBICON_FARSITE3\fP   5003"
+.br
+.ti -1c
+.RI "#define \fBCUR_TORCH\fP   6001"
+.br
+.ti -1c
+.RI "#define \fBCM_INOUT\fP   7001"
+.br
+.ti -1c
+.RI "#define \fBCM_RIGHTLEFT\fP   7002"
+.br
+.ti -1c
+.RI "#define \fBCM_XYROTATE\fP   7003"
+.br
+.ti -1c
+.RI "#define \fBCM_XZROTATE\fP   7004"
+.br
+.ti -1c
+.RI "#define \fBCM_YZROTATE\fP   7005"
+.br
+.ti -1c
+.RI "#define \fBCM_UPDOWN\fP   7006"
+.br
+.ti -1c
+.RI "#define \fBCM_THREED\fP   7007"
+.br
+.ti -1c
+.RI "#define \fBCM_MAGNIFY\fP   7008"
+.br
+.ti -1c
+.RI "#define \fBCM_DRAWFINAL\fP   7009"
+.br
+.ti -1c
+.RI "#define \fBCM_DRAWDRAFT\fP   7010"
+.br
+.ti -1c
+.RI "#define \fBCM_ZEXAGGERATE\fP   7011"
+.br
+.ti -1c
+.RI "#define \fBCM_GROUNDRESOURCES\fP   8000"
+.br
+.ti -1c
+.RI "#define \fBCM_DIRECTATTACK\fP   8001"
+.br
+.ti -1c
+.RI "#define \fBCM_INDIRECTATTACK\fP   8002"
+.br
+.ti -1c
+.RI "#define \fBCM_STOPATTACK\fP   8003"
+.br
+.ti -1c
+.RI "#define \fBCM_PARALLELATTACK\fP   8004"
+.br
+.ti -1c
+.RI "#define \fBCM_AIRRESOURCES\fP   8010"
+.br
+.ti -1c
+.RI "#define \fBCM_AERIALATTACK\fP   8011"
+.br
+.ti -1c
+.RI "#define \fBCM_REVISEGROUP\fP   8012"
+.br
+.ti -1c
+.RI "#define \fBCM_FIREDATA\fP   8013"
+.br
+.ti -1c
+.RI "#define \fBCM_ZOOMDELAY\fP   8400"
+.br
+.ti -1c
+.RI "#define \fBSCRL_ZOOMDELAY\fP   8401"
+.br
+.ti -1c
+.RI "#define \fBID_ZOOMDELAY\fP   8402"
+.br
+.ti -1c
+.RI "#define \fBCM_POSTFRONT\fP   8500"
+.br
+.ti -1c
+.RI "#define \fBRBUT_COMBFLAMESMOLDER\fP   501"
+.br
+.ti -1c
+.RI "#define \fBRBUT_COMBCH4\fP   502"
+.br
+.ti -1c
+.RI "#define \fBRBUT_COMBPM25\fP   503"
+.br
+.ti -1c
+.RI "#define \fBRBUT_COMBCO2\fP   504"
+.br
+.ti -1c
+.RI "#define \fBRBUT_COMBCO\fP   505"
+.br
+.ti -1c
+.RI "#define \fBRBUT_COMBWTRATE\fP   506"
+.br
+.ti -1c
+.RI "#define \fBRBUT_COMBWTLOSS\fP   507"
+.br
+.ti -1c
+.RI "#define \fBRBUT_COMBENERGY\fP   508"
+.br
+.ti -1c
+.RI "#define \fBBUT_COMBFILENAME\fP   509"
+.br
+.ti -1c
+.RI "#define \fBSTAT_COMBFILENAME\fP   510"
+.br
+.ti -1c
+.RI "#define \fBCHK_COMBVIEWONLY\fP   511"
+.br
+.ti -1c
+.RI "#define \fBSTAT_ENVFILENAME\fP   401"
+.br
+.ti -1c
+.RI "#define \fBBUT_ENVFILENAME\fP   402"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENVSOLAR\fP   403"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENVRH\fP   404"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENVAIRTEMP\fP   405"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENVMFW\fP   406"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENV1HR\fP   407"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENV10HR\fP   408"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENV100HR\fP   409"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENV1000HR\fP   410"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENV10000HR\fP   411"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENV1X\fP   412"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENV2X\fP   413"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENV5X\fP   414"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENV10X\fP   415"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENV20X\fP   416"
+.br
+.ti -1c
+.RI "#define \fBSTAT_ENVSIMSTART\fP   417"
+.br
+.ti -1c
+.RI "#define \fBSTAT_ENVSIMEND\fP   418"
+.br
+.ti -1c
+.RI "#define \fBCHK_ENVNOW\fP   419"
+.br
+.ti -1c
+.RI "#define \fBEDIT_ENVMO\fP   420"
+.br
+.ti -1c
+.RI "#define \fBEDIT_ENVDAY\fP   421"
+.br
+.ti -1c
+.RI "#define \fBEDIT_ENVTIME\fP   422"
+.br
+.ti -1c
+.RI "#define \fBCHK_ENVVIEWONLY\fP   424"
+.br
+.ti -1c
+.RI "#define \fBRBUT_COMBPM10\fP   425"
+.br
+.ti -1c
+.RI "#define \fBEDIT_COMBCUSTRES\fP   426"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENVENG\fP   427"
+.br
+.ti -1c
+.RI "#define \fBRBUT_ENVMET\fP   428"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CONDMO\fP   201"
+.br
+.ti -1c
+.RI "#define \fBSTAT_STARTMN\fP   202"
+.br
+.ti -1c
+.RI "#define \fBUD_ENDMN\fP   203"
+.br
+.ti -1c
+.RI "#define \fBUD_ENDDY\fP   204"
+.br
+.ti -1c
+.RI "#define \fBUD_ENDHR\fP   205"
+.br
+.ti -1c
+.RI "#define \fBUD_ENDMO\fP   206"
+.br
+.ti -1c
+.RI "#define \fBUD_STARTMN\fP   207"
+.br
+.ti -1c
+.RI "#define \fBUD_STARTHR\fP   208"
+.br
+.ti -1c
+.RI "#define \fBUD_STARTDY\fP   209"
+.br
+.ti -1c
+.RI "#define \fBUD_STARTMO\fP   210"
+.br
+.ti -1c
+.RI "#define \fBSTAT_ENDMN\fP   211"
+.br
+.ti -1c
+.RI "#define \fBSTAT_ENDHR\fP   212"
+.br
+.ti -1c
+.RI "#define \fBSTAT_ENDDY\fP   213"
+.br
+.ti -1c
+.RI "#define \fBSTAT_ENDMO\fP   214"
+.br
+.ti -1c
+.RI "#define \fBSTAT_STARTHR\fP   215"
+.br
+.ti -1c
+.RI "#define \fBSTAT_STARTDY\fP   216"
+.br
+.ti -1c
+.RI "#define \fBSTAT_STARTMO\fP   217"
+.br
+.ti -1c
+.RI "#define \fBUD_CONDDY\fP   218"
+.br
+.ti -1c
+.RI "#define \fBUD_CONDMO\fP   219"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CONDDY\fP   220"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CONDHR\fP   221"
+.br
+.ti -1c
+.RI "#define \fBUD_CONDHR\fP   222"
+.br
+.ti -1c
+.RI "#define \fBSTAT_CONDMN\fP   223"
+.br
+.ti -1c
+.RI "#define \fBUD_CONDMN\fP   224"
+.br
+.ti -1c
+.RI "#define \fBCHK_CONDPERIOD\fP   225"
+.br
+.ti -1c
+.RI "#define \fBEDIT_XSTOP\fP   1001"
+.br
+.ti -1c
+.RI "#define \fBLIST_STOPLOC\fP   1002"
+.br
+.ti -1c
+.RI "#define \fBEDIT_YSTOP\fP   1003"
+.br
+.ti -1c
+.RI "#define \fBBUT_ADDSTOP\fP   1004"
+.br
+.ti -1c
+.RI "#define \fBBUT_EDITSTOP\fP   1005"
+.br
+.ti -1c
+.RI "#define \fBBUT_DELSTOP\fP   1006"
+.br
+.ti -1c
+.RI "#define \fBBUT_ENABLESTOP\fP   1007"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define BUT_ACCELDEFAULT   2822"
+
+.PP
+Definition at line \fB839\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_ACCELGET   2813"
+
+.PP
+Definition at line \fB830\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_ACCELGRASS   2818"
+
+.PP
+Definition at line \fB835\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_ACCELSAVE   2814"
+
+.PP
+Definition at line \fB831\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_ACCELSHRUB   2819"
+
+.PP
+Definition at line \fB836\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_ACCELSLASH   2821"
+
+.PP
+Definition at line \fB838\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_ACCELTIMBER   2820"
+
+.PP
+Definition at line \fB837\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_ADDFILE   252"
+
+.PP
+Definition at line \fB121\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_ADDSTOP   1004"
+
+.PP
+Definition at line \fB962\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_BURNPERIOD   192"
+
+.PP
+Definition at line \fB65\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_CLOSEFPJ   175"
+
+.PP
+Definition at line \fB86\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_COARSEWOODY   193"
+
+.PP
+Definition at line \fB66\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_COMBFILENAME   509"
+
+.PP
+Definition at line \fB901\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_CONVCHANGE   3002"
+
+.PP
+Definition at line \fB856\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_CONVSAVE   3004"
+
+.PP
+Definition at line \fB857\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_DELSTOP   1006"
+
+.PP
+Definition at line \fB964\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EDITCALC   2441"
+
+.PP
+Definition at line \fB689\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EDITSTOP   1005"
+
+.PP
+Definition at line \fB963\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EDITTABLE   2601"
+
+.PP
+Definition at line \fB768\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EDITWND1   185"
+
+.PP
+Definition at line \fB58\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EDITWND2   186"
+
+.PP
+Definition at line \fB59\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EDITWND3   187"
+
+.PP
+Definition at line \fB60\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EDITWND4   188"
+
+.PP
+Definition at line \fB61\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EDITWND5   189"
+
+.PP
+Definition at line \fB62\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EDITWTR1   180"
+
+.PP
+Definition at line \fB53\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EDITWTR2   181"
+
+.PP
+Definition at line \fB54\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EDITWTR3   182"
+
+.PP
+Definition at line \fB55\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EDITWTR4   183"
+
+.PP
+Definition at line \fB56\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EDITWTR5   184"
+
+.PP
+Definition at line \fB57\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_ENABLESTOP   1007"
+
+.PP
+Definition at line \fB965\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_ENVFILENAME   402"
+
+.PP
+Definition at line \fB905\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EXPORTASCII   2440"
+
+.PP
+Definition at line \fB688\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EXPORTLCPASCII   2436"
+
+.PP
+Definition at line \fB684\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EXTRACTIN   1671"
+
+.PP
+Definition at line \fB497\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_EXTRACTOUT   1670"
+
+.PP
+Definition at line \fB496\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_LOADEDITLCP   2438"
+
+.PP
+Definition at line \fB686\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_LOADGENLCP   1667"
+
+.PP
+Definition at line \fB493\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_NEWLCP   101"
+
+.PP
+Definition at line \fB492\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_REMOVEFILE   250"
+
+.PP
+Definition at line \fB119\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_RETRIEVEWGN   2608"
+
+.PP
+Definition at line \fB773\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_RETRIEVEWWD   2607"
+
+.PP
+Definition at line \fB772\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_SAVEEDIT   2439"
+
+.PP
+Definition at line \fB687\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_SAVEEDITLCP   2437"
+
+.PP
+Definition at line \fB685\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_SAVEGENLCP   1668"
+
+.PP
+Definition at line \fB494\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_SAVEWGN   2609"
+
+.PP
+Definition at line \fB774\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_VPFIRE   2222"
+
+.PP
+Definition at line \fB637\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_VPIN   2221"
+
+.PP
+Definition at line \fB636\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_VPOUT   2220"
+
+.PP
+Definition at line \fB635\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_WGEXTREME   2611"
+
+.PP
+Definition at line \fB776\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_WGGENERATE   2610"
+
+.PP
+Definition at line \fB775\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_WGHIGH   2612"
+
+.PP
+Definition at line \fB777\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_WGLOW   2614"
+
+.PP
+Definition at line \fB779\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_WGMODERATE   2613"
+
+.PP
+Definition at line \fB778\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_WGNEXT   2602"
+
+.PP
+Definition at line \fB780\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_WGNONE   2615"
+
+.PP
+Definition at line \fB782\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_WGOTHER   2603"
+
+.PP
+Definition at line \fB781\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define BUT_WWWINDOPEN   2541"
+
+.PP
+Definition at line \fB739\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CAN_ENGLISH   1022"
+
+.PP
+Definition at line \fB382\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CAN_METRIC   1021"
+
+.PP
+Definition at line \fB381\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_1HR   2556"
+
+.PP
+Definition at line \fB755\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_1LCP   1915"
+
+.PP
+Definition at line \fB574\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_2HR   2557"
+
+.PP
+Definition at line \fB756\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_2LCP   1917"
+
+.PP
+Definition at line \fB576\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_3LCP   1919"
+
+.PP
+Definition at line \fB578\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_4HR   2558"
+
+.PP
+Definition at line \fB757\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_4LCP   1904"
+
+.PP
+Definition at line \fB563\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_5LCP   1903"
+
+.PP
+Definition at line \fB562\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_6HR   2559"
+
+.PP
+Definition at line \fB758\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_ACCELOFF   2817"
+
+.PP
+Definition at line \fB834\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_ACCELON   2816"
+
+.PP
+Definition at line \fB833\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_ASPECTFILE   1608"
+
+.PP
+Definition at line \fB459\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_BDCONST   1646"
+
+.PP
+Definition at line \fB470\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_BURNPERIOD   190"
+
+.PP
+Definition at line \fB63\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_CBDFILE   1640"
+
+.PP
+Definition at line \fB466\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_COARSEWOODY   195"
+
+.PP
+Definition at line \fB68\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_COMBVIEWONLY   511"
+
+.PP
+Definition at line \fB903\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_CONDPERIOD   225"
+
+.PP
+Definition at line \fB956\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_COVERCONST   1649"
+
+.PP
+Definition at line \fB473\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_COVERFILE   1606"
+
+.PP
+Definition at line \fB457\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_DISPENGLISH   107"
+
+.PP
+Definition at line \fB156\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_DISPMETRIC   108"
+
+.PP
+Definition at line \fB157\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_DUFFCONST   1659"
+
+.PP
+Definition at line \fB483\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_DUFFFILE   1655"
+
+.PP
+Definition at line \fB479\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_EDITASPECT   2428"
+
+.PP
+Definition at line \fB676\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_EDITBASE   2431"
+
+.PP
+Definition at line \fB680\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_EDITCOVER   2430"
+
+.PP
+Definition at line \fB678\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_EDITDENSITY   2432"
+
+.PP
+Definition at line \fB681\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_EDITDUFF   2434"
+
+.PP
+Definition at line \fB682\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_EDITELEV   2425"
+
+.PP
+Definition at line \fB673\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_EDITFUEL   2429"
+
+.PP
+Definition at line \fB677\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_EDITHEIGHT   2433"
+
+.PP
+Definition at line \fB679\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_EDITSLOPE   2426"
+
+.PP
+Definition at line \fB674\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_EDITWOODY   2435"
+
+.PP
+Definition at line \fB683\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_ELEVFILE   1610"
+
+.PP
+Definition at line \fB461\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_ENEWASPECT   2449"
+
+.PP
+Definition at line \fB697\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_ENEWCOVER   2447"
+
+.PP
+Definition at line \fB695\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_ENEWDENSITY   2445"
+
+.PP
+Definition at line \fB693\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_ENEWELEV   2450"
+
+.PP
+Definition at line \fB698\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_ENEWFUEL   2448"
+
+.PP
+Definition at line \fB696\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_ENEWHLCB   2444"
+
+.PP
+Definition at line \fB692\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_ENEWHT   2446"
+
+.PP
+Definition at line \fB694\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_ENEWSLOPE   2427"
+
+.PP
+Definition at line \fB675\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_ENVNOW   419"
+
+.PP
+Definition at line \fB922\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_ENVVIEWONLY   424"
+
+.PP
+Definition at line \fB926\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_EXTRACTFROM   2007"
+
+.PP
+Definition at line \fB592\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_EXTRACTTO   2008"
+
+.PP
+Definition at line \fB593\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_FUELCONST   1650"
+
+.PP
+Definition at line \fB474\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_FUELFILE   1607"
+
+.PP
+Definition at line \fB458\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_FUELMODEL   2823"
+
+.PP
+Definition at line \fB840\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_FUELTYPES   2824"
+
+.PP
+Definition at line \fB841\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_GISLOGFILES   394"
+
+.PP
+Definition at line \fB179\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_HALFHR   2554"
+
+.PP
+Definition at line \fB753\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_HEIGHTCONST   1648"
+
+.PP
+Definition at line \fB472\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_HEIGHTFILE   1638"
+
+.PP
+Definition at line \fB464\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_HLCBCONST   1647"
+
+.PP
+Definition at line \fB471\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_HLCBFILE   1639"
+
+.PP
+Definition at line \fB465\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_OTPENGLISH   110"
+
+.PP
+Definition at line \fB158\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_OTPMETRIC   111"
+
+.PP
+Definition at line \fB159\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_QUARTERHR   2555"
+
+.PP
+Definition at line \fB754\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_RASTERVPONLY   1356"
+
+.PP
+Definition at line \fB180\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_REACT   106"
+
+.PP
+Definition at line \fB171\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_RFILENAME   2308"
+
+.PP
+Definition at line \fB646\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_SHAPEBARRIERS   1354"
+
+.PP
+Definition at line \fB185\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_SHAPEFILE   1350"
+
+.PP
+Definition at line \fB181\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_SHAPELINES   1352"
+
+.PP
+Definition at line \fB183\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_SHAPEPOLYS   1353"
+
+.PP
+Definition at line \fB184\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_SHAPEVISONLY   1351"
+
+.PP
+Definition at line \fB182\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_SIMPRESERVE   467"
+
+.PP
+Definition at line \fB258\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_SLOPEFILE   1609"
+
+.PP
+Definition at line \fB460\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_VECTORTOFPJ   1720"
+
+.PP
+Definition at line \fB522\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_VIS1   206"
+
+.PP
+Definition at line \fB116\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_VIS2   205"
+
+.PP
+Definition at line \fB115\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_VV1   2908"
+
+.PP
+Definition at line \fB851\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_VV2   2910"
+
+.PP
+Definition at line \fB853\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_VV3   2909"
+
+.PP
+Definition at line \fB852\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_VV4   2907"
+
+.PP
+Definition at line \fB850\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_VV5   2906"
+
+.PP
+Definition at line \fB849\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_WGEND   2645"
+
+.PP
+Definition at line \fB812\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_WGSTART   2644"
+
+.PP
+Definition at line \fB811\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_WOODYCONST   1657"
+
+.PP
+Definition at line \fB481\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_WOODYFILE   1656"
+
+.PP
+Definition at line \fB480\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_WOODYLINK   1665"
+
+.PP
+Definition at line \fB489\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_WWFILERET   2543"
+
+.PP
+Definition at line \fB741\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_WWFILESAVE   2542"
+
+.PP
+Definition at line \fB740\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CHK_WWFILESAVEAS   2570"
+
+.PP
+Definition at line \fB766\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CLEAR_ALLFIRES   359"
+
+.PP
+Definition at line \fB146\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_14COVER   1007"
+
+.PP
+Definition at line \fB348\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ABOUTFARSITE   414"
+
+.PP
+Definition at line \fB225\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ADDBARRIERS   407"
+
+.PP
+Definition at line \fB218\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ADDFIRES   406"
+
+.PP
+Definition at line \fB217\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ADDFUELS   408"
+
+.PP
+Definition at line \fB219\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ADDWS   411"
+
+.PP
+Definition at line \fB222\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ADEGREES   1004"
+
+.PP
+Definition at line \fB345\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ADJGEN   124"
+
+.PP
+Definition at line \fB81\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_AERIALATTACK   8011"
+
+.PP
+Definition at line \fB883\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_AIRRESOURCES   8010"
+
+.PP
+Definition at line \fB882\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_CALCLCP   196"
+
+.PP
+Definition at line \fB69\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_CANSET   1020"
+
+.PP
+Definition at line \fB363\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_CELSIUS   813"
+
+.PP
+Definition at line \fB326\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_CFIRE   326"
+
+.PP
+Definition at line \fB167\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_CHANGEFMD   1128"
+
+.PP
+Definition at line \fB411\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_CHANGEVIEWPORT   2102"
+
+.PP
+Definition at line \fB611\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_CNVGEN   122"
+
+.PP
+Definition at line \fB83\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_CONSTBACKING   609"
+
+.PP
+Definition at line \fB293\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_CONTROL   600"
+
+.PP
+Definition at line \fB282\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_CONVERTLCP4   104"
+
+.PP
+Definition at line \fB75\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_COUNTFIRES   193"
+
+.PP
+Definition at line \fB78\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_CROWNING   607"
+
+.PP
+Definition at line \fB290\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_CURCLOCK   353"
+
+.PP
+Definition at line \fB141\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_CUSTOMFM   1001"
+
+.PP
+Definition at line \fB342\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_CUSTOMMOD   1006"
+
+.PP
+Definition at line \fB347\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_DEFWWTYPES   154"
+
+.PP
+Definition at line \fB51\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_DF   1032"
+
+.PP
+Definition at line \fB373\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_DIRECTATTACK   8001"
+
+.PP
+Definition at line \fB878\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_DISPLAY   370"
+
+.PP
+Definition at line \fB187\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_DRAWDRAFT   7010"
+
+.PP
+Definition at line \fB874\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_DRAWFINAL   7009"
+
+.PP
+Definition at line \fB873\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_DUFFLOAD   1662"
+
+.PP
+Definition at line \fB486\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_DUFFMGHA   1660"
+
+.PP
+Definition at line \fB484\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_DUFFMOIS   724"
+
+.PP
+Definition at line \fB312\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_DUFFTA   1661"
+
+.PP
+Definition at line \fB485\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_DURATION   409"
+
+.PP
+Definition at line \fB220\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_EDITLCP   153"
+
+.PP
+Definition at line \fB50\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_EDITLOCATION   469"
+
+.PP
+Definition at line \fB259\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_EDITRASTERCOLOR   466"
+
+.PP
+Definition at line \fB257\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_EDITVECTORCOLOR   464"
+
+.PP
+Definition at line \fB255\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_EDITVECTORSTYLE   465"
+
+.PP
+Definition at line \fB256\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ELCLOCK   352"
+
+.PP
+Definition at line \fB140\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ELENGLISH   1011"
+
+.PP
+Definition at line \fB352\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ELMETRIC   1012"
+
+.PP
+Definition at line \fB354\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ENDTIME   515"
+
+.PP
+Definition at line \fB279\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ENGLISH   1129"
+
+.PP
+Definition at line \fB412\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ERASE3D   429"
+
+.PP
+Definition at line \fB240\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ES   1035"
+
+.PP
+Definition at line \fB376\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_EXECUTERESET   199"
+
+.PP
+Definition at line \fB72\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_EXECUTERESTART   198"
+
+.PP
+Definition at line \fB71\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_EXECUTESUSPEND   174"
+
+.PP
+Definition at line \fB73\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_EXECUTETERMINATE   197"
+
+.PP
+Definition at line \fB70\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_EXPCHECK   619"
+
+.PP
+Definition at line \fB295\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_EXPORTBARRIERS   456"
+
+.PP
+Definition at line \fB247\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_EXPORTPERIM   453"
+
+.PP
+Definition at line \fB244\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_EXTRACTLCP   151"
+
+.PP
+Definition at line \fB48\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FARENHT   814"
+
+.PP
+Definition at line \fB327\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FDIR   327"
+
+.PP
+Definition at line \fB168\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FILEFARSITE   1402"
+
+.PP
+Definition at line \fB444\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FILEOPEN0   101"
+
+.PP
+Definition at line \fB23\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FILEOPEN1   102"
+
+.PP
+Definition at line \fB24\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FILEOPEN4   117"
+
+.PP
+Definition at line \fB33\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FIREACCEL   2105"
+
+.PP
+Definition at line \fB614\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FIREDATA   8013"
+
+.PP
+Definition at line \fB885\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FL   323"
+
+.PP
+Definition at line \fB164\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FLI   322"
+
+.PP
+Definition at line \fB163\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FMD   344"
+
+.PP
+Definition at line \fB136\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FMDGEN   123"
+
+.PP
+Definition at line \fB84\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FMG   345"
+
+.PP
+Definition at line \fB137\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FMSENDCHANGE   1303"
+
+.PP
+Definition at line \fB439\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FMSGEN   121"
+
+.PP
+Definition at line \fB82\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FUELCON   119"
+
+.PP
+Definition at line \fB35\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_FUELCONVT   1014"
+
+.PP
+Definition at line \fB353\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_GENERATE   120"
+
+.PP
+Definition at line \fB36\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_GENWWTYPES   155"
+
+.PP
+Definition at line \fB52\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_GETBOOKMARK   2104"
+
+.PP
+Definition at line \fB613\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_GF   1031"
+
+.PP
+Definition at line \fB372\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_GRAPH   253"
+
+.PP
+Definition at line \fB122\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_GRAPHAREA   502"
+
+.PP
+Definition at line \fB264\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_GRAPHPERIMETER   503"
+
+.PP
+Definition at line \fB265\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_GRASS   1003"
+
+.PP
+Definition at line \fB344\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_GROUNDRESOURCES   8000"
+
+.PP
+Definition at line \fB877\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_HPUA   325"
+
+.PP
+Definition at line \fB166\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_HUND   707"
+
+.PP
+Definition at line \fB299\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_IGNITE   400"
+
+.PP
+Definition at line \fB212\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_IGNITIONFILE   415"
+
+.PP
+Definition at line \fB226\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_IMAGE   501"
+
+.PP
+Definition at line \fB263\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_IMPORTBARRIERS   455"
+
+.PP
+Definition at line \fB246\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_INDIRECTATTACK   8002"
+
+.PP
+Definition at line \fB879\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_INFOLCP   152"
+
+.PP
+Definition at line \fB49\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_INITCONST   105"
+
+.PP
+Definition at line \fB25\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_INITFM   116"
+
+.PP
+Definition at line \fB32\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_INOUT   7001"
+
+.PP
+Definition at line \fB865\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_INPUTDIALOG   2900"
+
+.PP
+Definition at line \fB843\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_KILLMOIST   463"
+
+.PP
+Definition at line \fB254\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_KILLWAIT   462"
+
+.PP
+Definition at line \fB253\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_LANDDISPLAY   1800"
+
+.PP
+Definition at line \fB524\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_LEGEND   390"
+
+.PP
+Definition at line \fB209\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_LH   710"
+
+.PP
+Definition at line \fB301\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_LINKDENSITY   620"
+
+.PP
+Definition at line \fB289\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_LP   1037"
+
+.PP
+Definition at line \fB378\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_LW   709"
+
+.PP
+Definition at line \fB310\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_MAGNIFY   7008"
+
+.PP
+Definition at line \fB872\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_MAKEBOOKMARK   2103"
+
+.PP
+Definition at line \fB612\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_MAPS   255"
+
+.PP
+Definition at line \fB124\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_MEASURE   471"
+
+.PP
+Definition at line \fB261\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_MERGELCP   150"
+
+.PP
+Definition at line \fB47\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_METHOD1   605"
+
+.PP
+Definition at line \fB283\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_METHOD2   606"
+
+.PP
+Definition at line \fB284\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_METRIC   1130"
+
+.PP
+Definition at line \fB413\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_MODEL   200"
+
+.PP
+Definition at line \fB103\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_MOISTUREMODEL   217"
+
+.PP
+Definition at line \fB117\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_NOREASTFEET   1009"
+
+.PP
+Definition at line \fB350\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_NOREASTKM   1654"
+
+.PP
+Definition at line \fB478\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_NOREASTMETRIC   1010"
+
+.PP
+Definition at line \fB351\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ONE   705"
+
+.PP
+Definition at line \fB297\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_OPENWND1   141"
+
+.PP
+Definition at line \fB42\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_OPENWND2   142"
+
+.PP
+Definition at line \fB43\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_OPENWND3   143"
+
+.PP
+Definition at line \fB44\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_OPENWND4   144"
+
+.PP
+Definition at line \fB45\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_OPENWND5   145"
+
+.PP
+Definition at line \fB46\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_OPENWTR1   131"
+
+.PP
+Definition at line \fB37\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_OPENWTR2   132"
+
+.PP
+Definition at line \fB38\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_OPENWTR3   133"
+
+.PP
+Definition at line \fB39\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_OPENWTR4   134"
+
+.PP
+Definition at line \fB40\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_OPENWTR5   135"
+
+.PP
+Definition at line \fB41\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_PAN   179"
+
+.PP
+Definition at line \fB76\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_PARALLELATTACK   8004"
+
+.PP
+Definition at line \fB881\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_PCTCOVER   1008"
+
+.PP
+Definition at line \fB349\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_POSTFRONT   8500"
+
+.PP
+Definition at line \fB891\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_PP   1036"
+
+.PP
+Definition at line \fB377\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_PRES   203"
+
+.PP
+Definition at line \fB106\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_PROJMAKE   115"
+
+.PP
+Definition at line \fB31\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_PROJOPEN   114"
+
+.PP
+Definition at line \fB30\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_RATEREDUCT   118"
+
+.PP
+Definition at line \fB34\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_REDRAW2D   425"
+
+.PP
+Definition at line \fB236\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_REDRAW3D   426"
+
+.PP
+Definition at line \fB237\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_RESET   413"
+
+.PP
+Definition at line \fB224\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_RESETTHREADS   103"
+
+.PP
+Definition at line \fB74\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_RESTART   402"
+
+.PP
+Definition at line \fB214\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_RESUME   404"
+
+.PP
+Definition at line \fB215\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_REVIEWVISVECTOR   157"
+
+.PP
+Definition at line \fB80\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_REVISEGROUP   8012"
+
+.PP
+Definition at line \fB884\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_RIGHTLEFT   7002"
+
+.PP
+Definition at line \fB866\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ROS   324"
+
+.PP
+Definition at line \fB165\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_RUN   401"
+
+.PP
+Definition at line \fB213\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SAVEADJ   906"
+
+.PP
+Definition at line \fB340\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SAVEFMD   1127"
+
+.PP
+Definition at line \fB410\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SAVEFMS   711"
+
+.PP
+Definition at line \fB314\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SAVEGAREA   110"
+
+.PP
+Definition at line \fB28\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SAVEGPERIMETER   111"
+
+.PP
+Definition at line \fB29\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SAVEPERIMETERS   417"
+
+.PP
+Definition at line \fB228\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SAVEWINPOS   156"
+
+.PP
+Definition at line \fB79\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SDEGREES   1002"
+
+.PP
+Definition at line \fB343\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SENDMOIS   723"
+
+.PP
+Definition at line \fB309\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SENDREDUCT   905"
+
+.PP
+Definition at line \fB339\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SETTINGS   300"
+
+.PP
+Definition at line \fB125\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SF   1034"
+
+.PP
+Definition at line \fB375\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SHOWDA   315"
+
+.PP
+Definition at line \fB128\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SHOWDP   316"
+
+.PP
+Definition at line \fB129\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SHOWDS   340"
+
+.PP
+Definition at line \fB132\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SHOWFD   356"
+
+.PP
+Definition at line \fB142\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SHOWFG   357"
+
+.PP
+Definition at line \fB143\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SHOWGA   317"
+
+.PP
+Definition at line \fB130\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SHOWGP   318"
+
+.PP
+Definition at line \fB131\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SHOWGS   341"
+
+.PP
+Definition at line \fB133\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SIMOPTIONS   452"
+
+.PP
+Definition at line \fB243\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SPERCENT   1005"
+
+.PP
+Definition at line \fB346\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SPOTGROWTH   613"
+
+.PP
+Definition at line \fB294\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SRES   204"
+
+.PP
+Definition at line \fB107\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_STARTMOIST   470"
+
+.PP
+Definition at line \fB260\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_STARTTIME   517"
+
+.PP
+Definition at line \fB280\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_STEPTHRU   454"
+
+.PP
+Definition at line \fB245\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_STOPATTACK   8003"
+
+.PP
+Definition at line \fB880\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_STOPLOCATION   461"
+
+.PP
+Definition at line \fB252\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SURFSPOTTING   608"
+
+.PP
+Definition at line \fB291\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_SUSPEND   410"
+
+.PP
+Definition at line \fB221\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_TABLE   254"
+
+.PP
+Definition at line \fB123\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_TEN   706"
+
+.PP
+Definition at line \fB298\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_TERMINATE   405"
+
+.PP
+Definition at line \fB216\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_THD   342"
+
+.PP
+Definition at line \fB134\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_THG   343"
+
+.PP
+Definition at line \fB135\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_THOU   708"
+
+.PP
+Definition at line \fB300\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_THREED   7007"
+
+.PP
+Definition at line \fB871\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_TOA   321"
+
+.PP
+Definition at line \fB162\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_TOCLIPBOARD   1405"
+
+.PP
+Definition at line \fB447\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_TOFILE   1401"
+
+.PP
+Definition at line \fB443\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_TOLHIGH   1019"
+
+.PP
+Definition at line \fB361\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_TOLLOW   1017"
+
+.PP
+Definition at line \fB359\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_TOLMED   1018"
+
+.PP
+Definition at line \fB360\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_TOPRINTER   1400"
+
+.PP
+Definition at line \fB442\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_TORCH   412"
+
+.PP
+Definition at line \fB223\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_TREESPOTTING   612"
+
+.PP
+Definition at line \fB292\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_TS   201"
+
+.PP
+Definition at line \fB104\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_UPDOWN   7006"
+
+.PP
+Definition at line \fB870\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_VIEW2DLCP   422"
+
+.PP
+Definition at line \fB233\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_VIEW2DRASTER   420"
+
+.PP
+Definition at line \fB231\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_VIEW3DLCP   423"
+
+.PP
+Definition at line \fB234\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_VIEW3DRASTER   421"
+
+.PP
+Definition at line \fB232\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_VIEWBOTHLCP   424"
+
+.PP
+Definition at line \fB235\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_VIEWCLEAR   427"
+
+.PP
+Definition at line \fB238\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_VIEWERASE   428"
+
+.PP
+Definition at line \fB239\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_VIEWRASTER   419"
+
+.PP
+Definition at line \fB230\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_VIEWVECTOR   418"
+
+.PP
+Definition at line \fB229\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_VTS   202"
+
+.PP
+Definition at line \fB105\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_WH   1033"
+
+.PP
+Definition at line \fB374\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_WINDGRAPH   351"
+
+.PP
+Definition at line \fB139\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_WINDGUAGE   350"
+
+.PP
+Definition at line \fB138\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_WINDOWIN   416"
+
+.PP
+Definition at line \fB227\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_WNDCONST   107"
+
+.PP
+Definition at line \fB27\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_WNDKPH   803"
+
+.PP
+Definition at line \fB318\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_WNDMPH   804"
+
+.PP
+Definition at line \fB319\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_WP   1038"
+
+.PP
+Definition at line \fB379\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_WR   1039"
+
+.PP
+Definition at line \fB380\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_WSDATA   1216"
+
+.PP
+Definition at line \fB435\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_WSTATION   1200"
+
+.PP
+Definition at line \fB419\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_WTRCONST   106"
+
+.PP
+Definition at line \fB26\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_XYROTATE   7003"
+
+.PP
+Definition at line \fB867\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_XZROTATE   7004"
+
+.PP
+Definition at line \fB868\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_YZROTATE   7005"
+
+.PP
+Definition at line \fB869\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ZEXAGGERATE   7011"
+
+.PP
+Definition at line \fB875\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CM_ZOOMDELAY   8400"
+
+.PP
+Definition at line \fB887\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_BLACK   1703"
+
+.PP
+Definition at line \fB505\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_BLUE   1708"
+
+.PP
+Definition at line \fB510\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_BOLD   1714"
+
+.PP
+Definition at line \fB516\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_CYAN   1709"
+
+.PP
+Definition at line \fB511\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_DASHED   1713"
+
+.PP
+Definition at line \fB515\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_DOTTED   1717"
+
+.PP
+Definition at line \fB521\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_FILENAME   1701"
+
+.PP
+Definition at line \fB503\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_GREEN   1710"
+
+.PP
+Definition at line \fB512\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_GREY   1704"
+
+.PP
+Definition at line \fB506\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_LTGREEN   1711"
+
+.PP
+Definition at line \fB513\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_LTRED   1707"
+
+.PP
+Definition at line \fB509\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_PERMANENT   1716"
+
+.PP
+Definition at line \fB518\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_RED   1706"
+
+.PP
+Definition at line \fB508\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_SELECTFILE   1700"
+
+.PP
+Definition at line \fB502\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_SOLID   1712"
+
+.PP
+Definition at line \fB514\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_TEMPORARY   1715"
+
+.PP
+Definition at line \fB517\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_WHITE   1702"
+
+.PP
+Definition at line \fB504\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CMP_YELLOW   1705"
+
+.PP
+Definition at line \fB507\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define COMBO_WWTYPE   2545"
+
+.PP
+Definition at line \fB743\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CTL_ACCELGRAPH   2815"
+
+.PP
+Definition at line \fB832\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define CUR_TORCH   6001"
+
+.PP
+Definition at line \fB863\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define DISP_ENGLISH   378"
+
+.PP
+Definition at line \fB194\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define DISP_FL   374"
+
+.PP
+Definition at line \fB190\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define DISP_FLI   373"
+
+.PP
+Definition at line \fB189\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define DISP_HPUA   376"
+
+.PP
+Definition at line \fB192\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define DISP_METRIC   377"
+
+.PP
+Definition at line \fB193\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define DISP_ROS   375"
+
+.PP
+Definition at line \fB191\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define DISP_WHITE   371"
+
+.PP
+Definition at line \fB188\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_ASPECT   2422"
+
+.PP
+Definition at line \fB670\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_BASE   2418"
+
+.PP
+Definition at line \fB666\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_COMBCUSTRES   426"
+
+.PP
+Definition at line \fB928\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_COVER   2420"
+
+.PP
+Definition at line \fB668\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_DENSITY   2401"
+
+.PP
+Definition at line \fB648\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_DUFF   2417"
+
+.PP
+Definition at line \fB665\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_ELEV   2424"
+
+.PP
+Definition at line \fB672\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_ENVDAY   421"
+
+.PP
+Definition at line \fB924\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_ENVMO   420"
+
+.PP
+Definition at line \fB923\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_ENVTIME   422"
+
+.PP
+Definition at line \fB925\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_EXTRACTDESC   1674"
+
+.PP
+Definition at line \fB500\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_FUEL   2421"
+
+.PP
+Definition at line \fB669\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_GRIDRES   103"
+
+.PP
+Definition at line \fB550\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_HEIGHT   2419"
+
+.PP
+Definition at line \fB667\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_IGDELAY   103"
+
+.PP
+Definition at line \fB288\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_IGPROB   101"
+
+.PP
+Definition at line \fB287\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_LAT   1613"
+
+.PP
+Definition at line \fB462\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_LCPDESC   1673"
+
+.PP
+Definition at line \fB499\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_MERGEDESC   1924"
+
+.PP
+Definition at line \fB583\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_NUMTHREADS   460"
+
+.PP
+Definition at line \fB251\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_RESOLX   104"
+
+.PP
+Definition at line \fB169\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_RESOLY   105"
+
+.PP
+Definition at line \fB170\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_SLOPE   2423"
+
+.PP
+Definition at line \fB671\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_WOODY   2416"
+
+.PP
+Definition at line \fB664\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_XSTOP   1001"
+
+.PP
+Definition at line \fB959\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define EDIT_YSTOP   1003"
+
+.PP
+Definition at line \fB961\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ICON_FARSITE3   5003"
+
+.PP
+Definition at line \fB862\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_100HR   1117"
+
+.PP
+Definition at line \fB400\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_10HR   1116"
+
+.PP
+Definition at line \fB399\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_1HR   1115"
+
+.PP
+Definition at line \fB398\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_2DWINDOW   1718"
+
+.PP
+Definition at line \fB519\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_3DWINDOW   1719"
+
+.PP
+Definition at line \fB520\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_5COLS   1908"
+
+.PP
+Definition at line \fB567\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_5EAST   1911"
+
+.PP
+Definition at line \fB570\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_5HEIGHT   1909"
+
+.PP
+Definition at line \fB568\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_5NORTH   1905"
+
+.PP
+Definition at line \fB564\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_5ROWS   1907"
+
+.PP
+Definition at line \fB566\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_5SOUTH   1906"
+
+.PP
+Definition at line \fB565\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_5WEST   1912"
+
+.PP
+Definition at line \fB571\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_5WIDTH   1910"
+
+.PP
+Definition at line \fB569\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_ACCELFUELMOD   2806"
+
+.PP
+Definition at line \fB823\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_ACCELGET   2802"
+
+.PP
+Definition at line \fB819\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_ACCELLINECONST   2807"
+
+.PP
+Definition at line \fB824\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_ACCELLINETIME   2804"
+
+.PP
+Definition at line \fB821\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_ACCELPTCONST   2808"
+
+.PP
+Definition at line \fB825\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_ACCELPTTIME   2805"
+
+.PP
+Definition at line \fB822\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_ACCELSAVE   2801"
+
+.PP
+Definition at line \fB818\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_ACCELTRANS   2803"
+
+.PP
+Definition at line \fB820\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_ADJIGNITIONRATE   458"
+
+.PP
+Definition at line \fB249\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_ARCVECTOUT   301"
+
+.PP
+Definition at line \fB175\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_ASPECTFILE   1604"
+
+.PP
+Definition at line \fB455\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_BASEUNITS   1652"
+
+.PP
+Definition at line \fB476\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_BD   1028"
+
+.PP
+Definition at line \fB369\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_BMPCLIPBOARD   1404"
+
+.PP
+Definition at line \fB446\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_BMPPRINT   1403"
+
+.PP
+Definition at line \fB445\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_CBDFILE   1644"
+
+.PP
+Definition at line \fB469\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_CFMOD   384"
+
+.PP
+Definition at line \fB200\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_CLD1   2515"
+
+.PP
+Definition at line \fB716\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_CLD2   2514"
+
+.PP
+Definition at line \fB715\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_CLD3   2513"
+
+.PP
+Definition at line \fB714\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_CLD4   2512"
+
+.PP
+Definition at line \fB713\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_CLD5   2511"
+
+.PP
+Definition at line \fB712\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_CLD6   2510"
+
+.PP
+Definition at line \fB711\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_CLD7   2508"
+
+.PP
+Definition at line \fB709\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_CLD8   2509"
+
+.PP
+Definition at line \fB710\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_CLOUDY   817"
+
+.PP
+Definition at line \fB330\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_CONSTLCP   2702"
+
+.PP
+Definition at line \fB815\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_CONSTLCPNAME   2703"
+
+.PP
+Definition at line \fB816\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_COVERFILE   1602"
+
+.PP
+Definition at line \fB453\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DBH   1029"
+
+.PP
+Definition at line \fB370\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DENSITYUNITS   1653"
+
+.PP
+Definition at line \fB477\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DEPTH   1125"
+
+.PP
+Definition at line \fB408\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DEPTHUNITS   1134"
+
+.PP
+Definition at line \fB417\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DIR1   2501"
+
+.PP
+Definition at line \fB701\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DIR2   2502"
+
+.PP
+Definition at line \fB702\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DIR3   2503"
+
+.PP
+Definition at line \fB703\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DIR4   2568"
+
+.PP
+Definition at line \fB704\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DIR5   2504"
+
+.PP
+Definition at line \fB705\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DIR6   2505"
+
+.PP
+Definition at line \fB706\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DIR7   2506"
+
+.PP
+Definition at line \fB707\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DIR8   2507"
+
+.PP
+Definition at line \fB708\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DUFFFILE   1664"
+
+.PP
+Definition at line \fB488\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DUFFMOIS   725"
+
+.PP
+Definition at line \fB313\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DURATIONRESET   516"
+
+.PP
+Definition at line \fB278\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DY   512"
+
+.PP
+Definition at line \fB275\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DY1   2629"
+
+.PP
+Definition at line \fB796\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DY2   2628"
+
+.PP
+Definition at line \fB795\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DY3   2627"
+
+.PP
+Definition at line \fB794\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DY4   2626"
+
+.PP
+Definition at line \fB793\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DY5   2625"
+
+.PP
+Definition at line \fB792\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DY6   2624"
+
+.PP
+Definition at line \fB791\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_DY7   2623"
+
+.PP
+Definition at line \fB790\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_EDITLANDSCAPE   2451"
+
+.PP
+Definition at line \fB699\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_ELEVFILE   1601"
+
+.PP
+Definition at line \fB452\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_EVIEWPORT   2024"
+
+.PP
+Definition at line \fB609\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_EXINEAST   2003"
+
+.PP
+Definition at line \fB588\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_EXINNORTH   2002"
+
+.PP
+Definition at line \fB587\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_EXINSOUTH   2016"
+
+.PP
+Definition at line \fB601\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_EXINWEST   2012"
+
+.PP
+Definition at line \fB597\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_EXITEXTRACT   2004"
+
+.PP
+Definition at line \fB589\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_EXOUTEAST   2011"
+
+.PP
+Definition at line \fB596\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_EXOUTNORTH   2000"
+
+.PP
+Definition at line \fB585\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_EXOUTSOUTH   2017"
+
+.PP
+Definition at line \fB602\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_EXOUTWEST   2013"
+
+.PP
+Definition at line \fB598\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_EXTRACTGRAPH   2023"
+
+.PP
+Definition at line \fB608\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_EXTRACTLCP   2005"
+
+.PP
+Definition at line \fB590\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_FACTOR   904"
+
+.PP
+Definition at line \fB338\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_FIRECOLOR   392"
+
+.PP
+Definition at line \fB207\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_FM   903"
+
+.PP
+Definition at line \fB337\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_FMC   1030"
+
+.PP
+Definition at line \fB371\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_FMNEW   1304"
+
+.PP
+Definition at line \fB440\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_FMNUMBER   722"
+
+.PP
+Definition at line \fB308\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_FMODCHANGE   1302"
+
+.PP
+Definition at line \fB438\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_FMODCOLOR   385"
+
+.PP
+Definition at line \fB201\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_FMOIST1   1206"
+
+.PP
+Definition at line \fB425\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_FMOIST2   1207"
+
+.PP
+Definition at line \fB426\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_FMOIST3   1208"
+
+.PP
+Definition at line \fB427\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_FMOIST4   1209"
+
+.PP
+Definition at line \fB428\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_FMOIST5   1210"
+
+.PP
+Definition at line \fB429\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_FUELFILE   1603"
+
+.PP
+Definition at line \fB454\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_FUELMODEL   1114"
+
+.PP
+Definition at line \fB397\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_GRASSRASTOUT   302"
+
+.PP
+Definition at line \fB176\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_GRIDBLACK   1815"
+
+.PP
+Definition at line \fB546\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_GRIDDKGRAY   1814"
+
+.PP
+Definition at line \fB545\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_GRIDLINES   1801"
+
+.PP
+Definition at line \fB541\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_GRIDLTGRAY   1813"
+
+.PP
+Definition at line \fB544\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_GRIDRASTOUT   311"
+
+.PP
+Definition at line \fB177\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_GRIDWHITE   1812"
+
+.PP
+Definition at line \fB543\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_HDEAD   1123"
+
+.PP
+Definition at line \fB406\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_HEATUNITS   1132"
+
+.PP
+Definition at line \fB415\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_HEIGHTFILE   1642"
+
+.PP
+Definition at line \fB467\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_HEIGHTUNITS   1651"
+
+.PP
+Definition at line \fB475\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_HLCB   1027"
+
+.PP
+Definition at line \fB368\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_HLCBFILE   1643"
+
+.PP
+Definition at line \fB468\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_HLIVE   1124"
+
+.PP
+Definition at line \fB407\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_HR   513"
+
+.PP
+Definition at line \fB276\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_HUMID   816"
+
+.PP
+Definition at line \fB329\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_HUMIDHI   2565"
+
+.PP
+Definition at line \fB764\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_HUMIDLO   2562"
+
+.PP
+Definition at line \fB761\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_HUND   717"
+
+.PP
+Definition at line \fB304\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_LH   720"
+
+.PP
+Definition at line \fB306\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_LIGHTE   1805"
+
+.PP
+Definition at line \fB537\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_LIGHTN   1803"
+
+.PP
+Definition at line \fB539\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_LIGHTne   1807"
+
+.PP
+Definition at line \fB535\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_LIGHTnw   1810"
+
+.PP
+Definition at line \fB532\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_LIGHTS   1804"
+
+.PP
+Definition at line \fB538\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_LIGHTse   1808"
+
+.PP
+Definition at line \fB534\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_LIGHTsw   1809"
+
+.PP
+Definition at line \fB533\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_LIGHTW   1806"
+
+.PP
+Definition at line \fB536\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_LIVEH   1118"
+
+.PP
+Definition at line \fB401\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_LIVEW   1120"
+
+.PP
+Definition at line \fB403\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_LOADUNITS   1131"
+
+.PP
+Definition at line \fB414\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_LW   719"
+
+.PP
+Definition at line \fB311\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_MAXSCALE   2302"
+
+.PP
+Definition at line \fB640\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_MERGERESULT   1921"
+
+.PP
+Definition at line \fB580\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_MERGEWINDOW   1922"
+
+.PP
+Definition at line \fB581\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_MIN   514"
+
+.PP
+Definition at line \fB277\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_MINSCALE   2301"
+
+.PP
+Definition at line \fB639\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_MO   511"
+
+.PP
+Definition at line \fB274\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_MO1   2636"
+
+.PP
+Definition at line \fB803\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_MO2   2635"
+
+.PP
+Definition at line \fB802\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_MO3   2634"
+
+.PP
+Definition at line \fB801\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_MO4   2631"
+
+.PP
+Definition at line \fB798\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_MO5   2632"
+
+.PP
+Definition at line \fB799\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_MO6   2633"
+
+.PP
+Definition at line \fB800\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_MO7   2630"
+
+.PP
+Definition at line \fB797\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_NEXT   2569"
+
+.PP
+Definition at line \fB765\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_ONE   715"
+
+.PP
+Definition at line \fB302\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_OPTRASTOUT   368"
+
+.PP
+Definition at line \fB178\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_OPTVECTOUT   369"
+
+.PP
+Definition at line \fB174\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_PPT   819"
+
+.PP
+Definition at line \fB332\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_RASTER   307"
+
+.PP
+Definition at line \fB126\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_RASTRESDEFAULT   393"
+
+.PP
+Definition at line \fB173\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_REDRAW   391"
+
+.PP
+Definition at line \fB210\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_RESTOREIGNS   451"
+
+.PP
+Definition at line \fB242\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_RETRIEVEWGN   2605"
+
+.PP
+Definition at line \fB770\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_RETRIEVEWWD   2606"
+
+.PP
+Definition at line \fB771\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_ROTATEIGN   450"
+
+.PP
+Definition at line \fB241\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SAV1   1121"
+
+.PP
+Definition at line \fB404\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SAVEWGN   2604"
+
+.PP
+Definition at line \fB769\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SAVLIVEH   1122"
+
+.PP
+Definition at line \fB405\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SAVLIVEW   1119"
+
+.PP
+Definition at line \fB402\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SAVUNITS   1133"
+
+.PP
+Definition at line \fB416\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SENDFMCOLOR   389"
+
+.PP
+Definition at line \fB205\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SLOPEFILE   1605"
+
+.PP
+Definition at line \fB456\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SPD1   2523"
+
+.PP
+Definition at line \fB724\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SPD2   2522"
+
+.PP
+Definition at line \fB723\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SPD3   2521"
+
+.PP
+Definition at line \fB722\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SPD4   2520"
+
+.PP
+Definition at line \fB721\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SPD5   2519"
+
+.PP
+Definition at line \fB720\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SPD6   2518"
+
+.PP
+Definition at line \fB719\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SPD7   2517"
+
+.PP
+Definition at line \fB718\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SPD8   2516"
+
+.PP
+Definition at line \fB717\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_STAT1   1201"
+
+.PP
+Definition at line \fB420\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_STAT2   1202"
+
+.PP
+Definition at line \fB421\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_STAT3   1203"
+
+.PP
+Definition at line \fB422\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_STAT4   1204"
+
+.PP
+Definition at line \fB423\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_STAT5   1205"
+
+.PP
+Definition at line \fB424\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_STDY   703"
+
+.PP
+Definition at line \fB271\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_STHR   704"
+
+.PP
+Definition at line \fB272\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_STMIN   518"
+
+.PP
+Definition at line \fB273\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_STMO   702"
+
+.PP
+Definition at line \fB270\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_SUPERVGA   372"
+
+.PP
+Definition at line \fB208\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_TEMP   815"
+
+.PP
+Definition at line \fB328\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_TEMPHI   2564"
+
+.PP
+Definition at line \fB763\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_TEMPHUM1   1211"
+
+.PP
+Definition at line \fB430\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_TEMPHUM2   1212"
+
+.PP
+Definition at line \fB431\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_TEMPHUM3   1213"
+
+.PP
+Definition at line \fB432\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_TEMPHUM4   1214"
+
+.PP
+Definition at line \fB433\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_TEMPHUM5   1215"
+
+.PP
+Definition at line \fB434\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_TEMPLO   2563"
+
+.PP
+Definition at line \fB762\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_TEN   716"
+
+.PP
+Definition at line \fB303\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_THOU   718"
+
+.PP
+Definition at line \fB305\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_TIMEHI   2560"
+
+.PP
+Definition at line \fB759\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_TIMELO   2561"
+
+.PP
+Definition at line \fB760\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_TOPOSHADE   1802"
+
+.PP
+Definition at line \fB540\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_TREEHT   1016"
+
+.PP
+Definition at line \fB358\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_VECTOR   308"
+
+.PP
+Definition at line \fB127\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_VECTSOUTASGROWN   457"
+
+.PP
+Definition at line \fB248\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_VISASPECT   1823"
+
+.PP
+Definition at line \fB528\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_VISCOVER   1818"
+
+.PP
+Definition at line \fB527\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_VISDENSITY   1821"
+
+.PP
+Definition at line \fB542\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_VISELEV   1817"
+
+.PP
+Definition at line \fB530\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_VISFUELS   1824"
+
+.PP
+Definition at line \fB531\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_VISHEIGHT   1819"
+
+.PP
+Definition at line \fB526\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_VISHLCB   1820"
+
+.PP
+Definition at line \fB525\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_VISONLY   313"
+
+.PP
+Definition at line \fB172\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_VISSLOPE   1822"
+
+.PP
+Definition at line \fB529\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_VPCONTROL   2200"
+
+.PP
+Definition at line \fB616\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_VPMAXIMIZE   2213"
+
+.PP
+Definition at line \fB629\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_VPZOOMWINDOW   2218"
+
+.PP
+Definition at line \fB634\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WDTIME1   2531"
+
+.PP
+Definition at line \fB732\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WDTIME2   2530"
+
+.PP
+Definition at line \fB731\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WDTIME3   2529"
+
+.PP
+Definition at line \fB730\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WDTIME4   2528"
+
+.PP
+Definition at line \fB729\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WDTIME5   2527"
+
+.PP
+Definition at line \fB728\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WDTIME6   2526"
+
+.PP
+Definition at line \fB727\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WDTIME7   2525"
+
+.PP
+Definition at line \fB726\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WDTIME8   2524"
+
+.PP
+Definition at line \fB725\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WGENDDAY   2642"
+
+.PP
+Definition at line \fB809\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WGENDMONTH   2640"
+
+.PP
+Definition at line \fB807\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WGSTARTDAY   2643"
+
+.PP
+Definition at line \fB810\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WGSTARTMONTH   2641"
+
+.PP
+Definition at line \fB808\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WINDSTATUS   2538"
+
+.PP
+Definition at line \fB738\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WNDDIR   806"
+
+.PP
+Definition at line \fB321\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WNDSEND   807"
+
+.PP
+Definition at line \fB322\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WNDSPD   805"
+
+.PP
+Definition at line \fB320\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WOODYFILE   1663"
+
+.PP
+Definition at line \fB487\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WTRSEND   818"
+
+.PP
+Definition at line \fB331\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WWCHART   2537"
+
+.PP
+Definition at line \fB737\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WWD1   2622"
+
+.PP
+Definition at line \fB789\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WWD2   2621"
+
+.PP
+Definition at line \fB788\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WWD3   2620"
+
+.PP
+Definition at line \fB787\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WWD4   2619"
+
+.PP
+Definition at line \fB786\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WWD5   2618"
+
+.PP
+Definition at line \fB785\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WWD6   2617"
+
+.PP
+Definition at line \fB784\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WWD7   2616"
+
+.PP
+Definition at line \fB783\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WWELEV   2548"
+
+.PP
+Definition at line \fB746\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WWENGLISH   2550"
+
+.PP
+Definition at line \fB748\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WWFILE   2544"
+
+.PP
+Definition at line \fB742\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WWMETRIC   2551"
+
+.PP
+Definition at line \fB749\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_WWRAIN   2549"
+
+.PP
+Definition at line \fB747\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_XMEXT   1126"
+
+.PP
+Definition at line \fB409\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define ID_ZOOMDELAY   8402"
+
+.PP
+Definition at line \fB889\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define IDC_BUTTON1   101"
+
+.PP
+Definition at line \fB491\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define IDC_COMBOBOX2   393"
+
+.PP
+Definition at line \fB206\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define IDC_EXITMERGER   1901"
+
+.PP
+Definition at line \fB560\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define IDC_MERGEFILES   1902"
+
+.PP
+Definition at line \fB561\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define LIST_ATTACHEDVECTORS   251"
+
+.PP
+Definition at line \fB120\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define LIST_STOPLOC   1002"
+
+.PP
+Definition at line \fB960\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define MAP_COMBUSTION   365"
+
+.PP
+Definition at line \fB152\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define MAP_ENVIRONMENT   366"
+
+.PP
+Definition at line \fB153\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define MAP_FUELMOISTURE   364"
+
+.PP
+Definition at line \fB151\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define MAP_HUMIDITY   361"
+
+.PP
+Definition at line \fB148\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define MAP_MIDFLAMEWIND   362"
+
+.PP
+Definition at line \fB149\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define MAP_SOLARRADIATION   363"
+
+.PP
+Definition at line \fB150\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define MAP_TEMPERATURE   360"
+
+.PP
+Definition at line \fB147\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define PROG_EXTRACTLCP   1669"
+
+.PP
+Definition at line \fB495\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define PROG_LCPGEN   1672"
+
+.PP
+Definition at line \fB498\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define PROG_MRGLCP   1923"
+
+.PP
+Definition at line \fB582\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ASCIIINPUT   1658"
+
+.PP
+Definition at line \fB482\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_CELL   2442"
+
+.PP
+Definition at line \fB690\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_COLORFLI   110"
+
+.PP
+Definition at line \fB557\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_COLORFML   108"
+
+.PP
+Definition at line \fB555\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_COLORHPA   107"
+
+.PP
+Definition at line \fB554\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_COLORNONE   101"
+
+.PP
+Definition at line \fB548\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_COLORRCX   106"
+
+.PP
+Definition at line \fB553\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_COLORROS   109"
+
+.PP
+Definition at line \fB556\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_COMBCH4   502"
+
+.PP
+Definition at line \fB894\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_COMBCO   505"
+
+.PP
+Definition at line \fB897\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_COMBCO2   504"
+
+.PP
+Definition at line \fB896\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_COMBENERGY   508"
+
+.PP
+Definition at line \fB900\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_COMBFLAMESMOLDER   501"
+
+.PP
+Definition at line \fB893\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_COMBPM10   425"
+
+.PP
+Definition at line \fB927\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_COMBPM25   503"
+
+.PP
+Definition at line \fB895\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_COMBWTLOSS   507"
+
+.PP
+Definition at line \fB899\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_COMBWTRATE   506"
+
+.PP
+Definition at line \fB898\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_EDITCELLS   2403"
+
+.PP
+Definition at line \fB650\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_EDITPOLYS   2402"
+
+.PP
+Definition at line \fB649\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENV10000HR   411"
+
+.PP
+Definition at line \fB914\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENV1000HR   410"
+
+.PP
+Definition at line \fB913\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENV100HR   409"
+
+.PP
+Definition at line \fB912\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENV10HR   408"
+
+.PP
+Definition at line \fB911\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENV10X   415"
+
+.PP
+Definition at line \fB918\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENV1HR   407"
+
+.PP
+Definition at line \fB910\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENV1X   412"
+
+.PP
+Definition at line \fB915\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENV20X   416"
+
+.PP
+Definition at line \fB919\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENV2X   413"
+
+.PP
+Definition at line \fB916\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENV5X   414"
+
+.PP
+Definition at line \fB917\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENVAIRTEMP   405"
+
+.PP
+Definition at line \fB908\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENVENG   427"
+
+.PP
+Definition at line \fB929\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENVMET   428"
+
+.PP
+Definition at line \fB930\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENVMFW   406"
+
+.PP
+Definition at line \fB909\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENVRH   404"
+
+.PP
+Definition at line \fB907\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_ENVSOLAR   403"
+
+.PP
+Definition at line \fB906\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_POLY   2443"
+
+.PP
+Definition at line \fB691\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_VISCWD   102"
+
+.PP
+Definition at line \fB549\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define RBUT_VISDUFF   105"
+
+.PP
+Definition at line \fB552\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_100HR   1104"
+
+.PP
+Definition at line \fB387\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_10HR   1103"
+
+.PP
+Definition at line \fB386\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_1HR   1102"
+
+.PP
+Definition at line \fB385\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_ACCELFUELMOD   2809"
+
+.PP
+Definition at line \fB826\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_ACCELLINE   2811"
+
+.PP
+Definition at line \fB828\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_ACCELPT   2812"
+
+.PP
+Definition at line \fB829\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_ACCELTRANS   2810"
+
+.PP
+Definition at line \fB827\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_BD   1024"
+
+.PP
+Definition at line \fB365\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_CFMOD   383"
+
+.PP
+Definition at line \fB199\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_CLOUDY   812"
+
+.PP
+Definition at line \fB325\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_CONSTLCP   2701"
+
+.PP
+Definition at line \fB814\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_CONVFROM   3007"
+
+.PP
+Definition at line \fB860\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_CONVTO   3006"
+
+.PP
+Definition at line \fB859\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_DAY   508"
+
+.PP
+Definition at line \fB267\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_DBH   1025"
+
+.PP
+Definition at line \fB366\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_DEPTH   1112"
+
+.PP
+Definition at line \fB395\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_EAST   2010"
+
+.PP
+Definition at line \fB595\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_EDITTABLE   2637"
+
+.PP
+Definition at line \fB804\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_FACTOR   902"
+
+.PP
+Definition at line \fB336\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_FBLUE   388"
+
+.PP
+Definition at line \fB204\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_FGREEN   387"
+
+.PP
+Definition at line \fB203\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_FM   901"
+
+.PP
+Definition at line \fB335\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_FMC   1026"
+
+.PP
+Definition at line \fB367\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_FMNUMBER   721"
+
+.PP
+Definition at line \fB307\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_FMODCHANGE   1301"
+
+.PP
+Definition at line \fB437\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_FRED   386"
+
+.PP
+Definition at line \fB202\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_FUELMODEL   1101"
+
+.PP
+Definition at line \fB384\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_HDEAD   1110"
+
+.PP
+Definition at line \fB393\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_HLCB   1023"
+
+.PP
+Definition at line \fB364\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_HLIVE   1111"
+
+.PP
+Definition at line \fB394\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_HR   509"
+
+.PP
+Definition at line \fB268\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_HUMID   811"
+
+.PP
+Definition at line \fB324\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_HUMIDHI   2540"
+
+.PP
+Definition at line \fB751\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_HUMIDLO   2535"
+
+.PP
+Definition at line \fB736\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_INITROS   1500"
+
+.PP
+Definition at line \fB449\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_INTERVAL   382"
+
+.PP
+Definition at line \fB198\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_LIVEH   1105"
+
+.PP
+Definition at line \fB388\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_LIVEW   1107"
+
+.PP
+Definition at line \fB390\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_MAX   381"
+
+.PP
+Definition at line \fB197\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_MIN   510"
+
+.PP
+Definition at line \fB269\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_MO   507"
+
+.PP
+Definition at line \fB266\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_NORTH   2001"
+
+.PP
+Definition at line \fB586\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_PPT   820"
+
+.PP
+Definition at line \fB333\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_SAV1   1108"
+
+.PP
+Definition at line \fB391\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_SAVLIVEH   1109"
+
+.PP
+Definition at line \fB392\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_SAVLIVEW   1106"
+
+.PP
+Definition at line \fB389\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_SOUTH   2018"
+
+.PP
+Definition at line \fB603\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_TEMP   810"
+
+.PP
+Definition at line \fB323\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_TEMPHI   2533"
+
+.PP
+Definition at line \fB734\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_TEMPLO   2534"
+
+.PP
+Definition at line \fB735\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_TIMEHI   2552"
+
+.PP
+Definition at line \fB750\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_TIMELO   2553"
+
+.PP
+Definition at line \fB752\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_TREEHT   1015"
+
+.PP
+Definition at line \fB357\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_VPEAST   2201"
+
+.PP
+Definition at line \fB619\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_VPNORTH   2204"
+
+.PP
+Definition at line \fB618\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_VPSOUTH   2203"
+
+.PP
+Definition at line \fB617\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_VPWEST   2202"
+
+.PP
+Definition at line \fB620\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_WDEF   2532"
+
+.PP
+Definition at line \fB733\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_WEST   2009"
+
+.PP
+Definition at line \fB594\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_WGDAY   2639"
+
+.PP
+Definition at line \fB806\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_WGMONTH   2638"
+
+.PP
+Definition at line \fB805\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_WNDDIR   802"
+
+.PP
+Definition at line \fB317\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_WNDSPD   801"
+
+.PP
+Definition at line \fB316\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_WWELEV   2547"
+
+.PP
+Definition at line \fB745\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_WWRAIN   2546"
+
+.PP
+Definition at line \fB744\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_XMEXT   1113"
+
+.PP
+Definition at line \fB396\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SCRL_ZOOMDELAY   8401"
+
+.PP
+Definition at line \fB888\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SEND_CLIPBOARD   358"
+
+.PP
+Definition at line \fB144\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_1LCP   1916"
+
+.PP
+Definition at line \fB575\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_2LCP   1918"
+
+.PP
+Definition at line \fB577\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_3LCP   1920"
+
+.PP
+Definition at line \fB579\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_4LCP   1914"
+
+.PP
+Definition at line \fB573\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_5LCP   1913"
+
+.PP
+Definition at line \fB572\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_BURNPERIOD   191"
+
+.PP
+Definition at line \fB64\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_COARSEWOODY   194"
+
+.PP
+Definition at line \fB67\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_COMBFILENAME   510"
+
+.PP
+Definition at line \fB902\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CONDDY   220"
+
+.PP
+Definition at line \fB951\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CONDHR   221"
+
+.PP
+Definition at line \fB952\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CONDMN   223"
+
+.PP
+Definition at line \fB954\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CONDMO   201"
+
+.PP
+Definition at line \fB932\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CONVFROM   3005"
+
+.PP
+Definition at line \fB858\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CONVTO   3001"
+
+.PP
+Definition at line \fB855\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CURASPECT   2408"
+
+.PP
+Definition at line \fB656\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CURBASE   2412"
+
+.PP
+Definition at line \fB660\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CURCOVER   2410"
+
+.PP
+Definition at line \fB658\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CURDENSITY   2413"
+
+.PP
+Definition at line \fB661\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CURDUFF   2415"
+
+.PP
+Definition at line \fB663\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CURELEV   2406"
+
+.PP
+Definition at line \fB654\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CURFUEL   2409"
+
+.PP
+Definition at line \fB657\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CURHEIGHT   2411"
+
+.PP
+Definition at line \fB659\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CURSLOPE   2407"
+
+.PP
+Definition at line \fB655\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_CURWOODY   2414"
+
+.PP
+Definition at line \fB662\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_ENDDY   213"
+
+.PP
+Definition at line \fB944\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_ENDHR   212"
+
+.PP
+Definition at line \fB943\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_ENDMN   211"
+
+.PP
+Definition at line \fB942\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_ENDMO   214"
+
+.PP
+Definition at line \fB945\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_ENVFILENAME   401"
+
+.PP
+Definition at line \fB904\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_ENVSIMEND   418"
+
+.PP
+Definition at line \fB921\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_ENVSIMSTART   417"
+
+.PP
+Definition at line \fB920\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_EXTRACTFROM   2014"
+
+.PP
+Definition at line \fB599\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_EXTRACTRESULTS   2006"
+
+.PP
+Definition at line \fB591\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_EXTRACTTO   2015"
+
+.PP
+Definition at line \fB600\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_GRIDUNITS   111"
+
+.PP
+Definition at line \fB558\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_INCOL   2020"
+
+.PP
+Definition at line \fB605\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_INITROS   1501"
+
+.PP
+Definition at line \fB450\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_INPTADJ   162"
+
+.PP
+Definition at line \fB90\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_INPTCNV   160"
+
+.PP
+Definition at line \fB88\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_INPTFMD   159"
+
+.PP
+Definition at line \fB87\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_INPTFMS   161"
+
+.PP
+Definition at line \fB89\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_INPTFPJ   158"
+
+.PP
+Definition at line \fB85\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_INPTLCP   163"
+
+.PP
+Definition at line \fB91\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_INROW   2019"
+
+.PP
+Definition at line \fB604\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_INTERVAL   380"
+
+.PP
+Definition at line \fB196\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_LCPFILENAME   2404"
+
+.PP
+Definition at line \fB651\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_LCPFORMAT   1666"
+
+.PP
+Definition at line \fB490\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_MAX   379"
+
+.PP
+Definition at line \fB195\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_OUTCOL   2021"
+
+.PP
+Definition at line \fB606\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_OUTROW   2022"
+
+.PP
+Definition at line \fB607\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_PRES   211"
+
+.PP
+Definition at line \fB110\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_RFILENAME   2307"
+
+.PP
+Definition at line \fB645\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_RMAXELEV   2304"
+
+.PP
+Definition at line \fB642\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_RMAXHEIGHT   2306"
+
+.PP
+Definition at line \fB644\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_RMINELEV   2303"
+
+.PP
+Definition at line \fB641\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_RMINHEIGHT   2305"
+
+.PP
+Definition at line \fB643\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_SRES   212"
+
+.PP
+Definition at line \fB111\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_STARTDY   216"
+
+.PP
+Definition at line \fB947\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_STARTHR   215"
+
+.PP
+Definition at line \fB946\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_STARTMN   202"
+
+.PP
+Definition at line \fB933\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_STARTMO   217"
+
+.PP
+Definition at line \fB948\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_TS   209"
+
+.PP
+Definition at line \fB108\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VIS2   216"
+
+.PP
+Definition at line \fB114\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VPINCOL   2217"
+
+.PP
+Definition at line \fB633\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VPINROW   2216"
+
+.PP
+Definition at line \fB632\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VPOUTCOL   2215"
+
+.PP
+Definition at line \fB631\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VPOUTROW   2214"
+
+.PP
+Definition at line \fB630\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VPUTME   2209"
+
+.PP
+Definition at line \fB626\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VPUTMeast   2208"
+
+.PP
+Definition at line \fB621\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VPUTMN   2212"
+
+.PP
+Definition at line \fB628\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VPUTMnorth   2205"
+
+.PP
+Definition at line \fB623\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VPUTMS   2207"
+
+.PP
+Definition at line \fB625\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VPUTMsouth   2206"
+
+.PP
+Definition at line \fB624\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VPUTMW   2211"
+
+.PP
+Definition at line \fB627\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VPUTMwest   2210"
+
+.PP
+Definition at line \fB622\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VTS   210"
+
+.PP
+Definition at line \fB109\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VV1   2903"
+
+.PP
+Definition at line \fB846\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VV2   2905"
+
+.PP
+Definition at line \fB848\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VV3   2904"
+
+.PP
+Definition at line \fB847\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VV4   2902"
+
+.PP
+Definition at line \fB845\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_VV5   2901"
+
+.PP
+Definition at line \fB844\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_WND1   168"
+
+.PP
+Definition at line \fB96\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_WND2   167"
+
+.PP
+Definition at line \fB95\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_WND3   166"
+
+.PP
+Definition at line \fB94\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_WND4   165"
+
+.PP
+Definition at line \fB93\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_WND5   164"
+
+.PP
+Definition at line \fB92\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_WTR1   173"
+
+.PP
+Definition at line \fB101\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_WTR2   172"
+
+.PP
+Definition at line \fB100\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_WTR3   171"
+
+.PP
+Definition at line \fB99\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_WTR4   170"
+
+.PP
+Definition at line \fB98\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_WTR5   169"
+
+.PP
+Definition at line \fB97\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_XCOORD   2405"
+
+.PP
+Definition at line \fB653\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define STAT_YCOORD   2452"
+
+.PP
+Definition at line \fB652\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define SWITCH_INPUTMODE   369"
+
+.PP
+Definition at line \fB145\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_CONDDY   218"
+
+.PP
+Definition at line \fB949\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_CONDHR   222"
+
+.PP
+Definition at line \fB953\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_CONDMN   224"
+
+.PP
+Definition at line \fB955\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_CONDMO   219"
+
+.PP
+Definition at line \fB950\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_ENDDY   204"
+
+.PP
+Definition at line \fB935\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_ENDHR   205"
+
+.PP
+Definition at line \fB936\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_ENDMN   203"
+
+.PP
+Definition at line \fB934\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_ENDMO   206"
+
+.PP
+Definition at line \fB937\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_GRIDRES   104"
+
+.PP
+Definition at line \fB551\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_IGDELAY   104"
+
+.PP
+Definition at line \fB285\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_IGPROB   102"
+
+.PP
+Definition at line \fB286\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_LAT   1614"
+
+.PP
+Definition at line \fB463\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_NUMTHREADS   459"
+
+.PP
+Definition at line \fB250\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_RESOLX   101"
+
+.PP
+Definition at line \fB160\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_RESOLY   103"
+
+.PP
+Definition at line \fB161\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_STARTDY   209"
+
+.PP
+Definition at line \fB940\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_STARTHR   208"
+
+.PP
+Definition at line \fB939\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_STARTMN   207"
+
+.PP
+Definition at line \fB938\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UD_STARTMO   210"
+
+.PP
+Definition at line \fB941\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UM_ENGLISH   215"
+
+.PP
+Definition at line \fB113\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UM_METRIC   214"
+
+.PP
+Definition at line \fB112\fP of file \fBftestrc\&.h\fP\&.
+.SS "#define UPDATE_FUELMX   367"
+
+.PP
+Definition at line \fB154\fP of file \fBftestrc\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

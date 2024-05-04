@@ -1,0 +1,485 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fsxsync.cpp}
+\hypertarget{fsxsync_8cpp_source}{}\label{fsxsync_8cpp_source}\mbox{\hyperlink{fsxsync_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00023}00023\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00024}00024\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00025}00025\ \textcolor{comment}{//\ \ Event\ Functions}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00026}00026\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00027}00027\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsxsync_8h}{fsxsync.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00032}00032\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00034}\mbox{\hyperlink{fsxsync_8cpp_a32262498915be1386cff3d303a1fef7b}{00034}}\ \mbox{\hyperlink{class_farsite_event}{FarsiteEvent}}\ \mbox{\hyperlink{fsxsync_8cpp_a32262498915be1386cff3d303a1fef7b}{hBurnEvent}};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00035}\mbox{\hyperlink{fsxsync_8cpp_aac66f5fa919d35afa86ebb794e0a6337}{00035}}\ \mbox{\hyperlink{class_farsite_event}{FarsiteEvent}}\ \mbox{\hyperlink{fsxsync_8cpp_aac66f5fa919d35afa86ebb794e0a6337}{hMoistEvent}};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00036}\mbox{\hyperlink{fsxsync_8cpp_a93490fa21ee0f8451f0c6b4d50d5e442}{00036}}\ \mbox{\hyperlink{class_farsite_event}{FarsiteEvent}}\ \mbox{\hyperlink{fsxsync_8cpp_a93490fa21ee0f8451f0c6b4d50d5e442}{hBurnupEvent}};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00037}\mbox{\hyperlink{fsxsync_8cpp_a2b79237663ff12420443c80c3e9f6e7b}{00037}}\ \mbox{\hyperlink{class_farsite_event}{FarsiteEvent}}\ \mbox{\hyperlink{fsxsync_8cpp_a2b79237663ff12420443c80c3e9f6e7b}{hIntegEvent}};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00038}\mbox{\hyperlink{fsxsync_8cpp_a47ab8e2e187581d0854c453775a74652}{00038}}\ \mbox{\hyperlink{class_farsite_event}{FarsiteEvent}}\ \mbox{\hyperlink{fsxsync_8cpp_a47ab8e2e187581d0854c453775a74652}{hCrossEvent}};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00039}\mbox{\hyperlink{fsxsync_8cpp_ab218a0589a743cb83b473b13d06999f5}{00039}}\ \mbox{\hyperlink{class_farsite_event}{FarsiteEvent}}\ \mbox{\hyperlink{fsxsync_8cpp_ab218a0589a743cb83b473b13d06999f5}{hBurnThreadEvent}};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00040}\mbox{\hyperlink{fsxsync_8cpp_acf222f970701e668f268d0ded7a42f9a}{00040}}\ \mbox{\hyperlink{class_farsite_event}{FarsiteEvent}}\ \mbox{\hyperlink{fsxsync_8cpp_acf222f970701e668f268d0ded7a42f9a}{hMoistThreadEvent}};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00041}\mbox{\hyperlink{fsxsync_8cpp_a1e5d6a85e94cb04230df6279451b223f}{00041}}\ \mbox{\hyperlink{class_farsite_event}{FarsiteEvent}}\ \mbox{\hyperlink{fsxsync_8cpp_a1e5d6a85e94cb04230df6279451b223f}{hBurnupThreadEvent}};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00042}\mbox{\hyperlink{fsxsync_8cpp_abdbb96afd8cd69fb09935c7729b181c2}{00042}}\ \mbox{\hyperlink{class_farsite_event}{FarsiteEvent}}\ \mbox{\hyperlink{fsxsync_8cpp_abdbb96afd8cd69fb09935c7729b181c2}{hIntegThreadEvent}};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00043}\mbox{\hyperlink{fsxsync_8cpp_a5f9aa952736777e2c246992ffb2c124b}{00043}}\ \mbox{\hyperlink{class_farsite_event}{FarsiteEvent}}\ \mbox{\hyperlink{fsxsync_8cpp_a5f9aa952736777e2c246992ffb2c124b}{hCrossThreadEvent}};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00046}\mbox{\hyperlink{fsxsync_8cpp_aba2cdc60b1efdf0f48cf2990ce731e87}{00046}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxsync_8cpp_aba2cdc60b1efdf0f48cf2990ce731e87}{AllocFarsiteEvents}}(\textcolor{keywordtype}{long}\ EventNum,\ \textcolor{keywordtype}{long}\ numevents,\ \textcolor{keywordtype}{char}*\ basename,}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{bool}\ ManReset,\ \textcolor{keywordtype}{bool}\ InitState)}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00048}00048\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00049}00049\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00050}00050\ \textcolor{comment}{\ \ \ \ bool\ ret;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00051}00051\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00052}00052\ \textcolor{comment}{\ \ \ \ switch\ (EventNum)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00053}00053\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00054}00054\ \textcolor{comment}{\ \ \ \ case\ 1:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00055}00055\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnEvent.AllocEvents(numevents,\ basename,\ ManReset,\ InitState);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00056}00056\ \textcolor{comment}{\ \ \ \ case\ 2:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00057}00057\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hMoistEvent.AllocEvents(numevents,\ basename,\ ManReset,\ InitState);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00058}00058\ \textcolor{comment}{\ \ \ \ case\ 3:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00059}00059\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnupEvent.AllocEvents(numevents,\ basename,\ ManReset,}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00060}00060\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ InitState);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00061}00061\ \textcolor{comment}{\ \ \ \ case\ 4:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00062}00062\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hIntegEvent.AllocEvents(numevents,\ basename,\ ManReset,\ InitState);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00063}00063\ \textcolor{comment}{\ \ \ \ case\ 5:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00064}00064\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnThreadEvent.AllocEvents(numevents,\ basename,\ ManReset,}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00065}00065\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ InitState);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00066}00066\ \textcolor{comment}{\ \ \ \ case\ 6:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00067}00067\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hMoistThreadEvent.AllocEvents(numevents,\ basename,\ ManReset,}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00068}00068\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ InitState);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00069}00069\ \textcolor{comment}{\ \ \ \ case\ 7:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnupThreadEvent.AllocEvents(numevents,\ basename,\ ManReset,}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ InitState);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00072}00072\ \textcolor{comment}{\ \ \ \ case\ 8:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00073}00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hIntegThreadEvent.AllocEvents(numevents,\ basename,\ ManReset,}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00074}00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ InitState);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00075}00075\ \textcolor{comment}{\ \ \ \ case\ 9:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00076}00076\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hCrossEvent.AllocEvents(numevents,\ basename,\ ManReset,\ InitState);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00077}00077\ \textcolor{comment}{\ \ \ \ case\ 10:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00078}00078\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hCrossThreadEvent.AllocEvents(numevents,\ basename,\ ManReset,}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00079}00079\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ InitState);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00080}00080\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00081}00081\ \textcolor{comment}{\ \ \ \ return\ ret;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00082}00082\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00085}00085\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00088}\mbox{\hyperlink{fsxsync_8cpp_ac75a06585ef739375a5483a024faf73a}{00088}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxsync_8cpp_ac75a06585ef739375a5483a024faf73a}{FreeFarsiteEvents}}(\textcolor{keywordtype}{long}\ EventNum)}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00089}00089\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00090}00090\ \textcolor{comment}{/*\ \ bool\ ret;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00091}00091\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00092}00092\ \textcolor{comment}{\ \ \ \ switch\ (EventNum)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00093}00093\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00094}00094\ \textcolor{comment}{\ \ \ \ case\ 1:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00095}00095\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnEvent.FreeEvents();\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00096}00096\ \textcolor{comment}{\ \ \ \ case\ 2:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00097}00097\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hMoistEvent.FreeEvents();\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00098}00098\ \textcolor{comment}{\ \ \ \ case\ 3:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00099}00099\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnupEvent.FreeEvents();\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00100}00100\ \textcolor{comment}{\ \ \ \ case\ 4:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00101}00101\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hIntegEvent.FreeEvents();\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00102}00102\ \textcolor{comment}{\ \ \ \ case\ 5:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00103}00103\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnThreadEvent.FreeEvents();\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00104}00104\ \textcolor{comment}{\ \ \ \ case\ 6:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00105}00105\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hMoistThreadEvent.FreeEvents();\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00106}00106\ \textcolor{comment}{\ \ \ \ case\ 7:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00107}00107\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnupThreadEvent.FreeEvents();\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00108}00108\ \textcolor{comment}{\ \ \ \ case\ 8:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00109}00109\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hIntegThreadEvent.FreeEvents();\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00110}00110\ \textcolor{comment}{\ \ \ \ case\ 9:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00111}00111\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hCrossEvent.FreeEvents();\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00112}00112\ \textcolor{comment}{\ \ \ \ case\ 10:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00113}00113\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hCrossThreadEvent.FreeEvents();\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00114}00114\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00115}00115\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00116}00116\ \textcolor{comment}{\ \ \ \ return\ ret;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00117}00117\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00120}00120\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00123}\mbox{\hyperlink{fsxsync_8cpp_adade7a1cc0f1abbb08a8e3d7a328937a}{00123}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxsync_8cpp_adade7a1cc0f1abbb08a8e3d7a328937a}{SetFarsiteEvent}}(\textcolor{keywordtype}{long}\ EventNum,\ \textcolor{keywordtype}{long}\ ThreadNum)}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00124}00124\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00125}00125\ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00126}00126\ \textcolor{comment}{\ \ \ \ bool\ ret;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00127}00127\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00128}00128\ \textcolor{comment}{\ \ \ \ switch\ (EventNum)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00129}00129\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00130}00130\ \textcolor{comment}{\ \ \ \ case\ 1:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00131}00131\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnEvent.SetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00132}00132\ \textcolor{comment}{\ \ \ \ case\ 2:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00133}00133\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hMoistEvent.SetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00134}00134\ \textcolor{comment}{\ \ \ \ case\ 3:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00135}00135\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnupEvent.SetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00136}00136\ \textcolor{comment}{\ \ \ \ case\ 4:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00137}00137\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hIntegEvent.SetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00138}00138\ \textcolor{comment}{\ \ \ \ case\ 5:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00139}00139\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnThreadEvent.SetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00140}00140\ \textcolor{comment}{\ \ \ \ case\ 6:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00141}00141\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hMoistThreadEvent.SetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00142}00142\ \textcolor{comment}{\ \ \ \ case\ 7:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00143}00143\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnupThreadEvent.SetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00144}00144\ \textcolor{comment}{\ \ \ \ case\ 8:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00145}00145\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hIntegThreadEvent.SetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00146}00146\ \textcolor{comment}{\ \ \ \ case\ 9:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00147}00147\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hCrossEvent.SetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00148}00148\ \textcolor{comment}{\ \ \ \ case\ 10:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00149}00149\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hCrossThreadEvent.SetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00150}00150\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00151}00151\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00152}00152\ \textcolor{comment}{\ \ \ \ return\ ret;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00153}00153\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00155}00155\ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00156}00156\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00158}\mbox{\hyperlink{fsxsync_8cpp_ae56a64e85d991ae1f7bb6747e0e3ecdb}{00158}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxsync_8cpp_ae56a64e85d991ae1f7bb6747e0e3ecdb}{ResetFarsiteEvent}}(\textcolor{keywordtype}{long}\ EventNum,\ \textcolor{keywordtype}{long}\ ThreadNum)}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00159}00159\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00160}00160\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00161}00161\ \textcolor{comment}{\ \ \ \ bool\ ret;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00162}00162\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00163}00163\ \textcolor{comment}{\ \ \ \ switch\ (EventNum)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00164}00164\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00165}00165\ \textcolor{comment}{\ \ \ \ case\ 1:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00166}00166\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnEvent.ResetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00167}00167\ \textcolor{comment}{\ \ \ \ case\ 2:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00168}00168\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hMoistEvent.ResetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00169}00169\ \textcolor{comment}{\ \ \ \ case\ 3:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00170}00170\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnupEvent.ResetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00171}00171\ \textcolor{comment}{\ \ \ \ case\ 4:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00172}00172\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hIntegEvent.ResetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00173}00173\ \textcolor{comment}{\ \ \ \ case\ 5:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00174}00174\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnThreadEvent.ResetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00175}00175\ \textcolor{comment}{\ \ \ \ case\ 6:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00176}00176\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hMoistThreadEvent.ResetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00177}00177\ \textcolor{comment}{\ \ \ \ case\ 7:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00178}00178\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnupThreadEvent.ResetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00179}00179\ \textcolor{comment}{\ \ \ \ case\ 8:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00180}00180\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hIntegThreadEvent.ResetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00181}00181\ \textcolor{comment}{\ \ \ \ case\ 9:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00182}00182\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hCrossEvent.ResetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00183}00183\ \textcolor{comment}{\ \ \ \ case\ 10:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00184}00184\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hCrossThreadEvent.ResetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00185}00185\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00186}00186\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00187}00187\ \textcolor{comment}{\ \ \ \ return\ ret;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00188}00188\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00190}00190\ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00191}00191\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00193}\mbox{\hyperlink{fsxsync_8cpp_aa781c6232763d8f547182c2438dee326}{00193}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxsync_8cpp_aa781c6232763d8f547182c2438dee326}{WaitForFarsiteEvents}}(\textcolor{keywordtype}{long}\ EventNum,\ \textcolor{keywordtype}{long}\ numevents,\ \textcolor{keywordtype}{bool}\ All,}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00194}00194\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ Wait)}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00195}00195\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00196}00196\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00197}00197\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00198}00198\ \textcolor{comment}{\ \ \ \ bool\ ret;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00199}00199\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00200}00200\ \textcolor{comment}{\ \ \ \ switch\ (EventNum)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00201}00201\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00202}00202\ \textcolor{comment}{\ \ \ \ case\ 1:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00203}00203\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnEvent.WaitForEvents(numevents,\ All,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00204}00204\ \textcolor{comment}{\ \ \ \ case\ 2:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00205}00205\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hMoistEvent.WaitForEvents(numevents,\ All,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00206}00206\ \textcolor{comment}{\ \ \ \ case\ 3:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00207}00207\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnupEvent.WaitForEvents(numevents,\ All,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00208}00208\ \textcolor{comment}{\ \ \ \ case\ 4:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00209}00209\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hIntegEvent.WaitForEvents(numevents,\ All,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00210}00210\ \textcolor{comment}{\ \ \ \ case\ 5:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00211}00211\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnThreadEvent.WaitForEvents(numevents,\ All,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00212}00212\ \textcolor{comment}{\ \ \ \ case\ 6:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00213}00213\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hMoistThreadEvent.WaitForEvents(numevents,\ All,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00214}00214\ \textcolor{comment}{\ \ \ \ case\ 7:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00215}00215\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnupThreadEvent.WaitForEvents(numevents,\ All,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00216}00216\ \textcolor{comment}{\ \ \ \ case\ 8:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00217}00217\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hIntegThreadEvent.WaitForEvents(numevents,\ All,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00218}00218\ \textcolor{comment}{\ \ \ \ case\ 9:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00219}00219\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hCrossEvent.WaitForEvents(numevents,\ All,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00220}00220\ \textcolor{comment}{\ \ \ \ case\ 10:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00221}00221\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hCrossThreadEvent.WaitForEvents(numevents,\ All,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00222}00222\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00223}00223\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00224}00224\ \textcolor{comment}{\ \ \ \ return\ ret;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00225}00225\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00227}00227\ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00228}00228\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00231}\mbox{\hyperlink{fsxsync_8cpp_a2601d8c018415b0b2c300ea96d68ceee}{00231}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxsync_8cpp_a2601d8c018415b0b2c300ea96d68ceee}{WaitForOneFarsiteEvent}}(\textcolor{keywordtype}{long}\ EventNum,\ \textcolor{keywordtype}{long}\ ThreadNum,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ Wait)}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00232}00232\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00233}00233\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00234}00234\ \textcolor{comment}{\ \ \ \ bool\ ret;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00235}00235\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00236}00236\ \textcolor{comment}{\ \ \ \ switch\ (EventNum)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00237}00237\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00238}00238\ \textcolor{comment}{\ \ \ \ case\ 1:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00239}00239\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnEvent.WaitForOneEvent(ThreadNum,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00240}00240\ \textcolor{comment}{\ \ \ \ case\ 2:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00241}00241\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hMoistEvent.WaitForOneEvent(ThreadNum,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00242}00242\ \textcolor{comment}{\ \ \ \ case\ 3:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00243}00243\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnupEvent.WaitForOneEvent(ThreadNum,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00244}00244\ \textcolor{comment}{\ \ \ \ case\ 4:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00245}00245\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hIntegEvent.WaitForOneEvent(ThreadNum,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00246}00246\ \textcolor{comment}{\ \ \ \ case\ 5:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00247}00247\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnThreadEvent.WaitForOneEvent(ThreadNum,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00248}00248\ \textcolor{comment}{\ \ \ \ case\ 6:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00249}00249\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hMoistThreadEvent.WaitForOneEvent(ThreadNum,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00250}00250\ \textcolor{comment}{\ \ \ \ case\ 7:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00251}00251\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnupThreadEvent.WaitForOneEvent(ThreadNum,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00252}00252\ \textcolor{comment}{\ \ \ \ case\ 8:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00253}00253\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hIntegThreadEvent.WaitForOneEvent(ThreadNum,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00254}00254\ \textcolor{comment}{\ \ \ \ case\ 9:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00255}00255\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hCrossEvent.WaitForOneEvent(ThreadNum,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00256}00256\ \textcolor{comment}{\ \ \ \ case\ 10:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00257}00257\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hCrossThreadEvent.WaitForOneEvent(ThreadNum,\ Wait);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00258}00258\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00259}00259\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00260}00260\ \textcolor{comment}{\ \ \ \ return\ ret;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00261}00261\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00263}00263\ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00264}00264\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00267}\mbox{\hyperlink{fsxsync_8cpp_acf2298b0335b2f299a2477aaac8da488}{00267}}\ \mbox{\hyperlink{fsxsync_8h_aac97dde8e4de9251506139df72ede9ac}{X\_HANDLE}}\ \mbox{\hyperlink{fsxsync_8cpp_acf2298b0335b2f299a2477aaac8da488}{GetFarsiteEvent}}(\textcolor{keywordtype}{long}\ EventNum,\ \textcolor{keywordtype}{long}\ ThreadNum)}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00268}00268\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00269}00269\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00270}00270\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00271}00271\ \textcolor{comment}{\ \ \ \ X\_HANDLE\ ret;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00272}00272\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00273}00273\ \textcolor{comment}{\ \ \ \ switch\ (EventNum)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00274}00274\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00275}00275\ \textcolor{comment}{\ \ \ \ case\ 1:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00276}00276\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnEvent.GetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00277}00277\ \textcolor{comment}{\ \ \ \ case\ 2:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00278}00278\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hMoistEvent.GetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00279}00279\ \textcolor{comment}{\ \ \ \ case\ 3:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00280}00280\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnupEvent.GetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00281}00281\ \textcolor{comment}{\ \ \ \ case\ 4:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00282}00282\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hIntegEvent.GetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00283}00283\ \textcolor{comment}{\ \ \ \ case\ 5:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00284}00284\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnThreadEvent.GetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00285}00285\ \textcolor{comment}{\ \ \ \ case\ 6:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00286}00286\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hMoistThreadEvent.GetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00287}00287\ \textcolor{comment}{\ \ \ \ case\ 7:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00288}00288\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hBurnupThreadEvent.GetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00289}00289\ \textcolor{comment}{\ \ \ \ case\ 8:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00290}00290\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hIntegThreadEvent.GetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00291}00291\ \textcolor{comment}{\ \ \ \ case\ 9:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00292}00292\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hCrossEvent.GetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00293}00293\ \textcolor{comment}{\ \ \ \ case\ 10:}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00294}00294\ \textcolor{comment}{\ \ \ \ \ \ \ \ ret\ =\ hCrossThreadEvent.GetEvent(ThreadNum);\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00295}00295\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00296}00296\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00297}00297\ \textcolor{comment}{\ \ \ \ return\ ret;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00298}00298\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00300}00300\ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00301}00301\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00302}00302\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00303}00303\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00305}00305\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00306}00306\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00307}00307\ \textcolor{comment}{//\ \ FarsiteEvents}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00308}00308\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00309}00309\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00311}00311\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00312}\mbox{\hyperlink{class_farsite_event_a5aa84232f01a2bd24e223d42f5cb0269}{00312}}\ \mbox{\hyperlink{class_farsite_event_a5aa84232f01a2bd24e223d42f5cb0269}{FarsiteEvent::FarsiteEvent}}()}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00313}00313\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00314}00314\ \ \ \ \ hEvent\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00315}00315\ \ \ \ \ NumEvents\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00316}00316\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00318}00318\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00319}\mbox{\hyperlink{class_farsite_event_ac4fc945b5f81bf75b0c437792106bff6}{00319}}\ \mbox{\hyperlink{class_farsite_event_ac4fc945b5f81bf75b0c437792106bff6}{FarsiteEvent::\string~FarsiteEvent}}()}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00320}00320\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00321}00321\ \ \ \ \ \mbox{\hyperlink{class_farsite_event_aa1294ef803df6ab56c929103c22c8e05}{FreeEvents}}();}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00322}00322\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00323}00323\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00324}00324\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00325}\mbox{\hyperlink{class_farsite_event_a3333ad7b1092da33aeb6de983b9d5e9d}{00325}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_farsite_event_a3333ad7b1092da33aeb6de983b9d5e9d}{FarsiteEvent::AllocEvents}}(\textcolor{keywordtype}{long}\ numevents,\ \textcolor{keywordtype}{char}*\ basename,\ \textcolor{keywordtype}{bool}\ ManReset,}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00326}00326\ \ \ \ \ \textcolor{keywordtype}{bool}\ InitState)}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00327}00327\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00328}00328\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00329}00329\ \textcolor{comment}{\ \ \ \ if\ (numevents\ ==\ NumEvents)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00330}00330\ \textcolor{comment}{\ \ \ \ \ \ \ \ return\ true;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00331}00331\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00332}00332\ \textcolor{comment}{\ \ \ \ FreeEvents();}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00333}00333\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00334}00334\ \textcolor{comment}{\ \ \ \ bool\ NoErr\ =\ true;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00335}00335\ \textcolor{comment}{\ \ \ \ long\ i;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00336}00336\ \textcolor{comment}{\ \ \ \ char\ Name[128]\ =\ "{}"{};}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00337}00337\ \textcolor{comment}{\ \ \ \ char\ TimeID[128]\ =\ "{}"{};}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00338}00338\ \textcolor{comment}{\ \ \ \ SYSTEMTIME\ st;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00339}00339\ \textcolor{comment}{\ \ \ \ GetSystemTime(\&st);}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00340}00340\ \textcolor{comment}{\ \ \ \ sprintf(TimeID,\ "{}\%ld\%ld\%ld\%ld\%ld\%ld\%ld"{},\ st.wYear,\ st.wMonth,\ st.wDay,}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00341}00341\ \textcolor{comment}{\ \ \ \ \ \ \ \ st.wHour,\ st.wMinute,\ st.wSecond,\ st.wMilliseconds);}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00342}00342\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00343}00343\ \textcolor{comment}{\ \ \ \ hEvent\ =\ new\ X\_HANDLE[numevents];}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00344}00344\ \textcolor{comment}{\ \ \ \ if\ (hEvent\ ==\ NULL)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00345}00345\ \textcolor{comment}{\ \ \ \ \ \ \ \ return\ false;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00346}00346\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00347}00347\ \textcolor{comment}{\ \ \ \ for\ (i\ =\ 0;\ i\ <\ numevents;\ i++)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00348}00348\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00349}00349\ \textcolor{comment}{\ \ \ \ \ \ \ \ sprintf(Name,\ "{}\%s\%s\_\%02ld"{},\ basename,\ TimeID,\ i\ +\ 1);}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00350}00350\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00351}00351\ \textcolor{comment}{\ \ \ \ \ \ \ \ hEvent[i]\ =\ CreateEvent(NULL,\ ManReset,\ InitState,\ Name);}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00352}00352\ \textcolor{comment}{\ \ \ \ \ \ \ \ if\ (hEvent[i]\ ==\ NULL)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00353}00353\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00354}00354\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ NoErr\ =\ true;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00355}00355\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00356}00356\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00357}00357\ \textcolor{comment}{\ \ \ \ \ \ \ \ NumEvents++;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00358}00358\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00359}00359\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00360}00360\ \textcolor{comment}{\ \ \ \ return\ NoErr;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00361}00361\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00362}00362\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00363}00363\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00364}00364\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00365}00365\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00366}00366\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00367}\mbox{\hyperlink{class_farsite_event_aa1294ef803df6ab56c929103c22c8e05}{00367}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_farsite_event_aa1294ef803df6ab56c929103c22c8e05}{FarsiteEvent::FreeEvents}}()}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00368}00368\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00369}00369\ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00370}00370\ \textcolor{comment}{\ \ \ \ unsigned\ long\ i;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00371}00371\ \textcolor{comment}{\ \ \ \ bool\ NoErr\ =\ true;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00372}00372\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00373}00373\ \textcolor{comment}{\ \ \ \ for\ (i\ =\ 0;\ i\ <\ NumEvents;\ i++)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00374}00374\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00375}00375\ \textcolor{comment}{\ \ \ \ \ \ \ \ if\ (!CloseHandle(hEvent[i]))}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00376}00376\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ NoErr\ =\ false;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00377}00377\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00378}00378\ \textcolor{comment}{\ \ \ \ if\ (hEvent)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00379}00379\ \textcolor{comment}{\ \ \ \ \ \ \ \ delete[]\ hEvent;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00380}00380\ \textcolor{comment}{\ \ \ \ NumEvents\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00381}00381\ \textcolor{comment}{\ \ \ \ hEvent\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00382}00382\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00383}00383\ \textcolor{comment}{\ \ \ \ return\ NoErr;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00384}00384\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00385}00385\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00386}00386\ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00387}00387\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00388}00388\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00389}00389\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00390}\mbox{\hyperlink{class_farsite_event_a2bf8ca6d5237b98214361acf463f6b07}{00390}}\ \mbox{\hyperlink{fsxsync_8h_aac97dde8e4de9251506139df72ede9ac}{X\_HANDLE}}\ \mbox{\hyperlink{class_farsite_event_a2bf8ca6d5237b98214361acf463f6b07}{FarsiteEvent::GetEvent}}(\textcolor{keywordtype}{long}\ ThreadNum)}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00391}00391\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00392}00392\ \textcolor{comment}{//\ this\ is\ really\ strange\ to\ me\ I\ think\ that\ the}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00393}00393\ \textcolor{comment}{//\ conversion\ to\ long\ from\ null\ is\ going\ to\ be\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00394}00394\ \textcolor{comment}{//\ zero\ any\ way.\ \ So\ I\ am\ jus\ explictly\ returning\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00395}00395\ \textcolor{comment}{//\ zero\ here.\ }}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00396}00396\ \ \ \ \ \textcolor{keywordflow}{if}\ (ThreadNum\ >(\textcolor{keywordtype}{long})(\ NumEvents\ -\/\ 1))}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00397}00397\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00398}00398\ \ \ \ \ \ \ \ \ \textcolor{comment}{//return\ NULL;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00399}00399\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00400}00400\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00401}00401\ \ \ \ \ \textcolor{keywordflow}{return}\ hEvent[ThreadNum];}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00402}00402\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00403}00403\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00404}00404\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00405}\mbox{\hyperlink{class_farsite_event_a5099ec0f4c6cf901dd3d481d2ba1825d}{00405}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_farsite_event_a5099ec0f4c6cf901dd3d481d2ba1825d}{FarsiteEvent::SetEvent}}(\textcolor{keywordtype}{long}\ ThreadNum)}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00406}00406\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00407}00407\ \textcolor{comment}{//\ \ if\ (ThreadNum\ <\ NumEvents)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00408}00408\ \textcolor{comment}{//\ \ \ \ \ \ return\ ::SetEvent(hEvent[ThreadNum]);}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00409}00409\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00410}00410\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00411}00411\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00412}00412\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00413}00413\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00414}\mbox{\hyperlink{class_farsite_event_a1cff24b2c13994873a9329e49f7b9683}{00414}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_farsite_event_a1cff24b2c13994873a9329e49f7b9683}{FarsiteEvent::ResetEvent}}(\textcolor{keywordtype}{long}\ ThreadNum)}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00415}00415\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00416}00416\ \textcolor{comment}{//\ \ if\ (ThreadNum\ <\ NumEvents)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00417}00417\ \textcolor{comment}{//\ \ \ \ \ \ return\ ::ResetEvent(hEvent[ThreadNum]);}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00418}00418\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00419}00419\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00420}00420\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00421}00421\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00422}00422\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00423}\mbox{\hyperlink{class_farsite_event_a2a4c31cd02edd36f34b35e4fd33b59b0}{00423}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_farsite_event_a2a4c31cd02edd36f34b35e4fd33b59b0}{FarsiteEvent::WaitForEvents}}(\textcolor{keywordtype}{long}\ numevents,\ \textcolor{keywordtype}{bool}\ All,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ Wait)}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00424}00424\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00425}00425\ \textcolor{comment}{//\ \ WaitForMultipleObjects(numevents,\ hEvent,\ All,\ Wait);}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00426}00426\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00427}00427\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00428}00428\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00429}00429\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00430}00430\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00431}\mbox{\hyperlink{class_farsite_event_a8bb2e0627d1e99619b53d7f06d81b55b}{00431}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_farsite_event_a8bb2e0627d1e99619b53d7f06d81b55b}{FarsiteEvent::WaitForOneEvent}}(\textcolor{keywordtype}{long}\ ThreadNum,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ Wait)}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00432}00432\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00433}00433\ \textcolor{comment}{//\ \ WaitForSingleObject(hEvent[ThreadNum],\ Wait);}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00434}00434\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00435}00435\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00436}00436\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00437}00437\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00439}00439\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00440}00440\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00441}00441\ \textcolor{comment}{//\ \ \ \ Landscape\ Semaphore\ Functions}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00442}00442\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00443}00443\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00444}00444\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00445}\mbox{\hyperlink{fsxsync_8cpp_aa4d92989db10bd9b5f1a58bf0a7755ce}{00445}}\ \mbox{\hyperlink{fsxsync_8h_aac97dde8e4de9251506139df72ede9ac}{X\_HANDLE}}\ \mbox{\hyperlink{fsxsync_8cpp_aa4d92989db10bd9b5f1a58bf0a7755ce}{hLandscapeSemaphore}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00446}00446\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00447}00447\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00448}\mbox{\hyperlink{fsxsync_8cpp_a29464e5cb56c12cdbf1d282d036e03e0}{00448}}\ \mbox{\hyperlink{fsxsync_8h_aac97dde8e4de9251506139df72ede9ac}{X\_HANDLE}}\ \mbox{\hyperlink{fsxsync_8cpp_a29464e5cb56c12cdbf1d282d036e03e0}{GetLandscapeSemaphore}}()}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00449}00449\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00450}00450\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fsxsync_8cpp_aa4d92989db10bd9b5f1a58bf0a7755ce}{hLandscapeSemaphore}};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00451}00451\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00452}00452\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00453}00453\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00454}\mbox{\hyperlink{fsxsync_8cpp_a8cc6442c98b83e3864e731624ddf6c7f}{00454}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxsync_8cpp_a8cc6442c98b83e3864e731624ddf6c7f}{CreateLandscapeSemaphore}}()}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00455}00455\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00456}00456\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00457}00457\ \textcolor{comment}{\ \ \ \ CloseLandscapeSemaphore();}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00458}00458\ \textcolor{comment}{\ \ \ \ char\ Name[128]\ =\ "{}"{};}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00459}00459\ \textcolor{comment}{\ \ \ \ char\ TimeID[128]\ =\ "{}"{};}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00460}00460\ \textcolor{comment}{\ \ \ \ SYSTEMTIME\ st;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00461}00461\ \textcolor{comment}{\ \ \ \ GetSystemTime(\&st);}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00462}00462\ \textcolor{comment}{\ \ \ \ sprintf(TimeID,\ "{}\%ld\%ld\%ld\%ld\%ld\%ld\%ld"{},\ st.wYear,\ st.wMonth,\ st.wDay,}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00463}00463\ \textcolor{comment}{\ \ \ \ \ \ \ \ st.wHour,\ st.wMinute,\ st.wSecond,\ st.wMilliseconds);}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00464}00464\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00465}00465\ \textcolor{comment}{\ \ \ \ sprintf(Name,\ "{}\%s\%s"{},\ "{}LANDSCAPE\_SEMAPHORE"{},\ TimeID);}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00466}00466\ \textcolor{comment}{\ \ \ \ hLandscapeSemaphore\ =\ CreateSemaphore(NULL,\ 1,\ 1,\ Name);}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00467}00467\ \textcolor{comment}{\ \ \ \ if\ (hLandscapeSemaphore\ ==\ NULL)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00468}00468\ \textcolor{comment}{\ \ \ \ \ \ \ \ return\ false;}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00469}00469\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00470}00470\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00471}00471\ \}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00472}00472\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00473}00473\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00474}\mbox{\hyperlink{fsxsync_8cpp_ad2ca283b43cd418c83b7aa8a7f8c2d58}{00474}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxsync_8cpp_ad2ca283b43cd418c83b7aa8a7f8c2d58}{CloseLandscapeSemaphore}}()}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00475}00475\ \{}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00476}00476\ \textcolor{comment}{//\ \ if\ (hLandscapeSemaphore)}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00477}00477\ \textcolor{comment}{//\ \ \ \ \ \ CloseHandle(hLandscapeSemaphore);}}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00478}00478\ }
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00479}00479\ \ \ \ \ \mbox{\hyperlink{fsxsync_8cpp_aa4d92989db10bd9b5f1a58bf0a7755ce}{hLandscapeSemaphore}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fsxsync_8cpp_source_l00480}00480\ \}}
+
+\end{DoxyCode}

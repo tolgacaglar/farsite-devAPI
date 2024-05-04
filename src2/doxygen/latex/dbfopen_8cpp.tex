@@ -1,0 +1,333 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/dbfopen.cpp File Reference}
+\hypertarget{dbfopen_8cpp}{}\label{dbfopen_8cpp}\index{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/dbfopen.cpp@{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/dbfopen.cpp}}
+{\ttfamily \#include "{}shapefil.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{dbfopen_8cpp_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}~0
+\item 
+\#define \mbox{\hyperlink{dbfopen_8cpp_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}~1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_a30dc278924c1a96d8b4db285fc8aa157}{DBFOpen}} (const char \texorpdfstring{$\ast$}{*}psz\+Filename, const char \texorpdfstring{$\ast$}{*}psz\+Access)
+\item 
+void \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_a9a07484ec14d2827c6954c1e7889ff78}{DBFClose}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF)
+\item 
+\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_ab1bc31fb059f81e502905f86ff68d3cc}{DBFCreate}} (const char \texorpdfstring{$\ast$}{*}psz\+Filename)
+\item 
+int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_a409876e1210cd631b3543478b493e696}{DBFAdd\+Field}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF, const char \texorpdfstring{$\ast$}{*}psz\+Field\+Name, \mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8}{DBFField\+Type}} e\+Type, int n\+Width, int n\+Decimals)
+\item 
+int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_a1ad1e7104e6d4623b92269c05b549875}{DBFRead\+Integer\+Attribute}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF, int i\+Record, int i\+Field)
+\item 
+double \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_a38acc101986b5cd7cc4fb1d89e8eb816}{DBFRead\+Double\+Attribute}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF, int i\+Record, int i\+Field)
+\item 
+const char \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\+\_\+\+CALL1}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{dbfopen_8cpp_a1aadfb1e543bb1b771895b0a6b000689}{DBFRead\+String\+Attribute}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF, int i\+Record, int i\+Field)\{\mbox{\hyperlink{dbfopen_8cpp_aa00699348db8c73844e5dcc504328eb2}{return}}((const char \texorpdfstring{$\ast$}{*}) DBFRead\+Attribute(ps\+DBF, i\+Record, i\+Field, \textquotesingle{}C\textquotesingle{})
+\item 
+int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_acaf3a9e8d0bfcc93001d42bb87bf0a9d}{DBFIs\+Attribute\+NULL}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF, int i\+Record, int i\+Field)
+\item 
+int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_a1ab85d5180998f31ca8303ff1ea90de4}{DBFGet\+Field\+Count}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF)
+\item 
+int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_a79308469c200e9e7bd22ea922a67cc5d}{DBFGet\+Record\+Count}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF)
+\item 
+\mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8}{DBFField\+Type}} \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_afedd7c7e118f364825f186aec431af23}{DBFGet\+Field\+Info}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF, int i\+Field, char \texorpdfstring{$\ast$}{*}psz\+Field\+Name, int \texorpdfstring{$\ast$}{*}pn\+Width, int \texorpdfstring{$\ast$}{*}pn\+Decimals)
+\item 
+int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_a19b316309016b13da8b85c26d2c17815}{DBFWrite\+Double\+Attribute}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF, int i\+Record, int i\+Field, double d\+Value)
+\item 
+int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_a7c31d1d75f4f97b9c38ab57e3c8fc450}{DBFWrite\+Integer\+Attribute}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF, int i\+Record, int i\+Field, int n\+Value)
+\item 
+int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_a854cc6b20913268b4eb499bab2c81f01}{DBFWrite\+String\+Attribute}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF, int i\+Record, int i\+Field, const char \texorpdfstring{$\ast$}{*}psz\+Value)
+\item 
+int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_ac987602d9793d3d8f6693ea3e9f63153}{DBFWrite\+NULLAttribute}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF, int i\+Record, int i\+Field)
+\item 
+int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_ad1ea3363c09a3cd0809c56401c9254b6}{DBFWrite\+Tuple}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF, int h\+Entity, void \texorpdfstring{$\ast$}{*}p\+Raw\+Tuple)
+\item 
+const char \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\+\_\+\+CALL1}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{dbfopen_8cpp_acea0fc64adbd89c02923d0508ac5f22c}{DBFRead\+Tuple}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF, int h\+Entity)\{int n\+Record\+Offset;unsigned char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{dbfopen_8cpp_ae4554962d38fe13cd3829d09a91fa970}{paby\+Rec}};static char \texorpdfstring{$\ast$}{*}p\+Return\+Tuple=NULL;static int n\+Tuple\+Len=0;\mbox{\hyperlink{dbfopen_8cpp_a10ce366c99d2411d4f9532c862df3940}{if}}(h\+Entity$<$ 0\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}h\+Entity $>$=ps\+DBF-\/$>$n\+Records) \mbox{\hyperlink{dbfopen_8cpp_aa00699348db8c73844e5dcc504328eb2}{return}}(NULL
+\item 
+\mbox{\hyperlink{dbfopen_8cpp_a10ce366c99d2411d4f9532c862df3940}{if}} (ps\+DBF-\/$>$n\+Current\+Record !=h\+Entity)
+\item 
+\mbox{\hyperlink{dbfopen_8cpp_a74b0668676e39d25bd410b6f90e98387}{if}} (n\+Tuple\+Len$<$ ps\+DBF-\/$>$n\+Record\+Length)
+\item 
+\mbox{\hyperlink{dbfopen_8cpp_afce3d3186cbb509149c67821252cd883}{memcpy}} (p\+Return\+Tuple, \mbox{\hyperlink{dbfopen_8cpp_ae4554962d38fe13cd3829d09a91fa970}{paby\+Rec}}, ps\+DBF-\/$>$n\+Record\+Length)
+\item 
+\mbox{\hyperlink{dbfopen_8cpp_aa00699348db8c73844e5dcc504328eb2}{return}} (p\+Return\+Tuple)
+\item 
+\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_a5a5e5d102512987fe62a40c9217a1de3}{DBFClone\+Empty}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF, const char \texorpdfstring{$\ast$}{*}psz\+Filename)
+\item 
+char \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_aeeb993de5fbd632907d12e8247b08437}{DBFGet\+Native\+Field\+Type}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF, int i\+Field)
+\item 
+int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{dbfopen_8cpp_a737edd98967b617bf17235da92bea4e9}{DBFGet\+Field\+Index}} (\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} ps\+DBF, const char \texorpdfstring{$\ast$}{*}psz\+Field\+Name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{dbfopen_8cpp_ae4554962d38fe13cd3829d09a91fa970}{paby\+Rec}} = (unsigned char\texorpdfstring{$\ast$}{*}) ps\+DBF-\/$>$psz\+Current\+Record
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{dbfopen_8cpp_aa93f0eb578d23995850d61f7d61c55c1}\label{dbfopen_8cpp_aa93f0eb578d23995850d61f7d61c55c1} 
+\index{dbfopen.cpp@{dbfopen.cpp}!FALSE@{FALSE}}
+\index{FALSE@{FALSE}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{FALSE}{FALSE}}
+{\footnotesize\ttfamily \#define FALSE~0}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l00184}{184}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_aa8cecfc5c5c054d2875c03e77b7be15d}\label{dbfopen_8cpp_aa8cecfc5c5c054d2875c03e77b7be15d} 
+\index{dbfopen.cpp@{dbfopen.cpp}!TRUE@{TRUE}}
+\index{TRUE@{TRUE}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{TRUE}{TRUE}}
+{\footnotesize\ttfamily \#define TRUE~1}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l00185}{185}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{dbfopen_8cpp_a409876e1210cd631b3543478b493e696}\label{dbfopen_8cpp_a409876e1210cd631b3543478b493e696} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFAddField@{DBFAddField}}
+\index{DBFAddField@{DBFAddField}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFAddField()}{DBFAddField()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFAdd\+Field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{psz\+Field\+Name,  }\item[{\mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8}{DBFField\+Type}}}]{e\+Type,  }\item[{int}]{n\+Width,  }\item[{int}]{n\+Decimals }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l00572}{572}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_a5a5e5d102512987fe62a40c9217a1de3}\label{dbfopen_8cpp_a5a5e5d102512987fe62a40c9217a1de3} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFCloneEmpty@{DBFCloneEmpty}}
+\index{DBFCloneEmpty@{DBFCloneEmpty}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFCloneEmpty()}{DBFCloneEmpty()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFClone\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{psz\+Filename }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l01233}{1233}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_a9a07484ec14d2827c6954c1e7889ff78}\label{dbfopen_8cpp_a9a07484ec14d2827c6954c1e7889ff78} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFClose@{DBFClose}}
+\index{DBFClose@{DBFClose}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFClose()}{DBFClose()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFClose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l00428}{428}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_ab1bc31fb059f81e502905f86ff68d3cc}\label{dbfopen_8cpp_ab1bc31fb059f81e502905f86ff68d3cc} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFCreate@{DBFCreate}}
+\index{DBFCreate@{DBFCreate}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFCreate()}{DBFCreate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFCreate (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{psz\+Filename }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l00494}{494}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_a1ab85d5180998f31ca8303ff1ea90de4}\label{dbfopen_8cpp_a1ab85d5180998f31ca8303ff1ea90de4} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFGetFieldCount@{DBFGetFieldCount}}
+\index{DBFGetFieldCount@{DBFGetFieldCount}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFGetFieldCount()}{DBFGetFieldCount()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFGet\+Field\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l00860}{860}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_a737edd98967b617bf17235da92bea4e9}\label{dbfopen_8cpp_a737edd98967b617bf17235da92bea4e9} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFGetFieldIndex@{DBFGetFieldIndex}}
+\index{DBFGetFieldIndex@{DBFGetFieldIndex}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFGetFieldIndex()}{DBFGetFieldIndex()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFGet\+Field\+Index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{psz\+Field\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l01346}{1346}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_afedd7c7e118f364825f186aec431af23}\label{dbfopen_8cpp_afedd7c7e118f364825f186aec431af23} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFGetFieldInfo@{DBFGetFieldInfo}}
+\index{DBFGetFieldInfo@{DBFGetFieldInfo}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFGetFieldInfo()}{DBFGetFieldInfo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8}{DBFField\+Type}} \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFGet\+Field\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF,  }\item[{int}]{i\+Field,  }\item[{char \texorpdfstring{$\ast$}{*}}]{psz\+Field\+Name,  }\item[{int \texorpdfstring{$\ast$}{*}}]{pn\+Width,  }\item[{int \texorpdfstring{$\ast$}{*}}]{pn\+Decimals }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l00882}{882}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_aeeb993de5fbd632907d12e8247b08437}\label{dbfopen_8cpp_aeeb993de5fbd632907d12e8247b08437} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFGetNativeFieldType@{DBFGetNativeFieldType}}
+\index{DBFGetNativeFieldType@{DBFGetNativeFieldType}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFGetNativeFieldType()}{DBFGetNativeFieldType()}}
+{\footnotesize\ttfamily char \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFGet\+Native\+Field\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF,  }\item[{int}]{i\+Field }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l01314}{1314}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_a79308469c200e9e7bd22ea922a67cc5d}\label{dbfopen_8cpp_a79308469c200e9e7bd22ea922a67cc5d} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFGetRecordCount@{DBFGetRecordCount}}
+\index{DBFGetRecordCount@{DBFGetRecordCount}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFGetRecordCount()}{DBFGetRecordCount()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFGet\+Record\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l00871}{871}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_acaf3a9e8d0bfcc93001d42bb87bf0a9d}\label{dbfopen_8cpp_acaf3a9e8d0bfcc93001d42bb87bf0a9d} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFIsAttributeNULL@{DBFIsAttributeNULL}}
+\index{DBFIsAttributeNULL@{DBFIsAttributeNULL}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFIsAttributeNULL()}{DBFIsAttributeNULL()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFIs\+Attribute\+NULL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF,  }\item[{int}]{i\+Record,  }\item[{int}]{i\+Field }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l00826}{826}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_a30dc278924c1a96d8b4db285fc8aa157}\label{dbfopen_8cpp_a30dc278924c1a96d8b4db285fc8aa157} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFOpen@{DBFOpen}}
+\index{DBFOpen@{DBFOpen}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFOpen()}{DBFOpen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}} \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFOpen (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{psz\+Filename,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{psz\+Access }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l00289}{289}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_a38acc101986b5cd7cc4fb1d89e8eb816}\label{dbfopen_8cpp_a38acc101986b5cd7cc4fb1d89e8eb816} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFReadDoubleAttribute@{DBFReadDoubleAttribute}}
+\index{DBFReadDoubleAttribute@{DBFReadDoubleAttribute}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFReadDoubleAttribute()}{DBFReadDoubleAttribute()}}
+{\footnotesize\ttfamily double \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFRead\+Double\+Attribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF,  }\item[{int}]{i\+Record,  }\item[{int}]{i\+Field }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l00792}{792}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_a1ad1e7104e6d4623b92269c05b549875}\label{dbfopen_8cpp_a1ad1e7104e6d4623b92269c05b549875} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFReadIntegerAttribute@{DBFReadIntegerAttribute}}
+\index{DBFReadIntegerAttribute@{DBFReadIntegerAttribute}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFReadIntegerAttribute()}{DBFReadIntegerAttribute()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFRead\+Integer\+Attribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF,  }\item[{int}]{i\+Record,  }\item[{int}]{i\+Field }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l00773}{773}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_a1aadfb1e543bb1b771895b0a6b000689}\label{dbfopen_8cpp_a1aadfb1e543bb1b771895b0a6b000689} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFReadStringAttribute@{DBFReadStringAttribute}}
+\index{DBFReadStringAttribute@{DBFReadStringAttribute}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFReadStringAttribute()}{DBFReadStringAttribute()}}
+{\footnotesize\ttfamily const char \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\+\_\+\+CALL1}} \texorpdfstring{$\ast$}{*} DBFRead\+String\+Attribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF,  }\item[{int}]{i\+Record,  }\item[{int}]{i\+Field }\end{DoxyParamCaption}) const}
+
+\Hypertarget{dbfopen_8cpp_acea0fc64adbd89c02923d0508ac5f22c}\label{dbfopen_8cpp_acea0fc64adbd89c02923d0508ac5f22c} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFReadTuple@{DBFReadTuple}}
+\index{DBFReadTuple@{DBFReadTuple}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFReadTuple()}{DBFReadTuple()}}
+{\footnotesize\ttfamily const char \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\+\_\+\+CALL1}} \texorpdfstring{$\ast$}{*} DBFRead\+Tuple (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF,  }\item[{int}]{h\+Entity }\end{DoxyParamCaption}) -\/$>$ n\+Records) \mbox{\hyperlink{dbfopen_8cpp_aa00699348db8c73844e5dcc504328eb2}{return}}(NULL}
+
+\Hypertarget{dbfopen_8cpp_a19b316309016b13da8b85c26d2c17815}\label{dbfopen_8cpp_a19b316309016b13da8b85c26d2c17815} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFWriteDoubleAttribute@{DBFWriteDoubleAttribute}}
+\index{DBFWriteDoubleAttribute@{DBFWriteDoubleAttribute}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFWriteDoubleAttribute()}{DBFWriteDoubleAttribute()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFWrite\+Double\+Attribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF,  }\item[{int}]{i\+Record,  }\item[{int}]{i\+Field,  }\item[{double}]{d\+Value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l01077}{1077}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_a7c31d1d75f4f97b9c38ab57e3c8fc450}\label{dbfopen_8cpp_a7c31d1d75f4f97b9c38ab57e3c8fc450} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFWriteIntegerAttribute@{DBFWriteIntegerAttribute}}
+\index{DBFWriteIntegerAttribute@{DBFWriteIntegerAttribute}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFWriteIntegerAttribute()}{DBFWriteIntegerAttribute()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFWrite\+Integer\+Attribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF,  }\item[{int}]{i\+Record,  }\item[{int}]{i\+Field,  }\item[{int}]{n\+Value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l01089}{1089}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_ac987602d9793d3d8f6693ea3e9f63153}\label{dbfopen_8cpp_ac987602d9793d3d8f6693ea3e9f63153} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFWriteNULLAttribute@{DBFWriteNULLAttribute}}
+\index{DBFWriteNULLAttribute@{DBFWriteNULLAttribute}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFWriteNULLAttribute()}{DBFWriteNULLAttribute()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFWrite\+NULLAttribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF,  }\item[{int}]{i\+Record,  }\item[{int}]{i\+Field }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l01115}{1115}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_a854cc6b20913268b4eb499bab2c81f01}\label{dbfopen_8cpp_a854cc6b20913268b4eb499bab2c81f01} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFWriteStringAttribute@{DBFWriteStringAttribute}}
+\index{DBFWriteStringAttribute@{DBFWriteStringAttribute}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFWriteStringAttribute()}{DBFWriteStringAttribute()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFWrite\+String\+Attribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF,  }\item[{int}]{i\+Record,  }\item[{int}]{i\+Field,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{psz\+Value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l01103}{1103}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_ad1ea3363c09a3cd0809c56401c9254b6}\label{dbfopen_8cpp_ad1ea3363c09a3cd0809c56401c9254b6} 
+\index{dbfopen.cpp@{dbfopen.cpp}!DBFWriteTuple@{DBFWriteTuple}}
+\index{DBFWriteTuple@{DBFWriteTuple}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{DBFWriteTuple()}{DBFWriteTuple()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} DBFWrite\+Tuple (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}}}]{ps\+DBF,  }\item[{int}]{h\+Entity,  }\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Raw\+Tuple }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l01126}{1126}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_a74b0668676e39d25bd410b6f90e98387}\label{dbfopen_8cpp_a74b0668676e39d25bd410b6f90e98387} 
+\index{dbfopen.cpp@{dbfopen.cpp}!if@{if}}
+\index{if@{if}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily if (\begin{DoxyParamCaption}\item[{n\+Tuple\+Len$<$ ps\+DBF-\/$>$}]{n\+Record\+Length }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l01216}{1216}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_a10ce366c99d2411d4f9532c862df3940}\label{dbfopen_8cpp_a10ce366c99d2411d4f9532c862df3940} 
+\index{dbfopen.cpp@{dbfopen.cpp}!if@{if}}
+\index{if@{if}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily if (\begin{DoxyParamCaption}\item[{ps\+DBF-\/$>$n\+Current\+Record !}]{ = {\ttfamily hEntity} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l01202}{1202}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+
+\Hypertarget{dbfopen_8cpp_afce3d3186cbb509149c67821252cd883}\label{dbfopen_8cpp_afce3d3186cbb509149c67821252cd883} 
+\index{dbfopen.cpp@{dbfopen.cpp}!memcpy@{memcpy}}
+\index{memcpy@{memcpy}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{memcpy()}{memcpy()}}
+{\footnotesize\ttfamily memcpy (\begin{DoxyParamCaption}\item[{p\+Return\+Tuple}]{,  }\item[{\mbox{\hyperlink{dbfopen_8cpp_ae4554962d38fe13cd3829d09a91fa970}{paby\+Rec}}}]{,  }\item[{ps\+DBF-\/$>$}]{n\+Record\+Length }\end{DoxyParamCaption})}
+
+\Hypertarget{dbfopen_8cpp_aa00699348db8c73844e5dcc504328eb2}\label{dbfopen_8cpp_aa00699348db8c73844e5dcc504328eb2} 
+\index{dbfopen.cpp@{dbfopen.cpp}!return@{return}}
+\index{return@{return}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{return()}{return()}}
+{\footnotesize\ttfamily return (\begin{DoxyParamCaption}\item[{p\+Return\+Tuple}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{dbfopen_8cpp_ae4554962d38fe13cd3829d09a91fa970}\label{dbfopen_8cpp_ae4554962d38fe13cd3829d09a91fa970} 
+\index{dbfopen.cpp@{dbfopen.cpp}!pabyRec@{pabyRec}}
+\index{pabyRec@{pabyRec}!dbfopen.cpp@{dbfopen.cpp}}
+\doxysubsubsection{\texorpdfstring{pabyRec}{pabyRec}}
+{\footnotesize\ttfamily paby\+Rec = (unsigned char\texorpdfstring{$\ast$}{*}) ps\+DBF-\/$>$psz\+Current\+Record}
+
+
+
+Definition at line \mbox{\hyperlink{dbfopen_8cpp_source_l01214}{1214}} of file \mbox{\hyperlink{dbfopen_8cpp_source}{dbfopen.\+cpp}}.
+

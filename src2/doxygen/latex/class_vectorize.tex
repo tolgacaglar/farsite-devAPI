@@ -1,0 +1,231 @@
+\doxysection{Vectorize Class Reference}
+\hypertarget{class_vectorize}{}\label{class_vectorize}\index{Vectorize@{Vectorize}}
+
+
+{\ttfamily \#include $<$fsx4.\+hpp$>$}
+
+Inheritance diagram for Vectorize\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_vectorize}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vectorize_a195f8d3982469e98062c72e236e5c486}{Vectorize}} ()
+\item 
+\mbox{\hyperlink{class_vectorize_a548489b1b53292e4c95bdda9c383575e}{\texorpdfstring{$\sim$}{\string~}\+Vectorize}} ()
+\item 
+void \mbox{\hyperlink{class_vectorize_aaa0e899e65de26d31b4dac781deee9f2}{Vect\+Data}} (long Current\+Fire, double Sim\+Time)
+\item 
+void \mbox{\hyperlink{class_vectorize_a85319c8f965e801b926c7a38a1b327f4}{Arc\+File\+Format}} ()
+\item 
+void \mbox{\hyperlink{class_vectorize_a204c4712ac35a6013b75f7c5878b8764}{Optional\+File\+Format}} ()
+\item 
+void \mbox{\hyperlink{class_vectorize_a275aa5e064a53d6e4ccc51aa3906a643}{Get\+XY}} ()
+\item 
+void \mbox{\hyperlink{class_vectorize_a14539391aacd03a9f2614fea3ce16772}{Get\+RF}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_output_file}{Output\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_output_file_a95bb75917bcceaef990fb39740fbb2e5}{Output\+File}} ()
+\item 
+\mbox{\hyperlink{class_output_file_ada2c24978592ca8e9dc451fe7d074b69}{\texorpdfstring{$\sim$}{\string~}\+Output\+File}} ()
+\item 
+void \mbox{\hyperlink{class_output_file_acde57e6cbb701f4f555ccabd722b05a6}{set\+Header\+Type}} (long type)
+\item 
+void \mbox{\hyperlink{class_output_file_a6f6b9ce986974cd6021f779df7dfc6a2}{Select\+Outputs}} (long Type)
+\item 
+void \mbox{\hyperlink{class_output_file_ac0dcc0a80dd65dc556bd3041ac0ec568}{Select\+Mem\+Outputs}} (long Type)
+\item 
+void \mbox{\hyperlink{class_output_file_a871812ee9a1b1001dc5386b895c0a12d}{Optional\+Output}} (bool From\+Memory)
+\item 
+void \mbox{\hyperlink{class_output_file_a8e0c731c7ca32113320f450651e6b6ee}{ConvF}} ()
+\item 
+void \mbox{\hyperlink{class_output_file_afb52819cd5ea0a41ba642df2d1952e55}{Init\+Raster\+Files}} (long \mbox{\hyperlink{class_output_file_a31a902c7f0940fae6a1b30888f845be1}{Header\+Type}})
+\item 
+void \mbox{\hyperlink{class_output_file_a284cbbbede9a9fc585aecabc6c4a9165}{Get\+Raster\+Extent}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Types inherited from \mbox{\hyperlink{class_output_file}{Output\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845}{Calc\+Type}} \{ \newline
+\mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845a152b51ab111037ca654612a9bed4c77a}{FLAME\+\_\+\+LENGTH}}
+, \mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845a163849ca2f6eefca5d56a8918127d9c1}{HEAT\+\_\+\+PER\+\_\+\+AREA}}
+, \mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845aeacf0795636e364963a04dafc135f576}{FL\+\_\+\+AND\+\_\+\+HPA}}
+, \mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845a8fdd6e3c7f959fb2f87080006e4bcddb}{CROWNFIRE}}
+, \newline
+\mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845a40147163abfb1945eb9808fe5e8de318}{FIRELINE\+\_\+\+INTENSITY}}
+, \mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845a8542cd41275d1eef2a2e53ce68339260}{REACTION\+\_\+\+INTENSITY}}
+ \}
+\item 
+typedef std\+::pair$<$ long, long $>$ \mbox{\hyperlink{class_output_file_abc6af9832a4539aeb6693fae2d165ce1}{coordinate}}
+\item 
+typedef std\+::map$<$ \mbox{\hyperlink{class_output_file_abc6af9832a4539aeb6693fae2d165ce1}{coordinate}}, \mbox{\hyperlink{struct_output_file_1_1_rast_data}{Rast\+Data}} $>$ \mbox{\hyperlink{class_output_file_ab4fd5a746ef61bbc85a0b8d73d671536}{Raster\+Map}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_output_file}{Output\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_output_file_ad24d4256567a32d3622727a93be3a65e}{Calcs}} (\mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845}{Calc\+Type}} TYPE)
+\item 
+void \mbox{\hyperlink{class_output_file_a291fbca629d026ddb6ff5d33fd81fbc4}{Free\+Rast\+Data}} ()
+\item 
+bool \mbox{\hyperlink{class_output_file_a13c3eab30f4477c83e1cd5fc54e25c96}{Set\+Rast\+Data}} (double xpt, double ypt, double time, double fli, double ros, double rcx, long dir)
+\begin{DoxyCompactList}\small\item\em Aggregates the provided set of fire behavior characteristics onto the raster. ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_output_file_aaef12d50fda35d5b02631fb8172246ec}{Write\+Optional\+File}} ()
+\begin{DoxyCompactList}\small\item\em Writes a single value to the already opened, already positioned output file. ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_output_file_a85b0b3beecfcb11fa8a65de8587a07e3}{Write\+Rast\+Mem\+Files}} ()
+\item 
+bool \mbox{\hyperlink{class_output_file_a752791f9524ff5099eb2c8d78c86cf7b}{Rast\+Mem\+File}} (long Type)
+\item 
+void \mbox{\hyperlink{class_output_file_aef01e610c7a17956de522434ed75f817}{Write\+File}} (long Type)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_output_file}{Output\+File}}}
+\begin{DoxyCompactItemize}
+\item 
+FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_output_file_a3924a3028e55af018c3f60c1f3f454cb}{otpfile}}
+\item 
+double \mbox{\hyperlink{class_output_file_a27c26539bff33422743c82a2779073a2}{x}}
+\item 
+double \mbox{\hyperlink{class_output_file_a969fd6442293f846a4f8ab784c4d3941}{y}}
+\item 
+double \mbox{\hyperlink{class_output_file_ade4d898977e95e059d4831fa398c74a8}{t}}
+\item 
+double \mbox{\hyperlink{class_output_file_a2330c3d54e07230bb4ee6fb7d68a4a7a}{f}}
+\item 
+double \mbox{\hyperlink{class_output_file_aa433e67f3c68d18d0c671ddeb77d267e}{l}}
+\item 
+double \mbox{\hyperlink{class_output_file_a21c147ea5432a4c84e8fc1a6929895b7}{r}}
+\item 
+double \mbox{\hyperlink{class_output_file_a618354ecb87a22e8e609d8db62461bea}{h}}
+\item 
+double \mbox{\hyperlink{class_output_file_af7f948e13805a8e904b839f2e5d3a282}{rx}}
+\item 
+double \mbox{\hyperlink{class_output_file_a8b5b763d1656ab462a5847634c8b252c}{North}}
+\item 
+double \mbox{\hyperlink{class_output_file_a4fcb8ccb8266647338cd8389afca2c30}{South}}
+\item 
+double \mbox{\hyperlink{class_output_file_a90d759d60829579bf811d17268519d88}{East}}
+\item 
+double \mbox{\hyperlink{class_output_file_a8fbc14d62b982c00f7ef0cd51fc8ca74}{West}}
+\item 
+long \mbox{\hyperlink{class_output_file_a9744f9bf9fbe36182329543833cf29e5}{c}}
+\item 
+long \mbox{\hyperlink{class_output_file_ab3ccbc27c0bfb4beda82d1128cdcc866}{d}}
+\item 
+double \mbox{\hyperlink{class_output_file_a74b26f7b741ff63566f610d45734dc17}{convf1}}
+\item 
+double \mbox{\hyperlink{class_output_file_ab412f1c46f9f7f6ac50696ca9f7721fe}{convf2}}
+\item 
+double \mbox{\hyperlink{class_output_file_a53431bfac678b42ae83620618cf17a39}{convf3}}
+\item 
+long \mbox{\hyperlink{class_output_file_a2c55f5e3efc2be53adab3f8fea3ffb18}{filepos}}
+\item 
+long \mbox{\hyperlink{class_output_file_ab6890d9e937b563995a34a83c712a5c3}{File\+Output}}
+\item 
+long \mbox{\hyperlink{class_output_file_a771548171454a388a3b71b2f4f381994}{numrows}}
+\item 
+long \mbox{\hyperlink{class_output_file_a5f774944defc5cdc54b6f26ae2064bc1}{numcols}}
+\item 
+long \mbox{\hyperlink{class_output_file_a998533fe171a192b4d9554f7143153f5}{Num\+Rast\+Alloc}}
+\item 
+long \mbox{\hyperlink{class_output_file_a54ec063b7160b39ce20257a35fed81a9}{Num\+Rast\+Data}}
+\item 
+long \mbox{\hyperlink{class_output_file_a31a902c7f0940fae6a1b30888f845be1}{Header\+Type}}
+\item 
+\mbox{\hyperlink{class_output_file_ab4fd5a746ef61bbc85a0b8d73d671536}{Raster\+Map}} \mbox{\hyperlink{class_output_file_abfdceb1336abbec2be249a9d914d44f4}{rd}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00387}{387}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_vectorize_a195f8d3982469e98062c72e236e5c486}\label{class_vectorize_a195f8d3982469e98062c72e236e5c486} 
+\index{Vectorize@{Vectorize}!Vectorize@{Vectorize}}
+\index{Vectorize@{Vectorize}!Vectorize@{Vectorize}}
+\doxysubsubsection{\texorpdfstring{Vectorize()}{Vectorize()}}
+{\footnotesize\ttfamily Vectorize\+::\+Vectorize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwvect_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{fsxwvect_8cpp_source}{fsxwvect.\+cpp}}.
+
+\Hypertarget{class_vectorize_a548489b1b53292e4c95bdda9c383575e}\label{class_vectorize_a548489b1b53292e4c95bdda9c383575e} 
+\index{Vectorize@{Vectorize}!````~Vectorize@{\texorpdfstring{$\sim$}{\string~}Vectorize}}
+\index{````~Vectorize@{\texorpdfstring{$\sim$}{\string~}Vectorize}!Vectorize@{Vectorize}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Vectorize()}{\string~Vectorize()}}
+{\footnotesize\ttfamily Vectorize\+::\texorpdfstring{$\sim$}{\string~}\+Vectorize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwvect_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{fsxwvect_8cpp_source}{fsxwvect.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_vectorize_a85319c8f965e801b926c7a38a1b327f4}\label{class_vectorize_a85319c8f965e801b926c7a38a1b327f4} 
+\index{Vectorize@{Vectorize}!ArcFileFormat@{ArcFileFormat}}
+\index{ArcFileFormat@{ArcFileFormat}!Vectorize@{Vectorize}}
+\doxysubsubsection{\texorpdfstring{ArcFileFormat()}{ArcFileFormat()}}
+{\footnotesize\ttfamily void Vectorize\+::\+Arc\+File\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwvect_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{fsxwvect_8cpp_source}{fsxwvect.\+cpp}}.
+
+\Hypertarget{class_vectorize_a14539391aacd03a9f2614fea3ce16772}\label{class_vectorize_a14539391aacd03a9f2614fea3ce16772} 
+\index{Vectorize@{Vectorize}!GetRF@{GetRF}}
+\index{GetRF@{GetRF}!Vectorize@{Vectorize}}
+\doxysubsubsection{\texorpdfstring{GetRF()}{GetRF()}}
+{\footnotesize\ttfamily void Vectorize\+::\+Get\+RF (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwvect_8cpp_source_l00140}{140}} of file \mbox{\hyperlink{fsxwvect_8cpp_source}{fsxwvect.\+cpp}}.
+
+\Hypertarget{class_vectorize_a275aa5e064a53d6e4ccc51aa3906a643}\label{class_vectorize_a275aa5e064a53d6e4ccc51aa3906a643} 
+\index{Vectorize@{Vectorize}!GetXY@{GetXY}}
+\index{GetXY@{GetXY}!Vectorize@{Vectorize}}
+\doxysubsubsection{\texorpdfstring{GetXY()}{GetXY()}}
+{\footnotesize\ttfamily void Vectorize\+::\+Get\+XY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwvect_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{fsxwvect_8cpp_source}{fsxwvect.\+cpp}}.
+
+\Hypertarget{class_vectorize_a204c4712ac35a6013b75f7c5878b8764}\label{class_vectorize_a204c4712ac35a6013b75f7c5878b8764} 
+\index{Vectorize@{Vectorize}!OptionalFileFormat@{OptionalFileFormat}}
+\index{OptionalFileFormat@{OptionalFileFormat}!Vectorize@{Vectorize}}
+\doxysubsubsection{\texorpdfstring{OptionalFileFormat()}{OptionalFileFormat()}}
+{\footnotesize\ttfamily void Vectorize\+::\+Optional\+File\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwvect_8cpp_source_l00094}{94}} of file \mbox{\hyperlink{fsxwvect_8cpp_source}{fsxwvect.\+cpp}}.
+
+\Hypertarget{class_vectorize_aaa0e899e65de26d31b4dac781deee9f2}\label{class_vectorize_aaa0e899e65de26d31b4dac781deee9f2} 
+\index{Vectorize@{Vectorize}!VectData@{VectData}}
+\index{VectData@{VectData}!Vectorize@{Vectorize}}
+\doxysubsubsection{\texorpdfstring{VectData()}{VectData()}}
+{\footnotesize\ttfamily void Vectorize\+::\+Vect\+Data (\begin{DoxyParamCaption}\item[{long}]{Current\+Fire,  }\item[{double}]{Sim\+Time }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwvect_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{fsxwvect_8cpp_source}{fsxwvect.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsx4_8hpp}{fsx4.\+hpp}}\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsxwvect_8cpp}{fsxwvect.\+cpp}}\end{DoxyCompactItemize}

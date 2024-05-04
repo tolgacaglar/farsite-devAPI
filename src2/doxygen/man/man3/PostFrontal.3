@@ -1,0 +1,122 @@
+.TH "PostFrontal" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PostFrontal
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsxpfront\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPostFrontal\fP ()"
+.br
+.ti -1c
+.RI "\fB~PostFrontal\fP ()"
+.br
+.ti -1c
+.RI "double \fBComputeSmoke\fP (double CurrentTime, long Species)"
+.br
+.ti -1c
+.RI "double \fBComputeHeat\fP (double CurrentTime)"
+.br
+.ti -1c
+.RI "long \fBAccessReferenceRingNum\fP (long LoopOrMerge, long RingNum)"
+.br
+.ti -1c
+.RI "void \fBComputePostFrontal\fP (double CurrentTime, double *smolder, double *flaming)"
+.br
+.ti -1c
+.RI "\fBFireRing\fP * \fBSetupFireRing\fP (long NumFire, double Start, double End)"
+.br
+.ti -1c
+.RI "void \fBCorrectFireRing\fP (long NumIsects, long *isects, double *ipoints, long *fires, long NumPerims, long PriorNumPoints)"
+.br
+.ti -1c
+.RI "void \fBMergeFireRings\fP (long *fires, long NumPerims, long *isects, double *ipoints, long NumIsects, long CurNumPts)"
+.br
+.ti -1c
+.RI "long \fBBurnupPrecision\fP (long LoHi)"
+.br
+.ti -1c
+.RI "void \fBUpdateAttackPoints\fP (\fBFireRing\fP *firering, long firenum)"
+.br
+.ti -1c
+.RI "void \fBResetAllThreads\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBBurnupFireRings\fP \fBbup\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB290\fP of file \fBfsxpfront\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "PostFrontal::PostFrontal ()"
+
+.PP
+Definition at line \fB985\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "PostFrontal::~PostFrontal ()"
+
+.PP
+Definition at line \fB994\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "long PostFrontal::AccessReferenceRingNum (long LoopOrMerge, long RingNum)"
+
+.PP
+Definition at line \fB1038\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "long PostFrontal::BurnupPrecision (long LoHi)"
+
+.PP
+Definition at line \fB1008\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "double PostFrontal::ComputeHeat (double CurrentTime)"
+
+.PP
+Definition at line \fB3522\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void PostFrontal::ComputePostFrontal (double CurrentTime, double * smolder, double * flaming)"
+
+.PP
+Definition at line \fB1100\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "double PostFrontal::ComputeSmoke (double CurrentTime, long Species)"
+
+.PP
+Definition at line \fB3517\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void PostFrontal::CorrectFireRing (long NumIsects, long * isects, double * ipoints, long * fires, long NumPerims, long PriorNumPoints)"
+
+.PP
+Definition at line \fB1627\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void PostFrontal::MergeFireRings (long * fires, long NumPerims, long * isects, double * ipoints, long NumIsects, long CurNumPts)"
+
+.PP
+Definition at line \fB2774\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void PostFrontal::ResetAllThreads ()"
+
+.PP
+Definition at line \fB1001\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "\fBFireRing\fP * PostFrontal::SetupFireRing (long NumFire, double Start, double End)"
+
+.PP
+Definition at line \fB1059\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void PostFrontal::UpdateAttackPoints (\fBFireRing\fP * firering, long firenum)"
+
+.PP
+Definition at line \fB1177\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBBurnupFireRings\fP PostFrontal::bup"
+
+.PP
+Definition at line \fB333\fP of file \fBfsxpfront\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

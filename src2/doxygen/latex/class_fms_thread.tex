@@ -1,0 +1,142 @@
+\doxysection{Fms\+Thread Class Reference}
+\hypertarget{class_fms_thread}{}\label{class_fms_thread}\index{FmsThread@{FmsThread}}
+
+
+{\ttfamily \#include $<$fsx4.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fms_thread_afeb596bbc5aa629ac0901342fd2e58ff}{Fms\+Thread}} ()
+\item 
+\mbox{\hyperlink{class_fms_thread_adf43ef9015ffaa8ccc745939623aae30}{\texorpdfstring{$\sim$}{\string~}\+Fms\+Thread}} ()
+\item 
+void \mbox{\hyperlink{class_fms_thread_abda4dd46669237192c3f728c76424a49}{Start\+Fms\+Thread}} (long ID, long Size\+Class, \mbox{\hyperlink{struct_dead_moisture_description}{Dead\+Moisture\+Description}} \texorpdfstring{$\ast$}{*}mxdesc, bool First\+Time)
+\item 
+void \mbox{\hyperlink{class_fms_thread_a2942e847cfa399bcbbf86d9e409d5fcb}{Set\+Range}} (double Sim\+Time, long date, long hour, long Station\+Number, long Fuel\+Type, \mbox{\hyperlink{struct_fuel_moisture_map}{Fuel\+Moisture\+Map}} \texorpdfstring{$\ast$}{*}map, \mbox{\hyperlink{struct_dead_moisture_history}{Dead\+Moisture\+History}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}hist, long Begin, long End)
+\item 
+void \mbox{\hyperlink{class_fms_thread_ab332976978bd886c5da06208c6b2ec9a}{Site\+Specific}} (long Elev\+Diff, double tempref, double \texorpdfstring{$\ast$}{*}temp, double humref, double \texorpdfstring{$\ast$}{*}humid)
+\item 
+double \mbox{\hyperlink{class_fms_thread_ac1c45ec4c56f86dbc441cc1d03d1a536}{Simple\+Radiation}} (long date, double hour, long cloud, long elev, long slope, long aspect, long cover)
+\item 
+void \mbox{\hyperlink{class_fms_thread_ad914ab27f488aac7e482f449ac3f6a88}{Update\+Moistures}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{class_fms_thread_a155606dbff746ba19700c492b6a2fd2b}{Thread\+Order}}
+\item 
+long \mbox{\hyperlink{class_fms_thread_ae3084a7cc559a9a8c211ce1e4a48f632}{Last\+Time}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00792}{792}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fms_thread_afeb596bbc5aa629ac0901342fd2e58ff}\label{class_fms_thread_afeb596bbc5aa629ac0901342fd2e58ff} 
+\index{FmsThread@{FmsThread}!FmsThread@{FmsThread}}
+\index{FmsThread@{FmsThread}!FmsThread@{FmsThread}}
+\doxysubsubsection{\texorpdfstring{FmsThread()}{FmsThread()}}
+{\footnotesize\ttfamily Fms\+Thread\+::\+Fms\+Thread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfms2_8cpp_source_l03048}{3048}} of file \mbox{\hyperlink{fsxwfms2_8cpp_source}{fsxwfms2.\+cpp}}.
+
+\Hypertarget{class_fms_thread_adf43ef9015ffaa8ccc745939623aae30}\label{class_fms_thread_adf43ef9015ffaa8ccc745939623aae30} 
+\index{FmsThread@{FmsThread}!````~FmsThread@{\texorpdfstring{$\sim$}{\string~}FmsThread}}
+\index{````~FmsThread@{\texorpdfstring{$\sim$}{\string~}FmsThread}!FmsThread@{FmsThread}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FmsThread()}{\string~FmsThread()}}
+{\footnotesize\ttfamily Fms\+Thread\+::\texorpdfstring{$\sim$}{\string~}\+Fms\+Thread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfms2_8cpp_source_l03061}{3061}} of file \mbox{\hyperlink{fsxwfms2_8cpp_source}{fsxwfms2.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fms_thread_a2942e847cfa399bcbbf86d9e409d5fcb}\label{class_fms_thread_a2942e847cfa399bcbbf86d9e409d5fcb} 
+\index{FmsThread@{FmsThread}!SetRange@{SetRange}}
+\index{SetRange@{SetRange}!FmsThread@{FmsThread}}
+\doxysubsubsection{\texorpdfstring{SetRange()}{SetRange()}}
+{\footnotesize\ttfamily void Fms\+Thread\+::\+Set\+Range (\begin{DoxyParamCaption}\item[{double}]{Sim\+Time,  }\item[{long}]{date,  }\item[{long}]{hour,  }\item[{long}]{Station\+Number,  }\item[{long}]{Fuel\+Type,  }\item[{\mbox{\hyperlink{struct_fuel_moisture_map}{Fuel\+Moisture\+Map}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{\mbox{\hyperlink{struct_dead_moisture_history}{Dead\+Moisture\+History}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{hist,  }\item[{long}]{Begin,  }\item[{long}]{End }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfms2_8cpp_source_l03136}{3136}} of file \mbox{\hyperlink{fsxwfms2_8cpp_source}{fsxwfms2.\+cpp}}.
+
+\Hypertarget{class_fms_thread_ac1c45ec4c56f86dbc441cc1d03d1a536}\label{class_fms_thread_ac1c45ec4c56f86dbc441cc1d03d1a536} 
+\index{FmsThread@{FmsThread}!SimpleRadiation@{SimpleRadiation}}
+\index{SimpleRadiation@{SimpleRadiation}!FmsThread@{FmsThread}}
+\doxysubsubsection{\texorpdfstring{SimpleRadiation()}{SimpleRadiation()}}
+{\footnotesize\ttfamily double Fms\+Thread\+::\+Simple\+Radiation (\begin{DoxyParamCaption}\item[{long}]{date,  }\item[{double}]{hour,  }\item[{long}]{cloud,  }\item[{long}]{elev,  }\item[{long}]{slope,  }\item[{long}]{aspect,  }\item[{long}]{cover }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfms2_8cpp_source_l03398}{3398}} of file \mbox{\hyperlink{fsxwfms2_8cpp_source}{fsxwfms2.\+cpp}}.
+
+\Hypertarget{class_fms_thread_ab332976978bd886c5da06208c6b2ec9a}\label{class_fms_thread_ab332976978bd886c5da06208c6b2ec9a} 
+\index{FmsThread@{FmsThread}!SiteSpecific@{SiteSpecific}}
+\index{SiteSpecific@{SiteSpecific}!FmsThread@{FmsThread}}
+\doxysubsubsection{\texorpdfstring{SiteSpecific()}{SiteSpecific()}}
+{\footnotesize\ttfamily void Fms\+Thread\+::\+Site\+Specific (\begin{DoxyParamCaption}\item[{long}]{Elev\+Diff,  }\item[{double}]{tempref,  }\item[{double \texorpdfstring{$\ast$}{*}}]{temp,  }\item[{double}]{humref,  }\item[{double \texorpdfstring{$\ast$}{*}}]{humid }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfms2_8cpp_source_l03467}{3467}} of file \mbox{\hyperlink{fsxwfms2_8cpp_source}{fsxwfms2.\+cpp}}.
+
+\Hypertarget{class_fms_thread_abda4dd46669237192c3f728c76424a49}\label{class_fms_thread_abda4dd46669237192c3f728c76424a49} 
+\index{FmsThread@{FmsThread}!StartFmsThread@{StartFmsThread}}
+\index{StartFmsThread@{StartFmsThread}!FmsThread@{FmsThread}}
+\doxysubsubsection{\texorpdfstring{StartFmsThread()}{StartFmsThread()}}
+{\footnotesize\ttfamily void Fms\+Thread\+::\+Start\+Fms\+Thread (\begin{DoxyParamCaption}\item[{long}]{ID,  }\item[{long}]{Size\+Class,  }\item[{\mbox{\hyperlink{struct_dead_moisture_description}{Dead\+Moisture\+Description}} \texorpdfstring{$\ast$}{*}}]{mxdesc,  }\item[{bool}]{First\+Time }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfms2_8cpp_source_l03066}{3066}} of file \mbox{\hyperlink{fsxwfms2_8cpp_source}{fsxwfms2.\+cpp}}.
+
+\Hypertarget{class_fms_thread_ad914ab27f488aac7e482f449ac3f6a88}\label{class_fms_thread_ad914ab27f488aac7e482f449ac3f6a88} 
+\index{FmsThread@{FmsThread}!UpdateMoistures@{UpdateMoistures}}
+\index{UpdateMoistures@{UpdateMoistures}!FmsThread@{FmsThread}}
+\doxysubsubsection{\texorpdfstring{UpdateMoistures()}{UpdateMoistures()}}
+{\footnotesize\ttfamily void Fms\+Thread\+::\+Update\+Moistures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfms2_8cpp_source_l03113}{3113}} of file \mbox{\hyperlink{fsxwfms2_8cpp_source}{fsxwfms2.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_fms_thread_ae3084a7cc559a9a8c211ce1e4a48f632}\label{class_fms_thread_ae3084a7cc559a9a8c211ce1e4a48f632} 
+\index{FmsThread@{FmsThread}!LastTime@{LastTime}}
+\index{LastTime@{LastTime}!FmsThread@{FmsThread}}
+\doxysubsubsection{\texorpdfstring{LastTime}{LastTime}}
+{\footnotesize\ttfamily long Fms\+Thread\+::\+Last\+Time}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00807}{807}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_fms_thread_a155606dbff746ba19700c492b6a2fd2b}\label{class_fms_thread_a155606dbff746ba19700c492b6a2fd2b} 
+\index{FmsThread@{FmsThread}!ThreadOrder@{ThreadOrder}}
+\index{ThreadOrder@{ThreadOrder}!FmsThread@{FmsThread}}
+\doxysubsubsection{\texorpdfstring{ThreadOrder}{ThreadOrder}}
+{\footnotesize\ttfamily long Fms\+Thread\+::\+Thread\+Order}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00807}{807}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsx4_8hpp}{fsx4.\+hpp}}\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsxwfms2_8cpp}{fsxwfms2.\+cpp}}\end{DoxyCompactItemize}

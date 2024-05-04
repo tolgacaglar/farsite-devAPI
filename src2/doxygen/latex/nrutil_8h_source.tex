@@ -1,0 +1,103 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/nrutil.h}
+\hypertarget{nrutil_8h_source}{}\label{nrutil_8h_source}\mbox{\hyperlink{nrutil_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00023}00023\ \textcolor{comment}{//\#ifndef\ \_NR\_UTILS\_H\_}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00024}00024\ \textcolor{comment}{//\#define\ \_NR\_UTILS\_H\_}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00026}00026\ \textcolor{preprocessor}{\#ifndef\ NRUTILS}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00027}00027\ \textcolor{preprocessor}{\#define\ NRUTILS}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00029}00029\ \textcolor{comment}{//static\ double\ sqrarg;}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00030}00030\ \textcolor{comment}{//\#define\ SQR(a)\ ((sqrarg=(a))\ ==\ 0.0\ ?\ 0.0\ :\ sqrarg*sqrarg);}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00032}00032\ \textcolor{comment}{//static\ double\ dsqrarg;}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00033}00033\ \textcolor{comment}{//\#define\ DSQR(a)\ ((dsqrarg=(a))\ ==0.0\ ?\ 0.0\ :\ dsqrarg*dsqrarg);}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00035}00035\ \textcolor{comment}{//static\ double\ dmaxarg1,\ dmaxarg2;}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00036}00036\ \textcolor{comment}{//\#define\ DMAX(a,\ b)\ (dmaxarg1=(a),\ dmaxarg2=(b),\ (dmaxarg1)>(dmaxarg2)\ ?\ (dmaxarg1)\ :\ (dmaxarg2)}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00038}00038\ \textcolor{comment}{//static\ double\ dminarg1,\ dminarg2;}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00039}00039\ \textcolor{comment}{//\#define\ DMIN(a,\ b)\ (dminarg1=(a),\ dminarg2=(b),\ (dminarg1)<(dminarg2)\ ?\ (dminarg1)\ :\ (dminarg2)}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00041}00041\ \textcolor{comment}{//static\ double\ maxarg1,\ maxarg2;}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00042}00042\ \textcolor{comment}{//\#define\ FMAX(a,\ b)\ (maxarg1=(a),\ maxarg2=(b),\ (maxarg1)>(maxarg2)\ ?\ (maxarg1)\ :\ (maxarg2)}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00044}00044\ \textcolor{comment}{//static\ double\ minarg1,\ minarg2;}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00045}00045\ \textcolor{comment}{//\#define\ FMIN(a,\ b)\ (minarg1=(a),\ minarg2=(b),\ (minarg1)<(minarg2)\ ?\ (minarg1)\ :\ (minarg2)}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00047}00047\ \textcolor{comment}{//static\ long\ lmaxarg1,\ lmaxarg2;}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00048}00048\ \textcolor{comment}{//\#define\ LMAX(a,\ b)\ (lmaxarg1=(a),\ lmaxarg2=(b),\ (lmaxarg1)>(lmaxarg2)\ ?\ (lmaxarg1)\ :\ (lmaxarg2)}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00050}00050\ \textcolor{comment}{//static\ long\ lminarg1,\ lminarg2;}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00051}00051\ \textcolor{comment}{//\#define\ LMIN(a,\ b)\ (lminarg1=(a),\ lminarg2=(b),\ (lminarg1)<(lminarg2)\ ?\ (lminarg1)\ :\ (lminarg2)}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00053}00053\ \textcolor{comment}{//static\ long\ imaxarg1,\ imaxarg2;}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00054}00054\ \textcolor{comment}{//\#define\ IMAX(a,\ b)\ (imaxarg1=(a),\ imaxarg2=(b),\ (imaxarg1)>(imaxarg2)\ ?\ (imaxarg1)\ :\ (imaxarg2)}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00056}00056\ \textcolor{comment}{//static\ long\ iminarg1,\ iminarg2;}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00057}00057\ \textcolor{comment}{//\#define\ IMIN(a,\ b)\ (iminarg1=(a),\ iminarg2=(b),\ (iminarg1)<(iminarg2)\ ?\ (iminarg1)\ :\ (iminarg2)}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00059}\mbox{\hyperlink{nrutil_8h_ac89d5f8a358eb8a1abdcd0fcef134f1a}{00059}}\ \textcolor{preprocessor}{\#define\ SIGN(a,\ b)\ ((b)\ >\ 0.0\ ?\ fabs(a)\ :\ -\/fabs(a))}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00061}00061\ \textcolor{comment}{//\#if\ defined(\_\_STDC\_\_)\ ||\ defined(ANSI)\ ||\ defined(NRANSI)}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00063}00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nrutil_8h_a1127e9c8ab1a10a65ebd494759e8aec3}{nrerror}}(\textcolor{keywordtype}{char}\ error\_text[]);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00064}00064\ \textcolor{keywordtype}{float}*\ \mbox{\hyperlink{nrutil_8h_a4827305dc0f5517b1fe360939e73b812}{fvector}}(\textcolor{keywordtype}{long}\ nl,\ \textcolor{keywordtype}{long}\ nh);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00065}00065\ \textcolor{keywordtype}{double}*\ \mbox{\hyperlink{nrutil_8h_a7fe596e3d0889dfffc76cb47d89d0990}{vector}}(\textcolor{keywordtype}{long}\ nl,\ \textcolor{keywordtype}{long}\ nh);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00066}00066\ \textcolor{keywordtype}{long}*\ \mbox{\hyperlink{nrutil_8h_a297cdccddf17f6081080a9d7fadfe875}{ivector}}(\textcolor{keywordtype}{long}\ nl,\ \textcolor{keywordtype}{long}\ nh);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00067}00067\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{nrutil_8h_a16a18b0e44cbd9b64e5c546c0f0f6720}{cvector}}(\textcolor{keywordtype}{long}\ nl,\ \textcolor{keywordtype}{long}\ nh);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00068}00068\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}*\ \mbox{\hyperlink{nrutil_8h_a13ece94870386b717647af8b17e899e7}{lvector}}(\textcolor{keywordtype}{long}\ nl,\ \textcolor{keywordtype}{long}\ nh);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00069}00069\ \textcolor{keywordtype}{double}*\ \mbox{\hyperlink{nrutil_8h_ae21c4c252ad5d5710ebd03d6f07e40de}{dvector}}(\textcolor{keywordtype}{long}\ nl,\ \textcolor{keywordtype}{long}\ nh);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00070}00070\ \textcolor{keywordtype}{double}**\ \mbox{\hyperlink{nrutil_8h_a93beb27cea40d6b4fe073373114c4127}{matrix}}(\textcolor{keywordtype}{long}\ nrl,\ \textcolor{keywordtype}{long}\ nrh,\ \textcolor{keywordtype}{long}\ ncl,\ \textcolor{keywordtype}{long}\ nch);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00071}00071\ \textcolor{keywordtype}{double}**\ \mbox{\hyperlink{nrutil_8h_ab1a02a50dfbc26318f6bb296731b6f3a}{dmatrix}}(\textcolor{keywordtype}{long}\ nrl,\ \textcolor{keywordtype}{long}\ nrh,\ \textcolor{keywordtype}{long}\ ncl,\ \textcolor{keywordtype}{long}\ nch);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00072}00072\ \textcolor{keywordtype}{long}**\ \mbox{\hyperlink{nrutil_8h_a52f451d07a1753508f154b6b3a7b8230}{imatrix}}(\textcolor{keywordtype}{long}\ nrl,\ \textcolor{keywordtype}{long}\ nrh,\ \textcolor{keywordtype}{long}\ ncl,\ \textcolor{keywordtype}{long}\ nch);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00073}00073\ \textcolor{keywordtype}{double}**\ \mbox{\hyperlink{nrutil_8h_ada25fe4202a7a0a4ba4a6437dafc9c47}{submatrix}}(\textcolor{keywordtype}{double}**\ a,\ \textcolor{keywordtype}{long}\ oldrl,\ \textcolor{keywordtype}{long}\ oldrh,\ \textcolor{keywordtype}{long}\ oldcl,\ \textcolor{keywordtype}{long}\ oldc,}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00074}00074\ \ \ \ \ \textcolor{keywordtype}{long}\ newrl,\ \textcolor{keywordtype}{long}\ newcl);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00075}00075\ \textcolor{keywordtype}{double}**\ \mbox{\hyperlink{nrutil_8h_a061fd4b0c96655cebfb921357615d6a0}{convert\_matrix}}(\textcolor{keywordtype}{double}*\ a,\ \textcolor{keywordtype}{long}\ nrl,\ \textcolor{keywordtype}{long}\ nrh,\ \textcolor{keywordtype}{long}\ ncl,\ \textcolor{keywordtype}{long}\ nch);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00076}00076\ \textcolor{keywordtype}{double}***\ \mbox{\hyperlink{nrutil_8h_a8f61cfbd3061cda0ac1707d8de62ba30}{f3tensor}}(\textcolor{keywordtype}{long}\ nrl,\ \textcolor{keywordtype}{long}\ nrh,\ \textcolor{keywordtype}{long}\ ncl,\ \textcolor{keywordtype}{long}\ nch,\ \textcolor{keywordtype}{long}\ ndl,\ \textcolor{keywordtype}{long}\ ndh);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00077}00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nrutil_8h_afde4d6f720e53f4aac745c627884a3d4}{free\_fvector}}(\textcolor{keywordtype}{float}*\ v,\ \textcolor{keywordtype}{long}\ nl,\ \textcolor{keywordtype}{long}\ nh);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00078}00078\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nrutil_8h_a4490ae7123f2baa4ee01d7db32fc63cf}{free\_vector}}(\textcolor{keywordtype}{double}*\ v,\ \textcolor{keywordtype}{long}\ nl,\ \textcolor{keywordtype}{long}\ nh);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00079}00079\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nrutil_8h_afd621b7d3e528abcfcce315f506ce6be}{free\_ivector}}(\textcolor{keywordtype}{long}*\ v,\ \textcolor{keywordtype}{long}\ nl,\ \textcolor{keywordtype}{long}\ nh);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00080}00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nrutil_8h_adcf016abc500425950a6ca3c21bb6224}{free\_cvector}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ v,\ \textcolor{keywordtype}{long}\ nl,\ \textcolor{keywordtype}{long}\ nh);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00081}00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nrutil_8h_a08a014ff137c0069b371cf6b2984d810}{free\_lvector}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}*\ v,\ \textcolor{keywordtype}{long}\ nl,\ \textcolor{keywordtype}{long}\ nh);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00082}00082\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nrutil_8h_ac7ec1a76a4b8d3d8423246676977c919}{free\_dvector}}(\textcolor{keywordtype}{double}*\ v,\ \textcolor{keywordtype}{long}\ nl,\ \textcolor{keywordtype}{long}\ nh);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00083}00083\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nrutil_8h_ad5562214740ec1d1c8077b78d9b8683d}{free\_matrix}}(\textcolor{keywordtype}{double}**\ m,\ \textcolor{keywordtype}{long}\ nrl,\ \textcolor{keywordtype}{long}\ nrh,\ \textcolor{keywordtype}{long}\ ncl,\ \textcolor{keywordtype}{long}\ nch);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00084}00084\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nrutil_8h_a04fbc9bc53e6303830eb4338bc1f3259}{free\_dmatrix}}(\textcolor{keywordtype}{double}**\ m,\ \textcolor{keywordtype}{long}\ nrl,\ \textcolor{keywordtype}{long}\ nrh,\ \textcolor{keywordtype}{long}\ ncl,\ \textcolor{keywordtype}{long}\ nch);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00085}00085\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nrutil_8h_a2f835ef0050f9a990bdefd3d123af7ce}{free\_imatrix}}(\textcolor{keywordtype}{long}**\ m,\ \textcolor{keywordtype}{long}\ nrl,\ \textcolor{keywordtype}{long}\ nrh,\ \textcolor{keywordtype}{long}\ ncl,\ \textcolor{keywordtype}{long}\ nch);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00087}00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nrutil_8h_a383fc750ce52c405da712046912565fe}{free\_submatrix}}(\textcolor{keywordtype}{double}**\ b,\ \textcolor{keywordtype}{long}\ nrl,\ \textcolor{keywordtype}{long}\ nrh,\ \textcolor{keywordtype}{long}\ ncl,\ \textcolor{keywordtype}{long}\ nch);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00088}00088\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nrutil_8h_ac380c46f4238171e66c75564e002bc48}{free\_convert\_matrix}}(\textcolor{keywordtype}{double}**\ b,\ \textcolor{keywordtype}{long}\ nrl,\ \textcolor{keywordtype}{long}\ nrh,\ \textcolor{keywordtype}{long}\ ncl,\ \textcolor{keywordtype}{long}\ nch);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00089}00089\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{nrutil_8h_aed3fc0a561bcce6e52d404af190f823b}{free\_f3tensor}}(\textcolor{keywordtype}{double}***\ t,\ \textcolor{keywordtype}{long}\ nrl,\ \textcolor{keywordtype}{long}\ nrh,\ \textcolor{keywordtype}{long}\ ncl,\ \textcolor{keywordtype}{long}\ nch,}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00090}00090\ \ \ \ \ \textcolor{keywordtype}{long}\ ndl,\ \textcolor{keywordtype}{long}\ ndh);}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00092}00092\ \textcolor{comment}{//\#else}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00094}00094\ \textcolor{comment}{//void\ nrerror();}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00095}00095\ \textcolor{comment}{//double\ *vector();}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00097}00097\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{nrutil_8h_source_l00098}00098\ \textcolor{comment}{//\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,190 @@
+\doxysection{Atmosphere Struct Reference}
+\hypertarget{struct_atmosphere}{}\label{struct_atmosphere}\index{Atmosphere@{Atmosphere}}
+
+
+{\ttfamily \#include $<$fsxwatm.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_atmosphere_a9bbd0907084e7078242e6f7717946416}{Atmosphere}} ()
+\item 
+\mbox{\hyperlink{struct_atmosphere_afbcfeeabf6602a6816405b9217af62fd}{\texorpdfstring{$\sim$}{\string~}\+Atmosphere}} ()
+\item 
+void \mbox{\hyperlink{struct_atmosphere_a30ed5d5660d727343425f91ca5e56087}{Set\+Header\+Info}} (double north, double south, double east, double west, double resolutionx, double resolutiony)
+\item 
+bool \mbox{\hyperlink{struct_atmosphere_a5acea25169023f731fe15f070d9da820}{Get\+Header\+Info}} (double \texorpdfstring{$\ast$}{*}north, double \texorpdfstring{$\ast$}{*}south, double \texorpdfstring{$\ast$}{*}east, double \texorpdfstring{$\ast$}{*}west, double \texorpdfstring{$\ast$}{*}resolutionx, double \texorpdfstring{$\ast$}{*}resolutiony)
+\item 
+void \mbox{\hyperlink{struct_atmosphere_a4c8603e6073c449b71a25f52bb36f4ac}{Get\+Resolution}} (double \texorpdfstring{$\ast$}{*}resolutionx, double \texorpdfstring{$\ast$}{*}resolutiony)
+\item 
+bool \mbox{\hyperlink{struct_atmosphere_ac06bb8f5e92571aca860969b1a93f609}{Compare\+Header}} (double north, double south, double east, double west, double resolutionx, double resolutiony)
+\item 
+bool \mbox{\hyperlink{struct_atmosphere_a4d74629c5add18d2a3e614e232c3e88d}{Alloc\+Atm\+Grid}} (long timeintervals)
+\item 
+bool \mbox{\hyperlink{struct_atmosphere_aba57e933d48c5abae933c93cdb811f66}{Free\+Atm\+Grid}} ()
+\item 
+bool \mbox{\hyperlink{struct_atmosphere_a6bd6e287d291e6e0ff843617e65a3ecb}{Get\+Atm\+Value}} (double xpt, double ypt, long time, short \texorpdfstring{$\ast$}{*}value)
+\item 
+bool \mbox{\hyperlink{struct_atmosphere_a4385164becd91f6bfb169f6dc111ce24}{Set\+Atm\+Value}} (long number, long time, short value)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{struct_atmosphere_a2754d61a1236d1d35d17095a0c1ed1ad}{XNumber}}
+\item 
+long \mbox{\hyperlink{struct_atmosphere_a87923cd13b6100d2203f893b8c8a0271}{YNumber}}
+\item 
+long \mbox{\hyperlink{struct_atmosphere_a095093bcabff17af8b0fb1e423e6c541}{Num\+Cells\+Per\+Grid}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{fsxwatm_8h_source_l00036}{36}} of file \mbox{\hyperlink{fsxwatm_8h_source}{fsxwatm.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{struct_atmosphere_a9bbd0907084e7078242e6f7717946416}\label{struct_atmosphere_a9bbd0907084e7078242e6f7717946416} 
+\index{Atmosphere@{Atmosphere}!Atmosphere@{Atmosphere}}
+\index{Atmosphere@{Atmosphere}!Atmosphere@{Atmosphere}}
+\doxysubsubsection{\texorpdfstring{Atmosphere()}{Atmosphere()}}
+{\footnotesize\ttfamily Atmosphere\+::\+Atmosphere (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwatm_8cpp_source_l00565}{565}} of file \mbox{\hyperlink{fsxwatm_8cpp_source}{fsxwatm.\+cpp}}.
+
+\Hypertarget{struct_atmosphere_afbcfeeabf6602a6816405b9217af62fd}\label{struct_atmosphere_afbcfeeabf6602a6816405b9217af62fd} 
+\index{Atmosphere@{Atmosphere}!````~Atmosphere@{\texorpdfstring{$\sim$}{\string~}Atmosphere}}
+\index{````~Atmosphere@{\texorpdfstring{$\sim$}{\string~}Atmosphere}!Atmosphere@{Atmosphere}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Atmosphere()}{\string~Atmosphere()}}
+{\footnotesize\ttfamily Atmosphere\+::\texorpdfstring{$\sim$}{\string~}\+Atmosphere (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwatm_8cpp_source_l00577}{577}} of file \mbox{\hyperlink{fsxwatm_8cpp_source}{fsxwatm.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_atmosphere_a4d74629c5add18d2a3e614e232c3e88d}\label{struct_atmosphere_a4d74629c5add18d2a3e614e232c3e88d} 
+\index{Atmosphere@{Atmosphere}!AllocAtmGrid@{AllocAtmGrid}}
+\index{AllocAtmGrid@{AllocAtmGrid}!Atmosphere@{Atmosphere}}
+\doxysubsubsection{\texorpdfstring{AllocAtmGrid()}{AllocAtmGrid()}}
+{\footnotesize\ttfamily bool Atmosphere\+::\+Alloc\+Atm\+Grid (\begin{DoxyParamCaption}\item[{long}]{timeintervals }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwatm_8cpp_source_l00639}{639}} of file \mbox{\hyperlink{fsxwatm_8cpp_source}{fsxwatm.\+cpp}}.
+
+\Hypertarget{struct_atmosphere_ac06bb8f5e92571aca860969b1a93f609}\label{struct_atmosphere_ac06bb8f5e92571aca860969b1a93f609} 
+\index{Atmosphere@{Atmosphere}!CompareHeader@{CompareHeader}}
+\index{CompareHeader@{CompareHeader}!Atmosphere@{Atmosphere}}
+\doxysubsubsection{\texorpdfstring{CompareHeader()}{CompareHeader()}}
+{\footnotesize\ttfamily bool Atmosphere\+::\+Compare\+Header (\begin{DoxyParamCaption}\item[{double}]{north,  }\item[{double}]{south,  }\item[{double}]{east,  }\item[{double}]{west,  }\item[{double}]{resolutionx,  }\item[{double}]{resolutiony }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwatm_8cpp_source_l00618}{618}} of file \mbox{\hyperlink{fsxwatm_8cpp_source}{fsxwatm.\+cpp}}.
+
+\Hypertarget{struct_atmosphere_aba57e933d48c5abae933c93cdb811f66}\label{struct_atmosphere_aba57e933d48c5abae933c93cdb811f66} 
+\index{Atmosphere@{Atmosphere}!FreeAtmGrid@{FreeAtmGrid}}
+\index{FreeAtmGrid@{FreeAtmGrid}!Atmosphere@{Atmosphere}}
+\doxysubsubsection{\texorpdfstring{FreeAtmGrid()}{FreeAtmGrid()}}
+{\footnotesize\ttfamily bool Atmosphere\+::\+Free\+Atm\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwatm_8cpp_source_l00653}{653}} of file \mbox{\hyperlink{fsxwatm_8cpp_source}{fsxwatm.\+cpp}}.
+
+\Hypertarget{struct_atmosphere_a6bd6e287d291e6e0ff843617e65a3ecb}\label{struct_atmosphere_a6bd6e287d291e6e0ff843617e65a3ecb} 
+\index{Atmosphere@{Atmosphere}!GetAtmValue@{GetAtmValue}}
+\index{GetAtmValue@{GetAtmValue}!Atmosphere@{Atmosphere}}
+\doxysubsubsection{\texorpdfstring{GetAtmValue()}{GetAtmValue()}}
+{\footnotesize\ttfamily bool Atmosphere\+::\+Get\+Atm\+Value (\begin{DoxyParamCaption}\item[{double}]{xpt,  }\item[{double}]{ypt,  }\item[{long}]{time,  }\item[{short \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwatm_8cpp_source_l00666}{666}} of file \mbox{\hyperlink{fsxwatm_8cpp_source}{fsxwatm.\+cpp}}.
+
+\Hypertarget{struct_atmosphere_a5acea25169023f731fe15f070d9da820}\label{struct_atmosphere_a5acea25169023f731fe15f070d9da820} 
+\index{Atmosphere@{Atmosphere}!GetHeaderInfo@{GetHeaderInfo}}
+\index{GetHeaderInfo@{GetHeaderInfo}!Atmosphere@{Atmosphere}}
+\doxysubsubsection{\texorpdfstring{GetHeaderInfo()}{GetHeaderInfo()}}
+{\footnotesize\ttfamily bool Atmosphere\+::\+Get\+Header\+Info (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{north,  }\item[{double \texorpdfstring{$\ast$}{*}}]{south,  }\item[{double \texorpdfstring{$\ast$}{*}}]{east,  }\item[{double \texorpdfstring{$\ast$}{*}}]{west,  }\item[{double \texorpdfstring{$\ast$}{*}}]{resolutionx,  }\item[{double \texorpdfstring{$\ast$}{*}}]{resolutiony }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwatm_8cpp_source_l00597}{597}} of file \mbox{\hyperlink{fsxwatm_8cpp_source}{fsxwatm.\+cpp}}.
+
+\Hypertarget{struct_atmosphere_a4c8603e6073c449b71a25f52bb36f4ac}\label{struct_atmosphere_a4c8603e6073c449b71a25f52bb36f4ac} 
+\index{Atmosphere@{Atmosphere}!GetResolution@{GetResolution}}
+\index{GetResolution@{GetResolution}!Atmosphere@{Atmosphere}}
+\doxysubsubsection{\texorpdfstring{GetResolution()}{GetResolution()}}
+{\footnotesize\ttfamily void Atmosphere\+::\+Get\+Resolution (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{resolutionx,  }\item[{double \texorpdfstring{$\ast$}{*}}]{resolutiony }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwatm_8cpp_source_l00611}{611}} of file \mbox{\hyperlink{fsxwatm_8cpp_source}{fsxwatm.\+cpp}}.
+
+\Hypertarget{struct_atmosphere_a4385164becd91f6bfb169f6dc111ce24}\label{struct_atmosphere_a4385164becd91f6bfb169f6dc111ce24} 
+\index{Atmosphere@{Atmosphere}!SetAtmValue@{SetAtmValue}}
+\index{SetAtmValue@{SetAtmValue}!Atmosphere@{Atmosphere}}
+\doxysubsubsection{\texorpdfstring{SetAtmValue()}{SetAtmValue()}}
+{\footnotesize\ttfamily bool Atmosphere\+::\+Set\+Atm\+Value (\begin{DoxyParamCaption}\item[{long}]{number,  }\item[{long}]{time,  }\item[{short}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwatm_8cpp_source_l00680}{680}} of file \mbox{\hyperlink{fsxwatm_8cpp_source}{fsxwatm.\+cpp}}.
+
+\Hypertarget{struct_atmosphere_a30ed5d5660d727343425f91ca5e56087}\label{struct_atmosphere_a30ed5d5660d727343425f91ca5e56087} 
+\index{Atmosphere@{Atmosphere}!SetHeaderInfo@{SetHeaderInfo}}
+\index{SetHeaderInfo@{SetHeaderInfo}!Atmosphere@{Atmosphere}}
+\doxysubsubsection{\texorpdfstring{SetHeaderInfo()}{SetHeaderInfo()}}
+{\footnotesize\ttfamily void Atmosphere\+::\+Set\+Header\+Info (\begin{DoxyParamCaption}\item[{double}]{north,  }\item[{double}]{south,  }\item[{double}]{east,  }\item[{double}]{west,  }\item[{double}]{resolutionx,  }\item[{double}]{resolutiony }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwatm_8cpp_source_l00582}{582}} of file \mbox{\hyperlink{fsxwatm_8cpp_source}{fsxwatm.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_atmosphere_a095093bcabff17af8b0fb1e423e6c541}\label{struct_atmosphere_a095093bcabff17af8b0fb1e423e6c541} 
+\index{Atmosphere@{Atmosphere}!NumCellsPerGrid@{NumCellsPerGrid}}
+\index{NumCellsPerGrid@{NumCellsPerGrid}!Atmosphere@{Atmosphere}}
+\doxysubsubsection{\texorpdfstring{NumCellsPerGrid}{NumCellsPerGrid}}
+{\footnotesize\ttfamily long Atmosphere\+::\+Num\+Cells\+Per\+Grid}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwatm_8h_source_l00052}{52}} of file \mbox{\hyperlink{fsxwatm_8h_source}{fsxwatm.\+h}}.
+
+\Hypertarget{struct_atmosphere_a2754d61a1236d1d35d17095a0c1ed1ad}\label{struct_atmosphere_a2754d61a1236d1d35d17095a0c1ed1ad} 
+\index{Atmosphere@{Atmosphere}!XNumber@{XNumber}}
+\index{XNumber@{XNumber}!Atmosphere@{Atmosphere}}
+\doxysubsubsection{\texorpdfstring{XNumber}{XNumber}}
+{\footnotesize\ttfamily long Atmosphere\+::\+XNumber}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwatm_8h_source_l00050}{50}} of file \mbox{\hyperlink{fsxwatm_8h_source}{fsxwatm.\+h}}.
+
+\Hypertarget{struct_atmosphere_a87923cd13b6100d2203f893b8c8a0271}\label{struct_atmosphere_a87923cd13b6100d2203f893b8c8a0271} 
+\index{Atmosphere@{Atmosphere}!YNumber@{YNumber}}
+\index{YNumber@{YNumber}!Atmosphere@{Atmosphere}}
+\doxysubsubsection{\texorpdfstring{YNumber}{YNumber}}
+{\footnotesize\ttfamily long Atmosphere\+::\+YNumber}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwatm_8h_source_l00051}{51}} of file \mbox{\hyperlink{fsxwatm_8h_source}{fsxwatm.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsxwatm_8h}{fsxwatm.\+h}}\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsxwatm_8cpp}{fsxwatm.\+cpp}}\end{DoxyCompactItemize}

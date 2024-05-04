@@ -1,0 +1,251 @@
+.TH "C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/fsx4.hpp" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/fsx4.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <map>\fP
+.br
+\fR#include <utility>\fP
+.br
+\fR#include <stdio\&.h>\fP
+.br
+\fR#include <stdlib\&.h>\fP
+.br
+\fR#include <math\&.h>\fP
+.br
+\fR#include <string\&.h>\fP
+.br
+\fR#include 'newfms\&.h'\fP
+.br
+\fR#include 'fsxlandt\&.h'\fP
+.br
+\fR#include 'fsxpfront\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBAccelConstants\fP"
+.br
+.ti -1c
+.RI "struct \fBAcceleration\fP"
+.br
+.ti -1c
+.RI "class \fBCrown\fP"
+.br
+.ti -1c
+.RI "class \fBAPolygon\fP"
+.br
+.ti -1c
+.RI "class \fBStandardizePolygon\fP"
+.br
+.ti -1c
+.RI "class \fBIgnitionCorrect\fP"
+.br
+.ti -1c
+.RI "class \fBXUtilities\fP"
+.br
+.ti -1c
+.RI "class \fBCompareRect\fP"
+.br
+.ti -1c
+.RI "class \fBCrossThread\fP"
+.br
+.ti -1c
+.RI "class \fBIntersections\fP"
+.br
+.ti -1c
+.RI "class \fBOutputFile\fP"
+.br
+.RI "This class aggregates fire behavior parameters on the 'raster
+ grid' using the UTM easting and northing values\&. This data is then written to a raster file in either GRASS or ARC/Info Grid format\&. "
+.ti -1c
+.RI "struct \fBOutputFile::RastData\fP"
+.br
+.ti -1c
+.RI "class \fBVectorize\fP"
+.br
+.ti -1c
+.RI "class \fBRasterize\fP"
+.br
+.ti -1c
+.RI "class \fBAreaPerimeter\fP"
+.br
+.ti -1c
+.RI "class \fBMechanix\fP"
+.br
+.ti -1c
+.RI "class \fBFireEnvironment\fP"
+.br
+.ti -1c
+.RI "struct \fBEnvironmentData\fP"
+.br
+.ti -1c
+.RI "class \fBFECalls\fP"
+.br
+.ti -1c
+.RI "struct \fBDeadMoistureHistory\fP"
+.br
+.ti -1c
+.RI "struct \fBDeadMoistureDescription\fP"
+.br
+.ti -1c
+.RI "struct \fBFMS_Cover\fP"
+.br
+.ti -1c
+.RI "struct \fBFMS_Aspects\fP"
+.br
+.ti -1c
+.RI "struct \fBFMS_Slopes\fP"
+.br
+.ti -1c
+.RI "struct \fBFMS_Elevations\fP"
+.br
+.ti -1c
+.RI "struct \fBFuelMoistureMap\fP"
+.br
+.ti -1c
+.RI "class \fBFmsThread\fP"
+.br
+.ti -1c
+.RI "class \fBFireEnvironment2\fP"
+.br
+.ti -1c
+.RI "class \fBFELocalSite\fP"
+.br
+.ti -1c
+.RI "class \fBMechCalls\fP"
+.br
+.ti -1c
+.RI "struct \fBemberdata\fP"
+.br
+.ti -1c
+.RI "class \fBEmbers\fP"
+.br
+.ti -1c
+.RI "struct \fBEmbers::spotdata\fP"
+.br
+.ti -1c
+.RI "class \fBBurnThread\fP"
+.br
+.ti -1c
+.RI "class \fBBurn\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFM_SLOPPY\fP   3"
+.br
+.ti -1c
+.RI "#define \fBFM_LIBERAL\fP   2"
+.br
+.ti -1c
+.RI "#define \fBFM_MODERATE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBFM_HARDASS\fP   0"
+.br
+.ti -1c
+.RI "#define \fBMAXNUM_FUEL_MODELS\fP   256"
+.br
+.ti -1c
+.RI "#define \fBNUM_FUEL_SIZES\fP   4"
+.br
+.ti -1c
+.RI "#define \fBMAX_NUM_STATIONS\fP   5"
+.br
+.ti -1c
+.RI "#define \fBSIZECLASS_1HR\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSIZECLASS_10HR\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSIZECLASS_100HR\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSIZECLASS_1000HR\fP   3"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "long \fBGetFmTolerance\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetFmTolerance\fP (long Tol)"
+.br
+.ti -1c
+.RI "long \fBChrono\fP (double SIMTIME, long *hour, double *hours, bool RelCondit)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define FM_HARDASS   0"
+
+.PP
+Definition at line \fB611\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "#define FM_LIBERAL   2"
+
+.PP
+Definition at line \fB609\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "#define FM_MODERATE   1"
+
+.PP
+Definition at line \fB610\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "#define FM_SLOPPY   3"
+
+.PP
+Definition at line \fB608\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "#define MAX_NUM_STATIONS   5"
+
+.PP
+Definition at line \fB615\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "#define MAXNUM_FUEL_MODELS   256"
+
+.PP
+Definition at line \fB613\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "#define NUM_FUEL_SIZES   4"
+
+.PP
+Definition at line \fB614\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "#define SIZECLASS_1000HR   3"
+
+.PP
+Definition at line \fB620\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "#define SIZECLASS_100HR   2"
+
+.PP
+Definition at line \fB619\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "#define SIZECLASS_10HR   1"
+
+.PP
+Definition at line \fB618\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "#define SIZECLASS_1HR   0"
+
+.PP
+Definition at line \fB617\fP of file \fBfsx4\&.hpp\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "long Chrono (double SIMTIME, long * hour, double * hours, bool RelCondit)"
+
+.PP
+Definition at line \fB70\fP of file \fBfsxwfms2\&.cpp\fP\&.
+.SS "long GetFmTolerance ()"
+
+.PP
+Definition at line \fB58\fP of file \fBfsxwfms2\&.cpp\fP\&.
+.SS "void SetFmTolerance (long Tol)"
+
+.PP
+Definition at line \fB64\fP of file \fBfsxwfms2\&.cpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

@@ -1,0 +1,105 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/burnupw.h File Reference}
+\hypertarget{burnupw_8h}{}\label{burnupw_8h}\index{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/burnupw.h@{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/burnupw.h}}
+{\ttfamily \#include "{}splinex.\+h"{}}\newline
+{\ttfamily \#include "{}fsxsync.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_fuel_struct}{Fuel\+Struct}}
+\item 
+struct \mbox{\hyperlink{struct_burn_struct}{Burn\+Struct}}
+\item 
+class \mbox{\hyperlink{class_burn_up}{Burn\+Up}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}~20
+\item 
+\#define \mbox{\hyperlink{burnupw_8h_aecfbb5893ec911af0bda1d1b6d632b84}{MAXTYPES}}~3
+\item 
+\#define \mbox{\hyperlink{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb}{MAXKL}}~(\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}} \texorpdfstring{$\ast$}{*} ( \mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}} + 1 ) / 2 + \mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}} )
+\item 
+\#define \mbox{\hyperlink{burnupw_8h_a64f83acf0d96763a86e418662ca3b407}{MXSTEP}}~20
+\item 
+\#define \mbox{\hyperlink{burnupw_8h_a5a224100d2855b5514e9a40882d80be2}{SWITCHOUTSIDE}}~0
+\item 
+\#define \mbox{\hyperlink{burnupw_8h_ae17770c64d73ecd8f94a426bd78ca277}{SWITCHINSIDE}}~1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{burnupw_8h_a8b3884318d34ac5f403ee571e3d78975}{polynom}} (double x, double a\mbox{[}$\,$\mbox{]}, long)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb}\label{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb} 
+\index{burnupw.h@{burnupw.h}!MAXKL@{MAXKL}}
+\index{MAXKL@{MAXKL}!burnupw.h@{burnupw.h}}
+\doxysubsubsection{\texorpdfstring{MAXKL}{MAXKL}}
+{\footnotesize\ttfamily \#define MAXKL~(\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}} \texorpdfstring{$\ast$}{*} ( \mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}} + 1 ) / 2 + \mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}} )}
+
+
+
+Definition at line \mbox{\hyperlink{burnupw_8h_source_l00033}{33}} of file \mbox{\hyperlink{burnupw_8h_source}{burnupw.\+h}}.
+
+\Hypertarget{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}\label{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393} 
+\index{burnupw.h@{burnupw.h}!MAXNO@{MAXNO}}
+\index{MAXNO@{MAXNO}!burnupw.h@{burnupw.h}}
+\doxysubsubsection{\texorpdfstring{MAXNO}{MAXNO}}
+{\footnotesize\ttfamily \#define MAXNO~20}
+
+
+
+Definition at line \mbox{\hyperlink{burnupw_8h_source_l00031}{31}} of file \mbox{\hyperlink{burnupw_8h_source}{burnupw.\+h}}.
+
+\Hypertarget{burnupw_8h_aecfbb5893ec911af0bda1d1b6d632b84}\label{burnupw_8h_aecfbb5893ec911af0bda1d1b6d632b84} 
+\index{burnupw.h@{burnupw.h}!MAXTYPES@{MAXTYPES}}
+\index{MAXTYPES@{MAXTYPES}!burnupw.h@{burnupw.h}}
+\doxysubsubsection{\texorpdfstring{MAXTYPES}{MAXTYPES}}
+{\footnotesize\ttfamily \#define MAXTYPES~3}
+
+
+
+Definition at line \mbox{\hyperlink{burnupw_8h_source_l00032}{32}} of file \mbox{\hyperlink{burnupw_8h_source}{burnupw.\+h}}.
+
+\Hypertarget{burnupw_8h_a64f83acf0d96763a86e418662ca3b407}\label{burnupw_8h_a64f83acf0d96763a86e418662ca3b407} 
+\index{burnupw.h@{burnupw.h}!MXSTEP@{MXSTEP}}
+\index{MXSTEP@{MXSTEP}!burnupw.h@{burnupw.h}}
+\doxysubsubsection{\texorpdfstring{MXSTEP}{MXSTEP}}
+{\footnotesize\ttfamily \#define MXSTEP~20}
+
+
+
+Definition at line \mbox{\hyperlink{burnupw_8h_source_l00034}{34}} of file \mbox{\hyperlink{burnupw_8h_source}{burnupw.\+h}}.
+
+\Hypertarget{burnupw_8h_ae17770c64d73ecd8f94a426bd78ca277}\label{burnupw_8h_ae17770c64d73ecd8f94a426bd78ca277} 
+\index{burnupw.h@{burnupw.h}!SWITCHINSIDE@{SWITCHINSIDE}}
+\index{SWITCHINSIDE@{SWITCHINSIDE}!burnupw.h@{burnupw.h}}
+\doxysubsubsection{\texorpdfstring{SWITCHINSIDE}{SWITCHINSIDE}}
+{\footnotesize\ttfamily \#define SWITCHINSIDE~1}
+
+
+
+Definition at line \mbox{\hyperlink{burnupw_8h_source_l00036}{36}} of file \mbox{\hyperlink{burnupw_8h_source}{burnupw.\+h}}.
+
+\Hypertarget{burnupw_8h_a5a224100d2855b5514e9a40882d80be2}\label{burnupw_8h_a5a224100d2855b5514e9a40882d80be2} 
+\index{burnupw.h@{burnupw.h}!SWITCHOUTSIDE@{SWITCHOUTSIDE}}
+\index{SWITCHOUTSIDE@{SWITCHOUTSIDE}!burnupw.h@{burnupw.h}}
+\doxysubsubsection{\texorpdfstring{SWITCHOUTSIDE}{SWITCHOUTSIDE}}
+{\footnotesize\ttfamily \#define SWITCHOUTSIDE~0}
+
+
+
+Definition at line \mbox{\hyperlink{burnupw_8h_source_l00035}{35}} of file \mbox{\hyperlink{burnupw_8h_source}{burnupw.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{burnupw_8h_a8b3884318d34ac5f403ee571e3d78975}\label{burnupw_8h_a8b3884318d34ac5f403ee571e3d78975} 
+\index{burnupw.h@{burnupw.h}!polynom@{polynom}}
+\index{polynom@{polynom}!burnupw.h@{burnupw.h}}
+\doxysubsubsection{\texorpdfstring{polynom()}{polynom()}}
+{\footnotesize\ttfamily void polynom (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{a\mbox{[}$\,$\mbox{]},  }\item[{long}]{ }\end{DoxyParamCaption})}
+

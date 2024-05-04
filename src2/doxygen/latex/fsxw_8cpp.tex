@@ -1,0 +1,942 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fsxw.cpp File Reference}
+\hypertarget{fsxw_8cpp}{}\label{fsxw_8cpp}\index{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/fsxw.cpp@{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/fsxw.cpp}}
+{\ttfamily \#include "{}fsxw.\+hpp"{}}\newline
+{\ttfamily \#include $<$memory.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fsxw_8cpp_a794873a3e52b260281d2e9dd693ab6e4}{SIZE\+\_\+\+FIREPERIM\+\_\+\+BLOCK}}~10000
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{fsxw_8cpp_a2c86c41e50f90f56d789dcb98a42a593}{Acceleration\+ON}} ()
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a40c56c6c482408bbd0f92556f82a9313}{Set\+Acceleration\+ON}} (bool State)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a0ff50a4f63fdafee11aeacbe86b362e6}{Initialize\+Ros\+Red}} ()
+\item 
+double \mbox{\hyperlink{fsxw_8cpp_a243c948c48f82a18d3e0e7ab0abcdb28}{Get\+Ros\+Red}} (int fuel)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_abc18b267b18757bdab3436986317a031}{Set\+Ros\+Red}} (int fuel, double rosred)
+\item 
+long \mbox{\hyperlink{fsxw_8cpp_a62a87b148c393234c3c64419323eae75}{Get\+Inout}} (long Fire\+Number)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_ab996aed92cf25598d7ddf6b5efabd4e5}{Set\+Inout}} (long Fire\+Number, int Inout)
+\item 
+long \mbox{\hyperlink{fsxw_8cpp_aeada34e18bdc9de99d01d7649d45ec94}{Get\+Num\+Points}} (long Fire\+Number)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a940a8d602606d18da156d9c428d05279}{Set\+Num\+Points}} (long Fire\+Number, long Num\+Points)
+\item 
+double \mbox{\hyperlink{fsxw_8cpp_a17a99056c3bd4c30cbadfa582ea5c5fb}{Percent\+Ignition}} (double percent)
+\item 
+double \mbox{\hyperlink{fsxw_8cpp_a4040bda997c6db51ff853dbd357ddefc}{Ignition\+Delay}} (double delay)
+\item 
+bool \mbox{\hyperlink{fsxw_8cpp_a10f0fc0d82919a31b3c95936d9643ebc}{Enable\+Crowning}} (long Crowning)
+\item 
+long \mbox{\hyperlink{fsxw_8cpp_aa28569ed8a3315bd7f191f06d24b119a}{Get\+Crown\+Fire\+Calculation}} ()
+\item 
+long \mbox{\hyperlink{fsxw_8cpp_a593b32310abe9dcdb8dd1cab8f346167}{Set\+Crown\+Fire\+Calculation}} (long Type)
+\item 
+bool \mbox{\hyperlink{fsxw_8cpp_adbd30aacd1df14b74ba6bd8be18a849d}{Enable\+Spotting}} (long Spotting)
+\item 
+bool \mbox{\hyperlink{fsxw_8cpp_a48aacd8f08c2c94d07f4279eba25c468}{Enable\+Spot\+Fire\+Growth}} (long Growth)
+\item 
+bool \mbox{\hyperlink{fsxw_8cpp_a64d8570904c2942914f87ba3a209b0fd}{Constant\+Backing\+Spread\+Rate}} (long Back)
+\item 
+bool \mbox{\hyperlink{fsxw_8cpp_a5cb3195b1ccf28c4d8f41524e5c23bc7}{Create\+Spot\+Semaphore}} ()
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_aa155d9731386b2804f3e5b7f97eb7110}{Close\+Spot\+Semaphore}} ()
+\item 
+long \mbox{\hyperlink{fsxw_8cpp_aa328b415f4e51ddbccc74f209e018951}{Get\+Num\+Fires}} ()
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a57d43ab418327d098a756156087206a2}{Set\+Num\+Fires}} (long input)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a6a7730ec77fec8337cc1c6660c65a5ac}{Inc\+Num\+Fires}} (long More\+Fires)
+\item 
+long \mbox{\hyperlink{fsxw_8cpp_a937f2470c39b969fc642c1f9e4ffcea8}{Get\+New\+Fires}} ()
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a324ffdcc48ca64101795b32f1dc12e5b}{Set\+New\+Fires}} (long input)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a126b874264dba4b287623e2c9a52e660}{Inc\+New\+Fires}} (long increment)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a1017a13c98e9c8107165af82792c6ecf}{Get\+Num\+Spots}} (long \texorpdfstring{$\ast$}{*}num, bool inc)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a3622de4fb66d2477d646dee52fe280b1}{Set\+Num\+Spots}} (long input)
+\item 
+long \mbox{\hyperlink{fsxw_8cpp_ac536f2ef27b7e57c9deb53a1512ba754}{Get\+Skip\+Fires}} ()
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a8f6249c1343f2d53e4777c66b7c7d908}{Set\+Skip\+Fires}} (long newvalue)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_ae2cf76e0d82241b9ff3666ea2a917ee0}{Inc\+Skip\+Fires}} (long increment)
+\item 
+double \mbox{\hyperlink{fsxw_8cpp_a8a4d3096c918ce5f5d27a8d18ecc9e50}{Get\+Perim\+Res}} ()
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_ab8458c636e77fef32318078df1d6b1f3}{Set\+Perim\+Res}} (double input)
+\item 
+double \mbox{\hyperlink{fsxw_8cpp_ab090f93fcbdc556782fd25184a2e3c67}{Get\+Dynamic\+Dist\+Res}} ()
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_ae6a6a03a406075ce1a582e0326040ff6}{Set\+Dynamic\+Dist\+Res}} (double input)
+\item 
+double \mbox{\hyperlink{fsxw_8cpp_a24e17fd56b2c3165dbb06ec65a00d7d2}{Get\+Dist\+Res}} ()
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_aaa0e15e44833073b38a5e1e49deeb73b}{Set\+Dist\+Res}} (double input)
+\item 
+double \mbox{\hyperlink{fsxw_8cpp_a550bffd9ea5bc53aa8ccec12e95929bc}{Get\+Temporary\+Time\+Step}} ()
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_af265e4b2995167d55d760ba52d9c27d8}{Set\+Temporary\+Time\+Step}} (double value)
+\item 
+double \mbox{\hyperlink{fsxw_8cpp_ad98079e3f14d26cd24af7f2a74f0c207}{Get\+Actual\+Time\+Step}} ()
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_afb28f5fe6b4e54158a4dd4fd5d8e5407}{Set\+Actual\+Time\+Step}} (double input)
+\item 
+double \mbox{\hyperlink{fsxw_8cpp_afae1f54f521d3c653e7c924d1287a18e}{Get\+Visible\+Time\+Step}} ()
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_ae9b4508b5a6eb01045a7f0558bbe9e8b}{Set\+Visible\+Time\+Step}} (double input)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_ad4d3fa40b6e161cacffbbb9987d3a964}{Set\+Secondary\+Visible\+Time\+Step}} (double input)
+\item 
+double \mbox{\hyperlink{fsxw_8cpp_a066d421ddfad7414f164f51f0a675fd8}{Get\+Secondary\+Visible\+Time\+Step}} ()
+\item 
+double \mbox{\hyperlink{fsxw_8cpp_aa4f4e9a28be8d1e27bcbe94bb53f91cc}{Event\+Minimum\+Time\+Step}} (double time)
+\item 
+bool \mbox{\hyperlink{fsxw_8cpp_a2616345e5ef1bdedbce23009b2c30e5b}{Check\+Expansions}} (long Yes\+No)
+\item 
+bool \mbox{\hyperlink{fsxw_8cpp_a97b57e0076ea302f9ac8cddc02093ec9}{Check\+Post\+Frontal}} (long Yes\+No)
+\item 
+long \mbox{\hyperlink{fsxw_8cpp_a561601d8e38cff02306799b658e75cda}{Distance\+Check\+Method}} (long Method)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_ac609f9e85e1a3907f3fd411862db334a}{Get\+Perimeter2}} (long coord, double \texorpdfstring{$\ast$}{*}xpt, double \texorpdfstring{$\ast$}{*}ypt, double \texorpdfstring{$\ast$}{*}ros, double \texorpdfstring{$\ast$}{*}fli, double \texorpdfstring{$\ast$}{*}rct)
+\item 
+double \mbox{\hyperlink{fsxw_8cpp_a18f4a8c98b4d3f40c6f951c822c79e26}{Get\+Perimeter2\+Value}} (long coord, long value)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a4f9bf920c99001d3361a72980cf55eba}{Set\+Perimeter2}} (long coord, double xpt, double ypt, double ros, double fli, double rct)
+\item 
+double \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsxw_8cpp_a20106177bbd4c22d8db437b14d48a95d}{Alloc\+Perimeter2}} (long Num\+Points)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_af0d09dba2584bf2d1b48883b6d0d00ab}{Free\+Perimeter2}} ()
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a93e48967508eb0c29c879e02390c180d}{Free\+All\+Fire\+Perims}} ()
+\item 
+long \mbox{\hyperlink{fsxw_8cpp_a3051fe0b606001437a5e8f41b20eb6a5}{Get\+Num\+Perim\+Alloc}} ()
+\item 
+bool \mbox{\hyperlink{fsxw_8cpp_ab066e5419258765e42867bde6a71f179}{Alloc\+Fire\+Perims}} (long num)
+\item 
+bool \mbox{\hyperlink{fsxw_8cpp_ad567394b149308bc185f06458d69832f}{Re\+Alloc\+Fire\+Perims}} ()
+\item 
+double \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsxw_8cpp_a2b8115f5613a307e2c4b00b1db565b86}{Alloc\+Perimeter1}} (long Num\+Fire, long Num\+Points)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a3b55dffb540f71111daaf37ee63e835e}{Free\+Perimeter1}} (long Num\+Fire)
+\item 
+double \mbox{\hyperlink{fsxw_8cpp_abbe0140b4033369b924e9b322429e80c}{Get\+Perimeter1\+Value}} (long Num\+Fire, long Num\+Point, int coord)
+\item 
+double \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsxw_8cpp_a01dc09028d546ca3bbc10d73d78b5bdb}{Get\+Perimeter1\+Address}} (long Num\+Fire, long Num\+Point)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a899dd58bb3b122652d65ae53513cf456}{Set\+Perimeter1}} (long Num\+Fire, long Num\+Point, double xpt, double ypt)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a9ddd9bca0992bd699b53fc5c986e5bb2}{Set\+Fire\+Chx}} (long Num\+Fire, long Num\+Point, double ros, double fli)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_aeaf7a92bbe6173f1f60b37a96de7651f}{Set\+React}} (long Num\+Fire, long Num\+Point, double react)
+\item 
+long \mbox{\hyperlink{fsxw_8cpp_a9c8fafc716dda8e8b798581a36b496a1}{Swap\+Fire\+Perims}} (long Num\+Fire1, long Num\+Fire2)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_ac9fdf331bb130d89d4c7b747d711ecb4}{Alloc\+Elev}} (long Current\+Fire)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_acfb626c0868d7df1c8ce4331530b0e67}{Set\+Elev}} (long Num, long elev)
+\item 
+long \mbox{\hyperlink{fsxw_8cpp_a2739e23b69000d30bd17ff8cf5d841d0}{Get\+Elev}} (long Num)
+\item 
+long \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsxw_8cpp_a472359d259ebf303a356fed920465c1d}{Get\+Elev\+Address}} (long Num)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_ac16b36ea1430ea9f8cff816876b052bd}{Free\+Elev}} ()
+\item 
+long \mbox{\hyperlink{fsxw_8cpp_ad1d96ce5542e87585e84c5c3ca23ecf4}{Set\+Stop\+Location}} (double xcoord, double ycoord)
+\item 
+bool \mbox{\hyperlink{fsxw_8cpp_abb4e651a7466292b27c6857f6dae7f1a}{Get\+Stop\+Location}} (long Stop\+Num, double \texorpdfstring{$\ast$}{*}xcoord, double \texorpdfstring{$\ast$}{*}ycoord)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a84e1fba33e8e2ca95307bf22c3f66b8a}{Reset\+Stop\+Location}} (long Stop\+Num)
+\item 
+bool \mbox{\hyperlink{fsxw_8cpp_a460ac1a6ce5d4c9f3f081dbbdd50b08d}{Enable\+Stop\+Location}} (long Stop\+Num, long Action)
+\item 
+void \mbox{\hyperlink{fsxw_8cpp_a2c39092d04d37b265b513d63cae342ae}{Reset\+All\+Stop\+Locations}} ()
+\item 
+long \mbox{\hyperlink{fsxw_8cpp_a2ad7c4e73119443da112ded3aa3e2cfc}{Get\+Num\+Stop\+Locations}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fsxw_8cpp_a794873a3e52b260281d2e9dd693ab6e4}\label{fsxw_8cpp_a794873a3e52b260281d2e9dd693ab6e4} 
+\index{fsxw.cpp@{fsxw.cpp}!SIZE\_FIREPERIM\_BLOCK@{SIZE\_FIREPERIM\_BLOCK}}
+\index{SIZE\_FIREPERIM\_BLOCK@{SIZE\_FIREPERIM\_BLOCK}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SIZE\_FIREPERIM\_BLOCK}{SIZE\_FIREPERIM\_BLOCK}}
+{\footnotesize\ttfamily \#define SIZE\+\_\+\+FIREPERIM\+\_\+\+BLOCK~10000}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fsxw_8cpp_a2c86c41e50f90f56d789dcb98a42a593}\label{fsxw_8cpp_a2c86c41e50f90f56d789dcb98a42a593} 
+\index{fsxw.cpp@{fsxw.cpp}!AccelerationON@{AccelerationON}}
+\index{AccelerationON@{AccelerationON}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{AccelerationON()}{AccelerationON()}}
+{\footnotesize\ttfamily bool Acceleration\+ON (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00078}{78}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_ac9fdf331bb130d89d4c7b747d711ecb4}\label{fsxw_8cpp_ac9fdf331bb130d89d4c7b747d711ecb4} 
+\index{fsxw.cpp@{fsxw.cpp}!AllocElev@{AllocElev}}
+\index{AllocElev@{AllocElev}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{AllocElev()}{AllocElev()}}
+{\footnotesize\ttfamily void Alloc\+Elev (\begin{DoxyParamCaption}\item[{long}]{Current\+Fire }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00734}{734}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_ab066e5419258765e42867bde6a71f179}\label{fsxw_8cpp_ab066e5419258765e42867bde6a71f179} 
+\index{fsxw.cpp@{fsxw.cpp}!AllocFirePerims@{AllocFirePerims}}
+\index{AllocFirePerims@{AllocFirePerims}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{AllocFirePerims()}{AllocFirePerims()}}
+{\footnotesize\ttfamily bool Alloc\+Fire\+Perims (\begin{DoxyParamCaption}\item[{long}]{num }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00534}{534}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a2b8115f5613a307e2c4b00b1db565b86}\label{fsxw_8cpp_a2b8115f5613a307e2c4b00b1db565b86} 
+\index{fsxw.cpp@{fsxw.cpp}!AllocPerimeter1@{AllocPerimeter1}}
+\index{AllocPerimeter1@{AllocPerimeter1}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{AllocPerimeter1()}{AllocPerimeter1()}}
+{\footnotesize\ttfamily double \texorpdfstring{$\ast$}{*} Alloc\+Perimeter1 (\begin{DoxyParamCaption}\item[{long}]{Num\+Fire,  }\item[{long}]{Num\+Points }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00609}{609}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a20106177bbd4c22d8db437b14d48a95d}\label{fsxw_8cpp_a20106177bbd4c22d8db437b14d48a95d} 
+\index{fsxw.cpp@{fsxw.cpp}!AllocPerimeter2@{AllocPerimeter2}}
+\index{AllocPerimeter2@{AllocPerimeter2}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{AllocPerimeter2()}{AllocPerimeter2()}}
+{\footnotesize\ttfamily double \texorpdfstring{$\ast$}{*} Alloc\+Perimeter2 (\begin{DoxyParamCaption}\item[{long}]{Num\+Points }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00475}{475}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a2616345e5ef1bdedbce23009b2c30e5b}\label{fsxw_8cpp_a2616345e5ef1bdedbce23009b2c30e5b} 
+\index{fsxw.cpp@{fsxw.cpp}!CheckExpansions@{CheckExpansions}}
+\index{CheckExpansions@{CheckExpansions}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{CheckExpansions()}{CheckExpansions()}}
+{\footnotesize\ttfamily bool Check\+Expansions (\begin{DoxyParamCaption}\item[{long}]{Yes\+No }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00401}{401}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a97b57e0076ea302f9ac8cddc02093ec9}\label{fsxw_8cpp_a97b57e0076ea302f9ac8cddc02093ec9} 
+\index{fsxw.cpp@{fsxw.cpp}!CheckPostFrontal@{CheckPostFrontal}}
+\index{CheckPostFrontal@{CheckPostFrontal}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{CheckPostFrontal()}{CheckPostFrontal()}}
+{\footnotesize\ttfamily bool Check\+Post\+Frontal (\begin{DoxyParamCaption}\item[{long}]{Yes\+No }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00410}{410}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_aa155d9731386b2804f3e5b7f97eb7110}\label{fsxw_8cpp_aa155d9731386b2804f3e5b7f97eb7110} 
+\index{fsxw.cpp@{fsxw.cpp}!CloseSpotSemaphore@{CloseSpotSemaphore}}
+\index{CloseSpotSemaphore@{CloseSpotSemaphore}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{CloseSpotSemaphore()}{CloseSpotSemaphore()}}
+{\footnotesize\ttfamily void Close\+Spot\+Semaphore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00223}{223}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a64d8570904c2942914f87ba3a209b0fd}\label{fsxw_8cpp_a64d8570904c2942914f87ba3a209b0fd} 
+\index{fsxw.cpp@{fsxw.cpp}!ConstantBackingSpreadRate@{ConstantBackingSpreadRate}}
+\index{ConstantBackingSpreadRate@{ConstantBackingSpreadRate}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{ConstantBackingSpreadRate()}{ConstantBackingSpreadRate()}}
+{\footnotesize\ttfamily bool Constant\+Backing\+Spread\+Rate (\begin{DoxyParamCaption}\item[{long}]{Back }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00189}{189}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a5cb3195b1ccf28c4d8f41524e5c23bc7}\label{fsxw_8cpp_a5cb3195b1ccf28c4d8f41524e5c23bc7} 
+\index{fsxw.cpp@{fsxw.cpp}!CreateSpotSemaphore@{CreateSpotSemaphore}}
+\index{CreateSpotSemaphore@{CreateSpotSemaphore}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{CreateSpotSemaphore()}{CreateSpotSemaphore()}}
+{\footnotesize\ttfamily bool Create\+Spot\+Semaphore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00198}{198}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a561601d8e38cff02306799b658e75cda}\label{fsxw_8cpp_a561601d8e38cff02306799b658e75cda} 
+\index{fsxw.cpp@{fsxw.cpp}!DistanceCheckMethod@{DistanceCheckMethod}}
+\index{DistanceCheckMethod@{DistanceCheckMethod}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{DistanceCheckMethod()}{DistanceCheckMethod()}}
+{\footnotesize\ttfamily long Distance\+Check\+Method (\begin{DoxyParamCaption}\item[{long}]{Method }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00419}{419}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a10f0fc0d82919a31b3c95936d9643ebc}\label{fsxw_8cpp_a10f0fc0d82919a31b3c95936d9643ebc} 
+\index{fsxw.cpp@{fsxw.cpp}!EnableCrowning@{EnableCrowning}}
+\index{EnableCrowning@{EnableCrowning}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{EnableCrowning()}{EnableCrowning()}}
+{\footnotesize\ttfamily bool Enable\+Crowning (\begin{DoxyParamCaption}\item[{long}]{Crowning }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00151}{151}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a48aacd8f08c2c94d07f4279eba25c468}\label{fsxw_8cpp_a48aacd8f08c2c94d07f4279eba25c468} 
+\index{fsxw.cpp@{fsxw.cpp}!EnableSpotFireGrowth@{EnableSpotFireGrowth}}
+\index{EnableSpotFireGrowth@{EnableSpotFireGrowth}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{EnableSpotFireGrowth()}{EnableSpotFireGrowth()}}
+{\footnotesize\ttfamily bool Enable\+Spot\+Fire\+Growth (\begin{DoxyParamCaption}\item[{long}]{Growth }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00181}{181}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_adbd30aacd1df14b74ba6bd8be18a849d}\label{fsxw_8cpp_adbd30aacd1df14b74ba6bd8be18a849d} 
+\index{fsxw.cpp@{fsxw.cpp}!EnableSpotting@{EnableSpotting}}
+\index{EnableSpotting@{EnableSpotting}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{EnableSpotting()}{EnableSpotting()}}
+{\footnotesize\ttfamily bool Enable\+Spotting (\begin{DoxyParamCaption}\item[{long}]{Spotting }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00173}{173}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a460ac1a6ce5d4c9f3f081dbbdd50b08d}\label{fsxw_8cpp_a460ac1a6ce5d4c9f3f081dbbdd50b08d} 
+\index{fsxw.cpp@{fsxw.cpp}!EnableStopLocation@{EnableStopLocation}}
+\index{EnableStopLocation@{EnableStopLocation}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{EnableStopLocation()}{EnableStopLocation()}}
+{\footnotesize\ttfamily bool Enable\+Stop\+Location (\begin{DoxyParamCaption}\item[{long}]{Stop\+Num,  }\item[{long}]{Action }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00840}{840}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_aa4f4e9a28be8d1e27bcbe94bb53f91cc}\label{fsxw_8cpp_aa4f4e9a28be8d1e27bcbe94bb53f91cc} 
+\index{fsxw.cpp@{fsxw.cpp}!EventMinimumTimeStep@{EventMinimumTimeStep}}
+\index{EventMinimumTimeStep@{EventMinimumTimeStep}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{EventMinimumTimeStep()}{EventMinimumTimeStep()}}
+{\footnotesize\ttfamily double Event\+Minimum\+Time\+Step (\begin{DoxyParamCaption}\item[{double}]{time }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00391}{391}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a93e48967508eb0c29c879e02390c180d}\label{fsxw_8cpp_a93e48967508eb0c29c879e02390c180d} 
+\index{fsxw.cpp@{fsxw.cpp}!FreeAllFirePerims@{FreeAllFirePerims}}
+\index{FreeAllFirePerims@{FreeAllFirePerims}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{FreeAllFirePerims()}{FreeAllFirePerims()}}
+{\footnotesize\ttfamily void Free\+All\+Fire\+Perims (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00513}{513}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_ac16b36ea1430ea9f8cff816876b052bd}\label{fsxw_8cpp_ac16b36ea1430ea9f8cff816876b052bd} 
+\index{fsxw.cpp@{fsxw.cpp}!FreeElev@{FreeElev}}
+\index{FreeElev@{FreeElev}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{FreeElev()}{FreeElev()}}
+{\footnotesize\ttfamily void Free\+Elev (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00780}{780}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a3b55dffb540f71111daaf37ee63e835e}\label{fsxw_8cpp_a3b55dffb540f71111daaf37ee63e835e} 
+\index{fsxw.cpp@{fsxw.cpp}!FreePerimeter1@{FreePerimeter1}}
+\index{FreePerimeter1@{FreePerimeter1}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{FreePerimeter1()}{FreePerimeter1()}}
+{\footnotesize\ttfamily void Free\+Perimeter1 (\begin{DoxyParamCaption}\item[{long}]{Num\+Fire }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00642}{642}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_af0d09dba2584bf2d1b48883b6d0d00ab}\label{fsxw_8cpp_af0d09dba2584bf2d1b48883b6d0d00ab} 
+\index{fsxw.cpp@{fsxw.cpp}!FreePerimeter2@{FreePerimeter2}}
+\index{FreePerimeter2@{FreePerimeter2}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{FreePerimeter2()}{FreePerimeter2()}}
+{\footnotesize\ttfamily void Free\+Perimeter2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00495}{495}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_ad98079e3f14d26cd24af7f2a74f0c207}\label{fsxw_8cpp_ad98079e3f14d26cd24af7f2a74f0c207} 
+\index{fsxw.cpp@{fsxw.cpp}!GetActualTimeStep@{GetActualTimeStep}}
+\index{GetActualTimeStep@{GetActualTimeStep}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetActualTimeStep()}{GetActualTimeStep()}}
+{\footnotesize\ttfamily double Get\+Actual\+Time\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00355}{355}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_aa28569ed8a3315bd7f191f06d24b119a}\label{fsxw_8cpp_aa28569ed8a3315bd7f191f06d24b119a} 
+\index{fsxw.cpp@{fsxw.cpp}!GetCrownFireCalculation@{GetCrownFireCalculation}}
+\index{GetCrownFireCalculation@{GetCrownFireCalculation}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetCrownFireCalculation()}{GetCrownFireCalculation()}}
+{\footnotesize\ttfamily long Get\+Crown\+Fire\+Calculation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a24e17fd56b2c3165dbb06ec65a00d7d2}\label{fsxw_8cpp_a24e17fd56b2c3165dbb06ec65a00d7d2} 
+\index{fsxw.cpp@{fsxw.cpp}!GetDistRes@{GetDistRes}}
+\index{GetDistRes@{GetDistRes}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetDistRes()}{GetDistRes()}}
+{\footnotesize\ttfamily double Get\+Dist\+Res (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00332}{332}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_ab090f93fcbdc556782fd25184a2e3c67}\label{fsxw_8cpp_ab090f93fcbdc556782fd25184a2e3c67} 
+\index{fsxw.cpp@{fsxw.cpp}!GetDynamicDistRes@{GetDynamicDistRes}}
+\index{GetDynamicDistRes@{GetDynamicDistRes}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetDynamicDistRes()}{GetDynamicDistRes()}}
+{\footnotesize\ttfamily double Get\+Dynamic\+Dist\+Res (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00320}{320}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a2739e23b69000d30bd17ff8cf5d841d0}\label{fsxw_8cpp_a2739e23b69000d30bd17ff8cf5d841d0} 
+\index{fsxw.cpp@{fsxw.cpp}!GetElev@{GetElev}}
+\index{GetElev@{GetElev}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetElev()}{GetElev()}}
+{\footnotesize\ttfamily long Get\+Elev (\begin{DoxyParamCaption}\item[{long}]{Num }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00764}{764}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a472359d259ebf303a356fed920465c1d}\label{fsxw_8cpp_a472359d259ebf303a356fed920465c1d} 
+\index{fsxw.cpp@{fsxw.cpp}!GetElevAddress@{GetElevAddress}}
+\index{GetElevAddress@{GetElevAddress}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetElevAddress()}{GetElevAddress()}}
+{\footnotesize\ttfamily long \texorpdfstring{$\ast$}{*} Get\+Elev\+Address (\begin{DoxyParamCaption}\item[{long}]{Num }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00772}{772}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a62a87b148c393234c3c64419323eae75}\label{fsxw_8cpp_a62a87b148c393234c3c64419323eae75} 
+\index{fsxw.cpp@{fsxw.cpp}!GetInout@{GetInout}}
+\index{GetInout@{GetInout}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetInout()}{GetInout()}}
+{\footnotesize\ttfamily long Get\+Inout (\begin{DoxyParamCaption}\item[{long}]{Fire\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a937f2470c39b969fc642c1f9e4ffcea8}\label{fsxw_8cpp_a937f2470c39b969fc642c1f9e4ffcea8} 
+\index{fsxw.cpp@{fsxw.cpp}!GetNewFires@{GetNewFires}}
+\index{GetNewFires@{GetNewFires}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetNewFires()}{GetNewFires()}}
+{\footnotesize\ttfamily long Get\+New\+Fires (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00250}{250}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_aa328b415f4e51ddbccc74f209e018951}\label{fsxw_8cpp_aa328b415f4e51ddbccc74f209e018951} 
+\index{fsxw.cpp@{fsxw.cpp}!GetNumFires@{GetNumFires}}
+\index{GetNumFires@{GetNumFires}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetNumFires()}{GetNumFires()}}
+{\footnotesize\ttfamily long Get\+Num\+Fires (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00235}{235}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a3051fe0b606001437a5e8f41b20eb6a5}\label{fsxw_8cpp_a3051fe0b606001437a5e8f41b20eb6a5} 
+\index{fsxw.cpp@{fsxw.cpp}!GetNumPerimAlloc@{GetNumPerimAlloc}}
+\index{GetNumPerimAlloc@{GetNumPerimAlloc}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetNumPerimAlloc()}{GetNumPerimAlloc()}}
+{\footnotesize\ttfamily long Get\+Num\+Perim\+Alloc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00528}{528}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_aeada34e18bdc9de99d01d7649d45ec94}\label{fsxw_8cpp_aeada34e18bdc9de99d01d7649d45ec94} 
+\index{fsxw.cpp@{fsxw.cpp}!GetNumPoints@{GetNumPoints}}
+\index{GetNumPoints@{GetNumPoints}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetNumPoints()}{GetNumPoints()}}
+{\footnotesize\ttfamily long Get\+Num\+Points (\begin{DoxyParamCaption}\item[{long}]{Fire\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00119}{119}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a1017a13c98e9c8107165af82792c6ecf}\label{fsxw_8cpp_a1017a13c98e9c8107165af82792c6ecf} 
+\index{fsxw.cpp@{fsxw.cpp}!GetNumSpots@{GetNumSpots}}
+\index{GetNumSpots@{GetNumSpots}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetNumSpots()}{GetNumSpots()}}
+{\footnotesize\ttfamily void Get\+Num\+Spots (\begin{DoxyParamCaption}\item[{long \texorpdfstring{$\ast$}{*}}]{num,  }\item[{bool}]{inc }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00271}{271}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a2ad7c4e73119443da112ded3aa3e2cfc}\label{fsxw_8cpp_a2ad7c4e73119443da112ded3aa3e2cfc} 
+\index{fsxw.cpp@{fsxw.cpp}!GetNumStopLocations@{GetNumStopLocations}}
+\index{GetNumStopLocations@{GetNumStopLocations}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetNumStopLocations()}{GetNumStopLocations()}}
+{\footnotesize\ttfamily long Get\+Num\+Stop\+Locations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00855}{855}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a01dc09028d546ca3bbc10d73d78b5bdb}\label{fsxw_8cpp_a01dc09028d546ca3bbc10d73d78b5bdb} 
+\index{fsxw.cpp@{fsxw.cpp}!GetPerimeter1Address@{GetPerimeter1Address}}
+\index{GetPerimeter1Address@{GetPerimeter1Address}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetPerimeter1Address()}{GetPerimeter1Address()}}
+{\footnotesize\ttfamily double \texorpdfstring{$\ast$}{*} Get\+Perimeter1\+Address (\begin{DoxyParamCaption}\item[{long}]{Num\+Fire,  }\item[{long}]{Num\+Point }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00660}{660}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_abbe0140b4033369b924e9b322429e80c}\label{fsxw_8cpp_abbe0140b4033369b924e9b322429e80c} 
+\index{fsxw.cpp@{fsxw.cpp}!GetPerimeter1Value@{GetPerimeter1Value}}
+\index{GetPerimeter1Value@{GetPerimeter1Value}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetPerimeter1Value()}{GetPerimeter1Value()}}
+{\footnotesize\ttfamily double Get\+Perimeter1\+Value (\begin{DoxyParamCaption}\item[{long}]{Num\+Fire,  }\item[{long}]{Num\+Point,  }\item[{int}]{coord }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00651}{651}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_ac609f9e85e1a3907f3fd411862db334a}\label{fsxw_8cpp_ac609f9e85e1a3907f3fd411862db334a} 
+\index{fsxw.cpp@{fsxw.cpp}!GetPerimeter2@{GetPerimeter2}}
+\index{GetPerimeter2@{GetPerimeter2}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetPerimeter2()}{GetPerimeter2()}}
+{\footnotesize\ttfamily void Get\+Perimeter2 (\begin{DoxyParamCaption}\item[{long}]{coord,  }\item[{double \texorpdfstring{$\ast$}{*}}]{xpt,  }\item[{double \texorpdfstring{$\ast$}{*}}]{ypt,  }\item[{double \texorpdfstring{$\ast$}{*}}]{ros,  }\item[{double \texorpdfstring{$\ast$}{*}}]{fli,  }\item[{double \texorpdfstring{$\ast$}{*}}]{rct }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00436}{436}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a18f4a8c98b4d3f40c6f951c822c79e26}\label{fsxw_8cpp_a18f4a8c98b4d3f40c6f951c822c79e26} 
+\index{fsxw.cpp@{fsxw.cpp}!GetPerimeter2Value@{GetPerimeter2Value}}
+\index{GetPerimeter2Value@{GetPerimeter2Value}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetPerimeter2Value()}{GetPerimeter2Value()}}
+{\footnotesize\ttfamily double Get\+Perimeter2\+Value (\begin{DoxyParamCaption}\item[{long}]{coord,  }\item[{long}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00450}{450}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a8a4d3096c918ce5f5d27a8d18ecc9e50}\label{fsxw_8cpp_a8a4d3096c918ce5f5d27a8d18ecc9e50} 
+\index{fsxw.cpp@{fsxw.cpp}!GetPerimRes@{GetPerimRes}}
+\index{GetPerimRes@{GetPerimRes}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetPerimRes()}{GetPerimRes()}}
+{\footnotesize\ttfamily double Get\+Perim\+Res (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00309}{309}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a243c948c48f82a18d3e0e7ab0abcdb28}\label{fsxw_8cpp_a243c948c48f82a18d3e0e7ab0abcdb28} 
+\index{fsxw.cpp@{fsxw.cpp}!GetRosRed@{GetRosRed}}
+\index{GetRosRed@{GetRosRed}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetRosRed()}{GetRosRed()}}
+{\footnotesize\ttfamily double Get\+Ros\+Red (\begin{DoxyParamCaption}\item[{int}]{fuel }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a066d421ddfad7414f164f51f0a675fd8}\label{fsxw_8cpp_a066d421ddfad7414f164f51f0a675fd8} 
+\index{fsxw.cpp@{fsxw.cpp}!GetSecondaryVisibleTimeStep@{GetSecondaryVisibleTimeStep}}
+\index{GetSecondaryVisibleTimeStep@{GetSecondaryVisibleTimeStep}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetSecondaryVisibleTimeStep()}{GetSecondaryVisibleTimeStep()}}
+{\footnotesize\ttfamily double Get\+Secondary\+Visible\+Time\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00385}{385}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_ac536f2ef27b7e57c9deb53a1512ba754}\label{fsxw_8cpp_ac536f2ef27b7e57c9deb53a1512ba754} 
+\index{fsxw.cpp@{fsxw.cpp}!GetSkipFires@{GetSkipFires}}
+\index{GetSkipFires@{GetSkipFires}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetSkipFires()}{GetSkipFires()}}
+{\footnotesize\ttfamily long Get\+Skip\+Fires (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00290}{290}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_abb4e651a7466292b27c6857f6dae7f1a}\label{fsxw_8cpp_abb4e651a7466292b27c6857f6dae7f1a} 
+\index{fsxw.cpp@{fsxw.cpp}!GetStopLocation@{GetStopLocation}}
+\index{GetStopLocation@{GetStopLocation}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetStopLocation()}{GetStopLocation()}}
+{\footnotesize\ttfamily bool Get\+Stop\+Location (\begin{DoxyParamCaption}\item[{long}]{Stop\+Num,  }\item[{double \texorpdfstring{$\ast$}{*}}]{xcoord,  }\item[{double \texorpdfstring{$\ast$}{*}}]{ycoord }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00812}{812}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a550bffd9ea5bc53aa8ccec12e95929bc}\label{fsxw_8cpp_a550bffd9ea5bc53aa8ccec12e95929bc} 
+\index{fsxw.cpp@{fsxw.cpp}!GetTemporaryTimeStep@{GetTemporaryTimeStep}}
+\index{GetTemporaryTimeStep@{GetTemporaryTimeStep}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetTemporaryTimeStep()}{GetTemporaryTimeStep()}}
+{\footnotesize\ttfamily double Get\+Temporary\+Time\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00343}{343}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_afae1f54f521d3c653e7c924d1287a18e}\label{fsxw_8cpp_afae1f54f521d3c653e7c924d1287a18e} 
+\index{fsxw.cpp@{fsxw.cpp}!GetVisibleTimeStep@{GetVisibleTimeStep}}
+\index{GetVisibleTimeStep@{GetVisibleTimeStep}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{GetVisibleTimeStep()}{GetVisibleTimeStep()}}
+{\footnotesize\ttfamily double Get\+Visible\+Time\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00365}{365}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a4040bda997c6db51ff853dbd357ddefc}\label{fsxw_8cpp_a4040bda997c6db51ff853dbd357ddefc} 
+\index{fsxw.cpp@{fsxw.cpp}!IgnitionDelay@{IgnitionDelay}}
+\index{IgnitionDelay@{IgnitionDelay}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{IgnitionDelay()}{IgnitionDelay()}}
+{\footnotesize\ttfamily double Ignition\+Delay (\begin{DoxyParamCaption}\item[{double}]{delay }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00142}{142}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a126b874264dba4b287623e2c9a52e660}\label{fsxw_8cpp_a126b874264dba4b287623e2c9a52e660} 
+\index{fsxw.cpp@{fsxw.cpp}!IncNewFires@{IncNewFires}}
+\index{IncNewFires@{IncNewFires}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{IncNewFires()}{IncNewFires()}}
+{\footnotesize\ttfamily void Inc\+New\+Fires (\begin{DoxyParamCaption}\item[{long}]{increment }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00263}{263}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a6a7730ec77fec8337cc1c6660c65a5ac}\label{fsxw_8cpp_a6a7730ec77fec8337cc1c6660c65a5ac} 
+\index{fsxw.cpp@{fsxw.cpp}!IncNumFires@{IncNumFires}}
+\index{IncNumFires@{IncNumFires}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{IncNumFires()}{IncNumFires()}}
+{\footnotesize\ttfamily void Inc\+Num\+Fires (\begin{DoxyParamCaption}\item[{long}]{More\+Fires }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00245}{245}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_ae2cf76e0d82241b9ff3666ea2a917ee0}\label{fsxw_8cpp_ae2cf76e0d82241b9ff3666ea2a917ee0} 
+\index{fsxw.cpp@{fsxw.cpp}!IncSkipFires@{IncSkipFires}}
+\index{IncSkipFires@{IncSkipFires}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{IncSkipFires()}{IncSkipFires()}}
+{\footnotesize\ttfamily void Inc\+Skip\+Fires (\begin{DoxyParamCaption}\item[{long}]{increment }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00302}{302}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a0ff50a4f63fdafee11aeacbe86b362e6}\label{fsxw_8cpp_a0ff50a4f63fdafee11aeacbe86b362e6} 
+\index{fsxw.cpp@{fsxw.cpp}!InitializeRosRed@{InitializeRosRed}}
+\index{InitializeRosRed@{InitializeRosRed}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{InitializeRosRed()}{InitializeRosRed()}}
+{\footnotesize\ttfamily void Initialize\+Ros\+Red (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00089}{89}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a17a99056c3bd4c30cbadfa582ea5c5fb}\label{fsxw_8cpp_a17a99056c3bd4c30cbadfa582ea5c5fb} 
+\index{fsxw.cpp@{fsxw.cpp}!PercentIgnition@{PercentIgnition}}
+\index{PercentIgnition@{PercentIgnition}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{PercentIgnition()}{PercentIgnition()}}
+{\footnotesize\ttfamily double Percent\+Ignition (\begin{DoxyParamCaption}\item[{double}]{percent }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00129}{129}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_ad567394b149308bc185f06458d69832f}\label{fsxw_8cpp_ad567394b149308bc185f06458d69832f} 
+\index{fsxw.cpp@{fsxw.cpp}!ReAllocFirePerims@{ReAllocFirePerims}}
+\index{ReAllocFirePerims@{ReAllocFirePerims}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{ReAllocFirePerims()}{ReAllocFirePerims()}}
+{\footnotesize\ttfamily bool Re\+Alloc\+Fire\+Perims (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00555}{555}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a2c39092d04d37b265b513d63cae342ae}\label{fsxw_8cpp_a2c39092d04d37b265b513d63cae342ae} 
+\index{fsxw.cpp@{fsxw.cpp}!ResetAllStopLocations@{ResetAllStopLocations}}
+\index{ResetAllStopLocations@{ResetAllStopLocations}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{ResetAllStopLocations()}{ResetAllStopLocations()}}
+{\footnotesize\ttfamily void Reset\+All\+Stop\+Locations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00849}{849}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a84e1fba33e8e2ca95307bf22c3f66b8a}\label{fsxw_8cpp_a84e1fba33e8e2ca95307bf22c3f66b8a} 
+\index{fsxw.cpp@{fsxw.cpp}!ResetStopLocation@{ResetStopLocation}}
+\index{ResetStopLocation@{ResetStopLocation}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{ResetStopLocation()}{ResetStopLocation()}}
+{\footnotesize\ttfamily void Reset\+Stop\+Location (\begin{DoxyParamCaption}\item[{long}]{Stop\+Num }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00826}{826}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a40c56c6c482408bbd0f92556f82a9313}\label{fsxw_8cpp_a40c56c6c482408bbd0f92556f82a9313} 
+\index{fsxw.cpp@{fsxw.cpp}!SetAccelerationON@{SetAccelerationON}}
+\index{SetAccelerationON@{SetAccelerationON}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetAccelerationON()}{SetAccelerationON()}}
+{\footnotesize\ttfamily void Set\+Acceleration\+ON (\begin{DoxyParamCaption}\item[{bool}]{State }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_afb28f5fe6b4e54158a4dd4fd5d8e5407}\label{fsxw_8cpp_afb28f5fe6b4e54158a4dd4fd5d8e5407} 
+\index{fsxw.cpp@{fsxw.cpp}!SetActualTimeStep@{SetActualTimeStep}}
+\index{SetActualTimeStep@{SetActualTimeStep}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetActualTimeStep()}{SetActualTimeStep()}}
+{\footnotesize\ttfamily void Set\+Actual\+Time\+Step (\begin{DoxyParamCaption}\item[{double}]{input }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00360}{360}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a593b32310abe9dcdb8dd1cab8f346167}\label{fsxw_8cpp_a593b32310abe9dcdb8dd1cab8f346167} 
+\index{fsxw.cpp@{fsxw.cpp}!SetCrownFireCalculation@{SetCrownFireCalculation}}
+\index{SetCrownFireCalculation@{SetCrownFireCalculation}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetCrownFireCalculation()}{SetCrownFireCalculation()}}
+{\footnotesize\ttfamily long Set\+Crown\+Fire\+Calculation (\begin{DoxyParamCaption}\item[{long}]{Type }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00165}{165}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_aaa0e15e44833073b38a5e1e49deeb73b}\label{fsxw_8cpp_aaa0e15e44833073b38a5e1e49deeb73b} 
+\index{fsxw.cpp@{fsxw.cpp}!SetDistRes@{SetDistRes}}
+\index{SetDistRes@{SetDistRes}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetDistRes()}{SetDistRes()}}
+{\footnotesize\ttfamily void Set\+Dist\+Res (\begin{DoxyParamCaption}\item[{double}]{input }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00337}{337}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_ae6a6a03a406075ce1a582e0326040ff6}\label{fsxw_8cpp_ae6a6a03a406075ce1a582e0326040ff6} 
+\index{fsxw.cpp@{fsxw.cpp}!SetDynamicDistRes@{SetDynamicDistRes}}
+\index{SetDynamicDistRes@{SetDynamicDistRes}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetDynamicDistRes()}{SetDynamicDistRes()}}
+{\footnotesize\ttfamily void Set\+Dynamic\+Dist\+Res (\begin{DoxyParamCaption}\item[{double}]{input }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00326}{326}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_acfb626c0868d7df1c8ce4331530b0e67}\label{fsxw_8cpp_acfb626c0868d7df1c8ce4331530b0e67} 
+\index{fsxw.cpp@{fsxw.cpp}!SetElev@{SetElev}}
+\index{SetElev@{SetElev}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetElev()}{SetElev()}}
+{\footnotesize\ttfamily void Set\+Elev (\begin{DoxyParamCaption}\item[{long}]{Num,  }\item[{long}]{elev }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00746}{746}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a9ddd9bca0992bd699b53fc5c986e5bb2}\label{fsxw_8cpp_a9ddd9bca0992bd699b53fc5c986e5bb2} 
+\index{fsxw.cpp@{fsxw.cpp}!SetFireChx@{SetFireChx}}
+\index{SetFireChx@{SetFireChx}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetFireChx()}{SetFireChx()}}
+{\footnotesize\ttfamily void Set\+Fire\+Chx (\begin{DoxyParamCaption}\item[{long}]{Num\+Fire,  }\item[{long}]{Num\+Point,  }\item[{double}]{ros,  }\item[{double}]{fli }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00675}{675}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_ab996aed92cf25598d7ddf6b5efabd4e5}\label{fsxw_8cpp_ab996aed92cf25598d7ddf6b5efabd4e5} 
+\index{fsxw.cpp@{fsxw.cpp}!SetInout@{SetInout}}
+\index{SetInout@{SetInout}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetInout()}{SetInout()}}
+{\footnotesize\ttfamily void Set\+Inout (\begin{DoxyParamCaption}\item[{long}]{Fire\+Number,  }\item[{int}]{Inout }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00114}{114}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a324ffdcc48ca64101795b32f1dc12e5b}\label{fsxw_8cpp_a324ffdcc48ca64101795b32f1dc12e5b} 
+\index{fsxw.cpp@{fsxw.cpp}!SetNewFires@{SetNewFires}}
+\index{SetNewFires@{SetNewFires}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetNewFires()}{SetNewFires()}}
+{\footnotesize\ttfamily void Set\+New\+Fires (\begin{DoxyParamCaption}\item[{long}]{input }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00255}{255}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a57d43ab418327d098a756156087206a2}\label{fsxw_8cpp_a57d43ab418327d098a756156087206a2} 
+\index{fsxw.cpp@{fsxw.cpp}!SetNumFires@{SetNumFires}}
+\index{SetNumFires@{SetNumFires}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetNumFires()}{SetNumFires()}}
+{\footnotesize\ttfamily void Set\+Num\+Fires (\begin{DoxyParamCaption}\item[{long}]{input }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00240}{240}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a940a8d602606d18da156d9c428d05279}\label{fsxw_8cpp_a940a8d602606d18da156d9c428d05279} 
+\index{fsxw.cpp@{fsxw.cpp}!SetNumPoints@{SetNumPoints}}
+\index{SetNumPoints@{SetNumPoints}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetNumPoints()}{SetNumPoints()}}
+{\footnotesize\ttfamily void Set\+Num\+Points (\begin{DoxyParamCaption}\item[{long}]{Fire\+Number,  }\item[{long}]{Num\+Points }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00124}{124}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a3622de4fb66d2477d646dee52fe280b1}\label{fsxw_8cpp_a3622de4fb66d2477d646dee52fe280b1} 
+\index{fsxw.cpp@{fsxw.cpp}!SetNumSpots@{SetNumSpots}}
+\index{SetNumSpots@{SetNumSpots}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetNumSpots()}{SetNumSpots()}}
+{\footnotesize\ttfamily void Set\+Num\+Spots (\begin{DoxyParamCaption}\item[{long}]{input }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00283}{283}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a899dd58bb3b122652d65ae53513cf456}\label{fsxw_8cpp_a899dd58bb3b122652d65ae53513cf456} 
+\index{fsxw.cpp@{fsxw.cpp}!SetPerimeter1@{SetPerimeter1}}
+\index{SetPerimeter1@{SetPerimeter1}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetPerimeter1()}{SetPerimeter1()}}
+{\footnotesize\ttfamily void Set\+Perimeter1 (\begin{DoxyParamCaption}\item[{long}]{Num\+Fire,  }\item[{long}]{Num\+Point,  }\item[{double}]{xpt,  }\item[{double}]{ypt }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00666}{666}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a4f9bf920c99001d3361a72980cf55eba}\label{fsxw_8cpp_a4f9bf920c99001d3361a72980cf55eba} 
+\index{fsxw.cpp@{fsxw.cpp}!SetPerimeter2@{SetPerimeter2}}
+\index{SetPerimeter2@{SetPerimeter2}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetPerimeter2()}{SetPerimeter2()}}
+{\footnotesize\ttfamily void Set\+Perimeter2 (\begin{DoxyParamCaption}\item[{long}]{coord,  }\item[{double}]{xpt,  }\item[{double}]{ypt,  }\item[{double}]{ros,  }\item[{double}]{fli,  }\item[{double}]{rct }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00460}{460}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_ab8458c636e77fef32318078df1d6b1f3}\label{fsxw_8cpp_ab8458c636e77fef32318078df1d6b1f3} 
+\index{fsxw.cpp@{fsxw.cpp}!SetPerimRes@{SetPerimRes}}
+\index{SetPerimRes@{SetPerimRes}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetPerimRes()}{SetPerimRes()}}
+{\footnotesize\ttfamily void Set\+Perim\+Res (\begin{DoxyParamCaption}\item[{double}]{input }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00314}{314}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_aeaf7a92bbe6173f1f60b37a96de7651f}\label{fsxw_8cpp_aeaf7a92bbe6173f1f60b37a96de7651f} 
+\index{fsxw.cpp@{fsxw.cpp}!SetReact@{SetReact}}
+\index{SetReact@{SetReact}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetReact()}{SetReact()}}
+{\footnotesize\ttfamily void Set\+React (\begin{DoxyParamCaption}\item[{long}]{Num\+Fire,  }\item[{long}]{Num\+Point,  }\item[{double}]{react }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00684}{684}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_abc18b267b18757bdab3436986317a031}\label{fsxw_8cpp_abc18b267b18757bdab3436986317a031} 
+\index{fsxw.cpp@{fsxw.cpp}!SetRosRed@{SetRosRed}}
+\index{SetRosRed@{SetRosRed}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetRosRed()}{SetRosRed()}}
+{\footnotesize\ttfamily void Set\+Ros\+Red (\begin{DoxyParamCaption}\item[{int}]{fuel,  }\item[{double}]{rosred }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_ad4d3fa40b6e161cacffbbb9987d3a964}\label{fsxw_8cpp_ad4d3fa40b6e161cacffbbb9987d3a964} 
+\index{fsxw.cpp@{fsxw.cpp}!SetSecondaryVisibleTimeStep@{SetSecondaryVisibleTimeStep}}
+\index{SetSecondaryVisibleTimeStep@{SetSecondaryVisibleTimeStep}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetSecondaryVisibleTimeStep()}{SetSecondaryVisibleTimeStep()}}
+{\footnotesize\ttfamily void Set\+Secondary\+Visible\+Time\+Step (\begin{DoxyParamCaption}\item[{double}]{input }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00379}{379}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a8f6249c1343f2d53e4777c66b7c7d908}\label{fsxw_8cpp_a8f6249c1343f2d53e4777c66b7c7d908} 
+\index{fsxw.cpp@{fsxw.cpp}!SetSkipFires@{SetSkipFires}}
+\index{SetSkipFires@{SetSkipFires}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetSkipFires()}{SetSkipFires()}}
+{\footnotesize\ttfamily void Set\+Skip\+Fires (\begin{DoxyParamCaption}\item[{long}]{newvalue }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00295}{295}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_ad1d96ce5542e87585e84c5c3ca23ecf4}\label{fsxw_8cpp_ad1d96ce5542e87585e84c5c3ca23ecf4} 
+\index{fsxw.cpp@{fsxw.cpp}!SetStopLocation@{SetStopLocation}}
+\index{SetStopLocation@{SetStopLocation}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetStopLocation()}{SetStopLocation()}}
+{\footnotesize\ttfamily long Set\+Stop\+Location (\begin{DoxyParamCaption}\item[{double}]{xcoord,  }\item[{double}]{ycoord }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00798}{798}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_af265e4b2995167d55d760ba52d9c27d8}\label{fsxw_8cpp_af265e4b2995167d55d760ba52d9c27d8} 
+\index{fsxw.cpp@{fsxw.cpp}!SetTemporaryTimeStep@{SetTemporaryTimeStep}}
+\index{SetTemporaryTimeStep@{SetTemporaryTimeStep}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetTemporaryTimeStep()}{SetTemporaryTimeStep()}}
+{\footnotesize\ttfamily void Set\+Temporary\+Time\+Step (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00349}{349}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_ae9b4508b5a6eb01045a7f0558bbe9e8b}\label{fsxw_8cpp_ae9b4508b5a6eb01045a7f0558bbe9e8b} 
+\index{fsxw.cpp@{fsxw.cpp}!SetVisibleTimeStep@{SetVisibleTimeStep}}
+\index{SetVisibleTimeStep@{SetVisibleTimeStep}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SetVisibleTimeStep()}{SetVisibleTimeStep()}}
+{\footnotesize\ttfamily void Set\+Visible\+Time\+Step (\begin{DoxyParamCaption}\item[{double}]{input }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00370}{370}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+
+\Hypertarget{fsxw_8cpp_a9c8fafc716dda8e8b798581a36b496a1}\label{fsxw_8cpp_a9c8fafc716dda8e8b798581a36b496a1} 
+\index{fsxw.cpp@{fsxw.cpp}!SwapFirePerims@{SwapFirePerims}}
+\index{SwapFirePerims@{SwapFirePerims}!fsxw.cpp@{fsxw.cpp}}
+\doxysubsubsection{\texorpdfstring{SwapFirePerims()}{SwapFirePerims()}}
+{\footnotesize\ttfamily long Swap\+Fire\+Perims (\begin{DoxyParamCaption}\item[{long}]{Num\+Fire1,  }\item[{long}]{Num\+Fire2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxw_8cpp_source_l00691}{691}} of file \mbox{\hyperlink{fsxw_8cpp_source}{fsxw.\+cpp}}.
+

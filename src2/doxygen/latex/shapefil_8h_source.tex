@@ -1,0 +1,417 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/shapefil.h}
+\hypertarget{shapefil_8h_source}{}\label{shapefil_8h_source}\mbox{\hyperlink{shapefil_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00023}00023\ \textcolor{preprocessor}{\#ifndef\ \_SHAPEFILE\_H\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00024}00024\ \textcolor{preprocessor}{\#define\ \_SHAPEFILE\_H\_INCLUDED}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00026}00026\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00027}00027\ \textcolor{comment}{\ *\ \$Id:\ shapefil.h,v\ 1.20\ 2001/07/20\ 13:06:02\ warmerda\ Exp\ \$}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00028}00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00029}00029\ \textcolor{comment}{\ *\ Project:\ \ Shapelib}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00030}00030\ \textcolor{comment}{\ *\ Purpose:\ \ Primary\ include\ file\ for\ Shapelib.}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00031}00031\ \textcolor{comment}{\ *\ Author:\ \ \ Frank\ Warmerdam,\ warmerda@home.com}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00032}00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00033}00033\ \textcolor{comment}{\ ******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00034}00034\ \textcolor{comment}{\ *\ Copyright\ (c)\ 1999,\ Frank\ Warmerdam}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00035}00035\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00036}00036\ \textcolor{comment}{\ *\ This\ software\ is\ available\ under\ the\ following\ "{}MIT\ Style"{}\ license,}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00037}00037\ \textcolor{comment}{\ *\ or\ at\ the\ option\ of\ the\ licensee\ under\ the\ LGPL\ (see\ LICENSE.LGPL).\ \ This}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00038}00038\ \textcolor{comment}{\ *\ option\ is\ discussed\ in\ more\ detail\ in\ shapelib.html.}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00039}00039\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00040}00040\ \textcolor{comment}{\ *\ -\/-\/}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00041}00041\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00042}00042\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00043}00043\ \textcolor{comment}{\ *\ copy\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00044}00044\ \textcolor{comment}{\ *\ to\ deal\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00045}00045\ \textcolor{comment}{\ *\ the\ rights\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00046}00046\ \textcolor{comment}{\ *\ and/or\ sell\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00047}00047\ \textcolor{comment}{\ *\ Software\ is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00048}00048\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00049}00049\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00050}00050\ \textcolor{comment}{\ *\ in\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00051}00051\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00052}00052\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00053}00053\ \textcolor{comment}{\ *\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00054}00054\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00055}00055\ \textcolor{comment}{\ *\ THE\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00056}00056\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00057}00057\ \textcolor{comment}{\ *\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00058}00058\ \textcolor{comment}{\ *\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00059}00059\ \textcolor{comment}{\ ******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00060}00060\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00061}00061\ \textcolor{comment}{\ *\ \$Log:\ shapefil.h,v\ \$}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00062}00062\ \textcolor{comment}{\ *\ Revision\ 1.20\ \ 2001/07/20\ 13:06:02\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00063}00063\ \textcolor{comment}{\ *\ fixed\ SHPAPI\ attribute\ for\ SHPTreeFindLikelyShapes}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00064}00064\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00065}00065\ \textcolor{comment}{\ *\ Revision\ 1.19\ \ 2001/05/31\ 19:20:13\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00066}00066\ \textcolor{comment}{\ *\ added\ DBFGetFieldIndex()}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00067}00067\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00068}00068\ \textcolor{comment}{\ *\ Revision\ 1.18\ \ 2001/05/31\ 18:15:40\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00069}00069\ \textcolor{comment}{\ *\ Added\ support\ for\ NULL\ fields\ in\ DBF\ files}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00070}00070\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00071}00071\ \textcolor{comment}{\ *\ Revision\ 1.17\ \ 2001/05/23\ 13:36:52\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00072}00072\ \textcolor{comment}{\ *\ added\ use\ of\ SHPAPI\_CALL}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00073}00073\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00074}00074\ \textcolor{comment}{\ *\ Revision\ 1.16\ \ 2000/09/25\ 14:15:59\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00075}00075\ \textcolor{comment}{\ *\ added\ DBFGetNativeFieldType()}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00076}00076\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00077}00077\ \textcolor{comment}{\ *\ Revision\ 1.15\ \ 2000/02/16\ 16:03:51\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00078}00078\ \textcolor{comment}{\ *\ added\ null\ shape\ support}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00079}00079\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00080}00080\ \textcolor{comment}{\ *\ Revision\ 1.14\ \ 1999/11/05\ 14:12:05\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00081}00081\ \textcolor{comment}{\ *\ updated\ license\ terms}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00082}00082\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00083}00083\ \textcolor{comment}{\ *\ Revision\ 1.13\ \ 1999/06/02\ 18:24:21\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00084}00084\ \textcolor{comment}{\ *\ added\ trimming\ code}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00085}00085\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00086}00086\ \textcolor{comment}{\ *\ Revision\ 1.12\ \ 1999/06/02\ 17:56:12\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00087}00087\ \textcolor{comment}{\ *\ added\ quad''\ subnode\ support\ for\ trees}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00088}00088\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00089}00089\ \textcolor{comment}{\ *\ Revision\ 1.11\ \ 1999/05/18\ 19:11:11\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00090}00090\ \textcolor{comment}{\ *\ Added\ example\ searching\ capability}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00091}00091\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00092}00092\ \textcolor{comment}{\ *\ Revision\ 1.10\ \ 1999/05/18\ 17:49:38\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00093}00093\ \textcolor{comment}{\ *\ added\ initial\ quadtree\ support}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00094}00094\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00095}00095\ \textcolor{comment}{\ *\ Revision\ 1.9\ \ 1999/05/11\ 03:19:28\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00096}00096\ \textcolor{comment}{\ *\ added\ new\ Tuple\ api,\ and\ improved\ extension\ handling\ -\/\ add\ from\ candrsn}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00097}00097\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00098}00098\ \textcolor{comment}{\ *\ Revision\ 1.8\ \ 1999/03/23\ 17:22:27\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00099}00099\ \textcolor{comment}{\ *\ Added\ extern\ "{}C"{}\ protection\ for\ C++\ users\ of\ shapefil.h.}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00100}00100\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00101}00101\ \textcolor{comment}{\ *\ Revision\ 1.7\ \ 1998/12/31\ 15:31:07\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00102}00102\ \textcolor{comment}{\ *\ Added\ the\ TRIM\_DBF\_WHITESPACE\ and\ DISABLE\_MULTIPATCH\_MEASURE\ options.}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00103}00103\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00104}00104\ \textcolor{comment}{\ *\ Revision\ 1.6\ \ 1998/12/03\ 15:48:15\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00105}00105\ \textcolor{comment}{\ *\ Added\ SHPCalculateExtents().}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00106}00106\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00107}00107\ \textcolor{comment}{\ *\ Revision\ 1.5\ \ 1998/11/09\ 20:57:16\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00108}00108\ \textcolor{comment}{\ *\ Altered\ SHPGetInfo()\ call.}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00109}00109\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00110}00110\ \textcolor{comment}{\ *\ Revision\ 1.4\ \ 1998/11/09\ 20:19:33\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00111}00111\ \textcolor{comment}{\ *\ Added\ 3D\ support,\ and\ use\ of\ SHPObject.}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00112}00112\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00113}00113\ \textcolor{comment}{\ *\ Revision\ 1.3\ \ 1995/08/23\ 02:24:05\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00114}00114\ \textcolor{comment}{\ *\ Added\ support\ for\ reading\ bounds.}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00115}00115\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00116}00116\ \textcolor{comment}{\ *\ Revision\ 1.2\ \ 1995/08/04\ \ 03:17:39\ \ warmerda}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00117}00117\ \textcolor{comment}{\ *\ Added\ header.}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00118}00118\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00119}00119\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00121}00121\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00123}00123\ \textcolor{preprocessor}{\#ifdef\ USE\_DBMALLOC}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00124}00124\ \textcolor{preprocessor}{\#include\ <dbmalloc.h>}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00125}00125\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00127}00127\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00128}00128\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00129}00129\ \{}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00130}00130\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00132}00132\ \textcolor{preprocessor}{\#ifndef\ SHPAPI\_CALL}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00133}\mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{00133}}\ \textcolor{preprocessor}{\#define\ SHPAPI\_CALL}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00134}00134\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00136}\mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{00136}}\ \textcolor{preprocessor}{\#define\ SHPAPI\_CALL1(x)\ \ \ \ \ \ *\ SHPAPI\_CALL}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00138}00138\ \textcolor{comment}{\ \ \ \ /************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00139}00139\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Configuration\ options.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00140}00140\ \textcolor{comment}{\ \ \ \ /************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00142}00142\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00143}00143\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ Should\ the\ DBFReadStringAttribute()\ strip\ leading\ and\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00144}00144\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ trailing\ white\ space?\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00145}00145\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00146}\mbox{\hyperlink{shapefil_8h_a4348636d5c5553148a139d3c71e6539b}{00146}}\ \textcolor{preprocessor}{\#define\ TRIM\_DBF\_WHITESPACE}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00148}00148\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00149}00149\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ Should\ we\ write\ measure\ values\ to\ the\ Multipatch\ object?\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00150}00150\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ Reportedly\ ArcView\ crashes\ if\ we\ do\ write\ it,\ so\ for\ now\ it\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00151}00151\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ is\ disabled.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00152}00152\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00153}\mbox{\hyperlink{shapefil_8h_a5bc34f597e2bb15b7738fc4e7580adf4}{00153}}\ \textcolor{preprocessor}{\#define\ DISABLE\_MULTIPATCH\_MEASURE}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00155}00155\ \textcolor{comment}{\ \ \ \ /************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00156}00156\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SHP\ Support.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00157}00157\ \textcolor{comment}{\ \ \ \ /************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00158}\mbox{\hyperlink{struct_s_h_p_info}{00158}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00159}00159\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00160}\mbox{\hyperlink{struct_s_h_p_info_a9ecd77227eb7981a7e6582deb999d7e8}{00160}}\ \ \ \ \ \ \ \ \ FILE*\ \mbox{\hyperlink{struct_s_h_p_info_a9ecd77227eb7981a7e6582deb999d7e8}{fpSHP}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00161}\mbox{\hyperlink{struct_s_h_p_info_a9984851956cdce2795cba3973f70e842}{00161}}\ \ \ \ \ \ \ \ \ FILE*\ \mbox{\hyperlink{struct_s_h_p_info_a9984851956cdce2795cba3973f70e842}{fpSHX}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00163}\mbox{\hyperlink{struct_s_h_p_info_a162addd7eeff9f8d528adf26eabc3b34}{00163}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_s_h_p_info_a162addd7eeff9f8d528adf26eabc3b34}{nShapeType}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ SHPT\_*\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00165}\mbox{\hyperlink{struct_s_h_p_info_ad8796e595cc7d439de743e725bb845fa}{00165}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_s_h_p_info_ad8796e595cc7d439de743e725bb845fa}{nFileSize}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ SHP\ file\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00167}\mbox{\hyperlink{struct_s_h_p_info_a75abb0736346dfd308e2619238136968}{00167}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_s_h_p_info_a75abb0736346dfd308e2619238136968}{nRecords}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00168}\mbox{\hyperlink{struct_s_h_p_info_a465bb6f6d3bb58567c3b1159a0371cc5}{00168}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_s_h_p_info_a465bb6f6d3bb58567c3b1159a0371cc5}{nMaxRecords}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00169}\mbox{\hyperlink{struct_s_h_p_info_a5b298bdcd745ce30b0ffec9d4659ba94}{00169}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{struct_s_h_p_info_a5b298bdcd745ce30b0ffec9d4659ba94}{panRecOffset}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00170}\mbox{\hyperlink{struct_s_h_p_info_a5e15927cb53a9abddfb47792fa966968}{00170}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{struct_s_h_p_info_a5e15927cb53a9abddfb47792fa966968}{panRecSize}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00172}\mbox{\hyperlink{struct_s_h_p_info_a74e3ea4b1267e2fb172318585f14347e}{00172}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ adBoundsMin[4];}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00173}\mbox{\hyperlink{struct_s_h_p_info_acbbe3925d61844c4bbe0c153493450ab}{00173}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ adBoundsMax[4];}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00175}\mbox{\hyperlink{struct_s_h_p_info_a82c23ef74948acb53d4903ab4a9282e8}{00175}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_s_h_p_info_a82c23ef74948acb53d4903ab4a9282e8}{bUpdated}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00176}00176\ \ \ \ \ \}\ \mbox{\hyperlink{struct_s_h_p_info}{SHPInfo}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00178}\mbox{\hyperlink{shapefil_8h_a8229e480d0e24f3765848bede0846a0b}{00178}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct_s_h_p_info}{SHPInfo}}*\ \mbox{\hyperlink{shapefil_8h_a8229e480d0e24f3765848bede0846a0b}{SHPHandle}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00180}00180\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00181}00181\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ Shape\ types\ (nSHPType)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00182}00182\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00183}\mbox{\hyperlink{shapefil_8h_a1cd131985bf34c51dc080b0155d66b25}{00183}}\ \textcolor{preprocessor}{\#define\ SHPT\_NULL\ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00184}\mbox{\hyperlink{shapefil_8h_abf879a68955d665565122f20549a2a3a}{00184}}\ \textcolor{preprocessor}{\#define\ SHPT\_POINT\ \ 1}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00185}\mbox{\hyperlink{shapefil_8h_a3ca5e794a3b30cba2010f298ba900269}{00185}}\ \textcolor{preprocessor}{\#define\ SHPT\_ARC\ \ \ \ 3}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00186}\mbox{\hyperlink{shapefil_8h_a556463e3133ebb0f2f9ba3ec048a5336}{00186}}\ \textcolor{preprocessor}{\#define\ SHPT\_POLYGON\ \ \ \ 5}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00187}\mbox{\hyperlink{shapefil_8h_a818686bb9c4677abe1ce112e2d0491d5}{00187}}\ \textcolor{preprocessor}{\#define\ SHPT\_MULTIPOINT\ 8}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00188}\mbox{\hyperlink{shapefil_8h_a96d41f3c6a736eb3f19cf1686b4c8c73}{00188}}\ \textcolor{preprocessor}{\#define\ SHPT\_POINTZ\ 11}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00189}\mbox{\hyperlink{shapefil_8h_a01314c37707da5efc96663dfa7d45ee7}{00189}}\ \textcolor{preprocessor}{\#define\ SHPT\_ARCZ\ \ \ 13}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00190}\mbox{\hyperlink{shapefil_8h_acdd259d31ff2bc2c64eb75647359e598}{00190}}\ \textcolor{preprocessor}{\#define\ SHPT\_POLYGONZ\ \ \ 15}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00191}\mbox{\hyperlink{shapefil_8h_a990ee871f1dff872a65fda97360cb73b}{00191}}\ \textcolor{preprocessor}{\#define\ SHPT\_MULTIPOINTZ\ 18}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00192}\mbox{\hyperlink{shapefil_8h_abf6b2f75e24c10aa1fb4ba97f59f268e}{00192}}\ \textcolor{preprocessor}{\#define\ SHPT\_POINTM\ 21}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00193}\mbox{\hyperlink{shapefil_8h_a2325dc5cb450566659ef120c6af5c781}{00193}}\ \textcolor{preprocessor}{\#define\ SHPT\_ARCM\ \ \ 23}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00194}\mbox{\hyperlink{shapefil_8h_a2d0a059c816bd657517f8aef4a736cc1}{00194}}\ \textcolor{preprocessor}{\#define\ SHPT\_POLYGONM\ \ \ 25}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00195}\mbox{\hyperlink{shapefil_8h_abcac52f1ead709b77fc2007e22f4e793}{00195}}\ \textcolor{preprocessor}{\#define\ SHPT\_MULTIPOINTM\ 28}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00196}\mbox{\hyperlink{shapefil_8h_a129d8b889be8f1bd2ec1f2c40c2411f4}{00196}}\ \textcolor{preprocessor}{\#define\ SHPT\_MULTIPATCH\ 31}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00199}00199\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00200}00200\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ Part\ types\ -\/\ everything\ but\ SHPT\_MULTIPATCH\ just\ uses\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00201}00201\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ SHPP\_RING.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00202}00202\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00204}\mbox{\hyperlink{shapefil_8h_aacdb77237b36e2a1da6a0df81933ed17}{00204}}\ \textcolor{preprocessor}{\#define\ SHPP\_TRISTRIP\ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00205}\mbox{\hyperlink{shapefil_8h_a61ed501d301aacbcf8ce1ce7f90bb77a}{00205}}\ \textcolor{preprocessor}{\#define\ SHPP\_TRIFAN\ 1}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00206}\mbox{\hyperlink{shapefil_8h_a1b9f5eac6d70889963f4cc748f9e9661}{00206}}\ \textcolor{preprocessor}{\#define\ SHPP\_OUTERRING\ \ 2}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00207}\mbox{\hyperlink{shapefil_8h_aed38ea97798142e2ae3ba74a0cf8f854}{00207}}\ \textcolor{preprocessor}{\#define\ SHPP\_INNERRING\ \ 3}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00208}\mbox{\hyperlink{shapefil_8h_a1e804185bbe65d046a5f04edbb50d7cf}{00208}}\ \textcolor{preprocessor}{\#define\ SHPP\_FIRSTRING\ \ 4}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00209}\mbox{\hyperlink{shapefil_8h_a5951f54b37b2fb1d681f5deb74cf3f44}{00209}}\ \textcolor{preprocessor}{\#define\ SHPP\_RING\ \ \ 5}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00211}00211\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00212}00212\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ SHPObject\ -\/\ represents\ on\ shape\ (without\ attributes)\ read\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00213}00213\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ from\ the\ .shp\ file.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00214}00214\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00215}\mbox{\hyperlink{struct_s_h_p_object}{00215}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00216}00216\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00217}\mbox{\hyperlink{struct_s_h_p_object_a75081a4106a2b9f0350ed706437ed5f9}{00217}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_s_h_p_object_a75081a4106a2b9f0350ed706437ed5f9}{nSHPType}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00218}00218\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00219}\mbox{\hyperlink{struct_s_h_p_object_a4e7797860f2abd0b9c724900698d400e}{00219}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_s_h_p_object_a4e7797860f2abd0b9c724900698d400e}{nShapeId}};\ \textcolor{comment}{/*\ -\/1\ is\ unknown/unassigned\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00221}\mbox{\hyperlink{struct_s_h_p_object_ad2972dae3ea696223402aeae6d8958df}{00221}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_s_h_p_object_ad2972dae3ea696223402aeae6d8958df}{nParts}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00222}\mbox{\hyperlink{struct_s_h_p_object_a6ac39a82a8d0b2ff4c467786374a835d}{00222}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{struct_s_h_p_object_a6ac39a82a8d0b2ff4c467786374a835d}{panPartStart}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00223}\mbox{\hyperlink{struct_s_h_p_object_a0c538132c32c672a88fb7c85bb03ee21}{00223}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{struct_s_h_p_object_a0c538132c32c672a88fb7c85bb03ee21}{panPartType}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00225}\mbox{\hyperlink{struct_s_h_p_object_a77c4de0b4b1d7d4c4679ffd9111c2321}{00225}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_s_h_p_object_a77c4de0b4b1d7d4c4679ffd9111c2321}{nVertices}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00226}\mbox{\hyperlink{struct_s_h_p_object_acbebd6e0c685c2f4ef58ec82f5ea9d89}{00226}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}*\ \mbox{\hyperlink{struct_s_h_p_object_acbebd6e0c685c2f4ef58ec82f5ea9d89}{padfX}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00227}\mbox{\hyperlink{struct_s_h_p_object_ae8dbc0c9fba282763ede2f704dba05ca}{00227}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}*\ \mbox{\hyperlink{struct_s_h_p_object_ae8dbc0c9fba282763ede2f704dba05ca}{padfY}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00228}\mbox{\hyperlink{struct_s_h_p_object_ab9604c917c35dab02bec349fd11eaf7c}{00228}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}*\ \mbox{\hyperlink{struct_s_h_p_object_ab9604c917c35dab02bec349fd11eaf7c}{padfZ}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00229}\mbox{\hyperlink{struct_s_h_p_object_ad6778dd6e39d9590cde7dd5bd8761442}{00229}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}*\ \mbox{\hyperlink{struct_s_h_p_object_ad6778dd6e39d9590cde7dd5bd8761442}{padfM}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00231}\mbox{\hyperlink{struct_s_h_p_object_ad685848cd21ef75559141af0484456d0}{00231}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_s_h_p_object_ad685848cd21ef75559141af0484456d0}{dfXMin}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00232}\mbox{\hyperlink{struct_s_h_p_object_a96fb3abc66d3aa639b4bbc4c73e03c99}{00232}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_s_h_p_object_a96fb3abc66d3aa639b4bbc4c73e03c99}{dfYMin}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00233}\mbox{\hyperlink{struct_s_h_p_object_a3dbf7afec18ae0a94fe5600d01c39833}{00233}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_s_h_p_object_a3dbf7afec18ae0a94fe5600d01c39833}{dfZMin}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00234}\mbox{\hyperlink{struct_s_h_p_object_a7315f2b4d41a66b9f54a16a4395e4ee0}{00234}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_s_h_p_object_a7315f2b4d41a66b9f54a16a4395e4ee0}{dfMMin}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00236}\mbox{\hyperlink{struct_s_h_p_object_a57913d0f9ffce115fa944bc56b51fcd7}{00236}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_s_h_p_object_a57913d0f9ffce115fa944bc56b51fcd7}{dfXMax}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00237}\mbox{\hyperlink{struct_s_h_p_object_a6444703e923ba9e9e12c783dea81e6b4}{00237}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_s_h_p_object_a6444703e923ba9e9e12c783dea81e6b4}{dfYMax}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00238}\mbox{\hyperlink{struct_s_h_p_object_a45afd311a661d8264cdcf98dbe9af454}{00238}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_s_h_p_object_a45afd311a661d8264cdcf98dbe9af454}{dfZMax}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00239}\mbox{\hyperlink{struct_s_h_p_object_a94308f00c2e474027ddafd2ad4def7eb}{00239}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_s_h_p_object_a94308f00c2e474027ddafd2ad4def7eb}{dfMMax}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00240}00240\ \ \ \ \ \}\ \mbox{\hyperlink{struct_s_h_p_object}{SHPObject}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00242}00242\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00243}00243\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ SHP\ API\ Prototypes\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00244}00244\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00245}00245\ \ \ \ \ \mbox{\hyperlink{struct_s_h_p_info}{SHPHandle}}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a7f23af0bf27ce0e6613525c64e89b695}{SHPOpen}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pszShapeFile,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00246}00246\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pszAccess);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00247}00247\ \ \ \ \ \mbox{\hyperlink{struct_s_h_p_info}{SHPHandle}}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a0370b0714d2d0e3e2c1f126704e0e2bd}{SHPCreate}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pszShapeFile,\ \textcolor{keywordtype}{int}\ nShapeType);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00248}00248\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a8c9b63d2d68aeafb6bd755cafe20dbac}{SHPGetInfo}}(\mbox{\hyperlink{struct_s_h_p_info}{SHPHandle}}\ hSHP,\ \textcolor{keywordtype}{int}*\ pnEntities,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00249}00249\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ pnShapeType,\ \textcolor{keywordtype}{double}*\ padfMinBound,\ \textcolor{keywordtype}{double}*\ padfMaxBound);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00251}\mbox{\hyperlink{shapefil_8h_a8fae91ab16808b29bd39f8a25a7a7d64}{00251}}\ \ \ \ \ \mbox{\hyperlink{struct_s_h_p_object}{SHPObject}}\ \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\_CALL1}}(*)}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00252}00252\ \ \ \ \ \mbox{\hyperlink{shapefil_8h_a8fae91ab16808b29bd39f8a25a7a7d64}{SHPReadObject}}(\mbox{\hyperlink{struct_s_h_p_info}{SHPHandle}}\ hSHP,\ \textcolor{keywordtype}{int}\ iShape);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00253}00253\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shpopen_8cpp_ac93d390ab226586dcab7b6bc939d505b}{SHPWriteObject}}(\mbox{\hyperlink{struct_s_h_p_info}{SHPHandle}}\ hSHP,\ \textcolor{keywordtype}{int}\ iShape,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00254}00254\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_s_h_p_object}{SHPObject}}*\ psObject);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00255}00255\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00256}00256\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a55c8adce19aec3321762ce1923081803}{SHPDestroyObject}}(\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}}*\ psObject);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00257}00257\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a650af9c65bd96a6ffa0ad3e12a628709}{SHPComputeExtents}}(\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}}*\ psObject);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00258}\mbox{\hyperlink{shapefil_8h_aecaca6ba4b386b57a4eb6c37e018e89d}{00258}}\ \ \ \ \ \mbox{\hyperlink{struct_s_h_p_object}{SHPObject}}\ \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\_CALL1}}(*)}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00259}00259\ \ \ \ \ \mbox{\hyperlink{shapefil_8h_aecaca6ba4b386b57a4eb6c37e018e89d}{SHPCreateObject}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{nSHPType}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shpopen_8cpp_a1aabb01565f76897278f9b2abe939fd4}{nShapeId}},\ \textcolor{keywordtype}{int}\ nParts,\ \textcolor{keywordtype}{int}*\ panPartStart,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00260}00260\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ panPartType,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shpopen_8cpp_a23aae61e35b5d148c9b26420899b1178}{nVertices}},\ \textcolor{keywordtype}{double}*\ padfX,\ \textcolor{keywordtype}{double}*\ padfY,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00261}00261\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}*\ padfZ,\ \textcolor{keywordtype}{double}*\ padfM);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00262}00262\ \ \ \ \ \mbox{\hyperlink{struct_s_h_p_object}{SHPObject}}\ \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\_CALL1}}(*)}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00263}00263\ \ \ \ \ \mbox{\hyperlink{shpopen_8cpp_acabece806123224625bf110716d480f8}{SHPCreateSimpleObject}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{nSHPType}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shpopen_8cpp_a23aae61e35b5d148c9b26420899b1178}{nVertices}},\ \textcolor{keywordtype}{double}*\ padfX,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00264}00264\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}*\ padfY,\ \textcolor{keywordtype}{double}*\ padfZ);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00266}00266\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a4eb0cfb5e6d5c0418384169bab61e0ad}{SHPClose}}(\mbox{\hyperlink{struct_s_h_p_info}{SHPHandle}}\ hSHP);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00268}00268\ \ \ \ \ const\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\_CALL1}}(*)}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00269}00269\ \ \ \ \ \mbox{\hyperlink{shapefil_8h_ab8d19a1f14fe50b07057525e166c7ed8}{SHPTypeName}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{nSHPType}});}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00270}00270\ \ \ \ \ const\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\_CALL1}}(*)}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00271}00271\ \ \ \ \ \mbox{\hyperlink{shpopen_8cpp_a62135bd523899ceb049bf7fb7b14cc06}{SHPPartTypeName}}(\textcolor{keywordtype}{int}\ nPartType);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00273}00273\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00274}00274\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ Shape\ quadtree\ indexing\ API.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00275}00275\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00277}00277\ \ \ \ \ \textcolor{comment}{/*\ this\ can\ be\ two\ or\ four\ for\ binary\ or\ quad\ tree\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00278}\mbox{\hyperlink{shapefil_8h_a35826199d696f7c2eb12272b8f708645}{00278}}\ \textcolor{preprocessor}{\#define\ MAX\_SUBNODE\ 4}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00280}\mbox{\hyperlink{structshape__tree__node}{00280}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structshape__tree__node}{shape\_tree\_node}}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00281}00281\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00282}00282\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ region\ covered\ by\ this\ node\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00283}\mbox{\hyperlink{structshape__tree__node_aefe58d247ccdbcc728da976d9ff2869d}{00283}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structshape__tree__node_aefe58d247ccdbcc728da976d9ff2869d}{adfBoundsMin}}[4];}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00284}\mbox{\hyperlink{structshape__tree__node_ad80d8751a6f253570c08b255219e109b}{00284}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structshape__tree__node_ad80d8751a6f253570c08b255219e109b}{adfBoundsMax}}[4];}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00286}00286\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ list\ of\ shapes\ stored\ at\ this\ node.\ \ The\ papsShapeObj\ pointers}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00287}00287\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ or\ the\ whole\ list\ can\ be\ NULL\ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00288}\mbox{\hyperlink{structshape__tree__node_ae45ec6c31bac44b4733fcc61224f434b}{00288}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structshape__tree__node_ae45ec6c31bac44b4733fcc61224f434b}{nShapeCount}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00289}\mbox{\hyperlink{structshape__tree__node_a832c409ef8b06c1517fabeaac26c76c7}{00289}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{structshape__tree__node_a832c409ef8b06c1517fabeaac26c76c7}{panShapeIds}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00290}\mbox{\hyperlink{structshape__tree__node_a43c73e7089675164c6b1cb8c18b1ee76}{00290}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_s_h_p_object}{SHPObject}}**\ \mbox{\hyperlink{structshape__tree__node_a43c73e7089675164c6b1cb8c18b1ee76}{papsShapeObj}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00291}00291\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00292}\mbox{\hyperlink{structshape__tree__node_a6ef486443780c82ca38cb47ac44519e9}{00292}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structshape__tree__node_a6ef486443780c82ca38cb47ac44519e9}{nSubNodes}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00293}\mbox{\hyperlink{structshape__tree__node_a8b071eda7d9901e7edb348a36237081b}{00293}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structshape__tree__node}{shape\_tree\_node}}*\ \mbox{\hyperlink{structshape__tree__node_a8b071eda7d9901e7edb348a36237081b}{apsSubNode}}[\mbox{\hyperlink{shapefil_8h_a35826199d696f7c2eb12272b8f708645}{MAX\_SUBNODE}}];}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00294}\mbox{\hyperlink{shapefil_8h_a2b7eeded63b695e9b20b2a31fd06b5f2}{00294}}\ \ \ \ \ \}\ \mbox{\hyperlink{shapefil_8h_a2b7eeded63b695e9b20b2a31fd06b5f2}{SHPTreeNode}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00295}00295\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00296}\mbox{\hyperlink{struct_s_h_p_tree}{00296}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00297}00297\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00298}\mbox{\hyperlink{struct_s_h_p_tree_a7ddad23921595458aaef92d785b0dd64}{00298}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_s_h_p_info}{SHPHandle}}\ \mbox{\hyperlink{struct_s_h_p_tree_a7ddad23921595458aaef92d785b0dd64}{hSHP}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00300}\mbox{\hyperlink{struct_s_h_p_tree_ad035693b5a02694ded9513796a6ea462}{00300}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_s_h_p_tree_ad035693b5a02694ded9513796a6ea462}{nMaxDepth}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00301}\mbox{\hyperlink{struct_s_h_p_tree_aa2155006272f1c6ce320c8c1142aad7f}{00301}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_s_h_p_tree_aa2155006272f1c6ce320c8c1142aad7f}{nDimension}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00303}\mbox{\hyperlink{struct_s_h_p_tree_a20a5c9e372e2deb2f4558c4d481e6194}{00303}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structshape__tree__node}{SHPTreeNode}}*\ \mbox{\hyperlink{struct_s_h_p_tree_a20a5c9e372e2deb2f4558c4d481e6194}{psRoot}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00304}00304\ \ \ \ \ \}\ \mbox{\hyperlink{struct_s_h_p_tree}{SHPTree}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00305}00305\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00306}\mbox{\hyperlink{shapefil_8h_a99284c766ac48c69dd333575429d6bbc}{00306}}\ \ \ \ \ \mbox{\hyperlink{struct_s_h_p_tree}{SHPTree}}\ \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\_CALL1}}(*)}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00307}00307\ \ \ \ \ \mbox{\hyperlink{shapefil_8h_a99284c766ac48c69dd333575429d6bbc}{SHPCreateTree}}(\mbox{\hyperlink{struct_s_h_p_info}{SHPHandle}}\ hSHP,\ \textcolor{keywordtype}{int}\ nDimension,\ \textcolor{keywordtype}{int}\ nMaxDepth,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00308}00308\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}*\ padfBoundsMin,\ \textcolor{keywordtype}{double}*\ padfBoundsMax);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00309}00309\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ SHPDestroyTree(\mbox{\hyperlink{struct_s_h_p_tree}{SHPTree}}*\ hTree);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00311}\mbox{\hyperlink{shapefil_8h_a37874aec7187c029ed689d37e5b40fd4}{00311}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a37874aec7187c029ed689d37e5b40fd4}{SHPWriteTree}}(\mbox{\hyperlink{struct_s_h_p_tree}{SHPTree}}*\ hTree,\ const\ \textcolor{keywordtype}{char}*\ pszFilename);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00312}\mbox{\hyperlink{shapefil_8h_aa8055b7deed833d7521fc2158530f404}{00312}}\ \ \ \ \ \mbox{\hyperlink{struct_s_h_p_tree}{SHPTree}}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_aa8055b7deed833d7521fc2158530f404}{SHPReadTree}}(const\ \textcolor{keywordtype}{char}*\ pszFilename);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00314}\mbox{\hyperlink{shapefil_8h_a350d7aa91ec35b40907f2ff92054e7c8}{00314}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a350d7aa91ec35b40907f2ff92054e7c8}{SHPTreeAddObject}}(\mbox{\hyperlink{struct_s_h_p_tree}{SHPTree}}*\ hTree,\ \mbox{\hyperlink{struct_s_h_p_object}{SHPObject}}*\ psObject);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00315}\mbox{\hyperlink{shapefil_8h_aace890b5e86be94cbe1e2b1e8fd44771}{00315}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_aace890b5e86be94cbe1e2b1e8fd44771}{SHPTreeAddShapeId}}(\mbox{\hyperlink{struct_s_h_p_tree}{SHPTree}}*\ hTree,\ \mbox{\hyperlink{struct_s_h_p_object}{SHPObject}}*\ psObject);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00316}\mbox{\hyperlink{shapefil_8h_a2448a3bf4f8bdc613ca59e07194f94d7}{00316}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a2448a3bf4f8bdc613ca59e07194f94d7}{SHPTreeRemoveShapeId}}(\mbox{\hyperlink{struct_s_h_p_tree}{SHPTree}}*\ hTree,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shpopen_8cpp_a1aabb01565f76897278f9b2abe939fd4}{nShapeId}});}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00318}\mbox{\hyperlink{shapefil_8h_a76f8923083726dfba5127b534966e128}{00318}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a76f8923083726dfba5127b534966e128}{SHPTreeTrimExtraNodes}}(\mbox{\hyperlink{struct_s_h_p_tree}{SHPTree}}*\ hTree);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00320}\mbox{\hyperlink{shapefil_8h_a5acc988c89ed8944f5b95c9c908ff583}{00320}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\_CALL1}}(*)}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00321}00321\ \ \ \ \ \mbox{\hyperlink{shapefil_8h_a5acc988c89ed8944f5b95c9c908ff583}{SHPTreeFindLikelyShapes}}(\mbox{\hyperlink{struct_s_h_p_tree}{SHPTree}}*\ hTree,\ \textcolor{keywordtype}{double}*\ padfBoundsMin,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00322}00322\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}*\ padfBoundsMax,\ \textcolor{keywordtype}{int}*);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00323}00323\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ SHPCheckBoundsOverlap(\textcolor{keywordtype}{double}*,\ \textcolor{keywordtype}{double}*,\ \textcolor{keywordtype}{double}*,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00324}00324\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}*,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00326}00326\ \textcolor{comment}{\ \ \ \ /************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00327}00327\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DBF\ Support.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00328}00328\ \textcolor{comment}{\ \ \ \ /************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00329}\mbox{\hyperlink{struct_d_b_f_info}{00329}}\ \ \ \ \ typedef\ struct}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00330}00330\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00331}\mbox{\hyperlink{struct_d_b_f_info_a60f2e5550c1f05450a4373a6576438be}{00331}}\ \ \ \ \ \ \ \ \ FILE*\ \mbox{\hyperlink{struct_d_b_f_info_a60f2e5550c1f05450a4373a6576438be}{fp}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00332}00332\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00333}\mbox{\hyperlink{struct_d_b_f_info_abc4144f7f8dffddedccef882e90b59b4}{00333}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_d_b_f_info_abc4144f7f8dffddedccef882e90b59b4}{nRecords}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00335}\mbox{\hyperlink{struct_d_b_f_info_a320ac41fd33e2aaa76023704ac519ad0}{00335}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_d_b_f_info_a320ac41fd33e2aaa76023704ac519ad0}{nRecordLength}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00336}\mbox{\hyperlink{struct_d_b_f_info_a81906c8f76f63ab454241838f15e1407}{00336}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_d_b_f_info_a81906c8f76f63ab454241838f15e1407}{nHeaderLength}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00337}\mbox{\hyperlink{struct_d_b_f_info_a7708f22eeeae500aada4d66b3e7e9347}{00337}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_d_b_f_info_a7708f22eeeae500aada4d66b3e7e9347}{nFields}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00338}\mbox{\hyperlink{struct_d_b_f_info_a463973c64803d9dff580a7720dd6756e}{00338}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{struct_d_b_f_info_a463973c64803d9dff580a7720dd6756e}{panFieldOffset}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00339}\mbox{\hyperlink{struct_d_b_f_info_a89e669da05da8a033bbe23d7bc6fd508}{00339}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{struct_d_b_f_info_a89e669da05da8a033bbe23d7bc6fd508}{panFieldSize}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00340}\mbox{\hyperlink{struct_d_b_f_info_a65678210b77b377ef11f837b5f1b5570}{00340}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{struct_d_b_f_info_a65678210b77b377ef11f837b5f1b5570}{panFieldDecimals}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00341}\mbox{\hyperlink{struct_d_b_f_info_aaa4d4b6baf770b49c5741bf3d2cae397}{00341}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_d_b_f_info_aaa4d4b6baf770b49c5741bf3d2cae397}{pachFieldType}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00342}00342\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00343}\mbox{\hyperlink{struct_d_b_f_info_aa10d7012c4f08da1eda436b91ad6da62}{00343}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_d_b_f_info_aa10d7012c4f08da1eda436b91ad6da62}{pszHeader}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00344}00344\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00345}\mbox{\hyperlink{struct_d_b_f_info_affb184ba8efd8fa7623e0f8be3ef2af8}{00345}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_d_b_f_info_affb184ba8efd8fa7623e0f8be3ef2af8}{nCurrentRecord}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00346}\mbox{\hyperlink{struct_d_b_f_info_a9a247a27981dbfda16e5f0c51af0aa99}{00346}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_d_b_f_info_a9a247a27981dbfda16e5f0c51af0aa99}{bCurrentRecordModified}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00347}\mbox{\hyperlink{struct_d_b_f_info_a933e17b59760a76944301176eda95cf4}{00347}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_d_b_f_info_a933e17b59760a76944301176eda95cf4}{pszCurrentRecord}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00348}00348\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00349}\mbox{\hyperlink{struct_d_b_f_info_ab93b0de9c31198e9a5175745cc8e751d}{00349}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_d_b_f_info_ab93b0de9c31198e9a5175745cc8e751d}{bNoHeader}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00350}\mbox{\hyperlink{struct_d_b_f_info_a772b77a9f48d0433b0f137db9457065f}{00350}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_d_b_f_info_a772b77a9f48d0433b0f137db9457065f}{bUpdated}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00351}00351\ \ \ \ \ \}\ \mbox{\hyperlink{struct_d_b_f_info}{DBFInfo}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00352}00352\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00353}\mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{00353}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct_d_b_f_info}{DBFInfo}}*\ \mbox{\hyperlink{shapefil_8h_a6da4f4d42b6348de51daf6233d80233d}{DBFHandle}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00355}\mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8}{00355}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00356}00356\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00357}\mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8a46d23eee447b0d867939163646944a3b}{00357}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8a46d23eee447b0d867939163646944a3b}{FTString}},}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00358}\mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8af6c07154b0d2ca3f82e4a8cc3e79f522}{00358}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8af6c07154b0d2ca3f82e4a8cc3e79f522}{FTInteger}},}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00359}\mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8a090cb27dde601c4258bec85bb4f4443b}{00359}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8a090cb27dde601c4258bec85bb4f4443b}{FTDouble}},}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00360}00360\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8a6140a2303dcd758c8b63e2f600be3a72}{FTInvalid}}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00361}\mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8a6140a2303dcd758c8b63e2f600be3a72}{00361}}\ \ \ \ \ \}\ \mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8}{DBFFieldType}};}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00362}00362\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00363}\mbox{\hyperlink{shapefil_8h_a791a9868f412464d57b0b3c3434bb03f}{00363}}\ \textcolor{preprocessor}{\#define\ XBASE\_FLDHDR\_SZ\ \ \ \ \ \ \ 32}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00364}00364\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00365}00365\ \ \ \ \ \mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a35da5b3e9c8e0261850aff8ce2767e4d}{DBFOpen}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pszDBFFile,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00366}00366\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pszAccess);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00367}00367\ \ \ \ \ \mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_aa3b3352fc6eaf8966786f742eeb7214f}{DBFCreate}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pszDBFFile);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00368}00368\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00369}00369\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a1ab85d5180998f31ca8303ff1ea90de4}{DBFGetFieldCount}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ psDBF);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00370}00370\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a79308469c200e9e7bd22ea922a67cc5d}{DBFGetRecordCount}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ psDBF);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00371}00371\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a9307787d99606e2e63ec33991276639c}{DBFAddField}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ hDBF,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pszFieldName,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00372}00372\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8}{DBFFieldType}}\ eType,\ \textcolor{keywordtype}{int}\ nWidth,\ \textcolor{keywordtype}{int}\ nDecimals);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00373}00373\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00374}00374\ \ \ \ \ \mbox{\hyperlink{shapefil_8h_a0617e43bea444eae85cc16e8de0c26c8}{DBFFieldType}}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_afedd7c7e118f364825f186aec431af23}{DBFGetFieldInfo}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ psDBF,\ \textcolor{keywordtype}{int}\ iField,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00375}00375\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ pszFieldName,\ \textcolor{keywordtype}{int}*\ pnWidth,\ \textcolor{keywordtype}{int}*\ pnDecimals);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00376}00376\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00377}00377\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a737edd98967b617bf17235da92bea4e9}{DBFGetFieldIndex}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ psDBF,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pszFieldName);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00378}00378\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00379}00379\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a40465afde1ce82a80927ed4941730e98}{DBFReadIntegerAttribute}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ hDBF,\ \textcolor{keywordtype}{int}\ iShape,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00380}00380\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ iField);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00381}00381\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_afd8c6b029a1dce829be963d654ae1450}{DBFReadDoubleAttribute}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ hDBF,\ \textcolor{keywordtype}{int}\ iShape,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00382}00382\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ iField);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00383}\mbox{\hyperlink{shapefil_8h_a74fa39d1f118e312860922aed5ce2f99}{00383}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\_CALL1}}(*)}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00384}00384\ \ \ \ \ \mbox{\hyperlink{shapefil_8h_a74fa39d1f118e312860922aed5ce2f99}{DBFReadStringAttribute}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ hDBF,\ \textcolor{keywordtype}{int}\ iShape,\ \textcolor{keywordtype}{int}\ iField);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00385}00385\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{dbfopen_8cpp_acaf3a9e8d0bfcc93001d42bb87bf0a9d}{DBFIsAttributeNULL}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ hDBF,\ \textcolor{keywordtype}{int}\ iShape,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00386}00386\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ iField);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00387}00387\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00388}00388\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a0134daf684dfc1f747f69bdf2eaa0971}{DBFWriteIntegerAttribute}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ hDBF,\ \textcolor{keywordtype}{int}\ iShape,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00389}00389\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ iField,\ \textcolor{keywordtype}{int}\ nFieldValue);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00390}00390\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a53dfa0be17d4465cac769d9dbcb7d09b}{DBFWriteDoubleAttribute}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ hDBF,\ \textcolor{keywordtype}{int}\ iShape,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00391}00391\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ iField,\ \textcolor{keywordtype}{double}\ dFieldValue);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00392}00392\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a268932a23aad348a8e42dfb1e9cd91e2}{DBFWriteStringAttribute}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ hDBF,\ \textcolor{keywordtype}{int}\ iShape,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00393}00393\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ iField,\ const\ \textcolor{keywordtype}{char}*\ pszFieldValue);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00394}00394\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a75e752f21c300790f2de9d12c8fa1fa0}{DBFWriteNULLAttribute}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ hDBF,\ \textcolor{keywordtype}{int}\ iShape,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00395}00395\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ iField);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00396}00396\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00397}\mbox{\hyperlink{shapefil_8h_a4a42ffad348afb1426bbdb83f0465e6e}{00397}}\ \ \ \ \ const\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\_CALL1}}(*)}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00398}00398\ \ \ \ \ \mbox{\hyperlink{shapefil_8h_a4a42ffad348afb1426bbdb83f0465e6e}{DBFReadTuple}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ psDBF,\ \textcolor{keywordtype}{int}\ hEntity);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00399}00399\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{dbfopen_8cpp_ad1ea3363c09a3cd0809c56401c9254b6}{DBFWriteTuple}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ psDBF,\ \textcolor{keywordtype}{int}\ hEntity,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00400}00400\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ pRawTuple);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00401}00401\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00402}00402\ \ \ \ \ \mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_a5a5e5d102512987fe62a40c9217a1de3}{DBFCloneEmpty}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ psDBF,}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00403}00403\ \ \ \ \ \ \ \ \ const\ \textcolor{keywordtype}{char}*\ pszFilename);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00404}00404\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00405}00405\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_aa6ac0af57e7e0d5a766ff2bda17f3d45}{DBFClose}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ hDBF);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00406}00406\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\_CALL}}\ \mbox{\hyperlink{shapefil_8h_afc84f9e2ca201009bf5431f31f1681d8}{DBFGetNativeFieldType}}(\mbox{\hyperlink{struct_d_b_f_info}{DBFHandle}}\ hDBF,\ \textcolor{keywordtype}{int}\ iField);}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00407}00407\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00408}00408\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00409}00409\ \}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00410}00410\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{shapefil_8h_source_l00412}00412\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ndef\ \_SHAPEFILE\_H\_INCLUDED\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,60 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fsxwshap.h}
+\hypertarget{fsxwshap_8h_source}{}\label{fsxwshap_8h_source}\mbox{\hyperlink{fsxwshap_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shapefil_8h}{shapefil.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsglbvar_8h}{fsglbvar.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00026}\mbox{\hyperlink{class_shape_file_utils}{00026}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_shape_file_utils}{ShapeFileUtils}}}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{char}*\ ShapeFileName;}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{char}*\ DataBaseName;}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{int}\ nShapeType;}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{long}\ Polygons;}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{long}\ BarSeparate;}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ BarExport;}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{long}\ Month,\ Day,\ Hour;}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{void}\ RetrieveExportFileInfo();}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{void}\ ConvertSimTime(\textcolor{keywordtype}{double}\ SimTime);}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00039}00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00040}\mbox{\hyperlink{class_shape_file_utils_a58f9ae3c6b1b301811f6b3ad1dc2cc0d}{00040}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_shape_file_utils_a58f9ae3c6b1b301811f6b3ad1dc2cc0d}{VisOnly}};}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00041}\mbox{\hyperlink{class_shape_file_utils_a1f1c3d8e8ff4a4c9785d3630bf478316}{00041}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_shape_file_utils_a1f1c3d8e8ff4a4c9785d3630bf478316}{NewFile}};}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{class_shape_file_utils_a46ebae25eab614e46df2fad346dd3df8}{ShapeFileUtils}}();}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{class_shape_file_utils_a6df86ed9a3526018c5296b6b3fca5d65}{\string~ShapeFileUtils}}();}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00045}00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shape_file_utils_af9ad832f69ed4408e17c74fa81c51245}{ResetShape}}();}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_shape_file_utils_aea67ec7e79400ec550665d3462307ab6}{GetShapeFileName}}();}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_shape_file_utils_afd279d4b33264433c92f536dd1468736}{ShapeData}}(\textcolor{keywordtype}{long}\ CurrentFire,\ \textcolor{keywordtype}{double}\ SimTime);}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shape_file_utils_a71da4d67cd438a0bccb7b2ad053939a6}{InitializeShapeExport}}(\textcolor{keywordtype}{char}*\ FileName,\ \textcolor{keywordtype}{long}\ poly);}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_shape_file_utils_a4c6519a8c7fcc82532a79f9904983c44}{ImportShapeData}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName,\ \textcolor{keywordtype}{long}\ PolygonType);}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00050}00050\ \};}
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{fsxwshap_8h_source_l00055}00055\ }
+
+\end{DoxyCode}

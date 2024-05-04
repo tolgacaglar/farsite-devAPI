@@ -1,0 +1,382 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fsairatk.h File Reference}
+\hypertarget{fsairatk_8h}{}\label{fsairatk_8h}\index{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/fsairatk.h@{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/fsairatk.h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}fsxwbar.\+h"{}}\newline
+{\ttfamily \#include "{}fsxlandt.\+h"{}}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$sys/timeb.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_air_craft}{Air\+Craft}}
+\item 
+struct \mbox{\hyperlink{struct_air_attack_data}{Air\+Attack\+Data}}
+\item 
+class \mbox{\hyperlink{class_air_attack}{Air\+Attack}}
+\item 
+struct \mbox{\hyperlink{struct_group_attack_data}{Group\+Attack\+Data}}
+\item 
+class \mbox{\hyperlink{class_group_air_attack}{Group\+Air\+Attack}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fsairatk_8h_af430dc1c0499376afadbf5535ddb9960}{GROUPSIZE}}~20
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{fsairatk_8h_a054370878c3c42f203e3282f069324ad}{Get\+Num\+Air\+Craft}} ()
+\item 
+void \mbox{\hyperlink{fsairatk_8h_ab26c2179e2243a405bf1c7f7ff20eaae}{Set\+Num\+Air\+Craft}} (long Num\+Craft)
+\item 
+bool \mbox{\hyperlink{fsairatk_8h_a048f3579a069a162112c9c2694019343}{Load\+Air\+Craft}} (char \texorpdfstring{$\ast$}{*}File\+Name, bool Append\+List)
+\item 
+long \mbox{\hyperlink{fsairatk_8h_ad7ab8c1a98ebd1d6abd8047df196a79c}{Set\+New\+Air\+Craft}} ()
+\item 
+\mbox{\hyperlink{struct_air_craft}{Air\+Craft}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsairatk_8h_ae3991140044361dec451dd686389085d}{Get\+Air\+Craft}} (long Air\+Craft\+Number)
+\item 
+long \mbox{\hyperlink{fsairatk_8h_a7792f162aea067bd5b794e69fa365087}{Set\+Air\+Craft}} (long Air\+Craft\+Number)
+\item 
+void \mbox{\hyperlink{fsairatk_8h_af945f83651eb976e1a69cb6861099802}{Free\+Air\+Craft}} (long Air\+Craft\+Number)
+\item 
+long \mbox{\hyperlink{fsairatk_8h_a019dec53f6c7907dfa4c19269d6d286d}{Setup\+Air\+Attack}} (long Air\+Craft\+Number, long Coverage\+Level, long Duration, double \texorpdfstring{$\ast$}{*}startpoint)
+\item 
+void \mbox{\hyperlink{fsairatk_8h_a54034ef7e5047015bfe8159c77df8e1a}{Cancel\+Air\+Attack}} (long Air\+Attack\+Counter)
+\item 
+void \mbox{\hyperlink{fsairatk_8h_aec78e18a1134dee879e02a6366d62a79}{Load\+Air\+Attack}} (\mbox{\hyperlink{struct_air_attack_data}{Air\+Attack\+Data}} airattackdata)
+\item 
+void \mbox{\hyperlink{fsairatk_8h_a8a782e0faadb250ca0ff9581b646e506}{Free\+All\+Air\+Attacks}} ()
+\item 
+\mbox{\hyperlink{struct_air_attack_data}{Air\+Attack\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsairatk_8h_a865503ca3e1e5de2462270625ac02192}{Get\+Air\+Attack}} (long Air\+Attack\+Counter)
+\item 
+\mbox{\hyperlink{struct_air_attack_data}{Air\+Attack\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsairatk_8h_ae3fd90a5170b6dc0554428a1a881d8e6}{Get\+Air\+Attack\+By\+Order}} (long Ordinal\+Attack\+Number)
+\item 
+void \mbox{\hyperlink{fsairatk_8h_a4cf800d748af0dc73c013b0eb37a47e5}{Set\+New\+Fire\+Number\+For\+Air\+Attack}} (long Old\+Fire\+Num, long New\+Fire\+Num)
+\item 
+long \mbox{\hyperlink{fsairatk_8h_aaa1f41c6e1d3b7876c8a9be0ff20e234}{Get\+Num\+Air\+Attacks}} ()
+\item 
+void \mbox{\hyperlink{fsairatk_8h_ab861f2799dc07dbe818336c65f02f89e}{Set\+Num\+Air\+Attacks}} (long Num\+Atk)
+\item 
+long \mbox{\hyperlink{fsairatk_8h_a766fec17043440799a35dd10926f4622}{Setup\+Group\+Air\+Attack}} (long Air\+Craft\+Number, long Coverage\+Level, long Duration, double \texorpdfstring{$\ast$}{*}line, long Fire\+Num, char \texorpdfstring{$\ast$}{*}Group\+Name)
+\item 
+\mbox{\hyperlink{struct_group_attack_data}{Group\+Attack\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsairatk_8h_aacaf23103a7cb7819924a65e953a6f33}{Reassign\+Group\+Air\+Attack}} (\mbox{\hyperlink{struct_group_attack_data}{Group\+Attack\+Data}} \texorpdfstring{$\ast$}{*}atk)
+\item 
+void \mbox{\hyperlink{fsairatk_8h_acab76802a16498ef1def6fab4a8b8d5c}{Cancel\+Group\+Air\+Attack}} (long Group\+Counter)
+\item 
+void \mbox{\hyperlink{fsairatk_8h_a8e7b478a4f6bdb1764654294170bb1a5}{Load\+Group\+Attack}} (\mbox{\hyperlink{struct_group_attack_data}{Group\+Attack\+Data}} groupattackdata)
+\item 
+void \mbox{\hyperlink{fsairatk_8h_abb0c4a532ae09a9b5d16ac20dcfae6d9}{Free\+All\+Group\+Air\+Attacks}} ()
+\item 
+\mbox{\hyperlink{struct_group_attack_data}{Group\+Attack\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsairatk_8h_a8d209d8918c2f0215fe837cd0580e444}{Get\+Group\+Air\+Attack}} (long Group\+Attack\+Counter)
+\item 
+\mbox{\hyperlink{struct_group_attack_data}{Group\+Attack\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsairatk_8h_a71d1c61e480744b5064481824180d035}{Get\+Group\+Attack\+By\+Order}} (long Ordinal\+Attack\+Number)
+\item 
+\mbox{\hyperlink{struct_group_attack_data}{Group\+Attack\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsairatk_8h_aca8482077b40bbce271820848accec09}{Get\+Group\+Attack\+For\+Fire\+Number}} (long Current\+Fire, long Start\+Num, long \texorpdfstring{$\ast$}{*}Last\+Num)
+\item 
+void \mbox{\hyperlink{fsairatk_8h_adf86b6bcd669dfc82b34917e3c12b690}{Set\+New\+Fire\+Number\+For\+Group\+Attack}} (long Old\+Fire\+Num, long New\+Fire\+Num)
+\item 
+long \mbox{\hyperlink{fsairatk_8h_a15ac17719b277f9c0f62b0a5844ff538}{Get\+Num\+Group\+Attacks}} ()
+\item 
+void \mbox{\hyperlink{fsairatk_8h_abc3ffc7bf38c4adf28157df3a2d79de2}{Set\+Num\+Group\+Attacks}} (long Num\+Groups)
+\item 
+void \mbox{\hyperlink{fsairatk_8h_ac72fc7e0df69f1f574af3d61bcdb9e26}{Write\+Air\+Attack\+Log}} (\mbox{\hyperlink{struct_air_attack_data}{Air\+Attack\+Data}} \texorpdfstring{$\ast$}{*}atk)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fsairatk_8h_af430dc1c0499376afadbf5535ddb9960}\label{fsairatk_8h_af430dc1c0499376afadbf5535ddb9960} 
+\index{fsairatk.h@{fsairatk.h}!GROUPSIZE@{GROUPSIZE}}
+\index{GROUPSIZE@{GROUPSIZE}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{GROUPSIZE}{GROUPSIZE}}
+{\footnotesize\ttfamily \#define GROUPSIZE~20}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8h_source_l00096}{96}} of file \mbox{\hyperlink{fsairatk_8h_source}{fsairatk.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fsairatk_8h_a54034ef7e5047015bfe8159c77df8e1a}\label{fsairatk_8h_a54034ef7e5047015bfe8159c77df8e1a} 
+\index{fsairatk.h@{fsairatk.h}!CancelAirAttack@{CancelAirAttack}}
+\index{CancelAirAttack@{CancelAirAttack}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{CancelAirAttack()}{CancelAirAttack()}}
+{\footnotesize\ttfamily void Cancel\+Air\+Attack (\begin{DoxyParamCaption}\item[{long}]{Air\+Attack\+Counter }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00405}{405}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_acab76802a16498ef1def6fab4a8b8d5c}\label{fsairatk_8h_acab76802a16498ef1def6fab4a8b8d5c} 
+\index{fsairatk.h@{fsairatk.h}!CancelGroupAirAttack@{CancelGroupAirAttack}}
+\index{CancelGroupAirAttack@{CancelGroupAirAttack}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{CancelGroupAirAttack()}{CancelGroupAirAttack()}}
+{\footnotesize\ttfamily void Cancel\+Group\+Air\+Attack (\begin{DoxyParamCaption}\item[{long}]{Group\+Counter }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00648}{648}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_af945f83651eb976e1a69cb6861099802}\label{fsairatk_8h_af945f83651eb976e1a69cb6861099802} 
+\index{fsairatk.h@{fsairatk.h}!FreeAirCraft@{FreeAirCraft}}
+\index{FreeAirCraft@{FreeAirCraft}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{FreeAirCraft()}{FreeAirCraft()}}
+{\footnotesize\ttfamily void Free\+Air\+Craft (\begin{DoxyParamCaption}\item[{long}]{Air\+Craft\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00234}{234}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_a8a782e0faadb250ca0ff9581b646e506}\label{fsairatk_8h_a8a782e0faadb250ca0ff9581b646e506} 
+\index{fsairatk.h@{fsairatk.h}!FreeAllAirAttacks@{FreeAllAirAttacks}}
+\index{FreeAllAirAttacks@{FreeAllAirAttacks}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{FreeAllAirAttacks()}{FreeAllAirAttacks()}}
+{\footnotesize\ttfamily void Free\+All\+Air\+Attacks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00454}{454}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_abb0c4a532ae09a9b5d16ac20dcfae6d9}\label{fsairatk_8h_abb0c4a532ae09a9b5d16ac20dcfae6d9} 
+\index{fsairatk.h@{fsairatk.h}!FreeAllGroupAirAttacks@{FreeAllGroupAirAttacks}}
+\index{FreeAllGroupAirAttacks@{FreeAllGroupAirAttacks}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{FreeAllGroupAirAttacks()}{FreeAllGroupAirAttacks()}}
+{\footnotesize\ttfamily void Free\+All\+Group\+Air\+Attacks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00766}{766}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_a865503ca3e1e5de2462270625ac02192}\label{fsairatk_8h_a865503ca3e1e5de2462270625ac02192} 
+\index{fsairatk.h@{fsairatk.h}!GetAirAttack@{GetAirAttack}}
+\index{GetAirAttack@{GetAirAttack}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{GetAirAttack()}{GetAirAttack()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_air_attack_data}{Air\+Attack\+Data}} \texorpdfstring{$\ast$}{*} Get\+Air\+Attack (\begin{DoxyParamCaption}\item[{long}]{Air\+Attack\+Counter }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00476}{476}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_ae3fd90a5170b6dc0554428a1a881d8e6}\label{fsairatk_8h_ae3fd90a5170b6dc0554428a1a881d8e6} 
+\index{fsairatk.h@{fsairatk.h}!GetAirAttackByOrder@{GetAirAttackByOrder}}
+\index{GetAirAttackByOrder@{GetAirAttackByOrder}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{GetAirAttackByOrder()}{GetAirAttackByOrder()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_air_attack_data}{Air\+Attack\+Data}} \texorpdfstring{$\ast$}{*} Get\+Air\+Attack\+By\+Order (\begin{DoxyParamCaption}\item[{long}]{Ordinal\+Attack\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00497}{497}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_ae3991140044361dec451dd686389085d}\label{fsairatk_8h_ae3991140044361dec451dd686389085d} 
+\index{fsairatk.h@{fsairatk.h}!GetAirCraft@{GetAirCraft}}
+\index{GetAirCraft@{GetAirCraft}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{GetAirCraft()}{GetAirCraft()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_air_craft}{Air\+Craft}} \texorpdfstring{$\ast$}{*} Get\+Air\+Craft (\begin{DoxyParamCaption}\item[{long}]{Air\+Craft\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00217}{217}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_a8d209d8918c2f0215fe837cd0580e444}\label{fsairatk_8h_a8d209d8918c2f0215fe837cd0580e444} 
+\index{fsairatk.h@{fsairatk.h}!GetGroupAirAttack@{GetGroupAirAttack}}
+\index{GetGroupAirAttack@{GetGroupAirAttack}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{GetGroupAirAttack()}{GetGroupAirAttack()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_group_attack_data}{Group\+Attack\+Data}} \texorpdfstring{$\ast$}{*} Get\+Group\+Air\+Attack (\begin{DoxyParamCaption}\item[{long}]{Group\+Attack\+Counter }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00794}{794}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_a71d1c61e480744b5064481824180d035}\label{fsairatk_8h_a71d1c61e480744b5064481824180d035} 
+\index{fsairatk.h@{fsairatk.h}!GetGroupAttackByOrder@{GetGroupAttackByOrder}}
+\index{GetGroupAttackByOrder@{GetGroupAttackByOrder}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{GetGroupAttackByOrder()}{GetGroupAttackByOrder()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_group_attack_data}{Group\+Attack\+Data}} \texorpdfstring{$\ast$}{*} Get\+Group\+Attack\+By\+Order (\begin{DoxyParamCaption}\item[{long}]{Ordinal\+Attack\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00815}{815}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_aca8482077b40bbce271820848accec09}\label{fsairatk_8h_aca8482077b40bbce271820848accec09} 
+\index{fsairatk.h@{fsairatk.h}!GetGroupAttackForFireNumber@{GetGroupAttackForFireNumber}}
+\index{GetGroupAttackForFireNumber@{GetGroupAttackForFireNumber}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{GetGroupAttackForFireNumber()}{GetGroupAttackForFireNumber()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_group_attack_data}{Group\+Attack\+Data}} \texorpdfstring{$\ast$}{*} Get\+Group\+Attack\+For\+Fire\+Number (\begin{DoxyParamCaption}\item[{long}]{Current\+Fire,  }\item[{long}]{Start\+Num,  }\item[{long \texorpdfstring{$\ast$}{*}}]{Last\+Num }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00832}{832}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_aaa1f41c6e1d3b7876c8a9be0ff20e234}\label{fsairatk_8h_aaa1f41c6e1d3b7876c8a9be0ff20e234} 
+\index{fsairatk.h@{fsairatk.h}!GetNumAirAttacks@{GetNumAirAttacks}}
+\index{GetNumAirAttacks@{GetNumAirAttacks}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{GetNumAirAttacks()}{GetNumAirAttacks()}}
+{\footnotesize\ttfamily long Get\+Num\+Air\+Attacks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00248}{248}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_a054370878c3c42f203e3282f069324ad}\label{fsairatk_8h_a054370878c3c42f203e3282f069324ad} 
+\index{fsairatk.h@{fsairatk.h}!GetNumAirCraft@{GetNumAirCraft}}
+\index{GetNumAirCraft@{GetNumAirCraft}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{GetNumAirCraft()}{GetNumAirCraft()}}
+{\footnotesize\ttfamily long Get\+Num\+Air\+Craft (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_a15ac17719b277f9c0f62b0a5844ff538}\label{fsairatk_8h_a15ac17719b277f9c0f62b0a5844ff538} 
+\index{fsairatk.h@{fsairatk.h}!GetNumGroupAttacks@{GetNumGroupAttacks}}
+\index{GetNumGroupAttacks@{GetNumGroupAttacks}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{GetNumGroupAttacks()}{GetNumGroupAttacks()}}
+{\footnotesize\ttfamily long Get\+Num\+Group\+Attacks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00867}{867}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_aec78e18a1134dee879e02a6366d62a79}\label{fsairatk_8h_aec78e18a1134dee879e02a6366d62a79} 
+\index{fsairatk.h@{fsairatk.h}!LoadAirAttack@{LoadAirAttack}}
+\index{LoadAirAttack@{LoadAirAttack}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{LoadAirAttack()}{LoadAirAttack()}}
+{\footnotesize\ttfamily void Load\+Air\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_air_attack_data}{Air\+Attack\+Data}}}]{airattackdata }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00436}{436}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_a048f3579a069a162112c9c2694019343}\label{fsairatk_8h_a048f3579a069a162112c9c2694019343} 
+\index{fsairatk.h@{fsairatk.h}!LoadAirCraft@{LoadAirCraft}}
+\index{LoadAirCraft@{LoadAirCraft}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{LoadAirCraft()}{LoadAirCraft()}}
+{\footnotesize\ttfamily bool Load\+Air\+Craft (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{File\+Name,  }\item[{bool}]{Append\+List }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_a8e7b478a4f6bdb1764654294170bb1a5}\label{fsairatk_8h_a8e7b478a4f6bdb1764654294170bb1a5} 
+\index{fsairatk.h@{fsairatk.h}!LoadGroupAttack@{LoadGroupAttack}}
+\index{LoadGroupAttack@{LoadGroupAttack}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{LoadGroupAttack()}{LoadGroupAttack()}}
+{\footnotesize\ttfamily void Load\+Group\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_group_attack_data}{Group\+Attack\+Data}}}]{groupattackdata }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00687}{687}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_aacaf23103a7cb7819924a65e953a6f33}\label{fsairatk_8h_aacaf23103a7cb7819924a65e953a6f33} 
+\index{fsairatk.h@{fsairatk.h}!ReassignGroupAirAttack@{ReassignGroupAirAttack}}
+\index{ReassignGroupAirAttack@{ReassignGroupAirAttack}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{ReassignGroupAirAttack()}{ReassignGroupAirAttack()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_group_attack_data}{Group\+Attack\+Data}} \texorpdfstring{$\ast$}{*} Reassign\+Group\+Air\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_group_attack_data}{Group\+Attack\+Data}} \texorpdfstring{$\ast$}{*}}]{atk }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00639}{639}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_a7792f162aea067bd5b794e69fa365087}\label{fsairatk_8h_a7792f162aea067bd5b794e69fa365087} 
+\index{fsairatk.h@{fsairatk.h}!SetAirCraft@{SetAirCraft}}
+\index{SetAirCraft@{SetAirCraft}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{SetAirCraft()}{SetAirCraft()}}
+{\footnotesize\ttfamily long Set\+Air\+Craft (\begin{DoxyParamCaption}\item[{long}]{Air\+Craft\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00225}{225}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_ad7ab8c1a98ebd1d6abd8047df196a79c}\label{fsairatk_8h_ad7ab8c1a98ebd1d6abd8047df196a79c} 
+\index{fsairatk.h@{fsairatk.h}!SetNewAirCraft@{SetNewAirCraft}}
+\index{SetNewAirCraft@{SetNewAirCraft}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{SetNewAirCraft()}{SetNewAirCraft()}}
+{\footnotesize\ttfamily long Set\+New\+Air\+Craft (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00208}{208}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_a4cf800d748af0dc73c013b0eb37a47e5}\label{fsairatk_8h_a4cf800d748af0dc73c013b0eb37a47e5} 
+\index{fsairatk.h@{fsairatk.h}!SetNewFireNumberForAirAttack@{SetNewFireNumberForAirAttack}}
+\index{SetNewFireNumberForAirAttack@{SetNewFireNumberForAirAttack}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{SetNewFireNumberForAirAttack()}{SetNewFireNumberForAirAttack()}}
+{\footnotesize\ttfamily void Set\+New\+Fire\+Number\+For\+Air\+Attack (\begin{DoxyParamCaption}\item[{long}]{Old\+Fire\+Num,  }\item[{long}]{New\+Fire\+Num }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00515}{515}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_adf86b6bcd669dfc82b34917e3c12b690}\label{fsairatk_8h_adf86b6bcd669dfc82b34917e3c12b690} 
+\index{fsairatk.h@{fsairatk.h}!SetNewFireNumberForGroupAttack@{SetNewFireNumberForGroupAttack}}
+\index{SetNewFireNumberForGroupAttack@{SetNewFireNumberForGroupAttack}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{SetNewFireNumberForGroupAttack()}{SetNewFireNumberForGroupAttack()}}
+{\footnotesize\ttfamily void Set\+New\+Fire\+Number\+For\+Group\+Attack (\begin{DoxyParamCaption}\item[{long}]{Old\+Fire\+Num,  }\item[{long}]{New\+Fire\+Num }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00855}{855}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_ab861f2799dc07dbe818336c65f02f89e}\label{fsairatk_8h_ab861f2799dc07dbe818336c65f02f89e} 
+\index{fsairatk.h@{fsairatk.h}!SetNumAirAttacks@{SetNumAirAttacks}}
+\index{SetNumAirAttacks@{SetNumAirAttacks}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{SetNumAirAttacks()}{SetNumAirAttacks()}}
+{\footnotesize\ttfamily void Set\+Num\+Air\+Attacks (\begin{DoxyParamCaption}\item[{long}]{Num\+Atk }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00254}{254}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_ab26c2179e2243a405bf1c7f7ff20eaae}\label{fsairatk_8h_ab26c2179e2243a405bf1c7f7ff20eaae} 
+\index{fsairatk.h@{fsairatk.h}!SetNumAirCraft@{SetNumAirCraft}}
+\index{SetNumAirCraft@{SetNumAirCraft}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{SetNumAirCraft()}{SetNumAirCraft()}}
+{\footnotesize\ttfamily void Set\+Num\+Air\+Craft (\begin{DoxyParamCaption}\item[{long}]{Num\+Craft }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00103}{103}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_abc3ffc7bf38c4adf28157df3a2d79de2}\label{fsairatk_8h_abc3ffc7bf38c4adf28157df3a2d79de2} 
+\index{fsairatk.h@{fsairatk.h}!SetNumGroupAttacks@{SetNumGroupAttacks}}
+\index{SetNumGroupAttacks@{SetNumGroupAttacks}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{SetNumGroupAttacks()}{SetNumGroupAttacks()}}
+{\footnotesize\ttfamily void Set\+Num\+Group\+Attacks (\begin{DoxyParamCaption}\item[{long}]{Num\+Groups }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00872}{872}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_a019dec53f6c7907dfa4c19269d6d286d}\label{fsairatk_8h_a019dec53f6c7907dfa4c19269d6d286d} 
+\index{fsairatk.h@{fsairatk.h}!SetupAirAttack@{SetupAirAttack}}
+\index{SetupAirAttack@{SetupAirAttack}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{SetupAirAttack()}{SetupAirAttack()}}
+{\footnotesize\ttfamily long Setup\+Air\+Attack (\begin{DoxyParamCaption}\item[{long}]{Air\+Craft\+Number,  }\item[{long}]{Coverage\+Level,  }\item[{long}]{Duration,  }\item[{double \texorpdfstring{$\ast$}{*}}]{startpoint }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00259}{259}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_a766fec17043440799a35dd10926f4622}\label{fsairatk_8h_a766fec17043440799a35dd10926f4622} 
+\index{fsairatk.h@{fsairatk.h}!SetupGroupAirAttack@{SetupGroupAirAttack}}
+\index{SetupGroupAirAttack@{SetupGroupAirAttack}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{SetupGroupAirAttack()}{SetupGroupAirAttack()}}
+{\footnotesize\ttfamily long Setup\+Group\+Air\+Attack (\begin{DoxyParamCaption}\item[{long}]{Air\+Craft\+Number,  }\item[{long}]{Coverage\+Level,  }\item[{long}]{Duration,  }\item[{double \texorpdfstring{$\ast$}{*}}]{line,  }\item[{long}]{Fire\+Num,  }\item[{char \texorpdfstring{$\ast$}{*}}]{Group\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00592}{592}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+
+\Hypertarget{fsairatk_8h_ac72fc7e0df69f1f574af3d61bcdb9e26}\label{fsairatk_8h_ac72fc7e0df69f1f574af3d61bcdb9e26} 
+\index{fsairatk.h@{fsairatk.h}!WriteAirAttackLog@{WriteAirAttackLog}}
+\index{WriteAirAttackLog@{WriteAirAttackLog}!fsairatk.h@{fsairatk.h}}
+\doxysubsubsection{\texorpdfstring{WriteAirAttackLog()}{WriteAirAttackLog()}}
+{\footnotesize\ttfamily void Write\+Air\+Attack\+Log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_air_attack_data}{Air\+Attack\+Data}} \texorpdfstring{$\ast$}{*}}]{atk }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsairatk_8cpp_source_l00539}{539}} of file \mbox{\hyperlink{fsairatk_8cpp_source}{fsairatk.\+cpp}}.
+

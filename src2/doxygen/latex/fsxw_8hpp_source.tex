@@ -1,0 +1,158 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fsxw.hpp}
+\hypertarget{fsxw_8hpp_source}{}\label{fsxw_8hpp_source}\mbox{\hyperlink{fsxw_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00024}00024\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00025}00025\ \textcolor{comment}{//\ \ FSXW.H\ \ \ \ \ \ Header\ File\ contains\ functions\ for\ accessing\ global\ data}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00026}00026\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ associated\ with\ the\ fire\ growth\ model}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00027}00027\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00028}00028\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00029}00029\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00030}00030\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ 1994,\ 1995}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00031}00031\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ Mark\ A.\ Finney,\ Systems\ for\ Environmental\ Management}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00032}00032\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00035}00035\ \textcolor{preprocessor}{\#ifndef\ GlobalFarsiteModelFunctions}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00036}00036\ \textcolor{preprocessor}{\#define\ GlobalFarsiteModelFunctions}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00038}00038\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00039}00039\ \textcolor{comment}{//\#include\ <owl\(\backslash\)window.h>}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00041}\mbox{\hyperlink{fsxw_8hpp_ae5ff5308fcf0019e6049e2a021260e1f}{00041}}\ \textcolor{preprocessor}{\#define\ GETVAL\ -\/1\ \ \ \ \ \ \ }\textcolor{comment}{//\ definitions\ used\ for\ getting\ and\ storing\ data}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00042}\mbox{\hyperlink{fsxw_8hpp_ae85be36b0d52d74fa2a9f0cf0e2dabfb}{00042}}\ \textcolor{preprocessor}{\#define\ XCOORD\ 0\ \ \ \ \ \ \ \ }\textcolor{comment}{//\ in\ fire\ perimeter1\ arrays:}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00043}\mbox{\hyperlink{fsxw_8hpp_a03d7b1afc77e19b3279d170140eac1cf}{00043}}\ \textcolor{preprocessor}{\#define\ YCOORD\ 1}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00044}\mbox{\hyperlink{fsxw_8hpp_a10b784199eed2e5930e9f65c55f45c4b}{00044}}\ \textcolor{preprocessor}{\#define\ ROSVAL\ 2}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00045}\mbox{\hyperlink{fsxw_8hpp_a6e9c045951426bf10fa3317279992ad2}{00045}}\ \textcolor{preprocessor}{\#define\ FLIVAL\ 3}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00046}\mbox{\hyperlink{fsxw_8hpp_a80fb81e588e13d7823d20651ae31aafa}{00046}}\ \textcolor{preprocessor}{\#define\ RCXVAL\ 4}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00048}\mbox{\hyperlink{fsxw_8hpp_ab9369245a4ff2e3bc175d0db8f07237f}{00048}}\ \textcolor{preprocessor}{\#define\ NUMDATA\ 5}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00050}\mbox{\hyperlink{fsxw_8hpp_a5c7f245394261bda1f7d065978851ebf}{00050}}\ \textcolor{preprocessor}{\#define\ MAXNUM\_STOPLOCATIONS\ 10}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00052}\mbox{\hyperlink{fsxw_8hpp_a0f13023c39604dd4a40e60d821e0452a}{00052}}\ \textcolor{preprocessor}{\#define\ DISTCHECK\_SIMLEVEL\ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00053}\mbox{\hyperlink{fsxw_8hpp_af273fa920e5a23989cc85ed151af2ccc}{00053}}\ \textcolor{preprocessor}{\#define\ DISTCHECK\_FIRELEVEL\ \ 1}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00055}00055\ \textcolor{comment}{//typedef\ unsigned\ BYTE;}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00057}00057\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Model\ Parameter\ Access\ Functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00059}00059\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fsxw_8hpp_a24e17fd56b2c3165dbb06ec65a00d7d2}{GetDistRes}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00060}00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_aaa0e15e44833073b38a5e1e49deeb73b}{SetDistRes}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00061}00061\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_ae6a6a03a406075ce1a582e0326040ff6}{SetDynamicDistRes}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00062}00062\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fsxw_8hpp_ab090f93fcbdc556782fd25184a2e3c67}{GetDynamicDistRes}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00063}00063\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fsxw_8hpp_a8a4d3096c918ce5f5d27a8d18ecc9e50}{GetPerimRes}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00064}00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_ab8458c636e77fef32318078df1d6b1f3}{SetPerimRes}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00065}00065\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxw_8hpp_a2c86c41e50f90f56d789dcb98a42a593}{AccelerationON}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00066}00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a40c56c6c482408bbd0f92556f82a9313}{SetAccelerationON}}(\textcolor{keywordtype}{bool}\ State);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00067}00067\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fsxw_8hpp_a243c948c48f82a18d3e0e7ab0abcdb28}{GetRosRed}}(\textcolor{keywordtype}{int}\ fuel);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00068}00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_abc18b267b18757bdab3436986317a031}{SetRosRed}}(\textcolor{keywordtype}{int}\ fuel,\ \textcolor{keywordtype}{double}\ rosred);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00069}00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a0ff50a4f63fdafee11aeacbe86b362e6}{InitializeRosRed}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00070}00070\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fsxw_8hpp_ad98079e3f14d26cd24af7f2a74f0c207}{GetActualTimeStep}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00071}00071\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fsxw_8hpp_afae1f54f521d3c653e7c924d1287a18e}{GetVisibleTimeStep}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00072}00072\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fsxw_8hpp_a550bffd9ea5bc53aa8ccec12e95929bc}{GetTemporaryTimeStep}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00073}00073\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_afb28f5fe6b4e54158a4dd4fd5d8e5407}{SetActualTimeStep}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00074}00074\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_ae9b4508b5a6eb01045a7f0558bbe9e8b}{SetVisibleTimeStep}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00075}00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a45ab068c73cb5d955788d513c7fa6569}{SetTemporaryTimeStep}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00076}00076\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_ad4d3fa40b6e161cacffbbb9987d3a964}{SetSecondaryVisibleTimeStep}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00077}00077\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fsxw_8hpp_a066d421ddfad7414f164f51f0a675fd8}{GetSecondaryVisibleTimeStep}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00078}00078\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fsxw_8hpp_aa4f4e9a28be8d1e27bcbe94bb53f91cc}{EventMinimumTimeStep}}(\textcolor{keywordtype}{double}\ time);\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ event\ driven\ time\ step}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00079}00079\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxw_8hpp_a2616345e5ef1bdedbce23009b2c30e5b}{CheckExpansions}}(\textcolor{keywordtype}{long}\ YesNo);\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ illogical\ perimeter\ expansions}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00080}00080\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxw_8hpp_a97b57e0076ea302f9ac8cddc02093ec9}{CheckPostFrontal}}(\textcolor{keywordtype}{long}\ YesNo);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00081}00081\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsxw_8hpp_a561601d8e38cff02306799b658e75cda}{DistanceCheckMethod}}(\textcolor{keywordtype}{long}\ Method);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00083}00083\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Fire\ Data\ Access\ Functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00085}00085\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsxw_8hpp_a62a87b148c393234c3c64419323eae75}{GetInout}}(\textcolor{keywordtype}{long}\ FireNumber);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00086}00086\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsxw_8hpp_aeada34e18bdc9de99d01d7649d45ec94}{GetNumPoints}}(\textcolor{keywordtype}{long}\ FireNumber);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00087}00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_ab996aed92cf25598d7ddf6b5efabd4e5}{SetInout}}(\textcolor{keywordtype}{long}\ FireNumber,\ \textcolor{keywordtype}{int}\ Inout);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00088}00088\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a940a8d602606d18da156d9c428d05279}{SetNumPoints}}(\textcolor{keywordtype}{long}\ FireNumber,\ \textcolor{keywordtype}{long}\ NumPoints);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00089}00089\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_ac609f9e85e1a3907f3fd411862db334a}{GetPerimeter2}}(\textcolor{keywordtype}{long}\ coord,\ \textcolor{keywordtype}{double}*\ xpt,\ \textcolor{keywordtype}{double}*\ ypt,\ \textcolor{keywordtype}{double}*\ ros,}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordtype}{double}*\ fli,\ \textcolor{keywordtype}{double}*\ rct);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00091}00091\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fsxw_8hpp_a18f4a8c98b4d3f40c6f951c822c79e26}{GetPerimeter2Value}}(\textcolor{keywordtype}{long}\ coord,\ \textcolor{keywordtype}{long}\ value);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00092}00092\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a4f9bf920c99001d3361a72980cf55eba}{SetPerimeter2}}(\textcolor{keywordtype}{long}\ coord,\ \textcolor{keywordtype}{double}\ xpt,\ \textcolor{keywordtype}{double}\ ypt,\ \textcolor{keywordtype}{double}\ ros,\ \textcolor{keywordtype}{double}\ fli,}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00093}00093\ \ \ \ \ \textcolor{keywordtype}{double}\ rct);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00094}00094\ \textcolor{keywordtype}{double}*\ \mbox{\hyperlink{fsxw_8hpp_a20106177bbd4c22d8db437b14d48a95d}{AllocPerimeter2}}(\textcolor{keywordtype}{long}\ NumPoints);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00095}00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_af0d09dba2584bf2d1b48883b6d0d00ab}{FreePerimeter2}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00096}00096\ \textcolor{keywordtype}{double}*\ \mbox{\hyperlink{fsxw_8hpp_a2b8115f5613a307e2c4b00b1db565b86}{AllocPerimeter1}}(\textcolor{keywordtype}{long}\ NumFire,\ \textcolor{keywordtype}{long}\ NumPoints);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00097}00097\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a3b55dffb540f71111daaf37ee63e835e}{FreePerimeter1}}(\textcolor{keywordtype}{long}\ NumFire);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00098}00098\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fsxw_8hpp_abbe0140b4033369b924e9b322429e80c}{GetPerimeter1Value}}(\textcolor{keywordtype}{long}\ NumFire,\ \textcolor{keywordtype}{long}\ NumPoint,\ \textcolor{keywordtype}{int}\ coord);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00099}00099\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a899dd58bb3b122652d65ae53513cf456}{SetPerimeter1}}(\textcolor{keywordtype}{long}\ NumFire,\ \textcolor{keywordtype}{long}\ NumPoint,\ \textcolor{keywordtype}{double}\ xpt,\ \textcolor{keywordtype}{double}\ ypt);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00100}00100\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a9ddd9bca0992bd699b53fc5c986e5bb2}{SetFireChx}}(\textcolor{keywordtype}{long}\ NumFire,\ \textcolor{keywordtype}{long}\ NumPoint,\ \textcolor{keywordtype}{double}\ ros,\ \textcolor{keywordtype}{double}\ fli);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00101}00101\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a186468d26f4632e05d5dd72510811dc8}{SetReact}}(\textcolor{keywordtype}{long}\ NumFire,\ \textcolor{keywordtype}{long}\ NumPoint,\ \textcolor{keywordtype}{double}\ ReactionIntensity);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00102}00102\ \textcolor{keywordtype}{double}*\ \mbox{\hyperlink{fsxw_8hpp_a01dc09028d546ca3bbc10d73d78b5bdb}{GetPerimeter1Address}}(\textcolor{keywordtype}{long}\ NumFire,\ \textcolor{keywordtype}{long}\ NumPoint);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00103}00103\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsxw_8hpp_a9c8fafc716dda8e8b798581a36b496a1}{SwapFirePerims}}(\textcolor{keywordtype}{long}\ NumFire1,\ \textcolor{keywordtype}{long}\ NumFire2);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00104}00104\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsxw_8hpp_a3051fe0b606001437a5e8f41b20eb6a5}{GetNumPerimAlloc}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00105}00105\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxw_8hpp_ab066e5419258765e42867bde6a71f179}{AllocFirePerims}}(\textcolor{keywordtype}{long}\ num);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00106}00106\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxw_8hpp_ad567394b149308bc185f06458d69832f}{ReAllocFirePerims}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00107}00107\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a93e48967508eb0c29c879e02390c180d}{FreeAllFirePerims}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00110}00110\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Fire\ Accounting\ Functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00112}00112\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxw_8hpp_a5cb3195b1ccf28c4d8f41524e5c23bc7}{CreateSpotSemaphore}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00113}00113\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_aa155d9731386b2804f3e5b7f97eb7110}{CloseSpotSemaphore}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00114}00114\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a546e631bd69f697bd684f486ae82e7d7}{GetNumSpots}}(\textcolor{keywordtype}{long}*\ NumSpots,\ \textcolor{keywordtype}{bool}\ inc);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00115}00115\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a3622de4fb66d2477d646dee52fe280b1}{SetNumSpots}}(\textcolor{keywordtype}{long}\ input);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00116}\mbox{\hyperlink{fsxw_8hpp_ad3a287b971b0929fa3dc92ce8f2dcd96}{00116}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_ad3a287b971b0929fa3dc92ce8f2dcd96}{IncNumSpots}}(\textcolor{keywordtype}{long}\ increment);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00117}00117\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsxw_8hpp_aa328b415f4e51ddbccc74f209e018951}{GetNumFires}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00118}00118\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a57d43ab418327d098a756156087206a2}{SetNumFires}}(\textcolor{keywordtype}{long}\ input);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00119}00119\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a393722408214fa069d8fb03214c08d17}{IncNumFires}}(\textcolor{keywordtype}{long}\ increment);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00120}00120\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsxw_8hpp_a937f2470c39b969fc642c1f9e4ffcea8}{GetNewFires}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00121}00121\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a324ffdcc48ca64101795b32f1dc12e5b}{SetNewFires}}(\textcolor{keywordtype}{long}\ input);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00122}00122\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a126b874264dba4b287623e2c9a52e660}{IncNewFires}}(\textcolor{keywordtype}{long}\ increment);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00123}00123\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsxw_8hpp_ac536f2ef27b7e57c9deb53a1512ba754}{GetSkipFires}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00124}00124\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a8f6249c1343f2d53e4777c66b7c7d908}{SetSkipFires}}(\textcolor{keywordtype}{long}\ newvalue);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00125}00125\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_ae2cf76e0d82241b9ff3666ea2a917ee0}{IncSkipFires}}(\textcolor{keywordtype}{long}\ increment);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00126}00126\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fsxw_8hpp_ababf6b314b50376d452623f203efe187}{PercentIgnition}}(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00127}00127\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{fsxw_8hpp_a4040bda997c6db51ff853dbd357ddefc}{IgnitionDelay}}(\textcolor{keywordtype}{double}\ delay);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00128}00128\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxw_8hpp_a0e093bff2a10b1f721975c560b799508}{EnableCrowning}}(\textcolor{keywordtype}{long});}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00129}00129\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxw_8hpp_ab43f6b0901b7e77cacb5d37a05922992}{EnableSpotting}}(\textcolor{keywordtype}{long});}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00130}00130\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxw_8hpp_aec41c204891b882be771b84a07ade5e9}{EnableSpotFireGrowth}}(\textcolor{keywordtype}{long});}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00131}00131\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxw_8hpp_a1273c30ed4f15d682ce504461c9d2e09}{ConstantBackingSpreadRate}}(\textcolor{keywordtype}{long});}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00132}00132\ \textcolor{keywordtype}{long}\ \ \ \ \mbox{\hyperlink{fsxw_8hpp_aa28569ed8a3315bd7f191f06d24b119a}{GetCrownFireCalculation}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00133}00133\ \textcolor{keywordtype}{long}\ \ \ \ \mbox{\hyperlink{fsxw_8hpp_a593b32310abe9dcdb8dd1cab8f346167}{SetCrownFireCalculation}}(\textcolor{keywordtype}{long}\ Type);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00135}00135\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Elevation\ Functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00137}00137\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_ac9fdf331bb130d89d4c7b747d711ecb4}{AllocElev}}(\textcolor{keywordtype}{long}\ CurrentFire);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00138}00138\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_acfb626c0868d7df1c8ce4331530b0e67}{SetElev}}(\textcolor{keywordtype}{long}\ Num,\ \textcolor{keywordtype}{long}\ elev);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00139}00139\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsxw_8hpp_a2739e23b69000d30bd17ff8cf5d841d0}{GetElev}}(\textcolor{keywordtype}{long}\ Num);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00140}00140\ \textcolor{keywordtype}{long}*\ \mbox{\hyperlink{fsxw_8hpp_a472359d259ebf303a356fed920465c1d}{GetElevAddress}}(\textcolor{keywordtype}{long}\ Num);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00141}00141\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_ac16b36ea1430ea9f8cff816876b052bd}{FreeElev}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00143}00143\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Stop-\/location\ Functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00145}00145\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsxw_8hpp_ad1d96ce5542e87585e84c5c3ca23ecf4}{SetStopLocation}}(\textcolor{keywordtype}{double}\ xcoord,\ \textcolor{keywordtype}{double}\ ycoord);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00146}00146\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxw_8hpp_abb4e651a7466292b27c6857f6dae7f1a}{GetStopLocation}}(\textcolor{keywordtype}{long}\ StopNum,\ \textcolor{keywordtype}{double}*\ xcoord,\ \textcolor{keywordtype}{double}*\ ycoord);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00147}00147\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a84e1fba33e8e2ca95307bf22c3f66b8a}{ResetStopLocation}}(\textcolor{keywordtype}{long}\ StopNum);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00148}00148\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxw_8hpp_a460ac1a6ce5d4c9f3f081dbbdd50b08d}{EnableStopLocation}}(\textcolor{keywordtype}{long}\ StopNum,\ \textcolor{keywordtype}{long}\ Action);}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00149}00149\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsxw_8hpp_a2c39092d04d37b265b513d63cae342ae}{ResetAllStopLocations}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00150}00150\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsxw_8hpp_a2ad7c4e73119443da112ded3aa3e2cfc}{GetNumStopLocations}}();}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00152}00152\ \textcolor{preprocessor}{\#endif\ \ \ \ }\textcolor{comment}{//GlobalFarsiteModelFunctions}}
+\DoxyCodeLine{\Hypertarget{fsxw_8hpp_source_l00153}00153\ }
+
+\end{DoxyCode}
