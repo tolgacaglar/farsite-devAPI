@@ -1,0 +1,143 @@
+.TH "GroupAirAttack" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GroupAirAttack
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsairatk\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGroupAirAttack\fP ()"
+.br
+.ti -1c
+.RI "\fBGroupAirAttack\fP (\fBGroupAttackData\fP *groupattack)"
+.br
+.ti -1c
+.RI "\fB~GroupAirAttack\fP ()"
+.br
+.ti -1c
+.RI "void \fBGetCurrentGroup\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetGroup\fP (\fBGroupAttackData\fP *gatk)"
+.br
+.ti -1c
+.RI "bool \fBAllocGroup\fP (long NewNumber)"
+.br
+.ti -1c
+.RI "bool \fBAddGroupMember\fP (long AircraftNumber, long CoverageLevel, long EffectiveDuration)"
+.br
+.ti -1c
+.RI "bool \fBSetGroupAssignment\fP (double *line, long FireNum, bool Reset)"
+.br
+.ti -1c
+.RI "bool \fBRemoveGroupMember\fP (long membernumber)"
+.br
+.ti -1c
+.RI "void \fBReorderGroupList\fP (long Start)"
+.br
+.ti -1c
+.RI "bool \fBExecuteAttacks\fP (double TimeIncrement)"
+.br
+.ti -1c
+.RI "void \fBExecuteAllIndirectAttacks\fP (double TimeIncrement)"
+.br
+.ti -1c
+.RI "double \fBGetNextAttackTime\fP (double TimeIncrement)"
+.br
+.ti -1c
+.RI "void \fBIncrementWaitTimes\fP (double TimeIncrement)"
+.br
+.ti -1c
+.RI "long \fBCheckSuspendState\fP (long OnOff)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "long \fBGroupAttackNumber\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB117\fP of file \fBfsairatk\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "GroupAirAttack::GroupAirAttack ()"
+
+.PP
+Definition at line \fB880\fP of file \fBfsairatk\&.cpp\fP\&.
+.SS "GroupAirAttack::GroupAirAttack (\fBGroupAttackData\fP * groupattack)"
+
+.PP
+Definition at line \fB884\fP of file \fBfsairatk\&.cpp\fP\&.
+.SS "GroupAirAttack::~GroupAirAttack ()"
+
+.PP
+Definition at line \fB889\fP of file \fBfsairatk\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bool GroupAirAttack::AddGroupMember (long AircraftNumber, long CoverageLevel, long EffectiveDuration)"
+
+.PP
+Definition at line \fB957\fP of file \fBfsairatk\&.cpp\fP\&.
+.SS "bool GroupAirAttack::AllocGroup (long NewNumber)"
+
+.PP
+Definition at line \fB937\fP of file \fBfsairatk\&.cpp\fP\&.
+.SS "long GroupAirAttack::CheckSuspendState (long OnOff)"
+
+.PP
+Definition at line \fB1320\fP of file \fBfsairatk\&.cpp\fP\&.
+.SS "void GroupAirAttack::ExecuteAllIndirectAttacks (double TimeIncrement)"
+
+.PP
+Definition at line \fB905\fP of file \fBfsairatk\&.cpp\fP\&.
+.SS "bool GroupAirAttack::ExecuteAttacks (double TimeIncrement)"
+
+.PP
+Definition at line \fB1143\fP of file \fBfsairatk\&.cpp\fP\&.
+.SS "void GroupAirAttack::GetCurrentGroup ()"
+
+.PP
+Definition at line \fB900\fP of file \fBfsairatk\&.cpp\fP\&.
+.SS "double GroupAirAttack::GetNextAttackTime (double TimeIncrement)"
+
+.PP
+Definition at line \fB1293\fP of file \fBfsairatk\&.cpp\fP\&.
+.SS "void GroupAirAttack::IncrementWaitTimes (double TimeIncrement)"
+
+.PP
+Definition at line \fB1307\fP of file \fBfsairatk\&.cpp\fP\&.
+.SS "bool GroupAirAttack::RemoveGroupMember (long membernumber)"
+
+.PP
+Definition at line \fB1103\fP of file \fBfsairatk\&.cpp\fP\&.
+.SS "void GroupAirAttack::ReorderGroupList (long Start)"
+
+.PP
+Definition at line \fB1117\fP of file \fBfsairatk\&.cpp\fP\&.
+.SS "void GroupAirAttack::SetGroup (\fBGroupAttackData\fP * gatk)"
+
+.PP
+Definition at line \fB894\fP of file \fBfsairatk\&.cpp\fP\&.
+.SS "bool GroupAirAttack::SetGroupAssignment (double * line, long FireNum, bool Reset)"
+
+.PP
+Definition at line \fB1011\fP of file \fBfsairatk\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "long GroupAirAttack::GroupAttackNumber"
+
+.PP
+Definition at line \fB123\fP of file \fBfsairatk\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

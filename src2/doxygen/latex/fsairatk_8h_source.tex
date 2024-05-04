@@ -1,0 +1,198 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fsairatk.h}
+\hypertarget{fsairatk_8h_source}{}\label{fsairatk_8h_source}\mbox{\hyperlink{fsairatk_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00024}00024\ \textcolor{comment}{//******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00025}00025\ \textcolor{comment}{//\ \ \ FSAIRATK.H\ \ \ \ \ \ Aerial\ Suppression\ Capabilities}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00026}00026\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00027}00027\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00028}00028\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Copyright\ 1997}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00029}00029\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Mark\ A.\ Finney,\ Systems\ for\ Environmental\ Management}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00030}00030\ \textcolor{comment}{//******************************************************************************}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00034}00034\ \textcolor{preprocessor}{\#ifndef\ AIRATTACK}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00035}00035\ \textcolor{preprocessor}{\#define\ AIRATTACK}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00037}00037\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00038}00038\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00039}00039\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00040}00040\ \textcolor{comment}{//\#include\ <mem.h>}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00041}00041\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsxwbar_8h}{fsxwbar.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00042}00042\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsxlandt_8h}{fsxlandt.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00043}00043\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00044}00044\ \textcolor{preprocessor}{\#include\ <sys/timeb.h>}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00046}00046\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00047}00047\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00048}00048\ \textcolor{comment}{//\ Bomber\ Class\ and\ Functions}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00049}00049\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00050}00050\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00052}\mbox{\hyperlink{struct_air_craft}{00052}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_air_craft}{AirCraft}}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00053}00053\ \{}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00054}\mbox{\hyperlink{struct_air_craft_af910c620581ee6f8ee941f1d28349583}{00054}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_air_craft_af910c620581ee6f8ee941f1d28349583}{AirCraftName}}[256];}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00055}\mbox{\hyperlink{struct_air_craft_a9f0370712eeb13bbb859cd37d7dcda8b}{00055}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_air_craft_a9f0370712eeb13bbb859cd37d7dcda8b}{Units}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ meters\ by\ default\ 0,\ 1\ for\ feet}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00056}\mbox{\hyperlink{struct_air_craft_a8e4f7d557207f2ae81ffd4a3e65b8fea}{00056}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_air_craft_a8e4f7d557207f2ae81ffd4a3e65b8fea}{PatternLength}}[6];}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00057}\mbox{\hyperlink{struct_air_craft_a04ecce2564c18e37616c10777b8e0ed6}{00057}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_air_craft_a04ecce2564c18e37616c10777b8e0ed6}{ReturnTime}};}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00058}\mbox{\hyperlink{struct_air_craft_a4fb2ae52ae82bf8aa6cb20ffee68ed36}{00058}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_air_craft_a4fb2ae52ae82bf8aa6cb20ffee68ed36}{Cost}};}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00060}00060\ \ \ \ \ \mbox{\hyperlink{struct_air_craft_a7ffbd6f4da5c11951b751cc2767e6e0f}{AirCraft}}();}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00061}00061\ \};}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00063}00063\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00064}00064\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00065}00065\ \textcolor{comment}{//\ Air\ Attack\ Class\ and\ Functions}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00066}00066\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00067}00067\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00069}\mbox{\hyperlink{struct_air_attack_data}{00069}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00070}00070\ \{}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00071}\mbox{\hyperlink{struct_air_attack_data_ad00f6adc4bc4557274993775c96ef089}{00071}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_air_attack_data_ad00f6adc4bc4557274993775c96ef089}{AirAttackNumber}};\ \ \ \ \textcolor{comment}{//\ unique\ index\ to\ attack\ sequence}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00072}\mbox{\hyperlink{struct_air_attack_data_a2dd2eec4b83fcea3c657832cc98c29c9}{00072}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_air_attack_data_a2dd2eec4b83fcea3c657832cc98c29c9}{AirCraftNumber}};\ \ \ \textcolor{comment}{//\ index\ to\ AirCraft\ type}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00073}\mbox{\hyperlink{struct_air_attack_data_aea83c5e5a5995aa50f6478800e5292a4}{00073}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_air_attack_data_aea83c5e5a5995aa50f6478800e5292a4}{CoverageLevel}};\ \ \ \ \ \textcolor{comment}{//\ retardant\ coveragelevel}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00074}\mbox{\hyperlink{struct_air_attack_data_ad30b839fbff2858eb355cdb9c745e8be}{00074}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_air_attack_data_ad30b839fbff2858eb355cdb9c745e8be}{PatternNumber}};\ \ \ \ \ \textcolor{comment}{//\ number\ of\ retardant\ pattern\ in\ fire\ perimeter\ array}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00075}\mbox{\hyperlink{struct_air_attack_data_aaec55cd41bcea6ab694ac8c89f07477a}{00075}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_air_attack_data_aaec55cd41bcea6ab694ac8c89f07477a}{ElapsedTime}};\ \ \ \ \ \textcolor{comment}{//\ time\ elapsed\ since\ attack\ started}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00076}\mbox{\hyperlink{struct_air_attack_data_a2e8e46c29df12f06bf07361f3da84892}{00076}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_air_attack_data_a2e8e46c29df12f06bf07361f3da84892}{EffectiveDuration}};\ \ \textcolor{comment}{//\ duration\ (minutes)\ of\ retardant}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00077}\mbox{\hyperlink{struct_air_attack_data_a89c3255305d17716c795689a30b8356c}{00077}}\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{struct_air_attack_data_a89c3255305d17716c795689a30b8356c}{next}};}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00078}00078\ \}\ \mbox{\hyperlink{struct_air_attack_data}{AirAttackData}};}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00082}\mbox{\hyperlink{class_air_attack}{00082}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_air_attack}{AirAttack}}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00083}00083\ \{}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00084}00084\ \ \ \ \ \mbox{\hyperlink{struct_air_attack_data}{AirAttackData}}*\ attack;}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00086}00086\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00087}\mbox{\hyperlink{class_air_attack_afc9bca2d7bff01f841c774a13b589844}{00087}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_air_attack_afc9bca2d7bff01f841c774a13b589844}{AirAttackNumber}};}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00089}00089\ \ \ \ \ \mbox{\hyperlink{class_air_attack_a7ce5924126c327cf786021f303292fef}{AirAttack}}();}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00090}00090\ \ \ \ \ \mbox{\hyperlink{class_air_attack_a3dad19c8ff7ef1d9f4bed1bafb83cc1d}{\string~AirAttack}}();}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00092}00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_air_attack_ad60a95db9d23a0f8fb4de2ad19dea981}{CheckEffectiveness}}(\mbox{\hyperlink{struct_air_attack_data}{AirAttackData}}*\ atk,\ \textcolor{keywordtype}{double}\ TimeStep);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00093}00093\ \};}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00096}\mbox{\hyperlink{fsairatk_8h_af430dc1c0499376afadbf5535ddb9960}{00096}}\ \textcolor{preprocessor}{\#define\ GROUPSIZE\ 20}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00098}\mbox{\hyperlink{struct_group_attack_data}{00098}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00099}00099\ \{}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00100}\mbox{\hyperlink{struct_group_attack_data_ad8982cb39a286a201de6d3ce736182f8}{00100}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_group_attack_data_ad8982cb39a286a201de6d3ce736182f8}{Suspended}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ flag\ for\ suspension\ of\ group\ air\ attack}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00101}\mbox{\hyperlink{struct_group_attack_data_aeb4158f32bc0694c82cafb13c2641019}{00101}}\ \ \ \ \ \textcolor{keywordtype}{char}\ GroupName[256];\ \ \ \ \ \textcolor{comment}{//\ name\ of\ group\ air\ attack}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00102}\mbox{\hyperlink{struct_group_attack_data_a6bd57171dc97981e598cc127133a8c5b}{00102}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_group_attack_data_a6bd57171dc97981e598cc127133a8c5b}{GroupAttackNumber}};\ \ \textcolor{comment}{//\ unique\ ID\ for\ group\ attack}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00103}\mbox{\hyperlink{struct_group_attack_data_a8f0503a626cbe9fe0830003cf3185cd9}{00103}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_group_attack_data_a8f0503a626cbe9fe0830003cf3185cd9}{Direction}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ direction\ around\ fire\ front,\ original\ or\ reversed}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00104}\mbox{\hyperlink{struct_group_attack_data_ac63ba610bab4326ce67ed52a87e87f1f}{00104}}\ \ \ \ \ \textcolor{keywordtype}{double}*\ \mbox{\hyperlink{struct_group_attack_data_ac63ba610bab4326ce67ed52a87e87f1f}{IndirectLine}};\ \ \ \ \ \ \textcolor{comment}{//\ array\ of\ vertices\ to\ follow\ for\ indirectattack}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00105}\mbox{\hyperlink{struct_group_attack_data_aa4880919514aa5e216e0a09f54b83d60}{00105}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_group_attack_data_aa4880919514aa5e216e0a09f54b83d60}{NumPoints}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ number\ of\ points\ in\ indirect\ line}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00106}\mbox{\hyperlink{struct_group_attack_data_a8a7e96e198f74c368fdb215d89f49bff}{00106}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_group_attack_data_a8a7e96e198f74c368fdb215d89f49bff}{FireNumber}};\ \ \ \ \ \ \ \textcolor{comment}{//\ fire\ number}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00107}\mbox{\hyperlink{struct_group_attack_data_a85457dcc58a5128ffb2324730b33dd72}{00107}}\ \ \ \ \ \textcolor{keywordtype}{long}*\ \mbox{\hyperlink{struct_group_attack_data_a85457dcc58a5128ffb2324730b33dd72}{CoverageLevel}};\ \ \ \ \textcolor{comment}{//\ array\ of\ coverage\ levels\ for\ indiv\ aircraft}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00108}\mbox{\hyperlink{struct_group_attack_data_a695b517885554fe61a77bb7f30127aee}{00108}}\ \ \ \ \ \textcolor{keywordtype}{long}*\ \mbox{\hyperlink{struct_group_attack_data_a695b517885554fe61a77bb7f30127aee}{EffectiveDuration}};\ \textcolor{comment}{//\ array\ of\ retardant\ duraitons\ for\ aircraft}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00109}\mbox{\hyperlink{struct_group_attack_data_a003c070d51c8341a1c38ed8ee93303f4}{00109}}\ \ \ \ \ \textcolor{keywordtype}{long}*\ \mbox{\hyperlink{struct_group_attack_data_a003c070d51c8341a1c38ed8ee93303f4}{AircraftNumber}};\ \ \ \ \textcolor{comment}{//\ array\ of\ aircraft\ types\ used\ here}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00110}\mbox{\hyperlink{struct_group_attack_data_af2824f803f8c599b53fb96d278875304}{00110}}\ \ \ \ \ \textcolor{keywordtype}{double}*\ \mbox{\hyperlink{struct_group_attack_data_af2824f803f8c599b53fb96d278875304}{WaitTime}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ indiviual\ wait\ times\ until\ drop\ for\ each\ aircraft}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00111}\mbox{\hyperlink{struct_group_attack_data_abe6220bb3ccfc79dd24d35e7c00ab8ad}{00111}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_group_attack_data_abe6220bb3ccfc79dd24d35e7c00ab8ad}{NumCurrentAircraft}};\ \textcolor{comment}{//\ num\ aircraft\ in\ group}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00112}\mbox{\hyperlink{struct_group_attack_data_ac6fd767e79191f953b9d27ada6199b76}{00112}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_group_attack_data_ac6fd767e79191f953b9d27ada6199b76}{NumTotalAircraft}};\ \ \ \textcolor{comment}{//\ num\ currently\ allocated\ for\ group}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00113}\mbox{\hyperlink{struct_group_attack_data_a184924103ab2800132d6d507400702af}{00113}}\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{struct_group_attack_data_a184924103ab2800132d6d507400702af}{next}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pointer\ to\ next\ group}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00114}00114\ \}\ \mbox{\hyperlink{struct_group_attack_data}{GroupAttackData}};}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00117}\mbox{\hyperlink{class_group_air_attack}{00117}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_group_air_attack}{GroupAirAttack}}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00118}00118\ \{}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00119}00119\ \ \ \ \ \mbox{\hyperlink{struct_group_attack_data}{GroupAttackData}}*\ attack;}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00120}00120\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ AirAttackData\ *airatk;}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00122}00122\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00123}\mbox{\hyperlink{class_group_air_attack_adca446219fd85a882d8ef0bd94f1b129}{00123}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_group_air_attack_adca446219fd85a882d8ef0bd94f1b129}{GroupAttackNumber}};}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00125}00125\ \ \ \ \ \mbox{\hyperlink{class_group_air_attack_a8ec79df3e923dc01b309768080283c23}{GroupAirAttack}}();}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00126}00126\ \ \ \ \ \mbox{\hyperlink{class_group_air_attack_a8ec79df3e923dc01b309768080283c23}{GroupAirAttack}}(\mbox{\hyperlink{struct_group_attack_data}{GroupAttackData}}*\ groupattack);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00127}00127\ \ \ \ \ \mbox{\hyperlink{class_group_air_attack_a518c958abecd0267bcfa56583e43731b}{\string~GroupAirAttack}}();}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00128}00128\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_group_air_attack_ae5c2f2d5849eda20a0668619e5b9e5a8}{GetCurrentGroup}}();}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00129}00129\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_group_air_attack_a7903098af0c46b487bbb0c1a558e2251}{SetGroup}}(\mbox{\hyperlink{struct_group_attack_data}{GroupAttackData}}*\ gatk);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00130}00130\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_group_air_attack_ad56f9d29cbd7072bc38963b5b18b83bf}{AllocGroup}}(\textcolor{keywordtype}{long}\ NewNumber);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00131}00131\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_group_air_attack_a581cb88fde8b111769a114ea56fbfd50}{AddGroupMember}}(\textcolor{keywordtype}{long}\ AircraftNumber,\ \textcolor{keywordtype}{long}\ CoverageLevel,}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ EffectiveDuration);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00133}00133\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_group_air_attack_ae92198088af8f085d30d4ae2090993d0}{SetGroupAssignment}}(\textcolor{keywordtype}{double}*\ line,\ \textcolor{keywordtype}{long}\ FireNum,\ \textcolor{keywordtype}{bool}\ Reset);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00134}00134\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_group_air_attack_a418294f59c9f4154beeb156c386fc0a6}{RemoveGroupMember}}(\textcolor{keywordtype}{long}\ membernumber);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00135}00135\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_group_air_attack_ade67794bff769e6a7b38809b61802fc4}{ReorderGroupList}}(\textcolor{keywordtype}{long}\ Start);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00136}00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_group_air_attack_a723cbb6ac56d606f9662930550536584}{ExecuteAttacks}}(\textcolor{keywordtype}{double}\ TimeIncrement);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00137}00137\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_group_air_attack_a09c4c011dfd04bfc4a95b6fd555cdfd7}{ExecuteAllIndirectAttacks}}(\textcolor{keywordtype}{double}\ TimeIncrement);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00138}00138\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_group_air_attack_a7f32feb1d2ed63cf98dfdcef1108ec4d}{GetNextAttackTime}}(\textcolor{keywordtype}{double}\ TimeIncrement);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00139}00139\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_group_air_attack_a2e7d07b227506b446b6f0aa413ed2239}{IncrementWaitTimes}}(\textcolor{keywordtype}{double}\ TimeIncrement);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00140}00140\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_group_air_attack_ac1652d411a04be3c83b490c799507107}{CheckSuspendState}}(\textcolor{keywordtype}{long}\ OnOff);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00141}00141\ \};}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00144}00144\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00145}00145\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00146}00146\ \textcolor{comment}{//\ \ \ Global\ Air\ Attack\ Support\ Functions}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00147}00147\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00148}00148\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00150}00150\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsairatk_8h_a054370878c3c42f203e3282f069324ad}{GetNumAirCraft}}();}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00151}00151\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsairatk_8h_ab26c2179e2243a405bf1c7f7ff20eaae}{SetNumAirCraft}}(\textcolor{keywordtype}{long}\ NumCraft);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00152}00152\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsairatk_8h_a048f3579a069a162112c9c2694019343}{LoadAirCraft}}(\textcolor{keywordtype}{char}*\ FileName,\ \textcolor{keywordtype}{bool}\ AppendList);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00153}00153\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsairatk_8h_ad7ab8c1a98ebd1d6abd8047df196a79c}{SetNewAirCraft}}();}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00154}00154\ \mbox{\hyperlink{struct_air_craft}{AirCraft}}*\ \mbox{\hyperlink{fsairatk_8h_ae3991140044361dec451dd686389085d}{GetAirCraft}}(\textcolor{keywordtype}{long}\ AirCraftNumber);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00155}00155\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsairatk_8h_a7792f162aea067bd5b794e69fa365087}{SetAirCraft}}(\textcolor{keywordtype}{long}\ AirCraftNumber);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00156}00156\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsairatk_8h_af945f83651eb976e1a69cb6861099802}{FreeAirCraft}}(\textcolor{keywordtype}{long}\ AirCraftNumber);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00158}00158\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsairatk_8h_a019dec53f6c7907dfa4c19269d6d286d}{SetupAirAttack}}(\textcolor{keywordtype}{long}\ AirCraftNumber,\ \textcolor{keywordtype}{long}\ CoverageLevel,\ \textcolor{keywordtype}{long}\ Duration,}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00159}00159\ \ \ \ \ \textcolor{keywordtype}{double}*\ startpoint);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00160}00160\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsairatk_8h_a54034ef7e5047015bfe8159c77df8e1a}{CancelAirAttack}}(\textcolor{keywordtype}{long}\ AirAttackCounter);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00161}00161\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsairatk_8h_aec78e18a1134dee879e02a6366d62a79}{LoadAirAttack}}(\mbox{\hyperlink{struct_air_attack_data}{AirAttackData}}\ airattackdata);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00162}00162\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsairatk_8h_a8a782e0faadb250ca0ff9581b646e506}{FreeAllAirAttacks}}();}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00163}00163\ \mbox{\hyperlink{struct_air_attack_data}{AirAttackData}}*\ \mbox{\hyperlink{fsairatk_8h_a865503ca3e1e5de2462270625ac02192}{GetAirAttack}}(\textcolor{keywordtype}{long}\ AirAttackCounter);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00164}00164\ \mbox{\hyperlink{struct_air_attack_data}{AirAttackData}}*\ \mbox{\hyperlink{fsairatk_8h_ae3fd90a5170b6dc0554428a1a881d8e6}{GetAirAttackByOrder}}(\textcolor{keywordtype}{long}\ OrdinalAttackNumber);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00165}00165\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsairatk_8h_a4cf800d748af0dc73c013b0eb37a47e5}{SetNewFireNumberForAirAttack}}(\textcolor{keywordtype}{long}\ OldFireNum,\ \textcolor{keywordtype}{long}\ NewFireNum);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00166}00166\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsairatk_8h_aaa1f41c6e1d3b7876c8a9be0ff20e234}{GetNumAirAttacks}}();}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00167}00167\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsairatk_8h_ab861f2799dc07dbe818336c65f02f89e}{SetNumAirAttacks}}(\textcolor{keywordtype}{long}\ NumAtk);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00169}00169\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsairatk_8h_a766fec17043440799a35dd10926f4622}{SetupGroupAirAttack}}(\textcolor{keywordtype}{long}\ AirCraftNumber,\ \textcolor{keywordtype}{long}\ CoverageLevel,}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00170}00170\ \ \ \ \ \textcolor{keywordtype}{long}\ Duration,\ \textcolor{keywordtype}{double}*\ line,\ \textcolor{keywordtype}{long}\ FireNum,\ \textcolor{keywordtype}{char}*\ GroupName);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00171}00171\ \mbox{\hyperlink{struct_group_attack_data}{GroupAttackData}}*\ \mbox{\hyperlink{fsairatk_8h_aacaf23103a7cb7819924a65e953a6f33}{ReassignGroupAirAttack}}(\mbox{\hyperlink{struct_group_attack_data}{GroupAttackData}}*\ atk);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00172}00172\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsairatk_8h_acab76802a16498ef1def6fab4a8b8d5c}{CancelGroupAirAttack}}(\textcolor{keywordtype}{long}\ GroupCounter);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00173}00173\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsairatk_8h_a8e7b478a4f6bdb1764654294170bb1a5}{LoadGroupAttack}}(\mbox{\hyperlink{struct_group_attack_data}{GroupAttackData}}\ groupattackdata);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00174}00174\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsairatk_8h_abb0c4a532ae09a9b5d16ac20dcfae6d9}{FreeAllGroupAirAttacks}}();}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00175}00175\ \mbox{\hyperlink{struct_group_attack_data}{GroupAttackData}}*\ \mbox{\hyperlink{fsairatk_8h_a8d209d8918c2f0215fe837cd0580e444}{GetGroupAirAttack}}(\textcolor{keywordtype}{long}\ GroupAttackCounter);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00176}00176\ \mbox{\hyperlink{struct_group_attack_data}{GroupAttackData}}*\ \mbox{\hyperlink{fsairatk_8h_a71d1c61e480744b5064481824180d035}{GetGroupAttackByOrder}}(\textcolor{keywordtype}{long}\ OrdinalAttackNumber);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00177}00177\ \mbox{\hyperlink{struct_group_attack_data}{GroupAttackData}}*\ \mbox{\hyperlink{fsairatk_8h_aca8482077b40bbce271820848accec09}{GetGroupAttackForFireNumber}}(\textcolor{keywordtype}{long}\ CurrentFire,\ \textcolor{keywordtype}{long}\ StartNum,}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00178}00178\ \ \ \ \ \textcolor{keywordtype}{long}*\ LastNum);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00179}00179\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsairatk_8h_adf86b6bcd669dfc82b34917e3c12b690}{SetNewFireNumberForGroupAttack}}(\textcolor{keywordtype}{long}\ OldFireNum,\ \textcolor{keywordtype}{long}\ NewFireNum);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00180}00180\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{fsairatk_8h_a15ac17719b277f9c0f62b0a5844ff538}{GetNumGroupAttacks}}();}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00181}00181\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsairatk_8h_abc3ffc7bf38c4adf28157df3a2d79de2}{SetNumGroupAttacks}}(\textcolor{keywordtype}{long}\ NumGroups);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00184}00184\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fsairatk_8h_ac72fc7e0df69f1f574af3d61bcdb9e26}{WriteAirAttackLog}}(\mbox{\hyperlink{struct_air_attack_data}{AirAttackData}}*\ atk);}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00186}00186\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{fsairatk_8h_source_l00193}00193\ }
+
+\end{DoxyCode}

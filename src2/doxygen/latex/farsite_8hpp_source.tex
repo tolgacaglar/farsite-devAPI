@@ -1,0 +1,1038 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/farsite.hpp}
+\hypertarget{farsite_8hpp_source}{}\label{farsite_8hpp_source}\mbox{\hyperlink{farsite_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00023}\mbox{\hyperlink{farsite_8hpp_a8a7c30a576d5706b6c0821834d01cbbc}{00023}}\ \textcolor{preprocessor}{\#define\ STRICT}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsdattyp_8h}{fsdattyp.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ftestrc_8h}{ftestrc.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsoutput_8h}{fsoutput.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsxwinpt_8h}{fsxwinpt.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00034}00034\ \textcolor{preprocessor}{\#ifndef\ BULLSHIT}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00035}\mbox{\hyperlink{farsite_8hpp_a9463cb62e7d655280818aa3b71b6ac31}{00035}}\ \textcolor{preprocessor}{\#define\ BULLSHIT}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00038}\mbox{\hyperlink{struct_t_scroll_bar_data}{00038}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_scroll_bar_data}{TScrollBarData}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00039}00039\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00040}\mbox{\hyperlink{struct_t_scroll_bar_data_a15489214fbc03743181c520fc0891283}{00040}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_t_scroll_bar_data_a15489214fbc03743181c520fc0891283}{LowValue}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00041}\mbox{\hyperlink{struct_t_scroll_bar_data_a16afe6fc4bb07a3dd9ced8f4bb75c094}{00041}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_t_scroll_bar_data_a16afe6fc4bb07a3dd9ced8f4bb75c094}{HighValue}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00042}\mbox{\hyperlink{struct_t_scroll_bar_data_a8c2dc08149afa01dc6d7b6e39d1f464b}{00042}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_t_scroll_bar_data_a8c2dc08149afa01dc6d7b6e39d1f464b}{Position}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00043}00043\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00045}\mbox{\hyperlink{struct_t_trans_w_s_data}{00045}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_trans_w_s_data}{TTransWSData}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00047}\mbox{\hyperlink{struct_t_trans_w_s_data_aebec39a2bac643c6f3a189d1b79a2b4b}{00047}}\ \ \ \ \ \mbox{\hyperlink{struct_t_trans_w_s_data_aebec39a2bac643c6f3a189d1b79a2b4b}{TTransWSData}}();}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00048}\mbox{\hyperlink{struct_t_trans_w_s_data_a99817da3b36929ff28d59c4d9579892e}{00048}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_t_trans_w_s_data_a99817da3b36929ff28d59c4d9579892e}{S1}},\ \mbox{\hyperlink{struct_t_trans_w_s_data_a8f41eb4464dabb36586bc1278d498753}{S2}},\ \mbox{\hyperlink{struct_t_trans_w_s_data_a48de2517522b102b8a8f3c5f9a48ef65}{S3}},\ \mbox{\hyperlink{struct_t_trans_w_s_data_ab12b3a55e90c088ad3102f944dee76d3}{S4}},\ \mbox{\hyperlink{struct_t_trans_w_s_data_a86abe40e0a9ed081cad7aafce8597a1f}{S5}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00049}\mbox{\hyperlink{struct_t_trans_w_s_data_ab9d4cd2f916710df95d98b9b52a14856}{00049}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_t_trans_w_s_data_ab9d4cd2f916710df95d98b9b52a14856}{M1}},\ \mbox{\hyperlink{struct_t_trans_w_s_data_a00bea99428b793092bbb2373d4a8fd91}{M2}},\ \mbox{\hyperlink{struct_t_trans_w_s_data_ace374a638535592f48358310e0a33d2f}{M3}},\ \mbox{\hyperlink{struct_t_trans_w_s_data_a6ddf94856b2735ef894a461e5f8f90d5}{M4}},\ \mbox{\hyperlink{struct_t_trans_w_s_data_af37e18807325575774bb517a7c98c9de}{M5}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00050}\mbox{\hyperlink{struct_t_trans_w_s_data_af8bda8b42df00226a736cfe371d6c3d9}{00050}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_t_trans_w_s_data_af8bda8b42df00226a736cfe371d6c3d9}{D1}},\ \mbox{\hyperlink{struct_t_trans_w_s_data_a3487f18b2513be4af96fae09e1f8d3ce}{D2}},\ \mbox{\hyperlink{struct_t_trans_w_s_data_af839ebc929a61fe3abd929fc5fff5666}{D3}},\ \mbox{\hyperlink{struct_t_trans_w_s_data_a4f5e481b150c96bc85c5556e89cd87fe}{D4}},\ \mbox{\hyperlink{struct_t_trans_w_s_data_a7b61ae4f33149c000b462046dca589bf}{D5}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00051}00051\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00053}00053\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00054}00054\ \textcolor{comment}{class\ TEditFileKB\ :\ public\ TEditFile}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00055}00055\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00056}00056\ \textcolor{comment}{\ \ public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00057}00057\ \textcolor{comment}{\ \ \ \ TEditFileKB(TWindow*\ \ \ \ \ \ \ \ parent\ =\ 0,}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00058}00058\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ int\ \ \ \ \ \ \ \ \ \ \ \ \ id\ =\ 0,}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00059}00059\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ const\ char\ far*\ text\ =\ 0,}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00060}00060\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ int\ x\ =\ 0,\ int\ y\ =\ 0,\ int\ w\ =\ 0,\ int\ h\ =\ 0,}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00061}00061\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ const\ char\ far*\ fileName\ =\ 0,}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00062}00062\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ TModule*\ \ \ \ \ \ \ \ module\ =\ 0)}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00063}00063\ \textcolor{comment}{\ \ \ \ :\ TEditFile(parent,\ id,\ text,\ x,\ y,\ w,\ h,\ fileName,\ module)\ \{\}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00064}00064\ \textcolor{comment}{\ \ DECLARE\_RESPONSE\_TABLE(TEditFileKB);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00065}00065\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00066}00066\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00067}00067\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00068}00068\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00069}00069\ \textcolor{comment}{//\ \ LCP\ Generation\ Class\ \&\&\ Transfer\ Structure}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00070}00070\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00071}00071\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00073}00073\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00074}00074\ \textcolor{comment}{class\ TWStationDlg:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00075}00075\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00076}00076\ \textcolor{comment}{\ \ \ \ TCheckBox\ *S1,\ *S2,\ *S3,\ *S4,\ *S5;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00077}00077\ \textcolor{comment}{\ \ \ \ TCheckBox\ *M1,\ *M2,\ *M3,\ *M4,\ *M5;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00078}00078\ \textcolor{comment}{\ \ \ \ TCheckBox\ *D1,\ *D2,\ *D3,\ *D4,\ *D5;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00079}00079\ \textcolor{comment}{\ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00080}00080\ \textcolor{comment}{\ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00081}00081\ \textcolor{comment}{\ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00082}00082\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00083}00083\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00084}00084\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00085}00085\ \textcolor{comment}{\ \ \ \ TWStationDlg(TWindow*\ AParent,\ const\ char*\ resID,\ TTransWSData\&\ ts);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00086}00086\ \textcolor{comment}{\ \ \ \ void\ S1Msg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00087}00087\ \textcolor{comment}{\ \ \ \ void\ S2Msg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00088}00088\ \textcolor{comment}{\ \ \ \ void\ S3Msg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00089}00089\ \textcolor{comment}{\ \ \ \ void\ S4Msg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00090}00090\ \textcolor{comment}{\ \ \ \ void\ S5Msg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00091}00091\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(TWStationDlg);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00092}00092\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00093}00093\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00095}00095\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00096}00096\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00098}00098\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00099}00099\ \textcolor{comment}{class\ FireColorControl\ :\ public\ TControl}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00100}00100\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00101}00101\ \textcolor{comment}{\ \ \ \ TBrush\ *Brush;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00102}00102\ \textcolor{comment}{\ \ \ \ RECT\ rect;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00103}00103\ \textcolor{comment}{\ \ \ \ bool\ White;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00104}00104\ \textcolor{comment}{\ \ \ \ long\ Max,\ Min,\ intervals;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00105}00105\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00106}00106\ \textcolor{comment}{\ \ \ \ char\ far*\ GetClassName()\ \{return\ "{}FireColorControl"{};\}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00107}00107\ \textcolor{comment}{\ \ \ \ void\ EvPaint();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00108}00108\ \textcolor{comment}{\ \ \ \ COLORREF\ GetFireColor(long\ Value);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00109}00109\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00110}00110\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(FireColorControl);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00111}00111\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00112}00112\ \textcolor{comment}{\ \ \ \ FireColorControl(TWindow*\ Parent,\ int\ ResId,\ bool\ White,\ long\ interval);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00113}00113\ \textcolor{comment}{\ \ \ \ void\ SetColorWhite();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00114}00114\ \textcolor{comment}{\ \ \ \ void\ DrawColors(bool\ white,\ long\ interval);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00115}00115\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00116}00116\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00117}00117\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00118}00118\ \textcolor{comment}{class\ TColorControl\ :\ public\ TControl}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00119}00119\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00120}00120\ \textcolor{comment}{\ \ \ \ TColor\ \ Color;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00121}00121\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00122}00122\ \textcolor{comment}{\ \ \ \ char\ far*\ GetClassName()\ \{return\ "{}ColorControl"{};\}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00123}00123\ \textcolor{comment}{\ \ \ \ Uint\ Transfer(void*\ buffer,\ TTransferDirection\ direction);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00124}00124\ \textcolor{comment}{\ \ \ \ void\ EvPaint();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00125}00125\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00126}00126\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(TColorControl);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00127}00127\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00128}00128\ \textcolor{comment}{\ \ \ \ TColorControl(TWindow*\ parent,\ int\ resId,\ TColor\ color);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00129}00129\ \textcolor{comment}{\ \ \ \ virtual\ void\ SetColor(TColor\ color);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00130}00130\ \textcolor{comment}{\ \ \ \ TColor\ GetColor()\ const\ \{return\ Color;\}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00131}00131\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00132}00132\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00133}00133\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00134}00134\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00137}\mbox{\hyperlink{struct_display_data}{00137}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_display_data}{DisplayData}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00138}00138\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00139}\mbox{\hyperlink{struct_display_data_a39b62695a5ac54c00666fefbe8f94e8d}{00139}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_display_data_a1dc1fd5795f74943fda407dd5deafd34}{CheckMetric}},\ \mbox{\hyperlink{struct_display_data_a39b62695a5ac54c00666fefbe8f94e8d}{CheckEnglish}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00140}\mbox{\hyperlink{struct_display_data_acbfcd28c3ae35d92fb81695d9e1427d0}{00140}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_display_data_a4d6bf4a252144a46dcd90b22ffcd313c}{VCheckWhite}},\ \mbox{\hyperlink{struct_display_data_a318e345da3be6e8d2a4cec1cd7aa1275}{VCheckFLI}},\ \mbox{\hyperlink{struct_display_data_acbfcd28c3ae35d92fb81695d9e1427d0}{VCheckFL}},\ \mbox{\hyperlink{struct_display_data_a6079b0ead7a7557817927aedf1e2ece7}{VCheckROS}},\ \mbox{\hyperlink{struct_display_data_ab1d3450c92c061279fb173f61fd28b6a}{VCheckHA}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00141}\mbox{\hyperlink{struct_display_data_a900d11c8a50dd9b5a811c961192e4e91}{00141}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_display_data_a900d11c8a50dd9b5a811c961192e4e91}{SVGA}};\ \ \ \ \ \ \ \textcolor{comment}{//ShadeOFF,\ ShadeON;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00142}\mbox{\hyperlink{struct_display_data_a80016da1285b403ce6fd341dd6739fcc}{00142}}\ \ \ \ \ \mbox{\hyperlink{struct_t_scroll_bar_data}{TScrollBarData}}\ \mbox{\hyperlink{struct_display_data_a8d6c27ed0723127c0c49571ff21477e1}{MAX}},\ \mbox{\hyperlink{struct_display_data_ae57dce56683c8a7d7c4a3ff8b98f5577}{INT}},\ \mbox{\hyperlink{struct_display_data_a6e1a92133688058a88d9d2359c9a16d6}{FM}},\ \mbox{\hyperlink{struct_display_data_a5fd4e83877dc448946d4a4d689dd8008}{FR}},\ \mbox{\hyperlink{struct_display_data_a4652ad162ad1dcddb13ff85dd0b36686}{FG}},\ \mbox{\hyperlink{struct_display_data_a80016da1285b403ce6fd341dd6739fcc}{FB}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00143}00143\ \ \ \ \ \textcolor{comment}{//\ \ char\ ThemeData[30];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00144}\mbox{\hyperlink{struct_display_data_a2a5fb922068de844991c5ac525730d4d}{00144}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_display_data_ae3f78e07902a46294678c775331a7e1d}{CMAX}}[10],\ \mbox{\hyperlink{struct_display_data_a2a5fb922068de844991c5ac525730d4d}{CCINT}}[10],\ \mbox{\hyperlink{struct_display_data_add072da8591d24d5fec884b9941612bd}{CFM}}[5];}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00145}00145\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00147}\mbox{\hyperlink{struct_t_trans_display_data}{00147}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_trans_display_data}{TTransDisplayData}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00148}00148\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00149}\mbox{\hyperlink{struct_t_trans_display_data_a6dad8516d3fb119f8ed74cb9f95ed0b1}{00149}}\ \ \ \ \ \mbox{\hyperlink{struct_display_data}{DisplayData}}\ \mbox{\hyperlink{struct_t_trans_display_data_a6dad8516d3fb119f8ed74cb9f95ed0b1}{Dat}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00150}00150\ \ \ \ \ \textcolor{comment}{//TComboBoxData\ theme;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00151}\mbox{\hyperlink{struct_t_trans_display_data_a732c828fe772561d96d32e3097a5c77e}{00151}}\ \ \ \ \ \mbox{\hyperlink{struct_t_trans_display_data_a732c828fe772561d96d32e3097a5c77e}{TTransDisplayData}}();}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00152}00152\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00155}00155\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00156}00156\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00159}\mbox{\hyperlink{struct_land_display_data}{00159}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_land_display_data}{LandDisplayData}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00160}00160\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00161}\mbox{\hyperlink{struct_land_display_data_a9a9b7f2acc360bbbadb3c84113f64c54}{00161}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_land_display_data_a9a9b7f2acc360bbbadb3c84113f64c54}{GridOnOff}},\ \mbox{\hyperlink{struct_land_display_data_aa3c5e34e7cb86fe97857db592c0f924e}{ShadeOnOff}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00162}\mbox{\hyperlink{struct_land_display_data_a5402e6b50713fda8ed9e60aae3499082}{00162}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_land_display_data_aae4b0f14d639d95eb590934917c2bb9a}{LN}},\ \mbox{\hyperlink{struct_land_display_data_a159bc4e0ad2e9764c6db64ef3ffeccde}{LS}},\ \mbox{\hyperlink{struct_land_display_data_a5402e6b50713fda8ed9e60aae3499082}{LE}},\ \mbox{\hyperlink{struct_land_display_data_aff001390bc3c8ba1c0cf32efaa3ae5c2}{LW}},\ \mbox{\hyperlink{struct_land_display_data_a9372fc91edcf5ecd778fd2db0fb7e638}{LNE}},\ \mbox{\hyperlink{struct_land_display_data_a1cb5035afec4e42111e8c65eac1e0bed}{LNW}},\ \mbox{\hyperlink{struct_land_display_data_a57b0687a872edee07918ca24e1d5d2e5}{LSE}},\ \mbox{\hyperlink{struct_land_display_data_a6caffbb9227505552c8328841ab19926}{LSW}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00163}\mbox{\hyperlink{struct_land_display_data_abe4cec0a4be3032d65e8a67f1aae6598}{00163}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_land_display_data_a0a90c1bd1dfe6f6a4bd0d842e099740b}{white}},\ \mbox{\hyperlink{struct_land_display_data_a2301b3ee0a643e9973be3c5e5cab7c67}{lgray}},\ \mbox{\hyperlink{struct_land_display_data_a085233e4bba3a918781c9032582a460c}{dgray}},\ \mbox{\hyperlink{struct_land_display_data_abe4cec0a4be3032d65e8a67f1aae6598}{black}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00164}\mbox{\hyperlink{struct_land_display_data_a220046148a5aa872efccb5179cd4e494}{00164}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_land_display_data_a769a1cf7183e38ce5a8591f943c12084}{VE}},\ \mbox{\hyperlink{struct_land_display_data_a3e1533666e66987e783738726e365768}{VS}},\ \mbox{\hyperlink{struct_land_display_data_a220046148a5aa872efccb5179cd4e494}{VA}},\ \mbox{\hyperlink{struct_land_display_data_a5ea642a419af45f61fdd325599cdabc1}{VF}},\ \mbox{\hyperlink{struct_land_display_data_a59e3c5782367bb719f124a5ea4353346}{VC}},\ \mbox{\hyperlink{struct_land_display_data_aa331471cbb0746dac21e382678d09d00}{VH}},\ \mbox{\hyperlink{struct_land_display_data_a9d04b256c3b189bfb9c0b7f0a2443463}{VB}},\ \mbox{\hyperlink{struct_land_display_data_a4579a1206b5c0829c6a074b5acad6d91}{VP}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00165}\mbox{\hyperlink{struct_land_display_data_a1f992e1428ff97d54d30d6068458f700}{00165}}\ \ \ \ \ \mbox{\hyperlink{struct_t_scroll_bar_data}{TScrollBarData}}\ \mbox{\hyperlink{struct_land_display_data_a1f992e1428ff97d54d30d6068458f700}{Res}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00166}\mbox{\hyperlink{struct_land_display_data_a1907b80ad2ebeb9c9ee48c6f9a31effe}{00166}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_land_display_data_a1907b80ad2ebeb9c9ee48c6f9a31effe}{RES}}[10];}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00167}00167\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00170}\mbox{\hyperlink{struct_t_trans_land_display_data}{00170}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_trans_land_display_data}{TTransLandDisplayData}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00171}00171\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00172}\mbox{\hyperlink{struct_t_trans_land_display_data_a35329789caeec1df57d1a40772930b05}{00172}}\ \ \ \ \ \mbox{\hyperlink{struct_land_display_data}{LandDisplayData}}\ \mbox{\hyperlink{struct_t_trans_land_display_data_a35329789caeec1df57d1a40772930b05}{Dat}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00173}\mbox{\hyperlink{struct_t_trans_land_display_data_a788c8ec9b4f3ed7afa84724508443764}{00173}}\ \ \ \ \ \mbox{\hyperlink{struct_t_trans_land_display_data_a788c8ec9b4f3ed7afa84724508443764}{TTransLandDisplayData}}();}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00174}00174\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00177}00177\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00178}00178\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00181}\mbox{\hyperlink{struct_output_data}{00181}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_output_data}{OutputData}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00182}00182\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00183}\mbox{\hyperlink{struct_output_data_afe5d44272ccd234d4b50c4bbdc95a147}{00183}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_output_data_afe5d44272ccd234d4b50c4bbdc95a147}{CheckR}},\ \mbox{\hyperlink{struct_output_data_af58bd9b384411600cf28dc3d946c1870}{CheckV}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00184}\mbox{\hyperlink{struct_output_data_a9c373e415cf759dac600af4589eb8725}{00184}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_output_data_afe77fa895cb6a4a0c5b4149f7a19e7b0}{OCheckTOA}},\ \mbox{\hyperlink{struct_output_data_ad04bed8494bf5dd350468b1ee3d44825}{OCheckFLI}},\ \mbox{\hyperlink{struct_output_data_a9c373e415cf759dac600af4589eb8725}{OCheckFL}},\ \mbox{\hyperlink{struct_output_data_aa4eac6efa14df373173e2fabc6b514bf}{OCheckROS}},\ \mbox{\hyperlink{struct_output_data_a58ab3b39209430151f6bcb6993160ff3}{OCheckHA}},\ \mbox{\hyperlink{struct_output_data_af466b09c0f09733396cb87e1acf73160}{OCheckRI}},}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00185}\mbox{\hyperlink{struct_output_data_a1c22bfa9cc14703b34ab67cdc692b570}{00185}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_output_data_a1c22bfa9cc14703b34ab67cdc692b570}{OCheckCF}},\ \mbox{\hyperlink{struct_output_data_a230cc8370d0bde8ed28b786c6ec89915}{OCheckFD}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00186}\mbox{\hyperlink{struct_output_data_ad9419a02e924c2d8aacbd5bb6686633a}{00186}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_output_data_ad9419a02e924c2d8aacbd5bb6686633a}{DispEng}},\ \mbox{\hyperlink{struct_output_data_a10bd1e535db72820df42aede34673688}{DispMet}},\ \mbox{\hyperlink{struct_output_data_ac6477c4034787a97b5bfdde4631c4d9c}{OtpEng}},\ \mbox{\hyperlink{struct_output_data_a3b9f9b7a62a31e21b23caa0e935fb6eb}{OtpMet}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00187}\mbox{\hyperlink{struct_output_data_ae36fdb20983c9927371ea45267a12ba0}{00187}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_output_data_ae36fdb20983c9927371ea45267a12ba0}{CheckArcVect}},\ \mbox{\hyperlink{struct_output_data_a2346f5dbe252db10d0a401f64ad20a57}{CheckOptVect}},\ \mbox{\hyperlink{struct_output_data_a09e7077ef728cb2d66420e176c57f4a8}{CheckGrassRast}},\ \mbox{\hyperlink{struct_output_data_abc6c651b8cb51eacb9ee386be25eafe3}{CheckGridRast}},}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00188}\mbox{\hyperlink{struct_output_data_a799f71ba3936160390974f56f55843a7}{00188}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_output_data_a799f71ba3936160390974f56f55843a7}{CheckOptRast}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00189}\mbox{\hyperlink{struct_output_data_a7f1257be08aefbb820c35f13e38a3f4a}{00189}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_output_data_a7f1257be08aefbb820c35f13e38a3f4a}{CheckVisOnly}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00190}\mbox{\hyperlink{struct_output_data_a9b8b083318398f35c66b2adce1dc08f5}{00190}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_output_data_a793768db091ae098e7c8b0e7a6d05714}{CheckShape}},\ \mbox{\hyperlink{struct_output_data_a64e8aefc4e15ba2605bef0e498d47ca3}{CheckShapeVisOnly}},\ \mbox{\hyperlink{struct_output_data_a23c1165268c8498b8ce7fa7f936d8581}{CheckShapeBarSep}},\ \mbox{\hyperlink{struct_output_data_a9b8b083318398f35c66b2adce1dc08f5}{CheckLine}},\ \mbox{\hyperlink{struct_output_data_abe7d0ab11e77310bf85ef966c057c21d}{CheckPoly}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00191}\mbox{\hyperlink{struct_output_data_a785cbcdc0bc44723748dfac0a5319a7a}{00191}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_output_data_a785cbcdc0bc44723748dfac0a5319a7a}{logfile}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00192}\mbox{\hyperlink{struct_output_data_ab1307a93adc4a45c9e7667c97d6126ce}{00192}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_output_data_ab1307a93adc4a45c9e7667c97d6126ce}{RastStatX}}[15];}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00193}\mbox{\hyperlink{struct_output_data_ab348065513f8a25289190bb1a2de795c}{00193}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_output_data_ab348065513f8a25289190bb1a2de795c}{RastStatY}}[15];}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00194}\mbox{\hyperlink{struct_output_data_ad73828c1b022fa717e5aca6526d80a17}{00194}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_output_data_ad73828c1b022fa717e5aca6526d80a17}{xres}},\ \mbox{\hyperlink{struct_output_data_ab4f9780e25115667102eef7931fff05d}{yres}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00195}00195\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00198}\mbox{\hyperlink{struct_t_trans_output_data}{00198}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_trans_output_data}{TTransOutputData}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00199}00199\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00200}\mbox{\hyperlink{struct_t_trans_output_data_af033161e9bdccf754905478ec2ad55b7}{00200}}\ \ \ \ \ \mbox{\hyperlink{struct_output_data}{OutputData}}\ \mbox{\hyperlink{struct_t_trans_output_data_af033161e9bdccf754905478ec2ad55b7}{Dat}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00201}\mbox{\hyperlink{struct_t_trans_output_data_a854332749695350df38a428465459ef4}{00201}}\ \ \ \ \ \mbox{\hyperlink{struct_t_trans_output_data_a854332749695350df38a428465459ef4}{TTransOutputData}}();}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00202}\mbox{\hyperlink{struct_t_trans_output_data_ac56f5a694b4f291f2d683bc9286b5cbc}{00202}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_t_trans_output_data_ac56f5a694b4f291f2d683bc9286b5cbc}{ResetData}}(\textcolor{keywordtype}{bool}\ All);}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00203}00203\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00204}00204\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00205}00205\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00208}\mbox{\hyperlink{struct_model_data}{00208}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_model_data}{ModelData}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00209}00209\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00210}\mbox{\hyperlink{struct_model_data_ae81c1c72b865ee847df4826b1a8bb175}{00210}}\ \ \ \ \ \mbox{\hyperlink{struct_t_scroll_bar_data}{TScrollBarData}}\ \mbox{\hyperlink{struct_model_data_a5eba699b16e4f2f2fb195ed065457b6c}{DTS}},\ \mbox{\hyperlink{struct_model_data_a918de7c9938b132ba0d0666813c35b21}{DVTS}},\ \mbox{\hyperlink{struct_model_data_ae81c1c72b865ee847df4826b1a8bb175}{DPRES}},\ \mbox{\hyperlink{struct_model_data_a290408e291a8c9f684df8e3ae8301933}{DSRES}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00211}\mbox{\hyperlink{struct_model_data_a54b9c366dd563e88b8ae426e7fe1746e}{00211}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_model_data_a54b9c366dd563e88b8ae426e7fe1746e}{ChkV1}},\ \mbox{\hyperlink{struct_model_data_af9d6b5b980c0d1bbe9ec9c4d562a45e2}{ChkV2}},\ \mbox{\hyperlink{struct_model_data_a2b0cbc818a5a4e1c1d710f8ae4af31dd}{Metric}},\ \mbox{\hyperlink{struct_model_data_a05b2cd9ba741dd8452babb49a9c44240}{English}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00212}\mbox{\hyperlink{struct_model_data_a72e8ed8ae24f91348bbdf13f266b4045}{00212}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_model_data_a9c03815866f72c0dcb6b188a7ed0661e}{SDTS}}[20],\ \mbox{\hyperlink{struct_model_data_a14616926ddaa3d2673c3f8e5419312f6}{SDVTS}}[20],\ \mbox{\hyperlink{struct_model_data_a9b0a6655b9d2688bf570af6134d06c45}{SDVTS2}}[20],\ \mbox{\hyperlink{struct_model_data_a72e8ed8ae24f91348bbdf13f266b4045}{SDPRES}}[20],\ \mbox{\hyperlink{struct_model_data_a9ccc99cf13de339551f57458f91f30db}{SDSRES}}[20];}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00213}00213\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00215}\mbox{\hyperlink{struct_t_trans_model_data}{00215}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_trans_model_data}{TTransModelData}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00216}00216\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00217}\mbox{\hyperlink{struct_t_trans_model_data_a4c553aa09dbdff9a71ca67ba7aad9bfc}{00217}}\ \ \ \ \ \mbox{\hyperlink{struct_model_data}{ModelData}}\ \mbox{\hyperlink{struct_t_trans_model_data_a4c553aa09dbdff9a71ca67ba7aad9bfc}{Dat}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00218}\mbox{\hyperlink{struct_t_trans_model_data_abc7045e7448364dc4b321498d76bb6c1}{00218}}\ \ \ \ \ \mbox{\hyperlink{struct_t_trans_model_data_abc7045e7448364dc4b321498d76bb6c1}{TTransModelData}}();}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00219}00219\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00222}00222\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00223}00223\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00225}\mbox{\hyperlink{struct_options_data}{00225}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_options_data}{OptionsData}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00226}00226\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00227}\mbox{\hyperlink{struct_options_data_ad3712dea7b65d5ee2970842c0c353b82}{00227}}\ \ \ \ \ \mbox{\hyperlink{struct_t_scroll_bar_data}{TScrollBarData}}\ \mbox{\hyperlink{struct_options_data_ad3712dea7b65d5ee2970842c0c353b82}{PIgnite}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00228}\mbox{\hyperlink{struct_options_data_ac4e6ab9505aefcc1c3cbe5e5ff2bccfc}{00228}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_options_data_a27a49be9509d5f2f4eafd98bb8b36f5e}{Meth1}},\ \mbox{\hyperlink{struct_options_data_af5d5150391094398b29fb32c36e4736e}{Meth2}},\ \textcolor{comment}{/*Meth3,*/}\ \mbox{\hyperlink{struct_options_data_a3ca6d40caa83be643f2e9266436cffc3}{ExpChk}},\ \mbox{\hyperlink{struct_options_data_ac4e6ab9505aefcc1c3cbe5e5ff2bccfc}{Crown}},\ \mbox{\hyperlink{struct_options_data_a8537190e0fcd865472ba02de2a160abb}{Link}},\ \mbox{\hyperlink{struct_options_data_a4902c58a6fdf6b3fd035b01fd8b56c65}{SSpot}},\ \mbox{\hyperlink{struct_options_data_a83534943ce3999c7986e7c54bb581e4b}{TSpot}},\ \mbox{\hyperlink{struct_options_data_a9273e7cbd2d4e6c20369e5dc2d895adc}{SGrowth}},}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00229}\mbox{\hyperlink{struct_options_data_a74c3957532a5c38907db956e8bc19d19}{00229}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_options_data_a74c3957532a5c38907db956e8bc19d19}{Back}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00230}\mbox{\hyperlink{struct_options_data_ae0783b9c86dcdb20eaaeaf531e6d7485}{00230}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_options_data_ae0783b9c86dcdb20eaaeaf531e6d7485}{pignite}}[20];}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00231}00231\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00234}\mbox{\hyperlink{struct_t_trans_options_data}{00234}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_trans_options_data}{TTransOptionsData}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00235}00235\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00236}\mbox{\hyperlink{struct_t_trans_options_data_afe09edfe636edddfb5d887b934971132}{00236}}\ \ \ \ \ \mbox{\hyperlink{struct_options_data}{OptionsData}}\ \mbox{\hyperlink{struct_t_trans_options_data_afe09edfe636edddfb5d887b934971132}{Dat}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00237}\mbox{\hyperlink{struct_t_trans_options_data_a3d0fc5a5e215d3b83c91750f67701822}{00237}}\ \ \ \ \ \mbox{\hyperlink{struct_t_trans_options_data_a3d0fc5a5e215d3b83c91750f67701822}{TTransOptionsData}}();}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00238}00238\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00240}00240\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00241}00241\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00243}\mbox{\hyperlink{struct_duration_data}{00243}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_duration_data}{DurationData}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00244}00244\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00245}\mbox{\hyperlink{struct_duration_data_ae004b73aed15e0201d16e715c28742f5}{00245}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_duration_data_a1be81f501aad986ddf63504a7f20a485}{Start}},\ \mbox{\hyperlink{struct_duration_data_ae004b73aed15e0201d16e715c28742f5}{Ending}};\textcolor{comment}{//,\ Elapse;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00246}\mbox{\hyperlink{struct_duration_data_ae42e293aefc67f6d6f068f90831f9b49}{00246}}\ \ \ \ \ \mbox{\hyperlink{struct_t_scroll_bar_data}{TScrollBarData}}\ \mbox{\hyperlink{struct_duration_data_ac932852e8657a8134f9171da900f2898}{Mo}},\ \mbox{\hyperlink{struct_duration_data_ae42e293aefc67f6d6f068f90831f9b49}{Day}},\ \mbox{\hyperlink{struct_duration_data_a52b2c5453efc375e8fca59e19af8f5cf}{Hr}},\ \mbox{\hyperlink{struct_duration_data_aac35f81a8ad1691de506beab66ff449a}{Min}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00247}\mbox{\hyperlink{struct_duration_data_a2d02533f9e09a378dc55cd4dabb9c6bf}{00247}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_duration_data_a2d02533f9e09a378dc55cd4dabb9c6bf}{Reset}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00248}\mbox{\hyperlink{struct_duration_data_ab983765bfdbf460f739ba153a6eddf96}{00248}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_duration_data_a97b56fbfc4dac5ae4ce26ba13bf09cf0}{STMo}}[10],\ \mbox{\hyperlink{struct_duration_data_ab983765bfdbf460f739ba153a6eddf96}{STDay}}[10],\ \mbox{\hyperlink{struct_duration_data_a28c5655929f632e273377f63b108b59f}{STHr}}[10];}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00249}\mbox{\hyperlink{struct_duration_data_a925848a8caebd0002d59df4f18b9c9ab}{00249}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_duration_data_a44d551d6c1269b3910a7b117a212558d}{CMo}}[10],\ \mbox{\hyperlink{struct_duration_data_a925848a8caebd0002d59df4f18b9c9ab}{CDay}}[10],\ \mbox{\hyperlink{struct_duration_data_ac3a033a62da1c38f754746b49a3c433f}{CHr}}[10],\ \mbox{\hyperlink{struct_duration_data_a26451829380d77f8793b7d00b802c439}{CMin}}[10];}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00250}00250\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00252}\mbox{\hyperlink{struct_t_trans_duration_data}{00252}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_trans_duration_data}{TTransDurationData}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00253}00253\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00254}\mbox{\hyperlink{struct_t_trans_duration_data_a71351a6899451ddea61f4b08daff2fd6}{00254}}\ \ \ \ \ \mbox{\hyperlink{struct_duration_data}{DurationData}}\ \mbox{\hyperlink{struct_t_trans_duration_data_a71351a6899451ddea61f4b08daff2fd6}{Dat}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00255}\mbox{\hyperlink{struct_t_trans_duration_data_aab7edaf36bc6554d18feba2c2f67f293}{00255}}\ \ \ \ \ \mbox{\hyperlink{struct_t_trans_duration_data_aab7edaf36bc6554d18feba2c2f67f293}{TTransDurationData}}();}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00256}00256\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00257}00257\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00258}00258\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00259}00259\ \textcolor{comment}{class\ \_USERCLASS\ NewDuration:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00260}00260\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00261}00261\ \textcolor{comment}{\ \ \ \ \ char\ Line[8];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00262}00262\ \textcolor{comment}{\ \ \ \ \ bool\ CanSetStart;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00263}00263\ \textcolor{comment}{\ \ \ \ \ long\ Val;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00264}00264\ \textcolor{comment}{\ \ \ \ \ bool\ Ret;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00265}00265\ \textcolor{comment}{\ \ \ \ \ TCheckBox\ *cond;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00266}00266\ \textcolor{comment}{\ \ \ \ \ TUpDown\ *ucmo,\ *ucdy,\ *usmo,\ *usdy,\ *ushr,\ *usmn,\ *uemo,\ *uedy,\ *uehr,\ *uemn;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00267}00267\ \textcolor{comment}{\ \ \ \ TStatic\ *scmo,\ *scdy,\ *ssmo,\ *ssdy,\ *sshr,\ *ssmn,\ *semo,\ *sedy,\ *sehr,\ *semn;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00268}00268\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00269}00269\ \textcolor{comment}{\ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00270}00270\ \textcolor{comment}{\ \ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00271}00271\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00272}00272\ \textcolor{comment}{\ \ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00273}00273\ \textcolor{comment}{\ \ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00274}00274\ \textcolor{comment}{\ \ \ \ \ bool\ CheckMonth(long\ *Mo,\ long\ type);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00275}00275\ \textcolor{comment}{\ \ \ \ \ bool\ CheckDay(long\ *Dy,\ long\ type);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00276}00276\ \textcolor{comment}{\ \ \ \ \ bool\ CheckHour(long\ *Hr,\ long\ type);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00277}00277\ \textcolor{comment}{\ \ \ \ \ bool\ CheckMin(long\ *Mn,\ long\ type);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00278}00278\ \textcolor{comment}{\ \ \ \ \ void\ SetConditioning();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00279}00279\ \textcolor{comment}{\ \ \ \ \ bool\ Cond\_Mo(TNmUpDown\ \&nm);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00280}00280\ \textcolor{comment}{\ \ \ \ \ bool\ Cond\_Dy(TNmUpDown\ \&nm);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00281}00281\ \textcolor{comment}{\ \ \ \ \ bool\ Start\_Mo(TNmUpDown\ \&nm);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00282}00282\ \textcolor{comment}{\ \ \ \ \ bool\ Start\_Dy(TNmUpDown\ \&nm);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00283}00283\ \textcolor{comment}{\ \ \ \ \ bool\ Start\_Hr(TNmUpDown\ \&nm);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00284}00284\ \textcolor{comment}{\ \ \ \ \ bool\ Start\_Mn(TNmUpDown\ \&nm);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00285}00285\ \textcolor{comment}{\ \ \ \ \ bool\ End\_Mo(TNmUpDown\ \&nm);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00286}00286\ \textcolor{comment}{\ \ \ \ \ bool\ End\_Dy(TNmUpDown\ \&nm);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00287}00287\ \textcolor{comment}{\ \ \ \ \ bool\ End\_Hr(TNmUpDown\ \&nm);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00288}00288\ \textcolor{comment}{\ \ \ \ \ bool\ End\_Mn(TNmUpDown\ \&nm);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00289}00289\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00290}00290\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(\ NewDuration\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00291}00291\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00292}00292\ \textcolor{comment}{\ \ \ \ NewDuration(TWindow\ *Parent,\ const\ char\ *resID,\ bool\ CanSetStart);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00293}00293\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00294}00294\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00295}00295\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00296}00296\ \textcolor{comment}{class\ TSimOptions:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00297}00297\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00298}00298\ \textcolor{comment}{\ \ \ \ TCheckBox\ *DurReset,\ *IgnReset,\ *RotateIgn,\ *ShowFires,\ *AdjIgns,\ *Preserve;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00299}00299\ \textcolor{comment}{\ \ \ \ \ TEdit\ *ethread;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00300}00300\ \textcolor{comment}{\ \ \ \ \ TUpDown\ *udthread;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00301}00301\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00302}00302\ \textcolor{comment}{\ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00303}00303\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00304}00304\ \textcolor{comment}{\ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00305}00305\ \textcolor{comment}{\ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00306}00306\ \textcolor{comment}{\ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00307}00307\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00308}00308\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00309}00309\ \textcolor{comment}{\ \ \ \ TSimOptions(TWindow*\ AParent,\ const\ char*\ resID);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00310}00310\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00311}00311\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(TSimOptions);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00312}00312\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00313}00313\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00314}00314\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00315}00315\ \textcolor{comment}{class\ TPostFrontDataWindow:\ public\ TFrameWindow}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00316}00316\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00317}00317\ \textcolor{comment}{\ \ \ \ SIZE\ TextHt;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00318}00318\ \textcolor{comment}{\ \ \ \ char\ test[4];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00319}00319\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00320}00320\ \textcolor{comment}{\ \ \ \ HDC\ hTempDC;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00321}00321\ \textcolor{comment}{\ \ \ \ long\ VNumber,\ PFDataType,\ Units;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00322}00322\ \textcolor{comment}{\ \ \ \ \ double\ Conv;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00323}00323\ \textcolor{comment}{\ \ \ \ WindowSettings\ *WinRect;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00324}00324\ \textcolor{comment}{\ \ \ \ WINDOWPLACEMENT\ wpt;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00325}00325\ \textcolor{comment}{\ \ \ \ \ bool\ LButtonDown;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00326}00326\ \textcolor{comment}{\ \ \ \ \ long\ StartLine,\ EndLine;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00327}00327\ \textcolor{comment}{\ \ \ \ \ long\ StartPos,\ EndPos;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00328}00328\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00329}00329\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00330}00330\ \textcolor{comment}{\ \ \ \ void\ EvSize(\ Uint,\ TSize\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00331}00331\ \textcolor{comment}{\ \ \ \ void\ EvMove(TPoint\ \&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00332}00332\ \textcolor{comment}{\ \ \ \ void\ Paint(TDC\&\ hDC,\ bool,\ TRect\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00333}00333\ \textcolor{comment}{\ \ \ \ void\ EvRButtonDown(\ Uint,\ TPoint\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00334}00334\ \textcolor{comment}{\ \ \ \ \ void\ EvLButtonDown(Uint,\ TPoint\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00335}00335\ \textcolor{comment}{\ \ \ \ \ void\ EvLButtonUp(Uint,\ TPoint\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00336}00336\ \textcolor{comment}{\ \ \ \ \ void\ EvMouseMove(Uint,\ TPoint\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00337}00337\ \textcolor{comment}{\ \ \ \ \ void\ SendWindowToClipboard();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00338}00338\ \textcolor{comment}{\ \ \ \ \ void\ SaveDataToFile();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00339}00339\ \textcolor{comment}{\ \ \ \ \ void\ SelectCaption();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00340}00340\ \textcolor{comment}{\ \ \ \ \ void\ CalcChange();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00341}00341\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00342}00342\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(TPostFrontDataWindow);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00343}00343\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00344}00344\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00345}00345\ \textcolor{comment}{\ \ \ \ TPostFrontDataWindow(TWindow*\ AParent,\ const\ char*\ ATitle);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00346}00346\ \textcolor{comment}{\ \ \ \ \string~TPostFrontDataWindow()\{\}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00347}00347\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00348}00348\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00349}00349\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00350}00350\ \textcolor{comment}{class\ TFDataWindow:\ public\ TFrameWindow}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00351}00351\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00352}00352\ \textcolor{comment}{\ \ \ \ SIZE\ TextHt;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00353}00353\ \textcolor{comment}{\ \ \ \ char\ test[4];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00354}00354\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00355}00355\ \textcolor{comment}{\ \ \ \ HDC\ hTempDC;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00356}00356\ \textcolor{comment}{\ \ \ \ long\ VNumber;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00357}00357\ \textcolor{comment}{\ \ \ \ WindowSettings\ *WinRect;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00358}00358\ \textcolor{comment}{\ \ \ \ WINDOWPLACEMENT\ wpt;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00359}00359\ \textcolor{comment}{\ \ \ \ \ bool\ LButtonDown;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00360}00360\ \textcolor{comment}{\ \ \ \ \ long\ StartLine,\ EndLine;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00361}00361\ \textcolor{comment}{\ \ \ \ \ long\ StartPos,\ EndPos;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00362}00362\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00363}00363\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00364}00364\ \textcolor{comment}{\ \ \ \ void\ EvSize(\ Uint,\ TSize\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00365}00365\ \textcolor{comment}{\ \ \ \ void\ EvMove(TPoint\ \&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00366}00366\ \textcolor{comment}{\ \ \ \ void\ Paint(TDC\&\ hDC,\ bool,\ TRect\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00367}00367\ \textcolor{comment}{\ \ \ \ void\ EvRButtonDown(Uint,\ TPoint\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00368}00368\ \textcolor{comment}{\ \ \ \ \ void\ EvLButtonDown(Uint,\ TPoint\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00369}00369\ \textcolor{comment}{\ \ \ \ \ void\ EvLButtonUp(Uint,\ TPoint\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00370}00370\ \textcolor{comment}{\ \ \ \ \ void\ EvMouseMove(Uint,\ TPoint\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00371}00371\ \textcolor{comment}{\ \ \ \ \ void\ SendWindowToClipboard();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00372}00372\ \textcolor{comment}{\ \ \ \ \ void\ SaveDataToFile();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00373}00373\ \textcolor{comment}{\ \ \ \ \ void\ CalcChange();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00374}00374\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00375}00375\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(TFDataWindow);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00376}00376\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00377}00377\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00378}00378\ \textcolor{comment}{\ \ \ \ TFDataWindow(TWindow*\ AParent,\ const\ char*\ ATitle);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00379}00379\ \textcolor{comment}{\ \ \ \ \string~TFDataWindow()\{\}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00380}00380\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00381}00381\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00382}00382\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00383}00383\ \textcolor{comment}{class\ TADataWindow:\ public\ TFrameWindow}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00384}00384\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00385}00385\ \textcolor{comment}{\ \ \ \ SIZE\ TextHt;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00386}00386\ \textcolor{comment}{\ \ \ \ char\ test[4];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00387}00387\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00388}00388\ \textcolor{comment}{\ \ \ \ HDC\ hTempDC;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00389}00389\ \textcolor{comment}{\ \ \ \ long\ VNumber;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00390}00390\ \textcolor{comment}{\ \ \ \ WindowSettings\ *WinRect;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00391}00391\ \textcolor{comment}{\ \ \ \ WINDOWPLACEMENT\ wpt;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00392}00392\ \textcolor{comment}{\ \ \ \ \ bool\ LButtonDown;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00393}00393\ \textcolor{comment}{\ \ \ \ \ long\ StartLine,\ EndLine;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00394}00394\ \textcolor{comment}{\ \ \ \ \ long\ StartPos,\ EndPos;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00395}00395\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00396}00396\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00397}00397\ \textcolor{comment}{\ \ \ \ void\ EvMove(TPoint\ \&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00398}00398\ \textcolor{comment}{\ \ \ \ void\ EvSize(\ Uint,\ TSize\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00399}00399\ \textcolor{comment}{\ \ \ \ void\ Paint(TDC\&\ hDC,\ bool,\ TRect\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00400}00400\ \textcolor{comment}{\ \ \ \ void\ EvRButtonDown(\ Uint,\ TPoint\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00401}00401\ \textcolor{comment}{\ \ \ \ \ void\ EvLButtonDown(Uint,\ TPoint\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00402}00402\ \textcolor{comment}{\ \ \ \ \ void\ EvLButtonUp(Uint,\ TPoint\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00403}00403\ \textcolor{comment}{\ \ \ \ \ void\ EvMouseMove(Uint,\ TPoint\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00404}00404\ \textcolor{comment}{\ \ \ \ \ void\ SendWindowToClipboard();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00405}00405\ \textcolor{comment}{\ \ \ \ \ void\ SaveDataToFile();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00406}00406\ \textcolor{comment}{\ \ \ \ \ void\ CalcChange();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00407}00407\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00408}00408\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(TADataWindow);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00409}00409\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00410}00410\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00411}00411\ \textcolor{comment}{\ \ \ \ TADataWindow(TWindow*\ AParent,\ const\ char*\ ATitle);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00412}00412\ \textcolor{comment}{\ \ \ \ \string~TADataWindow()}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00413}00413\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00414}00414\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00415}00415\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00416}00416\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00417}00417\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00418}00418\ \textcolor{comment}{class\ TPDataWindow:\ public\ TFrameWindow}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00419}00419\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00420}00420\ \textcolor{comment}{\ \ \ \ SIZE\ TextHt;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00421}00421\ \textcolor{comment}{\ \ \ \ char\ test[4];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00422}00422\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00423}00423\ \textcolor{comment}{\ \ \ \ HDC\ hTempDC;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00424}00424\ \textcolor{comment}{\ \ \ \ long\ VNumber;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00425}00425\ \textcolor{comment}{\ \ \ \ WindowSettings\ *WinRect;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00426}00426\ \textcolor{comment}{\ \ \ \ WINDOWPLACEMENT\ wpt;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00427}00427\ \textcolor{comment}{\ \ \ \ \ bool\ LButtonDown;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00428}00428\ \textcolor{comment}{\ \ \ \ \ long\ StartLine,\ EndLine;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00429}00429\ \textcolor{comment}{\ \ \ \ \ long\ StartPos,\ EndPos;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00430}00430\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00431}00431\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00432}00432\ \textcolor{comment}{\ \ \ \ void\ EvMove(TPoint\ \&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00433}00433\ \textcolor{comment}{\ \ \ \ void\ EvSize(\ Uint,\ TSize\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00434}00434\ \textcolor{comment}{\ \ \ \ void\ Paint(TDC\&\ hDC,\ bool,\ TRect\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00435}00435\ \textcolor{comment}{\ \ \ \ void\ EvRButtonDown(\ Uint,\ TPoint\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00436}00436\ \textcolor{comment}{\ \ \ \ \ void\ EvLButtonDown(Uint,\ TPoint\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00437}00437\ \textcolor{comment}{\ \ \ \ \ void\ EvLButtonUp(Uint,\ TPoint\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00438}00438\ \textcolor{comment}{\ \ \ \ \ void\ EvMouseMove(Uint,\ TPoint\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00439}00439\ \textcolor{comment}{\ \ \ \ \ void\ SendWindowToClipboard();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00440}00440\ \textcolor{comment}{\ \ \ \ \ void\ SaveDataToFile();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00441}00441\ \textcolor{comment}{\ \ \ \ \ void\ CalcChange();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00442}00442\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00443}00443\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(TPDataWindow);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00444}00444\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00445}00445\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00446}00446\ \textcolor{comment}{\ \ \ \ TPDataWindow(TWindow*\ AParent,\ const\ char*\ ATitle);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00447}00447\ \textcolor{comment}{\ \ \ \ \string~TPDataWindow()\{\}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00448}00448\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00449}00449\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00450}00450\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00451}00451\ \textcolor{comment}{class\ TGraphWindow}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00452}00452\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00453}00453\ \textcolor{comment}{\ \ \ \ long\ xtime1,\ xtime2;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00454}00454\ \textcolor{comment}{\ \ \ \ long\ i,\ HIY,\ PrintYDir;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00455}00455\ \textcolor{comment}{\ \ \ \ long\ GraphXEnd,\ GraphXStart;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00456}00456\ \textcolor{comment}{\ \ \ \ long\ GraphYEnd,\ GraphYStart;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00457}00457\ \textcolor{comment}{\ \ \ \ double\ GraphRes,\ Conversion;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00458}00458\ \textcolor{comment}{\ \ \ \ //HPEN\ hPen1,\ hPrevPen;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00459}00459\ \textcolor{comment}{\ \ \ \ TPen\ *Pen;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00460}00460\ \textcolor{comment}{\ \ \ \ COLORREF\ colr;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00461}00461\ \textcolor{comment}{\ \ \ \ HFONT\ hFontx,\ hFonty,\ hFontv;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ declare\ logical\ fonts}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00462}00462\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00463}00463\ \textcolor{comment}{\ \ \ \ double\ GetTime(long\ Num);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ gets\ elapsed\ time\ in\ minutes}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00464}00464\ \textcolor{comment}{\ \ \ \ void\ AddSegment(TDC\&);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ updates\ line\ graph\ without\ redrawing\ whole\ graph}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00465}00465\ \textcolor{comment}{\ \ \ \ void\ GetGraphDims();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ calculate\ x\ and\ y\ axes\ for\ graph}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00466}00466\ \textcolor{comment}{\ \ \ \ void\ DrawLines(TDC\&);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ draw\ lines\ of\ graph}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00467}00467\ \textcolor{comment}{\ \ \ \ void\ GetPoints(long\ point);\ \ \ \ \ \ \ \ \ \ \ \ \ //\ get\ points\ from\ Global\ arrays}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00468}00468\ \textcolor{comment}{\ \ \ \ void\ GetLabels(TDC\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00469}00469\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00470}00470\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00471}00471\ \textcolor{comment}{\ \ \ \ long\ TYPE,\ SN,\ YMAX,\ XMAX,\ number;\ \ \ \ \ \ //\ type\ of\ graph\ (area=1\ perimeter=2)}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00472}00472\ \textcolor{comment}{\ \ \ \ long\ h1,\ h2,\ s1,\ s2,\ z1,\ z2;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00473}00473\ \textcolor{comment}{\ \ \ \ double\ xmax,\ ymax;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00474}00474\ \textcolor{comment}{\ \ \ \ bool\ RefreshBitmap;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00475}00475\ \textcolor{comment}{\ \ \ \ bool\ Printing;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00476}00476\ \textcolor{comment}{\ \ \ \ bool\ Change;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00477}00477\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00478}00478\ \textcolor{comment}{\ \ \ \ TGraphWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00479}00479\ \textcolor{comment}{\ \ \ \ \string~TGraphWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00480}00480\ \textcolor{comment}{\ \ \ \ void\ GraphPaint(TDC\&,\ HWND,\ HBITMAP\ *);\ \ \ \ \ \ \ \ \ //\ subsitute\ for\ Paint\ function}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00481}00481\ \textcolor{comment}{\ \ \ \ void\ ReSet();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00482}00482\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00483}00483\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00484}00484\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00485}00485\ \textcolor{comment}{class\ TGADataWindow:\ public\ TOutputs}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00486}00486\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00487}00487\ \textcolor{comment}{\ \ \ \ \ long\ DERIV;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00488}00488\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00489}00489\ \textcolor{comment}{\ \ \ \ \ CustomGraph\ g;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00490}00490\ \textcolor{comment}{\ \ \ \ WindowSettings\ *WinRect;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00491}00491\ \textcolor{comment}{\ \ \ \ WINDOWPLACEMENT\ wpt;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00492}00492\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00493}00493\ \textcolor{comment}{\ \ \ \ void\ Paint(TDC\&\ hDC,\ bool,\ TRect\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00494}00494\ \textcolor{comment}{\ \ \ \ void\ EvSize(\ Uint,\ TSize\&\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ resize\ frame\ window\ and\ status\ bar}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00495}00495\ \textcolor{comment}{\ \ \ \ void\ EvMove(TPoint\ \&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00496}00496\ \textcolor{comment}{\ \ \ \ void\ EvRButtonDown(\ Uint,\ TPoint\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00497}00497\ \textcolor{comment}{\ \ \ \ void\ EvLButtonDown(\ Uint,\ TPoint\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00498}00498\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00499}00499\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00500}00500\ \textcolor{comment}{\ \ \ \ \ void\ SendWindowToClipboard();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00501}00501\ \textcolor{comment}{\ \ \ \ \ void\ GetDerivative();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00502}00502\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00503}00503\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(\ TGADataWindow\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00504}00504\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00505}00505\ \textcolor{comment}{\ \ \ \ TGADataWindow(TWindow\ *\ AParent,\ const\ char*\ ATitle);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00506}00506\ \textcolor{comment}{\ \ \ \ \string~TGADataWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00507}00507\ \textcolor{comment}{\ \ \ \ \ bool\ CheckChange();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00508}00508\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00509}00509\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00510}00510\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00511}00511\ \textcolor{comment}{class\ TGPDataWindow:\ public\ TOutputs}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00512}00512\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00513}00513\ \textcolor{comment}{\ \ \ \ \ long\ DERIV;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00514}00514\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00515}00515\ \textcolor{comment}{\ \ \ \ \ CustomGraph\ g;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00516}00516\ \textcolor{comment}{\ \ \ \ WindowSettings\ *WinRect;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00517}00517\ \textcolor{comment}{\ \ \ \ WINDOWPLACEMENT\ wpt;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00518}00518\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00519}00519\ \textcolor{comment}{\ \ \ \ void\ Paint(TDC\&\ hDC,\ bool,\ TRect\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00520}00520\ \textcolor{comment}{\ \ \ \ void\ EvMove(TPoint\ \&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00521}00521\ \textcolor{comment}{\ \ \ \ void\ EvSize(\ Uint,\ TSize\&\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ resize\ frame\ window\ and\ status\ bar}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00522}00522\ \textcolor{comment}{\ \ \ \ void\ EvRButtonDown(\ Uint,\ TPoint\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00523}00523\ \textcolor{comment}{\ \ \ \ void\ EvLButtonDown(\ Uint,\ TPoint\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00524}00524\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00525}00525\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00526}00526\ \textcolor{comment}{\ \ \ \ \ void\ SendWindowToClipboard();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00527}00527\ \textcolor{comment}{\ \ \ \ \ void\ GetDerivative();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00528}00528\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00529}00529\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(\ TGPDataWindow\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00530}00530\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00531}00531\ \textcolor{comment}{\ \ \ \ TGPDataWindow(TWindow\ *\ AParent,\ const\ char*\ ATitle);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00532}00532\ \textcolor{comment}{\ \ \ \ \string~TGPDataWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00533}00533\ \textcolor{comment}{\ \ \ \ \ bool\ CheckChange();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00534}00534\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00535}00535\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00536}00536\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00537}00537\ \textcolor{comment}{class\ TGTHDataWindow:\ public\ TOutputs}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00538}00538\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00539}00539\ \textcolor{comment}{\ \ \ \ int\ StationNumber;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00540}00540\ \textcolor{comment}{\ \ \ \ TGraphWindow\ g;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00541}00541\ \textcolor{comment}{\ \ \ \ WindowSettings\ *WinRect;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00542}00542\ \textcolor{comment}{\ \ \ \ WINDOWPLACEMENT\ wpt;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00543}00543\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00544}00544\ \textcolor{comment}{\ \ \ \ void\ Paint(TDC\&\ hDC,\ bool,\ TRect\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00545}00545\ \textcolor{comment}{//\ \ void\ GoPrinter();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00546}00546\ \textcolor{comment}{\ \ \ \ void\ EvMove(TPoint\ \&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00547}00547\ \textcolor{comment}{\ \ \ \ void\ EvSize(\ Uint,\ TSize\&\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ resize\ frame\ window\ and\ status\ bar}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00548}00548\ \textcolor{comment}{\ \ \ \ void\ EvRButtonDown(\ Uint,\ TPoint\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00549}00549\ \textcolor{comment}{\ \ \ \ void\ EvLButtonDown(\ Uint,\ TPoint\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00550}00550\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00551}00551\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00552}00552\ \textcolor{comment}{\ \ \ \ \ void\ SendWindowToClipboard();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00553}00553\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00554}00554\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(\ TGTHDataWindow\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00555}00555\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00556}00556\ \textcolor{comment}{\ \ \ \ TGTHDataWindow(TWindow\ *\ AParent,\ const\ char*\ ATitle,\ int\ StatNum);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00557}00557\ \textcolor{comment}{\ \ \ \ \string~TGTHDataWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00558}00558\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00559}00559\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00560}00560\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00561}00561\ \textcolor{comment}{class\ TGFMDataWindow:\ public\ TOutputs}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00562}00562\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00563}00563\ \textcolor{comment}{\ \ \ \ int\ StationNumber;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00564}00564\ \textcolor{comment}{\ \ \ \ TGraphWindow\ g;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00565}00565\ \textcolor{comment}{\ \ \ \ WindowSettings\ *WinRect;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00566}00566\ \textcolor{comment}{\ \ \ \ WINDOWPLACEMENT\ wpt;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00567}00567\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00568}00568\ \textcolor{comment}{\ \ \ \ void\ Paint(TDC\&\ hDC,\ bool,\ TRect\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00569}00569\ \textcolor{comment}{//\ \ void\ GoPrinter();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00570}00570\ \textcolor{comment}{\ \ \ \ void\ EvMove(TPoint\ \&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00571}00571\ \textcolor{comment}{\ \ \ \ void\ EvSize(\ Uint,\ TSize\&\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ resize\ frame\ window\ and\ status\ bar}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00572}00572\ \textcolor{comment}{\ \ \ \ void\ EvRButtonDown(\ Uint,\ TPoint\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00573}00573\ \textcolor{comment}{\ \ \ \ void\ EvLButtonDown(\ Uint,\ TPoint\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00574}00574\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00575}00575\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00576}00576\ \textcolor{comment}{\ \ \ \ \ void\ SendWindowToClipboard();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00577}00577\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00578}00578\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(\ TGFMDataWindow\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00579}00579\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00580}00580\ \textcolor{comment}{\ \ \ \ TGFMDataWindow(TWindow\ *\ AParent,\ const\ char*\ ATitle,\ int\ StatNum);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00581}00581\ \textcolor{comment}{\ \ \ \ \string~TGFMDataWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00582}00582\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00583}00583\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00584}00584\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00585}00585\ \textcolor{comment}{double\ GetPostFrontalData(long\ Species,\ long\ Phase,\ long\ Num);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00586}00586\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00587}00587\ \textcolor{comment}{class\ TPostFrontGraphWindow:\ public\ TOutputs}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00588}00588\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00589}00589\ \textcolor{comment}{\ \ \ \ \ bool\ *PFW\_ON,\ ForceDraw;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00590}00590\ \textcolor{comment}{\ \ \ \ \ long\ DERIV;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00591}00591\ \textcolor{comment}{\ \ \ \ \ long\ MaxXDim,\ MaxYDim;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00592}00592\ \textcolor{comment}{\ \ \ \ \ long\ Species;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00593}00593\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00594}00594\ \textcolor{comment}{\ \ \ \ \ CustomGraph\ g;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00595}00595\ \textcolor{comment}{\ \ \ \ WindowSettings\ *WinRect;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00596}00596\ \textcolor{comment}{\ \ \ \ WINDOWPLACEMENT\ wpt;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00597}00597\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00598}00598\ \textcolor{comment}{\ \ \ \ void\ Paint(TDC\&\ hDC,\ bool,\ TRect\&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00599}00599\ \textcolor{comment}{\ \ \ \ void\ EvSize(\ Uint,\ TSize\&\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ resize\ frame\ window\ and\ status\ bar}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00600}00600\ \textcolor{comment}{\ \ \ \ void\ EvMove(TPoint\ \&);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00601}00601\ \textcolor{comment}{\ \ \ \ void\ EvRButtonDown(\ Uint,\ TPoint\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00602}00602\ \textcolor{comment}{\ \ \ \ void\ EvLButtonDown(\ Uint,\ TPoint\&\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00603}00603\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00604}00604\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00605}00605\ \textcolor{comment}{\ \ \ \ \ void\ SendWindowToClipboard();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00606}00606\ \textcolor{comment}{\ \ \ \ \ void\ GetDerivative();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00607}00607\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00608}00608\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(\ TPostFrontGraphWindow\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00609}00609\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00610}00610\ \textcolor{comment}{\ \ \ \ TPostFrontGraphWindow(TWindow\ *\ AParent,\ const\ char*\ ATitle,}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00611}00611\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ long\ Option,\ bool\ *pfw\_on);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00612}00612\ \textcolor{comment}{\ \ \ \ \string~TPostFrontGraphWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00613}00613\ \textcolor{comment}{\ \ \ \ \ bool\ CheckChange();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00614}00614\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00615}00615\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00616}00616\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00617}00617\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00618}00618\ \textcolor{comment}{class\ LandInfo:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00619}00619\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00620}00620\ \textcolor{comment}{\ \ \ \ \ char\ LCPFileName[256];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00621}00621\ \textcolor{comment}{\ \ \ \ \ TButton\ \ \ \ *save;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00622}00622\ \textcolor{comment}{\ \ \ \ \ TEdit\ \ *edit;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00623}00623\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00624}00624\ \textcolor{comment}{\ \ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00625}00625\ \textcolor{comment}{\ \ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00626}00626\ \textcolor{comment}{\ \ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00627}00627\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00628}00628\ \textcolor{comment}{\ \ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00629}00629\ \textcolor{comment}{\ \ \ \ void\ SaveFile();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00630}00630\ \textcolor{comment}{\ \ \ \ \ void\ WriteData();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00631}00631\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(LandInfo);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00632}00632\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00633}00633\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00634}00634\ \textcolor{comment}{\ \ \ \ LandInfo(TWindow\ *parent,\ const\ char*\ resID,\ char\ *filename);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00635}00635\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00636}00636\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00637}00637\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00638}00638\ \textcolor{comment}{class\ ViewPortControl\ :\ public\ TControl}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00639}00639\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00640}00640\ \textcolor{comment}{\ \ \ \ RECT\ DefRect,\ VPRect;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00641}00641\ \textcolor{comment}{\ \ \ \ long\ NumNorth,\ NumEast;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00642}00642\ \textcolor{comment}{\ \ \ \ double\ XResol,\ YResol;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00643}00643\ \textcolor{comment}{\ \ \ \ COLORREF\ colr1,\ colr2;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00644}00644\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00645}00645\ \textcolor{comment}{\ \ \ \ char\ far*\ GetClassName()\ \{return\ "{}ViewPortControl"{};\}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00646}00646\ \textcolor{comment}{\ \ \ \ //Uint\ Transfer(void*\ buffer,\ TTransferDirection\ direction);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00647}00647\ \textcolor{comment}{\ \ \ \ void\ EvPaint();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00648}00648\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00649}00649\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(ViewPortControl);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00650}00650\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00651}00651\ \textcolor{comment}{\ \ \ \ ViewPortControl(TWindow*\ parent,\ int\ resId);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00652}00652\ \textcolor{comment}{\ \ \ \ ViewPortControl(TWindow*\ parent,\ int\ resId,\ RECT\ rect,}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00653}00653\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ long\ numnorth,\ long\ numeast,\ double\ xresol,\ double\ yresol);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00654}00654\ \textcolor{comment}{\ \ \ \ void\ DrawPort(RECT\ rect);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00655}00655\ \textcolor{comment}{\ \ \ \ void\ SetLandscape(RECT\ rect,\ long\ numnorth,\ long\ numeast,}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00656}00656\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ double\ xresol,\ double\ yresol);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00657}00657\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00658}00658\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00659}00659\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00660}00660\ \textcolor{comment}{class\ MergeControl:\ public\ TControl}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00661}00661\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00662}00662\ \textcolor{comment}{\ \ \ \ COLORREF\ colr[4];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00663}00663\ \textcolor{comment}{\ \ \ \ POint\ LandPoint[5][5];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00664}00664\ \textcolor{comment}{\ \ \ \ long\ NumRect;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00665}00665\ \textcolor{comment}{\ \ \ \ RECT\ rect;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00666}00666\ \textcolor{comment}{\ \ \ \ double\ West[5],\ East[5],\ North[5],\ South[5];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00667}00667\ \textcolor{comment}{\ \ \ \ double\ Width,\ Height;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00668}00668\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00669}00669\ \textcolor{comment}{\ \ \ \ void\ EvPaint();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00670}00670\ \textcolor{comment}{\ \ \ \ char\ far*\ GetClassName()\ \{return\ "{}MergeControl"{};\}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00671}00671\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00672}00672\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(MergeControl);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00673}00673\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00674}00674\ \textcolor{comment}{\ \ \ \ MergeControl(TWindow*\ parent,\ int\ ResID);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00675}00675\ \textcolor{comment}{\ \ \ \ void\ SetRect(long\ RectNum,\ double\ UtmNorth,\ double\ UtmSouth,}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00676}00676\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ double\ UtmWest,\ double\ UtmEast);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00677}00677\ \textcolor{comment}{\ \ \ \ \ void\ ResetRect();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00678}00678\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00679}00679\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00680}00680\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00681}00681\ \textcolor{comment}{class\ MergeLCPFile:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00682}00682\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00683}00683\ \textcolor{comment}{\ \ \ \ TCheckBox\ \ \ *FirstFile,\ *SecondFile,\ *ThirdFile,\ *FourthFile,\ *FifthFile;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00684}00684\ \textcolor{comment}{\ \ \ \ TColorStatic\ \ \ \ *FirstName,\ *SecondName,\ *ThirdName,\ *FourthName;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00685}00685\ \textcolor{comment}{\ \ \ \ TStatic\ \ \ \ \ \ \ \ \ *FifthName;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00686}00686\ \textcolor{comment}{\ \ \ \ TStatic\ \ \ \ \ \ \ \ \ *East5,\ *West5,\ *North5,\ *South5,\ *Width5,\ *Height5,\ *Rows5,\ *Cols5;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00687}00687\ \textcolor{comment}{\ \ \ \ TStatic\ \ \ \ \ \ \ \ \ *Result;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00688}00688\ \textcolor{comment}{\ \ \ \ TButton\ \ \ \ \ \ \ \ \ *Exit,\ *Merge;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00689}00689\ \textcolor{comment}{\ \ \ \ \ TGauge\ \ \ \ \ \ \ \ \ *Prog;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00690}00690\ \textcolor{comment}{\ \ \ \ \ TEdit\ \ \ \ \ \ *Desc;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00691}00691\ \textcolor{comment}{\ \ \ \ MergeControl\ \ \ \ *MergeCTL;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00692}00692\ \textcolor{comment}{\ \ \ \ FILE\ \ \ \ \ \ \ \ *file[5];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00693}00693\ \textcolor{comment}{\ \ \ \ char\ \ \ \ \ \ \ \ *TempName1,\ *TempName2,\ *TempName3,\ *TempName4,\ *TempName5;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00694}00694\ \textcolor{comment}{\ \ \ \ headdata\ \ \ \ \ \ \ \ Head[5];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00695}00695\ \textcolor{comment}{\ \ \ \ celldata\ \ \ \ \ \ \ \ CellDat;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00696}00696\ \textcolor{comment}{\ \ \ \ crowndata\ \ \ CrownDat;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00697}00697\ \textcolor{comment}{\ \ \ \ \ grounddata\ \ \ \ \ GroundDat;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00698}00698\ \textcolor{comment}{\ \ \ \ long\ \ \ \ \ \ \ \ OldFilePosition[4];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00699}00699\ \textcolor{comment}{\ \ \ \ long\ \ \ \ \ \ \ \ CrownFuelsPresent;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00700}00700\ \textcolor{comment}{\ \ \ \ \ long\ \ \ \ \ \ \ GroundFuelsPresent;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00701}00701\ \textcolor{comment}{\ \ \ \ \ long\ \ \ \ \ \ \ NumAllCats[10];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00702}00702\ \textcolor{comment}{\ \ \ \ \ long\ \ \ \ \ \ \ AllCats[10][100];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00703}00703\ \textcolor{comment}{\ \ \ \ \ double\ \ \ \ \ \ \ \ \ maxval[10],\ minval[10];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00704}00704\ \textcolor{comment}{\ \ \ \ char\ \ \ \ \ \ \ \ Value[20];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00705}00705\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00706}00706\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00707}00707\ \textcolor{comment}{\ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00708}00708\ \textcolor{comment}{\ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00709}00709\ \textcolor{comment}{\ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00710}00710\ \textcolor{comment}{\ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00711}00711\ \textcolor{comment}{\ \ \ \ bool\ CalcHeader5(long\ HeadNumber);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00712}00712\ \textcolor{comment}{\ \ \ \ void\ WriteHeader5();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00713}00713\ \textcolor{comment}{\ \ \ \ long\ GetCellPos(double\ east,\ double\ north,\ long\ FileNo);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00714}00714\ \textcolor{comment}{\ \ \ \ bool\ CellInfo(double\ east,\ double\ north,\ long\ FileNo);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00715}00715\ \textcolor{comment}{\ \ \ \ bool\ InsideFile1(long\ FileNum,\ double\ xpt,\ double\ ypt);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00716}00716\ \textcolor{comment}{\ \ \ \ void\ EliminateFile(long\ FileNo);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00717}00717\ \textcolor{comment}{\ \ \ \ \ void\ UpdateProgress(double\ fract);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00718}00718\ \textcolor{comment}{\ \ \ \ \ void\ FinalizeHeader(headdata\ *newheader);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00719}00719\ \textcolor{comment}{\ \ \ \ \ void\ FillCats(celldata\ *cell,\ crowndata\ *crown,\ grounddata\ *ground);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00720}00720\ \textcolor{comment}{\ \ \ \ \ void\ SortCats();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00721}00721\ \textcolor{comment}{\ \ \ \ \ void\ InMsg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00722}00722\ \textcolor{comment}{\ \ \ \ \ void\ OutMsg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00723}00723\ \textcolor{comment}{\ \ \ \ \ char\ *GetFileName(char\ *name);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00724}00724\ \textcolor{comment}{\ \ \ \ \ void\ AppendFileNames(char\ *oldname,\ char\ *newname);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00725}00725\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00726}00726\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00727}00727\ \textcolor{comment}{\ \ \ \ MergeLCPFile(TWindow\ *\ AParent,\ const\ char\ *\ ATitle);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00728}00728\ \textcolor{comment}{\ \ \ \ \string~MergeLCPFile()\ \{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00729}00729\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00730}00730\ \textcolor{comment}{\ \ \ \ void\ FileOneMessage();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00731}00731\ \textcolor{comment}{\ \ \ \ void\ FileTwoMessage();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00732}00732\ \textcolor{comment}{\ \ \ \ void\ FileThreeMessage();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00733}00733\ \textcolor{comment}{\ \ \ \ void\ FileFourMessage();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00734}00734\ \textcolor{comment}{\ \ \ \ void\ FileFiveMessage();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00735}00735\ \textcolor{comment}{\ \ \ \ void\ ExitMessage();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00736}00736\ \textcolor{comment}{\ \ \ \ void\ MergeMessage();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00737}00737\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00738}00738\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(MergeLCPFile);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00739}00739\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00740}00740\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00741}00741\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00742}00742\ \textcolor{comment}{class\ ExtractLCPFile:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00743}00743\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00744}00744\ \textcolor{comment}{\ \ \ \ TCheckBox\ \ \ *FirstFile,\ *SecondFile;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00745}00745\ \textcolor{comment}{\ \ \ \ TScrollBar\ \ *North,\ *South,\ *East,\ *West;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00746}00746\ \textcolor{comment}{\ \ \ \ TColorStatic\ \ \ \ *File1,\ *File2;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00747}00747\ \textcolor{comment}{\ \ \ \ TStatic\ \ \ \ \ \ \ \ \ *OutNorth,\ *InNorth,\ *OutSouth,\ *InSouth;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00748}00748\ \textcolor{comment}{\ \ \ \ TStatic\ \ \ \ \ \ \ \ \ *OutEast,\ *InEast,\ *OutWest,\ *InWest;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00749}00749\ \textcolor{comment}{\ \ \ \ TStatic\ \ \ \ \ \ \ \ \ *Result,\ *InRow,\ *InCol,\ *OutRow,\ *OutCol;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00750}00750\ \textcolor{comment}{\ \ \ \ ViewPortControl\ *vp;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00751}00751\ \textcolor{comment}{\ \ \ \ TButton\ \ \ \ \ \ \ \ \ *Exit,\ *Extract,\ *ViewPort,\ *In,\ *Out;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00752}00752\ \textcolor{comment}{\ \ \ \ \ TEdit\ \ \ \ \ \ *Desc;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00753}00753\ \textcolor{comment}{\ \ \ \ \ TGauge\ \ \ \ \ \ \ \ \ *Prog;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00754}00754\ \textcolor{comment}{\ \ \ \ headdata\ ExHead,\ OutHead;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00755}00755\ \textcolor{comment}{\ \ \ \ celldata\ CellDat;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00756}00756\ \textcolor{comment}{\ \ \ \ crowndata\ CrownDat;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00757}00757\ \textcolor{comment}{\ \ \ \ \ grounddata\ GroundDat;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00758}00758\ \textcolor{comment}{\ \ \ \ FILE\ *file1,\ *file2;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00759}00759\ \textcolor{comment}{\ \ \ \ RECT\ rect;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00760}00760\ \textcolor{comment}{\ \ \ \ char\ *TempName1,\ *TempName2;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00761}00761\ \textcolor{comment}{\ \ \ \ double\ north,\ south,\ east,\ west;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00762}00762\ \textcolor{comment}{\ \ \ \ long\ OldFilePosition,\ cols,\ rows;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00763}00763\ \textcolor{comment}{\ \ \ \ char\ Value[20];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00764}00764\ \textcolor{comment}{\ \ \ \ long\ \ \ \ \ \ \ \ CrownFuelsPresent;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00765}00765\ \textcolor{comment}{\ \ \ \ \ long\ \ \ \ \ \ \ GroundFuelsPresent;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00766}00766\ \textcolor{comment}{\ \ \ \ \ long\ \ \ \ \ \ \ NumAllCats[10];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00767}00767\ \textcolor{comment}{\ \ \ \ \ long\ \ \ \ \ \ \ AllCats[10][100];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00768}00768\ \textcolor{comment}{\ \ \ \ \ double\ \ \ \ \ \ \ \ \ maxval[10],\ minval[10];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00769}00769\ \textcolor{comment}{\ \ \ \ bool\ CurrentLandscape;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00770}00770\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00771}00771\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00772}00772\ \textcolor{comment}{\ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00773}00773\ \textcolor{comment}{\ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00774}00774\ \textcolor{comment}{\ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00775}00775\ \textcolor{comment}{\ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00776}00776\ \textcolor{comment}{\ \ \ \ long\ GetCellPos(double\ east,\ double\ north);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00777}00777\ \textcolor{comment}{\ \ \ \ void\ CellInfo(double\ east,\ double\ north);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00778}00778\ \textcolor{comment}{\ \ \ \ \ void\ FinalizeHeader(headdata\ *newheader);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00779}00779\ \textcolor{comment}{\ \ \ \ \ void\ FillCats(celldata\ *cell,\ crowndata\ *crown,\ grounddata\ *ground);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00780}00780\ \textcolor{comment}{\ \ \ \ \ void\ SortCats();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00781}00781\ \textcolor{comment}{\ \ \ \ \ void\ UpdateProgress(double\ fract);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00782}00782\ \textcolor{comment}{\ \ \ \ \ void\ InMsg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00783}00783\ \textcolor{comment}{\ \ \ \ \ void\ OutMsg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00784}00784\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00785}00785\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00786}00786\ \textcolor{comment}{\ \ \ \ ExtractLCPFile(TWindow*\ AParent,\ const\ char\ *\ ATitle);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00787}00787\ \textcolor{comment}{\ \ \ \ \string~ExtractLCPFile()\ \{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00788}00788\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00789}00789\ \textcolor{comment}{\ \ \ \ void\ FileOneMessage();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00790}00790\ \textcolor{comment}{\ \ \ \ void\ FileTwoMessage();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00791}00791\ \textcolor{comment}{\ \ \ \ void\ NorthScrollMessage(\ Uint\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00792}00792\ \textcolor{comment}{\ \ \ \ void\ SouthScrollMessage(\ Uint\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00793}00793\ \textcolor{comment}{\ \ \ \ void\ EastScrollMessage(\ Uint\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00794}00794\ \textcolor{comment}{\ \ \ \ void\ WestScrollMessage(\ Uint\ );}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00795}00795\ \textcolor{comment}{\ \ \ \ void\ ViewPortMessage();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00796}00796\ \textcolor{comment}{\ \ \ \ void\ EnableViewPortMessage(TCommandEnabler\ \&vpe);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00797}00797\ \textcolor{comment}{\ \ \ \ void\ ExitMessage();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00798}00798\ \textcolor{comment}{\ \ \ \ void\ ExtractMessage();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00799}00799\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00800}00800\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(ExtractLCPFile);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00801}00801\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00802}00802\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00803}00803\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00804}00804\ \textcolor{comment}{class\ ViewPortDialog:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00805}00805\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00806}00806\ \textcolor{comment}{\ \ \ \ TStatic\ *Nw,\ *Ne,\ *Nn,\ *Ns;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00807}00807\ \textcolor{comment}{\ \ \ \ TStatic\ *Ow,\ *Oe,\ *On,\ *Os;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00808}00808\ \textcolor{comment}{\ \ \ \ TStatic\ *OutRow,\ *InRow,\ *OutCol,\ *InCol;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00809}00809\ \textcolor{comment}{\ \ \ \ TButton\ *Maximize,\ *Zoom,\ *In,\ *Out,\ *Fire;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00810}00810\ \textcolor{comment}{\ \ \ \ TScrollBar\ *west,\ *east,\ *north,\ *south;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00811}00811\ \textcolor{comment}{\ \ \ \ ViewPortControl\ *vp;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00812}00812\ \textcolor{comment}{\ \ \ \ RECT\ rect;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00813}00813\ \textcolor{comment}{\ \ \ \ long\ BarValue,\ cols,\ rows;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00814}00814\ \textcolor{comment}{\ \ \ \ double\ DCols,\ DRows,\ ResX,\ ResY;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00815}00815\ \textcolor{comment}{\ \ \ \ char\ Value[21];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00816}00816\ \textcolor{comment}{\ \ \ \ double\ North,\ South,\ East,\ West;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00817}00817\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00818}00818\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00819}00819\ \textcolor{comment}{\ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00820}00820\ \textcolor{comment}{\ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00821}00821\ \textcolor{comment}{\ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00822}00822\ \textcolor{comment}{\ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00823}00823\ \textcolor{comment}{\ \ \ \ void\ DrawViewPort();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00824}00824\ \textcolor{comment}{\ \ \ \ \ void\ ResetViewData();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00825}00825\ \textcolor{comment}{\ \ \ \ \ void\ ViewFireMsg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00826}00826\ \textcolor{comment}{\ \ \ \ void\ VPNorthMsg(Uint);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00827}00827\ \textcolor{comment}{\ \ \ \ void\ VPSouthMsg(Uint);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00828}00828\ \textcolor{comment}{\ \ \ \ void\ VPEastMsg(Uint);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00829}00829\ \textcolor{comment}{\ \ \ \ void\ VPWestMsg(Uint);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00830}00830\ \textcolor{comment}{\ \ \ \ void\ VPMaxMsg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00831}00831\ \textcolor{comment}{\ \ \ \ void\ VPZoomMsg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00832}00832\ \textcolor{comment}{\ \ \ \ \ void\ ViewInMsg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00833}00833\ \textcolor{comment}{\ \ \ \ \ void\ ViewOutMsg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00834}00834\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00835}00835\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(ViewPortDialog);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00836}00836\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00837}00837\ \textcolor{comment}{\ \ \ \ ViewPortDialog(TWindow*\ AParent,\ const\ char*\ ATitle,\ RECT\ rect);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00838}00838\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00839}00839\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00840}00840\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00841}00841\ \textcolor{comment}{class\ ViewRasterOptions:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00842}00842\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00843}00843\ \textcolor{comment}{\ \ \ \ TCheckBox\ *FileCheck;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00844}00844\ \textcolor{comment}{\ \ \ \ TStatic\ *FileName;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00845}00845\ \textcolor{comment}{\ \ \ \ TStatic\ *MinElev,\ *MaxElev;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00846}00846\ \textcolor{comment}{\ \ \ \ TStatic\ *MinHt,\ *MaxHt;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00847}00847\ \textcolor{comment}{\ \ \ \ TScrollBar\ *Min,\ *Max;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00848}00848\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00849}00849\ \textcolor{comment}{\ \ \ \ \ long\ hi,\ lo;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00850}00850\ \textcolor{comment}{\ \ \ \ long\ BarValue;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00851}00851\ \textcolor{comment}{\ \ \ \ char\ Value[21];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00852}00852\ \textcolor{comment}{\ \ \ \ char\ Units[5];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00853}00853\ \textcolor{comment}{\ \ \ \ char\ *filename;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00854}00854\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00855}00855\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00856}00856\ \textcolor{comment}{\ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00857}00857\ \textcolor{comment}{\ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00858}00858\ \textcolor{comment}{\ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00859}00859\ \textcolor{comment}{\ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00860}00860\ \textcolor{comment}{\ \ \ \ bool\ OpenReadRasterFile();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00861}00861\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00862}00862\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(ViewRasterOptions);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00863}00863\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00864}00864\ \textcolor{comment}{\ \ \ \ ViewRasterOptions(TWindow*\ AParent,\ const\ char*\ ATitle,\ bool\ HaveFileAlready);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00865}00865\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00866}00866\ \textcolor{comment}{\ \ \ \ void\ FileNameMsg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00867}00867\ \textcolor{comment}{\ \ \ \ void\ MinHeightMsg(Uint);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00868}00868\ \textcolor{comment}{\ \ \ \ void\ MaxHeightMsg(Uint);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00869}00869\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00870}00870\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00871}00871\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00872}00872\ \textcolor{comment}{class\ ZoomDelay:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00873}00873\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00874}00874\ \textcolor{comment}{\ \ \ \ \ TUpDown\ \ \ *delay;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00875}00875\ \textcolor{comment}{\ \ \ \ \ TEdit\ \ \ \ \ *sdelay;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00876}00876\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00877}00877\ \textcolor{comment}{\ \ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00878}00878\ \textcolor{comment}{\ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00879}00879\ \textcolor{comment}{\ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00880}00880\ \textcolor{comment}{\ \ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00881}00881\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00882}00882\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(ZoomDelay);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00883}00883\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00884}00884\ \textcolor{comment}{\ \ \ \ \ ZoomDelay(TWindow*\ AParent,\ const\ char*\ ATitle);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00885}00885\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00886}00886\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00887}00887\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00888}\mbox{\hyperlink{struct_trans_envt_map}{00888}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_trans_envt_map}{TransEnvtMap}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00889}00889\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00890}\mbox{\hyperlink{struct_trans_envt_map_ad0e5dfa713882557fa0eb99ca5678395}{00890}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_trans_envt_map_ad0e5dfa713882557fa0eb99ca5678395}{FileName}}[256];}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00891}\mbox{\hyperlink{struct_trans_envt_map_a95266975f331de5a890ca4e497ce9680}{00891}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_trans_envt_map_a649d48de4f93d559fbc49171135f1f94}{one}},\ \mbox{\hyperlink{struct_trans_envt_map_acad247fb559100ba48ff9d0ce366363a}{ten}},\ \mbox{\hyperlink{struct_trans_envt_map_a7d9462784f0d723bedaedc761eca5412}{hund}},\ \mbox{\hyperlink{struct_trans_envt_map_af69606ef2792057053d204a7743f13bd}{thou}},\ \mbox{\hyperlink{struct_trans_envt_map_a95266975f331de5a890ca4e497ce9680}{duff}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00892}\mbox{\hyperlink{struct_trans_envt_map_a37c55abc41b80de4be906f1205c7fa00}{00892}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_trans_envt_map_ab397c5475273ef329e14efd594661702}{mfw}},\ \mbox{\hyperlink{struct_trans_envt_map_a5a03f46d99425af0f0d1fa5577cabeac}{temp}},\ \mbox{\hyperlink{struct_trans_envt_map_a37c55abc41b80de4be906f1205c7fa00}{humid}},\ \mbox{\hyperlink{struct_trans_envt_map_a8f0e41128b15794079d1e7470feed46b}{solar}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00893}\mbox{\hyperlink{struct_trans_envt_map_a64a6c2f5e1781771a56250f60eb9f2a9}{00893}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_trans_envt_map_a64a6c2f5e1781771a56250f60eb9f2a9}{x1}},\ \mbox{\hyperlink{struct_trans_envt_map_a70e6131a318923664fad46d144542a74}{x2}},\ \mbox{\hyperlink{struct_trans_envt_map_ad64fc3e33cb9220d730a9f9398921cbb}{x5}},\ \mbox{\hyperlink{struct_trans_envt_map_a307da4cf8d558b64dc88d92d5c693a47}{x10}},\ \mbox{\hyperlink{struct_trans_envt_map_a5b23b54c10e964bab07e75db252fe758}{x20}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00894}\mbox{\hyperlink{struct_trans_envt_map_a895b278ca604edfeaf48689ed4e9b39d}{00894}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_trans_envt_map_af339db8a33b4660d6f461b2383847f21}{vp}},\ \mbox{\hyperlink{struct_trans_envt_map_a895b278ca604edfeaf48689ed4e9b39d}{nw}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00895}\mbox{\hyperlink{struct_trans_envt_map_a6508217526e0e0f703e9a9a698f53386}{00895}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_trans_envt_map_a6508217526e0e0f703e9a9a698f53386}{eng}},\ \mbox{\hyperlink{struct_trans_envt_map_a4f01664b19c15ce08556ac1ed3e10488}{met}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00896}\mbox{\hyperlink{struct_trans_envt_map_ad7df5fa0ac419a36b82e7133dc98d265}{00896}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_trans_envt_map_aefbb57d013788129f94e21ee124f53a1}{Mo}}[8],\ \mbox{\hyperlink{struct_trans_envt_map_ad7df5fa0ac419a36b82e7133dc98d265}{Dy}}[8],\ \mbox{\hyperlink{struct_trans_envt_map_a97401840dbe88c93de86a0b50e218fca}{Hr}}[8];}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00897}\mbox{\hyperlink{struct_trans_envt_map_a10922f2f932a2c7cd70f6025b67bff49}{00897}}\ \ \ \ \ \mbox{\hyperlink{struct_trans_envt_map_a10922f2f932a2c7cd70f6025b67bff49}{TransEnvtMap}}();}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00898}00898\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00899}00899\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00900}00900\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00901}00901\ \textcolor{comment}{class\ \_USERCLASS\ EnvtMaps:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00902}00902\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00903}00903\ \textcolor{comment}{\ \ \ \ char\ FileName[256];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00904}00904\ \textcolor{comment}{\ \ \ \ TRadioButton\ *one,\ *ten,\ *hund,\ *thou,\ *duff;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00905}00905\ \textcolor{comment}{\ \ \ \ \ TRadioButton\ *mfw,\ *temp,\ *humid,\ *solar;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00906}00906\ \textcolor{comment}{\ \ \ \ \ TRadioButton\ *x1,\ *x2,\ *x5,\ *x10,\ *x20;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00907}00907\ \textcolor{comment}{\ \ \ \ \ TRadioButton\ *eng,\ *met;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00908}00908\ \textcolor{comment}{\ \ \ \ \ TCheckBox\ *vponly,\ *now;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00909}00909\ \textcolor{comment}{\ \ \ \ \ TButton\ *name;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00910}00910\ \textcolor{comment}{\ \ \ \ \ TStatic\ *sname,\ *start,\ *end;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00911}00911\ \textcolor{comment}{\ \ \ \ \ TEdit\ *mo,\ *dy,\ *time;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00912}00912\ \textcolor{comment}{\ \ \ \ \ double\ *When,\ SimTime;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00913}00913\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00914}00914\ \textcolor{comment}{\ \ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00915}00915\ \textcolor{comment}{\ \ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00916}00916\ \textcolor{comment}{\ \ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00917}00917\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00918}00918\ \textcolor{comment}{\ \ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00919}00919\ \textcolor{comment}{\ \ \ \ \ void\ DuffMsg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00920}00920\ \textcolor{comment}{\ \ \ \ \ void\ ThouMsg();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00921}00921\ \textcolor{comment}{\ \ \ \ \ void\ SaveFile();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00922}00922\ \textcolor{comment}{\ \ \ \ \ void\ NowCheck();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00923}00923\ \textcolor{comment}{\ \ \ \ \ void\ EnglishMessage();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00924}00924\ \textcolor{comment}{\ \ \ \ \ void\ MetricMessage();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00925}00925\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00926}00926\ \textcolor{comment}{\ \ \ \ \ DECLARE\_RESPONSE\_TABLE(EnvtMaps);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00927}00927\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00928}00928\ \textcolor{comment}{\ \ \ \ EnvtMaps(TWindow\ *Parent,\ const\ char\ *resID,\ TransEnvtMap\ \&ts,\ double\ *When);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00929}00929\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00930}00930\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00931}00931\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00932}00932\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00933}\mbox{\hyperlink{struct_trans_comb_map}{00933}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_trans_comb_map}{TransCombMap}}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00934}00934\ \{}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00935}\mbox{\hyperlink{struct_trans_comb_map_a63083dffa529050d096e17aa2cea713c}{00935}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_trans_comb_map_a63083dffa529050d096e17aa2cea713c}{FileName}}[256];}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00936}\mbox{\hyperlink{struct_trans_comb_map_a4020c2bebc36b99449789845419e9037}{00936}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_trans_comb_map_a4020c2bebc36b99449789845419e9037}{Resolution}}[16];}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00937}\mbox{\hyperlink{struct_trans_comb_map_a480916d5241893ca7fe86c02e3eeaf75}{00937}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_trans_comb_map_a782a6bb336e3de76b2689abf3f6a8f22}{enrate}},\ \mbox{\hyperlink{struct_trans_comb_map_a794a1d2ce791758ff2dd297cb4d24fe9}{fuelrate}},\ \mbox{\hyperlink{struct_trans_comb_map_a8e41d3c8c6c91af5d7744bf03cc98ee9}{flame}},\ \mbox{\hyperlink{struct_trans_comb_map_a8b4fd04d53966f876c3b017e9f649eed}{pm25}},\ \mbox{\hyperlink{struct_trans_comb_map_a81af3fb060911afd304b8d7d8241e215}{pm10}},\ \mbox{\hyperlink{struct_trans_comb_map_a38bb646167214defcc5a0e1496c068cb}{co}},\ \mbox{\hyperlink{struct_trans_comb_map_a36aa05d8ab354fb460e0c5eabe6f3550}{co2}},\ \mbox{\hyperlink{struct_trans_comb_map_a480916d5241893ca7fe86c02e3eeaf75}{ch4}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00938}\mbox{\hyperlink{struct_trans_comb_map_a5fbe08ba727f5e66bb323a9fd4d6c8d7}{00938}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_trans_comb_map_a5fbe08ba727f5e66bb323a9fd4d6c8d7}{x1}},\ \mbox{\hyperlink{struct_trans_comb_map_a8a850e8330324af375da290eafb12e91}{xc}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00939}\mbox{\hyperlink{struct_trans_comb_map_a3766414e67c46a5228d390127ab8bd78}{00939}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_trans_comb_map_a3766414e67c46a5228d390127ab8bd78}{vp}};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00940}\mbox{\hyperlink{struct_trans_comb_map_a49bf0de6e2f60630d16909896ea302c7}{00940}}\ \ \ \ \ \mbox{\hyperlink{struct_trans_comb_map_a49bf0de6e2f60630d16909896ea302c7}{TransCombMap}}();}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00941}00941\ \};}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00942}00942\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00943}00943\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00944}00944\ \textcolor{comment}{class\ \_USERCLASS\ CombMaps:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00945}00945\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00946}00946\ \textcolor{comment}{\ \ \ \ char\ FileName[256];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00947}00947\ \textcolor{comment}{\ \ \ \ \ TRadioButton\ *enrate,\ *fuelrate,\ *flame,\ *pm25,\ *pm10,\ *co,\ *co2,\ *ch4;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00948}00948\ \textcolor{comment}{\ \ \ \ \ TRadioButton\ *x1,\ *xc;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00949}00949\ \textcolor{comment}{\ \ \ \ \ TCheckBox\ *vponly;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00950}00950\ \textcolor{comment}{\ \ \ \ \ TButton\ \ \ \ *name;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00951}00951\ \textcolor{comment}{\ \ \ \ \ TStatic\ \ \ \ *sname;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00952}00952\ \textcolor{comment}{\ \ \ \ \ TEdit\ \ *cres;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00953}00953\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00954}00954\ \textcolor{comment}{\ \ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00955}00955\ \textcolor{comment}{\ \ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00956}00956\ \textcolor{comment}{\ \ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00957}00957\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00958}00958\ \textcolor{comment}{\ \ \ \ \ void\ CustRes();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00959}00959\ \textcolor{comment}{\ \ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00960}00960\ \textcolor{comment}{\ \ \ \ \ void\ SaveFile();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00961}00961\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00962}00962\ \textcolor{comment}{\ \ \ \ \ DECLARE\_RESPONSE\_TABLE(CombMaps);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00963}00963\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00964}00964\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00965}00965\ \textcolor{comment}{\ \ \ \ CombMaps(TWindow\ *Parent,\ const\ char\ *resID,\ TransCombMap\ \&ts);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00966}00966\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00967}00967\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00968}00968\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00969}00969\ \textcolor{comment}{class\ \_USERCLASS\ FuelMoisture:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00970}00970\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00971}00971\ \textcolor{comment}{\ \ \ \ \ bool\ \ \ \ \ \ \ IMPORT;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00972}00972\ \textcolor{comment}{\ \ \ \ \ char\ \ \ \ \ \ \ *FileName,\ *Desc;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00973}00973\ \textcolor{comment}{\ \ \ \ \ char\ \ \ \ \ \ \ TempName[256],\ TempDesc[512];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00974}00974\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00975}00975\ \textcolor{comment}{\ \ \ \ \ TButton\ \ \ \ \ \ \ \ *load,\ *save,\ *simdat;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00976}00976\ \textcolor{comment}{\ \ \ \ \ TEdit\ \ \ \ \ \ *desc;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00977}00977\ \textcolor{comment}{\ \ \ \ \ TRadioButton\ \ \ *pre,\ *as;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00978}00978\ \textcolor{comment}{\ \ \ \ \ TEdit\ \ \ \ \ \ *time[3],\ *elev[3],\ *slope[3],\ *asp[3],\ *cov[3];}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00979}00979\ \textcolor{comment}{\ \ \ \ \ TStatic\ \ \ \ \ \ \ \ *name;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00980}00980\ \textcolor{comment}{\ \ \ \ FireEnvironment2\ *Env;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00981}00981\ \textcolor{comment}{\ \ \ \ \ FarInputs\ \ \ \ \ \ *farinpt;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00982}00982\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00983}00983\ \textcolor{comment}{\ \ \ \ \ void\ LoadFile();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00984}00984\ \textcolor{comment}{\ \ \ \ \ void\ SaveFile();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00985}00985\ \textcolor{comment}{\ \ \ \ \ void\ InsertSimDat();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00986}00986\ \textcolor{comment}{\ \ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00987}00987\ \textcolor{comment}{\ \ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00988}00988\ \textcolor{comment}{\ \ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00989}00989\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00990}00990\ \textcolor{comment}{\ \ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00991}00991\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00992}00992\ \textcolor{comment}{\ \ \ \ \ DECLARE\_RESPONSE\_TABLE(FuelMoisture);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00993}00993\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00994}00994\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00995}00995\ \textcolor{comment}{\ \ \ \ FuelMoisture(TWindow\ *Parent,\ const\ char\ *resID,\ char\ *FileName,\ char\ *Description,\ FireEnvironment2\ *env,\ FarInputs\ *inpt);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00996}00996\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00997}00997\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00998}00998\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l00999}00999\ \textcolor{comment}{class\ \_USERCLASS\ TClickList:\ public\ TListBox}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01000}01000\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01001}01001\ \textcolor{comment}{\ \ \ \ void\ EvLButtonDown(uint,\ TPoint\&\ pt);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01002}01002\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01003}01003\ \textcolor{comment}{\ \ \ \ \ DECLARE\_RESPONSE\_TABLE(TClickList);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01004}01004\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01005}01005\ \textcolor{comment}{\ \ \ \ TClickList(TWindow\ *Parent,\ int\ resID);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01006}01006\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01007}01007\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01008}01008\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01009}01009\ \textcolor{comment}{class\ \_USERCLASS\ EditStop:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01010}01010\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01011}01011\ \textcolor{comment}{\ \ \ \ TEdit\ \ \ \ \ \ \ *xloc,\ *yloc;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01012}01012\ \textcolor{comment}{\ \ \ \ \ TClickList\ *stoploc;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01013}01013\ \textcolor{comment}{\ \ \ \ \ TButton\ \ \ \ \ \ \ \ *add,\ *edit,\ *del,\ *enable;}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01014}01014\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01015}01015\ \textcolor{comment}{\ \ \ \ \ void\ AddStopLoc();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01016}01016\ \textcolor{comment}{\ \ \ \ \ void\ EditStopLoc();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01017}01017\ \textcolor{comment}{\ \ \ \ \ void\ DelStopLoc();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01018}01018\ \textcolor{comment}{\ \ \ \ \ void\ EnableStop();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01019}01019\ \textcolor{comment}{\ \ \ \ \ void\ ListStopLoc();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01020}01020\ \textcolor{comment}{\ \ \ \ \ void\ WriteCoords();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01021}01021\ \textcolor{comment}{\ \ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01022}01022\ \textcolor{comment}{\ \ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01023}01023\ \textcolor{comment}{\ \ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01024}01024\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01025}01025\ \textcolor{comment}{\ \ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01026}01026\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01027}01027\ \textcolor{comment}{\ \ \ \ \ DECLARE\_RESPONSE\_TABLE(EditStop);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01028}01028\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01029}01029\ \textcolor{comment}{\ \ \ \ EditStop(TWindow\ *Parent,\ const\ char\ *resID);}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01030}01030\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01031}01031\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01032}01032\ }
+\DoxyCodeLine{\Hypertarget{farsite_8hpp_source_l01033}01033\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

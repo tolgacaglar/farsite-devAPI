@@ -1,0 +1,225 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/generate\+Map\+Valle.c}
+\hypertarget{generate_map_valle_8c_source}{}\label{generate_map_valle_8c_source}\mbox{\hyperlink{generate_map_valle_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00008}00008\ \textcolor{comment}{/*\ NOTE\ 1:\ Change\ these\ to\ modify\ map\ size\ \&\ resolution.\ */}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00010}00010\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \ \ \ Rows\ \ \ =\ 266;\ \ \ \ \ \textcolor{comment}{/*\ Number\ of\ rows\ in\ each\ map.\ */}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00011}00011\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \ \ \ Cols\ \ \ =\ 382;\ \ \ \ \ \textcolor{comment}{/*\ Number\ of\ columns\ in\ each\ map.\ */}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00012}00012\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \ \ \ Q1\ \ \ =\ 0;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00013}00013\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \ \ \ Q2\ \ \ =\ 76;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00014}00014\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \ \ \ Q3\ \ \ =\ 152;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00015}00015\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \ \ \ Q4\ \ \ =\ 229;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00016}00016\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \ \ \ Q5\ \ \ =\ 305;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00017}00017\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \ \ \ Q6\ \ \ =\ 381;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00019}\mbox{\hyperlink{generate_map_valle_8c_acfa8c359b43425056688f72ba5b54d59}{00019}}\ FILE\ *\mbox{\hyperlink{generate_map_valle_8c_acfa8c359b43425056688f72ba5b54d59}{elevfile}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ file\ that\ contains\ elevation\ map\ */}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00020}\mbox{\hyperlink{generate_map_valle_8c_a8e6dd133a730ba09091d15afdfd8533d}{00020}}\ FILE\ *\mbox{\hyperlink{generate_map_valle_8c_a8e6dd133a730ba09091d15afdfd8533d}{slopefile}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ file\ that\ contains\ slope\ map\ */}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00021}\mbox{\hyperlink{generate_map_valle_8c_aecc6f2dee3dd845d7f513575a6360141}{00021}}\ FILE\ *\mbox{\hyperlink{generate_map_valle_8c_aecc6f2dee3dd845d7f513575a6360141}{aspectfile}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ file\ that\ contains\ aspect\ map\ */}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00022}\mbox{\hyperlink{generate_map_valle_8c_abe3f1764703a315e4347173bb1349163}{00022}}\ FILE\ *\mbox{\hyperlink{generate_map_valle_8c_abe3f1764703a315e4347173bb1349163}{fuelfile}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ file\ that\ contains\ fuel\ map\ */}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00023}\mbox{\hyperlink{generate_map_valle_8c_abcaa1eb2b5e50ceca029a8b85af808e4}{00023}}\ FILE\ *\mbox{\hyperlink{generate_map_valle_8c_abcaa1eb2b5e50ceca029a8b85af808e4}{canopyfile}};}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00025}\mbox{\hyperlink{generate_map_valle_8c_a4403e87828b27877e5ddc92f5cef57b9}{00025}}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{generate_map_valle_8c_a4403e87828b27877e5ddc92f5cef57b9}{elevfilename}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ filename\ of\ elevation\ map\ OPTION\ -\/e\ */}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00026}\mbox{\hyperlink{generate_map_valle_8c_ad1a5454c8c5c5469761327ea9db45d8f}{00026}}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{generate_map_valle_8c_ad1a5454c8c5c5469761327ea9db45d8f}{slopefilename}};\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ filename\ of\ slope\ map\ OPTION\ -\/s\ */}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00027}\mbox{\hyperlink{generate_map_valle_8c_a6cfe86d7b2bd2196d95c12ac8d4833ee}{00027}}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{generate_map_valle_8c_a6cfe86d7b2bd2196d95c12ac8d4833ee}{aspectfilename}};\ \ \ \ \ \ \ \textcolor{comment}{/*\ filename\ of\ aspect\ map\ OPTION\ -\/a\ */}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00028}\mbox{\hyperlink{generate_map_valle_8c_ae4479cc66040babed8d782baa55d22cd}{00028}}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{generate_map_valle_8c_ae4479cc66040babed8d782baa55d22cd}{fuelfilename}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ filename\ of\ aspect\ map\ OPTION\ -\/f\ */}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00029}\mbox{\hyperlink{generate_map_valle_8c_a7fc8fb21a0044dfe920d5c1d378a2091}{00029}}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{generate_map_valle_8c_a7fc8fb21a0044dfe920d5c1d378a2091}{canopyfilename}};}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00031}00031\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PrintHelp();}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00033}\mbox{\hyperlink{generate_map_valle_8c_a3c04138a5bfe5d72780bb7e82a18e627}{00033}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{generate_map_valle_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main}}\ (\ \textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv\ )}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00034}00034\ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{int}\ c;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00036}00036\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *optarg;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00037}00037\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ optind,\ optopt;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{char}\ *pattern\ =\ (\textcolor{keywordtype}{char}*)\textcolor{stringliteral}{"{}esah"{}};}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{int}\ elev\ \ \ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{int}\ slope\ \ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{int}\ aspect\ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{int}\ fuel\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{int}\ fuelT\ =\ 3;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{int}\ cano\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//int\ Rows\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//int\ Cols\ =\ 0;}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getopt\ (argc,\ argv,\ \textcolor{stringliteral}{"{}e:s:a:h:c:r:f:t:"{}}))\ !=\ -\/1)}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00049}00049\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (c)}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'e'}:}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{generate_map_valle_8c_a4403e87828b27877e5ddc92f5cef57b9}{elevfilename}}\ =\ optarg;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ elev\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'s'}:}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{generate_map_valle_8c_ad1a5454c8c5c5469761327ea9db45d8f}{slopefilename}}\ =\ optarg;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ slope\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'a'}:}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{generate_map_valle_8c_a6cfe86d7b2bd2196d95c12ac8d4833ee}{aspectfilename}}\ =\ optarg;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ aspect\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'f'}:}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{generate_map_valle_8c_ae4479cc66040babed8d782baa55d22cd}{fuelfilename}}\ =\ optarg;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ fuel\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'c'}:}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{generate_map_valle_8c_a7fc8fb21a0044dfe920d5c1d378a2091}{canopyfilename}}\ =\ optarg;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ cano\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'t'}:}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ fuelT\ =\ atoi(optarg);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*case\ 'c':}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00076}00076\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Cols\ =\ (int)optarg;}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00077}00077\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00078}00078\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ case\ 'r':}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00079}00079\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Rows\ =\ (int)optarg;}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00080}00080\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00081}00081\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'?'}:}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (optopt\ ==\ \textcolor{charliteral}{'h'})}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ PrintHelp();}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ exit(\ 0\ );}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strchr(pattern,\ optopt))}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf\ (stderr,\ \textcolor{stringliteral}{"{}La\ opción\ -\/\%c\ requiere\ un\ argumento.\(\backslash\)n"{}},\ optopt);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (isprint\ (optopt))}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf\ (stderr,\ \textcolor{stringliteral}{"{}Opción\ desconocida\ \`{}-\/\%c'.\(\backslash\)n"{}},\ optopt);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf\ (stderr,\ \textcolor{stringliteral}{"{}Carácter\ de\ opción\ desconocido\ \`{}\(\backslash\)\(\backslash\)x\%x'.\(\backslash\)n"{}},\ optopt);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ abort\ ();}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00098}00098\ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00100}00100\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ elev\ ==\ 1\ \&\&\ (\ \mbox{\hyperlink{generate_map_valle_8c_acfa8c359b43425056688f72ba5b54d59}{elevfile}}\ =\ fopen(\ \mbox{\hyperlink{generate_map_valle_8c_a4403e87828b27877e5ddc92f5cef57b9}{elevfilename}},\ \textcolor{stringliteral}{"{}w+"{}}))\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ puts(\textcolor{stringliteral}{"{}No\ se\ puede\ abrir\ el\ fichero\ de\ elevación"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ exit(\ 0\ );}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00103}00103\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00104}00104\ \ \ \ \ \textcolor{keywordflow}{if}(\ slope\ ==\ 1\ \&\&\ (\ \mbox{\hyperlink{generate_map_valle_8c_a8e6dd133a730ba09091d15afdfd8533d}{slopefile}}\ =\ fopen(\ \mbox{\hyperlink{generate_map_valle_8c_ad1a5454c8c5c5469761327ea9db45d8f}{slopefilename}},\ \textcolor{stringliteral}{"{}w+"{}}))\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ puts(\textcolor{stringliteral}{"{}No\ se\ puede\ abrir\ el\ fichero\ de\ slope"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ exit(\ 0\ );}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{if}(\ aspect\ ==\ 1\ \&\&\ (\ \mbox{\hyperlink{generate_map_valle_8c_aecc6f2dee3dd845d7f513575a6360141}{aspectfile}}\ =\ fopen(\ \mbox{\hyperlink{generate_map_valle_8c_a6cfe86d7b2bd2196d95c12ac8d4833ee}{aspectfilename}},\ \textcolor{stringliteral}{"{}w+"{}}))\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ puts(\textcolor{stringliteral}{"{}No\ se\ puede\ abrir\ el\ fichero\ de\ aspect"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ exit(\ 0\ );}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00111}00111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{if}(\ fuel\ ==\ 1\ \&\&\ (\ \mbox{\hyperlink{generate_map_valle_8c_abe3f1764703a315e4347173bb1349163}{fuelfile}}\ =\ fopen(\ \mbox{\hyperlink{generate_map_valle_8c_ae4479cc66040babed8d782baa55d22cd}{fuelfilename}},\ \textcolor{stringliteral}{"{}w+"{}}))\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ puts(\textcolor{stringliteral}{"{}No\ se\ puede\ abrir\ el\ fichero\ de\ fuel"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ exit(\ 0\ );}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00115}00115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00116}00116\ \ \ \ \ \textcolor{keywordflow}{if}(\ cano\ ==\ 1\ \&\&\ (\ \mbox{\hyperlink{generate_map_valle_8c_abcaa1eb2b5e50ceca029a8b85af808e4}{canopyfile}}\ =\ fopen(\ \mbox{\hyperlink{generate_map_valle_8c_a7fc8fb21a0044dfe920d5c1d378a2091}{canopyfilename}},\ \textcolor{stringliteral}{"{}w+"{}}))\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ puts(\textcolor{stringliteral}{"{}No\ se\ puede\ abrir\ el\ fichero\ de\ fuel"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ exit(\ 0\ );}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00119}00119\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00120}00120\ \ \ \ \ \textcolor{keywordtype}{int}\ i=0;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00121}00121\ \ \ \ \ \textcolor{keywordtype}{int}\ j=0;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00122}00122\ \ \ \ \ \textcolor{keywordtype}{int}\ elev\_tmp\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00123}00123\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00124}00124\ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_acfa8c359b43425056688f72ba5b54d59}{elevfile}},\ \textcolor{stringliteral}{"{}ncols\ \%d\(\backslash\)nnrows\ \%d\ \(\backslash\)nxllcorner\ 157819.328125\(\backslash\)nyllcorner\ 384678.625\(\backslash\)ncellsize\ 30\(\backslash\)nNODATA\_value\ \ -\/9999\(\backslash\)n"{}},Cols,Rows);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00125}00125\ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_aecc6f2dee3dd845d7f513575a6360141}{aspectfile}},\ \textcolor{stringliteral}{"{}ncols\ \%d\(\backslash\)nnrows\ \%d\ \(\backslash\)nxllcorner\ 157819.328125\(\backslash\)nyllcorner\ 384678.625\(\backslash\)ncellsize\ 30\(\backslash\)nNODATA\_value\ \ -\/9999\(\backslash\)n"{}},Cols,Rows);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00126}00126\ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_a8e6dd133a730ba09091d15afdfd8533d}{slopefile}},\ \textcolor{stringliteral}{"{}ncols\ \%d\(\backslash\)nnrows\ \%d\ \(\backslash\)nxllcorner\ 157819.328125\(\backslash\)nyllcorner\ 384678.625\(\backslash\)ncellsize\ 30\(\backslash\)nNODATA\_value\ \ -\/9999\(\backslash\)n"{}},Cols,Rows);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00127}00127\ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_abe3f1764703a315e4347173bb1349163}{fuelfile}},\ \textcolor{stringliteral}{"{}ncols\ \%d\(\backslash\)nnrows\ \%d\ \(\backslash\)nxllcorner\ 157819.328125\(\backslash\)nyllcorner\ 384678.625\(\backslash\)ncellsize\ 30\(\backslash\)nNODATA\_value\ \ -\/9999\(\backslash\)n"{}},Cols,Rows);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00128}00128\ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_abcaa1eb2b5e50ceca029a8b85af808e4}{canopyfile}},\ \textcolor{stringliteral}{"{}ncols\ \%d\(\backslash\)nnrows\ \%d\ \(\backslash\)nxllcorner\ 157819.328125\(\backslash\)nyllcorner\ 384678.625\(\backslash\)ncellsize\ 30\(\backslash\)nNODATA\_value\ \ -\/9999\(\backslash\)n"{}},Cols,Rows);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00129}00129\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00130}00130\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00131}00131\ \ \ \ \ \textcolor{keywordflow}{for}(i=0;i<Rows;i++)}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00132}00132\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(j=0;j<Cols;j++)}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_abcaa1eb2b5e50ceca029a8b85af808e4}{canopyfile}},\ \textcolor{stringliteral}{"{}\ -\/9999"{}});\ \ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(j<=Q1)}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_acfa8c359b43425056688f72ba5b54d59}{elevfile}},\ \textcolor{stringliteral}{"{}\ 0"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_a8e6dd133a730ba09091d15afdfd8533d}{slopefile}},\ \textcolor{stringliteral}{"{}\ 5"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_aecc6f2dee3dd845d7f513575a6360141}{aspectfile}},\ \textcolor{stringliteral}{"{}\ 90"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_abe3f1764703a315e4347173bb1349163}{fuelfile}},\textcolor{stringliteral}{"{}\ \%d"{}},\ fuelT);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ elev\_tmp\ +=\ 5;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(j<=Q2)}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_acfa8c359b43425056688f72ba5b54d59}{elevfile}},\ \textcolor{stringliteral}{"{}\ \%d"{}},\ elev\_tmp);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_a8e6dd133a730ba09091d15afdfd8533d}{slopefile}},\ \textcolor{stringliteral}{"{}\ 10"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_aecc6f2dee3dd845d7f513575a6360141}{aspectfile}},\ \textcolor{stringliteral}{"{}\ 90"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_abe3f1764703a315e4347173bb1349163}{fuelfile}},\textcolor{stringliteral}{"{}\ \%d"{}},\ fuelT);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ elev\_tmp\ +=\ 10;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(j<=Q3)}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_acfa8c359b43425056688f72ba5b54d59}{elevfile}},\ \textcolor{stringliteral}{"{}\ \%d"{}},\ elev\_tmp);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_a8e6dd133a730ba09091d15afdfd8533d}{slopefile}},\ \textcolor{stringliteral}{"{}\ 15"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_aecc6f2dee3dd845d7f513575a6360141}{aspectfile}},\ \textcolor{stringliteral}{"{}\ 90"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_abe3f1764703a315e4347173bb1349163}{fuelfile}},\textcolor{stringliteral}{"{}\ \%d"{}},\ fuelT);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ elev\_tmp\ +=\ 15;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(j<=Q4)}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_acfa8c359b43425056688f72ba5b54d59}{elevfile}},\ \textcolor{stringliteral}{"{}\ \%d"{}},\ elev\_tmp);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_a8e6dd133a730ba09091d15afdfd8533d}{slopefile}},\ \textcolor{stringliteral}{"{}\ 20"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_aecc6f2dee3dd845d7f513575a6360141}{aspectfile}},\ \textcolor{stringliteral}{"{}\ 90"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_abe3f1764703a315e4347173bb1349163}{fuelfile}},\textcolor{stringliteral}{"{}\ \%d"{}},\ fuelT);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ elev\_tmp\ +=\ 20;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(j<=Q5)}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_acfa8c359b43425056688f72ba5b54d59}{elevfile}},\ \textcolor{stringliteral}{"{}\ \%d"{}},\ elev\_tmp);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_a8e6dd133a730ba09091d15afdfd8533d}{slopefile}},\ \textcolor{stringliteral}{"{}\ 25"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_aecc6f2dee3dd845d7f513575a6360141}{aspectfile}},\ \textcolor{stringliteral}{"{}\ 90"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_abe3f1764703a315e4347173bb1349163}{fuelfile}},\textcolor{stringliteral}{"{}\ \%d"{}},\ fuelT);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ elev\_tmp\ +=\ 25;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_acfa8c359b43425056688f72ba5b54d59}{elevfile}},\ \textcolor{stringliteral}{"{}\ 0"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_a8e6dd133a730ba09091d15afdfd8533d}{slopefile}},\ \textcolor{stringliteral}{"{}\ 0"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_aecc6f2dee3dd845d7f513575a6360141}{aspectfile}},\ \textcolor{stringliteral}{"{}\ 90"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_abe3f1764703a315e4347173bb1349163}{fuelfile}},\textcolor{stringliteral}{"{}\ \%d"{}},\ fuelT);}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ elev\_tmp\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_acfa8c359b43425056688f72ba5b54d59}{elevfile}},\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_a8e6dd133a730ba09091d15afdfd8533d}{slopefile}},\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00187}00187\ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_aecc6f2dee3dd845d7f513575a6360141}{aspectfile}},\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_abe3f1764703a315e4347173bb1349163}{fuelfile}},\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00189}00189\ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{generate_map_valle_8c_abcaa1eb2b5e50ceca029a8b85af808e4}{canopyfile}},\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00190}00190\ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00192}00192\ \ \ \ \ fclose(\mbox{\hyperlink{generate_map_valle_8c_acfa8c359b43425056688f72ba5b54d59}{elevfile}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00193}00193\ \ \ \ \ fclose(\mbox{\hyperlink{generate_map_valle_8c_a8e6dd133a730ba09091d15afdfd8533d}{slopefile}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00194}00194\ \ \ \ \ fclose(\mbox{\hyperlink{generate_map_valle_8c_aecc6f2dee3dd845d7f513575a6360141}{aspectfile}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00195}00195\ \ \ \ \ fclose(\mbox{\hyperlink{generate_map_valle_8c_abe3f1764703a315e4347173bb1349163}{fuelfile}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00196}00196\ \ \ \ \ fclose(\mbox{\hyperlink{generate_map_valle_8c_abcaa1eb2b5e50ceca029a8b85af808e4}{canopyfile}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00198}00198\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00199}00199\ \}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00201}00201\ \textcolor{comment}{/*(Carlos\ B.)*/}}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00202}00202\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PrintHelp()}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00203}00203\ \{}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00204}00204\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*****************************************************************************\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00205}00205\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ USO\ DEL\ PROGRAMA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00206}00206\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00207}00207\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*\ \$./generateMapValle\ -\/options\ arguments\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00208}00208\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00209}00209\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*OPTION\ LIST\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00210}00210\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00211}00211\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*\ -\/e\ arg\ \ \ \ Elevation\ Map\ input\ file\ (REQUIRED)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00212}00212\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*\ -\/s\ arg\ \ \ \ Slope\ Map\ input\ file\ (REQUIRED)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00213}00213\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*\ -\/a\ arg\ \ \ \ Aspect\ Map\ input\ file\ (REQUIRED)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00214}00214\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*\ -\/a\ arg\ \ \ \ Fuel\ Map\ input\ file\ (REQUIRED)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00215}00215\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*\ -\/r\ arg\ \ \ \ Rows,\ integer\ (REQUIRED)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00216}00216\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*\ -\/c\ arg\ \ \ \ Columns,\ integer\ (REQUIRED)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00217}00217\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*\ -\/h\ \ \ \ \ \ \ \ Display\ this\ help\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00218}00218\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00219}00219\ \ \ \ \ printf(\textcolor{stringliteral}{"{}*****************************************************************************\(\backslash\)n"{}});\ \ }
+\DoxyCodeLine{\Hypertarget{generate_map_valle_8c_source_l00220}00220\ \}}
+
+\end{DoxyCode}

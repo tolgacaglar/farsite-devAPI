@@ -1,0 +1,437 @@
+.TH "TFarsiteInterface" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TFarsiteInterface \- The main FARSITE class\&. 
+.br
+  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <farsite4\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTFarsiteInterface\fP (const char *name, const char *directory, const char *BookMark)"
+.br
+.ti -1c
+.RI "\fB~TFarsiteInterface\fP ()"
+.br
+.ti -1c
+.RI "void \fBInitMainWindow\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetModelParams\fP ()"
+.br
+.ti -1c
+.RI "bool \fBPreCalculateFuelMoisturesNoUI\fP ()"
+.br
+.ti -1c
+.RI "void \fBloadValues\fP ()"
+.br
+.ti -1c
+.RI "void \fBlIgn\fP ()"
+.br
+.ti -1c
+.RI "void \fBsIgn\fP ()"
+.br
+.ti -1c
+.RI "void \fBChain\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetResume\fP (int, int, char *, char *)"
+.br
+.ti -1c
+.RI "void \fBSetInputsFromFile\fP (char *settingsfilename)"
+.br
+.RI "Reads in the simulation settings from a file\&. 
+.br
+ "
+.ti -1c
+.RI "void \fBprocessNameValue\fP (char *name, char *value)"
+.br
+.RI "Used by \fBSetInputsFromFile()\fP, this function performs the actual setting of simulation parameters specified in the file\&. 
+.br
+ "
+.ti -1c
+.RI "void \fBInitiate\fP ()"
+.br
+.RI "Configures the FARSITE simulator for initial simulation loop\&. "
+.ti -1c
+.RI "void \fBTerminate\fP ()"
+.br
+.RI "Dumps all configuration info from the FARSITE simulator\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "char \fBFMMFileName\fP [256]"
+.br
+.ti -1c
+.RI "char \fBFMMDescription\fP [512]"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBFlatOpenProject\fP ()"
+.br
+.ti -1c
+.RI "void \fBSaveVisPerimeter\fP ()"
+.br
+.ti -1c
+.RI "void \fBFlatSimulateInitiateTerminate\fP ()"
+.br
+.ti -1c
+.RI "void \fBCheckStopLocations\fP ()"
+.br
+.ti -1c
+.RI "void \fBFarsiteSimulationLoop\fP ()"
+.br
+.ti -1c
+.RI "void \fBSaveSettingsToFile\fP (const char *)"
+.br
+.ti -1c
+.RI "void \fBSaveLastState\fP ()"
+.br
+.ti -1c
+.RI "void \fBLoadLastState\fP ()"
+.br
+.ti -1c
+.RI "void \fBStartWinThread\fP ()"
+.br
+.ti -1c
+.RI "void \fBStartSimThread\fP ()"
+.br
+.ti -1c
+.RI "void \fBEndSimThread\fP ()"
+.br
+.ti -1c
+.RI "unsigned \fBRunSimThread\fP (void *)"
+.br
+.ti -1c
+.RI "void \fBExecute_InitiateTerminate\fP ()"
+.br
+.ti -1c
+.RI "void \fBExecute_StartRestart\fP ()"
+.br
+.RI "Restarts or initializes the FARSITE simulation\&. 
+.br
+ "
+.ti -1c
+.RI "void \fBExecute_ResumeSuspend\fP ()"
+.br
+.ti -1c
+.RI "void \fBExecute_Reset\fP ()"
+.br
+.ti -1c
+.RI "void \fBProcessSimRequest\fP ()"
+.br
+.ti -1c
+.RI "void \fBStartMoistThread\fP ()"
+.br
+.ti -1c
+.RI "unsigned \fBRunMoistThread\fP (void *)"
+.br
+.ti -1c
+.RI "void \fBMoistThread\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBIgnitionFile\fP \fBIgnition\fP"
+.br
+.ti -1c
+.RI "\fBFarInputs\fP \fBInputs\fP"
+.br
+.ti -1c
+.RI "\fBBurn\fP \fBburn\fP"
+.br
+.ti -1c
+.RI "long \fBSimRequest\fP"
+.br
+.ti -1c
+.RI "bool \fBSIM_SUSPENDED\fP"
+.br
+.ti -1c
+.RI "bool \fBSIM_COMPLETED\fP"
+.br
+.ti -1c
+.RI "bool \fBFARSITE_GO\fP"
+.br
+.ti -1c
+.RI "bool \fBTerminateWait\fP"
+.br
+.ti -1c
+.RI "bool \fBWaitInProgress\fP"
+.br
+.ti -1c
+.RI "bool \fBTerminateMoist\fP"
+.br
+.ti -1c
+.RI "bool \fBMxRecalculated\fP"
+.br
+.ti -1c
+.RI "bool \fBStepThrough\fP"
+.br
+.ti -1c
+.RI "double \fBMoistSimTime\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The main FARSITE class\&. 
+.br
+ 
+
+This class organizes all the information required to execute a simulation\&. It also contains all the initialization code and the main simulation loop\&. In the days of the GUI, this was the main application, so it also contained all the logic to manage the GUI using the Borland UI toolkit\&. Finally, this file contains the thread management code\&.
+.PP
+This class was modified for batch mode by including functions which read a settings file and set each simulation variable appropriately\&. Threading and GUI logic has been either removed or commented out\&. 
+.br
+.PP
+The main problem with adapting this code to the API is that it does try and contain all of the required information\&. The 'Inputs' object is a private member of this class\&. An external class in the API, like FarsiteConfig, may not be able to maintain it's own instance of a \fBFarInputs\fP class and have it apply here\&. If not, all of the logic contained herein must be exported to the API class\&. Alternatively, it may be possible to either overload the assignment operator for \fBFarInputs\fP or modify this class to allow the client to set the \fBFarInputs\fP object they desire\&. 
+.PP
+Definition at line \fB68\fP of file \fBfarsite4\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "TFarsiteInterface::TFarsiteInterface (const char * name, const char * directory, const char * BookMark)"
+
+.PP
+Definition at line \fB81\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "TFarsiteInterface::~TFarsiteInterface ()"
+
+.PP
+Definition at line \fB77\fP of file \fBfarsite4\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void TFarsiteInterface::Chain ()"
+
+.PP
+Definition at line \fB1390\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::CheckStopLocations ()\fR [protected]\fP"
+
+.PP
+Definition at line \fB2600\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::EndSimThread ()\fR [protected]\fP"
+
+.PP
+Definition at line \fB971\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::Execute_InitiateTerminate ()\fR [protected]\fP"
+
+.PP
+Definition at line \fB1077\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::Execute_Reset ()\fR [protected]\fP"
+
+.PP
+Definition at line \fB1445\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::Execute_ResumeSuspend ()\fR [protected]\fP"
+
+.PP
+Definition at line \fB1396\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::Execute_StartRestart ()\fR [protected]\fP"
+
+.PP
+Restarts or initializes the FARSITE simulation\&. 
+.br
+ The simulation then begins executing\&. 
+.PP
+Definition at line \fB1233\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::FarsiteSimulationLoop ()\fR [protected]\fP"
+
+.PP
+Definition at line \fB2830\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::FlatOpenProject ()\fR [protected]\fP"
+
+.PP
+Definition at line \fB884\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::FlatSimulateInitiateTerminate ()\fR [protected]\fP"
+
+.PP
+Definition at line \fB1071\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::Initiate ()"
+
+.PP
+Configures the FARSITE simulator for initial simulation loop\&. This method assumes that all has been initialized correctly\&. 
+.PP
+Definition at line \fB1201\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::InitMainWindow ()"
+
+.PP
+Definition at line \fB134\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::lIgn ()"
+
+.PP
+Definition at line \fB1912\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::LoadLastState ()\fR [protected]\fP"
+
+.PP
+Definition at line \fB1830\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::loadValues ()"
+
+.SS "void TFarsiteInterface::MoistThread ()\fR [protected]\fP"
+
+.PP
+Definition at line \fB2758\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "bool TFarsiteInterface::PreCalculateFuelMoisturesNoUI ()"
+
+.PP
+Definition at line \fB3385\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::processNameValue (char * name, char * value)"
+
+.PP
+Used by \fBSetInputsFromFile()\fP, this function performs the actual setting of simulation parameters specified in the file\&. 
+.br
+ This is a good place to look when trying to find out what function to call or variable to set when attempting to affect specific parameters\&. 
+.br
+.PP
+\fBTodo\fP
+.RS 4
+Units are not set\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB338\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::ProcessSimRequest ()\fR [protected]\fP"
+
+.PP
+Definition at line \fB3062\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "unsigned TFarsiteInterface::RunMoistThread (void * FarIntFace)\fR [protected]\fP"
+
+.PP
+Definition at line \fB2751\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "unsigned TFarsiteInterface::RunSimThread (void * FarIntFace)\fR [protected]\fP"
+
+.PP
+Definition at line \fB984\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::SaveLastState ()\fR [protected]\fP"
+
+.PP
+Definition at line \fB1792\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::SaveSettingsToFile (const char * fname)\fR [protected]\fP"
+
+.PP
+Definition at line \fB3427\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::SaveVisPerimeter ()\fR [protected]\fP"
+
+.PP
+Definition at line \fB915\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::SetInputsFromFile (char * settingsfilename)"
+
+.PP
+Reads in the simulation settings from a file\&. 
+.br
+ This is used in conjunction with the batch-mode FARSITE simulation\&.\&.\&. 
+.PP
+Definition at line \fB285\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::SetModelParams ()"
+
+.PP
+Definition at line \fB890\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::SetResume (int valor, int valor2, char * filenameI, char * filenameO)"
+
+.PP
+Definition at line \fB1783\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::sIgn ()"
+
+.PP
+Definition at line \fB1918\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::StartMoistThread ()\fR [protected]\fP"
+
+.PP
+Definition at line \fB2734\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::StartSimThread ()\fR [protected]\fP"
+
+.PP
+Definition at line \fB955\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "void TFarsiteInterface::StartWinThread ()\fR [protected]\fP"
+
+.SS "void TFarsiteInterface::Terminate ()"
+
+.PP
+Dumps all configuration info from the FARSITE simulator\&. After using this method, the user is required to load another configuration into memory before simulating\&. must use constant j because NumCrews changes in \fBFreeCrew()\fP;
+.PP
+must use constant j because NumCrews changes in \fBFreeCrew()\fP;
+.PP
+Definition at line \fB1124\fP of file \fBfarsite4\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBBurn\fP TFarsiteInterface::burn\fR [protected]\fP"
+
+.PP
+Definition at line \fB194\fP of file \fBfarsite4\&.h\fP\&.
+.SS "bool TFarsiteInterface::FARSITE_GO\fR [protected]\fP"
+
+.PP
+Definition at line \fB196\fP of file \fBfarsite4\&.h\fP\&.
+.SS "char TFarsiteInterface::FMMDescription[512]"
+
+.PP
+Definition at line \fB227\fP of file \fBfarsite4\&.h\fP\&.
+.SS "char TFarsiteInterface::FMMFileName[256]"
+
+.PP
+Definition at line \fB226\fP of file \fBfarsite4\&.h\fP\&.
+.SS "\fBIgnitionFile\fP TFarsiteInterface::Ignition\fR [protected]\fP"
+
+.PP
+Definition at line \fB192\fP of file \fBfarsite4\&.h\fP\&.
+.SS "\fBFarInputs\fP TFarsiteInterface::Inputs\fR [protected]\fP"
+
+.PP
+Definition at line \fB193\fP of file \fBfarsite4\&.h\fP\&.
+.SS "double TFarsiteInterface::MoistSimTime\fR [protected]\fP"
+
+.PP
+Definition at line \fB198\fP of file \fBfarsite4\&.h\fP\&.
+.SS "bool TFarsiteInterface::MxRecalculated\fR [protected]\fP"
+
+.PP
+Definition at line \fB197\fP of file \fBfarsite4\&.h\fP\&.
+.SS "bool TFarsiteInterface::SIM_COMPLETED\fR [protected]\fP"
+
+.PP
+Definition at line \fB196\fP of file \fBfarsite4\&.h\fP\&.
+.SS "bool TFarsiteInterface::SIM_SUSPENDED\fR [protected]\fP"
+
+.PP
+Definition at line \fB196\fP of file \fBfarsite4\&.h\fP\&.
+.SS "long TFarsiteInterface::SimRequest\fR [protected]\fP"
+
+.PP
+Definition at line \fB195\fP of file \fBfarsite4\&.h\fP\&.
+.SS "bool TFarsiteInterface::StepThrough\fR [protected]\fP"
+
+.PP
+Definition at line \fB197\fP of file \fBfarsite4\&.h\fP\&.
+.SS "bool TFarsiteInterface::TerminateMoist\fR [protected]\fP"
+
+.PP
+Definition at line \fB197\fP of file \fBfarsite4\&.h\fP\&.
+.SS "bool TFarsiteInterface::TerminateWait\fR [protected]\fP"
+
+.PP
+Definition at line \fB196\fP of file \fBfarsite4\&.h\fP\&.
+.SS "double TFarsiteInterface::tws"
+
+.PP
+Definition at line \fB122\fP of file \fBfarsite4\&.h\fP\&.
+.SS "bool TFarsiteInterface::WaitInProgress\fR [protected]\fP"
+
+.PP
+Definition at line \fB196\fP of file \fBfarsite4\&.h\fP\&.
+.SS "double TFarsiteInterface::winddir"
+
+.PP
+Definition at line \fB123\fP of file \fBfarsite4\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

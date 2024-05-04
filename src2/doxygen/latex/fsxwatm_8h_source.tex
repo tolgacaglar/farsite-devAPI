@@ -1,0 +1,111 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fsxwatm.h}
+\hypertarget{fsxwatm_8h_source}{}\label{fsxwatm_8h_source}\mbox{\hyperlink{fsxwatm_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00026}00026\ \textcolor{comment}{//\#include\ <mem.h>}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00029}\mbox{\hyperlink{fsxwatm_8h_aa381d10dd0172e72568db9d6ccc6c8fc}{00029}}\ \textcolor{preprocessor}{\#define\ ATMTEMP\ \ 0}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00030}\mbox{\hyperlink{fsxwatm_8h_a036dd0c6618c973cfe0b70a62586da9a}{00030}}\ \textcolor{preprocessor}{\#define\ ATMHUMID\ 1}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00031}\mbox{\hyperlink{fsxwatm_8h_a7503384387c0c587de9e60797c1958e3}{00031}}\ \textcolor{preprocessor}{\#define\ ATMRAIN\ \ 2}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00032}\mbox{\hyperlink{fsxwatm_8h_a7d52b1b17112b9dc927b4abf6efc2440}{00032}}\ \textcolor{preprocessor}{\#define\ ATMWSPD\ \ 3}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00033}\mbox{\hyperlink{fsxwatm_8h_a06e111946b857c7557ee18da14909458}{00033}}\ \textcolor{preprocessor}{\#define\ ATMWDIR\ \ 4}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00034}\mbox{\hyperlink{fsxwatm_8h_a650227e02c8a74c276fa8dd81590f54b}{00034}}\ \textcolor{preprocessor}{\#define\ ATMCLOUD\ 5}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00036}\mbox{\hyperlink{struct_atmosphere}{00036}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_atmosphere}{Atmosphere}}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00037}00037\ \{}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00038}00038\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{double}\ North;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{double}\ South;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{double}\ East;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{double}\ West;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{double}\ ResolutionX;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{double}\ ResolutionY;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00045}00045\ \ \ \ \ \textcolor{keywordtype}{long}\ CellX;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{long}\ CellY;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{short}*\ Value;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00049}00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00050}\mbox{\hyperlink{struct_atmosphere_a2754d61a1236d1d35d17095a0c1ed1ad}{00050}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_atmosphere_a2754d61a1236d1d35d17095a0c1ed1ad}{XNumber}};}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00051}\mbox{\hyperlink{struct_atmosphere_a87923cd13b6100d2203f893b8c8a0271}{00051}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_atmosphere_a87923cd13b6100d2203f893b8c8a0271}{YNumber}};}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00052}\mbox{\hyperlink{struct_atmosphere_a095093bcabff17af8b0fb1e423e6c541}{00052}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_atmosphere_a095093bcabff17af8b0fb1e423e6c541}{NumCellsPerGrid}};}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{struct_atmosphere_a9bbd0907084e7078242e6f7717946416}{Atmosphere}}();}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00055}00055\ \ \ \ \ \mbox{\hyperlink{struct_atmosphere_afbcfeeabf6602a6816405b9217af62fd}{\string~Atmosphere}}();}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_atmosphere_a30ed5d5660d727343425f91ca5e56087}{SetHeaderInfo}}(\textcolor{keywordtype}{double}\ north,\ \textcolor{keywordtype}{double}\ south,\ \textcolor{keywordtype}{double}\ east,\ \textcolor{keywordtype}{double}\ west,}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ resolutionx,\ \textcolor{keywordtype}{double}\ resolutiony);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_atmosphere_a5acea25169023f731fe15f070d9da820}{GetHeaderInfo}}(\textcolor{keywordtype}{double}*\ north,\ \textcolor{keywordtype}{double}*\ south,\ \textcolor{keywordtype}{double}*\ east,}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}*\ west,\ \textcolor{keywordtype}{double}*\ resolutionx,\ \textcolor{keywordtype}{double}*\ resolutiony);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_atmosphere_a4c8603e6073c449b71a25f52bb36f4ac}{GetResolution}}(\textcolor{keywordtype}{double}*\ resolutionx,\ \textcolor{keywordtype}{double}*\ resolutiony);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00061}00061\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_atmosphere_ac06bb8f5e92571aca860969b1a93f609}{CompareHeader}}(\textcolor{keywordtype}{double}\ north,\ \textcolor{keywordtype}{double}\ south,\ \textcolor{keywordtype}{double}\ east,\ \textcolor{keywordtype}{double}\ west,}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ resolutionx,\ \textcolor{keywordtype}{double}\ resolutiony);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_atmosphere_a4d74629c5add18d2a3e614e232c3e88d}{AllocAtmGrid}}(\textcolor{keywordtype}{long}\ timeintervals);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_atmosphere_aba57e933d48c5abae933c93cdb811f66}{FreeAtmGrid}}();}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00065}00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_atmosphere_a6bd6e287d291e6e0ff843617e65a3ecb}{GetAtmValue}}(\textcolor{keywordtype}{double}\ xpt,\ \textcolor{keywordtype}{double}\ ypt,\ \textcolor{keywordtype}{long}\ time,\ \textcolor{keywordtype}{short}*\ value);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00066}00066\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_atmosphere_a4385164becd91f6bfb169f6dc111ce24}{SetAtmValue}}(\textcolor{keywordtype}{long}\ number,\ \textcolor{keywordtype}{long}\ time,\ \textcolor{keywordtype}{short}\ value);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00067}00067\ \};}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00070}\mbox{\hyperlink{class_atmosphere_grid}{00070}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_atmosphere_grid}{AtmosphereGrid}}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00071}00071\ \{}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00072}00072\ \ \ \ \ \textcolor{comment}{//\ base\ class\ for\ access\ and\ loading\ of\ atmospheric\ variables}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00073}00073\ \ \ \ \ FILE*\ InputTable;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00074}00074\ \ \ \ \ FILE*\ ThisFile;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00075}00075\ \ \ \ \ \textcolor{keywordtype}{long}\ month,\ day,\ hour;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00076}00076\ \ \ \ \ \textcolor{keywordtype}{long}*\ Month;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ array\ of\ pointers\ to\ longs\ that\ store\ dates}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00077}00077\ \ \ \ \ \textcolor{keywordtype}{long}*\ Day;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00078}00078\ \ \ \ \ \textcolor{keywordtype}{long}*\ Hour;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00079}00079\ \ \ \ \ \textcolor{keywordtype}{long}\ NumGrids;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00080}00080\ \ \ \ \ \textcolor{keywordtype}{long}\ StartGrid;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00081}00081\ \ \ \ \ \textcolor{keywordtype}{long}\ TimeIntervals;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00082}00082\ \ \ \ \ \textcolor{keywordtype}{long}\ Metric;}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00083}00083\ \ \ \ \ \mbox{\hyperlink{struct_atmosphere}{Atmosphere}}\ atmosphere[6];}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00085}00085\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00086}\mbox{\hyperlink{class_atmosphere_grid_a4074572be18be48d888a062c2fc0ea79}{00086}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_atmosphere_grid_a4074572be18be48d888a062c2fc0ea79}{AtmGridWTR}};}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00087}\mbox{\hyperlink{class_atmosphere_grid_a042c89b0b629605462198bebd7cd2280}{00087}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_atmosphere_grid_a042c89b0b629605462198bebd7cd2280}{AtmGridWND}};}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00088}\mbox{\hyperlink{class_atmosphere_grid_ac3e1666dccdf777294442a9d480ee674}{00088}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_atmosphere_grid_ac3e1666dccdf777294442a9d480ee674}{ErrMsg}}[256];}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00090}00090\ \ \ \ \ \mbox{\hyperlink{class_atmosphere_grid_ae024b15046a4000159b98a8c0c6a79d2}{AtmosphereGrid}}(\textcolor{keywordtype}{long}\ numgrids);\ \ \ \ \textcolor{comment}{//\ will\ default\ to\ 6\ if\ all\ themes\ included,}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00091}00091\ \ \ \ \ \mbox{\hyperlink{class_atmosphere_grid_a37c4afb6f3fe126c1a36dd3baae7d458}{\string~AtmosphereGrid}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ 3\ if\ only\ wind\ spd\ dir\ \&\ cloud\ \%}}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00092}00092\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_atmosphere_grid_ade198c76815554eb4459278b0be90a3a}{ReadInputTable}}(\textcolor{keywordtype}{char}*\ InputFileName);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00093}00093\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_atmosphere_grid_a6e0f98fbb7e1174e0c181bfab5a14d5d}{ReadHeaders}}(\textcolor{keywordtype}{long}\ FileNumber);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00094}00094\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_atmosphere_grid_a17ec95de256559c89bff775dcef384d8}{CompareHeader}}(\textcolor{keywordtype}{long}\ FileNumber);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00095}00095\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_atmosphere_grid_a017463980d9d9b55566c099e741ee7bb}{SetAtmosphereValues}}(\textcolor{keywordtype}{long}\ timeinterval,\ \textcolor{keywordtype}{long}\ filenumber);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00096}00096\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_atmosphere_grid_acd9acdfffbce2ccc33eabed685edfe58}{GetAtmosphereValue}}(\textcolor{keywordtype}{long}\ FileNumber,\ \textcolor{keywordtype}{double}\ xpt,\ \textcolor{keywordtype}{double}\ ypt,}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ time,\ \textcolor{keywordtype}{short}*\ value);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00098}00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_atmosphere_grid_a9c86518c5baed93cbcb9ecc5c6996925}{GetResolution}}(\textcolor{keywordtype}{long}\ FileNumber,\ \textcolor{keywordtype}{double}*\ resolutionx,}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}*\ resolutiony);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00100}00100\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_atmosphere_grid_ade2f293771a287b4117ad911d1755177}{GetAtmMonth}}(\textcolor{keywordtype}{long}\ count);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00101}00101\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_atmosphere_grid_ab53d4f28ca9b1c0eca7804c3a853b126}{GetAtmDay}}(\textcolor{keywordtype}{long}\ count);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00102}00102\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_atmosphere_grid_a1ebb2ee604c0c19f6ba0f0c7bc8cf712}{GetAtmHour}}(\textcolor{keywordtype}{long}\ count);}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00103}00103\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_atmosphere_grid_aa97e9dd5581c6129d723a44e776891ea}{GetTimeIntervals}}();}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00104}00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_atmosphere_grid_a7e7a3d79bfe5602637723d71fb69426a}{FreeAtmData}}();}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00105}00105\ \};}
+\DoxyCodeLine{\Hypertarget{fsxwatm_8h_source_l00106}00106\ }
+
+\end{DoxyCode}

@@ -1,0 +1,640 @@
+.TH "FarInputs" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FarInputs
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsxwinpt\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFarInputs\fP ()"
+.br
+.ti -1c
+.RI "void \fBResetData\fP ()"
+.br
+.ti -1c
+.RI "void \fBInitializeLandscapeFile\fP ()"
+.br
+.ti -1c
+.RI "bool \fBLoadWeatherData\fP (long FileNum)"
+.br
+.ti -1c
+.RI "bool \fBLoadWindData\fP (long FileNum)"
+.br
+.ti -1c
+.RI "bool \fBLoadAdjustmentFile\fP ()"
+.br
+.ti -1c
+.RI "bool \fBLoadFuelMoistureFile\fP ()"
+.br
+.ti -1c
+.RI "bool \fBLoadCustomModelFile\fP ()"
+.br
+.ti -1c
+.RI "bool \fBLoadConversionFile\fP ()"
+.br
+.ti -1c
+.RI "bool \fBLoadBurnPeriodFile\fP ()"
+.br
+.ti -1c
+.RI "bool \fBLoadCoarseWoodyFile\fP (char *ErrMsg)"
+.br
+.ti -1c
+.RI "bool \fBTestProjectFileVersion\fP ()"
+.br
+.ti -1c
+.RI "bool \fBOpenVersion1ProjectFile\fP ()"
+.br
+.ti -1c
+.RI "bool \fBOpenVersion2ProjectFile\fP ()"
+.br
+.ti -1c
+.RI "bool \fBOpenVersion4ProjectFile\fP ()"
+.br
+.ti -1c
+.RI "void \fBMakeProjectFile\fP ()"
+.br
+.ti -1c
+.RI "void \fBWriteWeatherWindProject\fP ()"
+.br
+.ti -1c
+.RI "bool \fBTestForAtmWeather\fP ()"
+.br
+.ti -1c
+.RI "bool \fBTestForAtmWinds\fP ()"
+.br
+.ti -1c
+.RI "bool \fBintializeDir\fP (char *Name)"
+.br
+.ti -1c
+.RI "bool \fBsetWeatherFile\fP (int WeatherFileNum, const char *weatherFileName)"
+.br
+.ti -1c
+.RI "bool \fBsetWindFile\fP (int WindFileNum, const char *WindFileName)"
+.br
+.ti -1c
+.RI "bool \fBsetLandscapeFile\fP (const char *value)"
+.br
+.ti -1c
+.RI "void \fBinitWindAndWeather\fP ()"
+.br
+.ti -1c
+.RI "bool \fBloadUpAdjustmentsFile\fP (const char *adjFileName)"
+.br
+.ti -1c
+.RI "bool \fBloadUpMoistureFile\fP (const char *moistureFile)"
+.br
+.ti -1c
+.RI "bool \fBloadUpFuelModelFile\fP (const char *moistureFile)"
+.br
+.ti -1c
+.RI "bool \fBloadUpConversionFile\fP (const char *\fBConvertFile\fP)"
+.br
+.ti -1c
+.RI "bool \fBloadUpCoarseWoodyFile\fP (const char *\fBCoarseWoody\fP)"
+.br
+.ti -1c
+.RI "bool \fBloadUpBurnPeriodFile\fP (const char *FileName1)"
+.br
+.ti -1c
+.RI "void \fBsaveGridEastNorth\fP (char *eastNorth)"
+.br
+.ti -1c
+.RI "void \fBsaveGridRow\fP (char *GridRow)"
+.br
+.ti -1c
+.RI "bool \fBloadUpEastNorth\fP (char *eastNorth, char *GridRow)"
+.br
+.ti -1c
+.RI "bool \fBloadUpLandscapeTheme\fP (const char *FileName1)"
+.br
+.ti -1c
+.RI "void \fBinitShapeFileLoad\fP ()"
+.br
+.ti -1c
+.RI "bool \fBloadUpShapeFile\fP (char *shapefile)"
+.br
+.ti -1c
+.RI "bool \fBloadUpStoredVector\fP (char *storedVectorFile)"
+.br
+.ti -1c
+.RI "bool \fBloadUpSetDirection\fP (char *value, char direction)"
+.br
+.ti -1c
+.RI "bool \fBloadUpCanopyCheck\fP (char *value)"
+.br
+.ti -1c
+.RI "bool \fBSaveWtr\fP (long Station)"
+.br
+.ti -1c
+.RI "bool \fBSaveWnd\fP (long Station)"
+.br
+.ti -1c
+.RI "bool \fBSaveAdj\fP ()"
+.br
+.ti -1c
+.RI "bool \fBSaveFms\fP ()"
+.br
+.ti -1c
+.RI "bool \fBSaveCnv\fP ()"
+.br
+.ti -1c
+.RI "bool \fBSaveFmd\fP ()"
+.br
+.ti -1c
+.RI "bool \fBSaveBpd\fP ()"
+.br
+.ti -1c
+.RI "bool \fBSaveCwd\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "char \fBBookmarkFile\fP [FILE_LEN]"
+.br
+.ti -1c
+.RI "char \fBLandscapeFile\fP [FILE_LEN]"
+.br
+.ti -1c
+.RI "char \fBProjectFile\fP [FILE_LEN]"
+.br
+.ti -1c
+.RI "char \fBAdjustmentFile\fP [FILE_LEN]"
+.br
+.ti -1c
+.RI "char \fBFuelMoistureFile\fP [FILE_LEN]"
+.br
+.ti -1c
+.RI "char \fBConvertFile\fP [FILE_LEN]"
+.br
+.ti -1c
+.RI "char \fBFuelModelFile\fP [FILE_LEN]"
+.br
+.ti -1c
+.RI "char \fBWeatherFile\fP [5][FILE_LEN]"
+.br
+.ti -1c
+.RI "char \fBWindFile\fP [5][FILE_LEN]"
+.br
+.ti -1c
+.RI "char \fBBurnPeriod\fP [FILE_LEN]"
+.br
+.ti -1c
+.RI "char \fBCoarseWoody\fP [FILE_LEN]"
+.br
+.ti -1c
+.RI "char \fBMBLand\fP [64]"
+.br
+.ti -1c
+.RI "char \fBMBWtr\fP [5][64]"
+.br
+.ti -1c
+.RI "char \fBMBWnd\fP [5][64]"
+.br
+.ti -1c
+.RI "char \fBMBAdj\fP [64]"
+.br
+.ti -1c
+.RI "char \fBMBMois\fP [64]"
+.br
+.ti -1c
+.RI "char \fBMBConv\fP [64]"
+.br
+.ti -1c
+.RI "char \fBMBFuelMods\fP [64]"
+.br
+.ti -1c
+.RI "char \fBMBBpd\fP [64]"
+.br
+.ti -1c
+.RI "char \fBMBCwd\fP [64]"
+.br
+.ti -1c
+.RI "bool \fBLandID\fP"
+.br
+.ti -1c
+.RI "bool \fBWtrID\fP"
+.br
+.ti -1c
+.RI "bool \fBWndID\fP"
+.br
+.ti -1c
+.RI "bool \fBAdjID\fP"
+.br
+.ti -1c
+.RI "bool \fBFuelMoisID\fP"
+.br
+.ti -1c
+.RI "bool \fBBpdID\fP"
+.br
+.ti -1c
+.RI "bool \fBCwdID\fP"
+.br
+.ti -1c
+.RI "bool \fBSVGA_ON\fP"
+.br
+.ti -1c
+.RI "char \fBpathdiv\fP [1]"
+.br
+.ti -1c
+.RI "bool \fBinited\fP"
+.br
+.ti -1c
+.RI "bool \fBm_shapeFileInited\fP"
+.br
+.ti -1c
+.RI "bool \fBm_gridEastNorthSet\fP"
+.br
+.ti -1c
+.RI "bool \fBm_gridRowSet\fP"
+.br
+.ti -1c
+.RI "char \fBm_GridRow\fP [256]"
+.br
+.ti -1c
+.RI "char \fBm_eastNorth\fP [256]"
+.br
+.ti -1c
+.RI "int \fBm_BurnPeriodIsHere\fP"
+.br
+.ti -1c
+.RI "int \fBversion\fP"
+.br
+.ti -1c
+.RI "int \fBm_dcount\fP"
+.br
+.ti -1c
+.RI "long \fBGridInterval\fP"
+.br
+.ti -1c
+.RI "FILE * \fBCurrentFile\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB78\fP of file \fBfsxwinpt\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "FarInputs::FarInputs ()"
+
+.PP
+Definition at line \fB55\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void FarInputs::InitializeLandscapeFile ()"
+
+.PP
+Definition at line \fB109\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "void FarInputs::initShapeFileLoad ()"
+
+.PP
+Definition at line \fB2915\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "void FarInputs::initWindAndWeather ()"
+
+.PP
+Definition at line \fB2415\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::intializeDir (char * Name)"
+
+.PP
+Definition at line \fB2401\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::LoadAdjustmentFile ()"
+
+.PP
+Definition at line \fB726\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::LoadBurnPeriodFile ()"
+
+.PP
+Definition at line \fB3318\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::LoadCoarseWoodyFile (char * ErrMsg)"
+
+.PP
+Definition at line \fB3396\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::LoadConversionFile ()"
+
+.PP
+Definition at line \fB1062\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::LoadCustomModelFile ()"
+
+.PP
+Definition at line \fB820\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::LoadFuelMoistureFile ()"
+
+.PP
+Definition at line \fB772\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::loadUpAdjustmentsFile (const char * adjFileName)"
+note that this has something to do with HEAD I don't know what HEAD is yet 
+.PP
+Definition at line \fB2566\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::loadUpBurnPeriodFile (const char * FileName1)"
+
+.PP
+Definition at line \fB2749\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::loadUpCanopyCheck (char * value)"
+
+.PP
+Definition at line \fB3021\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::loadUpCoarseWoodyFile (const char * CoarseWoody)"
+
+.PP
+Definition at line \fB2711\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::loadUpConversionFile (const char * ConvertFile)"
+
+.PP
+Definition at line \fB2675\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::loadUpEastNorth (char * eastNorth, char * GridRow)"
+
+.PP
+Definition at line \fB2803\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::loadUpFuelModelFile (const char * moistureFile)"
+
+.PP
+Definition at line \fB2639\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::loadUpLandscapeTheme (const char * FileName1)"
+
+.PP
+Definition at line \fB2831\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::loadUpMoistureFile (const char * moistureFile)"
+note that this has something to do with HEAD I don't know what HEAD is yet This just assumes a valid version for the moisture file I think that is a pretty safe assumption being that this is in a whole new environment with a whole new file format 
+.PP
+Definition at line \fB2611\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::loadUpSetDirection (char * value, char direction)"
+
+.PP
+Definition at line \fB2981\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::loadUpShapeFile (char * shapefile)"
+this should get called for each shape file definition the shape file definition it defined in the scanf below 
+.PP
+Definition at line \fB2926\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::loadUpStoredVector (char * storedVectorFile)"
+
+.PP
+Definition at line \fB2958\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::LoadWeatherData (long FileNum)"
+
+.PP
+Definition at line \fB184\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::LoadWindData (long FileNum)"
+
+.PP
+Definition at line \fB549\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "void FarInputs::MakeProjectFile ()"
+{ colr=GetFuelColor(i);
+.PP
+Definition at line \fB3035\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::OpenVersion1ProjectFile ()"
+
+.PP
+Definition at line \fB1111\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::OpenVersion2ProjectFile ()"
+
+.PP
+Definition at line \fB1392\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::OpenVersion4ProjectFile ()"
+
+.PP
+Definition at line \fB1750\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "void FarInputs::ResetData ()"
+
+.PP
+Definition at line \fB71\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::SaveAdj ()"
+
+.PP
+Definition at line \fB3789\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::SaveBpd ()"
+
+.PP
+Definition at line \fB3938\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::SaveCnv ()"
+
+.PP
+Definition at line \fB3842\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::SaveCwd ()"
+
+.PP
+Definition at line \fB3969\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::SaveFmd ()"
+
+.PP
+Definition at line \fB3877\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::SaveFms ()"
+
+.PP
+Definition at line \fB3813\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "void FarInputs::saveGridEastNorth (char * eastNorth)"
+
+.PP
+Definition at line \fB2783\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "void FarInputs::saveGridRow (char * GridRow)"
+
+.PP
+Definition at line \fB2792\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::SaveWnd (long Station)"
+
+.PP
+Definition at line \fB3744\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::SaveWtr (long Station)"
+
+.PP
+Definition at line \fB3674\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::setLandscapeFile (const char * value)"
+please note this is different from the SetLandFileName this function calls SetLandFileName but does some decoration and intialization of it first\&. 
+.PP
+Definition at line \fB2514\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::setWeatherFile (int WeatherFileNum, const char * weatherFileName)"
+
+.PP
+Definition at line \fB2431\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::setWindFile (int WindFileNum, const char * WindFileName)"
+
+.PP
+Definition at line \fB2471\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::TestForAtmWeather ()"
+
+.PP
+Definition at line \fB158\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::TestForAtmWinds ()"
+
+.PP
+Definition at line \fB171\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "bool FarInputs::TestProjectFileVersion ()"
+
+.PP
+Definition at line \fB421\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SS "void FarInputs::WriteWeatherWindProject ()"
+
+.PP
+Definition at line \fB3293\fP of file \fBfsxwinpt\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "bool FarInputs::AdjID"
+
+.PP
+Definition at line \fB98\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::AdjustmentFile[FILE_LEN]"
+
+.PP
+Definition at line \fB87\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::BookmarkFile[FILE_LEN]"
+
+.PP
+Definition at line \fB84\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "bool FarInputs::BpdID"
+
+.PP
+Definition at line \fB98\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::BurnPeriod[FILE_LEN]"
+
+.PP
+Definition at line \fB93\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::CoarseWoody[FILE_LEN]"
+
+.PP
+Definition at line \fB94\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::ConvertFile[FILE_LEN]"
+
+.PP
+Definition at line \fB89\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "FILE* FarInputs::CurrentFile"
+
+.PP
+Definition at line \fB113\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "bool FarInputs::CwdID"
+
+.PP
+Definition at line \fB98\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::FuelModelFile[FILE_LEN]"
+
+.PP
+Definition at line \fB90\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "bool FarInputs::FuelMoisID"
+
+.PP
+Definition at line \fB98\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::FuelMoistureFile[FILE_LEN]"
+
+.PP
+Definition at line \fB88\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "long FarInputs::GridInterval"
+
+.PP
+Definition at line \fB110\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "bool FarInputs::inited"
+
+.PP
+Definition at line \fB101\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "bool FarInputs::LandID"
+
+.PP
+Definition at line \fB98\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::LandscapeFile[FILE_LEN]"
+
+.PP
+Definition at line \fB85\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "int FarInputs::m_BurnPeriodIsHere"
+
+.PP
+Definition at line \fB107\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "int FarInputs::m_dcount"
+
+.PP
+Definition at line \fB109\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::m_eastNorth[256]"
+
+.PP
+Definition at line \fB106\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "bool FarInputs::m_gridEastNorthSet"
+
+.PP
+Definition at line \fB103\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::m_GridRow[256]"
+
+.PP
+Definition at line \fB105\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "bool FarInputs::m_gridRowSet"
+
+.PP
+Definition at line \fB104\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "bool FarInputs::m_shapeFileInited"
+
+.PP
+Definition at line \fB102\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::MBAdj[64]"
+
+.PP
+Definition at line \fB96\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::MBBpd[64]"
+
+.PP
+Definition at line \fB96\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::MBConv[64]"
+
+.PP
+Definition at line \fB96\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::MBCwd[64]"
+
+.PP
+Definition at line \fB97\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::MBFuelMods[64]"
+
+.PP
+Definition at line \fB96\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::MBLand[64]"
+
+.PP
+Definition at line \fB95\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::MBMois[64]"
+
+.PP
+Definition at line \fB96\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::MBWnd[5][64]"
+
+.PP
+Definition at line \fB95\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::MBWtr[5][64]"
+
+.PP
+Definition at line \fB95\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::pathdiv[1]"
+
+.PP
+Definition at line \fB100\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::ProjectFile[FILE_LEN]"
+
+.PP
+Definition at line \fB86\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "bool FarInputs::SVGA_ON"
+
+.PP
+Definition at line \fB99\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "int FarInputs::version"
+
+.PP
+Definition at line \fB108\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::WeatherFile[5][FILE_LEN]"
+
+.PP
+Definition at line \fB91\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "char FarInputs::WindFile[5][FILE_LEN]"
+
+.PP
+Definition at line \fB92\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "bool FarInputs::WndID"
+
+.PP
+Definition at line \fB98\fP of file \fBfsxwinpt\&.h\fP\&.
+.SS "bool FarInputs::WtrID"
+
+.PP
+Definition at line \fB98\fP of file \fBfsxwinpt\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

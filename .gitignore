@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Tomas examples
+tomas/
+
+# windninja files
+windninja/

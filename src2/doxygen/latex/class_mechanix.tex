@@ -1,0 +1,826 @@
+\doxysection{Mechanix Class Reference}
+\hypertarget{class_mechanix}{}\label{class_mechanix}\index{Mechanix@{Mechanix}}
+
+
+{\ttfamily \#include $<$fsx4.\+hpp$>$}
+
+Inheritance diagram for Mechanix\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_mechanix}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mechanix_a34ae196ee5603a87d4dc49b40df13031}{Mechanix}} ()
+\item 
+\mbox{\hyperlink{class_mechanix_ad76fcbf976ce098fdf69cb811abac531}{\texorpdfstring{$\sim$}{\string~}\+Mechanix}} ()
+\item 
+void \mbox{\hyperlink{class_mechanix_a9d631f15e640696051d6eefaf178bc80}{limgrow}} (void)
+\item 
+void \mbox{\hyperlink{class_mechanix_af8415ae32cdc44b5ffe289382f028f2e}{grow}} (double ivecdir)
+\item 
+void \mbox{\hyperlink{class_mechanix_ae3a0c45802a4c96ffd166dbead3dcf5c}{distchek}} (long Current\+Fire)
+\item 
+void \mbox{\hyperlink{class_mechanix_a2862f4a9c02c01935bf2c1d80c0b46f1}{ellipse}} (double iros, double wspeed)
+\item 
+void \mbox{\hyperlink{class_mechanix_a12099b340c39c9c9a0cf0688646ad472}{scorrect}} (long slope, double aspectf)
+\item 
+double \mbox{\hyperlink{class_mechanix_a5939cb891fce9886172d9c6447456eb4}{spreadrate}} (long slope, double windspd, int fuel)
+\item 
+void \mbox{\hyperlink{class_mechanix_a513defdfc006ddefdedde39067392539}{Get\+Equation\+Terms}} (double \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_mechanix_a4127b55239ab19fc8eebafe2efa24cee}{phiw}}, double \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_mechanix_a5bfa9d8ae89570ae27202d55a9cc7168}{phis}}, double \texorpdfstring{$\ast$}{*}b, double \texorpdfstring{$\ast$}{*}part1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_mechanix_ae4effed3b7cb40e114667f3f44df7462}{xpt}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a32546e1889c1ff9548d73c5a891c4eaa}{ypt}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a3c8b058fc36f305da92784ea54d4b12d}{midx}}
+\item 
+double \mbox{\hyperlink{class_mechanix_aadd7f33a8a620d740f0e2845a5c6c74d}{midy}}
+\item 
+double \mbox{\hyperlink{class_mechanix_aea2c3ccc97e826f053084755ac4bf75d}{xt}}
+\item 
+double \mbox{\hyperlink{class_mechanix_af222010d4c12646a1882b4da56445719}{yt}}
+\item 
+double \mbox{\hyperlink{class_mechanix_ac1ad0ae925ceeee563bf2d3d9dd82d77}{xptn}}
+\item 
+double \mbox{\hyperlink{class_mechanix_ab25b98a1e010b74e284874753a679694}{yptn}}
+\item 
+double \mbox{\hyperlink{class_mechanix_aad2082cfeefc7efb1171a0e0c0047796}{xptl}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a88e4889155ca602f6cac6368d5c7b92c}{yptl}}
+\item 
+double \mbox{\hyperlink{class_mechanix_acace9c2fad2081f1485099afae650ecc}{xdiff}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a05e8a68e938854937f187b0f04d1343e}{ydiff}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a99212ebf6eed1f852961098949164c89}{vecspeed}}
+\item 
+double \mbox{\hyperlink{class_mechanix_ac7b87954e5944929fc60d5a493be7f55}{ivecspeed}}
+\item 
+double \mbox{\hyperlink{class_mechanix_acadbf3343156199b410de5b6619bc27e}{vecdir}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a32670af49caa3d2ab55d0ac42d8d125e}{m\+\_\+windspd}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a678eaa4ce377b3dfdf84c943f544196c}{m\+\_\+winddir}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a80b40894bc45dd4b6ad699459c83236f}{m\+\_\+twindspd}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a9667093ec90720f639a21e24351b466d}{Actual\+Surface\+Spread}}
+\item 
+double \mbox{\hyperlink{class_mechanix_abf39c24f78dd08dbf9f982538ddcbeb1}{Horiz\+Spread}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a8c4cd554534dd6ef5786bf2edf256105}{avgros}}
+\item 
+double \mbox{\hyperlink{class_mechanix_aa370155c19dc9d057038c797edb26ba3}{cros}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a06157755393ed73c3b0744b0cf833c86}{fros}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a8ce8a374728bdc7e02c104c5abbe1488}{vecros}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a18b8d1f885c80141744f50bbe879ea22}{Ros\+T1}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a729a60646394919a3289adfed57456d0}{RosT}}
+\item 
+double \mbox{\hyperlink{class_mechanix_ad510d72448f80dfa57ffa27188e1b712}{R10}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a1e39b44fe06d39f9b235bcd0b703dfe8}{fli}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a021e5f03382927243b7bec4a1f5450fe}{Fli\+Final}}
+\item 
+double \mbox{\hyperlink{class_mechanix_ae31e6d2a8eda53881feb8a1e4fa49928}{Expansion\+Rate}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a6d3c9a7af33d9421f40c31a8b1cbbee9}{timerem}}
+\item 
+double \mbox{\hyperlink{class_mechanix_affa49bec79564bd6b1bd5bea18e22033}{react}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a51ef6bdb803284d72f1171f4b3e90531}{savx}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a3147a8fa24ebe0fa4d45a6fafdf2efd8}{cosslope}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a089c3573bb4310afde178278f488d8b1}{Current\+Time}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a379f7934fc2e8766c546f570a183c91f}{Flame\+Length}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a0f7f73521f4f48699ce2140073242f01}{Crown\+Loading\+Burned}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a80c998dcdef54bc6b1b0d1050ea134d5}{Crown\+Fraction\+Burned}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a5d066e77a7d651904f1579c432fdd5e0}{head}}
+\item 
+double \mbox{\hyperlink{class_mechanix_af4a6bcac9e6403e67158c91b4124e50b}{back}}
+\item 
+double \mbox{\hyperlink{class_mechanix_ac352aad9f4595bb951dc60406b9c0a37}{flank}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_mechanix_a1bf7f6a45c6fa7b1e7cdf386485281d5}{accel}} (double RosE, double \mbox{\hyperlink{class_mechanix_a729a60646394919a3289adfed57456d0}{RosT}}, double \mbox{\hyperlink{fsxwspot_8cpp_a5f384dfe21fd6f31587a17214dac4274}{A}}, double \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_mechanix_a8c4cd554534dd6ef5786bf2edf256105}{avgros}}, double \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_mechanix_a3147a8fa24ebe0fa4d45a6fafdf2efd8}{cosslope}})
+\item 
+void \mbox{\hyperlink{class_mechanix_ab72b2c7c68823d22e9e130b3471dd2ba}{Transform\+Wind\+Dir}} (long slope, double aspectf)
+\item 
+double \mbox{\hyperlink{class_mechanix_a0e059df491e4ecfd28fefa77464a2a57}{vectordir}} (double aspectf)
+\item 
+double \mbox{\hyperlink{class_mechanix_ab1c5c5ea9de2cfbe75bd3af878b92fae}{vectorspd}} (double \texorpdfstring{$\ast$}{*}VWind\+Speed, double aspectf, long Fire\+Type)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_mechanix_aa9beb259f1d5ff81cdb1415d7e6420a4}{m\+\_\+ones}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a0806e11ca3d918aa564648c7858ab2c8}{m\+\_\+tens}}
+\item 
+double \mbox{\hyperlink{class_mechanix_ad9453382c231d1cc75fef462af0fe47c}{m\+\_\+hundreds}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a09110e72e3f72979018c475bee1e165f}{m\+\_\+livew}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a3f14f46c50e7526ba1b10577c2f9c811}{m\+\_\+liveh}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a4127b55239ab19fc8eebafe2efa24cee}{phiw}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a5bfa9d8ae89570ae27202d55a9cc7168}{phis}}
+\item 
+double \mbox{\hyperlink{class_mechanix_afaccac807a7bc9bd10a0ff53270393d8}{phiew}}
+\item 
+double \mbox{\hyperlink{class_mechanix_add22f59c1ae74c356c71955d1054a4ef}{Local\+Wind\+Dir}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a1fec357b77579c096679fa76df149dd2}{Fire\+Perimeter\+Dist}}
+\item 
+double \mbox{\hyperlink{class_mechanix_a813cf22e733911c57d7e59056c82d91c}{slopespd}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00464}{464}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_mechanix_a34ae196ee5603a87d4dc49b40df13031}\label{class_mechanix_a34ae196ee5603a87d4dc49b40df13031} 
+\index{Mechanix@{Mechanix}!Mechanix@{Mechanix}}
+\index{Mechanix@{Mechanix}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{Mechanix()}{Mechanix()}}
+{\footnotesize\ttfamily Mechanix\+::\+Mechanix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwmech_8cpp_source_l00517}{517}} of file \mbox{\hyperlink{fsxwmech_8cpp_source}{fsxwmech.\+cpp}}.
+
+\Hypertarget{class_mechanix_ad76fcbf976ce098fdf69cb811abac531}\label{class_mechanix_ad76fcbf976ce098fdf69cb811abac531} 
+\index{Mechanix@{Mechanix}!````~Mechanix@{\texorpdfstring{$\sim$}{\string~}Mechanix}}
+\index{````~Mechanix@{\texorpdfstring{$\sim$}{\string~}Mechanix}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Mechanix()}{\string~Mechanix()}}
+{\footnotesize\ttfamily Mechanix\+::\texorpdfstring{$\sim$}{\string~}\+Mechanix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwmech_8cpp_source_l00522}{522}} of file \mbox{\hyperlink{fsxwmech_8cpp_source}{fsxwmech.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_mechanix_a1bf7f6a45c6fa7b1e7cdf386485281d5}\label{class_mechanix_a1bf7f6a45c6fa7b1e7cdf386485281d5} 
+\index{Mechanix@{Mechanix}!accel@{accel}}
+\index{accel@{accel}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{accel()}{accel()}}
+{\footnotesize\ttfamily double Mechanix\+::accel (\begin{DoxyParamCaption}\item[{double}]{RosE,  }\item[{double}]{RosT,  }\item[{double}]{A,  }\item[{double \texorpdfstring{$\ast$}{*}}]{avgros,  }\item[{double \texorpdfstring{$\ast$}{*}}]{cosslope }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwmech_8cpp_source_l00661}{661}} of file \mbox{\hyperlink{fsxwmech_8cpp_source}{fsxwmech.\+cpp}}.
+
+\Hypertarget{class_mechanix_ae3a0c45802a4c96ffd166dbead3dcf5c}\label{class_mechanix_ae3a0c45802a4c96ffd166dbead3dcf5c} 
+\index{Mechanix@{Mechanix}!distchek@{distchek}}
+\index{distchek@{distchek}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{distchek()}{distchek()}}
+{\footnotesize\ttfamily void Mechanix\+::distchek (\begin{DoxyParamCaption}\item[{long}]{Current\+Fire }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwmech_8cpp_source_l00527}{527}} of file \mbox{\hyperlink{fsxwmech_8cpp_source}{fsxwmech.\+cpp}}.
+
+\Hypertarget{class_mechanix_a2862f4a9c02c01935bf2c1d80c0b46f1}\label{class_mechanix_a2862f4a9c02c01935bf2c1d80c0b46f1} 
+\index{Mechanix@{Mechanix}!ellipse@{ellipse}}
+\index{ellipse@{ellipse}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{ellipse()}{ellipse()}}
+{\footnotesize\ttfamily void Mechanix\+::ellipse (\begin{DoxyParamCaption}\item[{double}]{iros,  }\item[{double}]{wspeed }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwmech_8cpp_source_l01372}{1372}} of file \mbox{\hyperlink{fsxwmech_8cpp_source}{fsxwmech.\+cpp}}.
+
+\Hypertarget{class_mechanix_a513defdfc006ddefdedde39067392539}\label{class_mechanix_a513defdfc006ddefdedde39067392539} 
+\index{Mechanix@{Mechanix}!GetEquationTerms@{GetEquationTerms}}
+\index{GetEquationTerms@{GetEquationTerms}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{GetEquationTerms()}{GetEquationTerms()}}
+{\footnotesize\ttfamily void Mechanix\+::\+Get\+Equation\+Terms (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{phiw,  }\item[{double \texorpdfstring{$\ast$}{*}}]{phis,  }\item[{double \texorpdfstring{$\ast$}{*}}]{b,  }\item[{double \texorpdfstring{$\ast$}{*}}]{part1 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwmech_8cpp_source_l01116}{1116}} of file \mbox{\hyperlink{fsxwmech_8cpp_source}{fsxwmech.\+cpp}}.
+
+\Hypertarget{class_mechanix_af8415ae32cdc44b5ffe289382f028f2e}\label{class_mechanix_af8415ae32cdc44b5ffe289382f028f2e} 
+\index{Mechanix@{Mechanix}!grow@{grow}}
+\index{grow@{grow}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{grow()}{grow()}}
+{\footnotesize\ttfamily void Mechanix\+::grow (\begin{DoxyParamCaption}\item[{double}]{ivecdir }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwmech_8cpp_source_l00586}{586}} of file \mbox{\hyperlink{fsxwmech_8cpp_source}{fsxwmech.\+cpp}}.
+
+\Hypertarget{class_mechanix_a9d631f15e640696051d6eefaf178bc80}\label{class_mechanix_a9d631f15e640696051d6eefaf178bc80} 
+\index{Mechanix@{Mechanix}!limgrow@{limgrow}}
+\index{limgrow@{limgrow}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{limgrow()}{limgrow()}}
+{\footnotesize\ttfamily void Mechanix\+::limgrow (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwmech_8cpp_source_l00618}{618}} of file \mbox{\hyperlink{fsxwmech_8cpp_source}{fsxwmech.\+cpp}}.
+
+\Hypertarget{class_mechanix_a12099b340c39c9c9a0cf0688646ad472}\label{class_mechanix_a12099b340c39c9c9a0cf0688646ad472} 
+\index{Mechanix@{Mechanix}!scorrect@{scorrect}}
+\index{scorrect@{scorrect}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{scorrect()}{scorrect()}}
+{\footnotesize\ttfamily void Mechanix\+::scorrect (\begin{DoxyParamCaption}\item[{long}]{slope,  }\item[{double}]{aspectf }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwmech_8cpp_source_l00715}{715}} of file \mbox{\hyperlink{fsxwmech_8cpp_source}{fsxwmech.\+cpp}}.
+
+\Hypertarget{class_mechanix_a5939cb891fce9886172d9c6447456eb4}\label{class_mechanix_a5939cb891fce9886172d9c6447456eb4} 
+\index{Mechanix@{Mechanix}!spreadrate@{spreadrate}}
+\index{spreadrate@{spreadrate}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{spreadrate()}{spreadrate()}}
+{\footnotesize\ttfamily double Mechanix\+::spreadrate (\begin{DoxyParamCaption}\item[{long}]{slope,  }\item[{double}]{windspd,  }\item[{int}]{fuel }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwmech_8cpp_source_l00779}{779}} of file \mbox{\hyperlink{fsxwmech_8cpp_source}{fsxwmech.\+cpp}}.
+
+\Hypertarget{class_mechanix_ab72b2c7c68823d22e9e130b3471dd2ba}\label{class_mechanix_ab72b2c7c68823d22e9e130b3471dd2ba} 
+\index{Mechanix@{Mechanix}!TransformWindDir@{TransformWindDir}}
+\index{TransformWindDir@{TransformWindDir}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{TransformWindDir()}{TransformWindDir()}}
+{\footnotesize\ttfamily void Mechanix\+::\+Transform\+Wind\+Dir (\begin{DoxyParamCaption}\item[{long}]{slope,  }\item[{double}]{aspectf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwmech_8cpp_source_l01399}{1399}} of file \mbox{\hyperlink{fsxwmech_8cpp_source}{fsxwmech.\+cpp}}.
+
+\Hypertarget{class_mechanix_a0e059df491e4ecfd28fefa77464a2a57}\label{class_mechanix_a0e059df491e4ecfd28fefa77464a2a57} 
+\index{Mechanix@{Mechanix}!vectordir@{vectordir}}
+\index{vectordir@{vectordir}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{vectordir()}{vectordir()}}
+{\footnotesize\ttfamily double Mechanix\+::vectordir (\begin{DoxyParamCaption}\item[{double}]{aspectf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwmech_8cpp_source_l01472}{1472}} of file \mbox{\hyperlink{fsxwmech_8cpp_source}{fsxwmech.\+cpp}}.
+
+\Hypertarget{class_mechanix_ab1c5c5ea9de2cfbe75bd3af878b92fae}\label{class_mechanix_ab1c5c5ea9de2cfbe75bd3af878b92fae} 
+\index{Mechanix@{Mechanix}!vectorspd@{vectorspd}}
+\index{vectorspd@{vectorspd}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{vectorspd()}{vectorspd()}}
+{\footnotesize\ttfamily double Mechanix\+::vectorspd (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{VWind\+Speed,  }\item[{double}]{aspectf,  }\item[{long}]{Fire\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwmech_8cpp_source_l01435}{1435}} of file \mbox{\hyperlink{fsxwmech_8cpp_source}{fsxwmech.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_mechanix_a9667093ec90720f639a21e24351b466d}\label{class_mechanix_a9667093ec90720f639a21e24351b466d} 
+\index{Mechanix@{Mechanix}!ActualSurfaceSpread@{ActualSurfaceSpread}}
+\index{ActualSurfaceSpread@{ActualSurfaceSpread}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{ActualSurfaceSpread}{ActualSurfaceSpread}}
+{\footnotesize\ttfamily double Mechanix\+::\+Actual\+Surface\+Spread}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00486}{486}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a8c4cd554534dd6ef5786bf2edf256105}\label{class_mechanix_a8c4cd554534dd6ef5786bf2edf256105} 
+\index{Mechanix@{Mechanix}!avgros@{avgros}}
+\index{avgros@{avgros}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{avgros}{avgros}}
+{\footnotesize\ttfamily double Mechanix\+::avgros}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00486}{486}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_af4a6bcac9e6403e67158c91b4124e50b}\label{class_mechanix_af4a6bcac9e6403e67158c91b4124e50b} 
+\index{Mechanix@{Mechanix}!back@{back}}
+\index{back@{back}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{back}{back}}
+{\footnotesize\ttfamily double Mechanix\+::back}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00491}{491}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a3147a8fa24ebe0fa4d45a6fafdf2efd8}\label{class_mechanix_a3147a8fa24ebe0fa4d45a6fafdf2efd8} 
+\index{Mechanix@{Mechanix}!cosslope@{cosslope}}
+\index{cosslope@{cosslope}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{cosslope}{cosslope}}
+{\footnotesize\ttfamily double Mechanix\+::cosslope}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00489}{489}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_aa370155c19dc9d057038c797edb26ba3}\label{class_mechanix_aa370155c19dc9d057038c797edb26ba3} 
+\index{Mechanix@{Mechanix}!cros@{cros}}
+\index{cros@{cros}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{cros}{cros}}
+{\footnotesize\ttfamily double Mechanix\+::cros}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00486}{486}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a80c998dcdef54bc6b1b0d1050ea134d5}\label{class_mechanix_a80c998dcdef54bc6b1b0d1050ea134d5} 
+\index{Mechanix@{Mechanix}!CrownFractionBurned@{CrownFractionBurned}}
+\index{CrownFractionBurned@{CrownFractionBurned}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{CrownFractionBurned}{CrownFractionBurned}}
+{\footnotesize\ttfamily double Mechanix\+::\+Crown\+Fraction\+Burned}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00490}{490}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a0f7f73521f4f48699ce2140073242f01}\label{class_mechanix_a0f7f73521f4f48699ce2140073242f01} 
+\index{Mechanix@{Mechanix}!CrownLoadingBurned@{CrownLoadingBurned}}
+\index{CrownLoadingBurned@{CrownLoadingBurned}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{CrownLoadingBurned}{CrownLoadingBurned}}
+{\footnotesize\ttfamily double Mechanix\+::\+Crown\+Loading\+Burned}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00490}{490}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a089c3573bb4310afde178278f488d8b1}\label{class_mechanix_a089c3573bb4310afde178278f488d8b1} 
+\index{Mechanix@{Mechanix}!CurrentTime@{CurrentTime}}
+\index{CurrentTime@{CurrentTime}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{CurrentTime}{CurrentTime}}
+{\footnotesize\ttfamily double Mechanix\+::\+Current\+Time}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00490}{490}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_ae31e6d2a8eda53881feb8a1e4fa49928}\label{class_mechanix_ae31e6d2a8eda53881feb8a1e4fa49928} 
+\index{Mechanix@{Mechanix}!ExpansionRate@{ExpansionRate}}
+\index{ExpansionRate@{ExpansionRate}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{ExpansionRate}{ExpansionRate}}
+{\footnotesize\ttfamily double Mechanix\+::\+Expansion\+Rate}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00488}{488}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a1fec357b77579c096679fa76df149dd2}\label{class_mechanix_a1fec357b77579c096679fa76df149dd2} 
+\index{Mechanix@{Mechanix}!FirePerimeterDist@{FirePerimeterDist}}
+\index{FirePerimeterDist@{FirePerimeterDist}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{FirePerimeterDist}{FirePerimeterDist}}
+{\footnotesize\ttfamily double Mechanix\+::\+Fire\+Perimeter\+Dist\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00475}{475}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a379f7934fc2e8766c546f570a183c91f}\label{class_mechanix_a379f7934fc2e8766c546f570a183c91f} 
+\index{Mechanix@{Mechanix}!FlameLength@{FlameLength}}
+\index{FlameLength@{FlameLength}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{FlameLength}{FlameLength}}
+{\footnotesize\ttfamily double Mechanix\+::\+Flame\+Length}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00490}{490}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_ac352aad9f4595bb951dc60406b9c0a37}\label{class_mechanix_ac352aad9f4595bb951dc60406b9c0a37} 
+\index{Mechanix@{Mechanix}!flank@{flank}}
+\index{flank@{flank}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{flank}{flank}}
+{\footnotesize\ttfamily double Mechanix\+::flank}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00491}{491}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a1e39b44fe06d39f9b235bcd0b703dfe8}\label{class_mechanix_a1e39b44fe06d39f9b235bcd0b703dfe8} 
+\index{Mechanix@{Mechanix}!fli@{fli}}
+\index{fli@{fli}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{fli}{fli}}
+{\footnotesize\ttfamily double Mechanix\+::fli}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00488}{488}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a021e5f03382927243b7bec4a1f5450fe}\label{class_mechanix_a021e5f03382927243b7bec4a1f5450fe} 
+\index{Mechanix@{Mechanix}!FliFinal@{FliFinal}}
+\index{FliFinal@{FliFinal}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{FliFinal}{FliFinal}}
+{\footnotesize\ttfamily double Mechanix\+::\+Fli\+Final}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00488}{488}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a06157755393ed73c3b0744b0cf833c86}\label{class_mechanix_a06157755393ed73c3b0744b0cf833c86} 
+\index{Mechanix@{Mechanix}!fros@{fros}}
+\index{fros@{fros}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{fros}{fros}}
+{\footnotesize\ttfamily double Mechanix\+::fros}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00486}{486}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a5d066e77a7d651904f1579c432fdd5e0}\label{class_mechanix_a5d066e77a7d651904f1579c432fdd5e0} 
+\index{Mechanix@{Mechanix}!head@{head}}
+\index{head@{head}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{head}{head}}
+{\footnotesize\ttfamily double Mechanix\+::head}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00491}{491}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_abf39c24f78dd08dbf9f982538ddcbeb1}\label{class_mechanix_abf39c24f78dd08dbf9f982538ddcbeb1} 
+\index{Mechanix@{Mechanix}!HorizSpread@{HorizSpread}}
+\index{HorizSpread@{HorizSpread}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{HorizSpread}{HorizSpread}}
+{\footnotesize\ttfamily double Mechanix\+::\+Horiz\+Spread}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00486}{486}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_ac7b87954e5944929fc60d5a493be7f55}\label{class_mechanix_ac7b87954e5944929fc60d5a493be7f55} 
+\index{Mechanix@{Mechanix}!ivecspeed@{ivecspeed}}
+\index{ivecspeed@{ivecspeed}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{ivecspeed}{ivecspeed}}
+{\footnotesize\ttfamily double Mechanix\+::ivecspeed}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00485}{485}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_add22f59c1ae74c356c71955d1054a4ef}\label{class_mechanix_add22f59c1ae74c356c71955d1054a4ef} 
+\index{Mechanix@{Mechanix}!LocalWindDir@{LocalWindDir}}
+\index{LocalWindDir@{LocalWindDir}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{LocalWindDir}{LocalWindDir}}
+{\footnotesize\ttfamily double Mechanix\+::\+Local\+Wind\+Dir\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00474}{474}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_ad9453382c231d1cc75fef462af0fe47c}\label{class_mechanix_ad9453382c231d1cc75fef462af0fe47c} 
+\index{Mechanix@{Mechanix}!m\_hundreds@{m\_hundreds}}
+\index{m\_hundreds@{m\_hundreds}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{m\_hundreds}{m\_hundreds}}
+{\footnotesize\ttfamily double Mechanix\+::m\+\_\+hundreds\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00473}{473}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a3f14f46c50e7526ba1b10577c2f9c811}\label{class_mechanix_a3f14f46c50e7526ba1b10577c2f9c811} 
+\index{Mechanix@{Mechanix}!m\_liveh@{m\_liveh}}
+\index{m\_liveh@{m\_liveh}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{m\_liveh}{m\_liveh}}
+{\footnotesize\ttfamily double Mechanix\+::m\+\_\+liveh\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00473}{473}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a09110e72e3f72979018c475bee1e165f}\label{class_mechanix_a09110e72e3f72979018c475bee1e165f} 
+\index{Mechanix@{Mechanix}!m\_livew@{m\_livew}}
+\index{m\_livew@{m\_livew}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{m\_livew}{m\_livew}}
+{\footnotesize\ttfamily double Mechanix\+::m\+\_\+livew\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00473}{473}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_aa9beb259f1d5ff81cdb1415d7e6420a4}\label{class_mechanix_aa9beb259f1d5ff81cdb1415d7e6420a4} 
+\index{Mechanix@{Mechanix}!m\_ones@{m\_ones}}
+\index{m\_ones@{m\_ones}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{m\_ones}{m\_ones}}
+{\footnotesize\ttfamily double Mechanix\+::m\+\_\+ones\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00473}{473}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a0806e11ca3d918aa564648c7858ab2c8}\label{class_mechanix_a0806e11ca3d918aa564648c7858ab2c8} 
+\index{Mechanix@{Mechanix}!m\_tens@{m\_tens}}
+\index{m\_tens@{m\_tens}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{m\_tens}{m\_tens}}
+{\footnotesize\ttfamily double Mechanix\+::m\+\_\+tens\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00473}{473}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a80b40894bc45dd4b6ad699459c83236f}\label{class_mechanix_a80b40894bc45dd4b6ad699459c83236f} 
+\index{Mechanix@{Mechanix}!m\_twindspd@{m\_twindspd}}
+\index{m\_twindspd@{m\_twindspd}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{m\_twindspd}{m\_twindspd}}
+{\footnotesize\ttfamily double Mechanix\+::m\+\_\+twindspd}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00485}{485}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a678eaa4ce377b3dfdf84c943f544196c}\label{class_mechanix_a678eaa4ce377b3dfdf84c943f544196c} 
+\index{Mechanix@{Mechanix}!m\_winddir@{m\_winddir}}
+\index{m\_winddir@{m\_winddir}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{m\_winddir}{m\_winddir}}
+{\footnotesize\ttfamily double Mechanix\+::m\+\_\+winddir}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00485}{485}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a32670af49caa3d2ab55d0ac42d8d125e}\label{class_mechanix_a32670af49caa3d2ab55d0ac42d8d125e} 
+\index{Mechanix@{Mechanix}!m\_windspd@{m\_windspd}}
+\index{m\_windspd@{m\_windspd}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{m\_windspd}{m\_windspd}}
+{\footnotesize\ttfamily double Mechanix\+::m\+\_\+windspd}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00485}{485}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a3c8b058fc36f305da92784ea54d4b12d}\label{class_mechanix_a3c8b058fc36f305da92784ea54d4b12d} 
+\index{Mechanix@{Mechanix}!midx@{midx}}
+\index{midx@{midx}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{midx}{midx}}
+{\footnotesize\ttfamily double Mechanix\+::midx}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00484}{484}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_aadd7f33a8a620d740f0e2845a5c6c74d}\label{class_mechanix_aadd7f33a8a620d740f0e2845a5c6c74d} 
+\index{Mechanix@{Mechanix}!midy@{midy}}
+\index{midy@{midy}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{midy}{midy}}
+{\footnotesize\ttfamily double Mechanix\+::midy}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00484}{484}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_afaccac807a7bc9bd10a0ff53270393d8}\label{class_mechanix_afaccac807a7bc9bd10a0ff53270393d8} 
+\index{Mechanix@{Mechanix}!phiew@{phiew}}
+\index{phiew@{phiew}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{phiew}{phiew}}
+{\footnotesize\ttfamily double Mechanix\+::phiew\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00474}{474}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a5bfa9d8ae89570ae27202d55a9cc7168}\label{class_mechanix_a5bfa9d8ae89570ae27202d55a9cc7168} 
+\index{Mechanix@{Mechanix}!phis@{phis}}
+\index{phis@{phis}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{phis}{phis}}
+{\footnotesize\ttfamily double Mechanix\+::phis\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00474}{474}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a4127b55239ab19fc8eebafe2efa24cee}\label{class_mechanix_a4127b55239ab19fc8eebafe2efa24cee} 
+\index{Mechanix@{Mechanix}!phiw@{phiw}}
+\index{phiw@{phiw}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{phiw}{phiw}}
+{\footnotesize\ttfamily double Mechanix\+::phiw\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00474}{474}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_ad510d72448f80dfa57ffa27188e1b712}\label{class_mechanix_ad510d72448f80dfa57ffa27188e1b712} 
+\index{Mechanix@{Mechanix}!R10@{R10}}
+\index{R10@{R10}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{R10}{R10}}
+{\footnotesize\ttfamily double Mechanix\+::\+R10}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00487}{487}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_affa49bec79564bd6b1bd5bea18e22033}\label{class_mechanix_affa49bec79564bd6b1bd5bea18e22033} 
+\index{Mechanix@{Mechanix}!react@{react}}
+\index{react@{react}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{react}{react}}
+{\footnotesize\ttfamily double Mechanix\+::react}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00489}{489}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a729a60646394919a3289adfed57456d0}\label{class_mechanix_a729a60646394919a3289adfed57456d0} 
+\index{Mechanix@{Mechanix}!RosT@{RosT}}
+\index{RosT@{RosT}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{RosT}{RosT}}
+{\footnotesize\ttfamily double Mechanix\+::\+RosT}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00487}{487}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a18b8d1f885c80141744f50bbe879ea22}\label{class_mechanix_a18b8d1f885c80141744f50bbe879ea22} 
+\index{Mechanix@{Mechanix}!RosT1@{RosT1}}
+\index{RosT1@{RosT1}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{RosT1}{RosT1}}
+{\footnotesize\ttfamily double Mechanix\+::\+Ros\+T1}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00487}{487}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a51ef6bdb803284d72f1171f4b3e90531}\label{class_mechanix_a51ef6bdb803284d72f1171f4b3e90531} 
+\index{Mechanix@{Mechanix}!savx@{savx}}
+\index{savx@{savx}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{savx}{savx}}
+{\footnotesize\ttfamily double Mechanix\+::savx}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00489}{489}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a813cf22e733911c57d7e59056c82d91c}\label{class_mechanix_a813cf22e733911c57d7e59056c82d91c} 
+\index{Mechanix@{Mechanix}!slopespd@{slopespd}}
+\index{slopespd@{slopespd}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{slopespd}{slopespd}}
+{\footnotesize\ttfamily double Mechanix\+::slopespd\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00475}{475}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a6d3c9a7af33d9421f40c31a8b1cbbee9}\label{class_mechanix_a6d3c9a7af33d9421f40c31a8b1cbbee9} 
+\index{Mechanix@{Mechanix}!timerem@{timerem}}
+\index{timerem@{timerem}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{timerem}{timerem}}
+{\footnotesize\ttfamily double Mechanix\+::timerem}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00489}{489}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_acadbf3343156199b410de5b6619bc27e}\label{class_mechanix_acadbf3343156199b410de5b6619bc27e} 
+\index{Mechanix@{Mechanix}!vecdir@{vecdir}}
+\index{vecdir@{vecdir}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{vecdir}{vecdir}}
+{\footnotesize\ttfamily double Mechanix\+::vecdir}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00485}{485}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a8ce8a374728bdc7e02c104c5abbe1488}\label{class_mechanix_a8ce8a374728bdc7e02c104c5abbe1488} 
+\index{Mechanix@{Mechanix}!vecros@{vecros}}
+\index{vecros@{vecros}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{vecros}{vecros}}
+{\footnotesize\ttfamily double Mechanix\+::vecros}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00486}{486}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a99212ebf6eed1f852961098949164c89}\label{class_mechanix_a99212ebf6eed1f852961098949164c89} 
+\index{Mechanix@{Mechanix}!vecspeed@{vecspeed}}
+\index{vecspeed@{vecspeed}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{vecspeed}{vecspeed}}
+{\footnotesize\ttfamily double Mechanix\+::vecspeed}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00485}{485}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_acace9c2fad2081f1485099afae650ecc}\label{class_mechanix_acace9c2fad2081f1485099afae650ecc} 
+\index{Mechanix@{Mechanix}!xdiff@{xdiff}}
+\index{xdiff@{xdiff}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{xdiff}{xdiff}}
+{\footnotesize\ttfamily double Mechanix\+::xdiff}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00484}{484}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_ae4effed3b7cb40e114667f3f44df7462}\label{class_mechanix_ae4effed3b7cb40e114667f3f44df7462} 
+\index{Mechanix@{Mechanix}!xpt@{xpt}}
+\index{xpt@{xpt}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{xpt}{xpt}}
+{\footnotesize\ttfamily double Mechanix\+::xpt}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00484}{484}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_aad2082cfeefc7efb1171a0e0c0047796}\label{class_mechanix_aad2082cfeefc7efb1171a0e0c0047796} 
+\index{Mechanix@{Mechanix}!xptl@{xptl}}
+\index{xptl@{xptl}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{xptl}{xptl}}
+{\footnotesize\ttfamily double Mechanix\+::xptl}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00484}{484}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_ac1ad0ae925ceeee563bf2d3d9dd82d77}\label{class_mechanix_ac1ad0ae925ceeee563bf2d3d9dd82d77} 
+\index{Mechanix@{Mechanix}!xptn@{xptn}}
+\index{xptn@{xptn}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{xptn}{xptn}}
+{\footnotesize\ttfamily double Mechanix\+::xptn}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00484}{484}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_aea2c3ccc97e826f053084755ac4bf75d}\label{class_mechanix_aea2c3ccc97e826f053084755ac4bf75d} 
+\index{Mechanix@{Mechanix}!xt@{xt}}
+\index{xt@{xt}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{xt}{xt}}
+{\footnotesize\ttfamily double Mechanix\+::xt}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00484}{484}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a05e8a68e938854937f187b0f04d1343e}\label{class_mechanix_a05e8a68e938854937f187b0f04d1343e} 
+\index{Mechanix@{Mechanix}!ydiff@{ydiff}}
+\index{ydiff@{ydiff}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{ydiff}{ydiff}}
+{\footnotesize\ttfamily double Mechanix\+::ydiff}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00484}{484}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a32546e1889c1ff9548d73c5a891c4eaa}\label{class_mechanix_a32546e1889c1ff9548d73c5a891c4eaa} 
+\index{Mechanix@{Mechanix}!ypt@{ypt}}
+\index{ypt@{ypt}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{ypt}{ypt}}
+{\footnotesize\ttfamily double Mechanix\+::ypt}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00484}{484}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_a88e4889155ca602f6cac6368d5c7b92c}\label{class_mechanix_a88e4889155ca602f6cac6368d5c7b92c} 
+\index{Mechanix@{Mechanix}!yptl@{yptl}}
+\index{yptl@{yptl}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{yptl}{yptl}}
+{\footnotesize\ttfamily double Mechanix\+::yptl}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00484}{484}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_ab25b98a1e010b74e284874753a679694}\label{class_mechanix_ab25b98a1e010b74e284874753a679694} 
+\index{Mechanix@{Mechanix}!yptn@{yptn}}
+\index{yptn@{yptn}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{yptn}{yptn}}
+{\footnotesize\ttfamily double Mechanix\+::yptn}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00484}{484}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_mechanix_af222010d4c12646a1882b4da56445719}\label{class_mechanix_af222010d4c12646a1882b4da56445719} 
+\index{Mechanix@{Mechanix}!yt@{yt}}
+\index{yt@{yt}!Mechanix@{Mechanix}}
+\doxysubsubsection{\texorpdfstring{yt}{yt}}
+{\footnotesize\ttfamily double Mechanix\+::yt}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00484}{484}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsx4_8hpp}{fsx4.\+hpp}}\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsxwmech_8cpp}{fsxwmech.\+cpp}}\end{DoxyCompactItemize}

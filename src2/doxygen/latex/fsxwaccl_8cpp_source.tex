@@ -1,0 +1,60 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fsxwaccl.cpp}
+\hypertarget{fsxwaccl_8cpp_source}{}\label{fsxwaccl_8cpp_source}\mbox{\hyperlink{fsxwaccl_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsxwaccl_8h}{fsxwaccl.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ftestrc_8h}{ftestrc.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsxw_8hpp}{fsxw.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00026}00026\ \textcolor{comment}{//\#include\ "{}fsxwhelp.h"{}}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsglbvar_8h}{fsglbvar.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00028}00028\ \textcolor{comment}{//\#include\ <owl\(\backslash\)color.h>}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00030}\mbox{\hyperlink{fsxwaccl_8cpp_a9e2eb96c0cb2b25b76257d7178b74bf3}{00030}}\ \textcolor{preprocessor}{\#define\ LOG90\ 2.30259}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00032}00032\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_acceleration}{Acceleration}}\ \mbox{\hyperlink{fsxwaccl_8cpp_af2e0feebb2a14ad286ee3d54720947de}{AccelConst}};}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00033}00033\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fsxwaccl_8cpp_a7fa80984ee8b85e558fc031572d50780}{ACCEL\_ON}};}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00036}00036\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00037}00037\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00038}00038\ \textcolor{comment}{//\ \ AccelConstDlg\ Functions}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00039}00039\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00040}00040\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00042}\mbox{\hyperlink{struct_t_trans_accel_data_a26c0b3c1081d13acc710d8ad1e046751}{00042}}\ \mbox{\hyperlink{struct_t_trans_accel_data_a26c0b3c1081d13acc710d8ad1e046751}{TTransAccelData::TTransAccelData}}()}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00043}00043\ \{}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{struct_t_trans_accel_data_ae71eae1e6a5ec1117aaec793ab1269af}{ResetData}}();}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00045}00045\ \}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00048}\mbox{\hyperlink{struct_t_trans_accel_data_ae71eae1e6a5ec1117aaec793ab1269af}{00048}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_t_trans_accel_data_ae71eae1e6a5ec1117aaec793ab1269af}{TTransAccelData::ResetData}}()}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00049}00049\ \{}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00050}00050\ \ \ \ \ memset(\mbox{\hyperlink{struct_t_trans_accel_data_a9d50787a4bc84b27a310c1333dbc7dab}{Dat}}.\mbox{\hyperlink{struct_accel_data_ac28d95b1223d1e40d656bb11db68bd9e}{AccelLoad}},\ 0x0,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_t_trans_accel_data_a9d50787a4bc84b27a310c1333dbc7dab}{Dat}}.\mbox{\hyperlink{struct_accel_data_ac28d95b1223d1e40d656bb11db68bd9e}{AccelLoad}}));}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00051}00051\ \ \ \ \ memset(\mbox{\hyperlink{struct_t_trans_accel_data_a9d50787a4bc84b27a310c1333dbc7dab}{Dat}}.\mbox{\hyperlink{struct_accel_data_aac3ca72c29489b60000b7ce078d0d21a}{AccelSave}},\ 0x0,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_t_trans_accel_data_a9d50787a4bc84b27a310c1333dbc7dab}{Dat}}.\mbox{\hyperlink{struct_accel_data_aac3ca72c29489b60000b7ce078d0d21a}{AccelSave}}));}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{fsxwaccl_8cpp_source_l00055}00055\ }
+
+\end{DoxyCode}

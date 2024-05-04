@@ -1,0 +1,220 @@
+.TH "RasterTheme" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RasterTheme
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <themes\&.h>\fP
+.PP
+Inherits \fBGridTheme\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRasterTheme\fP ()"
+.br
+.ti -1c
+.RI "\fB~RasterTheme\fP ()"
+.br
+.ti -1c
+.RI "bool \fBSetTheme\fP (char *\fBName\fP)"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBGridTheme\fP
+.in +1c
+.ti -1c
+.RI "\fBGridTheme\fP ()"
+.br
+.ti -1c
+.RI "\fB~GridTheme\fP ()"
+.br
+.ti -1c
+.RI "void \fBCreateRamp\fP ()"
+.br
+.ti -1c
+.RI "void \fBDeleteRamp\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "double * \fBmap\fP"
+.br
+.ti -1c
+.RI "double \fBrW\fP"
+.br
+.ti -1c
+.RI "double \fBrE\fP"
+.br
+.ti -1c
+.RI "double \fBrN\fP"
+.br
+.ti -1c
+.RI "double \fBrS\fP"
+.br
+.ti -1c
+.RI "double \fBrCellSizeX\fP"
+.br
+.ti -1c
+.RI "double \fBrCellSizeY\fP"
+.br
+.ti -1c
+.RI "double \fBrMaxVal\fP"
+.br
+.ti -1c
+.RI "double \fBrMinVal\fP"
+.br
+.ti -1c
+.RI "long \fBrRows\fP"
+.br
+.ti -1c
+.RI "long \fBrCols\fP"
+.br
+.in -1c
+
+Public Attributes inherited from \fBGridTheme\fP
+.in +1c
+.ti -1c
+.RI "char \fBName\fP [256]"
+.br
+.ti -1c
+.RI "long \fBContinuous\fP"
+.br
+.ti -1c
+.RI "long \fBRedVal\fP"
+.br
+.ti -1c
+.RI "long \fBGreenVal\fP"
+.br
+.ti -1c
+.RI "long \fBBlueVal\fP"
+.br
+.ti -1c
+.RI "long \fBVarVal\fP"
+.br
+.ti -1c
+.RI "long \fBNumColors\fP"
+.br
+.ti -1c
+.RI "long \fBMaxBrite\fP"
+.br
+.ti -1c
+.RI "long \fBColorChange\fP"
+.br
+.ti -1c
+.RI "bool \fBWantNewRamp\fP"
+.br
+.ti -1c
+.RI "bool \fBWantNewColor\fP"
+.br
+.ti -1c
+.RI "bool \fBLcpAscii\fP"
+.br
+.ti -1c
+.RI "bool \fBOnOff\fP"
+.br
+.ti -1c
+.RI "bool \fBOnOff3d\fP"
+.br
+.ti -1c
+.RI "bool \fBChanged3d\fP"
+.br
+.ti -1c
+.RI "bool \fBConvertFuelColors\fP"
+.br
+.ti -1c
+.RI "long \fBCats\fP [100]"
+.br
+.ti -1c
+.RI "long \fBNumCats\fP"
+.br
+.ti -1c
+.RI "long \fBCatsOK\fP"
+.br
+.ti -1c
+.RI "long \fBPriority\fP"
+.br
+.ti -1c
+.RI "long \fBLegendNum\fP"
+.br
+.ti -1c
+.RI "double \fBMaxVal\fP"
+.br
+.ti -1c
+.RI "double \fBMinVal\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB115\fP of file \fBthemes\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "RasterTheme::RasterTheme ()"
+
+.PP
+Definition at line \fB3534\fP of file \fBfsglbvar\&.cpp\fP\&.
+.SS "RasterTheme::~RasterTheme ()"
+
+.PP
+Definition at line \fB3541\fP of file \fBfsglbvar\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bool RasterTheme::SetTheme (char * Name)"
+
+.PP
+Definition at line \fB3548\fP of file \fBfsglbvar\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "double* RasterTheme::map"
+
+.PP
+Definition at line \fB121\fP of file \fBthemes\&.h\fP\&.
+.SS "double RasterTheme::rCellSizeX"
+
+.PP
+Definition at line \fB122\fP of file \fBthemes\&.h\fP\&.
+.SS "double RasterTheme::rCellSizeY"
+
+.PP
+Definition at line \fB122\fP of file \fBthemes\&.h\fP\&.
+.SS "long RasterTheme::rCols"
+
+.PP
+Definition at line \fB123\fP of file \fBthemes\&.h\fP\&.
+.SS "double RasterTheme::rE"
+
+.PP
+Definition at line \fB122\fP of file \fBthemes\&.h\fP\&.
+.SS "double RasterTheme::rMaxVal"
+
+.PP
+Definition at line \fB122\fP of file \fBthemes\&.h\fP\&.
+.SS "double RasterTheme::rMinVal"
+
+.PP
+Definition at line \fB122\fP of file \fBthemes\&.h\fP\&.
+.SS "double RasterTheme::rN"
+
+.PP
+Definition at line \fB122\fP of file \fBthemes\&.h\fP\&.
+.SS "long RasterTheme::rRows"
+
+.PP
+Definition at line \fB123\fP of file \fBthemes\&.h\fP\&.
+.SS "double RasterTheme::rS"
+
+.PP
+Definition at line \fB122\fP of file \fBthemes\&.h\fP\&.
+.SS "double RasterTheme::rW"
+
+.PP
+Definition at line \fB122\fP of file \fBthemes\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

@@ -1,0 +1,562 @@
+.TH "__attribute__" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+__attribute__
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsglbvar\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int32_t \fBCrownFuels\fP"
+.br
+.ti -1c
+.RI "int32_t \fBGroundFuels\fP"
+.br
+.ti -1c
+.RI "int32_t \fBlatitude\fP"
+.br
+.ti -1c
+.RI "double \fBloeast\fP"
+.br
+.ti -1c
+.RI "double \fBhieast\fP"
+.br
+.ti -1c
+.RI "double \fBlonorth\fP"
+.br
+.ti -1c
+.RI "double \fBhinorth\fP"
+.br
+.ti -1c
+.RI "int32_t \fBloelev\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhielev\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnumelev\fP"
+.br
+.ti -1c
+.RI "int32_t \fBelevs\fP [100]"
+.br
+.ti -1c
+.RI "int32_t \fBloslope\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhislope\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnumslope\fP"
+.br
+.ti -1c
+.RI "int32_t \fBslopes\fP [100]"
+.br
+.ti -1c
+.RI "int32_t \fBloaspect\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhiaspect\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnumaspect\fP"
+.br
+.ti -1c
+.RI "int32_t \fBaspects\fP [100]"
+.br
+.ti -1c
+.RI "int32_t \fBlofuel\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhifuel\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnumfuel\fP"
+.br
+.ti -1c
+.RI "int32_t \fBfuels\fP [100]"
+.br
+.ti -1c
+.RI "int32_t \fBlocover\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhicover\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnumcover\fP"
+.br
+.ti -1c
+.RI "int32_t \fBcovers\fP [100]"
+.br
+.ti -1c
+.RI "int32_t \fBloheight\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhiheight\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnumheight\fP"
+.br
+.ti -1c
+.RI "int32_t \fBheights\fP [100]"
+.br
+.ti -1c
+.RI "int32_t \fBlobase\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhibase\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnumbase\fP"
+.br
+.ti -1c
+.RI "int32_t \fBbases\fP [100]"
+.br
+.ti -1c
+.RI "int32_t \fBlodensity\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhidensity\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnumdensity\fP"
+.br
+.ti -1c
+.RI "int32_t \fBdensities\fP [100]"
+.br
+.ti -1c
+.RI "int32_t \fBloduff\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhiduff\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnumduff\fP"
+.br
+.ti -1c
+.RI "int32_t \fBduffs\fP [100]"
+.br
+.ti -1c
+.RI "int32_t \fBlowoody\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhiwoody\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnumwoody\fP"
+.br
+.ti -1c
+.RI "int32_t \fBwoodies\fP [100]"
+.br
+.ti -1c
+.RI "int32_t \fBnumeast\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnumnorth\fP"
+.br
+.ti -1c
+.RI "double \fBEastUtm\fP"
+.br
+.ti -1c
+.RI "double \fBWestUtm\fP"
+.br
+.ti -1c
+.RI "double \fBNorthUtm\fP"
+.br
+.ti -1c
+.RI "double \fBSouthUtm\fP"
+.br
+.ti -1c
+.RI "int32_t \fBGridUnits\fP"
+.br
+.ti -1c
+.RI "double \fBXResol\fP"
+.br
+.ti -1c
+.RI "double \fBYResol\fP"
+.br
+.ti -1c
+.RI "int16_t \fBEUnits\fP"
+.br
+.ti -1c
+.RI "int16_t \fBSUnits\fP"
+.br
+.ti -1c
+.RI "int16_t \fBAUnits\fP"
+.br
+.ti -1c
+.RI "int16_t \fBFOptions\fP"
+.br
+.ti -1c
+.RI "int16_t \fBCUnits\fP"
+.br
+.ti -1c
+.RI "int16_t \fBHUnits\fP"
+.br
+.ti -1c
+.RI "int16_t \fBBUnits\fP"
+.br
+.ti -1c
+.RI "int16_t \fBPUnits\fP"
+.br
+.ti -1c
+.RI "int16_t \fBDUnits\fP"
+.br
+.ti -1c
+.RI "int16_t \fBWOptions\fP"
+.br
+.ti -1c
+.RI "char \fBElevFile\fP [256]"
+.br
+.ti -1c
+.RI "char \fBSlopeFile\fP [256]"
+.br
+.ti -1c
+.RI "char \fBAspectFile\fP [256]"
+.br
+.ti -1c
+.RI "char \fBFuelFile\fP [256]"
+.br
+.ti -1c
+.RI "char \fBCoverFile\fP [256]"
+.br
+.ti -1c
+.RI "char \fBHeightFile\fP [256]"
+.br
+.ti -1c
+.RI "char \fBBaseFile\fP [256]"
+.br
+.ti -1c
+.RI "char \fBDensityFile\fP [256]"
+.br
+.ti -1c
+.RI "char \fBDuffFile\fP [256]"
+.br
+.ti -1c
+.RI "char \fBWoodyFile\fP [256]"
+.br
+.ti -1c
+.RI "char \fBDescription\fP [512]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB585\fP of file \fBfsglbvar\&.h\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "char __attribute__::AspectFile[256]"
+
+.PP
+Definition at line \fB655\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::aspects[100]"
+
+.PP
+Definition at line \fB605\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int16_t __attribute__::AUnits"
+
+.PP
+Definition at line \fB645\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "char __attribute__::BaseFile[256]"
+
+.PP
+Definition at line \fB659\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::bases[100]"
+
+.PP
+Definition at line \fB621\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int16_t __attribute__::BUnits"
+
+.PP
+Definition at line \fB649\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "char __attribute__::CoverFile[256]"
+
+.PP
+Definition at line \fB657\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::covers[100]"
+
+.PP
+Definition at line \fB613\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::CrownFuels"
+
+.PP
+Definition at line \fB587\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int16_t __attribute__::CUnits"
+
+.PP
+Definition at line \fB647\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::densities[100]"
+
+.PP
+Definition at line \fB625\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "char __attribute__::DensityFile[256]"
+
+.PP
+Definition at line \fB660\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "char __attribute__::Description[512]"
+
+.PP
+Definition at line \fB663\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "char __attribute__::DuffFile[256]"
+
+.PP
+Definition at line \fB661\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::duffs[100]"
+
+.PP
+Definition at line \fB629\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int16_t __attribute__::DUnits"
+
+.PP
+Definition at line \fB651\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "double __attribute__::EastUtm"
+
+.PP
+Definition at line \fB636\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "char __attribute__::ElevFile[256]"
+
+.PP
+Definition at line \fB653\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::elevs[100]"
+
+.PP
+Definition at line \fB597\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int16_t __attribute__::EUnits"
+
+.PP
+Definition at line \fB643\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int16_t __attribute__::FOptions"
+
+.PP
+Definition at line \fB646\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "char __attribute__::FuelFile[256]"
+
+.PP
+Definition at line \fB656\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::fuels[100]"
+
+.PP
+Definition at line \fB609\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::GridUnits"
+
+.PP
+Definition at line \fB640\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::GroundFuels"
+
+.PP
+Definition at line \fB588\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "char __attribute__::HeightFile[256]"
+
+.PP
+Definition at line \fB658\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::heights[100]"
+
+.PP
+Definition at line \fB617\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::hiaspect"
+
+.PP
+Definition at line \fB603\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::hibase"
+
+.PP
+Definition at line \fB619\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::hicover"
+
+.PP
+Definition at line \fB611\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::hidensity"
+
+.PP
+Definition at line \fB623\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::hiduff"
+
+.PP
+Definition at line \fB627\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "double __attribute__::hieast"
+
+.PP
+Definition at line \fB591\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::hielev"
+
+.PP
+Definition at line \fB595\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::hifuel"
+
+.PP
+Definition at line \fB607\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::hiheight"
+
+.PP
+Definition at line \fB615\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "double __attribute__::hinorth"
+
+.PP
+Definition at line \fB593\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::hislope"
+
+.PP
+Definition at line \fB599\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::hiwoody"
+
+.PP
+Definition at line \fB631\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int16_t __attribute__::HUnits"
+
+.PP
+Definition at line \fB648\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::latitude"
+
+.PP
+Definition at line \fB589\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::loaspect"
+
+.PP
+Definition at line \fB602\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::lobase"
+
+.PP
+Definition at line \fB618\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::locover"
+
+.PP
+Definition at line \fB610\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::lodensity"
+
+.PP
+Definition at line \fB622\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::loduff"
+
+.PP
+Definition at line \fB626\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "double __attribute__::loeast"
+
+.PP
+Definition at line \fB590\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::loelev"
+
+.PP
+Definition at line \fB594\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::lofuel"
+
+.PP
+Definition at line \fB606\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::loheight"
+
+.PP
+Definition at line \fB614\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "double __attribute__::lonorth"
+
+.PP
+Definition at line \fB592\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::loslope"
+
+.PP
+Definition at line \fB598\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::lowoody"
+
+.PP
+Definition at line \fB630\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "double __attribute__::NorthUtm"
+
+.PP
+Definition at line \fB638\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::numaspect"
+
+.PP
+Definition at line \fB604\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::numbase"
+
+.PP
+Definition at line \fB620\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::numcover"
+
+.PP
+Definition at line \fB612\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::numdensity"
+
+.PP
+Definition at line \fB624\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::numduff"
+
+.PP
+Definition at line \fB628\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::numeast"
+
+.PP
+Definition at line \fB634\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::numelev"
+
+.PP
+Definition at line \fB596\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::numfuel"
+
+.PP
+Definition at line \fB608\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::numheight"
+
+.PP
+Definition at line \fB616\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::numnorth"
+
+.PP
+Definition at line \fB635\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::numslope"
+
+.PP
+Definition at line \fB600\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::numwoody"
+
+.PP
+Definition at line \fB632\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int16_t __attribute__::PUnits"
+
+.PP
+Definition at line \fB650\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "char __attribute__::SlopeFile[256]"
+
+.PP
+Definition at line \fB654\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::slopes[100]"
+
+.PP
+Definition at line \fB601\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "double __attribute__::SouthUtm"
+
+.PP
+Definition at line \fB639\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int16_t __attribute__::SUnits"
+
+.PP
+Definition at line \fB644\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "double __attribute__::WestUtm"
+
+.PP
+Definition at line \fB637\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int32_t __attribute__::woodies[100]"
+
+.PP
+Definition at line \fB633\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "char __attribute__::WoodyFile[256]"
+
+.PP
+Definition at line \fB662\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "int16_t __attribute__::WOptions"
+
+.PP
+Definition at line \fB652\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "double __attribute__::XResol"
+
+.PP
+Definition at line \fB641\fP of file \fBfsglbvar\&.h\fP\&.
+.SS "double __attribute__::YResol"
+
+.PP
+Definition at line \fB642\fP of file \fBfsglbvar\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

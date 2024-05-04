@@ -1,0 +1,129 @@
+.TH "C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/farsite4.cpp" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/farsite4.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'farsite4\&.h'\fP
+.br
+\fR#include <sys/stat\&.h>\fP
+.br
+\fR#include <unistd\&.h>\fP
+.br
+\fR#include <strings\&.h>\fP
+.br
+\fR#include 'portablestrings\&.h'\fP
+.br
+\fR#include <iostream>\fP
+.br
+\fR#include <omp\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSIMREQ_NULL\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSIMREQ_INITIATETERMINATE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSIMREQ_STARTRESTART\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSIMREQ_RESUMESUSPEND\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSIMREQ_RESET\fP   4"
+.br
+.ti -1c
+.RI "#define \fBIDYES\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPI\fP   3\&.1415926536"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "char \fBVERSION\fP [] = 'Version 4\&.1\&.0batch'"
+.br
+.ti -1c
+.RI "char \fBElTime\fP [12]"
+.br
+.ti -1c
+.RI "char \fBCurTime\fP [14]"
+.br
+.ti -1c
+.RI "bool \fBF_ON\fP = 0"
+.br
+.ti -1c
+.RI "\fBPFrontData\fP \fBpfdata\fP"
+.br
+.ti -1c
+.RI "FILE * \fBCurrentFile\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define IDYES   1"
+
+.PP
+Definition at line \fB55\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "#define PI   3\&.1415926536"
+
+.PP
+Definition at line \fB57\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "#define SIMREQ_INITIATETERMINATE   1"
+
+.PP
+Definition at line \fB51\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "#define SIMREQ_NULL   0"
+
+.PP
+Definition at line \fB50\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "#define SIMREQ_RESET   4"
+
+.PP
+Definition at line \fB54\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "#define SIMREQ_RESUMESUSPEND   3"
+
+.PP
+Definition at line \fB53\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "#define SIMREQ_STARTRESTART   2"
+
+.PP
+Definition at line \fB52\fP of file \fBfarsite4\&.cpp\fP\&.
+.SH "Variable Documentation"
+.PP 
+.SS "FILE* CurrentFile"
+
+.PP
+Definition at line \fB68\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "char CurTime[14]"
+
+.PP
+Definition at line \fB65\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "char ElTime[12]"
+
+.PP
+Definition at line \fB65\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "bool F_ON = 0"
+
+.PP
+Definition at line \fB66\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "\fBPFrontData\fP pfdata"
+
+.PP
+Definition at line \fB67\fP of file \fBfarsite4\&.cpp\fP\&.
+.SS "char VERSION[] = 'Version 4\&.1\&.0batch'"
+
+.PP
+Definition at line \fB62\fP of file \fBfarsite4\&.cpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

@@ -1,0 +1,687 @@
+\doxysection{TFarsite\+Interface Class Reference}
+\hypertarget{class_t_farsite_interface}{}\label{class_t_farsite_interface}\index{TFarsiteInterface@{TFarsiteInterface}}
+
+
+The main FARSITE class. ~\newline
+  
+
+
+
+
+{\ttfamily \#include $<$farsite4.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_t_farsite_interface_a231017f56b1932415e282183803c17c4}{TFarsite\+Interface}} (const char \texorpdfstring{$\ast$}{*}name, const char \texorpdfstring{$\ast$}{*}directory, const char \texorpdfstring{$\ast$}{*}Book\+Mark)
+\item 
+\mbox{\hyperlink{class_t_farsite_interface_ac37131313c987e67c54f129822115a7a}{\texorpdfstring{$\sim$}{\string~}\+TFarsite\+Interface}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a84210ea6a7e0db6e101de529b363d1dc}{Init\+Main\+Window}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_ac572471ed407d7190986685d4ef9249f}{Set\+Model\+Params}} ()
+\item 
+bool \mbox{\hyperlink{class_t_farsite_interface_a1273f0b9e3174968b085b85a72f97839}{Pre\+Calculate\+Fuel\+Moistures\+No\+UI}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a2aa94be41776f63d8b5ca758b524a83a}{load\+Values}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a8d9c79dbae836aae8f96529c62abd028}{l\+Ign}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a6a51edaebe14033424f481e82ea72e8a}{s\+Ign}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a70242dd9b609ed7de4e62b2fb27d2a2c}{Chain}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_af730835dda36cc8e9c16c7357105bf2e}{Set\+Resume}} (int, int, char \texorpdfstring{$\ast$}{*}, char \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a9035a8d6f987ec8d8381cdb3351b9d07}{Set\+Inputs\+From\+File}} (char \texorpdfstring{$\ast$}{*}settingsfilename)
+\begin{DoxyCompactList}\small\item\em Reads in the simulation settings from a file. ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a822a3bb8bce3ef69e750ecb1b9b552da}{process\+Name\+Value}} (char \texorpdfstring{$\ast$}{*}name, char \texorpdfstring{$\ast$}{*}value)
+\begin{DoxyCompactList}\small\item\em Used by \doxylink{class_t_farsite_interface_a9035a8d6f987ec8d8381cdb3351b9d07}{Set\+Inputs\+From\+File()}, this function performs the actual setting of simulation parameters specified in the file. ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_farsite_interface_ada1d4841ea1a9d62ad99ccd3493bae28}{Initiate}} ()
+\begin{DoxyCompactList}\small\item\em Configures the FARSITE simulator for initial simulation loop. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_farsite_interface_affdf08c077bd1344823b032dd1da0427}{Terminate}} ()
+\begin{DoxyCompactList}\small\item\em Dumps all configuration info from the FARSITE simulator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_t_farsite_interface_a114a09449f97f3e406600207e017a152}{FMMFile\+Name}} \mbox{[}256\mbox{]}
+\item 
+char \mbox{\hyperlink{class_t_farsite_interface_acc2035b40be6c143e8f90d1643c3566f}{FMMDescription}} \mbox{[}512\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_af8e73874624ca2e599f26542256d1e09}{Flat\+Open\+Project}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_acf3b4d3a353cc399abacd64e43b919a7}{Save\+Vis\+Perimeter}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_ab04f498d2cdcdb5c12580c37a77673e8}{Flat\+Simulate\+Initiate\+Terminate}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_ae03e9d8eb84e96d149c0b19ac309e8cc}{Check\+Stop\+Locations}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a3c40be3900cc81d38c8997d376ebaf50}{Farsite\+Simulation\+Loop}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_aea3e2612e8c2b0509f7c97f0cf521049}{Save\+Settings\+To\+File}} (const char \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a83de3766908a0b697e92ebfbdf8c4223}{Save\+Last\+State}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a60ef88a05f193ebbba7e603c52754c43}{Load\+Last\+State}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_afb8ce6657d42a944a1a11bbb9460d035}{Start\+Win\+Thread}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a06667ed784b9f5dad04a5885cb0bcb01}{Start\+Sim\+Thread}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a27c74559e6575eb0f10922416b50faea}{End\+Sim\+Thread}} ()
+\item 
+unsigned \mbox{\hyperlink{class_t_farsite_interface_ad70cb96bf7528535dda8938b25c1cab8}{Run\+Sim\+Thread}} (void \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a72c0107d718746a4ed1f39dc692767c3}{Execute\+\_\+\+Initiate\+Terminate}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a12c35aa032ed87315d52c75ff051aba2}{Execute\+\_\+\+Start\+Restart}} ()
+\begin{DoxyCompactList}\small\item\em Restarts or initializes the FARSITE simulation. ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_farsite_interface_ac393c5a980eb8d71b78f41b1a7f6fbb1}{Execute\+\_\+\+Resume\+Suspend}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a120d29a213ad8b88fdbf7adffe019219}{Execute\+\_\+\+Reset}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a1feb4609676552645ebb4dbbbffb0429}{Process\+Sim\+Request}} ()
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_a0d523dcc2015c4a57300f1adaaed6f10}{Start\+Moist\+Thread}} ()
+\item 
+unsigned \mbox{\hyperlink{class_t_farsite_interface_a47b87269efd9d799396a92086e0866cc}{Run\+Moist\+Thread}} (void \texorpdfstring{$\ast$}{*})
+\item 
+void \mbox{\hyperlink{class_t_farsite_interface_afc0d287cdbf7cae7ef2caf56106c0457}{Moist\+Thread}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ignition_file}{Ignition\+File}} \mbox{\hyperlink{class_t_farsite_interface_ae7d8e238b1fd145a34f0a20129362e97}{Ignition}}
+\item 
+\mbox{\hyperlink{struct_far_inputs}{Far\+Inputs}} \mbox{\hyperlink{class_t_farsite_interface_abf48218844f991e91c339a7045988756}{Inputs}}
+\item 
+\mbox{\hyperlink{class_burn}{Burn}} \mbox{\hyperlink{class_t_farsite_interface_a3946e014d28b5a0960a739078dbd8cc3}{burn}}
+\item 
+long \mbox{\hyperlink{class_t_farsite_interface_ad771334acb8916204004e0b5fccdbc49}{Sim\+Request}}
+\item 
+bool \mbox{\hyperlink{class_t_farsite_interface_acd5ef09b1e537b51404573c324d62300}{SIM\+\_\+\+SUSPENDED}}
+\item 
+bool \mbox{\hyperlink{class_t_farsite_interface_a694ba7d1b9b6ef006ab1bac298504aac}{SIM\+\_\+\+COMPLETED}}
+\item 
+bool \mbox{\hyperlink{class_t_farsite_interface_a458766b92438aaec2137a61ee7c8a43c}{FARSITE\+\_\+\+GO}}
+\item 
+bool \mbox{\hyperlink{class_t_farsite_interface_a1e5682d81043421df280130315de9ba7}{Terminate\+Wait}}
+\item 
+bool \mbox{\hyperlink{class_t_farsite_interface_a293cbda92512033f9ba6944cfaf890af}{Wait\+In\+Progress}}
+\item 
+bool \mbox{\hyperlink{class_t_farsite_interface_a3c68ef55d495b8929b73ae71bf850832}{Terminate\+Moist}}
+\item 
+bool \mbox{\hyperlink{class_t_farsite_interface_a444e2d5e874a9eab6788810057246f4e}{Mx\+Recalculated}}
+\item 
+bool \mbox{\hyperlink{class_t_farsite_interface_a3a1d5fda3b4c3cf28d528fb547162f3e}{Step\+Through}}
+\item 
+double \mbox{\hyperlink{class_t_farsite_interface_a7109f8652adf4dc2b25c4c6fa0c16749}{Moist\+Sim\+Time}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The main FARSITE class. ~\newline
+ 
+
+This class organizes all the information required to execute a simulation. It also contains all the initialization code and the main simulation loop. In the days of the GUI, this was the main application, so it also contained all the logic to manage the GUI using the Borland UI toolkit. Finally, this file contains the thread management code.
+
+This class was modified for batch mode by including functions which read a settings file and set each simulation variable appropriately. Threading and GUI logic has been either removed or commented out. ~\newline
+
+
+The main problem with adapting this code to the API is that it does try and contain all of the required information. The "{}\+Inputs"{} object is a private member of this class. An external class in the API, like Farsite\+Config, may not be able to maintain it\textquotesingle{}s own instance of a \doxylink{struct_far_inputs}{Far\+Inputs} class and have it apply here. If not, all of the logic contained herein must be exported to the API class. Alternatively, it may be possible to either overload the assignment operator for \doxylink{struct_far_inputs}{Far\+Inputs} or modify this class to allow the client to set the \doxylink{struct_far_inputs}{Far\+Inputs} object they desire. 
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00068}{68}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_t_farsite_interface_a231017f56b1932415e282183803c17c4}\label{class_t_farsite_interface_a231017f56b1932415e282183803c17c4} 
+\index{TFarsiteInterface@{TFarsiteInterface}!TFarsiteInterface@{TFarsiteInterface}}
+\index{TFarsiteInterface@{TFarsiteInterface}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{TFarsiteInterface()}{TFarsiteInterface()}}
+{\footnotesize\ttfamily TFarsite\+Interface\+::\+TFarsite\+Interface (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{directory,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{Book\+Mark }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00081}{81}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_ac37131313c987e67c54f129822115a7a}\label{class_t_farsite_interface_ac37131313c987e67c54f129822115a7a} 
+\index{TFarsiteInterface@{TFarsiteInterface}!````~TFarsiteInterface@{\texorpdfstring{$\sim$}{\string~}TFarsiteInterface}}
+\index{````~TFarsiteInterface@{\texorpdfstring{$\sim$}{\string~}TFarsiteInterface}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TFarsiteInterface()}{\string~TFarsiteInterface()}}
+{\footnotesize\ttfamily TFarsite\+Interface\+::\texorpdfstring{$\sim$}{\string~}\+TFarsite\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_t_farsite_interface_a70242dd9b609ed7de4e62b2fb27d2a2c}\label{class_t_farsite_interface_a70242dd9b609ed7de4e62b2fb27d2a2c} 
+\index{TFarsiteInterface@{TFarsiteInterface}!Chain@{Chain}}
+\index{Chain@{Chain}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{Chain()}{Chain()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Chain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l01390}{1390}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_ae03e9d8eb84e96d149c0b19ac309e8cc}\label{class_t_farsite_interface_ae03e9d8eb84e96d149c0b19ac309e8cc} 
+\index{TFarsiteInterface@{TFarsiteInterface}!CheckStopLocations@{CheckStopLocations}}
+\index{CheckStopLocations@{CheckStopLocations}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{CheckStopLocations()}{CheckStopLocations()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Check\+Stop\+Locations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l02600}{2600}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a27c74559e6575eb0f10922416b50faea}\label{class_t_farsite_interface_a27c74559e6575eb0f10922416b50faea} 
+\index{TFarsiteInterface@{TFarsiteInterface}!EndSimThread@{EndSimThread}}
+\index{EndSimThread@{EndSimThread}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{EndSimThread()}{EndSimThread()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+End\+Sim\+Thread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00971}{971}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a72c0107d718746a4ed1f39dc692767c3}\label{class_t_farsite_interface_a72c0107d718746a4ed1f39dc692767c3} 
+\index{TFarsiteInterface@{TFarsiteInterface}!Execute\_InitiateTerminate@{Execute\_InitiateTerminate}}
+\index{Execute\_InitiateTerminate@{Execute\_InitiateTerminate}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{Execute\_InitiateTerminate()}{Execute\_InitiateTerminate()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Execute\+\_\+\+Initiate\+Terminate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l01077}{1077}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a120d29a213ad8b88fdbf7adffe019219}\label{class_t_farsite_interface_a120d29a213ad8b88fdbf7adffe019219} 
+\index{TFarsiteInterface@{TFarsiteInterface}!Execute\_Reset@{Execute\_Reset}}
+\index{Execute\_Reset@{Execute\_Reset}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{Execute\_Reset()}{Execute\_Reset()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Execute\+\_\+\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l01445}{1445}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_ac393c5a980eb8d71b78f41b1a7f6fbb1}\label{class_t_farsite_interface_ac393c5a980eb8d71b78f41b1a7f6fbb1} 
+\index{TFarsiteInterface@{TFarsiteInterface}!Execute\_ResumeSuspend@{Execute\_ResumeSuspend}}
+\index{Execute\_ResumeSuspend@{Execute\_ResumeSuspend}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{Execute\_ResumeSuspend()}{Execute\_ResumeSuspend()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Execute\+\_\+\+Resume\+Suspend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l01396}{1396}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a12c35aa032ed87315d52c75ff051aba2}\label{class_t_farsite_interface_a12c35aa032ed87315d52c75ff051aba2} 
+\index{TFarsiteInterface@{TFarsiteInterface}!Execute\_StartRestart@{Execute\_StartRestart}}
+\index{Execute\_StartRestart@{Execute\_StartRestart}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{Execute\_StartRestart()}{Execute\_StartRestart()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Execute\+\_\+\+Start\+Restart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Restarts or initializes the FARSITE simulation. ~\newline
+ 
+
+The simulation then begins executing. 
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l01233}{1233}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a3c40be3900cc81d38c8997d376ebaf50}\label{class_t_farsite_interface_a3c40be3900cc81d38c8997d376ebaf50} 
+\index{TFarsiteInterface@{TFarsiteInterface}!FarsiteSimulationLoop@{FarsiteSimulationLoop}}
+\index{FarsiteSimulationLoop@{FarsiteSimulationLoop}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{FarsiteSimulationLoop()}{FarsiteSimulationLoop()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Farsite\+Simulation\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l02830}{2830}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_af8e73874624ca2e599f26542256d1e09}\label{class_t_farsite_interface_af8e73874624ca2e599f26542256d1e09} 
+\index{TFarsiteInterface@{TFarsiteInterface}!FlatOpenProject@{FlatOpenProject}}
+\index{FlatOpenProject@{FlatOpenProject}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{FlatOpenProject()}{FlatOpenProject()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Flat\+Open\+Project (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00884}{884}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_ab04f498d2cdcdb5c12580c37a77673e8}\label{class_t_farsite_interface_ab04f498d2cdcdb5c12580c37a77673e8} 
+\index{TFarsiteInterface@{TFarsiteInterface}!FlatSimulateInitiateTerminate@{FlatSimulateInitiateTerminate}}
+\index{FlatSimulateInitiateTerminate@{FlatSimulateInitiateTerminate}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{FlatSimulateInitiateTerminate()}{FlatSimulateInitiateTerminate()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Flat\+Simulate\+Initiate\+Terminate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l01071}{1071}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_ada1d4841ea1a9d62ad99ccd3493bae28}\label{class_t_farsite_interface_ada1d4841ea1a9d62ad99ccd3493bae28} 
+\index{TFarsiteInterface@{TFarsiteInterface}!Initiate@{Initiate}}
+\index{Initiate@{Initiate}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{Initiate()}{Initiate()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Initiate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Configures the FARSITE simulator for initial simulation loop. 
+
+This method assumes that all has been initialized correctly. 
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l01201}{1201}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a84210ea6a7e0db6e101de529b363d1dc}\label{class_t_farsite_interface_a84210ea6a7e0db6e101de529b363d1dc} 
+\index{TFarsiteInterface@{TFarsiteInterface}!InitMainWindow@{InitMainWindow}}
+\index{InitMainWindow@{InitMainWindow}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{InitMainWindow()}{InitMainWindow()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Init\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00134}{134}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a8d9c79dbae836aae8f96529c62abd028}\label{class_t_farsite_interface_a8d9c79dbae836aae8f96529c62abd028} 
+\index{TFarsiteInterface@{TFarsiteInterface}!lIgn@{lIgn}}
+\index{lIgn@{lIgn}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{lIgn()}{lIgn()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::l\+Ign (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l01912}{1912}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a60ef88a05f193ebbba7e603c52754c43}\label{class_t_farsite_interface_a60ef88a05f193ebbba7e603c52754c43} 
+\index{TFarsiteInterface@{TFarsiteInterface}!LoadLastState@{LoadLastState}}
+\index{LoadLastState@{LoadLastState}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{LoadLastState()}{LoadLastState()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Load\+Last\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l01830}{1830}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a2aa94be41776f63d8b5ca758b524a83a}\label{class_t_farsite_interface_a2aa94be41776f63d8b5ca758b524a83a} 
+\index{TFarsiteInterface@{TFarsiteInterface}!loadValues@{loadValues}}
+\index{loadValues@{loadValues}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{loadValues()}{loadValues()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::load\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_t_farsite_interface_afc0d287cdbf7cae7ef2caf56106c0457}\label{class_t_farsite_interface_afc0d287cdbf7cae7ef2caf56106c0457} 
+\index{TFarsiteInterface@{TFarsiteInterface}!MoistThread@{MoistThread}}
+\index{MoistThread@{MoistThread}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{MoistThread()}{MoistThread()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Moist\+Thread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l02758}{2758}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a1273f0b9e3174968b085b85a72f97839}\label{class_t_farsite_interface_a1273f0b9e3174968b085b85a72f97839} 
+\index{TFarsiteInterface@{TFarsiteInterface}!PreCalculateFuelMoisturesNoUI@{PreCalculateFuelMoisturesNoUI}}
+\index{PreCalculateFuelMoisturesNoUI@{PreCalculateFuelMoisturesNoUI}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{PreCalculateFuelMoisturesNoUI()}{PreCalculateFuelMoisturesNoUI()}}
+{\footnotesize\ttfamily bool TFarsite\+Interface\+::\+Pre\+Calculate\+Fuel\+Moistures\+No\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l03385}{3385}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a822a3bb8bce3ef69e750ecb1b9b552da}\label{class_t_farsite_interface_a822a3bb8bce3ef69e750ecb1b9b552da} 
+\index{TFarsiteInterface@{TFarsiteInterface}!processNameValue@{processNameValue}}
+\index{processNameValue@{processNameValue}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{processNameValue()}{processNameValue()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::process\+Name\+Value (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{name,  }\item[{char \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+
+
+Used by \doxylink{class_t_farsite_interface_a9035a8d6f987ec8d8381cdb3351b9d07}{Set\+Inputs\+From\+File()}, this function performs the actual setting of simulation parameters specified in the file. ~\newline
+ 
+
+This is a good place to look when trying to find out what function to call or variable to set when attempting to affect specific parameters. ~\newline
+
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]Units are not set. \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00338}{338}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a1feb4609676552645ebb4dbbbffb0429}\label{class_t_farsite_interface_a1feb4609676552645ebb4dbbbffb0429} 
+\index{TFarsiteInterface@{TFarsiteInterface}!ProcessSimRequest@{ProcessSimRequest}}
+\index{ProcessSimRequest@{ProcessSimRequest}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{ProcessSimRequest()}{ProcessSimRequest()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Process\+Sim\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l03062}{3062}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a47b87269efd9d799396a92086e0866cc}\label{class_t_farsite_interface_a47b87269efd9d799396a92086e0866cc} 
+\index{TFarsiteInterface@{TFarsiteInterface}!RunMoistThread@{RunMoistThread}}
+\index{RunMoistThread@{RunMoistThread}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{RunMoistThread()}{RunMoistThread()}}
+{\footnotesize\ttfamily unsigned TFarsite\+Interface\+::\+Run\+Moist\+Thread (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{Far\+Int\+Face }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l02751}{2751}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_ad70cb96bf7528535dda8938b25c1cab8}\label{class_t_farsite_interface_ad70cb96bf7528535dda8938b25c1cab8} 
+\index{TFarsiteInterface@{TFarsiteInterface}!RunSimThread@{RunSimThread}}
+\index{RunSimThread@{RunSimThread}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{RunSimThread()}{RunSimThread()}}
+{\footnotesize\ttfamily unsigned TFarsite\+Interface\+::\+Run\+Sim\+Thread (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{Far\+Int\+Face }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00984}{984}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a83de3766908a0b697e92ebfbdf8c4223}\label{class_t_farsite_interface_a83de3766908a0b697e92ebfbdf8c4223} 
+\index{TFarsiteInterface@{TFarsiteInterface}!SaveLastState@{SaveLastState}}
+\index{SaveLastState@{SaveLastState}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{SaveLastState()}{SaveLastState()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Save\+Last\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l01792}{1792}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_aea3e2612e8c2b0509f7c97f0cf521049}\label{class_t_farsite_interface_aea3e2612e8c2b0509f7c97f0cf521049} 
+\index{TFarsiteInterface@{TFarsiteInterface}!SaveSettingsToFile@{SaveSettingsToFile}}
+\index{SaveSettingsToFile@{SaveSettingsToFile}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{SaveSettingsToFile()}{SaveSettingsToFile()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Save\+Settings\+To\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{fname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l03427}{3427}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_acf3b4d3a353cc399abacd64e43b919a7}\label{class_t_farsite_interface_acf3b4d3a353cc399abacd64e43b919a7} 
+\index{TFarsiteInterface@{TFarsiteInterface}!SaveVisPerimeter@{SaveVisPerimeter}}
+\index{SaveVisPerimeter@{SaveVisPerimeter}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{SaveVisPerimeter()}{SaveVisPerimeter()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Save\+Vis\+Perimeter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00915}{915}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a9035a8d6f987ec8d8381cdb3351b9d07}\label{class_t_farsite_interface_a9035a8d6f987ec8d8381cdb3351b9d07} 
+\index{TFarsiteInterface@{TFarsiteInterface}!SetInputsFromFile@{SetInputsFromFile}}
+\index{SetInputsFromFile@{SetInputsFromFile}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{SetInputsFromFile()}{SetInputsFromFile()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Set\+Inputs\+From\+File (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{settingsfilename }\end{DoxyParamCaption})}
+
+
+
+Reads in the simulation settings from a file. ~\newline
+ 
+
+This is used in conjunction with the batch-\/mode FARSITE simulation... 
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00285}{285}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_ac572471ed407d7190986685d4ef9249f}\label{class_t_farsite_interface_ac572471ed407d7190986685d4ef9249f} 
+\index{TFarsiteInterface@{TFarsiteInterface}!SetModelParams@{SetModelParams}}
+\index{SetModelParams@{SetModelParams}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{SetModelParams()}{SetModelParams()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Set\+Model\+Params (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00890}{890}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_af730835dda36cc8e9c16c7357105bf2e}\label{class_t_farsite_interface_af730835dda36cc8e9c16c7357105bf2e} 
+\index{TFarsiteInterface@{TFarsiteInterface}!SetResume@{SetResume}}
+\index{SetResume@{SetResume}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{SetResume()}{SetResume()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Set\+Resume (\begin{DoxyParamCaption}\item[{int}]{valor,  }\item[{int}]{valor2,  }\item[{char \texorpdfstring{$\ast$}{*}}]{filenameI,  }\item[{char \texorpdfstring{$\ast$}{*}}]{filenameO }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l01783}{1783}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a6a51edaebe14033424f481e82ea72e8a}\label{class_t_farsite_interface_a6a51edaebe14033424f481e82ea72e8a} 
+\index{TFarsiteInterface@{TFarsiteInterface}!sIgn@{sIgn}}
+\index{sIgn@{sIgn}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{sIgn()}{sIgn()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::s\+Ign (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l01918}{1918}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a0d523dcc2015c4a57300f1adaaed6f10}\label{class_t_farsite_interface_a0d523dcc2015c4a57300f1adaaed6f10} 
+\index{TFarsiteInterface@{TFarsiteInterface}!StartMoistThread@{StartMoistThread}}
+\index{StartMoistThread@{StartMoistThread}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{StartMoistThread()}{StartMoistThread()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Start\+Moist\+Thread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l02734}{2734}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_a06667ed784b9f5dad04a5885cb0bcb01}\label{class_t_farsite_interface_a06667ed784b9f5dad04a5885cb0bcb01} 
+\index{TFarsiteInterface@{TFarsiteInterface}!StartSimThread@{StartSimThread}}
+\index{StartSimThread@{StartSimThread}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{StartSimThread()}{StartSimThread()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Start\+Sim\+Thread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00955}{955}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{class_t_farsite_interface_afb8ce6657d42a944a1a11bbb9460d035}\label{class_t_farsite_interface_afb8ce6657d42a944a1a11bbb9460d035} 
+\index{TFarsiteInterface@{TFarsiteInterface}!StartWinThread@{StartWinThread}}
+\index{StartWinThread@{StartWinThread}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{StartWinThread()}{StartWinThread()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Start\+Win\+Thread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_t_farsite_interface_affdf08c077bd1344823b032dd1da0427}\label{class_t_farsite_interface_affdf08c077bd1344823b032dd1da0427} 
+\index{TFarsiteInterface@{TFarsiteInterface}!Terminate@{Terminate}}
+\index{Terminate@{Terminate}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{Terminate()}{Terminate()}}
+{\footnotesize\ttfamily void TFarsite\+Interface\+::\+Terminate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Dumps all configuration info from the FARSITE simulator. 
+
+After using this method, the user is required to load another configuration into memory before simulating. must use constant j because Num\+Crews changes in \doxylink{fsxwattk_8cpp_abd13ba64e2df136603a9a0cad625fae4}{Free\+Crew()};
+
+must use constant j because Num\+Crews changes in \doxylink{fsxwattk_8cpp_abd13ba64e2df136603a9a0cad625fae4}{Free\+Crew()};
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l01124}{1124}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_t_farsite_interface_a3946e014d28b5a0960a739078dbd8cc3}\label{class_t_farsite_interface_a3946e014d28b5a0960a739078dbd8cc3} 
+\index{TFarsiteInterface@{TFarsiteInterface}!burn@{burn}}
+\index{burn@{burn}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{burn}{burn}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_burn}{Burn}} TFarsite\+Interface\+::burn\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00194}{194}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_a458766b92438aaec2137a61ee7c8a43c}\label{class_t_farsite_interface_a458766b92438aaec2137a61ee7c8a43c} 
+\index{TFarsiteInterface@{TFarsiteInterface}!FARSITE\_GO@{FARSITE\_GO}}
+\index{FARSITE\_GO@{FARSITE\_GO}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{FARSITE\_GO}{FARSITE\_GO}}
+{\footnotesize\ttfamily bool TFarsite\+Interface\+::\+FARSITE\+\_\+\+GO\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00196}{196}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_acc2035b40be6c143e8f90d1643c3566f}\label{class_t_farsite_interface_acc2035b40be6c143e8f90d1643c3566f} 
+\index{TFarsiteInterface@{TFarsiteInterface}!FMMDescription@{FMMDescription}}
+\index{FMMDescription@{FMMDescription}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{FMMDescription}{FMMDescription}}
+{\footnotesize\ttfamily char TFarsite\+Interface\+::\+FMMDescription\mbox{[}512\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00227}{227}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_a114a09449f97f3e406600207e017a152}\label{class_t_farsite_interface_a114a09449f97f3e406600207e017a152} 
+\index{TFarsiteInterface@{TFarsiteInterface}!FMMFileName@{FMMFileName}}
+\index{FMMFileName@{FMMFileName}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{FMMFileName}{FMMFileName}}
+{\footnotesize\ttfamily char TFarsite\+Interface\+::\+FMMFile\+Name\mbox{[}256\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00226}{226}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_ae7d8e238b1fd145a34f0a20129362e97}\label{class_t_farsite_interface_ae7d8e238b1fd145a34f0a20129362e97} 
+\index{TFarsiteInterface@{TFarsiteInterface}!Ignition@{Ignition}}
+\index{Ignition@{Ignition}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{Ignition}{Ignition}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_ignition_file}{Ignition\+File}} TFarsite\+Interface\+::\+Ignition\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00192}{192}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_abf48218844f991e91c339a7045988756}\label{class_t_farsite_interface_abf48218844f991e91c339a7045988756} 
+\index{TFarsiteInterface@{TFarsiteInterface}!Inputs@{Inputs}}
+\index{Inputs@{Inputs}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{Inputs}{Inputs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_far_inputs}{Far\+Inputs}} TFarsite\+Interface\+::\+Inputs\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00193}{193}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_a7109f8652adf4dc2b25c4c6fa0c16749}\label{class_t_farsite_interface_a7109f8652adf4dc2b25c4c6fa0c16749} 
+\index{TFarsiteInterface@{TFarsiteInterface}!MoistSimTime@{MoistSimTime}}
+\index{MoistSimTime@{MoistSimTime}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{MoistSimTime}{MoistSimTime}}
+{\footnotesize\ttfamily double TFarsite\+Interface\+::\+Moist\+Sim\+Time\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00198}{198}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_a444e2d5e874a9eab6788810057246f4e}\label{class_t_farsite_interface_a444e2d5e874a9eab6788810057246f4e} 
+\index{TFarsiteInterface@{TFarsiteInterface}!MxRecalculated@{MxRecalculated}}
+\index{MxRecalculated@{MxRecalculated}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{MxRecalculated}{MxRecalculated}}
+{\footnotesize\ttfamily bool TFarsite\+Interface\+::\+Mx\+Recalculated\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00197}{197}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_a694ba7d1b9b6ef006ab1bac298504aac}\label{class_t_farsite_interface_a694ba7d1b9b6ef006ab1bac298504aac} 
+\index{TFarsiteInterface@{TFarsiteInterface}!SIM\_COMPLETED@{SIM\_COMPLETED}}
+\index{SIM\_COMPLETED@{SIM\_COMPLETED}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{SIM\_COMPLETED}{SIM\_COMPLETED}}
+{\footnotesize\ttfamily bool TFarsite\+Interface\+::\+SIM\+\_\+\+COMPLETED\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00196}{196}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_acd5ef09b1e537b51404573c324d62300}\label{class_t_farsite_interface_acd5ef09b1e537b51404573c324d62300} 
+\index{TFarsiteInterface@{TFarsiteInterface}!SIM\_SUSPENDED@{SIM\_SUSPENDED}}
+\index{SIM\_SUSPENDED@{SIM\_SUSPENDED}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{SIM\_SUSPENDED}{SIM\_SUSPENDED}}
+{\footnotesize\ttfamily bool TFarsite\+Interface\+::\+SIM\+\_\+\+SUSPENDED\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00196}{196}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_ad771334acb8916204004e0b5fccdbc49}\label{class_t_farsite_interface_ad771334acb8916204004e0b5fccdbc49} 
+\index{TFarsiteInterface@{TFarsiteInterface}!SimRequest@{SimRequest}}
+\index{SimRequest@{SimRequest}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{SimRequest}{SimRequest}}
+{\footnotesize\ttfamily long TFarsite\+Interface\+::\+Sim\+Request\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00195}{195}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_a3a1d5fda3b4c3cf28d528fb547162f3e}\label{class_t_farsite_interface_a3a1d5fda3b4c3cf28d528fb547162f3e} 
+\index{TFarsiteInterface@{TFarsiteInterface}!StepThrough@{StepThrough}}
+\index{StepThrough@{StepThrough}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{StepThrough}{StepThrough}}
+{\footnotesize\ttfamily bool TFarsite\+Interface\+::\+Step\+Through\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00197}{197}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_a3c68ef55d495b8929b73ae71bf850832}\label{class_t_farsite_interface_a3c68ef55d495b8929b73ae71bf850832} 
+\index{TFarsiteInterface@{TFarsiteInterface}!TerminateMoist@{TerminateMoist}}
+\index{TerminateMoist@{TerminateMoist}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{TerminateMoist}{TerminateMoist}}
+{\footnotesize\ttfamily bool TFarsite\+Interface\+::\+Terminate\+Moist\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00197}{197}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_a1e5682d81043421df280130315de9ba7}\label{class_t_farsite_interface_a1e5682d81043421df280130315de9ba7} 
+\index{TFarsiteInterface@{TFarsiteInterface}!TerminateWait@{TerminateWait}}
+\index{TerminateWait@{TerminateWait}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{TerminateWait}{TerminateWait}}
+{\footnotesize\ttfamily bool TFarsite\+Interface\+::\+Terminate\+Wait\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00196}{196}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_a81e29bf874833c28c03531bb594884ce}\label{class_t_farsite_interface_a81e29bf874833c28c03531bb594884ce} 
+\index{TFarsiteInterface@{TFarsiteInterface}!tws@{tws}}
+\index{tws@{tws}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{tws}{tws}}
+{\footnotesize\ttfamily double TFarsite\+Interface\+::tws}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00122}{122}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_a293cbda92512033f9ba6944cfaf890af}\label{class_t_farsite_interface_a293cbda92512033f9ba6944cfaf890af} 
+\index{TFarsiteInterface@{TFarsiteInterface}!WaitInProgress@{WaitInProgress}}
+\index{WaitInProgress@{WaitInProgress}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{WaitInProgress}{WaitInProgress}}
+{\footnotesize\ttfamily bool TFarsite\+Interface\+::\+Wait\+In\+Progress\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00196}{196}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+\Hypertarget{class_t_farsite_interface_aee7ace81cca57b96211f9636907d3b81}\label{class_t_farsite_interface_aee7ace81cca57b96211f9636907d3b81} 
+\index{TFarsiteInterface@{TFarsiteInterface}!winddir@{winddir}}
+\index{winddir@{winddir}!TFarsiteInterface@{TFarsiteInterface}}
+\doxysubsubsection{\texorpdfstring{winddir}{winddir}}
+{\footnotesize\ttfamily double TFarsite\+Interface\+::winddir}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8h_source_l00123}{123}} of file \mbox{\hyperlink{farsite4_8h_source}{farsite4.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{farsite4_8h}{farsite4.\+h}}\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{farsite4_8cpp}{farsite4.\+cpp}}\end{DoxyCompactItemize}

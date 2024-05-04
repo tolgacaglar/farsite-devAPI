@@ -1,0 +1,226 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/farsite4.h}
+\hypertarget{farsite4_8h_source}{}\label{farsite4_8h_source}\mbox{\hyperlink{farsite4_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00023}00023\ \textcolor{preprocessor}{\#ifndef\ FARSITE\_MAIN}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00024}00024\ \textcolor{preprocessor}{\#define\ FARSITE\_MAIN}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00025}\mbox{\hyperlink{farsite4_8h_a2dafe4a81445873e5c3cb0dff7741429}{00025}}\ \textcolor{preprocessor}{\#define\ UNIX\ 1}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00026}00026\ \textcolor{preprocessor}{\#ifdef\ UNIX}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00027}00027\ \textcolor{comment}{//\#include\ <dir.h>}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00028}00028\ \textcolor{comment}{//\#include\ <io.h>}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00029}00029\ \textcolor{preprocessor}{\#else\ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00032}00032\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00033}00033\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsxwignt_8h}{fsxwignt.h}}"{}}\ \ \ \ \ \textcolor{comment}{//\ ignition\ input\ from\ files}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00034}00034\ \textcolor{preprocessor}{\#}\textcolor{comment}{//include\ "{}fswther.h"{}}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00035}00035\ \textcolor{preprocessor}{\#}\textcolor{comment}{//include\ "{}fswwtype.h"{}\ \ \ \ \ //\ weather\ and\ wind\ typing}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00036}00036\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsxwinpt_8h}{fsxwinpt.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00037}00037\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsxwattk_8h}{fsxwattk.h}}"{}}\ \ \ \ \ \textcolor{comment}{//\ attack\ functions\ and\ structures}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00038}00038\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsairatk_8h}{fsairatk.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00039}00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsxwshap_8h}{fsxwshap.h}}"{}}\ \ \ \ \ \textcolor{comment}{//\ shapefile\ output}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00040}00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rand2_8h}{rand2.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00041}00041\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsxsync_8h}{fsxsync.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00068}\mbox{\hyperlink{class_t_farsite_interface}{00068}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_t_farsite_interface}{TFarsiteInterface}}\ \textcolor{comment}{//:\ public\ TApplication}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00069}00069\ \{}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{bool}\ LEAVEPROCESS,\ SIMULATE\_GO,\ \ \ IN\_BURNPERIOD;\ \ \ \ \textcolor{comment}{//\ using\ input\ data\ instead\ of\ files;}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00071}00071\ \ \ \ \ \textcolor{keywordtype}{char}\ CrewFileName[256];}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00072}00072\ \ \ \ \ \textcolor{keywordtype}{char}\ HelpFile[256];}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00073}00073\ \ \ \ \ \textcolor{keywordtype}{char}\ BookMarkArg[256];}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00074}00074\ \ \ \ \ \textcolor{keywordtype}{char}\ FarsiteTitle[256];}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00075}00075\ \ \ \ \ \textcolor{keywordtype}{char}\ MessageText[200];}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00076}00076\ \ \ \ \ \textcolor{keywordtype}{char}\ IgFileName[256];}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00077}00077\ \ \ \ \ \textcolor{keywordtype}{char}\ FarsiteDirectory[256];}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00078}00078\ \ \ \ \ \textcolor{keywordtype}{char}\ MBStatus[64],\ MBMode[64];}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00079}00079\ \ \ \ \ \textcolor{keywordtype}{double}\ a1,\ p1,\ p2,\ sarea,\ firesizeh,\ firesizes;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ area\ and\ perimeter\ calculations}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00080}00080\ \ \ \ \ \textcolor{keywordtype}{double}\ smolder,\ flaming;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00081}00081\ \ \ \ \ \textcolor{keywordtype}{double}\ oldactual,\ oldvisual;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00082}00082\ \ \ \ \ \textcolor{keywordtype}{long}\ PrimaryVisEqual,\ PrimaryVisCount;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00083}00083\ \ \ \ \ \textcolor{keywordtype}{long}\ SecondaryVisEqual,\ SecondaryVisCount;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ visible\ timestep\ counters}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00084}00084\ \ \ \ \ \textcolor{keywordtype}{long}\ CurrentFire;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00085}00085\ \ \ \ \ \textcolor{keywordtype}{long}\ NextFireAfterInterrupt,\ OldFireAfterInterrupt;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00086}00086\ \ \ \ \ \textcolor{keywordtype}{short}\ ProcNum;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00087}00087\ \ \ \ \ \textcolor{keywordtype}{long}\ maximum,\ numspots,\ idum;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ maximum\ time\ in\ simulation,\ updated\ with\ global\ "{}numaximum"{}}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{long}\ VisPerimSize,\ OutputVectsAsGrown;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{long}\ CountInwardFires,\ CountTotalFires,\ VectorBarriers;\ \ \ \ \ \textcolor{comment}{//\ just\ for\ display\ purposes}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00090}00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReviseGroundAtkON;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00091}00091\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReviseAirAtkON;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00092}00092\ \ \ \ \ \textcolor{keywordtype}{double}\ LastFMCalcTime;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00093}00093\ \ \ \ \ \textcolor{keywordtype}{int}\ TextFilterIndex,\ RasterFilterIndex,\ VectorFilterIndex;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00094}00094\ \ \ \ \ \textcolor{keywordtype}{long}\ NumSimThreads;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00095}00095\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ systime1,\ systime2,\ systime;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00096}00096\ \ \ \ \ \textcolor{keywordtype}{int}\ CM\_SWITCHMESSAGE;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00097}00097\ \ \ \ \ \textcolor{keywordtype}{int}\ RESUME;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00098}00098\ \ \ \ \ \textcolor{keywordtype}{int}\ RESUMEL;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00099}00099\ \ \ \ \ \textcolor{keywordtype}{int}\ RESUMES;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00100}00100\ \ \ \ \ \textcolor{keywordtype}{char}\ *StateFileNameO;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00101}00101\ \ \ \ \ \textcolor{keywordtype}{char}\ *StateFileNameI;\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00103}00103\ \ \ \ \ \mbox{\hyperlink{class_attack}{Attack}}\ Atk;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00104}00104\ \ \ \ \ \mbox{\hyperlink{class_air_attack}{AirAttack}}\ AAtk;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00105}00105\ \ \ \ \ \mbox{\hyperlink{class_shape_file_utils}{ShapeFileUtils}}\ shape;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00106}00106\ \ \ \ \ \mbox{\hyperlink{class_group_air_attack}{GroupAirAttack}}*\ gaat;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00107}00107\ \ \ \ \ FILE*\ CurrentFile;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00108}00108\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00109}00109\ \ \ \ \ \textcolor{comment}{//BookMarkData\ bookmark;}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00110}00110\ \ \ \ \ \textcolor{keyword}{struct\ }WindGridData}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00111}00111\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ X;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ Y;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ WS;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ stores\ wind\ speed\ data\ used\ for\ wind\ maps}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ WD;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ stores\ wind\ direction\ data\ used\ for\ wind\ maps}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00116}00116\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00117}00117\ \ \ \ \ WindGridData*\ WData;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00118}00118\ \ \ \ \ \textcolor{keywordtype}{long}\ NumWData,\ NumEDim,\ NumNDim;}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00120}00120\ \ \ \ \ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00121}00121\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00122}\mbox{\hyperlink{class_t_farsite_interface_a81e29bf874833c28c03531bb594884ce}{00122}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_t_farsite_interface_a81e29bf874833c28c03531bb594884ce}{tws}};}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00123}\mbox{\hyperlink{class_t_farsite_interface_aee7ace81cca57b96211f9636907d3b81}{00123}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_t_farsite_interface_aee7ace81cca57b96211f9636907d3b81}{winddir}};}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00124}00124\ \ \ \ \ \}\ WStat[5];}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00126}00126\ \ \ \ \ \mbox{\hyperlink{class_vectorize}{Vectorize}}\ vect;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ object\ that\ writes\ vector\ files}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00128}00128\ \ \ \ \ \textcolor{keywordtype}{bool}\ OpenLandscapeFile();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00129}00129\ \ \ \ \ \textcolor{keywordtype}{void}\ MakeTheProject(\textcolor{keywordtype}{bool}\ Changes);\ \ \ \ \ \ \textcolor{comment}{//\ core\ function\ for\ project\ make}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00130}00130\ \ \ \ \ \textcolor{keywordtype}{void}\ InitializeStrings();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ memset\ and\ initialization\ of\ strings}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00131}00131\ \ \ \ \ \textcolor{keywordtype}{void}\ InitializeLandscapeWindow();\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ sets\ up\ and\ creates\ visible\ Landscape\ window}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00132}00132\ \ \ \ \ \textcolor{keywordtype}{void}\ CheckSteps();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ for\ changes\ in\ actual\ or\ visual\ timesteps}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00134}00134\ \ \ \ \ \textcolor{keywordtype}{void}\ CurrentWeather();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ get\ readings\ from\ weather\ stations}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00135}00135\ \ \ \ \ \textcolor{keywordtype}{bool}\ WriteArea();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ write\ the\ area\ data\ and\ graph}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00136}00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ WritePerim();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ write\ the\ perimeter\ data\ and\ graph}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00137}00137\ \ \ \ \ \textcolor{keywordtype}{bool}\ WriteFireData();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ write\ fire\ data\ to\ window}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00138}00138\ \ \ \ \ \textcolor{keywordtype}{bool}\ WritePFData();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ write\ post\ frontal\ fire\ data\ to\ window}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00139}00139\ \ \ \ \ \textcolor{keywordtype}{bool}\ WriteClocks();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ update\ the\ clocks\ if\ visible}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00140}00140\ \ \ \ \ \textcolor{comment}{//\ \ void\ DrawWindArrows();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ draws\ wind\ direction/strength\ arrows\ on\ map}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00141}00141\ \ \ \ \ \textcolor{keywordtype}{void}\ WriteVectorOutputs();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ output\ fire\ perimeters\ to\ vector\ file\ and\ monitor}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00142}00142\ \ \ \ \ \textcolor{keywordtype}{void}\ OpenFuelMods();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ opens\ fuel\ model\ file}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00143}00143\ \ \ \ \ \textcolor{keywordtype}{bool}\ FarsiteProcess1();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ FARSITE\ process\ split\ to\ allow\ message\ processing}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00144}00144\ \ \ \ \ \textcolor{keywordtype}{bool}\ FarsiteProcessSpots();\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ FARSITE\ process\ split\ to\ allow\ message\ processing}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00145}00145\ \ \ \ \ \textcolor{keywordtype}{bool}\ FarsiteProcess2();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ FARSITE\ process\ split\ to\ allow\ message\ processing}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00146}00146\ \ \ \ \ \textcolor{keywordtype}{void}\ FarsiteProcess3();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ FARSITE\ process\ split\ to\ allow\ message\ processing}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00147}00147\ \ \ \ \ \textcolor{keywordtype}{void}\ WriteOutputs(\textcolor{keywordtype}{int}\ Type);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ writes\ area\ and\ perimeter\ data\ to\ arrays\ and\ draws\ graphs}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00148}00148\ \ \ \ \ \textcolor{keywordtype}{void}\ CountFires();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ just\ counts\ fires\ for\ display}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00149}00149\ \ \ \ \ \textcolor{keywordtype}{void}\ ResetFarsite();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ reset\ all\ critical\ farsite\ data\ structures}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00150}00150\ \ \ \ \ \textcolor{keywordtype}{void}\ ResetDuration();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ resets\ duration\ dialog\ box\ for\ simulation}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00151}00151\ \ \ \ \ \textcolor{keywordtype}{void}\ ElTimeConvert();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ convert\ time\ to\ Elapsed\ time}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00152}00152\ \ \ \ \ \textcolor{keywordtype}{void}\ CurTimeConvert();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ convert\ time\ to\ Current\ Time}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00153}00153\ \ \ \ \ \textcolor{keywordtype}{void}\ WriteGISLogFile(\textcolor{keywordtype}{long}\ LogType);\ \ \ \ \ \textcolor{comment}{//\ write\ log\ file\ for\ GIS\ outputs}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00154}00154\ \ \ \ \ \textcolor{keywordtype}{void}\ SaveIgnitions();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ internal\ use\ with\ start/restart}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00155}00155\ \ \ \ \ \textcolor{keywordtype}{void}\ LoadIgnitions();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00156}00156\ \ \ \ \ \textcolor{keywordtype}{void}\ ClearAllFires();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00157}00157\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateFuelMoistures();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00158}00158\ \ \ \ \ \textcolor{keywordtype}{void}\ CancelMoistureCalculation();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00159}00159\ \ \ \ \ \textcolor{keywordtype}{void}\ WaitRequest();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00160}00160\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ RunWaitThread(\textcolor{keywordtype}{void}*\ FarIntFace);}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00161}00161\ \ \ \ \ \textcolor{keywordtype}{bool}\ PreCalculateFuelMoistures();\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ do\ all\ fuel\ moisture\ calculations\ ahead\ of\ the\ simulation}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00162}00162\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ RunMoistureDialog(\textcolor{keywordtype}{void}*\ FarIntFace);}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00163}00163\ \ \ \ \ \textcolor{keywordtype}{bool}\ CheckThreadNumbers();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00164}00164\ \ \ \ \ \textcolor{keywordtype}{void}\ ResetThreads();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00165}00165\ \ \ \ \ \textcolor{keywordtype}{void}\ StartMoistureDialog();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00166}00166\ \ \ \ \ \textcolor{keywordtype}{void}\ MoistureDialog();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00167}00167\ \ \ \ \ \textcolor{keywordtype}{void}\ KillMoistureDialog();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00168}00168\ \ \ \ \ \textcolor{keywordtype}{long}\ InsertSpotFire(\textcolor{keywordtype}{double}\ xpt,\ \textcolor{keywordtype}{double}\ ypt);}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00169}00169\ \ \ \ \ \textcolor{keywordtype}{void}\ EvClose();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00170}00170\ \ \ \ \ \textcolor{keywordtype}{bool}\ CanClose();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00172}00172\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00173}00173\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_af8e73874624ca2e599f26542256d1e09}{FlatOpenProject}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00174}00174\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_acf3b4d3a353cc399abacd64e43b919a7}{SaveVisPerimeter}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ save\ visible\ fire\ perimeters}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00175}00175\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_ab04f498d2cdcdb5c12580c37a77673e8}{FlatSimulateInitiateTerminate}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00176}00176\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_ae03e9d8eb84e96d149c0b19ac309e8cc}{CheckStopLocations}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00177}00177\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a3c40be3900cc81d38c8997d376ebaf50}{FarsiteSimulationLoop}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ calls\ FARSITE\ processes\ and\ CheckMessageLoop()}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00178}00178\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_aea3e2612e8c2b0509f7c97f0cf521049}{SaveSettingsToFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Added\ this\ function\ JAS!}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00179}00179\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a83de3766908a0b697e92ebfbdf8c4223}{SaveLastState}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00180}00180\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a60ef88a05f193ebbba7e603c52754c43}{LoadLastState}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00182}00182\ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00183}00183\ \ \ \ \ \textcolor{comment}{//\ multithreaded\ additions\ 10/1/1999}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00184}00184\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00186}00186\ \ \ \ \ \textcolor{comment}{//HANDLE\ hSimThread;}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00187}00187\ \ \ \ \ \textcolor{comment}{//HANDLE\ hWaitThread;}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00188}00188\ \ \ \ \ \textcolor{comment}{//HANDLE\ hFarSimEvent;\ \ //\ simulation\ resume\ and\ suspend}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00189}00189\ \ \ \ \ \textcolor{comment}{//HANDLE\ hWaitEvent;}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00190}00190\ \ \ \ \ \textcolor{comment}{//HANDLE\ hMoistThread;}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00191}00191\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ HANDLE\ hMoistEvent;//,\ hMoistUpdateEvent;\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00192}\mbox{\hyperlink{class_t_farsite_interface_ae7d8e238b1fd145a34f0a20129362e97}{00192}}\ \ \ \ \ \mbox{\hyperlink{class_ignition_file}{IgnitionFile}}\ \mbox{\hyperlink{class_t_farsite_interface_ae7d8e238b1fd145a34f0a20129362e97}{Ignition}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ignition\ file\ inputs}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00193}\mbox{\hyperlink{class_t_farsite_interface_abf48218844f991e91c339a7045988756}{00193}}\ \ \ \ \ \mbox{\hyperlink{struct_far_inputs}{FarInputs}}\ \mbox{\hyperlink{class_t_farsite_interface_abf48218844f991e91c339a7045988756}{Inputs}};}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00194}\mbox{\hyperlink{class_t_farsite_interface_a3946e014d28b5a0960a739078dbd8cc3}{00194}}\ \ \ \ \ \mbox{\hyperlink{class_burn}{Burn}}\ \mbox{\hyperlink{class_t_farsite_interface_a3946e014d28b5a0960a739078dbd8cc3}{burn}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ declare\ Burn\ object,\ contains\ burn,area,intersections,embers}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00195}\mbox{\hyperlink{class_t_farsite_interface_ad771334acb8916204004e0b5fccdbc49}{00195}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_t_farsite_interface_ad771334acb8916204004e0b5fccdbc49}{SimRequest}};}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00196}\mbox{\hyperlink{class_t_farsite_interface_a458766b92438aaec2137a61ee7c8a43c}{00196}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_t_farsite_interface_acd5ef09b1e537b51404573c324d62300}{SIM\_SUSPENDED}},\ \mbox{\hyperlink{class_t_farsite_interface_a694ba7d1b9b6ef006ab1bac298504aac}{SIM\_COMPLETED}},\ \mbox{\hyperlink{class_t_farsite_interface_a458766b92438aaec2137a61ee7c8a43c}{FARSITE\_GO}},\ \mbox{\hyperlink{class_t_farsite_interface_a1e5682d81043421df280130315de9ba7}{TerminateWait}},\ \mbox{\hyperlink{class_t_farsite_interface_a293cbda92512033f9ba6944cfaf890af}{WaitInProgress}},}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00197}\mbox{\hyperlink{class_t_farsite_interface_a444e2d5e874a9eab6788810057246f4e}{00197}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_t_farsite_interface_a3c68ef55d495b8929b73ae71bf850832}{TerminateMoist}},\ \mbox{\hyperlink{class_t_farsite_interface_a444e2d5e874a9eab6788810057246f4e}{MxRecalculated}},\ \mbox{\hyperlink{class_t_farsite_interface_a3a1d5fda3b4c3cf28d528fb547162f3e}{StepThrough}};}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00198}\mbox{\hyperlink{class_t_farsite_interface_a7109f8652adf4dc2b25c4c6fa0c16749}{00198}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_t_farsite_interface_a7109f8652adf4dc2b25c4c6fa0c16749}{MoistSimTime}};}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00200}\mbox{\hyperlink{class_t_farsite_interface_afb8ce6657d42a944a1a11bbb9460d035}{00200}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_afb8ce6657d42a944a1a11bbb9460d035}{StartWinThread}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00201}00201\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a06667ed784b9f5dad04a5885cb0bcb01}{StartSimThread}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00202}00202\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a27c74559e6575eb0f10922416b50faea}{EndSimThread}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00203}00203\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{class_t_farsite_interface_ad70cb96bf7528535dda8938b25c1cab8}{RunSimThread}}(\textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00205}00205\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a72c0107d718746a4ed1f39dc692767c3}{Execute\_InitiateTerminate}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00211}00211\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a12c35aa032ed87315d52c75ff051aba2}{Execute\_StartRestart}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00212}00212\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_ac393c5a980eb8d71b78f41b1a7f6fbb1}{Execute\_ResumeSuspend}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00213}00213\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a120d29a213ad8b88fdbf7adffe019219}{Execute\_Reset}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00214}00214\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a1feb4609676552645ebb4dbbbffb0429}{ProcessSimRequest}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00216}00216\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a0d523dcc2015c4a57300f1adaaed6f10}{StartMoistThread}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00217}00217\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{class_t_farsite_interface_a47b87269efd9d799396a92086e0866cc}{RunMoistThread}}(\textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00218}00218\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_afc0d287cdbf7cae7ef2caf56106c0457}{MoistThread}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00220}00220\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00221}00221\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00223}00223\ \ \ \ \ \textcolor{comment}{//\ \ DECLARE\_RESPONSE\_TABLE(TFarsiteInterface);}}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00225}00225\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00226}\mbox{\hyperlink{class_t_farsite_interface_a114a09449f97f3e406600207e017a152}{00226}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_t_farsite_interface_a114a09449f97f3e406600207e017a152}{FMMFileName}}[256];}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00227}\mbox{\hyperlink{class_t_farsite_interface_acc2035b40be6c143e8f90d1643c3566f}{00227}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_t_farsite_interface_acc2035b40be6c143e8f90d1643c3566f}{FMMDescription}}[512];}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00229}00229\ \ \ \ \ \mbox{\hyperlink{class_t_farsite_interface_a231017f56b1932415e282183803c17c4}{TFarsiteInterface}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ directory,\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ BookMark);}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00231}00231\ \ \ \ \ \mbox{\hyperlink{class_t_farsite_interface_ac37131313c987e67c54f129822115a7a}{\string~TFarsiteInterface}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00232}00232\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a84210ea6a7e0db6e101de529b363d1dc}{InitMainWindow}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00233}00233\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_ac572471ed407d7190986685d4ef9249f}{SetModelParams}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00234}00234\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_t_farsite_interface_a1273f0b9e3174968b085b85a72f97839}{PreCalculateFuelMoisturesNoUI}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00235}\mbox{\hyperlink{class_t_farsite_interface_a2aa94be41776f63d8b5ca758b524a83a}{00235}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a2aa94be41776f63d8b5ca758b524a83a}{loadValues}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00236}00236\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a8d9c79dbae836aae8f96529c62abd028}{lIgn}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00237}00237\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a6a51edaebe14033424f481e82ea72e8a}{sIgn}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00238}00238\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a70242dd9b609ed7de4e62b2fb27d2a2c}{Chain}}();}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00239}00239\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_af730835dda36cc8e9c16c7357105bf2e}{SetResume}}(\textcolor{keywordtype}{int},\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{char}*,\textcolor{keywordtype}{char}*);}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00245}00245\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a9035a8d6f987ec8d8381cdb3351b9d07}{SetInputsFromFile}}(\textcolor{keywordtype}{char}*\ settingsfilename);}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00256}00256\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_a822a3bb8bce3ef69e750ecb1b9b552da}{processNameValue}}(\textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{char}*\ value);}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00257}00257\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00263}00263\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_ada1d4841ea1a9d62ad99ccd3493bae28}{Initiate}}()\ ;\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00264}00264\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00271}00271\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_t_farsite_interface_affdf08c077bd1344823b032dd1da0427}{Terminate}}()\ ;\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00272}00272\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00274}00274\ \};}
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{farsite4_8h_source_l00277}00277\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FARSITE\_MAIN}}
+
+\end{DoxyCode}

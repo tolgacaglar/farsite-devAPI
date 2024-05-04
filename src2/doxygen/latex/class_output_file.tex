@@ -1,0 +1,657 @@
+\doxysection{Output\+File Class Reference}
+\hypertarget{class_output_file}{}\label{class_output_file}\index{OutputFile@{OutputFile}}
+
+
+This class aggregates fire behavior parameters on the "{}raster  grid"{} using the UTM easting and northing values. This data is then written to a raster file in either GRASS or ARC/\+Info Grid format.  
+
+
+
+
+{\ttfamily \#include $<$fsx4.\+hpp$>$}
+
+Inheritance diagram for Output\+File\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_output_file}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_output_file_1_1_rast_data}{Rast\+Data}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_output_file_a95bb75917bcceaef990fb39740fbb2e5}{Output\+File}} ()
+\item 
+\mbox{\hyperlink{class_output_file_ada2c24978592ca8e9dc451fe7d074b69}{\texorpdfstring{$\sim$}{\string~}\+Output\+File}} ()
+\item 
+void \mbox{\hyperlink{class_output_file_acde57e6cbb701f4f555ccabd722b05a6}{set\+Header\+Type}} (long type)
+\item 
+void \mbox{\hyperlink{class_output_file_a6f6b9ce986974cd6021f779df7dfc6a2}{Select\+Outputs}} (long Type)
+\item 
+void \mbox{\hyperlink{class_output_file_ac0dcc0a80dd65dc556bd3041ac0ec568}{Select\+Mem\+Outputs}} (long Type)
+\item 
+void \mbox{\hyperlink{class_output_file_a871812ee9a1b1001dc5386b895c0a12d}{Optional\+Output}} (bool From\+Memory)
+\item 
+void \mbox{\hyperlink{class_output_file_a8e0c731c7ca32113320f450651e6b6ee}{ConvF}} ()
+\item 
+void \mbox{\hyperlink{class_output_file_afb52819cd5ea0a41ba642df2d1952e55}{Init\+Raster\+Files}} (long \mbox{\hyperlink{class_output_file_a31a902c7f0940fae6a1b30888f845be1}{Header\+Type}})
+\item 
+void \mbox{\hyperlink{class_output_file_a284cbbbede9a9fc585aecabc6c4a9165}{Get\+Raster\+Extent}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845}{Calc\+Type}} \{ \newline
+\mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845a152b51ab111037ca654612a9bed4c77a}{FLAME\+\_\+\+LENGTH}}
+, \mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845a163849ca2f6eefca5d56a8918127d9c1}{HEAT\+\_\+\+PER\+\_\+\+AREA}}
+, \mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845aeacf0795636e364963a04dafc135f576}{FL\+\_\+\+AND\+\_\+\+HPA}}
+, \mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845a8fdd6e3c7f959fb2f87080006e4bcddb}{CROWNFIRE}}
+, \newline
+\mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845a40147163abfb1945eb9808fe5e8de318}{FIRELINE\+\_\+\+INTENSITY}}
+, \mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845a8542cd41275d1eef2a2e53ce68339260}{REACTION\+\_\+\+INTENSITY}}
+ \}
+\item 
+typedef std\+::pair$<$ long, long $>$ \mbox{\hyperlink{class_output_file_abc6af9832a4539aeb6693fae2d165ce1}{coordinate}}
+\item 
+typedef std\+::map$<$ \mbox{\hyperlink{class_output_file_abc6af9832a4539aeb6693fae2d165ce1}{coordinate}}, \mbox{\hyperlink{struct_output_file_1_1_rast_data}{Rast\+Data}} $>$ \mbox{\hyperlink{class_output_file_ab4fd5a746ef61bbc85a0b8d73d671536}{Raster\+Map}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_output_file_ad24d4256567a32d3622727a93be3a65e}{Calcs}} (\mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845}{Calc\+Type}} TYPE)
+\item 
+void \mbox{\hyperlink{class_output_file_a291fbca629d026ddb6ff5d33fd81fbc4}{Free\+Rast\+Data}} ()
+\item 
+bool \mbox{\hyperlink{class_output_file_a13c3eab30f4477c83e1cd5fc54e25c96}{Set\+Rast\+Data}} (double xpt, double ypt, double time, double fli, double ros, double rcx, long dir)
+\begin{DoxyCompactList}\small\item\em Aggregates the provided set of fire behavior characteristics onto the raster. ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_output_file_aaef12d50fda35d5b02631fb8172246ec}{Write\+Optional\+File}} ()
+\begin{DoxyCompactList}\small\item\em Writes a single value to the already opened, already positioned output file. ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_output_file_a85b0b3beecfcb11fa8a65de8587a07e3}{Write\+Rast\+Mem\+Files}} ()
+\item 
+bool \mbox{\hyperlink{class_output_file_a752791f9524ff5099eb2c8d78c86cf7b}{Rast\+Mem\+File}} (long Type)
+\item 
+void \mbox{\hyperlink{class_output_file_aef01e610c7a17956de522434ed75f817}{Write\+File}} (long Type)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_output_file_a3924a3028e55af018c3f60c1f3f454cb}{otpfile}}
+\item 
+double \mbox{\hyperlink{class_output_file_a27c26539bff33422743c82a2779073a2}{x}}
+\item 
+double \mbox{\hyperlink{class_output_file_a969fd6442293f846a4f8ab784c4d3941}{y}}
+\item 
+double \mbox{\hyperlink{class_output_file_ade4d898977e95e059d4831fa398c74a8}{t}}
+\item 
+double \mbox{\hyperlink{class_output_file_a2330c3d54e07230bb4ee6fb7d68a4a7a}{f}}
+\item 
+double \mbox{\hyperlink{class_output_file_aa433e67f3c68d18d0c671ddeb77d267e}{l}}
+\item 
+double \mbox{\hyperlink{class_output_file_a21c147ea5432a4c84e8fc1a6929895b7}{r}}
+\item 
+double \mbox{\hyperlink{class_output_file_a618354ecb87a22e8e609d8db62461bea}{h}}
+\item 
+double \mbox{\hyperlink{class_output_file_af7f948e13805a8e904b839f2e5d3a282}{rx}}
+\item 
+double \mbox{\hyperlink{class_output_file_a8b5b763d1656ab462a5847634c8b252c}{North}}
+\item 
+double \mbox{\hyperlink{class_output_file_a4fcb8ccb8266647338cd8389afca2c30}{South}}
+\item 
+double \mbox{\hyperlink{class_output_file_a90d759d60829579bf811d17268519d88}{East}}
+\item 
+double \mbox{\hyperlink{class_output_file_a8fbc14d62b982c00f7ef0cd51fc8ca74}{West}}
+\item 
+long \mbox{\hyperlink{class_output_file_a9744f9bf9fbe36182329543833cf29e5}{c}}
+\item 
+long \mbox{\hyperlink{class_output_file_ab3ccbc27c0bfb4beda82d1128cdcc866}{d}}
+\item 
+double \mbox{\hyperlink{class_output_file_a74b26f7b741ff63566f610d45734dc17}{convf1}}
+\item 
+double \mbox{\hyperlink{class_output_file_ab412f1c46f9f7f6ac50696ca9f7721fe}{convf2}}
+\item 
+double \mbox{\hyperlink{class_output_file_a53431bfac678b42ae83620618cf17a39}{convf3}}
+\item 
+long \mbox{\hyperlink{class_output_file_a2c55f5e3efc2be53adab3f8fea3ffb18}{filepos}}
+\item 
+long \mbox{\hyperlink{class_output_file_ab6890d9e937b563995a34a83c712a5c3}{File\+Output}}
+\item 
+long \mbox{\hyperlink{class_output_file_a771548171454a388a3b71b2f4f381994}{numrows}}
+\item 
+long \mbox{\hyperlink{class_output_file_a5f774944defc5cdc54b6f26ae2064bc1}{numcols}}
+\item 
+long \mbox{\hyperlink{class_output_file_a998533fe171a192b4d9554f7143153f5}{Num\+Rast\+Alloc}}
+\item 
+long \mbox{\hyperlink{class_output_file_a54ec063b7160b39ce20257a35fed81a9}{Num\+Rast\+Data}}
+\item 
+long \mbox{\hyperlink{class_output_file_a31a902c7f0940fae6a1b30888f845be1}{Header\+Type}}
+\item 
+\mbox{\hyperlink{class_output_file_ab4fd5a746ef61bbc85a0b8d73d671536}{Raster\+Map}} \mbox{\hyperlink{class_output_file_abfdceb1336abbec2be249a9d914d44f4}{rd}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class aggregates fire behavior parameters on the "{}raster  grid"{} using the UTM easting and northing values. This data is then written to a raster file in either GRASS or ARC/\+Info Grid format. 
+
+This class has been altered during the conversion from GUI to GUI-\/less operation. The original code used the file to aggregate fire behavior parameters onto the grid. This code aggregates fire behavior using a std\+::map$<$$>$ which is keyed with the grid index. This change was effected because the liberal use of ftell() and \doxylink{shpopen_8cpp_a8e6aca366e11f5afdcfae93543d83443}{fseek()} did not turn out to be portable when converted over to linux. Replacement numbers were written in the {\itshape middle} of existing numeric fields. The current version writes the {\itshape entire} raster out whenever \doxylink{class_output_file_a6f6b9ce986974cd6021f779df7dfc6a2}{Select\+Outputs()} or \doxylink{class_output_file_ac0dcc0a80dd65dc556bd3041ac0ec568}{Select\+Mem\+Outputs()} is called. 
+
+This change necessitated a change in the usage pattern of this class. Formerly, whenever the data were dumped to the file, the in-\/memory cache was flushed and the process of aggregating points started all over again. The former usage was to "{}flush early, flush often"{}. Current usage requires a bit more restraint, due to the fact that the entire file is rewritten every time. I now have FARSITE configured to call \doxylink{class_output_file_ac0dcc0a80dd65dc556bd3041ac0ec568}{Select\+Mem\+Outputs()} whenever \doxylink{class_t_farsite_interface_a3c40be3900cc81d38c8997d376ebaf50}{TFarsite\+Interface\+::\+Farsite\+Simulation\+Loop()} exits. 
+
+Finally, the change to the use of std\+::map$<$$>$ offloads the memory management from this class to the C++ standard library. 
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00329}{329}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{class_output_file_abc6af9832a4539aeb6693fae2d165ce1}\label{class_output_file_abc6af9832a4539aeb6693fae2d165ce1} 
+\index{OutputFile@{OutputFile}!coordinate@{coordinate}}
+\index{coordinate@{coordinate}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{coordinate}{coordinate}}
+{\footnotesize\ttfamily typedef std\+::pair$<$long, long$>$ \mbox{\hyperlink{class_output_file_abc6af9832a4539aeb6693fae2d165ce1}{Output\+File\+::coordinate}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00335}{335}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_ab4fd5a746ef61bbc85a0b8d73d671536}\label{class_output_file_ab4fd5a746ef61bbc85a0b8d73d671536} 
+\index{OutputFile@{OutputFile}!RasterMap@{RasterMap}}
+\index{RasterMap@{RasterMap}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{RasterMap}{RasterMap}}
+{\footnotesize\ttfamily typedef std\+::map$<$\mbox{\hyperlink{class_output_file_abc6af9832a4539aeb6693fae2d165ce1}{coordinate}}, \mbox{\hyperlink{struct_output_file_1_1_rast_data}{Rast\+Data}}$>$ \mbox{\hyperlink{class_output_file_ab4fd5a746ef61bbc85a0b8d73d671536}{Output\+File\+::\+Raster\+Map}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00346}{346}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_output_file_a34e303ef4e1a280911025a465c47d845}\label{class_output_file_a34e303ef4e1a280911025a465c47d845} 
+\index{OutputFile@{OutputFile}!CalcType@{CalcType}}
+\index{CalcType@{CalcType}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{CalcType}{CalcType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845}{Output\+File\+::\+Calc\+Type}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FLAME\_LENGTH@{FLAME\_LENGTH}!OutputFile@{OutputFile}}\index{OutputFile@{OutputFile}!FLAME\_LENGTH@{FLAME\_LENGTH}}}\Hypertarget{class_output_file_a34e303ef4e1a280911025a465c47d845a152b51ab111037ca654612a9bed4c77a}\label{class_output_file_a34e303ef4e1a280911025a465c47d845a152b51ab111037ca654612a9bed4c77a} 
+FLAME\+\_\+\+LENGTH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HEAT\_PER\_AREA@{HEAT\_PER\_AREA}!OutputFile@{OutputFile}}\index{OutputFile@{OutputFile}!HEAT\_PER\_AREA@{HEAT\_PER\_AREA}}}\Hypertarget{class_output_file_a34e303ef4e1a280911025a465c47d845a163849ca2f6eefca5d56a8918127d9c1}\label{class_output_file_a34e303ef4e1a280911025a465c47d845a163849ca2f6eefca5d56a8918127d9c1} 
+HEAT\+\_\+\+PER\+\_\+\+AREA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FL\_AND\_HPA@{FL\_AND\_HPA}!OutputFile@{OutputFile}}\index{OutputFile@{OutputFile}!FL\_AND\_HPA@{FL\_AND\_HPA}}}\Hypertarget{class_output_file_a34e303ef4e1a280911025a465c47d845aeacf0795636e364963a04dafc135f576}\label{class_output_file_a34e303ef4e1a280911025a465c47d845aeacf0795636e364963a04dafc135f576} 
+FL\+\_\+\+AND\+\_\+\+HPA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CROWNFIRE@{CROWNFIRE}!OutputFile@{OutputFile}}\index{OutputFile@{OutputFile}!CROWNFIRE@{CROWNFIRE}}}\Hypertarget{class_output_file_a34e303ef4e1a280911025a465c47d845a8fdd6e3c7f959fb2f87080006e4bcddb}\label{class_output_file_a34e303ef4e1a280911025a465c47d845a8fdd6e3c7f959fb2f87080006e4bcddb} 
+CROWNFIRE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FIRELINE\_INTENSITY@{FIRELINE\_INTENSITY}!OutputFile@{OutputFile}}\index{OutputFile@{OutputFile}!FIRELINE\_INTENSITY@{FIRELINE\_INTENSITY}}}\Hypertarget{class_output_file_a34e303ef4e1a280911025a465c47d845a40147163abfb1945eb9808fe5e8de318}\label{class_output_file_a34e303ef4e1a280911025a465c47d845a40147163abfb1945eb9808fe5e8de318} 
+FIRELINE\+\_\+\+INTENSITY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{REACTION\_INTENSITY@{REACTION\_INTENSITY}!OutputFile@{OutputFile}}\index{OutputFile@{OutputFile}!REACTION\_INTENSITY@{REACTION\_INTENSITY}}}\Hypertarget{class_output_file_a34e303ef4e1a280911025a465c47d845a8542cd41275d1eef2a2e53ce68339260}\label{class_output_file_a34e303ef4e1a280911025a465c47d845a8542cd41275d1eef2a2e53ce68339260} 
+REACTION\+\_\+\+INTENSITY&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00359}{359}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_output_file_a95bb75917bcceaef990fb39740fbb2e5}\label{class_output_file_a95bb75917bcceaef990fb39740fbb2e5} 
+\index{OutputFile@{OutputFile}!OutputFile@{OutputFile}}
+\index{OutputFile@{OutputFile}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{OutputFile()}{OutputFile()}}
+{\footnotesize\ttfamily Output\+File\+::\+Output\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfotp_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{fsxwfotp_8cpp_source}{fsxwfotp.\+cpp}}.
+
+\Hypertarget{class_output_file_ada2c24978592ca8e9dc451fe7d074b69}\label{class_output_file_ada2c24978592ca8e9dc451fe7d074b69} 
+\index{OutputFile@{OutputFile}!````~OutputFile@{\texorpdfstring{$\sim$}{\string~}OutputFile}}
+\index{````~OutputFile@{\texorpdfstring{$\sim$}{\string~}OutputFile}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}OutputFile()}{\string~OutputFile()}}
+{\footnotesize\ttfamily Output\+File\+::\texorpdfstring{$\sim$}{\string~}\+Output\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfotp_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{fsxwfotp_8cpp_source}{fsxwfotp.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_output_file_ad24d4256567a32d3622727a93be3a65e}\label{class_output_file_ad24d4256567a32d3622727a93be3a65e} 
+\index{OutputFile@{OutputFile}!Calcs@{Calcs}}
+\index{Calcs@{Calcs}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{Calcs()}{Calcs()}}
+{\footnotesize\ttfamily void Output\+File\+::\+Calcs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_output_file_a34e303ef4e1a280911025a465c47d845}{Calc\+Type}}}]{TYPE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfotp_8cpp_source_l00278}{278}} of file \mbox{\hyperlink{fsxwfotp_8cpp_source}{fsxwfotp.\+cpp}}.
+
+\Hypertarget{class_output_file_a8e0c731c7ca32113320f450651e6b6ee}\label{class_output_file_a8e0c731c7ca32113320f450651e6b6ee} 
+\index{OutputFile@{OutputFile}!ConvF@{ConvF}}
+\index{ConvF@{ConvF}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{ConvF()}{ConvF()}}
+{\footnotesize\ttfamily void Output\+File\+::\+ConvF (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfotp_8cpp_source_l00363}{363}} of file \mbox{\hyperlink{fsxwfotp_8cpp_source}{fsxwfotp.\+cpp}}.
+
+\Hypertarget{class_output_file_a291fbca629d026ddb6ff5d33fd81fbc4}\label{class_output_file_a291fbca629d026ddb6ff5d33fd81fbc4} 
+\index{OutputFile@{OutputFile}!FreeRastData@{FreeRastData}}
+\index{FreeRastData@{FreeRastData}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{FreeRastData()}{FreeRastData()}}
+{\footnotesize\ttfamily void Output\+File\+::\+Free\+Rast\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfotp_8cpp_source_l00498}{498}} of file \mbox{\hyperlink{fsxwfotp_8cpp_source}{fsxwfotp.\+cpp}}.
+
+\Hypertarget{class_output_file_a284cbbbede9a9fc585aecabc6c4a9165}\label{class_output_file_a284cbbbede9a9fc585aecabc6c4a9165} 
+\index{OutputFile@{OutputFile}!GetRasterExtent@{GetRasterExtent}}
+\index{GetRasterExtent@{GetRasterExtent}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{GetRasterExtent()}{GetRasterExtent()}}
+{\footnotesize\ttfamily void Output\+File\+::\+Get\+Raster\+Extent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfotp_8cpp_source_l00472}{472}} of file \mbox{\hyperlink{fsxwfotp_8cpp_source}{fsxwfotp.\+cpp}}.
+
+\Hypertarget{class_output_file_afb52819cd5ea0a41ba642df2d1952e55}\label{class_output_file_afb52819cd5ea0a41ba642df2d1952e55} 
+\index{OutputFile@{OutputFile}!InitRasterFiles@{InitRasterFiles}}
+\index{InitRasterFiles@{InitRasterFiles}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{InitRasterFiles()}{InitRasterFiles()}}
+{\footnotesize\ttfamily void Output\+File\+::\+Init\+Raster\+Files (\begin{DoxyParamCaption}\item[{long}]{Header\+Type }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfotp_8cpp_source_l00375}{375}} of file \mbox{\hyperlink{fsxwfotp_8cpp_source}{fsxwfotp.\+cpp}}.
+
+\Hypertarget{class_output_file_a871812ee9a1b1001dc5386b895c0a12d}\label{class_output_file_a871812ee9a1b1001dc5386b895c0a12d} 
+\index{OutputFile@{OutputFile}!OptionalOutput@{OptionalOutput}}
+\index{OptionalOutput@{OptionalOutput}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{OptionalOutput()}{OptionalOutput()}}
+{\footnotesize\ttfamily void Output\+File\+::\+Optional\+Output (\begin{DoxyParamCaption}\item[{bool}]{From\+Memory }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfotp_8cpp_source_l00195}{195}} of file \mbox{\hyperlink{fsxwfotp_8cpp_source}{fsxwfotp.\+cpp}}.
+
+\Hypertarget{class_output_file_a752791f9524ff5099eb2c8d78c86cf7b}\label{class_output_file_a752791f9524ff5099eb2c8d78c86cf7b} 
+\index{OutputFile@{OutputFile}!RastMemFile@{RastMemFile}}
+\index{RastMemFile@{RastMemFile}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{RastMemFile()}{RastMemFile()}}
+{\footnotesize\ttfamily bool Output\+File\+::\+Rast\+Mem\+File (\begin{DoxyParamCaption}\item[{long}]{Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfotp_8cpp_source_l00100}{100}} of file \mbox{\hyperlink{fsxwfotp_8cpp_source}{fsxwfotp.\+cpp}}.
+
+\Hypertarget{class_output_file_ac0dcc0a80dd65dc556bd3041ac0ec568}\label{class_output_file_ac0dcc0a80dd65dc556bd3041ac0ec568} 
+\index{OutputFile@{OutputFile}!SelectMemOutputs@{SelectMemOutputs}}
+\index{SelectMemOutputs@{SelectMemOutputs}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{SelectMemOutputs()}{SelectMemOutputs()}}
+{\footnotesize\ttfamily void Output\+File\+::\+Select\+Mem\+Outputs (\begin{DoxyParamCaption}\item[{long}]{Type }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfotp_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{fsxwfotp_8cpp_source}{fsxwfotp.\+cpp}}.
+
+\Hypertarget{class_output_file_a6f6b9ce986974cd6021f779df7dfc6a2}\label{class_output_file_a6f6b9ce986974cd6021f779df7dfc6a2} 
+\index{OutputFile@{OutputFile}!SelectOutputs@{SelectOutputs}}
+\index{SelectOutputs@{SelectOutputs}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{SelectOutputs()}{SelectOutputs()}}
+{\footnotesize\ttfamily void Output\+File\+::\+Select\+Outputs (\begin{DoxyParamCaption}\item[{long}]{Type }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfotp_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{fsxwfotp_8cpp_source}{fsxwfotp.\+cpp}}.
+
+\Hypertarget{class_output_file_acde57e6cbb701f4f555ccabd722b05a6}\label{class_output_file_acde57e6cbb701f4f555ccabd722b05a6} 
+\index{OutputFile@{OutputFile}!setHeaderType@{setHeaderType}}
+\index{setHeaderType@{setHeaderType}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{setHeaderType()}{setHeaderType()}}
+{\footnotesize\ttfamily void Output\+File\+::set\+Header\+Type (\begin{DoxyParamCaption}\item[{long}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00376}{376}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a13c3eab30f4477c83e1cd5fc54e25c96}\label{class_output_file_a13c3eab30f4477c83e1cd5fc54e25c96} 
+\index{OutputFile@{OutputFile}!SetRastData@{SetRastData}}
+\index{SetRastData@{SetRastData}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{SetRastData()}{SetRastData()}}
+{\footnotesize\ttfamily bool Output\+File\+::\+Set\+Rast\+Data (\begin{DoxyParamCaption}\item[{double}]{xpt,  }\item[{double}]{ypt,  }\item[{double}]{time,  }\item[{double}]{fli,  }\item[{double}]{ros,  }\item[{double}]{rcx,  }\item[{long}]{dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Aggregates the provided set of fire behavior characteristics onto the raster. ~\newline
+ 
+
+The client code supplies a location (xpt, ypt) expressed in real world coordinates (UTM), and the associated fire behavior characteristics (time, fli, ros, rcx, dir). This method translates the location into a grid cell index (i,j) and stores the fire behavior data for that cell. ~\newline
+ 
+
+In most cases, if the cell already contains a data value, the old value is simply overwritten by the new value. Time of arrival is an exception to this rule. The resultant value for the grid cell is the minimum of all the time values assigned. 
+
+Definition at line \mbox{\hyperlink{fsxwfotp_8cpp_source_l00523}{523}} of file \mbox{\hyperlink{fsxwfotp_8cpp_source}{fsxwfotp.\+cpp}}.
+
+\Hypertarget{class_output_file_aef01e610c7a17956de522434ed75f817}\label{class_output_file_aef01e610c7a17956de522434ed75f817} 
+\index{OutputFile@{OutputFile}!WriteFile@{WriteFile}}
+\index{WriteFile@{WriteFile}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{WriteFile()}{WriteFile()}}
+{\footnotesize\ttfamily void Output\+File\+::\+Write\+File (\begin{DoxyParamCaption}\item[{long}]{Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfotp_8cpp_source_l00398}{398}} of file \mbox{\hyperlink{fsxwfotp_8cpp_source}{fsxwfotp.\+cpp}}.
+
+\Hypertarget{class_output_file_aaef12d50fda35d5b02631fb8172246ec}\label{class_output_file_aaef12d50fda35d5b02631fb8172246ec} 
+\index{OutputFile@{OutputFile}!WriteOptionalFile@{WriteOptionalFile}}
+\index{WriteOptionalFile@{WriteOptionalFile}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{WriteOptionalFile()}{WriteOptionalFile()}}
+{\footnotesize\ttfamily void Output\+File\+::\+Write\+Optional\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Writes a single value to the already opened, already positioned output file. ~\newline
+ 
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfotp_8cpp_source_l00244}{244}} of file \mbox{\hyperlink{fsxwfotp_8cpp_source}{fsxwfotp.\+cpp}}.
+
+\Hypertarget{class_output_file_a85b0b3beecfcb11fa8a65de8587a07e3}\label{class_output_file_a85b0b3beecfcb11fa8a65de8587a07e3} 
+\index{OutputFile@{OutputFile}!WriteRastMemFiles@{WriteRastMemFiles}}
+\index{WriteRastMemFiles@{WriteRastMemFiles}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{WriteRastMemFiles()}{WriteRastMemFiles()}}
+{\footnotesize\ttfamily void Output\+File\+::\+Write\+Rast\+Mem\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwfotp_8cpp_source_l00079}{79}} of file \mbox{\hyperlink{fsxwfotp_8cpp_source}{fsxwfotp.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_output_file_a9744f9bf9fbe36182329543833cf29e5}\label{class_output_file_a9744f9bf9fbe36182329543833cf29e5} 
+\index{OutputFile@{OutputFile}!c@{c}}
+\index{c@{c}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{c}{c}}
+{\footnotesize\ttfamily long Output\+File\+::c\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00349}{349}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a74b26f7b741ff63566f610d45734dc17}\label{class_output_file_a74b26f7b741ff63566f610d45734dc17} 
+\index{OutputFile@{OutputFile}!convf1@{convf1}}
+\index{convf1@{convf1}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{convf1}{convf1}}
+{\footnotesize\ttfamily double Output\+File\+::convf1\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00350}{350}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_ab412f1c46f9f7f6ac50696ca9f7721fe}\label{class_output_file_ab412f1c46f9f7f6ac50696ca9f7721fe} 
+\index{OutputFile@{OutputFile}!convf2@{convf2}}
+\index{convf2@{convf2}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{convf2}{convf2}}
+{\footnotesize\ttfamily double Output\+File\+::convf2\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00350}{350}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a53431bfac678b42ae83620618cf17a39}\label{class_output_file_a53431bfac678b42ae83620618cf17a39} 
+\index{OutputFile@{OutputFile}!convf3@{convf3}}
+\index{convf3@{convf3}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{convf3}{convf3}}
+{\footnotesize\ttfamily double Output\+File\+::convf3\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00350}{350}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_ab3ccbc27c0bfb4beda82d1128cdcc866}\label{class_output_file_ab3ccbc27c0bfb4beda82d1128cdcc866} 
+\index{OutputFile@{OutputFile}!d@{d}}
+\index{d@{d}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{d}{d}}
+{\footnotesize\ttfamily long Output\+File\+::d\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00349}{349}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a90d759d60829579bf811d17268519d88}\label{class_output_file_a90d759d60829579bf811d17268519d88} 
+\index{OutputFile@{OutputFile}!East@{East}}
+\index{East@{East}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{East}{East}}
+{\footnotesize\ttfamily double Output\+File\+::\+East\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00348}{348}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a2330c3d54e07230bb4ee6fb7d68a4a7a}\label{class_output_file_a2330c3d54e07230bb4ee6fb7d68a4a7a} 
+\index{OutputFile@{OutputFile}!f@{f}}
+\index{f@{f}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{f}{f}}
+{\footnotesize\ttfamily double Output\+File\+::f\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00347}{347}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_ab6890d9e937b563995a34a83c712a5c3}\label{class_output_file_ab6890d9e937b563995a34a83c712a5c3} 
+\index{OutputFile@{OutputFile}!FileOutput@{FileOutput}}
+\index{FileOutput@{FileOutput}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{FileOutput}{FileOutput}}
+{\footnotesize\ttfamily long Output\+File\+::\+File\+Output\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00352}{352}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a2c55f5e3efc2be53adab3f8fea3ffb18}\label{class_output_file_a2c55f5e3efc2be53adab3f8fea3ffb18} 
+\index{OutputFile@{OutputFile}!filepos@{filepos}}
+\index{filepos@{filepos}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{filepos}{filepos}}
+{\footnotesize\ttfamily long Output\+File\+::filepos\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00351}{351}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a618354ecb87a22e8e609d8db62461bea}\label{class_output_file_a618354ecb87a22e8e609d8db62461bea} 
+\index{OutputFile@{OutputFile}!h@{h}}
+\index{h@{h}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{h}{h}}
+{\footnotesize\ttfamily double Output\+File\+::h\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00347}{347}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a31a902c7f0940fae6a1b30888f845be1}\label{class_output_file_a31a902c7f0940fae6a1b30888f845be1} 
+\index{OutputFile@{OutputFile}!HeaderType@{HeaderType}}
+\index{HeaderType@{HeaderType}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{HeaderType}{HeaderType}}
+{\footnotesize\ttfamily long Output\+File\+::\+Header\+Type\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00356}{356}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_aa433e67f3c68d18d0c671ddeb77d267e}\label{class_output_file_aa433e67f3c68d18d0c671ddeb77d267e} 
+\index{OutputFile@{OutputFile}!l@{l}}
+\index{l@{l}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{l}{l}}
+{\footnotesize\ttfamily double Output\+File\+::l\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00347}{347}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a8b5b763d1656ab462a5847634c8b252c}\label{class_output_file_a8b5b763d1656ab462a5847634c8b252c} 
+\index{OutputFile@{OutputFile}!North@{North}}
+\index{North@{North}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{North}{North}}
+{\footnotesize\ttfamily double Output\+File\+::\+North\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00348}{348}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a5f774944defc5cdc54b6f26ae2064bc1}\label{class_output_file_a5f774944defc5cdc54b6f26ae2064bc1} 
+\index{OutputFile@{OutputFile}!numcols@{numcols}}
+\index{numcols@{numcols}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{numcols}{numcols}}
+{\footnotesize\ttfamily long Output\+File\+::numcols\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00353}{353}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a998533fe171a192b4d9554f7143153f5}\label{class_output_file_a998533fe171a192b4d9554f7143153f5} 
+\index{OutputFile@{OutputFile}!NumRastAlloc@{NumRastAlloc}}
+\index{NumRastAlloc@{NumRastAlloc}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{NumRastAlloc}{NumRastAlloc}}
+{\footnotesize\ttfamily long Output\+File\+::\+Num\+Rast\+Alloc\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00354}{354}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a54ec063b7160b39ce20257a35fed81a9}\label{class_output_file_a54ec063b7160b39ce20257a35fed81a9} 
+\index{OutputFile@{OutputFile}!NumRastData@{NumRastData}}
+\index{NumRastData@{NumRastData}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{NumRastData}{NumRastData}}
+{\footnotesize\ttfamily long Output\+File\+::\+Num\+Rast\+Data\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00355}{355}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a771548171454a388a3b71b2f4f381994}\label{class_output_file_a771548171454a388a3b71b2f4f381994} 
+\index{OutputFile@{OutputFile}!numrows@{numrows}}
+\index{numrows@{numrows}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{numrows}{numrows}}
+{\footnotesize\ttfamily long Output\+File\+::numrows\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00353}{353}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a3924a3028e55af018c3f60c1f3f454cb}\label{class_output_file_a3924a3028e55af018c3f60c1f3f454cb} 
+\index{OutputFile@{OutputFile}!otpfile@{otpfile}}
+\index{otpfile@{otpfile}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{otpfile}{otpfile}}
+{\footnotesize\ttfamily FILE\texorpdfstring{$\ast$}{*} Output\+File\+::otpfile\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00334}{334}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a21c147ea5432a4c84e8fc1a6929895b7}\label{class_output_file_a21c147ea5432a4c84e8fc1a6929895b7} 
+\index{OutputFile@{OutputFile}!r@{r}}
+\index{r@{r}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily double Output\+File\+::r\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00347}{347}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_abfdceb1336abbec2be249a9d914d44f4}\label{class_output_file_abfdceb1336abbec2be249a9d914d44f4} 
+\index{OutputFile@{OutputFile}!rd@{rd}}
+\index{rd@{rd}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{rd}{rd}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_output_file_ab4fd5a746ef61bbc85a0b8d73d671536}{Raster\+Map}} Output\+File\+::rd\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00357}{357}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_af7f948e13805a8e904b839f2e5d3a282}\label{class_output_file_af7f948e13805a8e904b839f2e5d3a282} 
+\index{OutputFile@{OutputFile}!rx@{rx}}
+\index{rx@{rx}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{rx}{rx}}
+{\footnotesize\ttfamily double Output\+File\+::rx\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00347}{347}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a4fcb8ccb8266647338cd8389afca2c30}\label{class_output_file_a4fcb8ccb8266647338cd8389afca2c30} 
+\index{OutputFile@{OutputFile}!South@{South}}
+\index{South@{South}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{South}{South}}
+{\footnotesize\ttfamily double Output\+File\+::\+South\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00348}{348}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_ade4d898977e95e059d4831fa398c74a8}\label{class_output_file_ade4d898977e95e059d4831fa398c74a8} 
+\index{OutputFile@{OutputFile}!t@{t}}
+\index{t@{t}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{t}{t}}
+{\footnotesize\ttfamily double Output\+File\+::t\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00347}{347}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a8fbc14d62b982c00f7ef0cd51fc8ca74}\label{class_output_file_a8fbc14d62b982c00f7ef0cd51fc8ca74} 
+\index{OutputFile@{OutputFile}!West@{West}}
+\index{West@{West}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{West}{West}}
+{\footnotesize\ttfamily double Output\+File\+::\+West\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00348}{348}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a27c26539bff33422743c82a2779073a2}\label{class_output_file_a27c26539bff33422743c82a2779073a2} 
+\index{OutputFile@{OutputFile}!x@{x}}
+\index{x@{x}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily double Output\+File\+::x\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00347}{347}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_output_file_a969fd6442293f846a4f8ab784c4d3941}\label{class_output_file_a969fd6442293f846a4f8ab784c4d3941} 
+\index{OutputFile@{OutputFile}!y@{y}}
+\index{y@{y}!OutputFile@{OutputFile}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily double Output\+File\+::y\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00347}{347}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsx4_8hpp}{fsx4.\+hpp}}\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsxwfotp_8cpp}{fsxwfotp.\+cpp}}\end{DoxyCompactItemize}

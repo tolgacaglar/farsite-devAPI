@@ -1,0 +1,143 @@
+.TH "AtmosphereGrid" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AtmosphereGrid
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsxwatm\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAtmosphereGrid\fP (long numgrids)"
+.br
+.ti -1c
+.RI "\fB~AtmosphereGrid\fP ()"
+.br
+.ti -1c
+.RI "bool \fBReadInputTable\fP (char *InputFileName)"
+.br
+.ti -1c
+.RI "bool \fBReadHeaders\fP (long FileNumber)"
+.br
+.ti -1c
+.RI "bool \fBCompareHeader\fP (long FileNumber)"
+.br
+.ti -1c
+.RI "bool \fBSetAtmosphereValues\fP (long timeinterval, long filenumber)"
+.br
+.ti -1c
+.RI "bool \fBGetAtmosphereValue\fP (long FileNumber, double xpt, double ypt, long time, short *value)"
+.br
+.ti -1c
+.RI "void \fBGetResolution\fP (long FileNumber, double *resolutionx, double *resolutiony)"
+.br
+.ti -1c
+.RI "long \fBGetAtmMonth\fP (long count)"
+.br
+.ti -1c
+.RI "long \fBGetAtmDay\fP (long count)"
+.br
+.ti -1c
+.RI "long \fBGetAtmHour\fP (long count)"
+.br
+.ti -1c
+.RI "long \fBGetTimeIntervals\fP ()"
+.br
+.ti -1c
+.RI "void \fBFreeAtmData\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBAtmGridWTR\fP"
+.br
+.ti -1c
+.RI "bool \fBAtmGridWND\fP"
+.br
+.ti -1c
+.RI "char \fBErrMsg\fP [256]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB70\fP of file \fBfsxwatm\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "AtmosphereGrid::AtmosphereGrid (long numgrids)"
+
+.PP
+Definition at line \fB38\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "AtmosphereGrid::~AtmosphereGrid ()"
+
+.PP
+Definition at line \fB72\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bool AtmosphereGrid::CompareHeader (long FileNumber)"
+
+.PP
+Definition at line \fB367\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "void AtmosphereGrid::FreeAtmData ()"
+
+.PP
+Definition at line \fB87\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "long AtmosphereGrid::GetAtmDay (long count)"
+
+.PP
+Definition at line \fB539\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "long AtmosphereGrid::GetAtmHour (long count)"
+
+.PP
+Definition at line \fB547\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "long AtmosphereGrid::GetAtmMonth (long count)"
+
+.PP
+Definition at line \fB531\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "bool AtmosphereGrid::GetAtmosphereValue (long FileNumber, double xpt, double ypt, long time, short * value)"
+
+.PP
+Definition at line \fB498\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "void AtmosphereGrid::GetResolution (long FileNumber, double * resolutionx, double * resolutiony)"
+
+.PP
+Definition at line \fB520\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "long AtmosphereGrid::GetTimeIntervals ()"
+
+.PP
+Definition at line \fB526\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "bool AtmosphereGrid::ReadHeaders (long FileNumber)"
+
+.PP
+Definition at line \fB310\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "bool AtmosphereGrid::ReadInputTable (char * InputFileName)"
+
+.PP
+Definition at line \fB107\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "bool AtmosphereGrid::SetAtmosphereValues (long timeinterval, long filenumber)"
+
+.PP
+Definition at line \fB462\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "bool AtmosphereGrid::AtmGridWND"
+
+.PP
+Definition at line \fB87\fP of file \fBfsxwatm\&.h\fP\&.
+.SS "bool AtmosphereGrid::AtmGridWTR"
+
+.PP
+Definition at line \fB86\fP of file \fBfsxwatm\&.h\fP\&.
+.SS "char AtmosphereGrid::ErrMsg[256]"
+
+.PP
+Definition at line \fB88\fP of file \fBfsxwatm\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

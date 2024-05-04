@@ -1,0 +1,74 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fsxwdvct.h}
+\hypertarget{fsxwdvct_8h_source}{}\label{fsxwdvct_8h_source}\mbox{\hyperlink{fsxwdvct_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shapefil_8h}{shapefil.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{themes_8h}{themes.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00026}00026\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00027}00027\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00028}00028\ \textcolor{comment}{//\ \ Draw2DVectors\ Struct}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00029}00029\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00030}00030\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00032}00032\ \textcolor{preprocessor}{\#ifndef\ DRAW2DVECTOR\_DECS}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00033}00033\ \textcolor{preprocessor}{\#define\ DRAW2DVECTOR\_DECS}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00035}\mbox{\hyperlink{class_import_vectors}{00035}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_import_vectors}{ImportVectors}}}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00036}00036\ \{}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{int}\ prev\_mode,\ prev\_memmode;}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{char}\ TestEnd[30];}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{long}\ xc,\ yc,\ type,\ count;}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{long}\ OldEasti,\ OldNorthi;}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{double}\ xrat,\ yrat,\ MaxX,\ MaxY;}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{double}\ xpt,\ ypt;}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00043}00043\ \ \ \ \ HBITMAP\ garbage;}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00044}00044\ \ \ \ \ HPEN\ hPen,\ hMemPen,\ hOldPen,\ hOldMemPen;}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00045}00045\ \ \ \ \ HDC\ hDC,\ hMemDC;}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00046}00046\ \ \ \ \ FILE*\ compfile;}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{bool}\ TestOpenFile();}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ DrawVisFile();}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{bool}\ DrawGrassFile();}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ DrawArcFile();}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00052}00052\ \ \ \ \ \textcolor{keywordtype}{bool}\ DrawShapeFile();}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{void}\ StartDrawing();}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{void}\ EndDrawing();}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00056}00056\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00057}\mbox{\hyperlink{class_import_vectors_a6140e91c336a7bde02cd5e76ed040d3c}{00057}}\ \ \ \ \ \mbox{\hyperlink{struct_vector_theme}{VectorTheme}}\ \mbox{\hyperlink{class_import_vectors_a6140e91c336a7bde02cd5e76ed040d3c}{theme}};}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00059}\mbox{\hyperlink{class_import_vectors_a071177a394fddf398f06f555a8084298}{00059}}\ \ \ \ \ \mbox{\hyperlink{class_import_vectors_a071177a394fddf398f06f555a8084298}{ImportVectors}}(\textcolor{keywordtype}{char}*\ FileName);}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00060}\mbox{\hyperlink{class_import_vectors_a12a589a83ee97ba87438e03c3a3c3763}{00060}}\ \ \ \ \ \mbox{\hyperlink{class_import_vectors_a12a589a83ee97ba87438e03c3a3c3763}{ImportVectors}}();}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00061}\mbox{\hyperlink{class_import_vectors_a05992aaecb2a6d41d46fa9dd4e8bfa20}{00061}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_import_vectors_a05992aaecb2a6d41d46fa9dd4e8bfa20}{TestForShapeFile}}();}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00062}\mbox{\hyperlink{class_import_vectors_a32dad9c8af436bd5659dda6c494c7b3c}{00062}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_import_vectors_a32dad9c8af436bd5659dda6c494c7b3c}{TestForGrassFile}}();}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00063}\mbox{\hyperlink{class_import_vectors_a6a3170aeec46c960e3c9ced27a5061d7}{00063}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_import_vectors_a6a3170aeec46c960e3c9ced27a5061d7}{TestForArcFile}}();}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00064}\mbox{\hyperlink{class_import_vectors_a4f4ec2b07d5ae2c2e904b6bbee92bcb9}{00064}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_import_vectors_a4f4ec2b07d5ae2c2e904b6bbee92bcb9}{TestForVisFile}}();}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00065}\mbox{\hyperlink{class_import_vectors_a0744bf0de374aebefaf0da14a8b34209}{00065}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_import_vectors_a0744bf0de374aebefaf0da14a8b34209}{SetArcFileType}}(\textcolor{keywordtype}{char}*\ Type);}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00066}\mbox{\hyperlink{class_import_vectors_a230e004a25dfc678dc860efbdb04e7d0}{00066}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_import_vectors_a230e004a25dfc678dc860efbdb04e7d0}{DrawFile}}();}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00067}00067\ \};}
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{fsxwdvct_8h_source_l00069}00069\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//DRAW2DVECTOR\_DECS}}
+
+\end{DoxyCode}

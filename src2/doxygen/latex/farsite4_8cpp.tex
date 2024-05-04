@@ -1,0 +1,177 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/farsite4.cpp File Reference}
+\hypertarget{farsite4_8cpp}{}\label{farsite4_8cpp}\index{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/farsite4.cpp@{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/farsite4.cpp}}
+{\ttfamily \#include "{}farsite4.\+h"{}}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$strings.\+h$>$}\newline
+{\ttfamily \#include "{}portablestrings.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$omp.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{farsite4_8cpp_ad1878bbb01ede3287409a162bfcca296}{SIMREQ\+\_\+\+NULL}}~0
+\item 
+\#define \mbox{\hyperlink{farsite4_8cpp_ada768603bd640bdcb0e19cccc39376b9}{SIMREQ\+\_\+\+INITIATETERMINATE}}~1
+\item 
+\#define \mbox{\hyperlink{farsite4_8cpp_aa12b8147b15c07d2e7baf1157e8e4ba0}{SIMREQ\+\_\+\+STARTRESTART}}~2
+\item 
+\#define \mbox{\hyperlink{farsite4_8cpp_a6177cb0e3d09ac7be92a7e14807efcc3}{SIMREQ\+\_\+\+RESUMESUSPEND}}~3
+\item 
+\#define \mbox{\hyperlink{farsite4_8cpp_a3c7ca280a9b5c07a37358d0f1197aff7}{SIMREQ\+\_\+\+RESET}}~4
+\item 
+\#define \mbox{\hyperlink{farsite4_8cpp_ad8c6831ab8dadf79f440f5c9f6f79636}{IDYES}}~1
+\item 
+\#define \mbox{\hyperlink{farsite4_8cpp_a598a3330b3c21701223ee0ca14316eca}{PI}}~3.\+1415926536
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{farsite4_8cpp_a3424fd1405aca79d26aff9ebc2831af6}{VERSION}} \mbox{[}$\,$\mbox{]} = "{}Version 4.\+1.\+0batch"{}
+\item 
+char \mbox{\hyperlink{farsite4_8cpp_a1d764168d153dc72f31e9556417c728b}{El\+Time}} \mbox{[}12\mbox{]}
+\item 
+char \mbox{\hyperlink{farsite4_8cpp_adbf6665ac588a4a8520233f76ec5a569}{Cur\+Time}} \mbox{[}14\mbox{]}
+\item 
+bool \mbox{\hyperlink{farsite4_8cpp_a22821f86f60854457dc33e20eb5bf896}{F\+\_\+\+ON}} = 0
+\item 
+\mbox{\hyperlink{class_p_front_data}{PFront\+Data}} \mbox{\hyperlink{farsite4_8cpp_a0004dfb5dd65ceb6b1f90d49a46a62a6}{pfdata}}
+\item 
+FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{farsite4_8cpp_a2d7051a8bfdd071af53d3158eedea2f3}{Current\+File}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{farsite4_8cpp_ad8c6831ab8dadf79f440f5c9f6f79636}\label{farsite4_8cpp_ad8c6831ab8dadf79f440f5c9f6f79636} 
+\index{farsite4.cpp@{farsite4.cpp}!IDYES@{IDYES}}
+\index{IDYES@{IDYES}!farsite4.cpp@{farsite4.cpp}}
+\doxysubsubsection{\texorpdfstring{IDYES}{IDYES}}
+{\footnotesize\ttfamily \#define IDYES~1}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{farsite4_8cpp_a598a3330b3c21701223ee0ca14316eca}\label{farsite4_8cpp_a598a3330b3c21701223ee0ca14316eca} 
+\index{farsite4.cpp@{farsite4.cpp}!PI@{PI}}
+\index{PI@{PI}!farsite4.cpp@{farsite4.cpp}}
+\doxysubsubsection{\texorpdfstring{PI}{PI}}
+{\footnotesize\ttfamily \#define PI~3.\+1415926536}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{farsite4_8cpp_ada768603bd640bdcb0e19cccc39376b9}\label{farsite4_8cpp_ada768603bd640bdcb0e19cccc39376b9} 
+\index{farsite4.cpp@{farsite4.cpp}!SIMREQ\_INITIATETERMINATE@{SIMREQ\_INITIATETERMINATE}}
+\index{SIMREQ\_INITIATETERMINATE@{SIMREQ\_INITIATETERMINATE}!farsite4.cpp@{farsite4.cpp}}
+\doxysubsubsection{\texorpdfstring{SIMREQ\_INITIATETERMINATE}{SIMREQ\_INITIATETERMINATE}}
+{\footnotesize\ttfamily \#define SIMREQ\+\_\+\+INITIATETERMINATE~1}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{farsite4_8cpp_ad1878bbb01ede3287409a162bfcca296}\label{farsite4_8cpp_ad1878bbb01ede3287409a162bfcca296} 
+\index{farsite4.cpp@{farsite4.cpp}!SIMREQ\_NULL@{SIMREQ\_NULL}}
+\index{SIMREQ\_NULL@{SIMREQ\_NULL}!farsite4.cpp@{farsite4.cpp}}
+\doxysubsubsection{\texorpdfstring{SIMREQ\_NULL}{SIMREQ\_NULL}}
+{\footnotesize\ttfamily \#define SIMREQ\+\_\+\+NULL~0}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{farsite4_8cpp_a3c7ca280a9b5c07a37358d0f1197aff7}\label{farsite4_8cpp_a3c7ca280a9b5c07a37358d0f1197aff7} 
+\index{farsite4.cpp@{farsite4.cpp}!SIMREQ\_RESET@{SIMREQ\_RESET}}
+\index{SIMREQ\_RESET@{SIMREQ\_RESET}!farsite4.cpp@{farsite4.cpp}}
+\doxysubsubsection{\texorpdfstring{SIMREQ\_RESET}{SIMREQ\_RESET}}
+{\footnotesize\ttfamily \#define SIMREQ\+\_\+\+RESET~4}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{farsite4_8cpp_a6177cb0e3d09ac7be92a7e14807efcc3}\label{farsite4_8cpp_a6177cb0e3d09ac7be92a7e14807efcc3} 
+\index{farsite4.cpp@{farsite4.cpp}!SIMREQ\_RESUMESUSPEND@{SIMREQ\_RESUMESUSPEND}}
+\index{SIMREQ\_RESUMESUSPEND@{SIMREQ\_RESUMESUSPEND}!farsite4.cpp@{farsite4.cpp}}
+\doxysubsubsection{\texorpdfstring{SIMREQ\_RESUMESUSPEND}{SIMREQ\_RESUMESUSPEND}}
+{\footnotesize\ttfamily \#define SIMREQ\+\_\+\+RESUMESUSPEND~3}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{farsite4_8cpp_aa12b8147b15c07d2e7baf1157e8e4ba0}\label{farsite4_8cpp_aa12b8147b15c07d2e7baf1157e8e4ba0} 
+\index{farsite4.cpp@{farsite4.cpp}!SIMREQ\_STARTRESTART@{SIMREQ\_STARTRESTART}}
+\index{SIMREQ\_STARTRESTART@{SIMREQ\_STARTRESTART}!farsite4.cpp@{farsite4.cpp}}
+\doxysubsubsection{\texorpdfstring{SIMREQ\_STARTRESTART}{SIMREQ\_STARTRESTART}}
+{\footnotesize\ttfamily \#define SIMREQ\+\_\+\+STARTRESTART~2}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{farsite4_8cpp_a2d7051a8bfdd071af53d3158eedea2f3}\label{farsite4_8cpp_a2d7051a8bfdd071af53d3158eedea2f3} 
+\index{farsite4.cpp@{farsite4.cpp}!CurrentFile@{CurrentFile}}
+\index{CurrentFile@{CurrentFile}!farsite4.cpp@{farsite4.cpp}}
+\doxysubsubsection{\texorpdfstring{CurrentFile}{CurrentFile}}
+{\footnotesize\ttfamily FILE\texorpdfstring{$\ast$}{*} Current\+File}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{farsite4_8cpp_adbf6665ac588a4a8520233f76ec5a569}\label{farsite4_8cpp_adbf6665ac588a4a8520233f76ec5a569} 
+\index{farsite4.cpp@{farsite4.cpp}!CurTime@{CurTime}}
+\index{CurTime@{CurTime}!farsite4.cpp@{farsite4.cpp}}
+\doxysubsubsection{\texorpdfstring{CurTime}{CurTime}}
+{\footnotesize\ttfamily char Cur\+Time\mbox{[}14\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{farsite4_8cpp_a1d764168d153dc72f31e9556417c728b}\label{farsite4_8cpp_a1d764168d153dc72f31e9556417c728b} 
+\index{farsite4.cpp@{farsite4.cpp}!ElTime@{ElTime}}
+\index{ElTime@{ElTime}!farsite4.cpp@{farsite4.cpp}}
+\doxysubsubsection{\texorpdfstring{ElTime}{ElTime}}
+{\footnotesize\ttfamily char El\+Time\mbox{[}12\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{farsite4_8cpp_a22821f86f60854457dc33e20eb5bf896}\label{farsite4_8cpp_a22821f86f60854457dc33e20eb5bf896} 
+\index{farsite4.cpp@{farsite4.cpp}!F\_ON@{F\_ON}}
+\index{F\_ON@{F\_ON}!farsite4.cpp@{farsite4.cpp}}
+\doxysubsubsection{\texorpdfstring{F\_ON}{F\_ON}}
+{\footnotesize\ttfamily bool F\+\_\+\+ON = 0}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{farsite4_8cpp_a0004dfb5dd65ceb6b1f90d49a46a62a6}\label{farsite4_8cpp_a0004dfb5dd65ceb6b1f90d49a46a62a6} 
+\index{farsite4.cpp@{farsite4.cpp}!pfdata@{pfdata}}
+\index{pfdata@{pfdata}!farsite4.cpp@{farsite4.cpp}}
+\doxysubsubsection{\texorpdfstring{pfdata}{pfdata}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_p_front_data}{PFront\+Data}} pfdata}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+
+\Hypertarget{farsite4_8cpp_a3424fd1405aca79d26aff9ebc2831af6}\label{farsite4_8cpp_a3424fd1405aca79d26aff9ebc2831af6} 
+\index{farsite4.cpp@{farsite4.cpp}!VERSION@{VERSION}}
+\index{VERSION@{VERSION}!farsite4.cpp@{farsite4.cpp}}
+\doxysubsubsection{\texorpdfstring{VERSION}{VERSION}}
+{\footnotesize\ttfamily char VERSION\mbox{[}$\,$\mbox{]} = "{}Version 4.\+1.\+0batch"{}}
+
+
+
+Definition at line \mbox{\hyperlink{farsite4_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{farsite4_8cpp_source}{farsite4.\+cpp}}.
+

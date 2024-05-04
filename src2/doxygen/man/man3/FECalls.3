@@ -1,0 +1,253 @@
+.TH "FECalls" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FECalls
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsx4\&.hpp>\fP
+.PP
+Inherits \fBFireEnvironment\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFECalls\fP ()"
+.br
+.ti -1c
+.RI "\fB~FECalls\fP ()"
+.br
+.ti -1c
+.RI "long \fBGetLandscapeData\fP (double xpt, double ypt, \fBLandscapeStruct\fP &ls)"
+.br
+.ti -1c
+.RI "void \fBGetFireEnvironment\fP (double SIMTIME, int type, long ReadNewData, long PointNum)"
+.br
+.ti -1c
+.RI "void \fBglobaldata\fP (long ReadNewData, long NumPoints)"
+.br
+.ti -1c
+.RI "void \fBlocaldata\fP ()"
+.br
+.ti -1c
+.RI "long \fBAllocFireMW\fP (long NumPoints)"
+.br
+.ti -1c
+.RI "void \fBFreeFireMW\fP ()"
+.br
+.ti -1c
+.RI "void \fBNoMoistureData\fP (int type)"
+.br
+.ti -1c
+.RI "double \fBPIgnite\fP ()"
+.br
+.ti -1c
+.RI "void \fBResetData\fP ()"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBFireEnvironment\fP
+.in +1c
+.ti -1c
+.RI "\fBFireEnvironment\fP ()"
+.br
+.ti -1c
+.RI "\fB~FireEnvironment\fP ()"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBLandscapeData\fP
+.in +1c
+.ti -1c
+.RI "void \fBElevConvert\fP (short)"
+.br
+.ti -1c
+.RI "void \fBSlopeConvert\fP (short)"
+.br
+.ti -1c
+.RI "void \fBAspectConvert\fP (short)"
+.br
+.ti -1c
+.RI "void \fBFuelConvert\fP (short)"
+.br
+.ti -1c
+.RI "void \fBCoverConvert\fP (short)"
+.br
+.ti -1c
+.RI "void \fBHeightConvert\fP (short)"
+.br
+.ti -1c
+.RI "void \fBBaseConvert\fP (short)"
+.br
+.ti -1c
+.RI "void \fBDensityConvert\fP (short)"
+.br
+.ti -1c
+.RI "void \fBDuffConvert\fP (short)"
+.br
+.ti -1c
+.RI "void \fBWoodyConvert\fP (short)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBEnvironmentData\fP \fBgmw\fP"
+.br
+.ti -1c
+.RI "\fBEnvironmentData\fP \fBlmw\fP"
+.br
+.ti -1c
+.RI "\fBEnvironmentData\fP * \fBFireMW\fP"
+.br
+.in -1c
+
+Public Attributes inherited from \fBFireEnvironment\fP
+.in +1c
+.ti -1c
+.RI "double \fBFoliarMC\fP"
+.br
+.ti -1c
+.RI "double \fBAirTemp\fP"
+.br
+.ti -1c
+.RI "double \fBAirHumid\fP"
+.br
+.ti -1c
+.RI "double \fBPtTemperature\fP"
+.br
+.ti -1c
+.RI "double \fBPtHumidity\fP"
+.br
+.ti -1c
+.RI "double \fBXLocation\fP"
+.br
+.ti -1c
+.RI "double \fBYLocation\fP"
+.br
+.ti -1c
+.RI "long \fBStationNumber\fP"
+.br
+.ti -1c
+.RI "long \fBposit\fP"
+.br
+.in -1c
+
+Public Attributes inherited from \fBLandscapeData\fP
+.in +1c
+.ti -1c
+.RI "\fBLandscapeStruct\fP \fBld\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Member Functions inherited from \fBFireEnvironment\fP
+.in +1c
+.ti -1c
+.RI "void \fBenvt\fP (double SIMTIME)"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBFireEnvironment\fP
+.in +1c
+.ti -1c
+.RI "long \fBLW\fP"
+.br
+.ti -1c
+.RI "long \fBLH\fP"
+.br
+.ti -1c
+.RI "double \fBohmc\fP"
+.br
+.ti -1c
+.RI "double \fBthmc\fP"
+.br
+.ti -1c
+.RI "double \fBhhmc\fP"
+.br
+.ti -1c
+.RI "double \fBmwindspd\fP"
+.br
+.ti -1c
+.RI "double \fBtwindspd\fP"
+.br
+.ti -1c
+.RI "double \fBwwinddir\fP"
+.br
+.ti -1c
+.RI "double \fBFuelTemp\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB579\fP of file \fBfsx4\&.hpp\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "FECalls::FECalls ()"
+
+.PP
+Definition at line \fB29\fP of file \fBfsxwenvt2\&.cpp\fP\&.
+.SS "FECalls::~FECalls ()"
+
+.PP
+Definition at line \fB35\fP of file \fBfsxwenvt2\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "long FECalls::AllocFireMW (long NumPoints)"
+
+.PP
+Definition at line \fB346\fP of file \fBfsxwenvt2\&.cpp\fP\&.
+.SS "void FECalls::FreeFireMW ()"
+
+.PP
+Definition at line \fB360\fP of file \fBfsxwenvt2\&.cpp\fP\&.
+.SS "void FECalls::GetFireEnvironment (double SIMTIME, int type, long ReadNewData, long PointNum)"
+
+.PP
+Definition at line \fB296\fP of file \fBfsxwenvt2\&.cpp\fP\&.
+.SS "long FECalls::GetLandscapeData (double xpt, double ypt, \fBLandscapeStruct\fP & ls)"
+
+.PP
+Definition at line \fB61\fP of file \fBfsxwenvt2\&.cpp\fP\&.
+.SS "void FECalls::globaldata (long ReadNewData, long NumPoints)"
+
+.PP
+Definition at line \fB321\fP of file \fBfsxwenvt2\&.cpp\fP\&.
+.SS "void FECalls::localdata (void)"
+
+.PP
+Definition at line \fB369\fP of file \fBfsxwenvt2\&.cpp\fP\&.
+.SS "void FECalls::NoMoistureData (int type)"
+
+.PP
+Definition at line \fB382\fP of file \fBfsxwenvt2\&.cpp\fP\&.
+.SS "double FECalls::PIgnite (void)"
+
+.PP
+Definition at line \fB409\fP of file \fBfsxwenvt2\&.cpp\fP\&.
+.SS "void FECalls::ResetData ()"
+
+.PP
+Definition at line \fB41\fP of file \fBfsxwenvt2\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBEnvironmentData\fP * FECalls::FireMW"
+
+.PP
+Definition at line \fB582\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "\fBEnvironmentData\fP FECalls::gmw"
+
+.PP
+Definition at line \fB582\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "\fBEnvironmentData\fP FECalls::lmw"
+
+.PP
+Definition at line \fB582\fP of file \fBfsx4\&.hpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

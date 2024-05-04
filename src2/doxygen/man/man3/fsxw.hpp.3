@@ -1,0 +1,633 @@
+.TH "C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/fsxw.hpp" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/fsxw.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdlib\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBGETVAL\fP   \-1"
+.br
+.ti -1c
+.RI "#define \fBXCOORD\fP   0"
+.br
+.ti -1c
+.RI "#define \fBYCOORD\fP   1"
+.br
+.ti -1c
+.RI "#define \fBROSVAL\fP   2"
+.br
+.ti -1c
+.RI "#define \fBFLIVAL\fP   3"
+.br
+.ti -1c
+.RI "#define \fBRCXVAL\fP   4"
+.br
+.ti -1c
+.RI "#define \fBNUMDATA\fP   5"
+.br
+.ti -1c
+.RI "#define \fBMAXNUM_STOPLOCATIONS\fP   10"
+.br
+.ti -1c
+.RI "#define \fBDISTCHECK_SIMLEVEL\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDISTCHECK_FIRELEVEL\fP   1"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBGetDistRes\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetDistRes\fP (double input)"
+.br
+.ti -1c
+.RI "void \fBSetDynamicDistRes\fP (double input)"
+.br
+.ti -1c
+.RI "double \fBGetDynamicDistRes\fP ()"
+.br
+.ti -1c
+.RI "double \fBGetPerimRes\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetPerimRes\fP (double input)"
+.br
+.ti -1c
+.RI "bool \fBAccelerationON\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetAccelerationON\fP (bool State)"
+.br
+.ti -1c
+.RI "double \fBGetRosRed\fP (int fuel)"
+.br
+.ti -1c
+.RI "void \fBSetRosRed\fP (int fuel, double rosred)"
+.br
+.ti -1c
+.RI "void \fBInitializeRosRed\fP ()"
+.br
+.ti -1c
+.RI "double \fBGetActualTimeStep\fP ()"
+.br
+.ti -1c
+.RI "double \fBGetVisibleTimeStep\fP ()"
+.br
+.ti -1c
+.RI "double \fBGetTemporaryTimeStep\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetActualTimeStep\fP (double input)"
+.br
+.ti -1c
+.RI "void \fBSetVisibleTimeStep\fP (double input)"
+.br
+.ti -1c
+.RI "void \fBSetTemporaryTimeStep\fP (double input)"
+.br
+.ti -1c
+.RI "void \fBSetSecondaryVisibleTimeStep\fP (double input)"
+.br
+.ti -1c
+.RI "double \fBGetSecondaryVisibleTimeStep\fP ()"
+.br
+.ti -1c
+.RI "double \fBEventMinimumTimeStep\fP (double time)"
+.br
+.ti -1c
+.RI "bool \fBCheckExpansions\fP (long YesNo)"
+.br
+.ti -1c
+.RI "bool \fBCheckPostFrontal\fP (long YesNo)"
+.br
+.ti -1c
+.RI "long \fBDistanceCheckMethod\fP (long Method)"
+.br
+.ti -1c
+.RI "long \fBGetInout\fP (long FireNumber)"
+.br
+.ti -1c
+.RI "long \fBGetNumPoints\fP (long FireNumber)"
+.br
+.ti -1c
+.RI "void \fBSetInout\fP (long FireNumber, int Inout)"
+.br
+.ti -1c
+.RI "void \fBSetNumPoints\fP (long FireNumber, long NumPoints)"
+.br
+.ti -1c
+.RI "void \fBGetPerimeter2\fP (long coord, double *xpt, double *ypt, double *ros, double *fli, double *rct)"
+.br
+.ti -1c
+.RI "double \fBGetPerimeter2Value\fP (long coord, long value)"
+.br
+.ti -1c
+.RI "void \fBSetPerimeter2\fP (long coord, double xpt, double ypt, double ros, double fli, double rct)"
+.br
+.ti -1c
+.RI "double * \fBAllocPerimeter2\fP (long NumPoints)"
+.br
+.ti -1c
+.RI "void \fBFreePerimeter2\fP ()"
+.br
+.ti -1c
+.RI "double * \fBAllocPerimeter1\fP (long NumFire, long NumPoints)"
+.br
+.ti -1c
+.RI "void \fBFreePerimeter1\fP (long NumFire)"
+.br
+.ti -1c
+.RI "double \fBGetPerimeter1Value\fP (long NumFire, long NumPoint, int coord)"
+.br
+.ti -1c
+.RI "void \fBSetPerimeter1\fP (long NumFire, long NumPoint, double xpt, double ypt)"
+.br
+.ti -1c
+.RI "void \fBSetFireChx\fP (long NumFire, long NumPoint, double ros, double fli)"
+.br
+.ti -1c
+.RI "void \fBSetReact\fP (long NumFire, long NumPoint, double ReactionIntensity)"
+.br
+.ti -1c
+.RI "double * \fBGetPerimeter1Address\fP (long NumFire, long NumPoint)"
+.br
+.ti -1c
+.RI "long \fBSwapFirePerims\fP (long NumFire1, long NumFire2)"
+.br
+.ti -1c
+.RI "long \fBGetNumPerimAlloc\fP ()"
+.br
+.ti -1c
+.RI "bool \fBAllocFirePerims\fP (long num)"
+.br
+.ti -1c
+.RI "bool \fBReAllocFirePerims\fP ()"
+.br
+.ti -1c
+.RI "void \fBFreeAllFirePerims\fP ()"
+.br
+.ti -1c
+.RI "bool \fBCreateSpotSemaphore\fP ()"
+.br
+.ti -1c
+.RI "void \fBCloseSpotSemaphore\fP ()"
+.br
+.ti -1c
+.RI "void \fBGetNumSpots\fP (long *NumSpots, bool inc)"
+.br
+.ti -1c
+.RI "void \fBSetNumSpots\fP (long input)"
+.br
+.ti -1c
+.RI "void \fBIncNumSpots\fP (long increment)"
+.br
+.ti -1c
+.RI "long \fBGetNumFires\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetNumFires\fP (long input)"
+.br
+.ti -1c
+.RI "void \fBIncNumFires\fP (long increment)"
+.br
+.ti -1c
+.RI "long \fBGetNewFires\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetNewFires\fP (long input)"
+.br
+.ti -1c
+.RI "void \fBIncNewFires\fP (long increment)"
+.br
+.ti -1c
+.RI "long \fBGetSkipFires\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetSkipFires\fP (long newvalue)"
+.br
+.ti -1c
+.RI "void \fBIncSkipFires\fP (long increment)"
+.br
+.ti -1c
+.RI "double \fBPercentIgnition\fP (double)"
+.br
+.ti -1c
+.RI "double \fBIgnitionDelay\fP (double delay)"
+.br
+.ti -1c
+.RI "bool \fBEnableCrowning\fP (long)"
+.br
+.ti -1c
+.RI "bool \fBEnableSpotting\fP (long)"
+.br
+.ti -1c
+.RI "bool \fBEnableSpotFireGrowth\fP (long)"
+.br
+.ti -1c
+.RI "bool \fBConstantBackingSpreadRate\fP (long)"
+.br
+.ti -1c
+.RI "long \fBGetCrownFireCalculation\fP ()"
+.br
+.ti -1c
+.RI "long \fBSetCrownFireCalculation\fP (long Type)"
+.br
+.ti -1c
+.RI "void \fBAllocElev\fP (long CurrentFire)"
+.br
+.ti -1c
+.RI "void \fBSetElev\fP (long Num, long elev)"
+.br
+.ti -1c
+.RI "long \fBGetElev\fP (long Num)"
+.br
+.ti -1c
+.RI "long * \fBGetElevAddress\fP (long Num)"
+.br
+.ti -1c
+.RI "void \fBFreeElev\fP ()"
+.br
+.ti -1c
+.RI "long \fBSetStopLocation\fP (double xcoord, double ycoord)"
+.br
+.ti -1c
+.RI "bool \fBGetStopLocation\fP (long StopNum, double *xcoord, double *ycoord)"
+.br
+.ti -1c
+.RI "void \fBResetStopLocation\fP (long StopNum)"
+.br
+.ti -1c
+.RI "bool \fBEnableStopLocation\fP (long StopNum, long Action)"
+.br
+.ti -1c
+.RI "void \fBResetAllStopLocations\fP ()"
+.br
+.ti -1c
+.RI "long \fBGetNumStopLocations\fP ()"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define DISTCHECK_FIRELEVEL   1"
+
+.PP
+Definition at line \fB53\fP of file \fBfsxw\&.hpp\fP\&.
+.SS "#define DISTCHECK_SIMLEVEL   0"
+
+.PP
+Definition at line \fB52\fP of file \fBfsxw\&.hpp\fP\&.
+.SS "#define FLIVAL   3"
+
+.PP
+Definition at line \fB45\fP of file \fBfsxw\&.hpp\fP\&.
+.SS "#define GETVAL   \-1"
+
+.PP
+Definition at line \fB41\fP of file \fBfsxw\&.hpp\fP\&.
+.SS "#define MAXNUM_STOPLOCATIONS   10"
+
+.PP
+Definition at line \fB50\fP of file \fBfsxw\&.hpp\fP\&.
+.SS "#define NUMDATA   5"
+
+.PP
+Definition at line \fB48\fP of file \fBfsxw\&.hpp\fP\&.
+.SS "#define RCXVAL   4"
+
+.PP
+Definition at line \fB46\fP of file \fBfsxw\&.hpp\fP\&.
+.SS "#define ROSVAL   2"
+
+.PP
+Definition at line \fB44\fP of file \fBfsxw\&.hpp\fP\&.
+.SS "#define XCOORD   0"
+
+.PP
+Definition at line \fB42\fP of file \fBfsxw\&.hpp\fP\&.
+.SS "#define YCOORD   1"
+
+.PP
+Definition at line \fB43\fP of file \fBfsxw\&.hpp\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "bool AccelerationON ()"
+
+.PP
+Definition at line \fB78\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void AllocElev (long CurrentFire)"
+
+.PP
+Definition at line \fB734\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "bool AllocFirePerims (long num)"
+
+.PP
+Definition at line \fB534\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double * AllocPerimeter1 (long NumFire, long NumPoints)"
+
+.PP
+Definition at line \fB609\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double * AllocPerimeter2 (long NumPoints)"
+
+.PP
+Definition at line \fB475\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "bool CheckExpansions (long YesNo)"
+
+.PP
+Definition at line \fB401\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "bool CheckPostFrontal (long YesNo)"
+
+.PP
+Definition at line \fB410\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void CloseSpotSemaphore ()"
+
+.PP
+Definition at line \fB223\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "bool ConstantBackingSpreadRate (long Back)"
+
+.PP
+Definition at line \fB189\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "bool CreateSpotSemaphore ()"
+
+.PP
+Definition at line \fB198\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "long DistanceCheckMethod (long Method)"
+
+.PP
+Definition at line \fB419\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "bool EnableCrowning (long Crowning)"
+
+.PP
+Definition at line \fB151\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "bool EnableSpotFireGrowth (long Growth)"
+
+.PP
+Definition at line \fB181\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "bool EnableSpotting (long Spotting)"
+
+.PP
+Definition at line \fB173\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "bool EnableStopLocation (long StopNum, long Action)"
+
+.PP
+Definition at line \fB840\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double EventMinimumTimeStep (double time)"
+
+.PP
+Definition at line \fB391\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void FreeAllFirePerims ()"
+
+.PP
+Definition at line \fB513\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void FreeElev ()"
+
+.PP
+Definition at line \fB780\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void FreePerimeter1 (long NumFire)"
+
+.PP
+Definition at line \fB642\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void FreePerimeter2 ()"
+
+.PP
+Definition at line \fB495\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double GetActualTimeStep ()"
+
+.PP
+Definition at line \fB355\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "long GetCrownFireCalculation ()"
+
+.PP
+Definition at line \fB159\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double GetDistRes ()"
+
+.PP
+Definition at line \fB332\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double GetDynamicDistRes ()"
+
+.PP
+Definition at line \fB320\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "long GetElev (long Num)"
+
+.PP
+Definition at line \fB764\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "long * GetElevAddress (long Num)"
+
+.PP
+Definition at line \fB772\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "long GetInout (long FireNumber)"
+
+.PP
+Definition at line \fB109\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "long GetNewFires ()"
+
+.PP
+Definition at line \fB250\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "long GetNumFires ()"
+
+.PP
+Definition at line \fB235\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "long GetNumPerimAlloc ()"
+
+.PP
+Definition at line \fB528\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "long GetNumPoints (long FireNumber)"
+
+.PP
+Definition at line \fB119\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void GetNumSpots (long * NumSpots, bool inc)"
+
+.PP
+Definition at line \fB271\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "long GetNumStopLocations ()"
+
+.PP
+Definition at line \fB855\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double * GetPerimeter1Address (long NumFire, long NumPoint)"
+
+.PP
+Definition at line \fB660\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double GetPerimeter1Value (long NumFire, long NumPoint, int coord)"
+
+.PP
+Definition at line \fB651\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void GetPerimeter2 (long coord, double * xpt, double * ypt, double * ros, double * fli, double * rct)"
+
+.PP
+Definition at line \fB436\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double GetPerimeter2Value (long coord, long value)"
+
+.PP
+Definition at line \fB450\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double GetPerimRes ()"
+
+.PP
+Definition at line \fB309\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double GetRosRed (int fuel)"
+
+.PP
+Definition at line \fB96\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double GetSecondaryVisibleTimeStep ()"
+
+.PP
+Definition at line \fB385\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "long GetSkipFires ()"
+
+.PP
+Definition at line \fB290\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "bool GetStopLocation (long StopNum, double * xcoord, double * ycoord)"
+
+.PP
+Definition at line \fB812\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double GetTemporaryTimeStep ()"
+
+.PP
+Definition at line \fB343\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double GetVisibleTimeStep ()"
+
+.PP
+Definition at line \fB365\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double IgnitionDelay (double delay)"
+
+.PP
+Definition at line \fB142\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void IncNewFires (long increment)"
+
+.PP
+Definition at line \fB263\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void IncNumFires (long increment)"
+
+.PP
+Definition at line \fB245\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void IncNumSpots (long increment)"
+
+.SS "void IncSkipFires (long increment)"
+
+.PP
+Definition at line \fB302\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void InitializeRosRed ()"
+
+.PP
+Definition at line \fB89\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "double PercentIgnition (double percent)"
+
+.PP
+Definition at line \fB129\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "bool ReAllocFirePerims ()"
+
+.PP
+Definition at line \fB555\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void ResetAllStopLocations ()"
+
+.PP
+Definition at line \fB849\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void ResetStopLocation (long StopNum)"
+
+.PP
+Definition at line \fB826\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetAccelerationON (bool State)"
+
+.PP
+Definition at line \fB83\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetActualTimeStep (double input)"
+
+.PP
+Definition at line \fB360\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "long SetCrownFireCalculation (long Type)"
+
+.PP
+Definition at line \fB165\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetDistRes (double input)"
+
+.PP
+Definition at line \fB337\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetDynamicDistRes (double input)"
+
+.PP
+Definition at line \fB326\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetElev (long Num, long elev)"
+
+.PP
+Definition at line \fB746\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetFireChx (long NumFire, long NumPoint, double ros, double fli)"
+
+.PP
+Definition at line \fB675\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetInout (long FireNumber, int Inout)"
+
+.PP
+Definition at line \fB114\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetNewFires (long input)"
+
+.PP
+Definition at line \fB255\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetNumFires (long input)"
+
+.PP
+Definition at line \fB240\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetNumPoints (long FireNumber, long NumPoints)"
+
+.PP
+Definition at line \fB124\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetNumSpots (long input)"
+
+.PP
+Definition at line \fB283\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetPerimeter1 (long NumFire, long NumPoint, double xpt, double ypt)"
+
+.PP
+Definition at line \fB666\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetPerimeter2 (long coord, double xpt, double ypt, double ros, double fli, double rct)"
+
+.PP
+Definition at line \fB460\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetPerimRes (double input)"
+
+.PP
+Definition at line \fB314\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetReact (long NumFire, long NumPoint, double ReactionIntensity)"
+
+.PP
+Definition at line \fB684\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetRosRed (int fuel, double rosred)"
+
+.PP
+Definition at line \fB104\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetSecondaryVisibleTimeStep (double input)"
+
+.PP
+Definition at line \fB379\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetSkipFires (long newvalue)"
+
+.PP
+Definition at line \fB295\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "long SetStopLocation (double xcoord, double ycoord)"
+
+.PP
+Definition at line \fB798\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetTemporaryTimeStep (double input)"
+
+.PP
+Definition at line \fB349\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "void SetVisibleTimeStep (double input)"
+
+.PP
+Definition at line \fB370\fP of file \fBfsxw\&.cpp\fP\&.
+.SS "long SwapFirePerims (long NumFire1, long NumFire2)"
+
+.PP
+Definition at line \fB691\fP of file \fBfsxw\&.cpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

@@ -1,0 +1,164 @@
+.TH "BurnUp" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BurnUp
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <burnupw\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBurnUp\fP ()"
+.br
+.ti -1c
+.RI "\fB~BurnUp\fP ()"
+.br
+.ti -1c
+.RI "bool \fBBurnup\fP ()"
+.br
+.ti -1c
+.RI "bool \fBStartLoop\fP ()"
+.br
+.ti -1c
+.RI "bool \fBBurnLoop\fP ()"
+.br
+.ti -1c
+.RI "bool \fBGetDatFile\fP (char *InFile, long Number)"
+.br
+.ti -1c
+.RI "bool \fBSetFuelInfo\fP (long NumParts, double *datastruct)"
+.br
+.ti -1c
+.RI "bool \fBSetFuelStruct\fP (long NumParts, \fBFuelStruct\fP *fs)"
+.br
+.ti -1c
+.RI "bool \fBSetFuelDat\fP (long NumParts, double *drywt, double *ashes, double *hots, double *fms, double *dryd, double *sigs, double *cpd, double *cond, double *tigi, double *tchi)"
+.br
+.ti -1c
+.RI "bool \fBSetFireDat\fP (long NumIter, double Fi, double Ti, double U, double D, double Tamb, double R0, double Dr, double Dt, double Wdf, double Dfm)"
+.br
+.ti -1c
+.RI "bool \fBCheckData\fP ()"
+.br
+.ti -1c
+.RI "bool \fBSummary\fP (char *OutFile)"
+.br
+.ti -1c
+.RI "long \fBGetSamplePoints\fP (long Flaming, long Number)"
+.br
+.ti -1c
+.RI "void \fBSetFintSwitch\fP (double fint)"
+.br
+.ti -1c
+.RI "long \fBGetFintSwitch\fP ()"
+.br
+.ti -1c
+.RI "bool \fBGetSample\fP (long num, double *xpt, double *ypt)"
+.br
+.ti -1c
+.RI "long \fBGetNumOutputData\fP ()"
+.br
+.ti -1c
+.RI "bool \fBGetBurnStruct\fP (long Num, \fBBurnStruct\fP *bs)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "char \fBMessage\fP [256]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB64\fP of file \fBburnupw\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "BurnUp::BurnUp ()"
+
+.PP
+Definition at line \fB61\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "BurnUp::~BurnUp ()"
+
+.PP
+Definition at line \fB114\fP of file \fBburnupw\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bool BurnUp::BurnLoop ()"
+
+.PP
+Definition at line \fB498\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "bool BurnUp::Burnup ()"
+
+.PP
+Definition at line \fB398\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "bool BurnUp::CheckData ()"
+
+.PP
+Definition at line \fB121\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "bool BurnUp::GetBurnStruct (long Num, \fBBurnStruct\fP * bs)"
+
+.PP
+Definition at line \fB2276\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "bool BurnUp::GetDatFile (char * InFile, long Number)"
+
+.PP
+Definition at line \fB236\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "long BurnUp::GetFintSwitch ()"
+
+.PP
+Definition at line \fB1824\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "long BurnUp::GetNumOutputData ()"
+
+.PP
+Definition at line \fB2287\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "bool BurnUp::GetSample (long num, double * xpt, double * ypt)"
+
+.PP
+Definition at line \fB2263\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "long BurnUp::GetSamplePoints (long Flaming, long Number)"
+
+.PP
+Definition at line \fB2142\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "void BurnUp::SetFintSwitch (double fint)"
+
+.PP
+Definition at line \fB1818\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "bool BurnUp::SetFireDat (long NumIter, double Fi, double Ti, double U, double D, double Tamb, double R0, double Dr, double Dt, double Wdf, double Dfm)"
+
+.PP
+Definition at line \fB371\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "bool BurnUp::SetFuelDat (long NumParts, double * drywt, double * ashes, double * hots, double * fms, double * dryd, double * sigs, double * cpd, double * cond, double * tigi, double * tchi)"
+
+.PP
+Definition at line \fB309\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "bool BurnUp::SetFuelInfo (long NumParts, double * datastruct)"
+
+.PP
+Definition at line \fB341\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "bool BurnUp::SetFuelStruct (long NumParts, \fBFuelStruct\fP * fs)"
+
+.PP
+Definition at line \fB279\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "bool BurnUp::StartLoop ()"
+
+.PP
+Definition at line \fB451\fP of file \fBburnupw\&.cpp\fP\&.
+.SS "bool BurnUp::Summary (char * OutFile)"
+
+.PP
+Definition at line \fB2053\fP of file \fBburnupw\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "char BurnUp::Message[256]"
+
+.PP
+Definition at line \fB131\fP of file \fBburnupw\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.
