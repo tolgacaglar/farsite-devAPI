@@ -1,0 +1,615 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fsxwinpt.h}
+\hypertarget{fsxwinpt_8h_source}{}\label{fsxwinpt_8h_source}\mbox{\hyperlink{fsxwinpt_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsglbvar_8h}{fsglbvar.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00024}00024\ \textcolor{comment}{//\#include\ "{}fswwtype.h"{}}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00025}00025\ \textcolor{comment}{//\#include\ "{}fsxwdvct.h"{}}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00026}00026\ \textcolor{comment}{//\#include\ "{}fsxwfmd.rh"{}}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00027}00027\ \textcolor{comment}{//\#include\ "{}shapefil.h"{}}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00030}00030\ \textcolor{preprocessor}{\#ifndef\ FARSITE\_INPUT\_DATA}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00031}00031\ \textcolor{preprocessor}{\#define\ FARSITE\_INPUT\_DATA}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00033}00033\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00034}00034\ \textcolor{comment}{struct\ TTransCanopyData}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00035}00035\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00036}00036\ \textcolor{comment}{\ \ \ \ CanopyData\ Dat;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00037}00037\ \textcolor{comment}{\ \ \ \ TTransCanopyData();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00038}00038\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00039}00039\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00040}00040\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00041}00041\ \textcolor{comment}{struct\ FMDStruct}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00042}00042\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00043}00043\ \textcolor{comment}{\ \ \ \ int\ modmet,\ modeng,\ otpmet,\ otpeng;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00044}00044\ \textcolor{comment}{\ \ \ \ int\ fmlo,\ fmmed,\ fmhi;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00045}00045\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00046}00046\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00047}00047\ \textcolor{comment}{struct\ TTransFMD}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00048}00048\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00049}00049\ \textcolor{comment}{\ \ \ \ //\ \ int\ modmet,\ modeng,\ otpmet,\ otpeng;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00050}00050\ \textcolor{comment}{\ \ \ \ FMDStruct\ fm;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00051}00051\ \textcolor{comment}{\ \ \ \ TTransFMD();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00052}00052\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00053}00053\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00054}00054\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00055}00055\ \textcolor{comment}{struct\ FileChanged}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00056}00056\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00057}00057\ \textcolor{comment}{\ \ \ \ bool\ LCP;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00058}00058\ \textcolor{comment}{\ \ \ \ bool\ WTR[5];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00059}00059\ \textcolor{comment}{\ \ \ \ bool\ WND[5];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00060}00060\ \textcolor{comment}{\ \ \ \ bool\ ADJ;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00061}00061\ \textcolor{comment}{\ \ \ \ bool\ CNV;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00062}00062\ \textcolor{comment}{\ \ \ \ bool\ FMS;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00063}00063\ \textcolor{comment}{\ \ \ \ bool\ FMD;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00064}00064\ \textcolor{comment}{\ \ \ \ bool\ BPD;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00065}00065\ \textcolor{comment}{\ \ \ \ bool\ CWD;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00066}00066\ \textcolor{comment}{\ \ \ \ FileChanged()}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00067}00067\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00068}00068\ \textcolor{comment}{\ \ \ \ \ \ \ \ ResetChanges();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00069}00069\ \textcolor{comment}{\ \ \ \ \};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00070}00070\ \textcolor{comment}{\ \ \ \ void\ ResetChanges()}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00072}00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ LCP\ =\ WTR[0]\ =\ WTR[1]\ =\ WTR[2]\ =\ WTR[3]\ =\ WTR[4]\ =\ false;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00073}00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ WND[0]\ =\ WND[1]\ =\ WND[2]\ =\ WND[3]\ =\ WND[4]\ =\ ADJ\ =\ FMS\ =\ FMD\ =\ BPD\ =\ CWD\ =\ false;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00074}00074\ \textcolor{comment}{\ \ \ \ \};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00075}00075\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00076}00076\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00078}\mbox{\hyperlink{struct_far_inputs}{00078}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_far_inputs}{FarInputs}}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00079}00079\ \{}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00080}00080\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00081}00081\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ FILE\_LEN\ =\ 256\ ;\ }
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00083}00083\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00084}\mbox{\hyperlink{struct_far_inputs_a3cd6c108807bb2deed947b1b7858d581}{00084}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_far_inputs_a3cd6c108807bb2deed947b1b7858d581}{BookmarkFile}}[FILE\_LEN];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00085}\mbox{\hyperlink{struct_far_inputs_ae57de59110e4423a15788e6e599df93d}{00085}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_far_inputs_ae57de59110e4423a15788e6e599df93d}{LandscapeFile}}[FILE\_LEN];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00086}\mbox{\hyperlink{struct_far_inputs_a1717943d2fe9327ef2dc19eb4f5b0938}{00086}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_far_inputs_a1717943d2fe9327ef2dc19eb4f5b0938}{ProjectFile}}[FILE\_LEN];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00087}\mbox{\hyperlink{struct_far_inputs_aafa81ecf366e8516a54c720c82369333}{00087}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_far_inputs_aafa81ecf366e8516a54c720c82369333}{AdjustmentFile}}[FILE\_LEN];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00088}\mbox{\hyperlink{struct_far_inputs_aedb024ab17446f3bc73516973d059d4a}{00088}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_far_inputs_aedb024ab17446f3bc73516973d059d4a}{FuelMoistureFile}}[FILE\_LEN];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00089}\mbox{\hyperlink{struct_far_inputs_a3c160706029c393222e7642ba20a92d4}{00089}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_far_inputs_a3c160706029c393222e7642ba20a92d4}{ConvertFile}}[FILE\_LEN];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00090}\mbox{\hyperlink{struct_far_inputs_aa307db5d914815c40ffe2b17548cad99}{00090}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_far_inputs_aa307db5d914815c40ffe2b17548cad99}{FuelModelFile}}[FILE\_LEN];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00091}\mbox{\hyperlink{struct_far_inputs_af24add5660f4e0dda7ed7b382e729c13}{00091}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_far_inputs_af24add5660f4e0dda7ed7b382e729c13}{WeatherFile}}[5][FILE\_LEN];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00092}\mbox{\hyperlink{struct_far_inputs_a1c9f74da060c001cec736dfbaac71afd}{00092}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_far_inputs_a1c9f74da060c001cec736dfbaac71afd}{WindFile}}[5][FILE\_LEN];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00093}\mbox{\hyperlink{struct_far_inputs_a8bd4a59affa733b3c9987064ce89d163}{00093}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_far_inputs_a8bd4a59affa733b3c9987064ce89d163}{BurnPeriod}}[FILE\_LEN];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00094}\mbox{\hyperlink{struct_far_inputs_a8821002f01ea22cee6d3bc408878b296}{00094}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_coarse_woody}{CoarseWoody}}[FILE\_LEN];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00095}\mbox{\hyperlink{struct_far_inputs_a0492e5bd9ffe913d3725b66ccbfe46f2}{00095}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_far_inputs_a0492e5bd9ffe913d3725b66ccbfe46f2}{MBLand}}[64],\ \mbox{\hyperlink{struct_far_inputs_a4737de20e69759f70b0c6f8fd1d312a3}{MBWtr}}[5][64],\ \mbox{\hyperlink{struct_far_inputs_a65a59937bbbb5d0a0e9fedff183e6086}{MBWnd}}[5][64];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00096}\mbox{\hyperlink{struct_far_inputs_a84ab683b6710c8b2fd5ab0873953b005}{00096}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_far_inputs_a84ab683b6710c8b2fd5ab0873953b005}{MBAdj}}[64],\ \mbox{\hyperlink{struct_far_inputs_a3b1f367ddccc0ac3289e366798fc19e2}{MBMois}}[64],\ \mbox{\hyperlink{struct_far_inputs_a35eb3095f7e8f647b65e3802f3aa90ae}{MBConv}}[64],\ \mbox{\hyperlink{struct_far_inputs_a08de51e55e3a439b1c28675de4f28648}{MBFuelMods}}[64],\ \mbox{\hyperlink{struct_far_inputs_a5b2045430264315415472cf69dfcadc5}{MBBpd}}[64],}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00097}\mbox{\hyperlink{struct_far_inputs_afb69d9a49e2ab62a2d92e97bc7db190a}{00097}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_far_inputs_afb69d9a49e2ab62a2d92e97bc7db190a}{MBCwd}}[64];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00098}\mbox{\hyperlink{struct_far_inputs_ac3610eefcd4ab27aeef17dac94999d5c}{00098}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a5d507ca748deb2ccdb6cf8069ea1749a}{LandID}},\ \mbox{\hyperlink{struct_far_inputs_a675a474d92b1e738501debc87d599b95}{WtrID}},\ \mbox{\hyperlink{struct_far_inputs_a4ff487dbcf687e6cfc2f590c837d9e75}{WndID}},\ \mbox{\hyperlink{struct_far_inputs_ac3610eefcd4ab27aeef17dac94999d5c}{AdjID}},\ \mbox{\hyperlink{struct_far_inputs_a0005a88cac8dfe4a55f178691caf1234}{FuelMoisID}},\ \mbox{\hyperlink{struct_far_inputs_a7ea511839bd150767bfb69796d719076}{BpdID}},\ \mbox{\hyperlink{struct_far_inputs_a495d8e5c0454c187b43f82ae9e9f0a6b}{CwdID}};}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00099}\mbox{\hyperlink{struct_far_inputs_ac399ed596acdeb2b29635a5b54afeb8c}{00099}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_ac399ed596acdeb2b29635a5b54afeb8c}{SVGA\_ON}};}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00100}\mbox{\hyperlink{struct_far_inputs_a4300d195b381d142867d0844c26fb75b}{00100}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_far_inputs_a4300d195b381d142867d0844c26fb75b}{pathdiv}}[1];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00101}\mbox{\hyperlink{struct_far_inputs_a85f645024e3a38c9161ed4073290f21c}{00101}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a85f645024e3a38c9161ed4073290f21c}{inited}};}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00102}\mbox{\hyperlink{struct_far_inputs_a34e0b6a1bf68d8ae8fb97e5d0752138e}{00102}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a34e0b6a1bf68d8ae8fb97e5d0752138e}{m\_shapeFileInited}};}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00103}\mbox{\hyperlink{struct_far_inputs_a9bab34e6f427800c622365dddb61a4f8}{00103}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a9bab34e6f427800c622365dddb61a4f8}{m\_gridEastNorthSet}};}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00104}\mbox{\hyperlink{struct_far_inputs_afd8597ed82d40eab9f80367f30e780d6}{00104}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_afd8597ed82d40eab9f80367f30e780d6}{m\_gridRowSet}};}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00105}\mbox{\hyperlink{struct_far_inputs_ac1eed1791806daa223dd447e84e2f590}{00105}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_far_inputs_ac1eed1791806daa223dd447e84e2f590}{m\_GridRow}}[256];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00106}\mbox{\hyperlink{struct_far_inputs_a05aababd9cddd8486739666a860bf050}{00106}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_far_inputs_a05aababd9cddd8486739666a860bf050}{m\_eastNorth}}[256];}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00107}\mbox{\hyperlink{struct_far_inputs_a414feca454fa922d25431c2c573c672d}{00107}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{struct_far_inputs_a414feca454fa922d25431c2c573c672d}{m\_BurnPeriodIsHere}};}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00108}\mbox{\hyperlink{struct_far_inputs_a1252f6a452586e026c209784da569d76}{00108}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{struct_far_inputs_a1252f6a452586e026c209784da569d76}{version}};}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00109}\mbox{\hyperlink{struct_far_inputs_a93566e25420752d9c29c3d5d257e5891}{00109}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{struct_far_inputs_a93566e25420752d9c29c3d5d257e5891}{m\_dcount}};}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00110}\mbox{\hyperlink{struct_far_inputs_a681cb78ff0111c96ed8b3bbbdc7691fa}{00110}}\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_far_inputs_a681cb78ff0111c96ed8b3bbbdc7691fa}{GridInterval}};}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00111}00111\ \ \ \ \ \textcolor{comment}{//FileChanged\ Changes;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00112}00112\ \ \ \ \ \textcolor{comment}{//TWindow\ *Client;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00113}\mbox{\hyperlink{struct_far_inputs_ab545c1035ce656801c17eaf9308dc4c1}{00113}}\ \ \ \ \ FILE*\ \mbox{\hyperlink{struct_far_inputs_ab545c1035ce656801c17eaf9308dc4c1}{CurrentFile}};}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00115}00115\ \ \ \ \ \mbox{\hyperlink{struct_far_inputs_a37e5176e56c723cebf1fd06a8a8b6ef2}{FarInputs}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00116}00116\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_far_inputs_ab5abee6fb4ffcf63f72ee65cbb7c88d4}{ResetData}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00117}00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_far_inputs_a35f872c1e7538dc4e6ebe18c13b6057d}{InitializeLandscapeFile}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00118}00118\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_ac49ce828caf1ad3ca96adf5b5c081e37}{LoadWeatherData}}(\textcolor{keywordtype}{long}\ FileNum);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00119}00119\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a892b7495c7997d75bf41397aa0e57639}{LoadWindData}}(\textcolor{keywordtype}{long}\ FileNum);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00120}00120\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_aae4662d7c69217791af1cc14e54a06de}{LoadAdjustmentFile}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00121}00121\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a85b36a92bfdce6e2d6fa0ad5fadaa2fb}{LoadFuelMoistureFile}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00122}00122\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a74dc1ccb912f217e4de6155ab5149f0e}{LoadCustomModelFile}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00123}00123\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a16c6587e562a70f332187bea15648196}{LoadConversionFile}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00124}00124\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_abf33de6a580649e5fda0009236d7bb00}{LoadBurnPeriodFile}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00125}00125\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a1d9b1bfe195e4166bb8fdbdd0e25260c}{LoadCoarseWoodyFile}}(\textcolor{keywordtype}{char}*\ ErrMsg);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00126}00126\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a203f2322fc84fd81ae555e91e35cd483}{TestProjectFileVersion}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00127}00127\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a4d7e0e4eb3f145ebd3179a4d1ea5fa6a}{OpenVersion1ProjectFile}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00128}00128\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a64698a09fc7e94348a2df051f30bc0ab}{OpenVersion2ProjectFile}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00129}00129\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a928ee39c8c8b7fcd39c41e864d06b357}{OpenVersion4ProjectFile}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00130}00130\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_far_inputs_a9bb3bcf444c6d381c0663c42788fb1df}{MakeProjectFile}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00131}00131\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_far_inputs_ad9ef0492ff5c2d584893e1d550769f51}{WriteWeatherWindProject}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00132}00132\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_ab37d92b00891dcffc1b28ed24acd9fd3}{TestForAtmWeather}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00133}00133\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a43c7be04e2a695d64f555794d7f3fe1d}{TestForAtmWinds}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00135}00135\ \ \ \ \ \textcolor{comment}{//old\ load\ project\ file\ replacement\ functions\ \ \ }}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00136}00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a959fe7d67b67376c036461a127c99288}{intializeDir}}(\textcolor{keywordtype}{char}*\ Name);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00137}00137\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_ab65981815a0887e5378beb04ecf5efaf}{setWeatherFile}}(\textcolor{keywordtype}{int}\ WeatherFileNum,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ weatherFileName);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00138}00138\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_aa8a775327cc0db8791b8d69d982157b5}{setWindFile}}(\textcolor{keywordtype}{int}\ WindFileNum,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ WindFileName);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00139}00139\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a692dc3c260f8d0afaeba162be8613cf8}{setLandscapeFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ value);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00140}00140\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_far_inputs_a6c7cb51e065f90404d5babaf02eb8ca2}{initWindAndWeather}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00141}00141\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a7dab79186eb4a4f3e39a657747cf905c}{loadUpAdjustmentsFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ adjFileName);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00142}00142\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a30374ad7cfdba55d7ef8a371b72bdc2e}{loadUpMoistureFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ moistureFile);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00143}00143\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a8b7c7e4a398b40cc006090141dc89858}{loadUpFuelModelFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ moistureFile);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00144}00144\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a454c765f9a734d273f2cbc0532259cf5}{loadUpConversionFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_far_inputs_a3c160706029c393222e7642ba20a92d4}{ConvertFile}});}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00145}00145\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a3d92ba294ade7fbbd968e4d4fd1c251f}{loadUpCoarseWoodyFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_coarse_woody}{CoarseWoody}});}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00146}00146\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a1c5ca6933779c55d5c40421b0889358b}{loadUpBurnPeriodFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName1);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00147}00147\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_far_inputs_a83c5a415e731d5e52fb710f4ca13871d}{saveGridEastNorth}}(\textcolor{keywordtype}{char}*\ eastNorth);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00148}00148\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_far_inputs_a385ec9bf8627bd095646d72c09f784fe}{saveGridRow}}(\textcolor{keywordtype}{char}*\ GridRow);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00149}00149\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a44b497da036f99865aa45123c6289104}{loadUpEastNorth}}(\textcolor{keywordtype}{char}*\ eastNorth,\ \textcolor{keywordtype}{char}*\ GridRow);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00150}00150\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_aff6e7f336618b38ee15c11c484d91996}{loadUpLandscapeTheme}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FileName1);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00151}00151\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_far_inputs_aebb19eb377b085e7b8990278a4bc2555}{initShapeFileLoad}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00152}00152\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a0828142b3c87774d6244ec7db63d1fbf}{loadUpShapeFile}}(\textcolor{keywordtype}{char}*\ shapefile);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00153}00153\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_acdfd6b15d31ea07d6e90dfc314741724}{loadUpStoredVector}}(\textcolor{keywordtype}{char}*\ storedVectorFile);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00154}00154\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a365fe0bf05de1045b9dacf71a3c3f9e0}{loadUpSetDirection}}(\textcolor{keywordtype}{char}*\ value,\textcolor{keywordtype}{char}\ direction);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00155}00155\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a40f3379b79d2aef36d1bd7dce7c8406a}{loadUpCanopyCheck}}(\textcolor{keywordtype}{char}*\ value);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00158}00158\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a500be492a979bdc5b82177b0966745d9}{SaveWtr}}(\textcolor{keywordtype}{long}\ Station);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00159}00159\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_ae785989e653375c422576c810a996118}{SaveWnd}}(\textcolor{keywordtype}{long}\ Station);}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00160}00160\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a7d156050e029e4a26792f1e0da5cbbd2}{SaveAdj}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00161}00161\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a12ef341b2e69359ec5c7812091bfe8f1}{SaveFms}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00162}00162\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a9c4edb29feda97c94a91662742c479fd}{SaveCnv}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00163}00163\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_a281e99f787b4850c21a7c8e20f3b925e}{SaveFmd}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00164}00164\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_ab5059e8e4b7cefedcc83b9711ae204b6}{SaveBpd}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00165}00165\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_far_inputs_aaf5a5dc272007a1c4522d16a3ac77488}{SaveCwd}}();}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00166}00166\ \};}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00169}00169\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00170}00170\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00171}00171\ \textcolor{comment}{//\ \ VECTOR\ Display\ Class\ and\ Transfer\ Structure}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00172}00172\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00173}00173\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00174}00174\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00175}00175\ \textcolor{comment}{struct\ TTransCompData}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00176}00176\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00177}00177\ \textcolor{comment}{\ \ \ \ TTransCompData();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00178}00178\ \textcolor{comment}{\ \ \ \ int\ SelFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00179}00179\ \textcolor{comment}{\ \ \ \ int\ W,\ Bk,\ Gy,\ Y,\ R,\ LR,\ B,\ LB,\ G,\ LG;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00180}00180\ \textcolor{comment}{\ \ \ \ int\ S,\ Dh,\ Bd,\ Dt;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00181}00181\ \textcolor{comment}{\ \ \ \ int\ TEMP,\ PERM;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00182}00182\ \textcolor{comment}{\ \ \ \ int\ D2,\ D3,\ fpj;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00183}00183\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00184}00184\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00185}00185\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00186}00186\ \textcolor{comment}{class\ TCompareDlg:\ public\ Draw2DVectors,\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00187}00187\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00188}00188\ \textcolor{comment}{\ \ \ \ long\ VectNum;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00189}00189\ \textcolor{comment}{\ \ \ \ TCheckBox\ *SelectFile,\ *TwoD,\ *ThreeD,\ *FPJ;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00190}00190\ \textcolor{comment}{\ \ \ \ TStatic\ *FName;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00191}00191\ \textcolor{comment}{\ \ \ \ TRadioButton\ *White,\ *Black,\ *Grey,\ *Yellow,\ *Red,\ *LtRed,\ *Blue,\ *LtBlue;\ \ \ \ \ \ \ \ \ \ g}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00192}00192\ \textcolor{comment}{\ \ \ \ TRadioButton\ *Green,\ *LtGreen;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00193}00193\ \textcolor{comment}{\ \ \ \ TRadioButton\ *Solid,\ *Dashed,\ *Bold,\ *Dotted;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00194}00194\ \textcolor{comment}{\ \ \ \ TRadioButton\ *Temp,\ *Perm;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00195}00195\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00196}00196\ \textcolor{comment}{\ \ \ \ bool\ TestFileType();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00197}00197\ \textcolor{comment}{\ \ \ \ void\ GetPenColor();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00198}00198\ \textcolor{comment}{\ \ \ \ void\ GetPenStyle();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00199}00199\ \textcolor{comment}{\ \ \ \ void\ ThreeDCheck();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00200}00200\ \textcolor{comment}{\ \ \ \ void\ TwoDCheck();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00201}00201\ \textcolor{comment}{\ \ \ \ void\ FPJCheck();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00202}00202\ \textcolor{comment}{\ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00203}00203\ \textcolor{comment}{\ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00204}00204\ \textcolor{comment}{\ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00205}00205\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00206}00206\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00207}00207\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00208}00208\ \textcolor{comment}{\ \ \ \ TCompareDlg(TWindow*\ AParent,\ const\ char*\ resID,\ TTransCompData\&\ ts);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00209}00209\ \textcolor{comment}{\ \ \ \ TCompareDlg(TWindow*\ AParent,\ const\ char*\ resID,\ TTransCompData\&\ ts,\ long\ VectNum);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00210}00210\ \textcolor{comment}{\ \ \ \ \string~TCompareDlg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00211}00211\ \textcolor{comment}{\ \ \ \ void\ SelectFileMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00212}00212\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00213}00213\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(TCompareDlg);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00214}00214\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00215}00215\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00216}00216\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00217}00217\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00218}00218\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00219}00219\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00220}00220\ \textcolor{comment}{class\ VisVectors:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00221}00221\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00222}00222\ \textcolor{comment}{\ \ \ \ int\ FilterIndex;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00223}00223\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00224}00224\ \textcolor{comment}{\ \ \ \ TListBox\ *list;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00225}00225\ \textcolor{comment}{\ \ \ \ \ TButton\ \ *add,\ *remove;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00226}00226\ \textcolor{comment}{//\ \ \ \ \ TTransCompData\ TransCompData;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00227}00227\ \textcolor{comment}{\ \ \ \ VectorTheme\ *theme;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00228}00228\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00229}00229\ \textcolor{comment}{\ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00230}00230\ \textcolor{comment}{\ \ \ \ \ void\ ShowFiles();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00231}00231\ \textcolor{comment}{\ \ \ \ \ void\ AddFiles();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00232}00232\ \textcolor{comment}{\ \ \ \ \ void\ RemoveFiles();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00233}00233\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00234}00234\ \textcolor{comment}{\ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00235}00235\ \textcolor{comment}{\ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00236}00236\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00237}00237\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00238}00238\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(VisVectors);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00239}00239\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00240}00240\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00241}00241\ \textcolor{comment}{\ \ \ \ VisVectors(TWindow\ *Parent,\ const\ char\ *resID);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00242}00242\ \textcolor{comment}{\ \ \ \ \ \string~VisVectors();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00243}00243\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00244}00244\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00245}00245\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00246}00246\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00247}00247\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00248}00248\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00249}00249\ \textcolor{comment}{class\ ConstantValueDlg:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00250}00250\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00251}00251\ \textcolor{comment}{\ \ \ \ long\ Max,\ Min;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00252}00252\ \textcolor{comment}{\ \ \ \ long\ *Val;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00253}00253\ \textcolor{comment}{\ \ \ \ TScrollBar\ *Selection;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00254}00254\ \textcolor{comment}{\ \ \ \ TStatic\ *Title,\ *Value;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00255}00255\ \textcolor{comment}{\ \ \ \ long\ ConstValue;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00256}00256\ \textcolor{comment}{\ \ \ \ long\ BarValue;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00257}00257\ \textcolor{comment}{\ \ \ \ char\ BarString[30];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00258}00258\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00259}00259\ \textcolor{comment}{\ \ \ \ void\ SelectValue(\ UINT\ );}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00260}00260\ \textcolor{comment}{\ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00261}00261\ \textcolor{comment}{\ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00262}00262\ \textcolor{comment}{\ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00263}00263\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00264}00264\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00265}00265\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(ConstantValueDlg);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00266}00266\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00267}00267\ \textcolor{comment}{\ \ \ \ ConstantValueDlg(TWindow*\ AParent,\ const\ char*\ ResID,\ long\ min,}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00268}00268\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ long\ max,\ long\ *value,\ long\ Variable);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00269}00269\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00270}00270\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00271}00271\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00272}00272\ \textcolor{comment}{class\ TGenerateDlg:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00273}00273\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00274}00274\ \textcolor{comment}{\ \ \ \ int\ \ \ \ \ \ \ \ \ BarValue,\ FilterIndex;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00275}00275\ \textcolor{comment}{\ \ \ \ \ bool\ \ \ ImportedLCP;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00276}00276\ \textcolor{comment}{\ \ \ \ \ bool\ \ \ FileSaved;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00277}00277\ \textcolor{comment}{\ \ \ \ long\ \ \ \ NumYCells;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00278}00278\ \textcolor{comment}{\ \ \ \ long\ \ \ \ CNCols,\ CNRows;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ for\ file\ headers}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00279}00279\ \textcolor{comment}{\ \ \ \ long\ \ \ \ ConstFuel,\ ConstCover,\ ConstHeight,\ ConstBase,\ ConstDensity,\ ConstDuff,\ ConstWoody;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00280}00280\ \textcolor{comment}{\ \ \ \ \ long\ \ \ NumAllCats[10];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00281}00281\ \textcolor{comment}{\ \ \ \ \ long\ \ \ AllCats[10][100];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00282}00282\ \textcolor{comment}{\ \ \ \ \ short\ \ ARC\_GRID\_FORMAT;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00283}00283\ \textcolor{comment}{\ \ \ \ double\ \ CoordSouth,\ CoordWest;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00284}00284\ \textcolor{comment}{\ \ \ \ double\ \ CXLCorner,\ CYLCorner;\ \ \ \ \ \ \ //\ comparisons}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00285}00285\ \textcolor{comment}{\ \ \ \ \ double\ \ \ \ \ HeightMult,\ BaseMult,\ DensityMult,\ DuffMult;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00286}00286\ \textcolor{comment}{\ \ \ \ double\ \ CCellSize;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00287}00287\ \textcolor{comment}{\ \ \ \ \ double\ \ \ \ \ maxval[10],\ minval[10];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00288}00288\ \textcolor{comment}{\ \ \ \ char\ \ \ \ BarString[8];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00289}00289\ \textcolor{comment}{\ \ \ \ char\ \ \ \ DataType[20];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00290}00290\ \textcolor{comment}{\ \ \ \ char\ \ \ \ *ElFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00291}00291\ \textcolor{comment}{\ \ \ \ char\ \ \ \ *SlFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00292}00292\ \textcolor{comment}{\ \ \ \ char\ \ \ \ *AsFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00293}00293\ \textcolor{comment}{\ \ \ \ char\ \ \ \ *FlFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00294}00294\ \textcolor{comment}{\ \ \ \ char\ \ \ \ *CvFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00295}00295\ \textcolor{comment}{\ \ \ \ char\ \ \ \ *LndFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00296}00296\ \textcolor{comment}{\ \ \ \ char\ \ \ \ *LndInFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00297}00297\ \textcolor{comment}{\ \ \ \ char\ \ \ \ *HtFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00298}00298\ \textcolor{comment}{\ \ \ \ char\ \ \ \ *HlcbFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00299}00299\ \textcolor{comment}{\ \ \ \ char\ \ \ \ *CbdFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00300}00300\ \textcolor{comment}{\ \ \ \ \ char\ \ \ *DuffFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00301}00301\ \textcolor{comment}{\ \ \ \ \ char\ \ \ *WoodyFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00302}00302\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00303}00303\ \textcolor{comment}{\ \ \ \ TCheckBox\ \ \ *FConst,\ *CConst,\ *HConst,\ *BConst,\ *PConst,\ *DConst,\ *WConst;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00304}00304\ \textcolor{comment}{\ \ \ \ TCheckBox\ \ \ *EL,\ *SL,\ *AS,\ *FL,\ *CV,\ *HT,\ *HLCB,\ *CBD,\ *DF,\ *WDY;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00305}00305\ \textcolor{comment}{\ \ \ \ TRadioButton\ \ \ \ *NEMetric,\ *NEEnglish,\ *NEKm,\ *ELMetric,\ *ELEnglish,\ *SPCT,\ *SDEG;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00306}00306\ \textcolor{comment}{\ \ \ \ TRadioButton\ \ \ \ *AGrass,\ *ADeg,\ *Cov14,\ *Covpct,\ *DuffTA,\ *DuffMgHa;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00307}00307\ \textcolor{comment}{\ \ \ \ TComboBox\ \ \ *HeightUnits,\ *BaseUnits,\ *DensityUnits;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00308}00308\ \textcolor{comment}{\ \ \ \ TCheckBox\ \ \ *CustMod,\ *CvtMod;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00309}00309\ \textcolor{comment}{\ \ \ \ TStatic\ \ \ \ \ \ \ \ \ *SEL,\ *SSL,\ *SAS,\ *SFL,\ *SCV;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00310}00310\ \textcolor{comment}{\ \ \ \ TStatic\ \ \ \ \ \ \ \ \ *SHT,\ *SHLCB,\ *SCBD,\ *SDUFF,\ *SWOODY,\ *IN\_LFILE;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00311}00311\ \textcolor{comment}{\ \ \ \ \ TEdit\ \ \ \ \ \ *SLat,\ *Desc;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00312}00312\ \textcolor{comment}{\ \ \ \ TUpDown\ \ \ \ \ \ \ \ \ *Lat;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00313}00313\ \textcolor{comment}{\ \ \ \ \ TButton\ \ \ \ \ \ \ \ *Load,\ *Save,\ *New;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00314}00314\ \textcolor{comment}{\ \ \ \ \ TGauge\ \ \ \ \ *Prog;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00315}00315\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00316}00316\ \textcolor{comment}{\ \ \ \ FILE\ *EFile,\ *SFile,\ *AFile,\ *FFile,\ *CFile,\ *LFile,\ *LIFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00317}00317\ \textcolor{comment}{\ \ \ \ FILE\ *HTFile,\ *HLCBFile,\ *CBDFile,\ *DFile,\ *WFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00318}00318\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00319}00319\ \textcolor{comment}{\ \ \ \ char\ FileType[256];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00320}00320\ \textcolor{comment}{\ \ \ \ \ char\ Description[512];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00321}00321\ \textcolor{comment}{\ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00322}00322\ \textcolor{comment}{\ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00323}00323\ \textcolor{comment}{\ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00324}00324\ \textcolor{comment}{\ \ \ \ \ void\ NewLandscape();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00325}00325\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00326}00326\ \textcolor{comment}{\ \ \ \ void\ GrassFormat();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00327}00327\ \textcolor{comment}{\ \ \ \ \ void\ ArcFormat();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00328}00328\ \textcolor{comment}{\ \ \ \ void\ LcpFormatMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00329}00329\ \textcolor{comment}{\ \ \ \ \ void\ GrassAspectMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00330}00330\ \textcolor{comment}{\ \ \ \ void\ ConstFuelMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00331}00331\ \textcolor{comment}{\ \ \ \ void\ ConstCoverMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00332}00332\ \textcolor{comment}{\ \ \ \ void\ ConstHeightMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00333}00333\ \textcolor{comment}{\ \ \ \ void\ ConstBaseMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00334}00334\ \textcolor{comment}{\ \ \ \ void\ ConstDensityMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00335}00335\ \textcolor{comment}{\ \ \ \ \ void\ ConstDuffMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00336}00336\ \textcolor{comment}{\ \ \ \ \ void\ ConstWoodyMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00337}00337\ \textcolor{comment}{\ \ \ \ void\ ElevFileCheckMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00338}00338\ \textcolor{comment}{\ \ \ \ void\ SlopeFileCheckMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00339}00339\ \textcolor{comment}{\ \ \ \ void\ AspectFileCheckMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00340}00340\ \textcolor{comment}{\ \ \ \ void\ FuelFileCheckMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00341}00341\ \textcolor{comment}{\ \ \ \ void\ CoverFileCheckMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00342}00342\ \textcolor{comment}{\ \ \ \ void\ HtFileCheckMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00343}00343\ \textcolor{comment}{\ \ \ \ void\ HlcbFileCheckMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00344}00344\ \textcolor{comment}{\ \ \ \ void\ CbdFileCheckMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00345}00345\ \textcolor{comment}{\ \ \ \ \ void\ DuffFileCheckMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00346}00346\ \textcolor{comment}{\ \ \ \ \ void\ WoodyFileCheckMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00347}00347\ \textcolor{comment}{\ \ \ \ void\ SelectHeightUnits();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00348}00348\ \textcolor{comment}{\ \ \ \ void\ SelectBaseUnits();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00349}00349\ \textcolor{comment}{\ \ \ \ void\ SelectDensityUnits();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00350}00350\ \textcolor{comment}{\ \ \ \ bool\ LatMsg(TNmUpDown\ \&now);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00351}00351\ \textcolor{comment}{\ \ \ \ bool\ SelectFile(long\ Type);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00352}00352\ \textcolor{comment}{\ \ \ \ \ bool\ TestRasterFileType(char\ *name);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00353}00353\ \textcolor{comment}{\ \ \ \ bool\ TestGrassRead(char\ *name);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00354}00354\ \textcolor{comment}{\ \ \ \ bool\ TestArcRead(char\ *name);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00355}00355\ \textcolor{comment}{\ \ \ \ void\ GenerateTheLandFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00356}00356\ \textcolor{comment}{\ \ \ \ void\ GenerateFromGrass();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00357}00357\ \textcolor{comment}{\ \ \ \ void\ GenerateFromArc();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00358}00358\ \textcolor{comment}{\ \ \ \ \ bool\ CheckLCPUnits(headdata\ *NewHeader);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00359}00359\ \textcolor{comment}{\ \ \ \ \ void\ ReviseLCPData(long\ Val,\ double\ MultBy);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00360}00360\ \textcolor{comment}{\ \ \ \ \ void\ CheckHeaderChanges(bool\ Prompt);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00361}00361\ \textcolor{comment}{\ \ \ \ void\ PatchIntoLCP();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00362}00362\ \textcolor{comment}{\ \ \ \ void\ Reset();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00363}00363\ \textcolor{comment}{\ \ \ \ \ void\ FinalizeHeader(headdata\ *newheader);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00364}00364\ \textcolor{comment}{\ \ \ \ \ void\ FillCats(celldata\ *cell,\ crowndata\ *crown,\ grounddata\ *ground);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00365}00365\ \textcolor{comment}{\ \ \ \ \ void\ SortCats();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00366}00366\ \textcolor{comment}{\ \ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00367}00367\ \textcolor{comment}{\ \ \ \ \ void\ SaveLCPMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00368}00368\ \textcolor{comment}{\ \ \ \ \ bool\ SpliceFilesIntoMemory(bool\ PatchInChanges);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00369}00369\ \textcolor{comment}{\ \ \ \ \ void\ UpdateProgress(double\ fract);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00370}00370\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00371}00371\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(TGenerateDlg);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00372}00372\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00373}00373\ \textcolor{comment}{\ \ \ \ TGenerateDlg(TWindow*\ AParent,\ const\ char*\ resID,\ TTransGenData\&\ ts);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00374}00374\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00375}00375\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00376}00376\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00377}00377\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00378}00378\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00379}00379\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00380}00380\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00381}00381\ \textcolor{comment}{class\ TCanopyDlg:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00382}00382\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00383}00383\ \textcolor{comment}{\ \ \ \ char\ BarString[15];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00384}00384\ \textcolor{comment}{\ \ \ \ int\ BarValue;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00385}00385\ \textcolor{comment}{\ \ \ \ float\ FBarValue;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00386}00386\ \textcolor{comment}{\ \ \ \ TRadioButton\ *Metric,\ *English;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00387}00387\ \textcolor{comment}{\ \ \ \ TScrollBar\ *Treeht,\ *HLCB,\ *CrownBD,\ *Treedbh,\ *FoliarMC;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00388}00388\ \textcolor{comment}{\ \ \ \ TStatic\ *STreeht,\ *SHLCB,\ *SCrownBD,\ *STreedbh,\ *SFoliarMC;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00389}00389\ \textcolor{comment}{\ \ \ \ TRadioButton\ *TL,\ *TM,\ *TH;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00390}00390\ \textcolor{comment}{\ \ \ \ TRadioButton\ *GF,\ *DF,\ *WH,\ *SF,\ *ES,\ *PP,\ *LP,\ *WP,\ *WR;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00391}00391\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00392}00392\ \textcolor{comment}{\ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00393}00393\ \textcolor{comment}{\ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00394}00394\ \textcolor{comment}{\ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00395}00395\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00396}00396\ \textcolor{comment}{\ \ \ \ void\ TreehtMsg(UINT);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00397}00397\ \textcolor{comment}{\ \ \ \ void\ HLCBMsg(UINT);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00398}00398\ \textcolor{comment}{\ \ \ \ void\ CrownBDMsg(UINT);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00399}00399\ \textcolor{comment}{\ \ \ \ void\ TreedbhMsg(UINT);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00400}00400\ \textcolor{comment}{\ \ \ \ void\ FoliarMCMsg(UINT);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00401}00401\ \textcolor{comment}{\ \ \ \ void\ MetUnitsMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00402}00402\ \textcolor{comment}{\ \ \ \ void\ EngUnitsMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00403}00403\ \textcolor{comment}{\ \ \ \ void\ ResetUnits();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00404}00404\ \textcolor{comment}{\ \ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00405}00405\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00406}00406\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(TCanopyDlg);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00407}00407\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00408}00408\ \textcolor{comment}{\ \ \ \ TCanopyDlg(TWindow*\ AParent,\ const\ char*\ resID,\ TTransCanopyData\&\ ts);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00409}00409\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00410}00410\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00411}00411\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00412}00412\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00413}00413\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00414}00414\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00415}00415\ \textcolor{comment}{class\ NewFuelDlg:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00416}00416\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00417}00417\ \textcolor{comment}{\ \ \ \ char\ Value[24];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00418}00418\ \textcolor{comment}{\ \ \ \ \ long\ *mod,\ *base;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00419}00419\ \textcolor{comment}{\ \ \ \ \ long\ Order[257];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00420}00420\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00421}00421\ \textcolor{comment}{\ \ \ \ TListBox\ *basemod;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00422}00422\ \textcolor{comment}{\ \ \ \ \ TEdit\ *newmod;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00423}00423\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00424}00424\ \textcolor{comment}{\ \ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00425}00425\ \textcolor{comment}{\ \ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00426}00426\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00427}00427\ \textcolor{comment}{\ \ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00428}00428\ \textcolor{comment}{\ \ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00429}00429\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00430}00430\ \textcolor{comment}{\ \ \ \ \ DECLARE\_RESPONSE\_TABLE(NewFuelDlg);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00431}00431\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00432}00432\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00433}00433\ \textcolor{comment}{\ \ \ \ NewFuelDlg(TWindow\ *parent,\ const\ char\ *resID,\ long\ *Mod,\ long\ *Base);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00434}00434\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00435}00435\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00436}00436\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00437}00437\ \textcolor{comment}{class\ FuelModelDlg:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00438}00438\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00439}00439\ \textcolor{comment}{\ \ \ \ \ long\ NumModels;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00440}00440\ \textcolor{comment}{\ \ \ \ \ char\ value[16];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00441}00441\ \textcolor{comment}{\ \ \ \ \ char\ Units[16];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00442}00442\ \textcolor{comment}{\ \ \ \ \ double\ WindSpd,\ TuneFactor,\ Slope;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00443}00443\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00444}00444\ \textcolor{comment}{\ \ \ \ \ TEdit\ *models,\ *testnum,\ *wndspd,\ *slp,\ *tune;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00445}00445\ \textcolor{comment}{\ \ \ \ \ TUpDown\ *udtestnum,\ *udwndspd,\ *udslope,\ *udtune;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00446}00446\ \textcolor{comment}{\ \ \ \ \ TButton\ *newmdl,\ *open,\ *save,\ *calc,\ *apply;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00447}00447\ \textcolor{comment}{\ \ \ \ \ TRadioButton\ *modenglish,\ *modmetric,\ *otpenglish,\ *otpmetric;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00448}00448\ \textcolor{comment}{\ \ \ \ \ TRadioButton\ *lo,\ *med,\ *hi;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00449}00449\ \textcolor{comment}{\ \ \ \ TStatic\ *wndunits,\ *rosunits,\ *otpros,\ *flameunits,\ *otpflame,\ *fmdfile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00450}00450\ \textcolor{comment}{\ \ \ \ \ TStatic\ *cbhunits,\ *cbh,\ *fmx;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00451}00451\ \textcolor{comment}{\ \ \ \ \ TStatic\ *load,\ *sav,\ *depth,\ *heat;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00452}00452\ \textcolor{comment}{\ \ \ \ \ FarInputs\ *farinput;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00453}00453\ \textcolor{comment}{\ \ \ \ \ TTransFMD\ *tfmd;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00454}00454\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00455}00455\ \textcolor{comment}{\ \ \ \ \ typedef\ struct\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ fuel\ moisture\ for\ low\ med\ high}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00456}00456\ \textcolor{comment}{\ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00457}00457\ \textcolor{comment}{\ \ \ \ \ \ \ \ double\ hr1,\ hr10,\ hr100,\ lh,\ lw;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00458}00458\ \textcolor{comment}{\ \ \ \ \ \}\ FMS;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00459}00459\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00460}00460\ \textcolor{comment}{\ \ \ \ \ typedef\ struct\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ local\ storage\ of\ fuel\ models}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00461}00461\ \textcolor{comment}{\ \ \ \ \ \{\ \ \ \ double\ load;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00462}00462\ \textcolor{comment}{\ \ \ \ \ \ \ \ double\ fp[12];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00463}00463\ \textcolor{comment}{\ \ \ \ \ \}\ FMD;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00464}00464\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00465}00465\ \textcolor{comment}{\ \ \ \ \ NewFuel\ newfuel[257];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00466}00466\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00467}00467\ \textcolor{comment}{\ \ \ \ \ FMS\ fms[3];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00468}00468\ \textcolor{comment}{\ \ \ \ \ double\ moist[5];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00469}00469\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00470}00470\ \textcolor{comment}{\ \ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00471}00471\ \textcolor{comment}{\ \ \ \ \ void\ NewModelMsg();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00472}00472\ \textcolor{comment}{\ \ \ \ \ void\ OpenFMDFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00473}00473\ \textcolor{comment}{\ \ \ \ \ void\ SaveFMDFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00474}00474\ \textcolor{comment}{\ \ \ \ \ void\ ModelEnglish();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00475}00475\ \textcolor{comment}{\ \ \ \ \ void\ ModelMetric();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00476}00476\ \textcolor{comment}{\ \ \ \ \ void\ OtpEnglish();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00477}00477\ \textcolor{comment}{\ \ \ \ \ void\ OtpMetric();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00478}00478\ \textcolor{comment}{\ \ \ \ \ void\ ApplyTuning();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00479}00479\ \textcolor{comment}{\ \ \ \ \ bool\ TestModel(TNmUpDown\ \&mov);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00480}00480\ \textcolor{comment}{\ \ \ \ \ bool\ TestSlope(TNmUpDown\ \&mov);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00481}00481\ \textcolor{comment}{\ \ \ \ bool\ TestWind(TNmUpDown\ \&mov);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00482}00482\ \textcolor{comment}{\ \ \ \ bool\ Tuning(TNmUpDown\ \&mov);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00483}00483\ \textcolor{comment}{\ \ \ \ \ void\ Calculate(long\ ReadNewData);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00484}00484\ \textcolor{comment}{\ \ \ \ \ void\ RunCalculations();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00485}00485\ \textcolor{comment}{\ \ \ \ \ void\ LowMx();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00486}00486\ \textcolor{comment}{\ \ \ \ \ void\ MedMx();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00487}00487\ \textcolor{comment}{\ \ \ \ \ void\ HiMx();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00488}00488\ \textcolor{comment}{\ \ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00489}00489\ \textcolor{comment}{\ \ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00490}00490\ \textcolor{comment}{\ \ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00491}00491\ \textcolor{comment}{\ \ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00492}00492\ \textcolor{comment}{\ \ \ \ \ //double\ pow2(double\ base);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00493}00493\ \textcolor{comment}{\ \ \ \ \ double\ CalcSpreadRate(long\ fuel,\ double\ *Moisture,\ double\ Slope,}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00494}00494\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ double\ WindSpeed,\ double\ *FlameLength,}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00495}00495\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ double\ *FirelineIntensity,\ double\ *HeatPerUnitArea);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00496}00496\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00497}00497\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00498}00498\ \textcolor{comment}{\ \ \ \ \ void\ CopyToLocalFMD();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00499}00499\ \textcolor{comment}{\ \ \ \ \ void\ WriteToEditWindow();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00500}00500\ \textcolor{comment}{\ \ \ \ \ bool\ ReadFromEditWindow();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00501}00501\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00502}00502\ \textcolor{comment}{\ \ \ \ \ DECLARE\_RESPONSE\_TABLE(FuelModelDlg);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00503}00503\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00504}00504\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00505}00505\ \textcolor{comment}{\ \ \ \ FuelModelDlg(TWindow\ *parent,\ const\ char\ *resID,\ FarInputs\ *fi,\ TTransFMD\ *ts);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00506}00506\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00507}00507\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00508}00508\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00509}00509\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00510}00510\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00511}00511\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00512}00512\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00513}00513\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00514}00514\ \textcolor{comment}{struct\ TTransInputData}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00515}00515\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00516}00516\ \textcolor{comment}{\ \ \ \ int\ Lcp,\ Adj,\ Fms,\ Cnv,\ Fmd,\ Cwd,\ Bpd;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00517}00517\ \textcolor{comment}{\ \ \ \ int\ Wtr1,\ Wtr2,\ Wtr3,\ Wtr4,\ Wtr5;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00518}00518\ \textcolor{comment}{\ \ \ \ int\ Wnd1,\ Wnd2,\ Wnd3,\ Wnd4,\ Wnd5;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00519}00519\ \textcolor{comment}{\ \ \ \ TTransInputData();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00520}00520\ \textcolor{comment}{\ \ \ \ void\ ResetData();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00521}00521\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00522}00522\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00523}00523\ \textcolor{comment}{class\ FarInputDlg:\ public\ TDialog}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00524}00524\ \textcolor{comment}{\{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00525}00525\ \textcolor{comment}{\ \ \ \ TCheckBox\ *LcpFile,\ *AdjFile,\ *FmsFile,\ *CnvFile,\ *FmdFile,\ *BpdFile,\ *CwdFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00526}00526\ \textcolor{comment}{\ \ \ \ TCheckBox\ *WtrFile1,\ *WtrFile2,\ *WtrFile3,\ *WtrFile4,\ *WtrFile5;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00527}00527\ \textcolor{comment}{\ \ \ \ TCheckBox\ *WndFile1,\ *WndFile2,\ *WndFile3,\ *WndFile4,\ *WndFile5;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00528}00528\ \textcolor{comment}{\ \ \ \ TStatic\ *SLcpFile,\ *SAdjFile,\ *SFmsFile,\ *SCnvFile,\ *SFmdFile,\ *SBpdFile,\ *SCwdFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00529}00529\ \textcolor{comment}{\ \ \ \ TStatic\ *SWtrFile1,\ *SWtrFile2,\ *SWtrFile3,\ *SWtrFile4,\ *SWtrFile5;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00530}00530\ \textcolor{comment}{\ \ \ \ TStatic\ *SWndFile1,\ *SWndFile2,\ *SWndFile3,\ *SWndFile4,\ *SWndFile5;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00531}00531\ \textcolor{comment}{\ \ \ \ TStatic\ *ProjFile;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00532}00532\ \textcolor{comment}{\ \ \ \ TButton\ *CanChar,\ *ViewVect,\ *ProjRet,\ *ProjMake,\ *ProjClose;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00533}00533\ \textcolor{comment}{\ \ \ \ TButton\ *LCPGen,\ *AdjGen,\ *FmsGen,\ *CnvGen,\ *FmdGen,\ *BpdGen,\ *CwdGen;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00534}00534\ \textcolor{comment}{\ \ \ \ \ TButton\ *wndedit[5],\ *wtredit[5];}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00535}00535\ \textcolor{comment}{\ \ \ \ \ FarInputs\ *farinput;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00536}00536\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00537}00537\ \textcolor{comment}{\ \ \ \ VisVectors\ *visvectors;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00538}00538\ \textcolor{comment}{\ \ \ \ TTransGenData\ TransGenData;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00539}00539\ \textcolor{comment}{\ \ \ \ \ TTransFMD\ TransFMD;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00540}00540\ \textcolor{comment}{\ \ \ \ TTransCanopyData\ *TransCanopyData;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00541}00541\ \textcolor{comment}{\ \ \ \ TTransWWStruct\ *TransWWData;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00542}00542\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00543}00543\ \textcolor{comment}{\ \ \ \ TGenerateDlg\ *GenerateDlg;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00544}00544\ \textcolor{comment}{\ \ \ \ TCanopyDlg\ *CanopyDlg;}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00545}00545\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00546}00546\ \textcolor{comment}{\ \ \ \ void\ SetupWindow();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00547}00547\ \textcolor{comment}{\ \ \ \ void\ CmHelp();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00548}00548\ \textcolor{comment}{\ \ \ \ void\ EvClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00549}00549\ \textcolor{comment}{\ \ \ \ void\ CmCancel();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00550}00550\ \textcolor{comment}{\ \ \ \ bool\ CanClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00551}00551\ \textcolor{comment}{\ \ \ \ void\ CheckDialogs();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00552}00552\ \textcolor{comment}{\ \ \ \ bool\ CheckProperInputs();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00553}00553\ \textcolor{comment}{\ \ \ \ bool\ CheckEqualWeatherWindFiles();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00554}00554\ \textcolor{comment}{\ \ \ \ void\ SelectLandscapeFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00555}00555\ \textcolor{comment}{\ \ \ \ void\ SelectAdjustmentFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00556}00556\ \textcolor{comment}{\ \ \ \ void\ OpenAdjustmentFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00557}00557\ \textcolor{comment}{\ \ \ \ void\ SelectFuelMoistureFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00558}00558\ \textcolor{comment}{\ \ \ \ void\ OpenFuelMoistureFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00559}00559\ \textcolor{comment}{\ \ \ \ void\ SelectConversionFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00560}00560\ \textcolor{comment}{\ \ \ \ void\ OpenConversionFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00561}00561\ \textcolor{comment}{\ \ \ \ void\ SelectFuelModelFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00562}00562\ \textcolor{comment}{\ \ \ \ void\ SelectCustomFuelInputs();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00563}00563\ \textcolor{comment}{\ \ \ \ void\ OpenFuelModelFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00564}00564\ \textcolor{comment}{\ \ \ \ \ void\ SelectBurnPeriodFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00565}00565\ \textcolor{comment}{\ \ \ \ \ void\ OpenBurnPeriodFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00566}00566\ \textcolor{comment}{\ \ \ \ \ void\ SelectCoarseWoodyFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00567}00567\ \textcolor{comment}{\ \ \ \ \ void\ OpenCoarseWoodyFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00568}00568\ \textcolor{comment}{\ \ \ \ bool\ OpenWeatherFiles(long\ FileNum);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00569}00569\ \textcolor{comment}{\ \ \ \ bool\ OpenWindFiles(long\ FileNum);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00570}00570\ \textcolor{comment}{\ \ \ \ void\ CmWeatherOpen1();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00571}00571\ \textcolor{comment}{\ \ \ \ void\ CmWeatherOpen2();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00572}00572\ \textcolor{comment}{\ \ \ \ void\ CmWeatherOpen3();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00573}00573\ \textcolor{comment}{\ \ \ \ void\ CmWeatherOpen4();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00574}00574\ \textcolor{comment}{\ \ \ \ void\ CmWeatherOpen5();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00575}00575\ \textcolor{comment}{\ \ \ \ void\ CmWindOpen1();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00576}00576\ \textcolor{comment}{\ \ \ \ void\ CmWindOpen2();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00577}00577\ \textcolor{comment}{\ \ \ \ void\ CmWindOpen3();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00578}00578\ \textcolor{comment}{\ \ \ \ void\ CmWindOpen4();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00579}00579\ \textcolor{comment}{\ \ \ \ void\ CmWindOpen5();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00580}00580\ \textcolor{comment}{\ \ \ \ void\ CmCanopySettings();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00581}00581\ \textcolor{comment}{\ \ \ \ void\ ViewVisVectors();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00582}00582\ \textcolor{comment}{\ \ \ \ void\ ProjectRetrieve();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00583}00583\ \textcolor{comment}{\ \ \ \ void\ ProjectMake();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00584}00584\ \textcolor{comment}{\ \ \ \ \ void\ ProjectClose();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00585}00585\ \textcolor{comment}{\ \ \ \ void\ GenerateLCPFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00586}00586\ \textcolor{comment}{\ \ \ \ void\ GenerateADJFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00587}00587\ \textcolor{comment}{\ \ \ \ void\ GenerateFMSFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00588}00588\ \textcolor{comment}{\ \ \ \ void\ GenerateCNVFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00589}00589\ \textcolor{comment}{\ \ \ \ void\ GenerateFMDFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00590}00590\ \textcolor{comment}{\ \ \ \ \ void\ GenerateBPDFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00591}00591\ \textcolor{comment}{\ \ \ \ \ void\ GenerateCWDFile();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00592}00592\ \textcolor{comment}{\ \ \ \ \ void\ EditWinds1();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00593}00593\ \textcolor{comment}{\ \ \ \ \ void\ EditWinds2();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00594}00594\ \textcolor{comment}{\ \ \ \ \ void\ EditWinds3();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00595}00595\ \textcolor{comment}{\ \ \ \ \ void\ EditWinds4();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00596}00596\ \textcolor{comment}{\ \ \ \ \ void\ EditWinds5();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00597}00597\ \textcolor{comment}{\ \ \ \ \ void\ EditWeather1();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00598}00598\ \textcolor{comment}{\ \ \ \ \ void\ EditWeather2();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00599}00599\ \textcolor{comment}{\ \ \ \ \ void\ EditWeather3();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00600}00600\ \textcolor{comment}{\ \ \ \ \ void\ EditWeather4();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00601}00601\ \textcolor{comment}{\ \ \ \ \ void\ EditWeather5();}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00602}00602\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00603}00603\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00604}00604\ \textcolor{comment}{\ \ \ \ DECLARE\_RESPONSE\_TABLE(FarInputDlg);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00605}00605\ \textcolor{comment}{public:}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00606}00606\ \textcolor{comment}{\ \ \ \ FarInputDlg(TWindow\ *AParent,\ const\ char*\ ResID,\ TTransInputData\ \&ts,}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00607}00607\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FarInputs\ *fi,\ \ TTransCanopyData\ *tc);}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00608}00608\ \textcolor{comment}{\};}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00609}00609\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{fsxwinpt_8h_source_l00610}00610\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FARSITE\_INPUT\_DATA}}
+
+\end{DoxyCode}

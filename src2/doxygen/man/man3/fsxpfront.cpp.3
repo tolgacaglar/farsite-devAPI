@@ -1,0 +1,127 @@
+.TH "C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/fsxpfront.cpp" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/fsxpfront.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'fsxpfront\&.h'\fP
+.br
+\fR#include 'fsglbvar\&.h'\fP
+.br
+\fR#include 'burnupw\&.h'\fP
+.br
+\fR#include 'fsxsync\&.h'\fP
+.br
+\fR#include <math\&.h>\fP
+.br
+\fR#include <string\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFireRing\fP * \fBAllocFireRing\fP (long NumPoints, double start, double end)"
+.br
+.ti -1c
+.RI "void \fBGetLastRingStruct\fP ()"
+.br
+.ti -1c
+.RI "void \fBFreeAllFireRings\fP ()"
+.br
+.ti -1c
+.RI "void \fBFreeFireRing\fP (long RingNum)"
+.br
+.ti -1c
+.RI "\fBFireRing\fP * \fBGetRing\fP (long RingNum)"
+.br
+.ti -1c
+.RI "\fBFireRing\fP * \fBGetSpecificRing\fP (long FireNumber, double StartTime)"
+.br
+.ti -1c
+.RI "void \fBCondenseRings\fP (long RingNum)"
+.br
+.ti -1c
+.RI "void \fBSetNewFireNumber\fP (long OldNum, long NewNum, long RefNum)"
+.br
+.ti -1c
+.RI "void \fBSetNumRings\fP (long NewNumRings)"
+.br
+.ti -1c
+.RI "long \fBGetNumRings\fP ()"
+.br
+.ti -1c
+.RI "long \fBGetNumRingStructs\fP ()"
+.br
+.ti -1c
+.RI "bool \fBAddToCurrentFireRing\fP (\fBFireRing\fP *firering, long PointNum, long SurfFuelType, long WoodyModel, double DuffLoad, double *mx, double CrownLoadingBurned)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const double \fBPI\fP = acos(\-1\&.0)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "bool AddToCurrentFireRing (\fBFireRing\fP * firering, long PointNum, long SurfFuelType, long WoodyModel, double DuffLoad, double * mx, double CrownLoadingBurned)"
+
+.PP
+Definition at line \fB427\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "\fBFireRing\fP * AllocFireRing (long NumPoints, double start, double end)"
+
+.PP
+Definition at line \fB66\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void CondenseRings (long RingNum)"
+
+.PP
+Definition at line \fB280\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void FreeAllFireRings ()"
+
+.PP
+Definition at line \fB146\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void FreeFireRing (long RingNum)"
+
+.PP
+Definition at line \fB182\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void GetLastRingStruct ()"
+
+.PP
+Definition at line \fB133\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "long GetNumRings ()"
+
+.PP
+Definition at line \fB415\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "long GetNumRingStructs ()"
+
+.PP
+Definition at line \fB420\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "\fBFireRing\fP * GetRing (long RingNum)"
+
+.PP
+Definition at line \fB222\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "\fBFireRing\fP * GetSpecificRing (long FireNumber, double StartTime)"
+
+.PP
+Definition at line \fB252\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void SetNewFireNumber (long OldNum, long NewNum, long RefNum)"
+
+.PP
+Definition at line \fB389\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void SetNumRings (long NewNumRings)"
+
+.PP
+Definition at line \fB410\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const double PI = acos(\-1\&.0)"
+
+.PP
+Definition at line \fB39\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

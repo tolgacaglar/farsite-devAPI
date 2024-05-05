@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['gc1_0',['gc1',['../struct_trans_air_attack.html#ad4a7f74795e35cdb35c70dd6ef177e7e',1,'TransAirAttack']]],
+  ['gc2_1',['gc2',['../struct_trans_air_attack.html#a2b2808bf48040cf28ff8dc8214715cc2',1,'TransAirAttack']]],
+  ['gc3_2',['gc3',['../struct_trans_air_attack.html#a2c3c6135a1fe11c12714cfef27aed89d',1,'TransAirAttack']]],
+  ['gc4_3',['gc4',['../struct_trans_air_attack.html#af570cba96e7479bc13a5f91d1fcc35b5',1,'TransAirAttack']]],
+  ['gdir_4',['gdir',['../struct_trans_attack.html#afec7baead7d5b49cb0dfc3d89b3d062b',1,'TransAttack']]],
+  ['gmw_5',['gmw',['../class_f_e_calls.html#a27a0641ac9f95038c1aa932da5de51d2',1,'FECalls::gmw'],['../class_mech_calls.html#afcbde6877c0b67059c7ad8bebcdcb5db',1,'MechCalls::gmw']]],
+  ['gname_6',['gname',['../struct_trans_air_attack.html#a85a32268a416d3f4527711d41c3e4841',1,'TransAirAttack']]],
+  ['graph1_7',['Graph1',['../struct_graph_data.html#a4d573ed59730293874a2b3acba8c69e1',1,'GraphData']]],
+  ['graph2_8',['Graph2',['../struct_graph_data.html#a9fd85ca216b40cf721ffb6e4c9341192',1,'GraphData']]],
+  ['greenval_9',['GreenVal',['../class_grid_theme.html#a5573c8f3a4e6f9c5140dd9df6c6ae3f6',1,'GridTheme']]],
+  ['grid_10',['Grid',['../struct_station_grid.html#a0ce555c17e09575c6fa3bd9e755c2461',1,'StationGrid']]],
+  ['gridinterval_11',['GridInterval',['../struct_far_inputs.html#a681cb78ff0111c96ed8b3bbbdc7691fa',1,'FarInputs']]],
+  ['gridonoff_12',['GridOnOff',['../struct_land_display_data.html#a9a9b7f2acc360bbbadb3c84113f64c54',1,'LandDisplayData']]],
+  ['gridunits_13',['GridUnits',['../structoldheaddata.html#ad639cd8aaf93fe13c3f28155a18cf304',1,'oldheaddata::GridUnits'],['../structheaddata2.html#a7bae73d5afca1b0795f9751a83a3746f',1,'headdata2::GridUnits'],['../struct____attribute____.html#ad1801d72d42987f10f943121f35d1580',1,'__attribute__::GridUnits'],['../structheaddata.html#a25b1e869a7d80e6766745eb6f33dc9e3',1,'headdata::GridUnits']]],
+  ['groundfuels_14',['GroundFuels',['../struct____attribute____.html#a9c4021809c13f12712f92b4b433dfd7c',1,'__attribute__::GroundFuels'],['../structheaddata.html#a538cb1229624c5b7c6ef0c711dfade4d',1,'headdata::GroundFuels']]],
+  ['groupattacknumber_15',['GroupAttackNumber',['../struct_group_attack_data.html#a6bd57171dc97981e598cc127133a8c5b',1,'GroupAttackData::GroupAttackNumber'],['../class_group_air_attack.html#adca446219fd85a882d8ef0bd94f1b129',1,'GroupAirAttack::GroupAttackNumber']]],
+  ['groupname_16',['GroupName',['../struct_group_attack_data.html#aeb4158f32bc0694c82cafb13c2641019',1,'GroupAttackData']]]
+];

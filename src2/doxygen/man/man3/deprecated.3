@@ -1,0 +1,13 @@
+.TH "deprecated" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+deprecated \- Deprecated List 
+.PP
+
+.IP "\fBMember \fBFms_Initialize\fP (\fBFms\fP *fms, double ta, double ha, double sr, double rc, double ti, double hi, double wi)\fP" 1c
+Use \fBFms_InitializeAt()\fP to initialize the stick's internal clock as well as its environment\&. This frees the user from having to keep track of elapsed time between stick updates\&. 
+.IP "\fBMember \fBFms_MeanMoisture\fP (\fBFms\fP *fms)\fP" 1c
+Use \fBFms_MeanWtdMoisture()\fP for a volume-weighted mean moisture content\&. 
+.PP
+

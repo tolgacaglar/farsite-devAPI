@@ -1,0 +1,171 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/burnupw.h}
+\hypertarget{burnupw_8h_source}{}\label{burnupw_8h_source}\mbox{\hyperlink{burnupw_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00023}00023\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00024}00024\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00025}00025\ \textcolor{comment}{//\ \ burnupc.h}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00026}00026\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00027}00027\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00028}00028\ \textcolor{preprocessor}{\#ifndef\ BURNUPPROGRAM}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00029}00029\ \textcolor{preprocessor}{\#define\ BURNUPPROGRAM}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00031}\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{00031}}\ \textcolor{preprocessor}{\#define\ MAXNO\ 20}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00032}\mbox{\hyperlink{burnupw_8h_aecfbb5893ec911af0bda1d1b6d632b84}{00032}}\ \textcolor{preprocessor}{\#define\ MAXTYPES\ 3}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00033}\mbox{\hyperlink{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb}{00033}}\ \textcolor{preprocessor}{\#define\ MAXKL\ \ (MAXNO\ *\ (\ MAXNO\ +\ 1\ )\ /\ 2\ +\ MAXNO\ )}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00034}\mbox{\hyperlink{burnupw_8h_a64f83acf0d96763a86e418662ca3b407}{00034}}\ \textcolor{preprocessor}{\#define\ MXSTEP\ 20}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00035}\mbox{\hyperlink{burnupw_8h_a5a224100d2855b5514e9a40882d80be2}{00035}}\ \textcolor{preprocessor}{\#define\ SWITCHOUTSIDE\ 0}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00036}\mbox{\hyperlink{burnupw_8h_ae17770c64d73ecd8f94a426bd78ca277}{00036}}\ \textcolor{preprocessor}{\#define\ SWITCHINSIDE\ 1}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00037}00037\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{splinex_8h}{splinex.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00038}00038\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsxsync_8h}{fsxsync.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00041}\mbox{\hyperlink{struct_fuel_struct}{00041}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00042}00042\ \{}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00043}\mbox{\hyperlink{struct_fuel_struct_ac4c7146440223b50fad23c87db1a7023}{00043}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_fuel_struct_ac4c7146440223b50fad23c87db1a7023}{wdry}};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00044}\mbox{\hyperlink{struct_fuel_struct_a22db26586ee50d7f891a4a4f087afe7c}{00044}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_fuel_struct_a22db26586ee50d7f891a4a4f087afe7c}{htval}};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00045}\mbox{\hyperlink{struct_fuel_struct_a99ea1a9c5edf97f1ad8c1e189138f6db}{00045}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_fuel_struct_a99ea1a9c5edf97f1ad8c1e189138f6db}{fmois}};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00046}\mbox{\hyperlink{struct_fuel_struct_a28db8cd32e3c8c54edf4d4b42d02cfdd}{00046}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_fuel_struct_a28db8cd32e3c8c54edf4d4b42d02cfdd}{dendry}};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00047}\mbox{\hyperlink{struct_fuel_struct_a7728edf92e85ba14b570589aab9bf7b5}{00047}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_fuel_struct_a7728edf92e85ba14b570589aab9bf7b5}{sigma}};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00048}\mbox{\hyperlink{struct_fuel_struct_a7e4fc85b94e0546aed40c41d7a767a06}{00048}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_fuel_struct_a7e4fc85b94e0546aed40c41d7a767a06}{cheat}};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00049}\mbox{\hyperlink{struct_fuel_struct_aac9d21113b5c7a2066fb876538a76c7a}{00049}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_fuel_struct_aac9d21113b5c7a2066fb876538a76c7a}{condry}};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00050}\mbox{\hyperlink{struct_fuel_struct_aaeef03ea276fbaba17728fa98c1e1e9c}{00050}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_fuel_struct_aaeef03ea276fbaba17728fa98c1e1e9c}{tpig}};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00051}\mbox{\hyperlink{struct_fuel_struct_a4a43746551ddb6553a63df204a8d164c}{00051}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_fuel_struct_a4a43746551ddb6553a63df204a8d164c}{tchar}};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00052}\mbox{\hyperlink{struct_fuel_struct_a4bdc0d0f56660e1f9fcb557650bb83a4}{00052}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_fuel_struct_a4bdc0d0f56660e1f9fcb557650bb83a4}{ash}};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00053}00053\ \}\ \mbox{\hyperlink{struct_fuel_struct}{FuelStruct}};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00056}\mbox{\hyperlink{struct_burn_struct}{00056}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00057}00057\ \{}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00058}\mbox{\hyperlink{struct_burn_struct_a8d9dc34d7764edee7481ce0ac467784a}{00058}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_burn_struct_a8d9dc34d7764edee7481ce0ac467784a}{time}};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00059}\mbox{\hyperlink{struct_burn_struct_ad42e2fa6aca5d4fd0c600df14be36124}{00059}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_burn_struct_ad42e2fa6aca5d4fd0c600df14be36124}{wdf}};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00060}\mbox{\hyperlink{struct_burn_struct_ab5d782846c98d0979fa9d0b3dab0d48f}{00060}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_burn_struct_ab5d782846c98d0979fa9d0b3dab0d48f}{ff}};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00061}00061\ \}\ \mbox{\hyperlink{struct_burn_struct}{BurnStruct}};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00064}\mbox{\hyperlink{class_burn_up}{00064}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_burn_up}{BurnUp}}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00065}00065\ \{}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{struct_burn_struct}{BurnStruct}}*\ bs;}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{long}\ nruns,\ now,\ ntimes,\ number,\ ma;}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{double}\ fi,\ ti,\ u,\ d,\ tamb,\ ak,\ r0,\ dr,\ dt,\ wdf,\ dfm;}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00069}00069\ \ \ \ \ \textcolor{keywordtype}{double}\ FintSwitch;}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{double}\ wd0,\ wg0,\ aa[20];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00071}00071\ \ \ \ \ \textcolor{keywordtype}{double}\ tis,\ dfi,\ tdf,\ fid,\ fimin,\ fistart;}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00072}00072\ \ \ \ \ \textcolor{keywordtype}{long}\ NumAllocRegrData;}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00073}00073\ \ \ \ \ \textcolor{keywordtype}{double}*\ w,\ *\ x,\ *\ y,\ *\ sig;}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00074}00074\ \ \ \ \ \textcolor{keywordtype}{double}**\ ux,\ **\ vx;}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00076}00076\ \ \ \ \ \textcolor{keywordtype}{double}\ wdry[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}],\ ash[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}],\ htval[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00077}00077\ \ \ \ \ \textcolor{keywordtype}{double}\ fmois[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}],\ dendry[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}],\ sigma[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00078}00078\ \ \ \ \ \textcolor{keywordtype}{double}\ cheat[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}],\ condry[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}],\ alfa[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00079}00079\ \ \ \ \ \textcolor{keywordtype}{double}\ tpig[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}],\ tchar[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00080}00080\ \ \ \ \ \textcolor{keywordtype}{double}\ flit[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}],\ fout[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}],\ work[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00081}00081\ \ \ \ \ \textcolor{keywordtype}{double}\ elam[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}][\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}],\ alone[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00082}00082\ \ \ \ \ \textcolor{keywordtype}{double}\ area[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}],\ fint[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00083}00083\ \ \ \ \ \textcolor{keywordtype}{double}\ xmat[\mbox{\hyperlink{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb}{MAXKL}}],\ tdry[\mbox{\hyperlink{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb}{MAXKL}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00084}00084\ \ \ \ \ \textcolor{keywordtype}{double}\ tign[\mbox{\hyperlink{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb}{MAXKL}}],\ tout[\mbox{\hyperlink{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb}{MAXKL}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00085}00085\ \ \ \ \ \textcolor{keywordtype}{double}\ wo[\mbox{\hyperlink{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb}{MAXKL}}],\ wodot[\mbox{\hyperlink{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb}{MAXKL}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00086}00086\ \ \ \ \ \textcolor{keywordtype}{double}\ diam[\mbox{\hyperlink{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb}{MAXKL}}],\ ddot[\mbox{\hyperlink{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb}{MAXKL}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00087}00087\ \ \ \ \ \textcolor{keywordtype}{double}\ qcum[\mbox{\hyperlink{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb}{MAXKL}}],\ tcum[\mbox{\hyperlink{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb}{MAXKL}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{double}\ acum[\mbox{\hyperlink{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb}{MAXKL}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{double}\ qdot[\mbox{\hyperlink{burnupw_8h_a6cc85f42031493197f2d9ee1c2b25aeb}{MAXKL}}][\mbox{\hyperlink{burnupw_8h_a64f83acf0d96763a86e418662ca3b407}{MXSTEP}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00091}00091\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00092}00092\ \ \ \ \ \textcolor{comment}{//\ emissions\ stuff\ here}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00093}00093\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00094}00094\ \ \ \ \ \textcolor{keywordtype}{double}\ Smoldering[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}\ +\ 1];\ \ \textcolor{comment}{//\ last\ element\ contains\ duff\ mass\ burning\ rate}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00095}00095\ \ \ \ \ \textcolor{keywordtype}{double}\ Flaming[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00096}00096\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00097}00097\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00099}00099\ \ \ \ \ \textcolor{keywordtype}{long}\ key[\mbox{\hyperlink{burnupw_8h_a803c6f58ae6b93894001411b0e2a7393}{MAXNO}}];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00100}00100\ \ \ \ \ \textcolor{comment}{//char\ parts[12][MAXNO],\ list[12][MAXNO]\ ,\ infile[12],\ outfil[12];}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00101}00101\ \ \ \ \ \textcolor{comment}{//bool\ nohist;}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00103}00103\ \ \ \ \ \textcolor{keywordtype}{void}\ Arrays();}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00104}00104\ \ \ \ \ \textcolor{keywordtype}{long}\ loc(\textcolor{keywordtype}{long}\ k,\ \textcolor{keywordtype}{long}\ l);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00105}00105\ \ \ \ \ \textcolor{keywordtype}{double}\ func(\textcolor{keywordtype}{double}\ h,\ \textcolor{keywordtype}{double}\ theta);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00106}00106\ \ \ \ \ \textcolor{keywordtype}{double}\ ff(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ tpfi,\ \textcolor{keywordtype}{double}\ tpig);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00107}00107\ \ \ \ \ \textcolor{keywordtype}{bool}\ Start(\textcolor{keywordtype}{double}\ tis,\ \textcolor{keywordtype}{long}\ now,\ \textcolor{keywordtype}{long}*\ ncalls);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00108}00108\ \ \ \ \ \textcolor{keywordtype}{void}\ OverLaps();}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00109}00109\ \ \ \ \ \textcolor{keywordtype}{double}\ FireIntensity();}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00110}00110\ \ \ \ \ \textcolor{keywordtype}{double}\ DryTime(\textcolor{keywordtype}{double}\ enu,\ \textcolor{keywordtype}{double}\ theta);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00111}00111\ \ \ \ \ \textcolor{keywordtype}{void}\ Stash(\textcolor{keywordtype}{char}*\ HistFile,\ \textcolor{keywordtype}{char}*\ SnapFile,\ \textcolor{keywordtype}{double}\ tis,\ \textcolor{keywordtype}{long}\ now);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00112}00112\ \ \ \ \ \textcolor{keywordtype}{void}\ Sorter();}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00113}00113\ \ \ \ \ \textcolor{keywordtype}{double}\ TIgnite(\textcolor{keywordtype}{double}\ tpdr,\ \textcolor{keywordtype}{double}\ tpig,\ \textcolor{keywordtype}{double}\ tpfi,\ \textcolor{keywordtype}{double}\ cond,}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ chtd,\ \textcolor{keywordtype}{double}\ fmof,\ \textcolor{keywordtype}{double}\ dend,\ \textcolor{keywordtype}{double}\ hbar);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00115}00115\ \ \ \ \ \textcolor{keywordtype}{double}\ TempF(\textcolor{keywordtype}{double}\ q,\ \textcolor{keywordtype}{double}\ r);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00116}00116\ \ \ \ \ \textcolor{keywordtype}{void}\ HeatExchange(\textcolor{keywordtype}{double}\ dia,\ \textcolor{keywordtype}{double}\ tf,\ \textcolor{keywordtype}{double}\ ts,\ \textcolor{keywordtype}{double}*\ hfm,}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}*\ hbar,\ \textcolor{keywordtype}{double}\ cond,\ \textcolor{keywordtype}{double}*\ en);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00118}00118\ \ \ \ \ \textcolor{keywordtype}{void}\ DuffBurn(\textcolor{keywordtype}{double}\ wdf,\ \textcolor{keywordtype}{double}\ dfm,\ \textcolor{keywordtype}{double}*\ dfi,\ \textcolor{keywordtype}{double}*\ tdf);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00119}00119\ \ \ \ \ \textcolor{keywordtype}{void}\ Step(\textcolor{keywordtype}{double}\ dt,\ \textcolor{keywordtype}{double}\ tin,\ \textcolor{keywordtype}{double}\ fid,\ \textcolor{keywordtype}{long}*\ ncalls);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00120}00120\ \ \ \ \ \textcolor{keywordtype}{long}\ Nint(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00121}00121\ \ \ \ \ \textcolor{keywordtype}{bool}\ SetBurnStruct(\textcolor{keywordtype}{double}\ tis,\ \textcolor{keywordtype}{long}\ now);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00122}00122\ \ \ \ \ \textcolor{keywordtype}{bool}\ AllocBurnStruct();}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00123}00123\ \ \ \ \ \textcolor{keywordtype}{void}\ FreeBurnStruct();}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00124}00124\ \ \ \ \ \textcolor{keywordtype}{bool}\ AllocRegressionData(\textcolor{keywordtype}{long}\ ndata);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00125}00125\ \ \ \ \ \textcolor{keywordtype}{void}\ FreeRegressionData(\textcolor{keywordtype}{long}\ ndata);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00126}00126\ \ \ \ \ \textcolor{comment}{//\ \ long\ \ \ \ LinearModel(long\ ma,\ long\ ndata,\ double\ *Chisq);}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00127}00127\ \ \ \ \ \textcolor{keywordtype}{void}\ ResetEmissionsData();}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00128}00128\ \ \ \ \ \textcolor{comment}{//void\ \ polynom(double\ x,\ double\ a[],\ long\ n);}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00130}00130\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00131}\mbox{\hyperlink{class_burn_up_abff7c595acda2bd59642ceb13ec4cfc3}{00131}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_burn_up_abff7c595acda2bd59642ceb13ec4cfc3}{Message}}[256];}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00133}00133\ \ \ \ \ \mbox{\hyperlink{class_burn_up_a046e63cdeb5417b3750b23e8ef8637e1}{BurnUp}}();}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00134}00134\ \ \ \ \ \mbox{\hyperlink{class_burn_up_ab0e89d09c16dea8b3fe5c5a5b1d5f94d}{\string~BurnUp}}();}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00136}00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_burn_up_ad9446ef6b65119d5fbd9901dafd1965f}{Burnup}}();}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00138}00138\ \ \ \ \ \textcolor{comment}{//\ functions\ added\ to\ allow\ interface\ with\ windows}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00139}00139\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_burn_up_aac9b249e6b14ead3c175ec533c11d028}{StartLoop}}();}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00140}00140\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_burn_up_a9c77fe4a6bc4b9e79f1a276597f5f5ca}{BurnLoop}}();}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00141}00141\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_burn_up_aa255e89eff8009bf8099cae030267f4f}{GetDatFile}}(\textcolor{keywordtype}{char}*\ InFile,\ \textcolor{keywordtype}{long}\ Number);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00142}00142\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_burn_up_a610dbc257940284992cac5bdb0821c23}{SetFuelInfo}}(\textcolor{keywordtype}{long}\ NumParts,\ \textcolor{keywordtype}{double}*\ datastruct);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00143}00143\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_burn_up_a1748776bb7e744ddd4fb66d518b06ca0}{SetFuelStruct}}(\textcolor{keywordtype}{long}\ NumParts,\ \mbox{\hyperlink{struct_fuel_struct}{FuelStruct}}*\ fs);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00144}00144\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_burn_up_aff432a129b881d53fadddc8269824659}{SetFuelDat}}(\textcolor{keywordtype}{long}\ NumParts,\ \textcolor{keywordtype}{double}*\ drywt,\ \textcolor{keywordtype}{double}*\ ashes,\ \textcolor{keywordtype}{double}*\ hots,}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00145}00145\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}*\ fms,\ \textcolor{keywordtype}{double}*\ dryd,\ \textcolor{keywordtype}{double}*\ sigs,\ \textcolor{keywordtype}{double}*\ cpd,\ \textcolor{keywordtype}{double}*\ cond,}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00146}00146\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}*\ tigi,\ \textcolor{keywordtype}{double}*\ tchi);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00147}00147\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_burn_up_a0c3ba9d32c56439652d243d2feee8762}{SetFireDat}}(\textcolor{keywordtype}{long}\ NumIter,\ \textcolor{keywordtype}{double}\ Fi,\ \textcolor{keywordtype}{double}\ Ti,\ \textcolor{keywordtype}{double}\ U,\ \textcolor{keywordtype}{double}\ D,}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ Tamb,\ \textcolor{keywordtype}{double}\ R0,\ \textcolor{keywordtype}{double}\ Dr,\ \textcolor{keywordtype}{double}\ Dt,\ \textcolor{keywordtype}{double}\ Wdf,\ \textcolor{keywordtype}{double}\ Dfm);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00149}00149\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_burn_up_a7fe326a41abfdd46637bc8332468d03c}{CheckData}}();}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00150}00150\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_burn_up_a1b1dfdfa2ec2007d38861d3a1ad2f81d}{Summary}}(\textcolor{keywordtype}{char}*\ OutFile);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00151}00151\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ long\ \ \ \ \ GetRegressionCoefficients(double\ **coefs,\ long\ *NumCalcs);}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00152}00152\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ long\ \ \ \ \ RunPolynomialRegression(long\ Flaming);}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00153}00153\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_burn_up_a002796db59d3f8d4be43bc66a7426d8d}{GetSamplePoints}}(\textcolor{keywordtype}{long}\ Flaming,\ \textcolor{keywordtype}{long}\ Number);\textcolor{comment}{//,\ double\ **xpts,\ double\ **ypts,\ long\ *numcalcs);}}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00154}00154\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_burn_up_a12b0194831fb977b52fdd31e5c9828c1}{SetFintSwitch}}(\textcolor{keywordtype}{double}\ fint);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00155}00155\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_burn_up_a34088c66a54799a4a6655a0a7ddb00fd}{GetFintSwitch}}();}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00156}00156\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_burn_up_a5ffca080f3c0543a6e4232c1375c8d0d}{GetSample}}(\textcolor{keywordtype}{long}\ num,\ \textcolor{keywordtype}{double}*\ xpt,\ \textcolor{keywordtype}{double}*\ ypt);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00157}00157\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_burn_up_a63d43532ec186158c1d7109ea5d5091b}{GetNumOutputData}}();}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00158}00158\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_burn_up_aba20c185d21d7efe1ce42723f56ee48a}{GetBurnStruct}}(\textcolor{keywordtype}{long}\ Num,\ \mbox{\hyperlink{struct_burn_struct}{BurnStruct}}*\ bs);}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00159}00159\ \};}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00162}\mbox{\hyperlink{burnupw_8h_a8b3884318d34ac5f403ee571e3d78975}{00162}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{burnupw_8h_a8b3884318d34ac5f403ee571e3d78975}{polynom}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ a[],\ \textcolor{keywordtype}{long});}
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{burnupw_8h_source_l00166}00166\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

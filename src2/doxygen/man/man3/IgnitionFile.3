@@ -1,0 +1,194 @@
+.TH "IgnitionFile" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+IgnitionFile
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsxwignt\&.h>\fP
+.PP
+Inherits \fBIgnitionCorrect\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBIgnitionFile\fP ()"
+.br
+.ti -1c
+.RI "\fB~IgnitionFile\fP ()"
+.br
+.ti -1c
+.RI "void \fBSelectFileInput\fP ()"
+.br
+.ti -1c
+.RI "bool \fBGrassFile\fP ()"
+.br
+.ti -1c
+.RI "bool \fBArcLine\fP ()"
+.br
+.ti -1c
+.RI "bool \fBArcPoly\fP ()"
+.br
+.ti -1c
+.RI "bool \fBArcPoint\fP ()"
+.br
+.ti -1c
+.RI "bool \fBShapeInput\fP ()"
+.br
+.ti -1c
+.RI "void \fBSelectFileInputCmdL\fP (int type)"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBIgnitionCorrect\fP
+.in +1c
+.ti -1c
+.RI "\fBIgnitionCorrect\fP ()"
+.br
+.ti -1c
+.RI "\fB~IgnitionCorrect\fP ()"
+.br
+.ti -1c
+.RI "void \fBReversePoints\fP (long type)"
+.br
+.ti -1c
+.RI "double \fBarp\fP ()"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBAPolygon\fP
+.in +1c
+.ti -1c
+.RI "\fBAPolygon\fP ()"
+.br
+.ti -1c
+.RI "\fB~APolygon\fP ()"
+.br
+.ti -1c
+.RI "long \fBOverlap\fP (long count)"
+.br
+.ti -1c
+.RI "double \fBdirection\fP (double xpt1, double ypt1)"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBStandardizePolygon\fP
+.in +1c
+.ti -1c
+.RI "\fBStandardizePolygon\fP ()"
+.br
+.ti -1c
+.RI "\fB~StandardizePolygon\fP ()"
+.br
+.ti -1c
+.RI "long \fBFindExternalPoint\fP (long CurrentFire, long type)"
+.br
+.ti -1c
+.RI "void \fBReorderPerimeter\fP (long CurrentFire, long NewBeginning)"
+.br
+.ti -1c
+.RI "void \fBFindOuterFirePerimeter\fP (long CurrentFire)"
+.br
+.ti -1c
+.RI "bool \fBCross\fP (double xpt1, double ypt1, double xpt2, double ypt2, double xpt1n, double ypt1n, double xpt2n, double ypt2n, double *newx, double *newy, long *dup1, long *dup2)"
+.br
+.ti -1c
+.RI "void \fBDensityControl\fP (long CurrentFire)"
+.br
+.ti -1c
+.RI "void \fBRemoveDuplicatePoints\fP (long CurrentFire)"
+.br
+.ti -1c
+.RI "void \fBRemoveIdenticalPoints\fP (long FireNum)"
+.br
+.ti -1c
+.RI "void \fBBoundingBox\fP (long CurrentFire)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "char \fBTestEnd\fP [30]"
+.br
+.ti -1c
+.RI "char \fBifile\fP [256]"
+.br
+.in -1c
+
+Public Attributes inherited from \fBAPolygon\fP
+.in +1c
+.ti -1c
+.RI "double \fBstartx\fP"
+.br
+.ti -1c
+.RI "double \fBstarty\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB31\fP of file \fBfsxwignt\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "IgnitionFile::IgnitionFile ()"
+
+.PP
+Definition at line \fB33\fP of file \fBfsxwignt\&.cpp\fP\&.
+.SS "IgnitionFile::~IgnitionFile ()"
+
+.PP
+Definition at line \fB38\fP of file \fBfsxwignt\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bool IgnitionFile::ArcLine ()"
+
+.PP
+Definition at line \fB383\fP of file \fBfsxwignt\&.cpp\fP\&.
+.SS "bool IgnitionFile::ArcPoint ()"
+
+.PP
+Definition at line \fB546\fP of file \fBfsxwignt\&.cpp\fP\&.
+.SS "bool IgnitionFile::ArcPoly ()"
+
+.PP
+Definition at line \fB485\fP of file \fBfsxwignt\&.cpp\fP\&.
+.SS "bool IgnitionFile::GrassFile ()"
+
+.PP
+Definition at line \fB268\fP of file \fBfsxwignt\&.cpp\fP\&.
+.SS "void IgnitionFile::SelectFileInput ()"
+
+.PP
+Definition at line \fB43\fP of file \fBfsxwignt\&.cpp\fP\&.
+.SS "void IgnitionFile::SelectFileInputCmdL (int type)"
+this is processed from the CmdLine for right now
+.IP "\(bu" 2
+1 is ArcPoly
+.IP "\(bu" 2
+2 is ArcLine
+.IP "\(bu" 2
+3 is ArcPoint 
+.PP
+
+.PP
+Definition at line \fB783\fP of file \fBfsxwignt\&.cpp\fP\&.
+.SS "bool IgnitionFile::ShapeInput ()"
+
+.PP
+Definition at line \fB85\fP of file \fBfsxwignt\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "char IgnitionFile::ifile[256]"
+
+.PP
+Definition at line \fB41\fP of file \fBfsxwignt\&.h\fP\&.
+.SS "char IgnitionFile::TestEnd[30]"
+
+.PP
+Definition at line \fB40\fP of file \fBfsxwignt\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

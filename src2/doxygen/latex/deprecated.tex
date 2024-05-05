@@ -1,0 +1,11 @@
+\chapter{Deprecated List}
+\hypertarget{deprecated}{}\label{deprecated}\index{Deprecated List@{Deprecated List}}
+
+\begin{DoxyRefList}
+\item[Member \doxylink{newfms_8h_a0035dbf066e9f5486fc3f81dd7c337a6}{Fms\+\_\+\+Initialize} (\doxylink{struct_fms}{Fms} \texorpdfstring{$\ast$}{*}fms, double ta, double ha, double sr, double rc, double ti, double hi, double wi)]\label{deprecated__deprecated000001}%
+\Hypertarget{deprecated__deprecated000001}%
+Use \doxylink{newfms_8cpp_a46803007969d17a0567ac1ec40f63a94}{Fms\+\_\+\+Initialize\+At()} to initialize the stick\textquotesingle{}s internal clock as well as its environment. This frees the user from having to keep track of elapsed time between stick updates. 
+\item[Member \doxylink{newfms_8h_ac4fa4cca704c055303f78f5273d5f006}{Fms\+\_\+\+Mean\+Moisture} (\doxylink{struct_fms}{Fms} \texorpdfstring{$\ast$}{*}fms)]\label{deprecated__deprecated000002}%
+\Hypertarget{deprecated__deprecated000002}%
+Use \doxylink{newfms_8cpp_af9d70e57ae6d7bee37f8261a91b73f27}{Fms\+\_\+\+Mean\+Wtd\+Moisture()} for a volume-\/weighted mean moisture content. 
+\end{DoxyRefList}

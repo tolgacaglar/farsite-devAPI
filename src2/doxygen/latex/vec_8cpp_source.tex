@@ -1,0 +1,96 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/vec.cpp}
+\hypertarget{vec_8cpp_source}{}\label{vec_8cpp_source}\mbox{\hyperlink{vec_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vec_8h}{vec.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00025}\mbox{\hyperlink{vec_8cpp_ac03a3cc79980fdd5b4e19479f0c24680}{00025}}\ \mbox{\hyperlink{structvec}{vec}}\ \mbox{\hyperlink{vec_8cpp_ac03a3cc79980fdd5b4e19479f0c24680}{operator+}}(\mbox{\hyperlink{structvec}{vec}}\&\ u,\ \mbox{\hyperlink{structvec}{vec}}\&\ v)}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00026}00026\ \{}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structvec}{vec}}(u.\mbox{\hyperlink{structvec_a16a7eee63e3b1d82978695a7064a7fc6}{x}}\ +\ v.\mbox{\hyperlink{structvec_a16a7eee63e3b1d82978695a7064a7fc6}{x}},\ u.\mbox{\hyperlink{structvec_ad7effb515272b2f1010b88a97c90a8c2}{y}}\ +\ v.\mbox{\hyperlink{structvec_ad7effb515272b2f1010b88a97c90a8c2}{y}});}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00028}00028\ \}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00030}\mbox{\hyperlink{vec_8cpp_a390117f1cda74104a2cd2c1809acf6f6}{00030}}\ \mbox{\hyperlink{structvec}{vec}}\ \mbox{\hyperlink{vec_8cpp_a390117f1cda74104a2cd2c1809acf6f6}{operator-\/}}(\mbox{\hyperlink{structvec}{vec}}\&\ u,\ \mbox{\hyperlink{structvec}{vec}}\&\ v)}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structvec}{vec}}(u.\mbox{\hyperlink{structvec_a16a7eee63e3b1d82978695a7064a7fc6}{x}}\ -\/\ v.\mbox{\hyperlink{structvec_a16a7eee63e3b1d82978695a7064a7fc6}{x}},\ u.\mbox{\hyperlink{structvec_ad7effb515272b2f1010b88a97c90a8c2}{y}}\ -\/\ v.\mbox{\hyperlink{structvec_ad7effb515272b2f1010b88a97c90a8c2}{y}});}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00033}00033\ \}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00035}\mbox{\hyperlink{vec_8cpp_a970fb6da4db7df8fcc948dd84a31f91e}{00035}}\ \mbox{\hyperlink{structvec}{vec}}\ \mbox{\hyperlink{vec_8cpp_a970fb6da4db7df8fcc948dd84a31f91e}{operator*}}(\textcolor{keywordtype}{double}\ c,\ \mbox{\hyperlink{structvec}{vec}}\&\ v)}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00036}00036\ \{}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structvec}{vec}}(c\ *\ v.\mbox{\hyperlink{structvec_a16a7eee63e3b1d82978695a7064a7fc6}{x}},\ c\ *\ v.\mbox{\hyperlink{structvec_ad7effb515272b2f1010b88a97c90a8c2}{y}});}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00038}00038\ \}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00040}\mbox{\hyperlink{vec_8cpp_ab4573ced31837ae73000d39359652406}{00040}}\ \mbox{\hyperlink{structvec}{vec}}\&\ \mbox{\hyperlink{vec_8cpp_ab4573ced31837ae73000d39359652406}{operator+=}}(\mbox{\hyperlink{structvec}{vec}}\&\ u,\ \mbox{\hyperlink{structvec}{vec}}\&\ v)}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00041}00041\ \{}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00042}00042\ \ \ \ \ u.\mbox{\hyperlink{structvec_a16a7eee63e3b1d82978695a7064a7fc6}{x}}\ +=\ v.\mbox{\hyperlink{structvec_a16a7eee63e3b1d82978695a7064a7fc6}{x}};}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00043}00043\ \ \ \ \ u.\mbox{\hyperlink{structvec_ad7effb515272b2f1010b88a97c90a8c2}{y}}\ +=\ v.\mbox{\hyperlink{structvec_ad7effb515272b2f1010b88a97c90a8c2}{y}};}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{return}\ u;}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00048}\mbox{\hyperlink{vec_8cpp_add5eedad6da94f694350b987e347076c}{00048}}\ \mbox{\hyperlink{structvec}{vec}}\&\ \mbox{\hyperlink{vec_8cpp_add5eedad6da94f694350b987e347076c}{operator-\/=}}(\mbox{\hyperlink{structvec}{vec}}\&\ u,\ \mbox{\hyperlink{structvec}{vec}}\&\ v)}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00049}00049\ \{}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00050}00050\ \ \ \ \ u.\mbox{\hyperlink{structvec_a16a7eee63e3b1d82978695a7064a7fc6}{x}}\ -\/=\ v.\mbox{\hyperlink{structvec_a16a7eee63e3b1d82978695a7064a7fc6}{x}};}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00051}00051\ \ \ \ \ u.\mbox{\hyperlink{structvec_ad7effb515272b2f1010b88a97c90a8c2}{y}}\ -\/=\ v.\mbox{\hyperlink{structvec_ad7effb515272b2f1010b88a97c90a8c2}{y}};}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{return}\ u;}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00056}\mbox{\hyperlink{vec_8cpp_a0a2cce89b48181240b8d8bc944226d0b}{00056}}\ \mbox{\hyperlink{structvec}{vec}}\&\ \mbox{\hyperlink{vec_8cpp_a0a2cce89b48181240b8d8bc944226d0b}{operator*=}}(\mbox{\hyperlink{structvec}{vec}}\&\ v,\ \textcolor{keywordtype}{double}\ c)}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00057}00057\ \{}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00058}00058\ \ \ \ \ v.\mbox{\hyperlink{structvec_a16a7eee63e3b1d82978695a7064a7fc6}{x}}\ *=\ c;}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00059}00059\ \ \ \ \ v.\mbox{\hyperlink{structvec_ad7effb515272b2f1010b88a97c90a8c2}{y}}\ *=\ c;}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{return}\ v;}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00064}\mbox{\hyperlink{vec_8cpp_aa8cfa9073e9c456256ab7dca05c75b7a}{00064}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{vec_8cpp_aa8cfa9073e9c456256ab7dca05c75b7a}{Orientation}}(\mbox{\hyperlink{structvec}{vec}}\&\ P,\ \mbox{\hyperlink{structvec}{vec}}\&\ Q,\ \mbox{\hyperlink{structvec}{vec}}\&\ R)}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{comment}{//int\ Orientation(double\ x1,\ double\ y1,\ double\ x2,\ double\ y2,\ double\ x3,\ double\ y3);}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00066}00066\ \{}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{rand2_8cpp_a6ebf6899d6c1c8b7b9d09be872c05aae}{EPS}}\ =\ 1e-\/6;}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{comment}{//\ \ vec\ P(x1,\ y1);}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00069}00069\ \ \ \ \ \textcolor{comment}{//\ \ vec\ Q(x2,\ y2);\ \ \ \ \ \ //\ first}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{comment}{//\ \ vec\ R(x3,\ y3);\ \ \ \ \ \ //\ second}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{structvec}{vec}}\ \mbox{\hyperlink{fsxwspot_8cpp_a5f384dfe21fd6f31587a17214dac4274}{A}},\ \mbox{\hyperlink{fsxwspot_8cpp_ac33d9b8f96c451b80dae331ba0d6af3b}{B}};}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordtype}{double}\ determinant;}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00074}00074\ \ \ \ \ \mbox{\hyperlink{fsxwspot_8cpp_a5f384dfe21fd6f31587a17214dac4274}{A}}\ =\ Q\ -\/\ P;}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00075}00075\ \ \ \ \ \mbox{\hyperlink{fsxwspot_8cpp_ac33d9b8f96c451b80dae331ba0d6af3b}{B}}\ =\ R\ -\/\ P;}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00076}00076\ \ \ \ \ determinant\ =\ \mbox{\hyperlink{fsxwspot_8cpp_a5f384dfe21fd6f31587a17214dac4274}{A}}.\mbox{\hyperlink{structvec_a16a7eee63e3b1d82978695a7064a7fc6}{x}}\ *\ \mbox{\hyperlink{fsxwspot_8cpp_ac33d9b8f96c451b80dae331ba0d6af3b}{B}}.y\ -\/\ \mbox{\hyperlink{fsxwspot_8cpp_a5f384dfe21fd6f31587a17214dac4274}{A}}.y\ *\ \mbox{\hyperlink{fsxwspot_8cpp_ac33d9b8f96c451b80dae331ba0d6af3b}{B}}.x;}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{return}\ (determinant\ <-\/EPS\ ?\ -\/1\ :\ determinant>\ \mbox{\hyperlink{rand2_8cpp_a6ebf6899d6c1c8b7b9d09be872c05aae}{EPS}});}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00079}00079\ \}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00081}\mbox{\hyperlink{vec_8cpp_abec3a5c4c2809d9d89c333c7d0ada9d5}{00081}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{vec_8cpp_abec3a5c4c2809d9d89c333c7d0ada9d5}{Inside}}(\mbox{\hyperlink{structvec}{vec}}\&\ P,\ \mbox{\hyperlink{structvec}{vec}}\&\ \mbox{\hyperlink{fsxwspot_8cpp_a5f384dfe21fd6f31587a17214dac4274}{A}},\ \mbox{\hyperlink{structvec}{vec}}\&\ \mbox{\hyperlink{fsxwspot_8cpp_ac33d9b8f96c451b80dae331ba0d6af3b}{B}},\ \mbox{\hyperlink{structvec}{vec}}\&\ C)}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00082}00082\ \{}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ P\ lies\ in\ side\ triangle\ ABC}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordtype}{int}\ OrientABP\ =\ \mbox{\hyperlink{vec_8cpp_aa8cfa9073e9c456256ab7dca05c75b7a}{Orientation}}(\mbox{\hyperlink{fsxwspot_8cpp_a5f384dfe21fd6f31587a17214dac4274}{A}},\ \mbox{\hyperlink{fsxwspot_8cpp_ac33d9b8f96c451b80dae331ba0d6af3b}{B}},\ P);}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{vec_8cpp_aa8cfa9073e9c456256ab7dca05c75b7a}{Orientation}}(\mbox{\hyperlink{fsxwspot_8cpp_ac33d9b8f96c451b80dae331ba0d6af3b}{B}},\ C,\ P)\ ==\ OrientABP\ \&\&}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vec_8cpp_aa8cfa9073e9c456256ab7dca05c75b7a}{Orientation}}(C,\ \mbox{\hyperlink{fsxwspot_8cpp_a5f384dfe21fd6f31587a17214dac4274}{A}},\ P)\ ==\ OrientABP);}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{vec_8cpp_source_l00091}00091\ }
+
+\end{DoxyCode}

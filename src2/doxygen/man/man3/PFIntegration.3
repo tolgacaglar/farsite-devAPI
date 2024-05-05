@@ -1,0 +1,87 @@
+.TH "PFIntegration" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PFIntegration
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsxpfront\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPFIntegration\fP ()"
+.br
+.ti -1c
+.RI "\fB~PFIntegration\fP ()"
+.br
+.ti -1c
+.RI "bool \fBIntegrate\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetRange\fP (\fBFireRing\fP *ring, long firenum, double CurrentTime, long begin, long end)"
+.br
+.ti -1c
+.RI "\fBX_HANDLE\fP \fBStartIntegThread\fP (long ID)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBThreadStarted\fP"
+.br
+.ti -1c
+.RI "double \fBFlameWeightConsumed\fP"
+.br
+.ti -1c
+.RI "double \fBSmolderWeightConsumed\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB250\fP of file \fBfsxpfront\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "PFIntegration::PFIntegration ()"
+
+.PP
+Definition at line \fB3592\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "PFIntegration::~PFIntegration ()"
+
+.PP
+Definition at line \fB3603\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bool PFIntegration::Integrate ()"
+
+.PP
+Definition at line \fB4048\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void PFIntegration::SetRange (\fBFireRing\fP * ring, long firenum, double CurrentTime, long begin, long end)"
+
+.PP
+Definition at line \fB3607\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "\fBX_HANDLE\fP PFIntegration::StartIntegThread (long ID)"
+
+.PP
+Definition at line \fB3618\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "double PFIntegration::FlameWeightConsumed"
+
+.PP
+Definition at line \fB279\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "double PFIntegration::SmolderWeightConsumed"
+
+.PP
+Definition at line \fB279\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "bool PFIntegration::ThreadStarted"
+
+.PP
+Definition at line \fB278\fP of file \fBfsxpfront\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

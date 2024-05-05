@@ -1,0 +1,124 @@
+\doxysection{Attack Class Reference}
+\hypertarget{class_attack}{}\label{class_attack}\index{Attack@{Attack}}
+
+
+{\ttfamily \#include $<$fsxwattk.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_attack_aa2f391755dbfa049a6bc2991fae80017}{Attack}} ()
+\item 
+\mbox{\hyperlink{class_attack_a6d3c8266507e4ac0102ab40847f478fe}{\texorpdfstring{$\sim$}{\string~}\+Attack}} ()
+\item 
+bool \mbox{\hyperlink{class_attack_a6528846bb59a3ed1bebad278c0dd1b61}{Direct\+Attack}} (\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}attack, double Time\+Step)
+\item 
+bool \mbox{\hyperlink{class_attack_afbe17875544dc5df1b93955b3431f5ff}{Indirect\+Attack}} (\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}attack, double Time\+Step)
+\item 
+bool \mbox{\hyperlink{class_attack_af63ecdb35cfd045adcb7aab769563006}{Parallel\+Attack}} (\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}atk, double Time\+Step)
+\item 
+void \mbox{\hyperlink{class_attack_afab798df47bdbb77bf8897a0ad020f7f}{Conduct\+Burnout}} (\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}atk)
+\item 
+long \mbox{\hyperlink{class_attack_a5f4a90d920805e883e2c68e1d120ce31}{Check\+Overlap\+Attacks}} (long \texorpdfstring{$\ast$}{*}attacks, double Time\+Step)
+\item 
+void \mbox{\hyperlink{class_attack_ac769faba62647c633496ff7a1dbc118e}{Bounding\+Box}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8h_source_l00106}{106}} of file \mbox{\hyperlink{fsxwattk_8h_source}{fsxwattk.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_attack_aa2f391755dbfa049a6bc2991fae80017}\label{class_attack_aa2f391755dbfa049a6bc2991fae80017} 
+\index{Attack@{Attack}!Attack@{Attack}}
+\index{Attack@{Attack}!Attack@{Attack}}
+\doxysubsubsection{\texorpdfstring{Attack()}{Attack()}}
+{\footnotesize\ttfamily Attack\+::\+Attack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{class_attack_a6d3c8266507e4ac0102ab40847f478fe}\label{class_attack_a6d3c8266507e4ac0102ab40847f478fe} 
+\index{Attack@{Attack}!````~Attack@{\texorpdfstring{$\sim$}{\string~}Attack}}
+\index{````~Attack@{\texorpdfstring{$\sim$}{\string~}Attack}!Attack@{Attack}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Attack()}{\string~Attack()}}
+{\footnotesize\ttfamily Attack\+::\texorpdfstring{$\sim$}{\string~}\+Attack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_attack_ac769faba62647c633496ff7a1dbc118e}\label{class_attack_ac769faba62647c633496ff7a1dbc118e} 
+\index{Attack@{Attack}!BoundingBox@{BoundingBox}}
+\index{BoundingBox@{BoundingBox}!Attack@{Attack}}
+\doxysubsubsection{\texorpdfstring{BoundingBox()}{BoundingBox()}}
+{\footnotesize\ttfamily void Attack\+::\+Bounding\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l01627}{1627}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{class_attack_a5f4a90d920805e883e2c68e1d120ce31}\label{class_attack_a5f4a90d920805e883e2c68e1d120ce31} 
+\index{Attack@{Attack}!CheckOverlapAttacks@{CheckOverlapAttacks}}
+\index{CheckOverlapAttacks@{CheckOverlapAttacks}!Attack@{Attack}}
+\doxysubsubsection{\texorpdfstring{CheckOverlapAttacks()}{CheckOverlapAttacks()}}
+{\footnotesize\ttfamily long Attack\+::\+Check\+Overlap\+Attacks (\begin{DoxyParamCaption}\item[{long \texorpdfstring{$\ast$}{*}}]{attacks,  }\item[{double}]{Time\+Step }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l00353}{353}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{class_attack_afab798df47bdbb77bf8897a0ad020f7f}\label{class_attack_afab798df47bdbb77bf8897a0ad020f7f} 
+\index{Attack@{Attack}!ConductBurnout@{ConductBurnout}}
+\index{ConductBurnout@{ConductBurnout}!Attack@{Attack}}
+\doxysubsubsection{\texorpdfstring{ConductBurnout()}{ConductBurnout()}}
+{\footnotesize\ttfamily void Attack\+::\+Conduct\+Burnout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}}]{atk }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l01884}{1884}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{class_attack_a6528846bb59a3ed1bebad278c0dd1b61}\label{class_attack_a6528846bb59a3ed1bebad278c0dd1b61} 
+\index{Attack@{Attack}!DirectAttack@{DirectAttack}}
+\index{DirectAttack@{DirectAttack}!Attack@{Attack}}
+\doxysubsubsection{\texorpdfstring{DirectAttack()}{DirectAttack()}}
+{\footnotesize\ttfamily bool Attack\+::\+Direct\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}}]{attack,  }\item[{double}]{Time\+Step }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l00371}{371}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{class_attack_afbe17875544dc5df1b93955b3431f5ff}\label{class_attack_afbe17875544dc5df1b93955b3431f5ff} 
+\index{Attack@{Attack}!IndirectAttack@{IndirectAttack}}
+\index{IndirectAttack@{IndirectAttack}!Attack@{Attack}}
+\doxysubsubsection{\texorpdfstring{IndirectAttack()}{IndirectAttack()}}
+{\footnotesize\ttfamily bool Attack\+::\+Indirect\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}}]{attack,  }\item[{double}]{Time\+Step }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l00859}{859}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{class_attack_af63ecdb35cfd045adcb7aab769563006}\label{class_attack_af63ecdb35cfd045adcb7aab769563006} 
+\index{Attack@{Attack}!ParallelAttack@{ParallelAttack}}
+\index{ParallelAttack@{ParallelAttack}!Attack@{Attack}}
+\doxysubsubsection{\texorpdfstring{ParallelAttack()}{ParallelAttack()}}
+{\footnotesize\ttfamily bool Attack\+::\+Parallel\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}}]{atk,  }\item[{double}]{Time\+Step }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l01061}{1061}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsxwattk_8h}{fsxwattk.\+h}}\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsxwattk_8cpp}{fsxwattk.\+cpp}}\end{DoxyCompactItemize}

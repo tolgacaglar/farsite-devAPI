@@ -1,0 +1,121 @@
+.TH "TimeCounter" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TimeCounter
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <TimeCounter\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "float \fBgetTime\fP ()"
+.br
+.ti -1c
+.RI "float \fBgetTimeS\fP ()"
+.br
+.ti -1c
+.RI "void \fBstartT\fP ()"
+.br
+.ti -1c
+.RI "void \fBstartTS\fP ()"
+.br
+.ti -1c
+.RI "void \fBstopT\fP ()"
+.br
+.ti -1c
+.RI "void \fBstopTS\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBTimeCounter\fP * \fBInstance\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "struct timespec t0 t1 st0 \fBst1\fP"
+.br
+.ti -1c
+.RI "long \fBAccTime_sec\fP"
+.br
+.ti -1c
+.RI "long \fBAccTimeS_sec\fP"
+.br
+.ti -1c
+.RI "long \fBAccTime_nsec\fP"
+.br
+.ti -1c
+.RI "long \fBAccTimeS_nsec\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB5\fP of file \fBTimeCounter\&.hpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "float TimeCounter::getTime ()"
+
+.PP
+Definition at line \fB41\fP of file \fBTimeCounter\&.cpp\fP\&.
+.SS "float TimeCounter::getTimeS ()"
+
+.PP
+Definition at line \fB44\fP of file \fBTimeCounter\&.cpp\fP\&.
+.SS "\fBTimeCounter\fP * TimeCounter::Instance ()\fR [static]\fP"
+This function is called to create an instance of the class\&.
+.PP
+Calling the constructor publicly is not allowed\&. The constructor
+.PP
+is private and is only called by this Instance function\&. 
+.PP
+Definition at line \fB21\fP of file \fBTimeCounter\&.cpp\fP\&.
+.SS "void TimeCounter::startT ()"
+
+.PP
+Definition at line \fB63\fP of file \fBTimeCounter\&.cpp\fP\&.
+.SS "void TimeCounter::startTS ()"
+
+.PP
+Definition at line \fB47\fP of file \fBTimeCounter\&.cpp\fP\&.
+.SS "void TimeCounter::stopT ()"
+
+.PP
+Definition at line \fB71\fP of file \fBTimeCounter\&.cpp\fP\&.
+.SS "void TimeCounter::stopTS ()"
+
+.PP
+Definition at line \fB54\fP of file \fBTimeCounter\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "long TimeCounter::AccTime_nsec\fR [protected]\fP"
+
+.PP
+Definition at line \fB38\fP of file \fBTimeCounter\&.hpp\fP\&.
+.SS "long TimeCounter::AccTime_sec\fR [protected]\fP"
+
+.PP
+Definition at line \fB38\fP of file \fBTimeCounter\&.hpp\fP\&.
+.SS "long TimeCounter::AccTimeS_nsec\fR [protected]\fP"
+
+.PP
+Definition at line \fB38\fP of file \fBTimeCounter\&.hpp\fP\&.
+.SS "long TimeCounter::AccTimeS_sec\fR [protected]\fP"
+
+.PP
+Definition at line \fB38\fP of file \fBTimeCounter\&.hpp\fP\&.
+.SS "struct timespec t0 t1 st0 TimeCounter::st1\fR [protected]\fP"
+
+.PP
+Definition at line \fB37\fP of file \fBTimeCounter\&.hpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

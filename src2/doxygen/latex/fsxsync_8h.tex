@@ -1,0 +1,289 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fsxsync.h File Reference}
+\hypertarget{fsxsync_8h}{}\label{fsxsync_8h}\index{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/fsxsync.h@{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/fsxsync.h}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_farsite_event}{Farsite\+Event}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fsxsync_8h_a0aeb8bf9ff981a8b5bd5ebaf491fc870}{EVENT\+\_\+\+BURN}}~1
+\item 
+\#define \mbox{\hyperlink{fsxsync_8h_a6c4fe7cd0f9ff0a1dc59a4e799d488bc}{EVENT\+\_\+\+MOIST}}~2
+\item 
+\#define \mbox{\hyperlink{fsxsync_8h_a41ff6e7fbef47ce6d9114f4e7365b26e}{EVENT\+\_\+\+BURNUP}}~3
+\item 
+\#define \mbox{\hyperlink{fsxsync_8h_a8d676bbc772e399ed3cb3b6ba3363740}{EVENT\+\_\+\+INTEG}}~4
+\item 
+\#define \mbox{\hyperlink{fsxsync_8h_a5687a20702fdf10c7cc00befd9bba38a}{EVENT\+\_\+\+BURN\+\_\+\+THREAD}}~5
+\item 
+\#define \mbox{\hyperlink{fsxsync_8h_a6b7c18f915712bd9e9cb372e364a4ae8}{EVENT\+\_\+\+MOIST\+\_\+\+THREAD}}~6
+\item 
+\#define \mbox{\hyperlink{fsxsync_8h_a07ec69b86ca094be082335bed0eed12c}{EVENT\+\_\+\+BURNUP\+\_\+\+THREAD}}~7
+\item 
+\#define \mbox{\hyperlink{fsxsync_8h_aeaaf880c4efd67745648eb76d11ae217}{EVENT\+\_\+\+INTEG\+\_\+\+THREAD}}~8
+\item 
+\#define \mbox{\hyperlink{fsxsync_8h_ad189fccce7b6230f4b75fa66ddc9f5c1}{EVENT\+\_\+\+CROSS}}~9
+\item 
+\#define \mbox{\hyperlink{fsxsync_8h_ad914cf6043b5d50e0f434e732e4d28c9}{EVENT\+\_\+\+CROSS\+\_\+\+THREAD}}~10
+\item 
+\#define \mbox{\hyperlink{fsxsync_8h_abad967f8d86b3257df42041dac8a93c0}{FARSITE\+\_\+\+HANDLE}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef long \mbox{\hyperlink{fsxsync_8h_aac97dde8e4de9251506139df72ede9ac}{X\+\_\+\+HANDLE}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{fsxsync_8h_aba2cdc60b1efdf0f48cf2990ce731e87}{Alloc\+Farsite\+Events}} (long Event\+Num, long numevents, char \texorpdfstring{$\ast$}{*}basename, bool Man\+Reset, bool Init\+State)
+\item 
+bool \mbox{\hyperlink{fsxsync_8h_ac75a06585ef739375a5483a024faf73a}{Free\+Farsite\+Events}} (long Event\+Num)
+\item 
+bool \mbox{\hyperlink{fsxsync_8h_adade7a1cc0f1abbb08a8e3d7a328937a}{Set\+Farsite\+Event}} (long Event\+Num, long Thread\+Num)
+\item 
+bool \mbox{\hyperlink{fsxsync_8h_ae56a64e85d991ae1f7bb6747e0e3ecdb}{Reset\+Farsite\+Event}} (long Event\+Num, long Thread\+Num)
+\item 
+bool \mbox{\hyperlink{fsxsync_8h_a03bc0f27ac283f02dc2423bedb7f4526}{Wait\+For\+Farsite\+Events}} (long Event\+Num, long Num\+Events, bool All, unsigned long Wait)
+\item 
+bool \mbox{\hyperlink{fsxsync_8h_a2601d8c018415b0b2c300ea96d68ceee}{Wait\+For\+One\+Farsite\+Event}} (long Event\+Num, long Thread\+Num, unsigned long Wait)
+\item 
+\mbox{\hyperlink{fsxsync_8h_aac97dde8e4de9251506139df72ede9ac}{X\+\_\+\+HANDLE}} \mbox{\hyperlink{fsxsync_8h_acf2298b0335b2f299a2477aaac8da488}{Get\+Farsite\+Event}} (long Event\+Num, long Thread\+Num)
+\item 
+\mbox{\hyperlink{fsxsync_8h_aac97dde8e4de9251506139df72ede9ac}{X\+\_\+\+HANDLE}} \mbox{\hyperlink{fsxsync_8h_a29464e5cb56c12cdbf1d282d036e03e0}{Get\+Landscape\+Semaphore}} ()
+\item 
+bool \mbox{\hyperlink{fsxsync_8h_a8cc6442c98b83e3864e731624ddf6c7f}{Create\+Landscape\+Semaphore}} ()
+\item 
+void \mbox{\hyperlink{fsxsync_8h_ad2ca283b43cd418c83b7aa8a7f8c2d58}{Close\+Landscape\+Semaphore}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fsxsync_8h_a0aeb8bf9ff981a8b5bd5ebaf491fc870}\label{fsxsync_8h_a0aeb8bf9ff981a8b5bd5ebaf491fc870} 
+\index{fsxsync.h@{fsxsync.h}!EVENT\_BURN@{EVENT\_BURN}}
+\index{EVENT\_BURN@{EVENT\_BURN}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{EVENT\_BURN}{EVENT\_BURN}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+BURN~1}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8h_source_l00035}{35}} of file \mbox{\hyperlink{fsxsync_8h_source}{fsxsync.\+h}}.
+
+\Hypertarget{fsxsync_8h_a5687a20702fdf10c7cc00befd9bba38a}\label{fsxsync_8h_a5687a20702fdf10c7cc00befd9bba38a} 
+\index{fsxsync.h@{fsxsync.h}!EVENT\_BURN\_THREAD@{EVENT\_BURN\_THREAD}}
+\index{EVENT\_BURN\_THREAD@{EVENT\_BURN\_THREAD}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{EVENT\_BURN\_THREAD}{EVENT\_BURN\_THREAD}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+BURN\+\_\+\+THREAD~5}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8h_source_l00039}{39}} of file \mbox{\hyperlink{fsxsync_8h_source}{fsxsync.\+h}}.
+
+\Hypertarget{fsxsync_8h_a41ff6e7fbef47ce6d9114f4e7365b26e}\label{fsxsync_8h_a41ff6e7fbef47ce6d9114f4e7365b26e} 
+\index{fsxsync.h@{fsxsync.h}!EVENT\_BURNUP@{EVENT\_BURNUP}}
+\index{EVENT\_BURNUP@{EVENT\_BURNUP}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{EVENT\_BURNUP}{EVENT\_BURNUP}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+BURNUP~3}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8h_source_l00037}{37}} of file \mbox{\hyperlink{fsxsync_8h_source}{fsxsync.\+h}}.
+
+\Hypertarget{fsxsync_8h_a07ec69b86ca094be082335bed0eed12c}\label{fsxsync_8h_a07ec69b86ca094be082335bed0eed12c} 
+\index{fsxsync.h@{fsxsync.h}!EVENT\_BURNUP\_THREAD@{EVENT\_BURNUP\_THREAD}}
+\index{EVENT\_BURNUP\_THREAD@{EVENT\_BURNUP\_THREAD}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{EVENT\_BURNUP\_THREAD}{EVENT\_BURNUP\_THREAD}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+BURNUP\+\_\+\+THREAD~7}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8h_source_l00041}{41}} of file \mbox{\hyperlink{fsxsync_8h_source}{fsxsync.\+h}}.
+
+\Hypertarget{fsxsync_8h_ad189fccce7b6230f4b75fa66ddc9f5c1}\label{fsxsync_8h_ad189fccce7b6230f4b75fa66ddc9f5c1} 
+\index{fsxsync.h@{fsxsync.h}!EVENT\_CROSS@{EVENT\_CROSS}}
+\index{EVENT\_CROSS@{EVENT\_CROSS}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{EVENT\_CROSS}{EVENT\_CROSS}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+CROSS~9}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8h_source_l00043}{43}} of file \mbox{\hyperlink{fsxsync_8h_source}{fsxsync.\+h}}.
+
+\Hypertarget{fsxsync_8h_ad914cf6043b5d50e0f434e732e4d28c9}\label{fsxsync_8h_ad914cf6043b5d50e0f434e732e4d28c9} 
+\index{fsxsync.h@{fsxsync.h}!EVENT\_CROSS\_THREAD@{EVENT\_CROSS\_THREAD}}
+\index{EVENT\_CROSS\_THREAD@{EVENT\_CROSS\_THREAD}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{EVENT\_CROSS\_THREAD}{EVENT\_CROSS\_THREAD}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+CROSS\+\_\+\+THREAD~10}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8h_source_l00044}{44}} of file \mbox{\hyperlink{fsxsync_8h_source}{fsxsync.\+h}}.
+
+\Hypertarget{fsxsync_8h_a8d676bbc772e399ed3cb3b6ba3363740}\label{fsxsync_8h_a8d676bbc772e399ed3cb3b6ba3363740} 
+\index{fsxsync.h@{fsxsync.h}!EVENT\_INTEG@{EVENT\_INTEG}}
+\index{EVENT\_INTEG@{EVENT\_INTEG}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{EVENT\_INTEG}{EVENT\_INTEG}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+INTEG~4}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8h_source_l00038}{38}} of file \mbox{\hyperlink{fsxsync_8h_source}{fsxsync.\+h}}.
+
+\Hypertarget{fsxsync_8h_aeaaf880c4efd67745648eb76d11ae217}\label{fsxsync_8h_aeaaf880c4efd67745648eb76d11ae217} 
+\index{fsxsync.h@{fsxsync.h}!EVENT\_INTEG\_THREAD@{EVENT\_INTEG\_THREAD}}
+\index{EVENT\_INTEG\_THREAD@{EVENT\_INTEG\_THREAD}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{EVENT\_INTEG\_THREAD}{EVENT\_INTEG\_THREAD}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+INTEG\+\_\+\+THREAD~8}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8h_source_l00042}{42}} of file \mbox{\hyperlink{fsxsync_8h_source}{fsxsync.\+h}}.
+
+\Hypertarget{fsxsync_8h_a6c4fe7cd0f9ff0a1dc59a4e799d488bc}\label{fsxsync_8h_a6c4fe7cd0f9ff0a1dc59a4e799d488bc} 
+\index{fsxsync.h@{fsxsync.h}!EVENT\_MOIST@{EVENT\_MOIST}}
+\index{EVENT\_MOIST@{EVENT\_MOIST}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{EVENT\_MOIST}{EVENT\_MOIST}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+MOIST~2}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8h_source_l00036}{36}} of file \mbox{\hyperlink{fsxsync_8h_source}{fsxsync.\+h}}.
+
+\Hypertarget{fsxsync_8h_a6b7c18f915712bd9e9cb372e364a4ae8}\label{fsxsync_8h_a6b7c18f915712bd9e9cb372e364a4ae8} 
+\index{fsxsync.h@{fsxsync.h}!EVENT\_MOIST\_THREAD@{EVENT\_MOIST\_THREAD}}
+\index{EVENT\_MOIST\_THREAD@{EVENT\_MOIST\_THREAD}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{EVENT\_MOIST\_THREAD}{EVENT\_MOIST\_THREAD}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+MOIST\+\_\+\+THREAD~6}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8h_source_l00040}{40}} of file \mbox{\hyperlink{fsxsync_8h_source}{fsxsync.\+h}}.
+
+\Hypertarget{fsxsync_8h_abad967f8d86b3257df42041dac8a93c0}\label{fsxsync_8h_abad967f8d86b3257df42041dac8a93c0} 
+\index{fsxsync.h@{fsxsync.h}!FARSITE\_HANDLE@{FARSITE\_HANDLE}}
+\index{FARSITE\_HANDLE@{FARSITE\_HANDLE}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{FARSITE\_HANDLE}{FARSITE\_HANDLE}}
+{\footnotesize\ttfamily \#define FARSITE\+\_\+\+HANDLE}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8h_source_l00047}{47}} of file \mbox{\hyperlink{fsxsync_8h_source}{fsxsync.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{fsxsync_8h_aac97dde8e4de9251506139df72ede9ac}\label{fsxsync_8h_aac97dde8e4de9251506139df72ede9ac} 
+\index{fsxsync.h@{fsxsync.h}!X\_HANDLE@{X\_HANDLE}}
+\index{X\_HANDLE@{X\_HANDLE}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{X\_HANDLE}{X\_HANDLE}}
+{\footnotesize\ttfamily typedef long \mbox{\hyperlink{fsxsync_8h_aac97dde8e4de9251506139df72ede9ac}{X\+\_\+\+HANDLE}}}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8h_source_l00048}{48}} of file \mbox{\hyperlink{fsxsync_8h_source}{fsxsync.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fsxsync_8h_aba2cdc60b1efdf0f48cf2990ce731e87}\label{fsxsync_8h_aba2cdc60b1efdf0f48cf2990ce731e87} 
+\index{fsxsync.h@{fsxsync.h}!AllocFarsiteEvents@{AllocFarsiteEvents}}
+\index{AllocFarsiteEvents@{AllocFarsiteEvents}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{AllocFarsiteEvents()}{AllocFarsiteEvents()}}
+{\footnotesize\ttfamily bool Alloc\+Farsite\+Events (\begin{DoxyParamCaption}\item[{long}]{Event\+Num,  }\item[{long}]{numevents,  }\item[{char \texorpdfstring{$\ast$}{*}}]{basename,  }\item[{bool}]{Man\+Reset,  }\item[{bool}]{Init\+State }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{fsxsync_8cpp_source}{fsxsync.\+cpp}}.
+
+\Hypertarget{fsxsync_8h_ad2ca283b43cd418c83b7aa8a7f8c2d58}\label{fsxsync_8h_ad2ca283b43cd418c83b7aa8a7f8c2d58} 
+\index{fsxsync.h@{fsxsync.h}!CloseLandscapeSemaphore@{CloseLandscapeSemaphore}}
+\index{CloseLandscapeSemaphore@{CloseLandscapeSemaphore}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{CloseLandscapeSemaphore()}{CloseLandscapeSemaphore()}}
+{\footnotesize\ttfamily void Close\+Landscape\+Semaphore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8cpp_source_l00474}{474}} of file \mbox{\hyperlink{fsxsync_8cpp_source}{fsxsync.\+cpp}}.
+
+\Hypertarget{fsxsync_8h_a8cc6442c98b83e3864e731624ddf6c7f}\label{fsxsync_8h_a8cc6442c98b83e3864e731624ddf6c7f} 
+\index{fsxsync.h@{fsxsync.h}!CreateLandscapeSemaphore@{CreateLandscapeSemaphore}}
+\index{CreateLandscapeSemaphore@{CreateLandscapeSemaphore}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{CreateLandscapeSemaphore()}{CreateLandscapeSemaphore()}}
+{\footnotesize\ttfamily bool Create\+Landscape\+Semaphore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8cpp_source_l00454}{454}} of file \mbox{\hyperlink{fsxsync_8cpp_source}{fsxsync.\+cpp}}.
+
+\Hypertarget{fsxsync_8h_ac75a06585ef739375a5483a024faf73a}\label{fsxsync_8h_ac75a06585ef739375a5483a024faf73a} 
+\index{fsxsync.h@{fsxsync.h}!FreeFarsiteEvents@{FreeFarsiteEvents}}
+\index{FreeFarsiteEvents@{FreeFarsiteEvents}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{FreeFarsiteEvents()}{FreeFarsiteEvents()}}
+{\footnotesize\ttfamily bool Free\+Farsite\+Events (\begin{DoxyParamCaption}\item[{long}]{Event\+Num }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8cpp_source_l00088}{88}} of file \mbox{\hyperlink{fsxsync_8cpp_source}{fsxsync.\+cpp}}.
+
+\Hypertarget{fsxsync_8h_acf2298b0335b2f299a2477aaac8da488}\label{fsxsync_8h_acf2298b0335b2f299a2477aaac8da488} 
+\index{fsxsync.h@{fsxsync.h}!GetFarsiteEvent@{GetFarsiteEvent}}
+\index{GetFarsiteEvent@{GetFarsiteEvent}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{GetFarsiteEvent()}{GetFarsiteEvent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fsxsync_8h_aac97dde8e4de9251506139df72ede9ac}{X\+\_\+\+HANDLE}} Get\+Farsite\+Event (\begin{DoxyParamCaption}\item[{long}]{Event\+Num,  }\item[{long}]{Thread\+Num }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8cpp_source_l00267}{267}} of file \mbox{\hyperlink{fsxsync_8cpp_source}{fsxsync.\+cpp}}.
+
+\Hypertarget{fsxsync_8h_a29464e5cb56c12cdbf1d282d036e03e0}\label{fsxsync_8h_a29464e5cb56c12cdbf1d282d036e03e0} 
+\index{fsxsync.h@{fsxsync.h}!GetLandscapeSemaphore@{GetLandscapeSemaphore}}
+\index{GetLandscapeSemaphore@{GetLandscapeSemaphore}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{GetLandscapeSemaphore()}{GetLandscapeSemaphore()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fsxsync_8h_aac97dde8e4de9251506139df72ede9ac}{X\+\_\+\+HANDLE}} Get\+Landscape\+Semaphore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8cpp_source_l00448}{448}} of file \mbox{\hyperlink{fsxsync_8cpp_source}{fsxsync.\+cpp}}.
+
+\Hypertarget{fsxsync_8h_ae56a64e85d991ae1f7bb6747e0e3ecdb}\label{fsxsync_8h_ae56a64e85d991ae1f7bb6747e0e3ecdb} 
+\index{fsxsync.h@{fsxsync.h}!ResetFarsiteEvent@{ResetFarsiteEvent}}
+\index{ResetFarsiteEvent@{ResetFarsiteEvent}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{ResetFarsiteEvent()}{ResetFarsiteEvent()}}
+{\footnotesize\ttfamily bool Reset\+Farsite\+Event (\begin{DoxyParamCaption}\item[{long}]{Event\+Num,  }\item[{long}]{Thread\+Num }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8cpp_source_l00158}{158}} of file \mbox{\hyperlink{fsxsync_8cpp_source}{fsxsync.\+cpp}}.
+
+\Hypertarget{fsxsync_8h_adade7a1cc0f1abbb08a8e3d7a328937a}\label{fsxsync_8h_adade7a1cc0f1abbb08a8e3d7a328937a} 
+\index{fsxsync.h@{fsxsync.h}!SetFarsiteEvent@{SetFarsiteEvent}}
+\index{SetFarsiteEvent@{SetFarsiteEvent}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{SetFarsiteEvent()}{SetFarsiteEvent()}}
+{\footnotesize\ttfamily bool Set\+Farsite\+Event (\begin{DoxyParamCaption}\item[{long}]{Event\+Num,  }\item[{long}]{Thread\+Num }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8cpp_source_l00123}{123}} of file \mbox{\hyperlink{fsxsync_8cpp_source}{fsxsync.\+cpp}}.
+
+\Hypertarget{fsxsync_8h_a03bc0f27ac283f02dc2423bedb7f4526}\label{fsxsync_8h_a03bc0f27ac283f02dc2423bedb7f4526} 
+\index{fsxsync.h@{fsxsync.h}!WaitForFarsiteEvents@{WaitForFarsiteEvents}}
+\index{WaitForFarsiteEvents@{WaitForFarsiteEvents}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{WaitForFarsiteEvents()}{WaitForFarsiteEvents()}}
+{\footnotesize\ttfamily bool Wait\+For\+Farsite\+Events (\begin{DoxyParamCaption}\item[{long}]{Event\+Num,  }\item[{long}]{Num\+Events,  }\item[{bool}]{All,  }\item[{unsigned long}]{Wait }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8cpp_source_l00193}{193}} of file \mbox{\hyperlink{fsxsync_8cpp_source}{fsxsync.\+cpp}}.
+
+\Hypertarget{fsxsync_8h_a2601d8c018415b0b2c300ea96d68ceee}\label{fsxsync_8h_a2601d8c018415b0b2c300ea96d68ceee} 
+\index{fsxsync.h@{fsxsync.h}!WaitForOneFarsiteEvent@{WaitForOneFarsiteEvent}}
+\index{WaitForOneFarsiteEvent@{WaitForOneFarsiteEvent}!fsxsync.h@{fsxsync.h}}
+\doxysubsubsection{\texorpdfstring{WaitForOneFarsiteEvent()}{WaitForOneFarsiteEvent()}}
+{\footnotesize\ttfamily bool Wait\+For\+One\+Farsite\+Event (\begin{DoxyParamCaption}\item[{long}]{Event\+Num,  }\item[{long}]{Thread\+Num,  }\item[{unsigned long}]{Wait }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxsync_8cpp_source_l00231}{231}} of file \mbox{\hyperlink{fsxsync_8cpp_source}{fsxsync.\+cpp}}.
+

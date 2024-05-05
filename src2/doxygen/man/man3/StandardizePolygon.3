@@ -1,0 +1,97 @@
+.TH "StandardizePolygon" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+StandardizePolygon
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsx4\&.hpp>\fP
+.PP
+Inherited by \fBIgnitionCorrect\fP, and \fBIntersections\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBStandardizePolygon\fP ()"
+.br
+.ti -1c
+.RI "\fB~StandardizePolygon\fP ()"
+.br
+.ti -1c
+.RI "long \fBFindExternalPoint\fP (long CurrentFire, long type)"
+.br
+.ti -1c
+.RI "void \fBReorderPerimeter\fP (long CurrentFire, long NewBeginning)"
+.br
+.ti -1c
+.RI "void \fBFindOuterFirePerimeter\fP (long CurrentFire)"
+.br
+.ti -1c
+.RI "bool \fBCross\fP (double xpt1, double ypt1, double xpt2, double ypt2, double xpt1n, double ypt1n, double xpt2n, double ypt2n, double *newx, double *newy, long *dup1, long *dup2)"
+.br
+.ti -1c
+.RI "void \fBDensityControl\fP (long CurrentFire)"
+.br
+.ti -1c
+.RI "void \fBRemoveDuplicatePoints\fP (long CurrentFire)"
+.br
+.ti -1c
+.RI "void \fBRemoveIdenticalPoints\fP (long FireNum)"
+.br
+.ti -1c
+.RI "void \fBBoundingBox\fP (long CurrentFire)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB100\fP of file \fBfsx4\&.hpp\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "StandardizePolygon::StandardizePolygon ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB103\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "StandardizePolygon::~StandardizePolygon ()\fR [inline]\fP"
+
+.PP
+Definition at line \fB106\fP of file \fBfsx4\&.hpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void StandardizePolygon::BoundingBox (long CurrentFire)"
+
+.PP
+Definition at line \fB2424\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "bool StandardizePolygon::Cross (double xpt1, double ypt1, double xpt2, double ypt2, double xpt1n, double ypt1n, double xpt2n, double ypt2n, double * newx, double * newy, long * dup1, long * dup2)"
+
+.PP
+Definition at line \fB1515\fP of file \fBnewclip\&.cpp\fP\&.
+.SS "void StandardizePolygon::DensityControl (long CurrentFire)"
+
+.PP
+Definition at line \fB1785\fP of file \fBnewclip\&.cpp\fP\&.
+.SS "long StandardizePolygon::FindExternalPoint (long CurrentFire, long type)"
+
+.PP
+Definition at line \fB770\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "void StandardizePolygon::FindOuterFirePerimeter (long CurrentFire)"
+
+.PP
+Definition at line \fB1067\fP of file \fBnewclip\&.cpp\fP\&.
+.SS "void StandardizePolygon::RemoveDuplicatePoints (long CurrentFire)"
+
+.PP
+Definition at line \fB2354\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "void StandardizePolygon::RemoveIdenticalPoints (long FireNum)"
+
+.PP
+Definition at line \fB724\fP of file \fBfsxwignt\&.cpp\fP\&.
+.SS "void StandardizePolygon::ReorderPerimeter (long CurrentFire, long NewBeginning)"
+
+.PP
+Definition at line \fB2301\fP of file \fBfsxwutil\&.cpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

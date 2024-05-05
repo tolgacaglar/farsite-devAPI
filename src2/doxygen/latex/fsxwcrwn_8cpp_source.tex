@@ -1,0 +1,179 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fsxwcrwn.cpp}
+\hypertarget{fsxwcrwn_8cpp_source}{}\label{fsxwcrwn_8cpp_source}\mbox{\hyperlink{fsxwcrwn_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsglbvar_8h}{fsglbvar.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00025}\mbox{\hyperlink{class_crown_a69e493563cb7ad2d4edddbaf9faf2bd3}{00025}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_crown_a69e493563cb7ad2d4edddbaf9faf2bd3}{Crown::CrownIgnite}}(\textcolor{keywordtype}{double}\ height,\ \textcolor{keywordtype}{double}\ base,\ \textcolor{keywordtype}{double}\ density)}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//\ Determines\ if\ surface\ fire\ will\ become\ crownfire}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{double}\ temp;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00030}00030\ \ \ \ \ \mbox{\hyperlink{class_crown_af226ae63eb9d4bb7639a903278b8e129}{HLCB}}\ =\ base;\textcolor{comment}{//GetCrownBase();}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_crown_af226ae63eb9d4bb7639a903278b8e129}{HLCB}}\ ==\ 0.0)}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_crown_af226ae63eb9d4bb7639a903278b8e129}{HLCB}}\ =\ 0.01;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{class_crown_a312509c5aceabb84530687babb0854c0}{FoliarMC}}\ =\ \mbox{\hyperlink{fsglbvar_8cpp_ad73918151a1fb822285210f13c672222}{GetFoliarMC}}();}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{class_crown_a9c1db20d91fa1eff61bcf5bf67f719ea}{CrownBulkDensity}}\ =\ density;\textcolor{comment}{//GetCrownBD();}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_crown_a9c1db20d91fa1eff61bcf5bf67f719ea}{CrownBulkDensity}}\ ==\ 0.0)}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_crown_a9c1db20d91fa1eff61bcf5bf67f719ea}{CrownBulkDensity}}\ =\ 0.01;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00037}00037\ \ \ \ \ \mbox{\hyperlink{class_crown_ac0ec009f47dd7b8e2c7c269436e49038}{TreeHeight}}\ =\ height;\textcolor{comment}{//GetCrownHeight();}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_crown_ac0ec009f47dd7b8e2c7c269436e49038}{TreeHeight}}\ <=\ \mbox{\hyperlink{class_crown_af226ae63eb9d4bb7639a903278b8e129}{HLCB}})}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_crown_ac0ec009f47dd7b8e2c7c269436e49038}{TreeHeight}}\ =\ \mbox{\hyperlink{class_crown_af226ae63eb9d4bb7639a903278b8e129}{HLCB}}\ +\ 1.0;\ \ \textcolor{comment}{//\ 1\ meter\ higher}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00040}00040\ \ \ \ \ temp\ =\ 0.010\ *\ \mbox{\hyperlink{class_crown_af226ae63eb9d4bb7639a903278b8e129}{HLCB}}\ *\ (460.0\ +\ 25.9\ *\ \mbox{\hyperlink{class_crown_a312509c5aceabb84530687babb0854c0}{FoliarMC}});}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{class_crown_ac5f52a5c7795b709aca21becf2420957}{Io}}\ =\ temp\ *\ sqrt(temp);\ \ \ \textcolor{comment}{//\ Alexander\ 1988\ from\ Van\ Wagner\ 1977\ \&\ 1993,}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{comment}{//\ \ Io=pow(.010*HLCB*(460.0+25.9*FoliarMC),1.5);\ \ \ //\ Alexander\ 1988\ from\ Van\ Wagner\ 1977\ \&\ 1993,}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00048}\mbox{\hyperlink{class_crown_a70799ff1fbdb2d1baf302e441e9ddb5d}{00048}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_crown_a70799ff1fbdb2d1baf302e441e9ddb5d}{Crown::CrownSpread}}(\textcolor{keywordtype}{double}\ avgros,\ \textcolor{keywordtype}{double}\ CrownFireSpreadRate)\ \ \ \ \ \ \ \textcolor{comment}{//\ R10\ is\ from\ Rothermel\ 1991}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00049}00049\ \{}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{double}\ CrownROS=0.0;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_crown_a9c1db20d91fa1eff61bcf5bf67f719ea}{CrownBulkDensity}}>0.0)}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00053}00053\ \ \ \ \ \{\ \ \ \ CrownROS=avgros+\mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}}*(CrownFireSpreadRate-\/avgros);\ \ \ \textcolor{comment}{//\ Van\ Wagner's\ 2-\/equation\ crown\ fire\ model}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{fsxw_8cpp_aa28569ed8a3315bd7f191f06d24b119a}{GetCrownFireCalculation}}()==0)\ \ \ \ \ \textcolor{comment}{//\ do\ only\ for\ original\ FARSITE\ calculations}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(CrownROS<CritRos)\ \ \ \ \ \ \ \textcolor{comment}{//\ CrownROS\ must\ be\ >\ CritRoss\ to\ be\ ACTIVE\ crown\ fire}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CrownROS=0.0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ otherwise\ PASSIVE\ crown\ fire\ and\ no\ increase\ in\ ROS}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00059}00059\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{return}\ CrownROS;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{comment}{//CrownROS=avgros*(1.0+CrownFractionBurned*(1.285*FoliarMoistureEffect-\/1.0));\ \ \ \ //\ Van\ Wagner's\ 1-\/equation\ crown\ fire\ model}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00063}00063\ \}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00066}\mbox{\hyperlink{class_crown_a7137e2077263724984e3974a567fc583}{00066}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_crown_a7137e2077263724984e3974a567fc583}{Crown::CrownIntensity}}(\textcolor{keywordtype}{double}\ SpreadRate,\ \textcolor{keywordtype}{double}\ *fli)}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00067}00067\ \{}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00068}00068\ \textcolor{comment}{/*\ \ \ \ \ \ double\ UnitEnergy;}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00069}00069\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ switch(fuel)\ \ \ ///\ from\ Rothermel\ 1991}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00071}00071\ \textcolor{comment}{\ \ \ \ \{\ \ \ \ case\ 2:\ UnitEnergy=760;\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00072}00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ case\ 8:\ UnitEnergy=580;\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00073}00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ case\ 9:\ UnitEnergy=1050;\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00074}00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ case\ 10:\ UnitEnergy=1325;\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00075}00075\ \textcolor{comment}{\ \ \ \ \ \ \ \ case\ 12:\ UnitEnergy=3430;\ break;}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00076}00076\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00077}00077\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00079}00079\ \textcolor{comment}{//\ \ UnitEnergy=1586.01*SFC;\ \ \ \ \ \ \ \ \ \ //\ 1586.01\ BTU/FT2\ per\ kg/m2,\ assum\ 18000\ kJ/kg;}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00080}00080\ \ \ \ \ \ SpreadRate/=(0.3048*60.0);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ m/m\ to\ ft/sec}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00081}00081\ \ \ \ \ *fli=fabs(SpreadRate*(\mbox{\hyperlink{class_crown_aa71f96783246778ab0aa41193727f394}{SFC}}+\mbox{\hyperlink{class_crown_a1518e3f0ac80ae30f359a085e9461860}{CrownLoadingBurned}})*1586.01);\ \ \textcolor{comment}{//\ from\ Rothermel\ 1991\ pp10,11}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00082}00082\ \ \ \ \ \mbox{\hyperlink{class_crown_aa86ea914201b1322ba3056937bbe6c47}{FlameLength}}=(0.2*pow(*fli,2.0/3.0))/3.281;\ \ \ \ \ \ \ \textcolor{comment}{//\ fl\ in\ feet,\ from\ Thomas\ in\ Rothermel\ 1991\ converted\ to\ m}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00083}00083\ \ \ \ \ *fli*=3.4613;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ kW/m\ from\ btu/ft/s}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00084}00084\ \}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00087}\mbox{\hyperlink{class_crown_aaeb0096c84a470e9706b22840c5bdae2}{00087}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_crown_aaeb0096c84a470e9706b22840c5bdae2}{Crown::CrownBurn}}(\textcolor{keywordtype}{double}\ avgros,\ \textcolor{keywordtype}{double}\ fli,\ \textcolor{keywordtype}{double}\ AccelConstant)}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00088}00088\ \{}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{comment}{//\ uses\ original\ crown\ fire\ spread\ calculations\ from\ Finney\ 1998}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00090}00090\ \ \ \ \ \ \textcolor{keywordtype}{double}\ a;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{class_crown_aa71f96783246778ab0aa41193727f394}{SFC}}=fli/(300.0*avgros);\ \ \ \ \ \ \ \ \textcolor{comment}{//\ calculate\ surface\ fuel\ consumption\ from\ Van\ Wagner\ 1990,\ kg/m2;}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00093}00093\ \ \ \ \ \ CritRos=3.0/\mbox{\hyperlink{class_crown_a9c1db20d91fa1eff61bcf5bf67f719ea}{CrownBulkDensity}};}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00095}00095\ \ \ \ \ \ Ro=\mbox{\hyperlink{class_crown_ac5f52a5c7795b709aca21becf2420957}{Io}}/(300.0*\mbox{\hyperlink{class_crown_aa71f96783246778ab0aa41193727f394}{SFC}});}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00096}00096\ \ \ \ \ \ \textcolor{keywordflow}{if}(CritRos>Ro)}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00097}00097\ \ \ \ \ \ \{\ \ \ \ a=-\/log(0.1)/(0.9*(CritRos-\/Ro));}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}}=1.0-\/exp(-\/a*(fli-\/\mbox{\hyperlink{class_crown_ac5f52a5c7795b709aca21becf2420957}{Io}})*(avgros/fli));}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}}<=0.0)\ \ \ \textcolor{comment}{//\ debugging}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}}=0.01;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}}>1.0)}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}}=1.0;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00103}00103\ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00104}00104\ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}}=1.0;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00107}00107\ \ \ \ \ \textcolor{comment}{//CrownFractionBurned=1.0-\/exp(-\/.238*((fli-\/Io)/(300.0*SFC)));\ \ \ \ \ //\ Van\ Wagner\ 1990,}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00108}00108\ \ \ \ \ \mbox{\hyperlink{class_crown_a1518e3f0ac80ae30f359a085e9461860}{CrownLoadingBurned}}=\mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}}*\mbox{\hyperlink{class_crown_a9c1db20d91fa1eff61bcf5bf67f719ea}{CrownBulkDensity}}*fabs(\mbox{\hyperlink{class_crown_ac0ec009f47dd7b8e2c7c269436e49038}{TreeHeight}}-\/\mbox{\hyperlink{class_crown_af226ae63eb9d4bb7639a903278b8e129}{HLCB}});\ \ \ \textcolor{comment}{//\ calc\ loading\ (kg/m2)}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00109}00109\ \ \ \ \ \ \mbox{\hyperlink{class_crown_aa68d3215c06d5ce91db18b9b3923f8a9}{A}}=AccelConstant-\/18.8*\mbox{\hyperlink{fsglbvar_8cpp_a22ce2ea12b9daf34b85771ec30c68fb9}{pow2}}(\mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}})*sqrt(\mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}})*exp(-\/8.0*\mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}});\ \ \ \ \ \ \textcolor{comment}{//\ CFFBPS\ 1992,\ equation\ 72,\ page\ 41,\ subst\ .3\ for\ .115}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00110}00110\ \ \ \ \ \textcolor{comment}{//A=AccelConstant-\/18.8*pow(CrownFractionBurned,2.5)*exp(-\/8.0*CrownFractionBurned);\ \ \ \ \ \ //\ CFFBPS\ 1992,\ equation\ 72,\ page\ 41,\ subst\ .3\ for\ .115}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00111}00111\ \}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00114}\mbox{\hyperlink{class_crown_ad2ca0fecb16504e098e030697b75f7c5}{00114}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_crown_ad2ca0fecb16504e098e030697b75f7c5}{Crown::CrownBurn2}}(\textcolor{keywordtype}{double}\ avgros,\ \textcolor{keywordtype}{double}\ fli,\ \textcolor{keywordtype}{double}\ AccelConstant,\ \textcolor{keywordtype}{void}\ *vt)}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00115}00115\ \{}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00116}00116\ \ \ \ \ \textcolor{comment}{//\ uses\ crown\ fire\ calculations\ from\ Scott\ and\ Reinhardt\ 2001}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00117}00117\ \ \ \ \ \ \textcolor{keywordtype}{double}\ R10,\ Rratio,\ Eratio,\ Ractual,\ Rsa;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00118}00118\ \ \ \ \ \ \textcolor{keywordtype}{double}\ cw1,\ cw2,\ cs,\ cpw1,\ cpw2,\ X,\ inc,\ CritWind;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00119}00119\ \ \ \ \ \ \textcolor{keywordtype}{double}\ sw1,\ sw2,\ ss,\ spw1,\ spw2;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00120}00120\ \ \ \ \ \ \mbox{\hyperlink{class_burn_thread}{BurnThread}}\ *bt;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00122}00122\ \ \ \ \ \ bt=(\mbox{\hyperlink{class_burn_thread}{BurnThread}}\ *)\ vt;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00125}00125\ \ \ \ \ \mbox{\hyperlink{class_crown_aa71f96783246778ab0aa41193727f394}{SFC}}=fli/(300.0*avgros);\ \ \ \ \ \ \ \ \textcolor{comment}{//\ calculate\ surface\ fuel\ consumption\ from\ Van\ Wagner\ 1990,\ kg/m2;}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00126}00126\ \ \ \ \ \ CritRos=3.0/\mbox{\hyperlink{class_crown_a9c1db20d91fa1eff61bcf5bf67f719ea}{CrownBulkDensity}};}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00128}00128\ \ \ \ \ \ \textcolor{comment}{//\ get\ surface\ fire\ behavior\ parameters}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00129}00129\ \ \ \ \ \ bt-\/>\mbox{\hyperlink{class_mechanix_a513defdfc006ddefdedde39067392539}{GetEquationTerms}}(\&sw1,\ \&ss,\ \&spw1,\ \&spw2);}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00130}00130\ \ \ \ \ \ Eratio=avgros/(bt-\/>\mbox{\hyperlink{class_mechanix_a06157755393ed73c3b0744b0cf833c86}{fros}}*(1.0+sw1+ss));\ \ \ \ \ \textcolor{comment}{//\ ratio\ of\ actual\ to\ heading\ spread\ rate\ of\ surface\ fire}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00132}00132\ \ \ \ \ \ \textcolor{comment}{//\ now\ calculate\ crown\ fire\ behavior}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00133}00133\ \ \ \ \ \ Ro=\mbox{\hyperlink{class_crown_ac5f52a5c7795b709aca21becf2420957}{Io}}/(300.0*\mbox{\hyperlink{class_crown_aa71f96783246778ab0aa41193727f394}{SFC}});\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ class\ variable}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00134}00134\ \ \ \ \ \ R10=bt-\/>\mbox{\hyperlink{class_mechanix_a5939cb891fce9886172d9c6447456eb4}{spreadrate}}(bt-\/>\mbox{\hyperlink{class_mech_calls_ae52db2e16e5a84e267a63fdb91396fa9}{ld}}.\mbox{\hyperlink{struct_landscape_struct_aebadea18c34835216a1f8d176c729da1}{slope}},\ bt-\/>\mbox{\hyperlink{class_mechanix_a80b40894bc45dd4b6ad699459c83236f}{m\_twindspd}}*0.4,\ 10);}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00135}00135\ \ \ \ \ \ \textcolor{keywordflow}{if}(Ro>CritRos)}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}}=1.0;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00137}00137\ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00138}00138\ \ \ \ \ \ \{\ \ bt-\/>\mbox{\hyperlink{class_mechanix_a513defdfc006ddefdedde39067392539}{GetEquationTerms}}(\&cw1,\ \&cs,\ \&cpw1,\ \&cpw2);}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ Ractual=3.34*R10*(1.0+cs+cw1);\ \ \ \ \ \ \textcolor{comment}{//\ with\ wind\ and\ slope}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ Rratio=(Ractual*Eratio)/CritRos;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(Rratio<1.0)}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \{\ \ \ cw2=cw1;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inc=1.0;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ \ X=Rratio*(1.0+cs+cw2)-\/(1.0+cs);\ \ \ \ \ \ \ \ \textcolor{comment}{//\ iterate\ to\ solve\ for\ phiW}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(X>cw1)}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ \ cw2-\/=inc;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inc/=2.0;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cw2+=inc;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(fabs(cw1-\/X)>1e-\/6);}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CritWind=pow(cw2/cpw2,\ 1.0/cpw1);}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ CritWind/=0.4;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(bt-\/>\mbox{\hyperlink{class_mechanix_a80b40894bc45dd4b6ad699459c83236f}{m\_twindspd}}<1e-\/6)}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sw2=0.0;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sw2=pow(CritWind*bt-\/>\mbox{\hyperlink{class_mechanix_a32670af49caa3d2ab55d0ac42d8d125e}{m\_windspd}}/bt-\/>\mbox{\hyperlink{class_mechanix_a80b40894bc45dd4b6ad699459c83236f}{m\_twindspd}},\ spw1)*spw2;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Rsa=bt-\/>\mbox{\hyperlink{class_mechanix_a06157755393ed73c3b0744b0cf833c86}{fros}}*(1.0+ss+sw2);}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(Rsa>CritRos)}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Rsa=CritRos;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}}=(avgros-\/Ro)/(Rsa-\/Ro);\ \ \ \textcolor{comment}{//\ maxcrownfraction\ burned\ in\ heading\ fire}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}}>1.0)}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}}=1.0;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}}=1.0;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00168}00168\ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00170}00170\ \ \ \ \ \mbox{\hyperlink{class_crown_a1518e3f0ac80ae30f359a085e9461860}{CrownLoadingBurned}}=\mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}}*\mbox{\hyperlink{class_crown_a9c1db20d91fa1eff61bcf5bf67f719ea}{CrownBulkDensity}}*fabs(\mbox{\hyperlink{class_crown_ac0ec009f47dd7b8e2c7c269436e49038}{TreeHeight}}-\/\mbox{\hyperlink{class_crown_af226ae63eb9d4bb7639a903278b8e129}{HLCB}});\ \ \ \textcolor{comment}{//\ calc\ loading\ (kg/m2)}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00171}00171\ \ \ \ \ \ \mbox{\hyperlink{class_crown_aa68d3215c06d5ce91db18b9b3923f8a9}{A}}=AccelConstant-\/18.8*\mbox{\hyperlink{fsglbvar_8cpp_a22ce2ea12b9daf34b85771ec30c68fb9}{pow2}}(\mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}})*sqrt(\mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}})*exp(-\/8.0*\mbox{\hyperlink{class_crown_abe713b5c33194e1fa8568cacd3df8211}{CrownFractionBurned}});\ \ \ \ \ \ \textcolor{comment}{//\ CFFBPS\ 1992,\ equation\ 72,\ page\ 41,\ subst\ .3\ for\ .115}}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00173}00173\ \ \ \ \ \textcolor{keywordflow}{return}\ R10;}
+\DoxyCodeLine{\Hypertarget{fsxwcrwn_8cpp_source_l00174}00174\ \}}
+
+\end{DoxyCode}

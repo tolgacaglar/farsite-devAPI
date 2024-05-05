@@ -1,0 +1,1267 @@
+.TH "C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/newfms.cpp" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/newfms.cpp \- Fuel Moisture Stick (FMS) C source code\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'newfms\&.h'\fP
+.br
+\fR#include <limits\&.h>\fP
+.br
+\fR#include <math\&.h>\fP
+.br
+\fR#include <stdlib\&.h>\fP
+.br
+\fR#include <string\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFMS_MAX_NODES\fP   (64)"
+.br
+.RI "Maximum number of stick nodes (64); used only to dimension local variables\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFms\fP * \fBFms_Create1Hour\fP (char *name)"
+.br
+.RI "Creates a new standard 1-h time-lag fuel moisture stick\&. "
+.ti -1c
+.RI "\fBFms\fP * \fBFms_Create10Hour\fP (char *name)"
+.br
+.RI "Creates a new standard 10-h time-lag fuel moisture stick\&. "
+.ti -1c
+.RI "\fBFms\fP * \fBFms_Create100Hour\fP (char *name)"
+.br
+.RI "Creates a new standard 100-h time-lag fuel moisture stick\&. "
+.ti -1c
+.RI "\fBFms\fP * \fBFms_Create1000Hour\fP (char *name)"
+.br
+.RI "Creates a new standard 1000-h time-lag fuel moisture stick\&. "
+.ti -1c
+.RI "\fBFms\fP * \fBFms_CreateStick\fP (char *name, int nodes, double radius, double length, double density, double mdt, double ddt, double pressure, double wmx, double hc, double stca, double stcd, double rai0, double rai1, double stv, double wfilmk)"
+.br
+.RI "Creates a custom fuel moisture stick\&. "
+.ti -1c
+.RI "void \fBFms_Destroy\fP (\fBFms\fP *fms)"
+.br
+.RI "Destroys a fuel moisture stick object and frees its resources\&. "
+.ti -1c
+.RI "void \fBFms_Initialize\fP (\fBFms\fP *fms, double ta, double ha, double sr, double rc, double ti, double hi, double wi)"
+.br
+.RI "Initializes a fuel moisture stick's internal and external environment\&. "
+.ti -1c
+.RI "void \fBFms_InitializeAt\fP (\fBFms\fP *fms, int year, int month, int day, int hour, int minute, int second, int millisecond, double ta, double ha, double sr, double rc, double ti, double hi, double wi)"
+.br
+.RI "Initializes a fuel moisture stick's internal clock and its internal and external environment\&. "
+.ti -1c
+.RI "double \fBFms_MeanMoisture\fP (\fBFms\fP *fms)"
+.br
+.RI "Determines the mean moisture content of the stick's radial profile\&. "
+.ti -1c
+.RI "double \fBFms_MeanWtdMoisture\fP (\fBFms\fP *fms)"
+.br
+.RI "Determines the volume-weighted mean moisture content of the stick's radial profile\&. "
+.ti -1c
+.RI "double \fBFms_MeanWtdTemperature\fP (\fBFms\fP *fms)"
+.br
+.RI "Determines the volume-weighted mean temperature of the stick's radial profile\&. "
+.ti -1c
+.RI "void \fBFms_UpdateAt\fP (\fBFms\fP *fms, int year, int month, int day, int hour, int minute, int second, int millisecond, double aC, double hFtn, double sW, double rcumCm)"
+.br
+.RI "Updates the stick's internal environment (temperature, diffusivity, saturation, and moisture content) from the new weather parameters\&. "
+.ti -1c
+.RI "void \fBFms_Update\fP (\fBFms\fP *fms, double eHr, double aC, double hFtn, double sW, double rcumCm)"
+.br
+.RI "Updates the stick's internal environment (temperature, diffusivity, saturation, and moisture content) from the new weather parameters\&. "
+.ti -1c
+.RI "void \fBFms_ReadFromAsciiStream\fP (\fBFms\fP *fms, FILE *fptr)"
+.br
+.RI "Example function of reading all the required stick properties from a file into a fuel moisture stick object\&. "
+.ti -1c
+.RI "void \fBFms_WriteToAsciiStream\fP (\fBFms\fP *fms, FILE *fptr)"
+.br
+.RI "Example function of writing all the required stick properties from a fuel moisture stick object into permanent (disk) storage\&. "
+.ti -1c
+.RI "void \fBCDT_CalendarDate\fP (double jd, int *year, int *month, int *day, int *hour, int *minute, int *second, int *millisecond)"
+.br
+.RI "Determines the Western calendar date from the Julian date\&. "
+.ti -1c
+.RI "int \fBCDT_DayOfYear\fP (int year, int month, int day)"
+.br
+.RI "Determines the day-of-the-year number\&. "
+.ti -1c
+.RI "double \fBCDT_DecimalDay\fP (int hour, int minute, int second, int millisecond)"
+.br
+.RI "Determines the elapsed portion of the day since midnight\&. "
+.ti -1c
+.RI "double \fBCDT_JulianDate\fP (int year, int month, int day, int hour, int minute, int second, int millisecond)"
+.br
+.RI "Calculates the Julian date from the passed date and time\&. "
+.ti -1c
+.RI "int \fBCDT_LeapYear\fP (int year)"
+.br
+.RI "Determines if the specified \fIyear\fP is a Julian-Gregorian leap year\&. "
+.ti -1c
+.RI "int \fBCDT_MillisecondOfDay\fP (int hour, int minute, int second, int millisecond)"
+.br
+.RI "Determines the milliseconds elapsed since midnight\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const double \fBAks\fP = 2\&.0e\-13"
+.br
+.RI "Permeability of a water saturated stick (2\&.0e-13 cm2)\&. "
+.ti -1c
+.RI "const double \fBAlb\fP = 0\&.6"
+.br
+.RI "Shortwave albido (0\&.6 dl)\&. "
+.ti -1c
+.RI "const double \fBAlpha\fP = 0\&.25"
+.br
+.RI "Fraction of cell length that overlaps adjacent cells (0\&.25 cm/cm)\&. "
+.ti -1c
+.RI "const double \fBAp\fP = 0\&.000772"
+.br
+.RI "Psychrometric constant (0\&.000772 / oC)\&. "
+.ti -1c
+.RI "const double \fBAw\fP = 0\&.8"
+.br
+.RI "Ratio of cell cavity to total cell width (0\&.8 cm/cm)\&. "
+.ti -1c
+.RI "const double \fBEps\fP = 0\&.85"
+.br
+.RI "Longwave emissivity of stick surface (0\&.85 dl)\&. "
+.ti -1c
+.RI "const double \fBHfs\fP = 0\&.99"
+.br
+.RI "Saturation value of the stick surface humidity (0\&.99 g/g)\&. "
+.ti -1c
+.RI "const double \fBKelvin\fP = 273\&.2"
+.br
+.RI "Celcius-to-Kelvin offset (273\&.2 oC)\&. "
+.ti -1c
+.RI "const double \fBPi\fP = 3\&.14159"
+.br
+.RI "A well-rounded number (dl)\&. "
+.ti -1c
+.RI "const double \fBPr\fP = 0\&.7"
+.br
+.RI "Prandtl number (0\&.7 dl)\&. "
+.ti -1c
+.RI "const double \fBSbc\fP = 1\&.37e\-12"
+.br
+.RI "Stefan-Boltzmann constant (1\&.37e-12 cal/cm2-s-K4)\&. "
+.ti -1c
+.RI "const double \fBSc\fP = 0\&.58"
+.br
+.RI "Schmidt number (0\&.58 dl)\&. "
+.ti -1c
+.RI "const double \fBSmv\fP = 94\&.743"
+.br
+.RI "Factor to convert solar radiation from Watts/m2 to milliVolts\&. "
+.ti -1c
+.RI "const double \fBSt\fP = 72\&.8"
+.br
+.RI "Surface tension (72\&.8)\&. "
+.ti -1c
+.RI "const double \fBTcd\fP = 6\&."
+.br
+.RI "Day time clear sky temperature (6 oC)\&. "
+.ti -1c
+.RI "const double \fBTcn\fP = 3\&."
+.br
+.RI "Night time clear sky temperature (3 oC)\&. "
+.ti -1c
+.RI "const double \fBThdiff\fP = 8\&.0"
+.br
+.RI "Thermal diffusivity ( 8\&.0 cms/h)\&. "
+.ti -1c
+.RI "const double \fBWl\fP = 0\&.0023"
+.br
+.RI "Diameter of interior cell cavity ( 0\&.0023 cm)\&. "
+.ti -1c
+.RI "const double \fBSrf\fP = 14\&.82052"
+.br
+.RI "Factor to derive 'sr', solar radiation received (14\&.82052 cal/cm2-h)\&. "
+.ti -1c
+.RI "const double \fBWsf\fP = 4\&.60517"
+.br
+.RI "Manifest constant equal to -log(1\&.0 - 0\&.99) "
+.ti -1c
+.RI "const double \fBHrd\fP = 0\&.116171"
+.br
+.RI "Factor to derive daytime long wave radiative surface heat transfer\&. "
+.ti -1c
+.RI "const double \fBHrn\fP = 0\&.112467"
+.br
+.RI "Factor to derive nighttime long wave radiative surface heat transfer\&. "
+.ti -1c
+.RI "const double \fBSir\fP = 0\&.0714285"
+.br
+.RI "Saturation value below which liquid water columns no longer exist\&. "
+.ti -1c
+.RI "const double \fBScr\fP = 0\&.285714"
+.br
+.RI "Saturation value at which liquid miniscus first enters the tapered portion of wood cells\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Fuel Moisture Stick (FMS) C source code\&. 
+
+\fBnewfms\&.h\fP 
+.PP
+\fBVersion\fP
+.RS 4
+0\&.7\&.0
+.RE
+.PP
+The FMS function library models fuel stick temperature and moisture content given an input weather stream of air temperature, air humidity, solar radiation, and cumulative rainfall\&.
+.PP
+\fBSee also\fP
+.RS 4
+CHANGES file for details on updates and modifications\&.
+.RE
+.PP
+\fBAuthor\fP
+.RS 4
+Copyright (C) 1997-2004 by Collin D\&. Bevins\&.
+.RE
+.PP
+Permission to use, copy, modify, and distribute this software and its documentation under the terms of the GNU General Public License is hereby granted\&. No representations are made about the suitability of this software for any purpose\&. It is provided 'as is' without express or implied warranty\&. See the GNU General Public License for more details\&.
+.SH "Introduction"
+.PP
+The FMS function library models fuel stick temperature and moisture content given an input weather stream of air temperature, air humidity, solar radiation, and cumulative rainfall\&.
+.PP
+The fms\&.c and fms\&.h files contain functions to (1) create fuel moisture sticks of various sizes, (2) initialize the stick's internal and external environment and clock, (3) update the stick's external environment at arbitrary time intervals, thereby forcing its internal environment to be updated according to Ralph Nelson's stick moisture model, (4) determine the volume-weighted mean moisture content of the stick, and (5) destroy the stick and its memory resources\&.
+.PP
+In addition to the above 'public' functions, there are a number of 'private' functions to configure and reinitialize the stick and to calculate and convert time and date information\&.
+.SH "Usage"
+.PP
+The demo\&.c program shows how to use the public FMS functions\&. Five or six functions are normally used:
+.PP
+1 Call one or more of the stick creation functions ( \fBFms_Create1Hour()\fP, \fBFms_Create10Hour()\fP, \fBFms_Create100Hour()\fP, or \fBFms_Create1000Hour()\fP) to create a fuel moisture stick object\&.
+.PP
+2 Call \fBFms_InitializeAt()\fP to initialize the stick's environment and internal state at a given date and time\&.
+.PP
+3 Call \fBFms_UpdateAt()\fP whenever a new weather observation is available, passing it the new date, time, air temperature, air humidity, solar radiation, and cumulative rainfall parameters\&. The stick's moisture profile is automatically updated for the current conditions\&.
+.PP
+4 Call \fBFms_MeanWtdMoisture()\fP whenever you need the stick's volume- weighted mean moisture content\&.
+.PP
+5 Call \fBFms_Destroy()\fP once for each stick you created\&.
+.PP
+6 See \fBFms_WriteToAsciiStream()\fP and \fBFms_ReadFromAsciiStream()\fP for examples of how to store and load sticks to/from files\&.
+.SH "File List"
+.PP
+The pre-release software package consists of the following files: 
+.PD 0
+.IP "\(bu" 1
+\fRCHANGES\fP Change log 
+.IP "\(bu" 1
+\fRMAKEFILE\fP Type 'make' to create 'demo' 
+.IP "\(bu" 1
+\fRdemo\&.c\fP Shows use of all FMS public functions\&. 
+.IP "\(bu" 1
+\fRfms\&.c\fP FMS ANSI C code and support functions 
+.IP "\(bu" 1
+\fRfms\&.h\fP FMS ANSI C header file 
+.IP "\(bu" 1
+\fRtestburn\&.dat\fP Burnsville, NC 10-h moisture input file for 'demo' 
+.IP "\(bu" 1
+\fRtestmio\&.dat\fP Mio, MI 10-h moisture input file for 'demo'
+.PP
+.SH "Function List"
+.PP
+.SS "Public Functions"
+The following public functions are available to the user:
+.PP
+.PD 0
+.IP "\(bu" 1
+\fR\fBFms_Create1Hour()\fP\fP -- creates a 1-h fuel moisture stick\&. 
+.IP "\(bu" 1
+\fR\fBFms_Create10Hour()\fP\fP -- creates a standard 10-h fuel moisture pine stick\&. 
+.IP "\(bu" 1
+\fR\fBFms_Create100Hour()\fP\fP -- creates a 100-h fuel moisture stick\&. 
+.IP "\(bu" 1
+\fR\fBFms_Create1000Hour()\fP\fP -- creates a 1000-h fuel moisture stick\&. 
+.IP "\(bu" 1
+\fR\fBFms_CreateStick()\fP\fP -- creates a custom fuel moisture stick\&. 
+.IP "\(bu" 1
+\fR\fBFms_Destroy()\fP\fP -- destroys a fuel moisture stick\&. 
+.IP "\(bu" 1
+\fR\fBFms_InitializeAt()\fP\fP -- initialize a stick's interior and external environment at a specific date and time\&. 
+.IP "\(bu" 1
+\fR\fBFms_MeanWtdMoisture()\fP\fP -- determine the stick's volume-weighted mean moisture content\&. 
+.IP "\(bu" 1
+\fR\fBFms_UpdateAt()\fP\fP -- update the stick's internal environment given the current date, time, air temperature, air humidity, solar radiation, and cumulative rainfall values\&.
+.PP
+.SS "Example Functions"
+The following functions are working examples of how to store the necessary stick information to a file, and how to read it back again\&.
+.PP
+.PD 0
+.IP "\(bu" 1
+\fR\fBFms_ReadFromAsciiStream()\fP\fP Reads all the necessary \fBFms\fP stick properties from a file\&. 
+.IP "\(bu" 1
+\fR\fBFms_WriteToAsciiStream()\fP\fP Stores all the necessary \fBFms\fP stick properties to a file\&.
+.PP
+.SS "Deprecated Functions"
+use of the following functions is discouraged; they are included only for completeness, internal usage, and backwards compatibility\&.
+.PP
+.PD 0
+.IP "\(bu" 1
+\fR\fBFms_Initialize()\fP\fP Initializes a stick's interior and external environment (without date-time tracking)\&. Replaced by \fBFms_InitializeAt()\fP\&. 
+.IP "\(bu" 1
+\fR\fBFms_MeanMoisture()\fP\fP Determines the stick's radial profile mean moisture content\&. Replaced by \fBFms_MeanWtdMoisture()\fP\&. 
+.IP "\(bu" 1
+\fR\fBFms_Update()\fP\fP Updates the stick's internal environment given the elapsed time since the previous update and the current air temperature, air humidity, solar radiation, and cumulative rainfall values\&. Replaced by \fBFms_UpdateAt()\fP\&.
+.PP
+.SS "Private Functions"
+.PD 0
+.IP "\(bu" 1
+\fR\fBCDT_CalendarDate()\fP\fP 
+.IP "\(bu" 1
+\fR\fBCDT_JulianDate()\fP\fP 
+.IP "\(bu" 1
+\fR\fBCDT_DecimalDay()\fP\fP 
+.IP "\(bu" 1
+\fR\fBCDT_MillisecondOfDay()\fP\fP 
+.IP "\(bu" 1
+\fRFms_CreateParameters()\fP 
+.IP "\(bu" 1
+\fRFms_Diffusivity()\fP 
+.PP
+.SH "Example"
+.PP
+Below is the complete code for a sample program, demo\&.c, that exercises the FMS library on some field data\&. 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Definition in file \fBnewfms\&.cpp\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define FMS_MAX_NODES   (64)"
+
+.PP
+Maximum number of stick nodes (64); used only to dimension local variables\&. 
+.PP
+Definition at line \fB144\fP of file \fBnewfms\&.cpp\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void CDT_CalendarDate (double jdate, int * year, int * month, int * day, int * hour, int * minute, int * second, int * millisecond)"
+
+.PP
+Determines the Western calendar date from the Julian date\&. Calculates the Western (Julian-Gregorian) calendar date from the Julian date \fIjdate\fP using the method described by Duffett-Smith (and similarly by Meeus)\&.
+.PP
+I used Montenbruck & Pfleger (p 13) because it gave the correct calendar date for Julian date 1\&.0, whereas the Meeus (p 26) and Duffett-Smith (p 11) algorithms said Julian date 1 is -4712 Jan 02\&.
+.PP
+\fBWarning\fP
+.RS 4
+No date or time validation is performed\&. 
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIjdate\fP Julian date as returned by \fBCDT_JulianDate()\fP\&. 
+.br
+\fI*year\fP Returned year (-4712 (4713 B\&.C\&.) or greater)\&. 
+.br
+\fI*month\fP Returned month of the year (1-12)\&. 
+.br
+\fI*day\fP Returned day of the month (1-31)\&. 
+.br
+\fI*hour\fP Returned hours past midnight (0-23)\&. 
+.br
+\fI*minute\fP Returned minutes past the hour (0-59)\&. 
+.br
+\fI*second\fP Returned seconds past the minute (0-59)\&. 
+.br
+\fI*milliseconds\fP Returned milliseconds past the second (0-999)\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+All calculated values are returned in the function parameters\&. 
+.br
+ The function itself returns nothing\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB1805\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "int CDT_DayOfYear (int year, int month, int day)"
+
+.PP
+Determines the day-of-the-year number\&. Day 1 is always January 1 of the \fIyear\fP\&. The day number is adjusted for the occurrence of leap years in the Julian and Gregorian calendars\&. 
+.br
+ An adjustment is also made for the Gregorian calendar reform of 1582 when Pope Gregory dropped Oct 5-14 from the Julian calendar to begin the Gregorian calendar (thus, 1582 had only 355 days)\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIyear\fP Year (-4712 or later) 
+.br
+\fImonth\fP Month of the year (1-12) 
+.br
+\fIday\fP Day of the month (1-31) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Day of the year (1-366)\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB1855\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "double CDT_DecimalDay (int hour, int minute, int second, int millisecond)"
+
+.PP
+Determines the elapsed portion of the day since midnight\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIhour\fP Hours past midnight (0-23) 
+.br
+\fIminute\fP Minutes past the hour (0-59) 
+.br
+\fIsecond\fP Seconds past the minute (0-59) 
+.br
+\fImilliseconds\fP Milliseconds past the second (0-999)
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The elapsed portion of the day since midnight in days\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB1889\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "double CDT_JulianDate (int year, int month, int day, int hour, int minute, int second, int millisecond)"
+
+.PP
+Calculates the Julian date from the passed date and time\&. The Julian Date is the number of days that have elapsed since \fInoon\fP, 12h Universal Time on January 1, 4713 B\&.C\&.
+.PP
+The Julian Date was developed in 1583 by French scholar Joseph Justus Scaliger\&. The beginning day of January 1, 4713 B\&.C\&. is the previous coincidence of the 28-year solar cycle, the 19-year Golden Number (Metonic) lunar cycle, and the 15-year indiction cycle used for Roman taxation\&.
+.PP
+The Gregorian calendar reform is taken into account when calculating the Julian Date\&. Thus the day following 1582 October 4 is 1582 October 15\&. 
+.br
+ The Julian calendar is used through 1582 Oct 4 (leap years every 4th year), 
+.br
+ and the Gregorian calendar is used for dates on and after 1582 Oct 15 (leap year exceptions)\&. Together, the Julian-Gregorian calendar system may be referred to simply as the Western calendar\&.
+.PP
+The 'B\&.C\&.' years are counted astronomically; the year before A\&.D\&. 1 is year 0, and the year preceeding this is -1\&.
+.PP
+\fBReferences:\fP
+.RS 4
+
+.RE
+.PP
+Duffett-Smith, Peter\&. 1981\&. Practical astronomy with your calculator\&. Second Edition\&. Cambridge University Press\&. 188 pp\&. (see page 9)\&.
+.PP
+Latham, Lance\&. 1998\&. Standard C date/time library\&. Miller-Freeman\&. 
+.br
+ 560 pp\&. (see page 41)\&.
+.PP
+Meeus, Jean\&. 1988\&. Astronomical formulae for calculators\&. Fourth Edition\&. Willman-Bell, Inc\&. 218 pp\&. (see page 24)\&.
+.PP
+Montenbruck, Oliver; Pfleger, Thomas\&. Astronomy on the personal computer\&. 
+.br
+ Third Edition\&. Springer\&. 312 pp\&. (see page 13)\&. 
+.PP
+\fBWarning\fP
+.RS 4
+No date or time validation is performed\&.
+.RE
+.PP
+\fBBug\fP
+.RS 4
+While all authors agree that the Julian Date starts at zero at 12:00 \fInoon\fP of 4713 B\&.C\&. January 1, the Duffett-Smith and Meeus algorithms actually yields a JD of 1\&.0 for this date and time! The function here correctly reproduces all the examples in their texts, but yield a JD of 1\&.0 for -4712 Jan 1 12:00\&.  While this certainly deviates from the formal definition of JD, I will continue to use this algorithm since I also use their other algorithms for Julian-to-calendar conversions and astronomical date derivations\&.
+.RE
+.PP
+.PP
+\fBParameters\fP
+.RS 4
+\fIyear\fP -4712 (4713 B\&.C\&.) or greater 
+.br
+\fImonth\fP Month of the year (1-12) 
+.br
+\fIday\fP Day of the month (1-31) 
+.br
+\fIhour\fP Hours past midnight (0-23) 
+.br
+\fIminute\fP Minutes past the hour (0-59) 
+.br
+\fIsecond\fP Seconds past the minute (0-59) 
+.br
+\fImilliseconds\fP Milliseconds past the second (0-999) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The Julian date in decimal days since 1 Jan -4712\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB1963\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "int CDT_LeapYear (int year)"
+
+.PP
+Determines if the specified \fIyear\fP is a Julian-Gregorian leap year\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIyear\fP Year to be assessed (-4712 or later)\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Number of leap days in the year (0 or 1)\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB1999\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "int CDT_MillisecondOfDay (int hour, int minute, int second, int millisecond)"
+
+.PP
+Determines the milliseconds elapsed since midnight\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIhour\fP Hours past midnight (0-23) 
+.br
+\fIminute\fP Minutes past the hour (0-59) 
+.br
+\fIsecond\fP Seconds past the minute (0-59) 
+.br
+\fImilliseconds\fP Milliseconds past the second (0-999)
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The elapsed time since midnight in milliseconds\&. 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBCDT_DecimalDay()\fP, CDT_DecimalHour()\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB2041\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "\fBFms\fP * Fms_Create1000Hour (char * name)"
+
+.PP
+Creates a new standard 1000-h time-lag fuel moisture stick\&. The stick has the following properties: 
+.PD 0
+.IP "\(bu" 1
+Radius = 6\&.40 cm (2\&.52')
+\\arg Length = 200\&.0 cm (78\&.74') 
+.IP "\(bu" 1
+Density = 0\&.40 g/cm3 (25\&.0 lb/ft3) 
+.IP "\(bu" 1
+dT = 0\&.20 h
+.PP
+Call \fBFms_Initialize()\fP to set the stick's initial internal and external environment\&. Call \fBFms_Destroy()\fP to free the stick memory\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP Stick name or other documentary text of arbitrary length\&. 
+.br
+ A copy of the passed string is allocated and stored with the stick's internal data\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Pointer to the newly allocated stick on success, NULL on failure\&. 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBFms_Create1Hour()\fP, \fBFms_Create100Hour()\fP, \fBFms_Create1000Hour()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB427\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "\fBFms\fP * Fms_Create100Hour (char * name)"
+
+.PP
+Creates a new standard 100-h time-lag fuel moisture stick\&. The stick has the following properties: 
+.PD 0
+.IP "\(bu" 1
+Radius = 2\&.0 cm (0\&.787')
+\\arg Length = 105\&.0 cm (39\&.37') 
+.IP "\(bu" 1
+Density = 0\&.40 g/cm3 (25\&.0 lb/ft3) 
+.IP "\(bu" 1
+dT = 0\&.05 h
+.PP
+Call \fBFms_Initialize()\fP to set the stick's initial internal and external environment\&. Call \fBFms_Destroy()\fP to free the stick memory\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP Stick name or other documentary text of arbitrary length\&. 
+.br
+ A copy of the passed string is allocated and stored with the stick's internal data\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Pointer to the newly allocated stick on success, NULL on failure\&. 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBFms_Create1Hour()\fP, \fBFms_Create10Hour()\fP, \fBFms_Create1000Hour()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB387\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "\fBFms\fP * Fms_Create10Hour (char * name)"
+
+.PP
+Creates a new standard 10-h time-lag fuel moisture stick\&. The stick has the following properties: 
+.PD 0
+.IP "\(bu" 1
+Radius = 0\&.64 cm (0\&.0787')
+\\arg Length = 50\&.0 cm (19\&.6') 
+.IP "\(bu" 1
+Density = 0\&.40 g/cm3 (25\&.0 lb/ft3) 
+.IP "\(bu" 1
+dT = 0\&.02 h
+.PP
+Call \fBFms_Initialize()\fP to set the stick's initial internal and external environment\&. Call \fBFms_Destroy()\fP to free the stick memory\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP Stick name or other documentary text of arbitrary length\&. 
+.br
+ A copy of the passed string is allocated and stored with the stick's internal data\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Pointer to the newly allocated stick on success, NULL on failure\&. 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBFms_Create1Hour()\fP, \fBFms_Create100Hour()\fP, \fBFms_Create1000Hour()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB347\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "\fBFms\fP * Fms_Create1Hour (char * name)"
+
+.PP
+Creates a new standard 1-h time-lag fuel moisture stick\&. The stick has the following properties: 
+.PD 0
+.IP "\(bu" 1
+Radius = 0\&.2 cm (0\&.0787')
+\\arg Length = 25\&.0 cm (9\&.8') 
+.IP "\(bu" 1
+Density = 0\&.40 g/cm3 (25\&.0 lb/ft3) 
+.IP "\(bu" 1
+dT = 0\&.004 h
+.PP
+Call \fBFms_Initialize()\fP to set the stick's initial internal and external environment\&. Call \fBFms_Destroy()\fP to free the stick memory\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP Stick name or other documentary text of arbitrary length\&. 
+.br
+ A copy of the passed string is allocated and stored with the stick's internal data\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Pointer to the newly allocated stick on success, NULL on failure\&. 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBFms_Create10Hour()\fP, \fBFms_Create100Hour()\fP, \fBFms_Create1000Hour()\fP\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB307\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "\fBFms\fP * Fms_CreateStick (char * name, int nodes, double radius, double length, double density, double mdt, double ddt, double pressure, double wmx, double hc, double stca, double stcd, double rai0, double rai1, double stv, double wfilmk)"
+
+.PP
+Creates a custom fuel moisture stick\&. Creates a new \fBFms\fP fuel moisture stick object with the passed properties\&. 
+.br
+ A user normally calls one of the convenience routines \fBFms_Create1Hour()\fP, \fBFms_Create10Hour()\fP, \fBFms_Create100Hour()\fP, or \fBFms_Create1000Hour()\fP unless you know what you're doing! 
+.br
+.PP
+Call \fBFms_Initialize()\fP to set the stick's initial internal and external environment\&. Call \fBFms_Destroy()\fP to free the stick memory\&.
+.PP
+\fBNotes\fP
+.RS 4
+First the passed parameters are stored for the stick\&. Then Fms_CreateParameters() is called to allocate and initialize parameters for the requested number of stick nodes and to derive intermediates that are dependent upon the stick properties\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP Stick name or other documentary text of arbitrary length\&. 
+.br
+ A copy of the passed string is allocated and stored with the stick's internal data\&. 
+.br
+\fInodes\fP Number of calculation nodes\&. 
+.br
+\fIradius\fP Stick radius (cm)\&. 
+.br
+\fIlength\fP Stick length (cm)\&. 
+.br
+\fIdensity\fP Stick density (gm/cm3)\&. 
+.br
+\fImdt\fP Moisture computation time step (h)\&. 
+.br
+\fIddt\fP Diffusivity computation time step (h)\&. 
+.br
+\fIpressure\fP Barometric pressure (cal/cm3)\&. 
+.br
+\fIwmx\fP Maximum local moisture content due to rain (g/g)\&. 
+.br
+\fIhc\fP Planar heat transfer (cal/cm2-h-C)\&. 
+.br
+\fIstca\fP Adsorption surface mass transfer rate (cm2/h)\&. 
+.br
+\fIstcd\fP Desportion surface mass transfer rate (cm2/h)\&. 
+.br
+\fIrai0\fP Runoff factor during initial rainfall observation\&. 
+.br
+\fIrai1\fP Runoff factor after initial rainfall observation\&. 
+.br
+\fIstv\fP Storm transition value (cm/h)\&. 
+.br
+\fIwfilmk\fP Water film contribution to stick moisture content (gm/gm)\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Pointer to the newly allocated stick on success, NULL on failure\&. 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBFms_Create1Hour()\fP, \fBFms_Create10Hour()\fP, \fBFms_Create100Hour()\fP, \fBFms_Create1000Hour()\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB492\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "void Fms_Destroy (\fBFms\fP * fms)"
+
+.PP
+Destroys a fuel moisture stick object and frees its resources\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIPointer\fP to the \fBFms\fP object to be destroyed\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The function returns nothing\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB693\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "void Fms_Initialize (\fBFms\fP * fms, double ta, double ha, double sr, double rc, double ti, double hi, double wi)"
+
+.PP
+Initializes a fuel moisture stick's internal and external environment\&. Initializes the stick's internal and external environmental variables\&. The stick's internal temperature and water content are presumed to be uniformly distributed\&.
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBFms_InitializeAt()\fP to initialize the stick's internal clock as well as its environment\&. This frees the user from having to keep track of elapsed time between stick updates\&.
+.RE
+.PP
+.PP
+\fBParameters\fP
+.RS 4
+\fIfms\fP Pointer to the fuel moisture stick object\&. 
+.br
+\fIta\fP Initial air temperature (oC)\&. 
+.br
+\fIha\fP Initial air humidity (g/g)\&. 
+.br
+\fIsr\fP Initial solar voltage (W/m2)\&. 
+.br
+\fIti\fP Initial stick temperature (oC)\&. 
+.br
+\fIhi\fP Initial stick surface humidty (g/g)\&. 
+.br
+\fIwi\fP Initial stick water fraction (g/g)\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The function returns nothing\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB823\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "void Fms_InitializeAt (\fBFms\fP * fms, int year, int month, int day, int hour, int minute, int second, int millisecond, double ta, double ha, double sr, double rc, double ti, double hi, double wi)"
+
+.PP
+Initializes a fuel moisture stick's internal clock and its internal and external environment\&. Initializes the stick's internal clock and its internal and external environmental variables\&. The stick's internal temperature and water content are presumed to be uniformly distributed\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIfms\fP Pointer to the fuel moisture stick object\&. 
+.br
+\fIyear\fP Year of the Western (Julian-Gregorian) calendar\&. 
+.br
+\fImonth\fP Month of the year (1=Jan, 12=Dec) 
+.br
+\fIday\fP Day of the month (1-31)\&. 
+.br
+\fIhour\fP Hour of the day (0-23)\&. 
+.br
+\fIminute\fP Minute of the hour (0-59)\&. 
+.br
+\fIsecond\fP Second of the minute (0-59)\&. 
+.br
+\fImillisecond\fP Millisecond of the second (0-999)\&. 
+.br
+\fIta\fP Initial air temperature (oC)\&. 
+.br
+\fIha\fP Initial air humidity (g/g)\&. 
+.br
+\fIsr\fP Initial solar voltage (W/m2)\&. 
+.br
+\fIti\fP Initial stick temperature (oC)\&. 
+.br
+\fIhi\fP Initial stick surface humidty (g/g)\&. 
+.br
+\fIwi\fP Initial stick water fraction (g/g)\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The function returns nothing\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB884\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "double Fms_MeanMoisture (\fBFms\fP * fms)"
+
+.PP
+Determines the mean moisture content of the stick's radial profile\&. 
+.PP
+\fBNote: \fP
+.RS 4
+The integral average of the stick's nodal moisture contents is calculated without consideration to the nodes' volumetric representation\&. 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBFms_MeanWtdMoisture()\fP for a volume-weighted mean moisture content\&. 
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fI*fms\fP Pointer to the fuel moisture stick object\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The mean moisture content of the stick's radial profile in grams of water per gram of wood\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB923\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "double Fms_MeanWtdMoisture (\fBFms\fP * fms)"
+
+.PP
+Determines the volume-weighted mean moisture content of the stick's radial profile\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI*fms\fP Pointer to the fuel moisture stick object\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The volume-weighted mean moisture content of the stick's radial profile in grams of water per gram of wood\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB958\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "double Fms_MeanWtdTemperature (\fBFms\fP * fms)"
+
+.PP
+Determines the volume-weighted mean temperature of the stick's radial profile\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI*fms\fP Pointer to the fuel moisture stick object\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The volume-weighted mean temperature of the stick's radial profile in oC\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB985\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "void Fms_ReadFromAsciiStream (\fBFms\fP * fms, FILE * fptr)"
+
+.PP
+Example function of reading all the required stick properties from a file into a fuel moisture stick object\&. Some applications may find it necessary to store the state of fuel moisture sticks to a file between weather observation\&. This function is an example of what properties need to be read from the file into the stick's internal structure for an ensuing update\&. Most applications that need to perform permanent storage will have a custom routine that reads/writes these same properties, but to a binary or data base file\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIfms\fP Pointer to the fuel moisture stick object\&. 
+.br
+\fIfptr\fP Pointer to a file stream opened for input\&.
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+The \fIfms\fP argument must point to an existing \fBFms\fP object that has the appropriate number of nodes allocated\&. 
+.br
+ The existing \fIfms->name\fP will be free'd and then reallocated with the new name string read from the file\&. 
+.br
+ The existing \fIfms->s\fP[], \fIfms->w\fP[], etc will be reused without any deallocation/allocation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The function returns nothing\&. 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBFms_WriteToAsciiStream()\fP\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB1625\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "void Fms_Update (\fBFms\fP * fms, double eHr, double aC, double hFtn, double sW, double rcumCm)"
+
+.PP
+Updates the stick's internal environment (temperature, diffusivity, saturation, and moisture content) from the new weather parameters\&. The air temperature, air humidity, solar radiation, and cumulative rainfall between the previous and current update is interpolated (straight line) over a series of calculation time steps\&. The time step is a property of the stick (and usually depends upon the stick radius)\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIfms\fP Pointer to the fuel moisture stick object\&. 
+.br
+\fIeHr\fP Elapsed time since last observation (h)\&. 
+.br
+\fImonth\fP Month of the year (1=Jan, 12=Dec) 
+.br
+\fIday\fP Day of the month (1-31)\&. 
+.br
+\fIhour\fP Hour of the day (0-23)\&. 
+.br
+\fIminute\fP Minute of the hour (0-59)\&. 
+.br
+\fIsecond\fP Second of the minute (0-59)\&. 
+.br
+\fImillisecond\fP Millisecond of the second (0-999)\&. 
+.br
+\fIaC\fP New air temperature (oC)\&. 
+.br
+\fIhFtn\fP New air humidity (g/g)\&. 
+.br
+\fIsW\fP New solar radiation (W/m2)\&. 
+.br
+\fIrcumCm\fP New cumulative rainfall (cm)\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Function returns nothing\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB1086\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "void Fms_UpdateAt (\fBFms\fP * fms, int year, int month, int day, int hour, int minute, int second, int millisecond, double aC, double hFtn, double sW, double rcumCm)"
+
+.PP
+Updates the stick's internal environment (temperature, diffusivity, saturation, and moisture content) from the new weather parameters\&. Determines the elapsed time since the previous update, then calls \fBFms_Update()\fP to update the stick's fuel moisture\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIfms\fP Pointer to the fuel moisture stick object\&. 
+.br
+\fIyear\fP Year of the Western (Julian-Gregorian) calendar\&. 
+.br
+\fImonth\fP Month of the year (1=Jan, 12=Dec) 
+.br
+\fIday\fP Day of the month (1-31)\&. 
+.br
+\fIhour\fP Hour of the day (0-23)\&. 
+.br
+\fIminute\fP Minute of the hour (0-59)\&. 
+.br
+\fIsecond\fP Second of the minute (0-59)\&. 
+.br
+\fImillisecond\fP Millisecond of the second (0-999)\&. 
+.br
+\fIaC\fP New air temperature (oC)\&. 
+.br
+\fIhFtn\fP New air humidity (g/g)\&. 
+.br
+\fIsW\fP New solar radiation (W/m2)\&. 
+.br
+\fIrcumCm\fP New cumulative rainfall (cm)\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Function returns nothing\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB1021\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "void Fms_WriteToAsciiStream (\fBFms\fP * fms, FILE * fptr)"
+
+.PP
+Example function of writing all the required stick properties from a fuel moisture stick object into permanent (disk) storage\&. Some applications may find it necessary to store the state of fuel moisture sticks to a file between weather observation\&. This function is an example of what properties need to be written to the file from the stick's internal structure to accommodate subsequent updates\&. Most applications that need to perform permanent storage will have a custom routine that reads/writes these same properties, but to a binary or data base file\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIfms\fP Pointer to the fuel moisture stick object\&. 
+.br
+\fIfptr\fP Pointer to a file stream opened for output\&.
+.RE
+.PP
+\fBNote: The 'Fms *fms' argument must point to an existing Fms object\fP
+.RS 4
+that has the appropriate number of nodes allocated\&. 
+.br
+ The existing fms->name will be free'd and then reallocated with the new name string read from the file\&. 
+.br
+ The existing fms->s[], fms->w[], etc will be reused without any deallocation/allocation\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The function returns nothing\&. 
+.RE
+.PP
+\fBSee also\fP
+.RS 4
+\fBFms_ReadFromAsciiStream()\fP\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB1720\fP of file \fBnewfms\&.cpp\fP\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const double Aks = 2\&.0e\-13"
+
+.PP
+Permeability of a water saturated stick (2\&.0e-13 cm2)\&. 
+.PP
+Definition at line \fB149\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Alb = 0\&.6"
+
+.PP
+Shortwave albido (0\&.6 dl)\&. 
+.PP
+Definition at line \fB154\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Alpha = 0\&.25"
+
+.PP
+Fraction of cell length that overlaps adjacent cells (0\&.25 cm/cm)\&. 
+.PP
+Definition at line \fB159\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Ap = 0\&.000772"
+
+.PP
+Psychrometric constant (0\&.000772 / oC)\&. 
+.PP
+Definition at line \fB164\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Aw = 0\&.8"
+
+.PP
+Ratio of cell cavity to total cell width (0\&.8 cm/cm)\&. 
+.PP
+Definition at line \fB169\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Eps = 0\&.85"
+
+.PP
+Longwave emissivity of stick surface (0\&.85 dl)\&. 
+.PP
+Definition at line \fB174\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Hfs = 0\&.99"
+
+.PP
+Saturation value of the stick surface humidity (0\&.99 g/g)\&. 
+.PP
+Definition at line \fB179\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Hrd = 0\&.116171"
+
+.PP
+Factor to derive daytime long wave radiative surface heat transfer\&. 
+.PD 0
+.IP "\(bu" 1
+Let Sb = 4\&. * 3600\&. * Sbc * Eps = 1\&.67688e-08; 
+.IP "\(bu" 1
+Let tsk = Tcd + Kelvin; 
+.IP "\(bu" 1
+Then Hrd = Sb * tsk * tsk * tsk / Pi; 
+.IP "\(bu" 1
+And Hrd = 0\&.116171; 
+.PP
+
+.PP
+Definition at line \fB258\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Hrn = 0\&.112467"
+
+.PP
+Factor to derive nighttime long wave radiative surface heat transfer\&. 
+.PD 0
+.IP "\(bu" 1
+Let Sb = 4\&. * 3600\&. * Sbc * Eps = 1\&.67688e-08; 
+.IP "\(bu" 1
+Let tsk = Tcn + Kelvin; 
+.IP "\(bu" 1
+Then Hrn = Sb * tsk * tsk * tsk / Pi; 
+.IP "\(bu" 1
+And Hrn = 0\&.112467; 
+.PP
+
+.PP
+Definition at line \fB267\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Kelvin = 273\&.2"
+
+.PP
+Celcius-to-Kelvin offset (273\&.2 oC)\&. 
+.PP
+Definition at line \fB184\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Pi = 3\&.14159"
+
+.PP
+A well-rounded number (dl)\&. 
+.PP
+Definition at line \fB189\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Pr = 0\&.7"
+
+.PP
+Prandtl number (0\&.7 dl)\&. 
+.PP
+Definition at line \fB194\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Sbc = 1\&.37e\-12"
+
+.PP
+Stefan-Boltzmann constant (1\&.37e-12 cal/cm2-s-K4)\&. 
+.PP
+Definition at line \fB199\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Sc = 0\&.58"
+
+.PP
+Schmidt number (0\&.58 dl)\&. 
+.PP
+Definition at line \fB204\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Scr = 0\&.285714"
+
+.PP
+Saturation value at which liquid miniscus first enters the tapered portion of wood cells\&. 
+.PD 0
+.IP "\(bu" 1
+Scr = 4\&. * Sir = 0\&.285714; 
+.PP
+
+.PP
+Definition at line \fB280\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Sir = 0\&.0714285"
+
+.PP
+Saturation value below which liquid water columns no longer exist\&. 
+.PD 0
+.IP "\(bu" 1
+Sir = Aw * Alpha / (4\&. * (1\&.-(2\&.-Aw) * Alpha)); 
+.PP
+
+.PP
+Definition at line \fB273\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Smv = 94\&.743"
+
+.PP
+Factor to convert solar radiation from Watts/m2 to milliVolts\&. 
+.PD 0
+.IP "\(bu" 1
+milliVolts = solarRadiation / 94\&.743; 
+.PP
+
+.PP
+Definition at line \fB210\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Srf = 14\&.82052"
+
+.PP
+Factor to derive 'sr', solar radiation received (14\&.82052 cal/cm2-h)\&. 
+.PP
+Definition at line \fB244\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double St = 72\&.8"
+
+.PP
+Surface tension (72\&.8)\&. 
+.PP
+Definition at line \fB215\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Tcd = 6\&."
+
+.PP
+Day time clear sky temperature (6 oC)\&. 
+.PP
+Definition at line \fB220\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Tcn = 3\&."
+
+.PP
+Night time clear sky temperature (3 oC)\&. 
+.PP
+Definition at line \fB225\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Thdiff = 8\&.0"
+
+.PP
+Thermal diffusivity ( 8\&.0 cms/h)\&. 
+.PP
+Definition at line \fB230\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Wl = 0\&.0023"
+
+.PP
+Diameter of interior cell cavity ( 0\&.0023 cm)\&. 
+.PP
+Definition at line \fB235\fP of file \fBnewfms\&.cpp\fP\&.
+.SS "const double Wsf = 4\&.60517"
+
+.PP
+Manifest constant equal to -log(1\&.0 - 0\&.99) 
+.PP
+Definition at line \fB249\fP of file \fBnewfms\&.cpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

@@ -1,0 +1,393 @@
+.TH "Fms" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Fms \- Fuel moisture stick data structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <newfms\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBa\fP"
+.br
+.ti -1c
+.RI "double \fBal\fP"
+.br
+.ti -1c
+.RI "double \fBddt\fP"
+.br
+.ti -1c
+.RI "double \fBdp\fP"
+.br
+.ti -1c
+.RI "double \fBbp\fP"
+.br
+.ti -1c
+.RI "double \fBhc\fP"
+.br
+.ti -1c
+.RI "double \fBmdt\fP"
+.br
+.ti -1c
+.RI "double \fBrai0\fP"
+.br
+.ti -1c
+.RI "double \fBrai1\fP"
+.br
+.ti -1c
+.RI "double \fBstca\fP"
+.br
+.ti -1c
+.RI "double \fBstcd\fP"
+.br
+.ti -1c
+.RI "double \fBstv\fP"
+.br
+.ti -1c
+.RI "double \fBwfilmk\fP"
+.br
+.ti -1c
+.RI "double \fBwmx\fP"
+.br
+.ti -1c
+.RI "double \fBjdate\fP"
+.br
+.ti -1c
+.RI "double \fBta0\fP"
+.br
+.ti -1c
+.RI "double \fBta1\fP"
+.br
+.ti -1c
+.RI "double \fBha0\fP"
+.br
+.ti -1c
+.RI "double \fBha1\fP"
+.br
+.ti -1c
+.RI "double \fBsv0\fP"
+.br
+.ti -1c
+.RI "double \fBsv1\fP"
+.br
+.ti -1c
+.RI "double \fBrc0\fP"
+.br
+.ti -1c
+.RI "double \fBrc1\fP"
+.br
+.ti -1c
+.RI "double \fBra0\fP"
+.br
+.ti -1c
+.RI "double \fBra1\fP"
+.br
+.ti -1c
+.RI "double \fBdx\fP"
+.br
+.ti -1c
+.RI "double \fBwmax\fP"
+.br
+.ti -1c
+.RI "double \fBamlf\fP"
+.br
+.ti -1c
+.RI "double \fBcapf\fP"
+.br
+.ti -1c
+.RI "double \fBhwf\fP"
+.br
+.ti -1c
+.RI "double \fBmdt_2\fP"
+.br
+.ti -1c
+.RI "double \fBdx_2\fP"
+.br
+.ti -1c
+.RI "double \fBsf\fP"
+.br
+.ti -1c
+.RI "double \fBvf\fP"
+.br
+.ti -1c
+.RI "double \fBhf\fP"
+.br
+.ti -1c
+.RI "double \fBwsa\fP"
+.br
+.ti -1c
+.RI "double \fBsem\fP"
+.br
+.ti -1c
+.RI "double \fBwfilm\fP"
+.br
+.ti -1c
+.RI "double * \fBx\fP"
+.br
+.ti -1c
+.RI "double * \fBt\fP"
+.br
+.ti -1c
+.RI "double * \fBs\fP"
+.br
+.ti -1c
+.RI "double * \fBd\fP"
+.br
+.ti -1c
+.RI "double * \fBw\fP"
+.br
+.ti -1c
+.RI "double * \fBv\fP"
+.br
+.ti -1c
+.RI "char * \fBname\fP"
+.br
+.ti -1c
+.RI "long \fBupdates\fP"
+.br
+.ti -1c
+.RI "int \fBstate\fP"
+.br
+.ti -1c
+.RI "int \fBinit\fP"
+.br
+.ti -1c
+.RI "int \fBn\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Fuel moisture stick data structure\&. 
+.PP
+Definition at line \fB70\fP of file \fBnewfms\&.h\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "double Fms::a"
+Stick radius (cm)\&. 
+.PP
+Definition at line \fB73\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::al"
+Stick length (cm)\&. 
+.PP
+Definition at line \fB74\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::amlf"
+\fIaml\fP optimization factor\&. 
+.br
+ 
+.PP
+Definition at line \fB106\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::bp"
+Stick barometric pressure (cal/cm3)\&. 
+.PP
+Definition at line \fB77\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::capf"
+\fIcap\fP optimization factor\&. 
+.br
+ 
+.PP
+Definition at line \fB107\fP of file \fBnewfms\&.h\fP\&.
+.SS "double* Fms::d"
+Node's bound water diffusivity (cm2/h)\&. 
+.PP
+Definition at line \fB122\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::ddt"
+Stick diffusivity computation interval (h)\&. 
+.PP
+Definition at line \fB75\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::dp"
+Stick density (g/cm3)\&. 
+.PP
+Definition at line \fB76\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::dx"
+Internodal radial distance (cm)\&. 
+.PP
+Definition at line \fB102\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::dx_2"
+2 times the internodal distance (cm)\&. 
+.PP
+Definition at line \fB110\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::ha0"
+Previous air humidity (dl)\&. 
+.PP
+Definition at line \fB92\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::ha1"
+Current air humidity (dl)\&. 
+.PP
+Definition at line \fB93\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::hc"
+Stick planar heat transfer (cal/cm2-h-C)\&. 
+.PP
+Definition at line \fB78\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::hf"
+Stick surface humidity (g/g)\&. 
+.PP
+Definition at line \fB115\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::hwf"
+\fIhw\fP and \fIaml\fP computation factor\&. 
+.br
+ 
+.PP
+Definition at line \fB108\fP of file \fBnewfms\&.h\fP\&.
+.SS "int Fms::init"
+Flag set by \fBFms_Initialize()\fP\&. 
+.br
+ 
+.PP
+Definition at line \fB129\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::jdate"
+Julian date of last update (days)\&. 
+.PP
+Definition at line \fB89\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::mdt"
+Stick moisture content computation interval (h)\&. 
+.PP
+Definition at line \fB79\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::mdt_2"
+2 times the moisture time step (h)\&. 
+.PP
+Definition at line \fB109\fP of file \fBnewfms\&.h\fP\&.
+.SS "int Fms::n"
+Number of stick nodes in the radial direction\&. 
+.br
+ 
+.PP
+Definition at line \fB130\fP of file \fBnewfms\&.h\fP\&.
+.SS "char* Fms::name"
+Stick name or other descriptive text\&. 
+.br
+ 
+.PP
+Definition at line \fB126\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::ra0"
+Previous observation period's rainfall amount (cm)\&. 
+.PP
+Definition at line \fB98\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::ra1"
+Current observation period's rainfall amount (cm)\&. 
+.PP
+Definition at line \fB99\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::rai0"
+Runoff factor during initial rainfall observation\&. 
+.br
+ 
+.PP
+Definition at line \fB80\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::rai1"
+Runoff factor after initial rainfall observation\&. 
+.br
+ 
+.PP
+Definition at line \fB81\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::rc0"
+Previous cumulative rainfall amount (cm)\&. 
+.PP
+Definition at line \fB96\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::rc1"
+Current cumulative rainfall amount (cm)\&. 
+.PP
+Definition at line \fB97\fP of file \fBnewfms\&.h\fP\&.
+.SS "double* Fms::s"
+Node's saturation (g/g)\&. 
+.PP
+Definition at line \fB121\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::sem"
+Stick equilibrium moisture content (g/g)\&. 
+.PP
+Definition at line \fB117\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::sf"
+optimization factor used in \fBFms_Update()\fP\&. 
+.br
+ 
+.PP
+Definition at line \fB111\fP of file \fBnewfms\&.h\fP\&.
+.SS "int Fms::state"
+FMS_STATE_<state>\&. 
+.br
+ 
+.PP
+Definition at line \fB128\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::stca"
+Surface mass transfer rate- adsorption ((cm3/cm2)/h) 
+.PP
+Definition at line \fB82\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::stcd"
+Surface mass transfer rate- desorption ((cm3/cm2)/h) 
+.PP
+Definition at line \fB83\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::stv"
+Storm transition value (cm/h)\&. 
+.PP
+Definition at line \fB84\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::sv0"
+Previous solar radiation (mV)\&. 
+.PP
+Definition at line \fB94\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::sv1"
+Current solar radiation (mV)\&. 
+.PP
+Definition at line \fB95\fP of file \fBnewfms\&.h\fP\&.
+.SS "double* Fms::t"
+Stick temperature (oC)\&. 
+.PP
+Definition at line \fB120\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::ta0"
+Previous air temperature (oC)\&. 
+.PP
+Definition at line \fB90\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::ta1"
+Current air temperature (oC)\&. 
+.PP
+Definition at line \fB91\fP of file \fBnewfms\&.h\fP\&.
+.SS "long Fms::updates"
+Number of calls made to \fBFms_Update()\fP\&. 
+.br
+ 
+.PP
+Definition at line \fB127\fP of file \fBnewfms\&.h\fP\&.
+.SS "double* Fms::v"
+Node's volume weighting fraction (dl)\&. 
+.PP
+Definition at line \fB124\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::vf"
+optimization factor used in \fBFms_Update()\fP\&. 
+.br
+ 
+.PP
+Definition at line \fB112\fP of file \fBnewfms\&.h\fP\&.
+.SS "double* Fms::w"
+Node's moisture content (g/g)\&. 
+.PP
+Definition at line \fB123\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::wfilm"
+Amount of water film (0 or \fIwfilmk\fP) (g/g)\&. 
+.PP
+Definition at line \fB118\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::wfilmk"
+Water film contribution to moisture content (gm/gm)\&. 
+.PP
+Definition at line \fB85\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::wmax"
+Maximum possible stick moisture content (g/g)\&. 
+.PP
+Definition at line \fB103\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::wmx"
+Stick maximum local moisture due to rain (g/g)\&. 
+.PP
+Definition at line \fB86\fP of file \fBnewfms\&.h\fP\&.
+.SS "double Fms::wsa"
+Stick fiber saturation point (g/g)\&. 
+.PP
+Definition at line \fB116\fP of file \fBnewfms\&.h\fP\&.
+.SS "double* Fms::x"
+Node's radial distance from center (cm)\&. 
+.PP
+Definition at line \fB119\fP of file \fBnewfms\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

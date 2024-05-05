@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['x_0',['x',['../structoldcelldata.html#aa0733ab71219ea1c06e25ecca6fd74c0',1,'oldcelldata::x'],['../struct_output_file_1_1_rast_data.html#a6986677fdecaa556cb85ddb5d2e689dd',1,'OutputFile::RastData::x'],['../class_output_file.html#a27c26539bff33422743c82a2779073a2',1,'OutputFile::x'],['../structemberdata.html#aad9b56d1787784043b65a60c5210bb0b',1,'emberdata::x'],['../struct_embers_1_1spotdata.html#a3846ac4d910c668beb2543ded499f2c8',1,'Embers::spotdata::x'],['../struct_merge_points.html#ad24b14d3ebf2df241ce409137079c21b',1,'MergePoints::x'],['../struct_fms.html#a99c94fdc69a1f8c0768b95f453ef2d5b',1,'Fms::x'],['../structvec.html#a16a7eee63e3b1d82978695a7064a7fc6',1,'vec::x']]],
+  ['x1_1',['x1',['../struct_trans_envt_map.html#a64a6c2f5e1781771a56250f60eb9f2a9',1,'TransEnvtMap::x1'],['../struct_trans_comb_map.html#a5fbe08ba727f5e66bb323a9fd4d6c8d7',1,'TransCombMap::x1'],['../struct_perim_points.html#a03839770c25241ef157af50194333256',1,'PerimPoints::x1']]],
+  ['x10_2',['x10',['../struct_trans_envt_map.html#a307da4cf8d558b64dc88d92d5c693a47',1,'TransEnvtMap']]],
+  ['x2_3',['x2',['../struct_trans_envt_map.html#a70e6131a318923664fad46d144542a74',1,'TransEnvtMap::x2'],['../struct_perim_points.html#a0e8aa3ee1477c8bac1491c52770927eb',1,'PerimPoints::x2']]],
+  ['x20_4',['x20',['../struct_trans_envt_map.html#a5b23b54c10e964bab07e75db252fe758',1,'TransEnvtMap']]],
+  ['x5_5',['x5',['../struct_trans_envt_map.html#ad64fc3e33cb9220d730a9f9398921cbb',1,'TransEnvtMap']]],
+  ['x_5fhandle_6',['X_HANDLE',['../fsxsync_8h.html#aac97dde8e4de9251506139df72ede9ac',1,'fsxsync.h']]],
+  ['xbase_5ffldhdr_5fsz_7',['XBASE_FLDHDR_SZ',['../shapefil_8h.html#a791a9868f412464d57b0b3c3434bb03f',1,'shapefil.h']]],
+  ['xc_8',['xc',['../struct_trans_comb_map.html#a8a850e8330324af375da290eafb12e91',1,'TransCombMap']]],
+  ['xcoord_9',['XCOORD',['../fsxw_8hpp.html#ae85be36b0d52d74fa2a9f0cf0e2dabfb',1,'fsxw.hpp']]],
+  ['xdiff_10',['xdiff',['../class_mechanix.html#acace9c2fad2081f1485099afae650ecc',1,'Mechanix']]],
+  ['xdim_11',['XDim',['../struct_station_grid.html#a87a8b103a187ddb0707db7e999acec62',1,'StationGrid']]],
+  ['xhi_12',['XHI',['../class_compare_rect.html#aa40a06ea33d87273264818b0e81a806d',1,'CompareRect']]],
+  ['xlo_13',['XLO',['../class_compare_rect.html#ad4274d1562ab402ca62ac444291b57e6',1,'CompareRect']]],
+  ['xlocation_14',['XLocation',['../class_fire_environment.html#ac1fb4a318928637e50a84767fa31dca0',1,'FireEnvironment']]],
+  ['xmext_15',['xmext',['../struct_new_fuel.html#aed472458e6fb8602e375e551e9c96952',1,'NewFuel']]],
+  ['xnumber_16',['XNumber',['../struct_atmosphere.html#a2754d61a1236d1d35d17095a0c1ed1ad',1,'Atmosphere']]],
+  ['xoverlap_17',['XOverlap',['../class_compare_rect.html#a58894ac353d3fa06ec5ae8c97b246b6c',1,'CompareRect']]],
+  ['xpt_18',['xpt',['../class_mechanix.html#ae4effed3b7cb40e114667f3f44df7462',1,'Mechanix']]],
+  ['xptl_19',['xptl',['../class_mechanix.html#aad2082cfeefc7efb1171a0e0c0047796',1,'Mechanix']]],
+  ['xptn_20',['xptn',['../class_mechanix.html#ac1ad0ae925ceeee563bf2d3d9dd82d77',1,'Mechanix']]],
+  ['xres_21',['xres',['../struct_output_data.html#ad73828c1b022fa717e5aca6526d80a17',1,'OutputData']]],
+  ['xresol_22',['XResol',['../structoldheaddata.html#a9d37e358481e381d7cdddf582a51a585',1,'oldheaddata::XResol'],['../structheaddata2.html#a3e377dc81a8cf9b03bf4cbe4b5f5d94d',1,'headdata2::XResol'],['../struct____attribute____.html#a90478685321d1a723fcc435ebc8a12bb',1,'__attribute__::XResol'],['../structheaddata.html#ac2ac68cfef0d9177e324be064b7c4c40',1,'headdata::XResol']]],
+  ['xt_23',['xt',['../class_mechanix.html#aea2c3ccc97e826f053084755ac4bf75d',1,'Mechanix']]],
+  ['xutilities_24',['XUtilities',['../class_x_utilities.html',1,'XUtilities'],['../class_x_utilities.html#afdc71dddf173d42e895a955bcf0f7d4b',1,'XUtilities::XUtilities()']]]
+];

@@ -1,0 +1,159 @@
+.TH "XUtilities" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+XUtilities
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsx4\&.hpp>\fP
+.PP
+Inherits \fBAPolygon\fP\&.
+.PP
+Inherited by \fBIntersections\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBXUtilities\fP ()"
+.br
+.ti -1c
+.RI "\fB~XUtilities\fP ()"
+.br
+.ti -1c
+.RI "void \fBAllocSwap\fP (long NumPoint)"
+.br
+.ti -1c
+.RI "void \fBFreeSwap\fP ()"
+.br
+.ti -1c
+.RI "void \fBGetSwap\fP (long NumPoint, double *xpt, double *ypt, double *ros, double *fli, double *rct)"
+.br
+.ti -1c
+.RI "void \fBSetSwap\fP (long NumPoint, double xpt, double ypt, double ros, double fli, double rct)"
+.br
+.ti -1c
+.RI "void \fBSwapTranz\fP (long writefire, long nump)"
+.br
+.ti -1c
+.RI "void \fBtranz\fP (long count, long nump)"
+.br
+.ti -1c
+.RI "void \fBrediscretize\fP (long *count, bool Reorder)"
+.br
+.ti -1c
+.RI "void \fBRePositionFire\fP (long *firenum)"
+.br
+.ti -1c
+.RI "void \fBRestoreDeadPoints\fP (long firenum)"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBAPolygon\fP
+.in +1c
+.ti -1c
+.RI "\fBAPolygon\fP ()"
+.br
+.ti -1c
+.RI "\fB~APolygon\fP ()"
+.br
+.ti -1c
+.RI "long \fBOverlap\fP (long count)"
+.br
+.ti -1c
+.RI "double \fBdirection\fP (double xpt1, double ypt1)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "long \fBExNumPts\fP"
+.br
+.ti -1c
+.RI "long \fBOldNumPoints\fP"
+.br
+.ti -1c
+.RI "double * \fBswapperim\fP"
+.br
+.in -1c
+
+Public Attributes inherited from \fBAPolygon\fP
+.in +1c
+.ti -1c
+.RI "double \fBstartx\fP"
+.br
+.ti -1c
+.RI "double \fBstarty\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB134\fP of file \fBfsx4\&.hpp\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "XUtilities::XUtilities ()"
+
+.PP
+Definition at line \fB4025\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "XUtilities::~XUtilities ()"
+
+.PP
+Definition at line \fB4032\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void XUtilities::AllocSwap (long NumPoint)"
+
+.PP
+Definition at line \fB4038\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "void XUtilities::FreeSwap ()"
+
+.PP
+Definition at line \fB4058\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "void XUtilities::GetSwap (long NumPoint, double * xpt, double * ypt, double * ros, double * fli, double * rct)"
+
+.PP
+Definition at line \fB4085\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "void XUtilities::rediscretize (long * count, bool Reorder)"
+
+.PP
+Definition at line \fB4159\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "void XUtilities::RePositionFire (long * firenum)"
+
+.PP
+Definition at line \fB4097\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "void XUtilities::RestoreDeadPoints (long firenum)"
+
+.PP
+Definition at line \fB4122\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "void XUtilities::SetSwap (long NumPoint, double xpt, double ypt, double ros, double fli, double rct)"
+
+.PP
+Definition at line \fB4066\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "void XUtilities::SwapTranz (long writefire, long nump)"
+
+.PP
+Definition at line \fB4328\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SS "void XUtilities::tranz (long count, long nump)"
+
+.PP
+Definition at line \fB4343\fP of file \fBfsxwutil\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "long XUtilities::ExNumPts"
+
+.PP
+Definition at line \fB140\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "long XUtilities::OldNumPoints"
+
+.PP
+Definition at line \fB140\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double* XUtilities::swapperim"
+
+.PP
+Definition at line \fB141\fP of file \fBfsx4\&.hpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

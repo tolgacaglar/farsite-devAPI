@@ -1,0 +1,94 @@
+.TH "FmsThread" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FmsThread
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsx4\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFmsThread\fP ()"
+.br
+.ti -1c
+.RI "\fB~FmsThread\fP ()"
+.br
+.ti -1c
+.RI "void \fBStartFmsThread\fP (long ID, long SizeClass, \fBDeadMoistureDescription\fP *mxdesc, bool FirstTime)"
+.br
+.ti -1c
+.RI "void \fBSetRange\fP (double SimTime, long date, long hour, long StationNumber, long FuelType, \fBFuelMoistureMap\fP *map, \fBDeadMoistureHistory\fP **hist, long Begin, long End)"
+.br
+.ti -1c
+.RI "void \fBSiteSpecific\fP (long ElevDiff, double tempref, double *temp, double humref, double *humid)"
+.br
+.ti -1c
+.RI "double \fBSimpleRadiation\fP (long date, double hour, long cloud, long elev, long slope, long aspect, long cover)"
+.br
+.ti -1c
+.RI "void \fBUpdateMoistures\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "long \fBThreadOrder\fP"
+.br
+.ti -1c
+.RI "long \fBLastTime\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB792\fP of file \fBfsx4\&.hpp\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "FmsThread::FmsThread ()"
+
+.PP
+Definition at line \fB3048\fP of file \fBfsxwfms2\&.cpp\fP\&.
+.SS "FmsThread::~FmsThread ()"
+
+.PP
+Definition at line \fB3061\fP of file \fBfsxwfms2\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void FmsThread::SetRange (double SimTime, long date, long hour, long StationNumber, long FuelType, \fBFuelMoistureMap\fP * map, \fBDeadMoistureHistory\fP ** hist, long Begin, long End)"
+
+.PP
+Definition at line \fB3136\fP of file \fBfsxwfms2\&.cpp\fP\&.
+.SS "double FmsThread::SimpleRadiation (long date, double hour, long cloud, long elev, long slope, long aspect, long cover)"
+
+.PP
+Definition at line \fB3398\fP of file \fBfsxwfms2\&.cpp\fP\&.
+.SS "void FmsThread::SiteSpecific (long ElevDiff, double tempref, double * temp, double humref, double * humid)"
+
+.PP
+Definition at line \fB3467\fP of file \fBfsxwfms2\&.cpp\fP\&.
+.SS "void FmsThread::StartFmsThread (long ID, long SizeClass, \fBDeadMoistureDescription\fP * mxdesc, bool FirstTime)"
+
+.PP
+Definition at line \fB3066\fP of file \fBfsxwfms2\&.cpp\fP\&.
+.SS "void FmsThread::UpdateMoistures ()"
+
+.PP
+Definition at line \fB3113\fP of file \fBfsxwfms2\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "long FmsThread::LastTime"
+
+.PP
+Definition at line \fB807\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "long FmsThread::ThreadOrder"
+
+.PP
+Definition at line \fB807\fP of file \fBfsx4\&.hpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

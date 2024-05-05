@@ -1,0 +1,326 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/nrutil.h File Reference}
+\hypertarget{nrutil_8h}{}\label{nrutil_8h}\index{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/nrutil.h@{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/nrutil.h}}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nrutil_8h_ac89d5f8a358eb8a1abdcd0fcef134f1a}{SIGN}}(a,  b)~((b) $>$ 0.\+0 ? fabs(a) \+: -\/fabs(a))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{nrutil_8h_a1127e9c8ab1a10a65ebd494759e8aec3}{nrerror}} (char error\+\_\+text\mbox{[}$\,$\mbox{]})
+\item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nrutil_8h_a4827305dc0f5517b1fe360939e73b812}{fvector}} (long nl, long nh)
+\item 
+double \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nrutil_8h_a7fe596e3d0889dfffc76cb47d89d0990}{vector}} (long nl, long nh)
+\item 
+long \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nrutil_8h_a297cdccddf17f6081080a9d7fadfe875}{ivector}} (long nl, long nh)
+\item 
+unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nrutil_8h_a16a18b0e44cbd9b64e5c546c0f0f6720}{cvector}} (long nl, long nh)
+\item 
+unsigned long \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nrutil_8h_a13ece94870386b717647af8b17e899e7}{lvector}} (long nl, long nh)
+\item 
+double \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nrutil_8h_ae21c4c252ad5d5710ebd03d6f07e40de}{dvector}} (long nl, long nh)
+\item 
+double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nrutil_8h_a93beb27cea40d6b4fe073373114c4127}{matrix}} (long nrl, long nrh, long ncl, long nch)
+\item 
+double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nrutil_8h_ab1a02a50dfbc26318f6bb296731b6f3a}{dmatrix}} (long nrl, long nrh, long ncl, long nch)
+\item 
+long \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nrutil_8h_a52f451d07a1753508f154b6b3a7b8230}{imatrix}} (long nrl, long nrh, long ncl, long nch)
+\item 
+double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nrutil_8h_ada25fe4202a7a0a4ba4a6437dafc9c47}{submatrix}} (double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}a, long oldrl, long oldrh, long oldcl, long oldc, long newrl, long newcl)
+\item 
+double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nrutil_8h_a061fd4b0c96655cebfb921357615d6a0}{convert\+\_\+matrix}} (double \texorpdfstring{$\ast$}{*}a, long nrl, long nrh, long ncl, long nch)
+\item 
+double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{nrutil_8h_a8f61cfbd3061cda0ac1707d8de62ba30}{f3tensor}} (long nrl, long nrh, long ncl, long nch, long ndl, long ndh)
+\item 
+void \mbox{\hyperlink{nrutil_8h_afde4d6f720e53f4aac745c627884a3d4}{free\+\_\+fvector}} (float \texorpdfstring{$\ast$}{*}v, long nl, long nh)
+\item 
+void \mbox{\hyperlink{nrutil_8h_a4490ae7123f2baa4ee01d7db32fc63cf}{free\+\_\+vector}} (double \texorpdfstring{$\ast$}{*}v, long nl, long nh)
+\item 
+void \mbox{\hyperlink{nrutil_8h_afd621b7d3e528abcfcce315f506ce6be}{free\+\_\+ivector}} (long \texorpdfstring{$\ast$}{*}v, long nl, long nh)
+\item 
+void \mbox{\hyperlink{nrutil_8h_adcf016abc500425950a6ca3c21bb6224}{free\+\_\+cvector}} (unsigned char \texorpdfstring{$\ast$}{*}v, long nl, long nh)
+\item 
+void \mbox{\hyperlink{nrutil_8h_a08a014ff137c0069b371cf6b2984d810}{free\+\_\+lvector}} (unsigned long \texorpdfstring{$\ast$}{*}v, long nl, long nh)
+\item 
+void \mbox{\hyperlink{nrutil_8h_ac7ec1a76a4b8d3d8423246676977c919}{free\+\_\+dvector}} (double \texorpdfstring{$\ast$}{*}v, long nl, long nh)
+\item 
+void \mbox{\hyperlink{nrutil_8h_ad5562214740ec1d1c8077b78d9b8683d}{free\+\_\+matrix}} (double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}m, long nrl, long nrh, long ncl, long nch)
+\item 
+void \mbox{\hyperlink{nrutil_8h_a04fbc9bc53e6303830eb4338bc1f3259}{free\+\_\+dmatrix}} (double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}m, long nrl, long nrh, long ncl, long nch)
+\item 
+void \mbox{\hyperlink{nrutil_8h_a2f835ef0050f9a990bdefd3d123af7ce}{free\+\_\+imatrix}} (long \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}m, long nrl, long nrh, long ncl, long nch)
+\item 
+void \mbox{\hyperlink{nrutil_8h_a383fc750ce52c405da712046912565fe}{free\+\_\+submatrix}} (double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}b, long nrl, long nrh, long ncl, long nch)
+\item 
+void \mbox{\hyperlink{nrutil_8h_ac380c46f4238171e66c75564e002bc48}{free\+\_\+convert\+\_\+matrix}} (double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}b, long nrl, long nrh, long ncl, long nch)
+\item 
+void \mbox{\hyperlink{nrutil_8h_aed3fc0a561bcce6e52d404af190f823b}{free\+\_\+f3tensor}} (double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}t, long nrl, long nrh, long ncl, long nch, long ndl, long ndh)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{nrutil_8h_ac89d5f8a358eb8a1abdcd0fcef134f1a}\label{nrutil_8h_ac89d5f8a358eb8a1abdcd0fcef134f1a} 
+\index{nrutil.h@{nrutil.h}!SIGN@{SIGN}}
+\index{SIGN@{SIGN}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{SIGN}{SIGN}}
+{\footnotesize\ttfamily \#define SIGN(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~((b) $>$ 0.\+0 ? fabs(a) \+: -\/fabs(a))}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8h_source_l00059}{59}} of file \mbox{\hyperlink{nrutil_8h_source}{nrutil.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{nrutil_8h_a061fd4b0c96655cebfb921357615d6a0}\label{nrutil_8h_a061fd4b0c96655cebfb921357615d6a0} 
+\index{nrutil.h@{nrutil.h}!convert\_matrix@{convert\_matrix}}
+\index{convert\_matrix@{convert\_matrix}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{convert\_matrix()}{convert\_matrix()}}
+{\footnotesize\ttfamily double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} convert\+\_\+matrix (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{a,  }\item[{long}]{nrl,  }\item[{long}]{nrh,  }\item[{long}]{ncl,  }\item[{long}]{nch }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00195}{195}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_a16a18b0e44cbd9b64e5c546c0f0f6720}\label{nrutil_8h_a16a18b0e44cbd9b64e5c546c0f0f6720} 
+\index{nrutil.h@{nrutil.h}!cvector@{cvector}}
+\index{cvector@{cvector}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{cvector()}{cvector()}}
+{\footnotesize\ttfamily unsigned char \texorpdfstring{$\ast$}{*} cvector (\begin{DoxyParamCaption}\item[{long}]{nl,  }\item[{long}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_ab1a02a50dfbc26318f6bb296731b6f3a}\label{nrutil_8h_ab1a02a50dfbc26318f6bb296731b6f3a} 
+\index{nrutil.h@{nrutil.h}!dmatrix@{dmatrix}}
+\index{dmatrix@{dmatrix}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{dmatrix()}{dmatrix()}}
+{\footnotesize\ttfamily double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} dmatrix (\begin{DoxyParamCaption}\item[{long}]{nrl,  }\item[{long}]{nrh,  }\item[{long}]{ncl,  }\item[{long}]{nch }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00133}{133}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_ae21c4c252ad5d5710ebd03d6f07e40de}\label{nrutil_8h_ae21c4c252ad5d5710ebd03d6f07e40de} 
+\index{nrutil.h@{nrutil.h}!dvector@{dvector}}
+\index{dvector@{dvector}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{dvector()}{dvector()}}
+{\footnotesize\ttfamily double \texorpdfstring{$\ast$}{*} dvector (\begin{DoxyParamCaption}\item[{long}]{nl,  }\item[{long}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00101}{101}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_a8f61cfbd3061cda0ac1707d8de62ba30}\label{nrutil_8h_a8f61cfbd3061cda0ac1707d8de62ba30} 
+\index{nrutil.h@{nrutil.h}!f3tensor@{f3tensor}}
+\index{f3tensor@{f3tensor}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{f3tensor()}{f3tensor()}}
+{\footnotesize\ttfamily double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} f3tensor (\begin{DoxyParamCaption}\item[{long}]{nrl,  }\item[{long}]{nrh,  }\item[{long}]{ncl,  }\item[{long}]{nch,  }\item[{long}]{ndl,  }\item[{long}]{ndh }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00218}{218}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_ac380c46f4238171e66c75564e002bc48}\label{nrutil_8h_ac380c46f4238171e66c75564e002bc48} 
+\index{nrutil.h@{nrutil.h}!free\_convert\_matrix@{free\_convert\_matrix}}
+\index{free\_convert\_matrix@{free\_convert\_matrix}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{free\_convert\_matrix()}{free\_convert\_matrix()}}
+{\footnotesize\ttfamily void free\+\_\+convert\+\_\+matrix (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{b,  }\item[{long}]{nrl,  }\item[{long}]{nrh,  }\item[{long}]{ncl,  }\item[{long}]{nch }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00324}{324}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_adcf016abc500425950a6ca3c21bb6224}\label{nrutil_8h_adcf016abc500425950a6ca3c21bb6224} 
+\index{nrutil.h@{nrutil.h}!free\_cvector@{free\_cvector}}
+\index{free\_cvector@{free\_cvector}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{free\_cvector()}{free\_cvector()}}
+{\footnotesize\ttfamily void free\+\_\+cvector (\begin{DoxyParamCaption}\item[{unsigned char \texorpdfstring{$\ast$}{*}}]{v,  }\item[{long}]{nl,  }\item[{long}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00286}{286}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_a04fbc9bc53e6303830eb4338bc1f3259}\label{nrutil_8h_a04fbc9bc53e6303830eb4338bc1f3259} 
+\index{nrutil.h@{nrutil.h}!free\_dmatrix@{free\_dmatrix}}
+\index{free\_dmatrix@{free\_dmatrix}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{free\_dmatrix()}{free\_dmatrix()}}
+{\footnotesize\ttfamily void free\+\_\+dmatrix (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{m,  }\item[{long}]{nrl,  }\item[{long}]{nrh,  }\item[{long}]{ncl,  }\item[{long}]{nch }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00307}{307}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_ac7ec1a76a4b8d3d8423246676977c919}\label{nrutil_8h_ac7ec1a76a4b8d3d8423246676977c919} 
+\index{nrutil.h@{nrutil.h}!free\_dvector@{free\_dvector}}
+\index{free\_dvector@{free\_dvector}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{free\_dvector()}{free\_dvector()}}
+{\footnotesize\ttfamily void free\+\_\+dvector (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{v,  }\item[{long}]{nl,  }\item[{long}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00296}{296}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_aed3fc0a561bcce6e52d404af190f823b}\label{nrutil_8h_aed3fc0a561bcce6e52d404af190f823b} 
+\index{nrutil.h@{nrutil.h}!free\_f3tensor@{free\_f3tensor}}
+\index{free\_f3tensor@{free\_f3tensor}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{free\_f3tensor()}{free\_f3tensor()}}
+{\footnotesize\ttfamily void free\+\_\+f3tensor (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{t,  }\item[{long}]{nrl,  }\item[{long}]{nrh,  }\item[{long}]{ncl,  }\item[{long}]{nch,  }\item[{long}]{ndl,  }\item[{long}]{ndh }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00329}{329}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_afde4d6f720e53f4aac745c627884a3d4}\label{nrutil_8h_afde4d6f720e53f4aac745c627884a3d4} 
+\index{nrutil.h@{nrutil.h}!free\_fvector@{free\_fvector}}
+\index{free\_fvector@{free\_fvector}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{free\_fvector()}{free\_fvector()}}
+{\footnotesize\ttfamily void free\+\_\+fvector (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{v,  }\item[{long}]{nl,  }\item[{long}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00271}{271}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_a2f835ef0050f9a990bdefd3d123af7ce}\label{nrutil_8h_a2f835ef0050f9a990bdefd3d123af7ce} 
+\index{nrutil.h@{nrutil.h}!free\_imatrix@{free\_imatrix}}
+\index{free\_imatrix@{free\_imatrix}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{free\_imatrix()}{free\_imatrix()}}
+{\footnotesize\ttfamily void free\+\_\+imatrix (\begin{DoxyParamCaption}\item[{long \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{m,  }\item[{long}]{nrl,  }\item[{long}]{nrh,  }\item[{long}]{ncl,  }\item[{long}]{nch }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00313}{313}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_afd621b7d3e528abcfcce315f506ce6be}\label{nrutil_8h_afd621b7d3e528abcfcce315f506ce6be} 
+\index{nrutil.h@{nrutil.h}!free\_ivector@{free\_ivector}}
+\index{free\_ivector@{free\_ivector}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{free\_ivector()}{free\_ivector()}}
+{\footnotesize\ttfamily void free\+\_\+ivector (\begin{DoxyParamCaption}\item[{long \texorpdfstring{$\ast$}{*}}]{v,  }\item[{long}]{nl,  }\item[{long}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00281}{281}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_a08a014ff137c0069b371cf6b2984d810}\label{nrutil_8h_a08a014ff137c0069b371cf6b2984d810} 
+\index{nrutil.h@{nrutil.h}!free\_lvector@{free\_lvector}}
+\index{free\_lvector@{free\_lvector}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{free\_lvector()}{free\_lvector()}}
+{\footnotesize\ttfamily void free\+\_\+lvector (\begin{DoxyParamCaption}\item[{unsigned long \texorpdfstring{$\ast$}{*}}]{v,  }\item[{long}]{nl,  }\item[{long}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00291}{291}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_ad5562214740ec1d1c8077b78d9b8683d}\label{nrutil_8h_ad5562214740ec1d1c8077b78d9b8683d} 
+\index{nrutil.h@{nrutil.h}!free\_matrix@{free\_matrix}}
+\index{free\_matrix@{free\_matrix}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{free\_matrix()}{free\_matrix()}}
+{\footnotesize\ttfamily void free\+\_\+matrix (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{m,  }\item[{long}]{nrl,  }\item[{long}]{nrh,  }\item[{long}]{ncl,  }\item[{long}]{nch }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00301}{301}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_a383fc750ce52c405da712046912565fe}\label{nrutil_8h_a383fc750ce52c405da712046912565fe} 
+\index{nrutil.h@{nrutil.h}!free\_submatrix@{free\_submatrix}}
+\index{free\_submatrix@{free\_submatrix}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{free\_submatrix()}{free\_submatrix()}}
+{\footnotesize\ttfamily void free\+\_\+submatrix (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{b,  }\item[{long}]{nrl,  }\item[{long}]{nrh,  }\item[{long}]{ncl,  }\item[{long}]{nch }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00319}{319}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_a4490ae7123f2baa4ee01d7db32fc63cf}\label{nrutil_8h_a4490ae7123f2baa4ee01d7db32fc63cf} 
+\index{nrutil.h@{nrutil.h}!free\_vector@{free\_vector}}
+\index{free\_vector@{free\_vector}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{free\_vector()}{free\_vector()}}
+{\footnotesize\ttfamily void free\+\_\+vector (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{v,  }\item[{long}]{nl,  }\item[{long}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00276}{276}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_a4827305dc0f5517b1fe360939e73b812}\label{nrutil_8h_a4827305dc0f5517b1fe360939e73b812} 
+\index{nrutil.h@{nrutil.h}!fvector@{fvector}}
+\index{fvector@{fvector}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{fvector()}{fvector()}}
+{\footnotesize\ttfamily float \texorpdfstring{$\ast$}{*} fvector (\begin{DoxyParamCaption}\item[{long}]{nl,  }\item[{long}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_a52f451d07a1753508f154b6b3a7b8230}\label{nrutil_8h_a52f451d07a1753508f154b6b3a7b8230} 
+\index{nrutil.h@{nrutil.h}!imatrix@{imatrix}}
+\index{imatrix@{imatrix}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{imatrix()}{imatrix()}}
+{\footnotesize\ttfamily long \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} imatrix (\begin{DoxyParamCaption}\item[{long}]{nrl,  }\item[{long}]{nrh,  }\item[{long}]{ncl,  }\item[{long}]{nch }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00138}{138}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_a297cdccddf17f6081080a9d7fadfe875}\label{nrutil_8h_a297cdccddf17f6081080a9d7fadfe875} 
+\index{nrutil.h@{nrutil.h}!ivector@{ivector}}
+\index{ivector@{ivector}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{ivector()}{ivector()}}
+{\footnotesize\ttfamily long \texorpdfstring{$\ast$}{*} ivector (\begin{DoxyParamCaption}\item[{long}]{nl,  }\item[{long}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_a13ece94870386b717647af8b17e899e7}\label{nrutil_8h_a13ece94870386b717647af8b17e899e7} 
+\index{nrutil.h@{nrutil.h}!lvector@{lvector}}
+\index{lvector@{lvector}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{lvector()}{lvector()}}
+{\footnotesize\ttfamily unsigned long \texorpdfstring{$\ast$}{*} lvector (\begin{DoxyParamCaption}\item[{long}]{nl,  }\item[{long}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00089}{89}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_a93beb27cea40d6b4fe073373114c4127}\label{nrutil_8h_a93beb27cea40d6b4fe073373114c4127} 
+\index{nrutil.h@{nrutil.h}!matrix@{matrix}}
+\index{matrix@{matrix}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{matrix()}{matrix()}}
+{\footnotesize\ttfamily double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} matrix (\begin{DoxyParamCaption}\item[{long}]{nrl,  }\item[{long}]{nrh,  }\item[{long}]{ncl,  }\item[{long}]{nch }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_a1127e9c8ab1a10a65ebd494759e8aec3}\label{nrutil_8h_a1127e9c8ab1a10a65ebd494759e8aec3} 
+\index{nrutil.h@{nrutil.h}!nrerror@{nrerror}}
+\index{nrerror@{nrerror}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{nrerror()}{nrerror()}}
+{\footnotesize\ttfamily void nrerror (\begin{DoxyParamCaption}\item[{char}]{error\+\_\+text\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_ada25fe4202a7a0a4ba4a6437dafc9c47}\label{nrutil_8h_ada25fe4202a7a0a4ba4a6437dafc9c47} 
+\index{nrutil.h@{nrutil.h}!submatrix@{submatrix}}
+\index{submatrix@{submatrix}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{submatrix()}{submatrix()}}
+{\footnotesize\ttfamily double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} submatrix (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{a,  }\item[{long}]{oldrl,  }\item[{long}]{oldrh,  }\item[{long}]{oldcl,  }\item[{long}]{oldc,  }\item[{long}]{newrl,  }\item[{long}]{newcl }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00172}{172}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+
+\Hypertarget{nrutil_8h_a7fe596e3d0889dfffc76cb47d89d0990}\label{nrutil_8h_a7fe596e3d0889dfffc76cb47d89d0990} 
+\index{nrutil.h@{nrutil.h}!vector@{vector}}
+\index{vector@{vector}!nrutil.h@{nrutil.h}}
+\doxysubsubsection{\texorpdfstring{vector()}{vector()}}
+{\footnotesize\ttfamily double \texorpdfstring{$\ast$}{*} vector (\begin{DoxyParamCaption}\item[{long}]{nl,  }\item[{long}]{nh }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{nrutil_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{nrutil_8cpp_source}{nrutil.\+cpp}}.
+

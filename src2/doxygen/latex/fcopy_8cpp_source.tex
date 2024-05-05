@@ -1,0 +1,85 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fcopy.cpp}
+\hypertarget{fcopy_8cpp_source}{}\label{fcopy_8cpp_source}\mbox{\hyperlink{fcopy_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00023}00023\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00024}00024\ \textcolor{comment}{\ *\ FCOPY.C\ -\/\ copy\ one\ file\ to\ another.\ \ Returns\ the\ (positive)}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00025}00025\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ number\ of\ bytes\ copied,\ or\ -\/1\ if\ an\ error\ occurred.}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00026}00026\ \textcolor{comment}{\ *\ by:\ Bob\ Jarvis}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00027}00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fcopy_8h}{fcopy.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00033}\mbox{\hyperlink{fcopy_8cpp_a6b20d41d6252e9871430c242cb1a56e7}{00033}}\ \textcolor{preprocessor}{\#define\ BUFFER\_SIZE\ 1024}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00035}\mbox{\hyperlink{fcopy_8cpp_acfed2db481f8728cea70f5ef410c2c37}{00035}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{fcopy_8cpp_acfed2db481f8728cea70f5ef410c2c37}{fcopy}}(\textcolor{keywordtype}{char}\ *dest,\ \textcolor{keywordtype}{char}\ *source)}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00036}00036\ \{}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ FILE\ *d,\ *s;}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *buffer;}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ incount;}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ totcount\ =\ 0L;}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ s\ =\ fopen(source,\ \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(s\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1L;}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ d\ =\ fopen(dest,\ \textcolor{stringliteral}{"{}wb"{}});}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(d\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fclose(s);}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1L;}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ buffer\ =\ (\textcolor{keywordtype}{char}\ *)\ malloc(\mbox{\hyperlink{fcopy_8cpp_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(buffer\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fclose(s);}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fclose(d);}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1L;}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ incount\ =\ \mbox{\hyperlink{shpopen_8cpp_aecb8a3696a2526fd9c4b525acb965ae1}{fread}}(buffer,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}),\ \mbox{\hyperlink{fcopy_8cpp_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}},\ s);}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(!feof(s))}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ totcount\ +=\ (long)incount;}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fwrite(buffer,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}),\ incount,\ d);}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ incount\ =\ \mbox{\hyperlink{shpopen_8cpp_aecb8a3696a2526fd9c4b525acb965ae1}{fread}}(buffer,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}),\ \mbox{\hyperlink{fcopy_8cpp_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\_SIZE}},\ s);}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ totcount\ +=\ (long)incount;}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ fwrite(buffer,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}),\ incount,\ d);}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ free(buffer);}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ fclose(s);}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ fclose(d);}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ totcount;}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{fcopy_8cpp_source_l00080}00080\ }
+
+\end{DoxyCode}

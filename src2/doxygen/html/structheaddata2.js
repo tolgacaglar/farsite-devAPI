@@ -1,0 +1,28 @@
+var structheaddata2 =
+[
+    [ "AUnits", "structheaddata2.html#af4a6dee38765147aee54cc8aaa48dd8c", null ],
+    [ "BUnits", "structheaddata2.html#afd139d10ce6021e9cdb4120b0fb1f236", null ],
+    [ "CrownFuels", "structheaddata2.html#a44db3f545106cfb556da6aa0dd28616a", null ],
+    [ "CUnits", "structheaddata2.html#adb946f911cb49d10128541133c0ac350", null ],
+    [ "EastUtm", "structheaddata2.html#acfad4d2e0956f8c759d43b983597fab6", null ],
+    [ "EUnits", "structheaddata2.html#a6aa68c2e5903d6a2723ff2a35b1ffd29", null ],
+    [ "FOptions", "structheaddata2.html#ad3341cb246d5f4dec387a19e079afae6", null ],
+    [ "GridUnits", "structheaddata2.html#a7bae73d5afca1b0795f9751a83a3746f", null ],
+    [ "hieast", "structheaddata2.html#aba0fc1ed8384f1fcfddb71040b173442", null ],
+    [ "hielev", "structheaddata2.html#ab6ced4680918abdeaf8cf86468beed84", null ],
+    [ "hinorth", "structheaddata2.html#a3672461e84a554d1a7d6c862da43f520", null ],
+    [ "HUnits", "structheaddata2.html#ab6b9d631891948c5bf6b6df7ad7d1e63", null ],
+    [ "latitude", "structheaddata2.html#ae10a6d59a8f9d30811056ae2755960d9", null ],
+    [ "loeast", "structheaddata2.html#adc9add20cc09120c85ec577a271e8228", null ],
+    [ "loelev", "structheaddata2.html#a59f853059cee8c8394f0439ad483e323", null ],
+    [ "lonorth", "structheaddata2.html#a6ee2c0d1545349822fa334e1857c8b71", null ],
+    [ "NorthUtm", "structheaddata2.html#a25352db5dcaf22a85bdf5ae2262fdf85", null ],
+    [ "numeast", "structheaddata2.html#a97108d689ed386e703f06ec65f86a7ac", null ],
+    [ "numnorth", "structheaddata2.html#a8a399f8d78191aecd6b521dcde2da881", null ],
+    [ "PUnits", "structheaddata2.html#a63110fd1b21f4dd8c59c5c06ca3ba540", null ],
+    [ "SouthUtm", "structheaddata2.html#a4766d8580bdeefda04a483d85ad23d06", null ],
+    [ "SUnits", "structheaddata2.html#a1c00595603a846e21a3f57a2a60efebe", null ],
+    [ "WestUtm", "structheaddata2.html#a7f1b1ac4091a5a5fc86ba5ca19959e37", null ],
+    [ "XResol", "structheaddata2.html#a3e377dc81a8cf9b03bf4cbe4b5f5d94d", null ],
+    [ "YResol", "structheaddata2.html#ab3b710f3e0d41411279835f8280e6c69", null ]
+];

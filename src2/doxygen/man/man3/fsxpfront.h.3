@@ -1,0 +1,308 @@
+.TH "C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/fsxpfront.h" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/fsxpfront.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'burnupw\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPFrontStruct\fP"
+.br
+.ti -1c
+.RI "class \fBPFrontData\fP"
+.br
+.ti -1c
+.RI "struct \fBMergePoints\fP"
+.br
+.ti -1c
+.RI "struct \fBBurnHistory\fP"
+.br
+.ti -1c
+.RI "struct \fBPerimPoints\fP"
+.br
+.ti -1c
+.RI "struct \fBFireRing\fP"
+.br
+.ti -1c
+.RI "struct \fBRingStruct\fP"
+.br
+.ti -1c
+.RI "class \fBRingBurn\fP"
+.br
+.ti -1c
+.RI "class \fBBurnupFireRings\fP"
+.br
+.ti -1c
+.RI "class \fBPFIntegration\fP"
+.br
+.ti -1c
+.RI "class \fBPostFrontal\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCO2\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCO\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPM10\fP   2"
+.br
+.ti -1c
+.RI "#define \fBPM20\fP   3"
+.br
+.ti -1c
+.RI "#define \fBHEAT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBRINGS_PER_STRUCT\fP   100"
+.br
+.ti -1c
+.RI "#define \fBMAX_FUEL_FRACTIONS\fP   5"
+.br
+.ti -1c
+.RI "#define \fBFLAMING\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTRANSITION\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSMOLDERING\fP   2"
+.br
+.ti -1c
+.RI "#define \fBLO_PRECISION\fP   6"
+.br
+.ti -1c
+.RI "#define \fBMED_PRECISION\fP   12"
+.br
+.ti -1c
+.RI "#define \fBHI_PRECISION\fP   18"
+.br
+.ti -1c
+.RI "#define \fBPF_FUELWEIGHT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPF_TOTALHEAT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPF_PM25\fP   2"
+.br
+.ti -1c
+.RI "#define \fBPF_PM10\fP   3"
+.br
+.ti -1c
+.RI "#define \fBPF_CH4\fP   4"
+.br
+.ti -1c
+.RI "#define \fBPF_CO\fP   5"
+.br
+.ti -1c
+.RI "#define \fBPF_CO2\fP   6"
+.br
+.ti -1c
+.RI "#define \fBPF_FLAMING\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPF_SMOLDERING\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPF_TOTAL\fP   2"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFireRing\fP * \fBAllocFireRing\fP (long NumPoints, double start, double end)"
+.br
+.ti -1c
+.RI "void \fBFreeAllFireRings\fP ()"
+.br
+.ti -1c
+.RI "void \fBFreeFireRing\fP (long RingNum)"
+.br
+.ti -1c
+.RI "\fBFireRing\fP * \fBGetRing\fP (long RingNum)"
+.br
+.ti -1c
+.RI "\fBFireRing\fP * \fBGetSpecificRing\fP (long FireNumber, double StartTime)"
+.br
+.ti -1c
+.RI "void \fBGetLastRingStruct\fP ()"
+.br
+.ti -1c
+.RI "long \fBGetNumRings\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetNumRings\fP (long NewNumRings)"
+.br
+.ti -1c
+.RI "long \fBGetNumRingStructs\fP ()"
+.br
+.ti -1c
+.RI "void \fBCondenseRings\fP (long RingNum)"
+.br
+.ti -1c
+.RI "void \fBSetNewFireNumber\fP (long OldNum, long NewNum, long RefNum)"
+.br
+.ti -1c
+.RI "bool \fBAddToCurrentFireRing\fP (\fBFireRing\fP *firering, long PointNum, long SurfFuelType, long WoodyModel, double DuffLoad, double *Moistures, double CrownLoadingBurned)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CO   1"
+
+.PP
+Definition at line \fB32\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define CO2   0"
+
+.PP
+Definition at line \fB31\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define FLAMING   0"
+
+.PP
+Definition at line \fB40\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define HEAT   4"
+
+.PP
+Definition at line \fB35\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define HI_PRECISION   18"
+
+.PP
+Definition at line \fB46\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define LO_PRECISION   6"
+
+.PP
+Definition at line \fB44\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define MAX_FUEL_FRACTIONS   5"
+
+.PP
+Definition at line \fB38\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define MED_PRECISION   12"
+
+.PP
+Definition at line \fB45\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define PF_CH4   4"
+
+.PP
+Definition at line \fB58\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define PF_CO   5"
+
+.PP
+Definition at line \fB59\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define PF_CO2   6"
+
+.PP
+Definition at line \fB60\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define PF_FLAMING   0"
+
+.PP
+Definition at line \fB62\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define PF_FUELWEIGHT   0"
+
+.PP
+Definition at line \fB54\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define PF_PM10   3"
+
+.PP
+Definition at line \fB57\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define PF_PM25   2"
+
+.PP
+Definition at line \fB56\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define PF_SMOLDERING   1"
+
+.PP
+Definition at line \fB63\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define PF_TOTAL   2"
+
+.PP
+Definition at line \fB64\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define PF_TOTALHEAT   1"
+
+.PP
+Definition at line \fB55\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define PM10   2"
+
+.PP
+Definition at line \fB33\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define PM20   3"
+
+.PP
+Definition at line \fB34\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define RINGS_PER_STRUCT   100"
+
+.PP
+Definition at line \fB37\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define SMOLDERING   2"
+
+.PP
+Definition at line \fB42\fP of file \fBfsxpfront\&.h\fP\&.
+.SS "#define TRANSITION   1"
+
+.PP
+Definition at line \fB41\fP of file \fBfsxpfront\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "bool AddToCurrentFireRing (\fBFireRing\fP * firering, long PointNum, long SurfFuelType, long WoodyModel, double DuffLoad, double * Moistures, double CrownLoadingBurned)"
+
+.PP
+Definition at line \fB427\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "\fBFireRing\fP * AllocFireRing (long NumPoints, double start, double end)"
+
+.PP
+Definition at line \fB66\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void CondenseRings (long RingNum)"
+
+.PP
+Definition at line \fB280\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void FreeAllFireRings ()"
+
+.PP
+Definition at line \fB146\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void FreeFireRing (long RingNum)"
+
+.PP
+Definition at line \fB182\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void GetLastRingStruct ()"
+
+.PP
+Definition at line \fB133\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "long GetNumRings ()"
+
+.PP
+Definition at line \fB415\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "long GetNumRingStructs ()"
+
+.PP
+Definition at line \fB420\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "\fBFireRing\fP * GetRing (long RingNum)"
+
+.PP
+Definition at line \fB222\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "\fBFireRing\fP * GetSpecificRing (long FireNumber, double StartTime)"
+
+.PP
+Definition at line \fB252\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void SetNewFireNumber (long OldNum, long NewNum, long RefNum)"
+
+.PP
+Definition at line \fB389\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SS "void SetNumRings (long NewNumRings)"
+
+.PP
+Definition at line \fB410\fP of file \fBfsxpfront\&.cpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.
