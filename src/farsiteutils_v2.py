@@ -78,10 +78,11 @@ def change_username_jovyan(df, column):
 
         
 class Database_v2:
-    def __init__(self, fp: FilePaths):
+    def __init__(self, fp: FilePaths, description: str = 'Maria2019'):
         # Setup params
         self.fp = fp
-        
+        # description can be ['Maria2019', 'Bridge2021', 'River2021']
+        self.description = description
         # TODO
         # Setup the database for reading
         
@@ -104,7 +105,7 @@ class Database_v2:
         # Table 4 - simulation
         self.dfsimulation = pd.DataFrame()
         
-        self.filter_selection('Maria2019')
+        self.filter_selection(description)
         
     def filter_selection(self, description):
         self.dfObservation = self.dfObservationAll[self.dfObservationAll['description'] == description]
@@ -292,12 +293,18 @@ class Database:
         return self.dfbarrier.loc[barrieridx, 'filepath']
     
 class User:
-    def __init__(self, fp: FilePaths):
+    def __init__(self, fp: FilePaths, description: str):
+        '''
+        fp: FilePaths object
+        description can be ['Maria2019', 'River2021', 'Bridge2021']
+        '''
         # Object to keep the farsite files organized
         self.fp = fp
+        self.description = description
         
         # Setup the main components
         self.__setup()
+
         
     def __setup(self):
         # setup the database for create/append
@@ -306,7 +313,7 @@ class User:
     def __setup_dbtable(self):
         # print('Database interaction not yet implemented. Use pickle file for dataframes instead!')
         
-        self.db = Database_v2(self.fp)
+        self.db = Database_v2(self.fp, self.description)
             
     def __selectPerimeter(self, inputData: dict):
         # Choose a perimeter from the database
