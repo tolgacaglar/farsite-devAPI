@@ -1,9 +1,9 @@
 Farsite $Rev: 2395 $
 Number of parallel threads = 4 (omp_get_num_procs = 4).
 Loading lcp file for Farsite #1: /home/jovyan/farsite/inputs/landscapes/Bridge2021.lcp
-Loading inputs file for Farsite #1: /home/jovyan/data/20240818/Run_00270/config
-Loading ignition file for Farsite #1: /home/jovyan/farsite-devAPI/inputs/Reference/Bridge2021_0f9df556e09e43d78ec5c3c31ff07b46.shp
+Loading inputs file for Farsite #1: /home/jovyan/data/20240822/Run_01542/config
+Loading ignition file for Farsite #1: /home/jovyan/farsite-devAPI/inputs/Reference/Bridge2021_6c469d363c004d38a6d4e15fa761e27d.shp
 Loading barrier file for Farsite #1: /home/jovyan/farsite/inputs/barriers/NoBarrier/NoBarrier.shp
 Launching Farsite #1
 Starting time step 0.000000 (maximum = 15)
-Writing outputs for Farsite #1 to /home/jovyan/data/20240818/Run_00270/out
+Writing outputs for Farsite #1 to /home/jovyan/data/20240822/Run_01542/out
