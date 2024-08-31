@@ -7,12 +7,12 @@ from multiprocessing import Pool
 
 from shapely.geometry import MultiPolygon, Polygon
 
-import ipywidgets
-from ipywidgets import IntRangeSlider, IntSlider, SelectionRangeSlider, SelectionSlider, VBox, HBox, Button, Dropdown
-from ipywidgets import Layout, FloatProgress, HBox, VBox, FloatText, Label, IntProgress
+# import ipywidgets
+# from ipywidgets import IntRangeSlider, IntSlider, SelectionRangeSlider, SelectionSlider, VBox, HBox, Button, Dropdown
+# from ipywidgets import Layout, FloatProgress, HBox, VBox, FloatText, Label, IntProgress
 
-from ipyleaflet import Map, basemaps, basemap_to_tiles, ScaleControl, ZoomControl, LayersControl, WKTLayer, WidgetControl
-from ipyleaflet.leaflet import LayerException
+# from ipyleaflet import Map, basemaps, basemap_to_tiles, ScaleControl, ZoomControl, LayersControl, WKTLayer, WidgetControl
+# from ipyleaflet.leaflet import LayerException
 
 from functools import partial
 

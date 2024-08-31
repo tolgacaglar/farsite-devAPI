@@ -244,8 +244,9 @@ def get_observation(description : str, tix : int):
     
             df.loc[ix, column] = path  
     
-    df = pd.read_pickle('/home/jovyan/data/dftable_06032023.pkl')
-    change_username_jovyan(df, 'filepath')
+    df = pd.read_pickle(os.path.join(os.getenv('HOME'), 'farsite-devAPI', 'data', 'dftable_06032023.pkl'))
+    df['filepath'] = df['filepath'].str[0:14] + 'farsite-devAPI' + df['filepath'].str[21:]
+#     change_username_jovyan(df, 'filepath')
 
     dfrow = df[df['description'] == description].sort_values('datetime').iloc[tix]
     dfgeom = gpd.read_file(dfrow['filepath'])['geometry'][0]
