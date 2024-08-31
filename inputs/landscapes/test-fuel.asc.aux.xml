@@ -1,0 +1,386 @@
+<PAMDataset>
+  <Metadata>
+    <MDI key="DataType">Generic</MDI>
+  </Metadata>
+  <PAMRasterBand band="1">
+    <GDALRasterAttributeTable tableType="thematic">
+      <FieldDefn index="0">
+        <Name>VALUE</Name>
+        <Type>0</Type>
+        <Usage>5</Usage>
+      </FieldDefn>
+      <FieldDefn index="1">
+        <Name>VALUE_1</Name>
+        <Type>2</Type>
+        <Usage>0</Usage>
+      </FieldDefn>
+      <FieldDefn index="2">
+        <Name>FBFM40</Name>
+        <Type>2</Type>
+        <Usage>0</Usage>
+      </FieldDefn>
+      <FieldDefn index="3">
+        <Name>RED</Name>
+        <Type>1</Type>
+        <Usage>0</Usage>
+      </FieldDefn>
+      <FieldDefn index="4">
+        <Name>GREEN</Name>
+        <Type>1</Type>
+        <Usage>0</Usage>
+      </FieldDefn>
+      <FieldDefn index="5">
+        <Name>BLUE</Name>
+        <Type>1</Type>
+        <Usage>0</Usage>
+      </FieldDefn>
+      <Row index="0">
+        <F>-9999</F>
+        <F>-9999</F>
+        <F>NoData</F>
+        <F>0</F>
+        <F>0</F>
+        <F>0</F>
+      </Row>
+      <Row index="1">
+        <F>91</F>
+        <F>91</F>
+        <F>NB1</F>
+        <F>0.407843137</F>
+        <F>0.407843137</F>
+        <F>0.407843137</F>
+      </Row>
+      <Row index="2">
+        <F>92</F>
+        <F>92</F>
+        <F>NB2</F>
+        <F>0.8823529409999999</F>
+        <F>0.8823529409999999</F>
+        <F>0.8823529409999999</F>
+      </Row>
+      <Row index="3">
+        <F>93</F>
+        <F>93</F>
+        <F>NB3</F>
+        <F>1</F>
+        <F>0.929411765</F>
+        <F>0.929411765</F>
+      </Row>
+      <Row index="4">
+        <F>98</F>
+        <F>98</F>
+        <F>NB8</F>
+        <F>0</F>
+        <F>0.054901961</F>
+        <F>0.839215686</F>
+      </Row>
+      <Row index="5">
+        <F>99</F>
+        <F>99</F>
+        <F>NB9</F>
+        <F>0.301960784</F>
+        <F>0.431372549</F>
+        <F>0.439215686</F>
+      </Row>
+      <Row index="6">
+        <F>101</F>
+        <F>101</F>
+        <F>GR1</F>
+        <F>1</F>
+        <F>0.921568627</F>
+        <F>0.745098039</F>
+      </Row>
+      <Row index="7">
+        <F>102</F>
+        <F>102</F>
+        <F>GR2</F>
+        <F>1</F>
+        <F>0.8274509799999999</F>
+        <F>0.450980392</F>
+      </Row>
+      <Row index="8">
+        <F>103</F>
+        <F>103</F>
+        <F>GR3</F>
+        <F>1</F>
+        <F>0.925490196</F>
+        <F>0.545098039</F>
+      </Row>
+      <Row index="9">
+        <F>104</F>
+        <F>104</F>
+        <F>GR4</F>
+        <F>1</F>
+        <F>1</F>
+        <F>0.450980392</F>
+      </Row>
+      <Row index="10">
+        <F>105</F>
+        <F>105</F>
+        <F>GR5</F>
+        <F>0.960784314</F>
+        <F>0.870588235</F>
+        <F>0.160784314</F>
+      </Row>
+      <Row index="11">
+        <F>106</F>
+        <F>106</F>
+        <F>GR6</F>
+        <F>0.901960784</F>
+        <F>0.901960784</F>
+        <F>0.250980392</F>
+      </Row>
+      <Row index="12">
+        <F>107</F>
+        <F>107</F>
+        <F>GR7</F>
+        <F>0.803921569</F>
+        <F>0.776470588</F>
+        <F>0.450980392</F>
+      </Row>
+      <Row index="13">
+        <F>108</F>
+        <F>108</F>
+        <F>GR8</F>
+        <F>0.545098039</F>
+        <F>0.525490196</F>
+        <F>0.305882353</F>
+      </Row>
+      <Row index="14">
+        <F>121</F>
+        <F>121</F>
+        <F>GS1</F>
+        <F>1</F>
+        <F>0.666666667</F>
+        <F>0</F>
+      </Row>
+      <Row index="15">
+        <F>122</F>
+        <F>122</F>
+        <F>GS2</F>
+        <F>1</F>
+        <F>0.654901961</F>
+        <F>0.498039216</F>
+      </Row>
+      <Row index="16">
+        <F>123</F>
+        <F>123</F>
+        <F>GS3</F>
+        <F>1</F>
+        <F>0.388235294</F>
+        <F>0</F>
+      </Row>
+      <Row index="17">
+        <F>124</F>
+        <F>124</F>
+        <F>GS4</F>
+        <F>0.803921569</F>
+        <F>0.4</F>
+        <F>0</F>
+      </Row>
+      <Row index="18">
+        <F>141</F>
+        <F>141</F>
+        <F>SH1</F>
+        <F>0.843137255</F>
+        <F>0.760784314</F>
+        <F>0.619607843</F>
+      </Row>
+      <Row index="19">
+        <F>142</F>
+        <F>142</F>
+        <F>SH2</F>
+        <F>0.843137255</F>
+        <F>0.690196078</F>
+        <F>0.619607843</F>
+      </Row>
+      <Row index="20">
+        <F>143</F>
+        <F>143</F>
+        <F>SH3</F>
+        <F>0.803921569</F>
+        <F>0.537254902</F>
+        <F>0.4</F>
+      </Row>
+      <Row index="21">
+        <F>144</F>
+        <F>144</F>
+        <F>SH4</F>
+        <F>0.537254902</F>
+        <F>0.352941176</F>
+        <F>0.266666667</F>
+      </Row>
+      <Row index="22">
+        <F>145</F>
+        <F>145</F>
+        <F>SH5</F>
+        <F>0.803921569</F>
+        <F>0.666666667</F>
+        <F>0.4</F>
+      </Row>
+      <Row index="23">
+        <F>146</F>
+        <F>146</F>
+        <F>SH6</F>
+        <F>0.929411765</F>
+        <F>0.439215686</F>
+        <F>0.266666667</F>
+      </Row>
+      <Row index="24">
+        <F>147</F>
+        <F>147</F>
+        <F>SH7</F>
+        <F>0.803921569</F>
+        <F>0.490196078</F>
+        <F>0.223529412</F>
+      </Row>
+      <Row index="25">
+        <F>148</F>
+        <F>148</F>
+        <F>SH8</F>
+        <F>0.658823529</F>
+        <F>0.219607843</F>
+        <F>0</F>
+      </Row>
+      <Row index="26">
+        <F>149</F>
+        <F>149</F>
+        <F>SH9</F>
+        <F>0.450980392</F>
+        <F>0.101960784</F>
+        <F>0</F>
+      </Row>
+      <Row index="27">
+        <F>161</F>
+        <F>161</F>
+        <F>TU1</F>
+        <F>0.91372549</F>
+        <F>1</F>
+        <F>0.745098039</F>
+      </Row>
+      <Row index="28">
+        <F>162</F>
+        <F>162</F>
+        <F>TU2</F>
+        <F>0.666666667</F>
+        <F>1</F>
+        <F>0</F>
+      </Row>
+      <Row index="29">
+        <F>163</F>
+        <F>163</F>
+        <F>TU3</F>
+        <F>0.705882353</F>
+        <F>0.843137255</F>
+        <F>0.619607843</F>
+      </Row>
+      <Row index="30">
+        <F>165</F>
+        <F>165</F>
+        <F>TU5</F>
+        <F>0.149019608</F>
+        <F>0.450980392</F>
+        <F>0</F>
+      </Row>
+      <Row index="31">
+        <F>181</F>
+        <F>181</F>
+        <F>TL1</F>
+        <F>0.745098039</F>
+        <F>1</F>
+        <F>0.909803922</F>
+      </Row>
+      <Row index="32">
+        <F>182</F>
+        <F>182</F>
+        <F>TL2</F>
+        <F>0</F>
+        <F>1</F>
+        <F>0.77254902</F>
+      </Row>
+      <Row index="33">
+        <F>183</F>
+        <F>183</F>
+        <F>TL3</F>
+        <F>0.745098039</F>
+        <F>0.823529412</F>
+        <F>1</F>
+      </Row>
+      <Row index="34">
+        <F>184</F>
+        <F>184</F>
+        <F>TL4</F>
+        <F>0.482352941</F>
+        <F>0.407843137</F>
+        <F>0.933333333</F>
+      </Row>
+      <Row index="35">
+        <F>185</F>
+        <F>185</F>
+        <F>TL5</F>
+        <F>0.745098039</F>
+        <F>0.909803922</F>
+        <F>1</F>
+      </Row>
+      <Row index="36">
+        <F>186</F>
+        <F>186</F>
+        <F>TL6</F>
+        <F>0</F>
+        <F>0.77254902</F>
+        <F>1</F>
+      </Row>
+      <Row index="37">
+        <F>187</F>
+        <F>187</F>
+        <F>TL7</F>
+        <F>0</F>
+        <F>0.517647059</F>
+        <F>0.658823529</F>
+      </Row>
+      <Row index="38">
+        <F>188</F>
+        <F>188</F>
+        <F>TL8</F>
+        <F>0</F>
+        <F>0.360784314</F>
+        <F>0.901960784</F>
+      </Row>
+      <Row index="39">
+        <F>189</F>
+        <F>189</F>
+        <F>TL9</F>
+        <F>0.301960784</F>
+        <F>0.431372549</F>
+        <F>0.568627451</F>
+      </Row>
+      <Row index="40">
+        <F>201</F>
+        <F>201</F>
+        <F>SB1</F>
+        <F>0.909803922</F>
+        <F>0.745098039</F>
+        <F>1</F>
+      </Row>
+      <Row index="41">
+        <F>202</F>
+        <F>202</F>
+        <F>SB2</F>
+        <F>0.77254902</F>
+        <F>0</F>
+        <F>1</F>
+      </Row>
+      <Row index="42">
+        <F>203</F>
+        <F>203</F>
+        <F>SB3</F>
+        <F>1</F>
+        <F>0.745098039</F>
+        <F>0.909803922</F>
+      </Row>
+    </GDALRasterAttributeTable>
+    <Metadata>
+      <MDI key="SourceBandIndex">0</MDI>
+    </Metadata>
+  </PAMRasterBand>
+</PAMDataset>
