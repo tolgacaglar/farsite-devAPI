@@ -1,0 +1,4 @@
+Farsite $Rev: 2395 $
+Number of parallel threads = 4 (omp_get_num_procs = 64).
+Loading lcp file for Farsite #1: /home/tcaglar/farsite-devAPI/inputs/landscapes/test4
+Can't open: /home/tcaglar/farsite-devAPI/inputs/landscapes/test4 
