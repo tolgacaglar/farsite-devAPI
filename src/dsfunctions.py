@@ -385,7 +385,7 @@ def forward_pass_farsite(poly, params):
     usr = futils.User(fp, description)
 
     initialidx = uuid.uuid4().hex
-    fpath = f'/home/jovyan/farsite-devAPI/inputs/Reference/{description}_{initialidx}.shp'
+    fpath = f'/home/tcaglar/farsite-devAPI/inputs/Reference/{description}_{initialidx}.shp'
     # Creating the shp file for simulation
     gpd.GeoDataFrame({'FID': [0], 'geometry':poly}, crs='EPSG:5070').to_file(fpath)
     
@@ -419,13 +419,13 @@ def forward_pass_farsite(poly, params):
 
     usr.db.dfObservation.loc[dfsim.index[0], ['filetype', 'description']] = ['Observation', description]
     
-    simpath = f'/home/jovyan/farsite-devAPI/inputs/Reference/{description}_{observeidx}.shp'
+    simpath = f'/home/tcaglar/farsite-devAPI/inputs/Reference/{description}_{observeidx}.shp'
     dfgeom = gpd.read_file(dfsim['filepath'].iloc[0])['geometry']
     assert(len(dfgeom) == 1), f'dfgeom has size = {len(dfgeom)}'
     dfgeom = dfgeom[0]
 
     # Remove the generated files
-    os.system('rm /home/jovyan/farsite-devAPI/inputs/Reference/*')
+    os.system('rm /home/tcaglar/farsite-devAPI/inputs/Reference/*')
     
     return Polygon(dfgeom.coords)
 
