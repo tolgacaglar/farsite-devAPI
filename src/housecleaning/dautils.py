@@ -11,10 +11,14 @@ from putils import calculate_max_area_geom, validate_geom
 ########## ENKF functions #########
 
 def state_to_geom(state):
-    return validate_geom(Polygon(zip(state[::2], state[1::2])))
+    return validate_geom(Polygon(zip(state[:-2:2], state[1:-2:2])))
 
-def geom_to_state(geom):
-    return np.array(geom.exterior.coords[:-1]).reshape(2*len(geom.exterior.coords[:-1]), 1)
+def geom_to_state(geom, wx, wy):
+    return_state = np.zeros((2*len(geom.exterior.coords[:-1])+2,1))
+    return_state[:-2,0] = np.array(geom.exterior.coords[:-1]).reshape(2*len(geom.exterior.coords[:-1]), 1).flatten()
+    return_state[-2,0] = wx
+    return_state[-1,0] = wy
+    return return_state
 
 ################# ALIGN GEOMS ####################
 def make_ccw(geom):
@@ -102,16 +106,22 @@ def align_geoms(geoms, vertex_count):
 
 #############################    
     
-    
+def xy_to_state(x,y):
+    ret = []
+    for i in range(len(x)):
+        ret.append(x[i])
+        ret.append(y[i])
+
+    return np.array(ret).reshape((2*len(x),1))    
     
     
 def align_states(state_lst, vertex_count=None):
     if vertex_count is None:
         vertex_count = max(len(st) for st in state_lst)//2
-    x0 = state_lst[0][::2]
-    y0 = state_lst[0][1::2]
-    x1 = state_lst[1][::2]
-    y1 = state_lst[1][1::2]
+    x0 = state_lst[0][:-2:2]
+    y0 = state_lst[0][1:-2:2]
+    x1 = state_lst[1][:-2:2]
+    y1 = state_lst[1][1:-2:2]
 
     geom0 = make_ccw(Polygon(zip(x0,y0)))
     geom1 = make_ccw(Polygon(zip(x1,y1)))
@@ -120,26 +130,36 @@ def align_states(state_lst, vertex_count=None):
     x,y = geom0.exterior.coords.xy
     x0 = x.tolist()[:-1]
     y0 = y.tolist()[:-1]
-    state0 = xy_to_state(x0, y0)
+    
+    state0 = np.zeros((2*vertex_count + 2, 1))
+    state0[:-2,0] = xy_to_state(x0, y0).flatten()
+    state0[-2,0] = state_lst[0][-2]
+    state0[-1,0] = state_lst[0][-1]
     
     x,y = geom1.exterior.coords.xy
     x1 = x.tolist()[:-1]
     y1 = y.tolist()[:-1]
-    state1 = xy_to_state(x1, y1)
+    
+    state1 = np.zeros_like(state0)
+    state1[:-2,0] = xy_to_state(x1, y1).flatten()
+    state1[-2,0] = state_lst[1][-2]
+    state1[-1,0] = state_lst[1][-1]
 
     return [state0, state1]
     
-def xy_to_state(x,y):
-    ret = []
-    for i in range(len(x)):
-        ret.append(x[i])
-        ret.append(y[i])
 
-    return np.array(ret).reshape((2*len(x),1))
+    
+def return_ws_wd(xk):
+    wx = xk[-2,:]
+    wy = xk[-1,:]
 
-def adjusted_state_EnKF_farsite(initial_state, observation_state, 
-                        X, n_states, n_output, n_vertex, n_samples, rng, 
-                        sampled_wslst, sampled_wdlst, dt,
+    ws = np.sqrt(wx**2 + wy**2)
+    wd = np.fmod((180/np.pi)*np.arctan2(wy,wx) + 360,360)
+    
+    return ws,wd
+
+def adjusted_state_EnKF_farsite(initial_state, observation_state, wssigma,
+                        X, n_states, n_output, n_vertex, n_samples, rng, dt,
                         vsize, wsize, description,
                                dist_res, perim_res):
 
@@ -161,13 +181,21 @@ def adjusted_state_EnKF_farsite(initial_state, observation_state,
     for s in tqdm(range(n_samples)):
     
         xkhat_ensemble[:,s:(s+1)] = initial_state + np.matmul(Xs, rng.normal(size=(n_states,1)))
+        xkhat_ensemble[-2,s] = initial_state[-2] + rng.normal(0,scale=wssigma)
+        xkhat_ensemble[-1,s] = initial_state[-1] + rng.normal(0,scale=wssigma)
     
-        ws = sampled_wslst[s]
-        wd = sampled_wdlst[s]
+        wx = xkhat_ensemble[-2,s]
+        wy = xkhat_ensemble[-1,s]
+        #####################
+        # convert wx,wy to ws and wd
+        ws = np.sqrt(wx**2 + wy**2)
+        wd = np.fmod((180/np.pi)*np.arctan2(wy,wx) + 360,360)
 
         # Calculate the ensemble for the observations
         # ykhat_ensemble[:,s:(s+1)] = xy_to_state(*sample_xy(observation_state[::2], observation_state[1::2], rng, scale=vsize))
         ykhat_ensemble[:,s:(s+1)] = xkhat_ensemble[:,s:(s+1)] + rng.normal(0, scale=vsize, size=(n_output,1))
+        ykhat_ensemble[-2,s] = xkhat_ensemble[-2,s] + rng.normal(0,scale=wssigma)
+        ykhat_ensemble[-1,s] = xkhat_ensemble[-1,s] + rng.normal(0,scale=wssigma)
 ########################################
         forward_geom = forward_pass_farsite(state_to_geom(xkhat_ensemble[:,s:(s+1)]),
                                             params={'windspeed': int(ws),
@@ -176,11 +204,16 @@ def adjusted_state_EnKF_farsite(initial_state, observation_state,
                                             lcppath=lcppath, 
                                             description=description,
                                             dist_res=dist_res, perim_res=perim_res)
+        # TODO:
+        # implement forward ws and wd
+        forward_wx = wx + rng.normal(0, scale=wssigma)
+        forward_wy = wy + rng.normal(0, scale=wssigma)
+    
         if forward_geom is None:
             zero_samples.append(s)
             continue
             
-        forward_state = geom_to_state(forward_geom)
+        forward_state = geom_to_state(forward_geom, forward_wx, forward_wy)
         aligned_states = align_states([initial_state, forward_state], vertex_count = n_vertex)
 
         # Randomness is not given here. It's given later. This is only for calculating the ensembles
@@ -249,7 +282,7 @@ def adjusted_state_EnKF_farsite(initial_state, observation_state,
     
     # Validate adjusted state and reinterpolate
     adjusted_geom = validate_geom(state_to_geom(adjusted_state))
-    adjusted_state = geom_to_state(adjusted_geom)
+    adjusted_state = geom_to_state(adjusted_geom, adjusted_state[-2,0], adjusted_state[-1,0])
     aligned_states = align_states([initial_state, adjusted_state], vertex_count=n_vertex)
     adjusted_state = aligned_states[1]
     

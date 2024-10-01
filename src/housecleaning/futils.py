@@ -218,10 +218,10 @@ class Farsite:
 def generate_landscape(geom_5070: Polygon, description='test'):
     bounds = geom_5070.bounds
 
-    ulx = bounds[0]-10000
-    uly = bounds[3]+10000
-    lrx = bounds[2]+10000
-    lry=  bounds[1]-10000
+    ulx = bounds[0]-20000
+    uly = bounds[3]+20000
+    lrx = bounds[2]+20000
+    lry=  bounds[1]-20000
 
     fname_lst = {'density': 'US_140CBD_12052016/Grid/us_140cbd', 
                  'base': 'US_140CBH_12052016/Grid/us_140cbh', 
