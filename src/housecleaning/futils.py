@@ -9,6 +9,8 @@ from putils import calculate_max_area_geom, validate_geom
 
 import geopandas as gpd
 
+import warnings
+
 class Config_File:
     def __init__(self, 
                  FARSITE_START_TIME: datetime.datetime, 
@@ -146,7 +148,8 @@ class Run_File:
 class Farsite:
     def __init__(self, initial: Polygon, params: dict, description: str, 
                  lcppath: str = None, barrierpath: str = None,
-                 dist_res:int = 30, perim_res: int = 60):
+                 dist_res:int = 30, perim_res: int = 60,
+                 debug:bool = False):
         
         self.farsitepath = os.path.join(os.getenv('HOME'), 'farsite-devAPI', 'TestFARSITE')        
         self.id = uuid.uuid4().hex
@@ -194,6 +197,9 @@ class Farsite:
         self.runfile = Run_File(self.lcppath, self.configpath, self.ignitepath, self.barrierpath, self.outpath)
         self.runpath = os.path.join(self.tmpfolder, f'{description}_run_{self.id}')
         self.runfile.to_file(self.runpath)
+        
+        # Debugging keeps the files
+        self.debug = debug
 
     def run(self, timeout=5, ncores=4):
         self.command = f'timeout {timeout}m {self.farsitepath} {self.runpath} {ncores} > output.out 2> output.err'  # donot run 
@@ -212,7 +218,8 @@ class Farsite:
         return Polygon(geom.coords)
         
     def __del__(self):
-        os.system(f'rm {os.path.join(self.tmpfolder, f"{self.description}_*_{self.id}*")}')
+        if not self.debug:
+            os.system(f'rm {os.path.join(self.tmpfolder, f"{self.description}_*_{self.id}*")}')
        
 
 def generate_landscape(geom_5070: Polygon, description='test'):
@@ -275,9 +282,18 @@ def generate_landscape(geom_5070: Polygon, description='test'):
     return lcppath
             
     
-def forward_pass_farsite(poly, params, lcppath, description, dist_res=30, perim_res=60):
+def forward_pass_farsite(poly, params, lcppath, description, dist_res=30, perim_res=60, debug=False):
     MAX_SIM = 30 # minutes
     dt = params['dt']
+    
+    if dist_res > 500:
+        warnings.warn(f'dist_res ({dist_res}) has to be 1-->500. Setting to 500')
+        dist_res=500
+    
+    if perim_res > 500:
+        warnings.warn(f'perim_res ({perim_res}) has to be 1-->500. Setting to 500')
+        perim_res=500
+    
 
     number_of_farsites = dt.seconds//(MAX_SIM*60)
     for i in range(number_of_farsites):
@@ -285,7 +301,7 @@ def forward_pass_farsite(poly, params, lcppath, description, dist_res=30, perim_
         new_params = {'windspeed': params['windspeed'],
                       'winddirection': params['winddirection'],
                       'dt': datetime.timedelta(minutes=MAX_SIM)}
-        farsite = Farsite(poly, new_params, lcppath=lcppath, description=description, dist_res=dist_res, perim_res=perim_res)
+        farsite = Farsite(poly, new_params, lcppath=lcppath, description=description, dist_res=dist_res, perim_res=perim_res, debug=debug)
         farsite.run()
         if farsite.output_geom() is None:
             return None

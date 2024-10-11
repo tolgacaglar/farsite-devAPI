@@ -1,0 +1,48 @@
+Farsite BenchMark Results
+
+
+Simulation Info:
+	Landscape File: /home/tcaglar/farsite-devAPI/inputs/landscapes/CA-FKU-BOLT.lcp
+	Landscape Resolution: 30.0
+	Landscape Size: 973 x 942
+	Inputs File: /home/tcaglar/farsite-devAPI/data/tmp/20241001/CA-FKU-BOLT_config_4a0b7487ca2440e1a60d68663ae745d9.cfg
+	Farsite Start Time: 09 09 1900
+	Farsite End Time:   09 09 1930
+	Total Sim Time:     18.000000
+	Ignition File:      /home/tcaglar/farsite-devAPI/data/tmp/20241001/CA-FKU-BOLT_ignite_4a0b7487ca2440e1a60d68663ae745d9.shp
+	Barriers File:      /home/tcaglar/farsite-devAPI/inputs/barriers/NoBarrier/NoBarrier.shp
+	Time Step:                  30.000000
+	Distance Resolution:        500.000000
+	Perimeter Resolution:       500.000000
+	Enable Spotting:            No
+	Spot Probability:           0.000000
+	Spot Ignition Delay:        0.000000
+	Spot Grid Resolution:        60
+	Spotting Seed:               253114
+	Minimum Spotting Distance:  60.000000
+	Foliar Moisture:            100.0000
+	Enable Crowning:            Yes
+	Crown Fire Method:          ScottRheinhart
+	                            Crown Density NOT LINKED to Crown Cover
+	Dist Check Method:          Fire Level
+	Acceleration:               On
+	Backing Spread:             Calculated from Elliptical Dimensions
+	Simulation Started:         9/9 19:00
+	Simulation Ended:           09/09  19:00
+	Elapsed Time:               00 00:00
+	Restore Ignitions:          No
+	Preserve Inactive Enclaves: Yes
+	Tree Species Number:        1
+	Conditoning Start:          0/0
+	Burn Periods:           0
+	Relative Burn Periods:      0
+	Internal Weather:            -20
+	Internal Winds:              2
+9 9 1900 11 83 0
+9 10 100 11 83 0
+
+	Total Farsite Run Time: 0.421 Seconds
+
+	Total Number of Threads: 4 (CrossThread only)
+
+	SVN Version: $Id: Farsite5.cpp 3428 2020-05-13 22:54:38Z crawl $
