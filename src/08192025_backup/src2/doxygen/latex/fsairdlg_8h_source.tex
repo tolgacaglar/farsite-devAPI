@@ -1,0 +1,95 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fsairdlg.h}
+\hypertarget{fsairdlg_8h_source}{}\label{fsairdlg_8h_source}\mbox{\hyperlink{fsairdlg_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00024}00024\ \textcolor{preprocessor}{\#ifndef\ AIRATTACKDIALOG}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00025}00025\ \textcolor{preprocessor}{\#define\ AIRATTACKDIALOG}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00029}00029\ \textcolor{comment}{//\#include\ <owl\(\backslash\)combobox.h>}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00030}00030\ \textcolor{comment}{//\#include\ <owl\(\backslash\)static.h>}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00031}00031\ \textcolor{comment}{//\#include\ <owl\(\backslash\)edit.h>}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00032}00032\ \textcolor{comment}{//\#include\ <owl\(\backslash\)button.h>}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00033}00033\ \textcolor{comment}{//\#include\ <owl\(\backslash\)radiobut.h>}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00034}00034\ \textcolor{comment}{//\#include\ <owl\(\backslash\)dialog.h>}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00035}00035\ \textcolor{comment}{//\#include\ <owl\(\backslash\)updown.h>}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00036}00036\ \textcolor{comment}{//\#include\ <owl\(\backslash\)draglist.h>}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00037}00037\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fsairatk_8h}{fsairatk.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00038}00038\ \textcolor{comment}{//\#include\ "{}fsairatk.rh"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00041}00041\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00042}00042\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00043}00043\ \textcolor{comment}{//\ \ \ Air\ Resources\ Dialog}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00044}00044\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00045}00045\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00048}\mbox{\hyperlink{struct_air_data}{00048}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_air_data}{AirData}}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00049}00049\ \{}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00050}00050\ \ \ \ \ \textcolor{comment}{//TComboBoxData\ combo;}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00051}\mbox{\hyperlink{struct_air_data_aff0f0449e4b914c45e888bbc421fec04}{00051}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_air_data_aff0f0449e4b914c45e888bbc421fec04}{AirFileName}}[256];}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00052}\mbox{\hyperlink{struct_air_data_a7c6f19ac86b4c86a9362900b0952918d}{00052}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_air_data_a7c6f19ac86b4c86a9362900b0952918d}{m}};}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00053}\mbox{\hyperlink{struct_air_data_adcf0d50833dfe033acaf3492b5984b77}{00053}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_air_data_adcf0d50833dfe033acaf3492b5984b77}{ft}};}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00054}00054\ \};}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00057}\mbox{\hyperlink{struct_t_trans_air_data}{00057}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_trans_air_data}{TTransAirData}}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00058}00058\ \{}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00059}\mbox{\hyperlink{struct_t_trans_air_data_a8bdcbc896d96eeaff27045ce5a699c7f}{00059}}\ \ \ \ \ \mbox{\hyperlink{struct_air_data}{AirData}}\ \mbox{\hyperlink{struct_t_trans_air_data_a8bdcbc896d96eeaff27045ce5a699c7f}{Dat}};}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00060}\mbox{\hyperlink{struct_t_trans_air_data_accecdf8d289a6de713e0719a546f080e}{00060}}\ \ \ \ \ \mbox{\hyperlink{struct_t_trans_air_data_accecdf8d289a6de713e0719a546f080e}{TTransAirData}}();}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00061}\mbox{\hyperlink{struct_t_trans_air_data_acccca4a4a8919704be34e452ef4a3ad3}{00061}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_t_trans_air_data_acccca4a4a8919704be34e452ef4a3ad3}{ResetData}}();}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00062}00062\ \};}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00065}00065\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00066}00066\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00067}00067\ \textcolor{comment}{//\ \ \ Air\ Attack\ Dialog}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00068}00068\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00069}00069\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00073}\mbox{\hyperlink{struct_trans_air_attack}{00073}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_trans_air_attack}{TransAirAttack}}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00074}00074\ \{}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00075}\mbox{\hyperlink{struct_trans_air_attack_adeabd973173e67c9f116d9553ddf5792}{00075}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_trans_air_attack_adeabd973173e67c9f116d9553ddf5792}{l1}},\ \mbox{\hyperlink{struct_trans_air_attack_a8100bb6e9adceae156a2af513e0e8f04}{l2}},\ \mbox{\hyperlink{struct_trans_air_attack_a941830c7815d4bbc2edaa9b622e7edcd}{l3}},\ \mbox{\hyperlink{struct_trans_air_attack_abdc70433133d065c7683952332ebbd4a}{l4}},\ \mbox{\hyperlink{struct_trans_air_attack_a73d1ae117d3c64ce9cbb3150c5ab64bd}{l5}},\ \mbox{\hyperlink{struct_trans_air_attack_a8a06aac3d31866346c79de1785bda263}{l6}};}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00076}\mbox{\hyperlink{struct_trans_air_attack_aa81b4f2b11ebfd06e0a90b8c2e54e84b}{00076}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_trans_air_attack_aa81b4f2b11ebfd06e0a90b8c2e54e84b}{Duration}}[16];}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00077}\mbox{\hyperlink{struct_trans_air_attack_ad4a7f74795e35cdb35c70dd6ef177e7e}{00077}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_trans_air_attack_ad4a7f74795e35cdb35c70dd6ef177e7e}{gc1}},\ \mbox{\hyperlink{struct_trans_air_attack_a2b2808bf48040cf28ff8dc8214715cc2}{gc2}},\ \mbox{\hyperlink{struct_trans_air_attack_a2c3c6135a1fe11c12714cfef27aed89d}{gc3}},\ \mbox{\hyperlink{struct_trans_air_attack_af570cba96e7479bc13a5f91d1fcc35b5}{gc4}};}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00078}\mbox{\hyperlink{struct_trans_air_attack_a85a32268a416d3f4527711d41c3e4841}{00078}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_trans_air_attack_a85a32268a416d3f4527711d41c3e4841}{gname}}[24];}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00080}00080\ \ \ \ \ \textcolor{comment}{//TComboBoxData\ res;}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00081}00081\ \};}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00083}\mbox{\hyperlink{struct_t_trans_air_attack_data}{00083}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_t_trans_air_attack_data}{TTransAirAttackData}}}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00084}00084\ \{}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00085}\mbox{\hyperlink{struct_t_trans_air_attack_data_aa6510e6ee14ca474b23729306cd13847}{00085}}\ \ \ \ \ \mbox{\hyperlink{struct_trans_air_attack}{TransAirAttack}}\ \mbox{\hyperlink{struct_t_trans_air_attack_data_aa6510e6ee14ca474b23729306cd13847}{Dat}};}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00086}\mbox{\hyperlink{struct_t_trans_air_attack_data_a6acc118159158bc947e8a73babcbce0a}{00086}}\ \ \ \ \ \mbox{\hyperlink{struct_t_trans_air_attack_data_a6acc118159158bc947e8a73babcbce0a}{TTransAirAttackData}}();}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00087}00087\ \};}
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{fsairdlg_8h_source_l00090}00090\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

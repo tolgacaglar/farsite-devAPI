@@ -1,0 +1,258 @@
+\doxysection{Intersections Class Reference}
+\hypertarget{class_intersections}{}\label{class_intersections}\index{Intersections@{Intersections}}
+
+
+{\ttfamily \#include $<$fsx4.\+hpp$>$}
+
+Inheritance diagram for Intersections\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_intersections}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_intersections_a74fe953a5f2aefbc4801175842008c8d}{Intersections}} ()
+\item 
+\mbox{\hyperlink{class_intersections_a06e433acfa236177ce793f2caf2e924c}{\texorpdfstring{$\sim$}{\string~}\+Intersections}} ()
+\item 
+double \mbox{\hyperlink{class_intersections_a94595e00363e281d189a77e538e66057}{arp}} (int Perim\+Num, long count)
+\item 
+void \mbox{\hyperlink{class_intersections_aa7b6b066eb348519821020e019062d89}{Cross\+Fires}} (int check, long \texorpdfstring{$\ast$}{*}firenum)
+\item 
+void \mbox{\hyperlink{class_intersections_a62ee2f5bb56a429d11dd7357d7bead2b}{Crosses\+With\+Barriers}} (long Fire\+Num)
+\item 
+void \mbox{\hyperlink{class_intersections_a3bfe1d46e96bc4f788850d725e605e23}{Clean\+Perimeter}} (long Current\+Fire)
+\item 
+void \mbox{\hyperlink{class_intersections_af80e6d723da9334e13bda4d31195abf3}{Reset\+Intersection\+Arrays}} ()
+\item 
+void \mbox{\hyperlink{class_intersections_a2883b9c14a8052213bd2bb249f55d500}{Close\+Cross\+Threads}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_x_utilities}{XUtilities}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_x_utilities_afdc71dddf173d42e895a955bcf0f7d4b}{XUtilities}} ()
+\item 
+\mbox{\hyperlink{class_x_utilities_ac4f8441f34fef14b2e98cb6e50a8c409}{\texorpdfstring{$\sim$}{\string~}\+XUtilities}} ()
+\item 
+void \mbox{\hyperlink{class_x_utilities_abe325bb0dd9abf1d015acf5f8bc43be5}{Alloc\+Swap}} (long Num\+Point)
+\item 
+void \mbox{\hyperlink{class_x_utilities_aeef845630bdf89eb2152abc1ebcaa709}{Free\+Swap}} ()
+\item 
+void \mbox{\hyperlink{class_x_utilities_a5b3b7fbe3cee31b9d91d6aba07d79840}{Get\+Swap}} (long Num\+Point, double \texorpdfstring{$\ast$}{*}xpt, double \texorpdfstring{$\ast$}{*}ypt, double \texorpdfstring{$\ast$}{*}ros, double \texorpdfstring{$\ast$}{*}fli, double \texorpdfstring{$\ast$}{*}rct)
+\item 
+void \mbox{\hyperlink{class_x_utilities_a9a4fa3dbe3af8d93907e7ba084304d87}{Set\+Swap}} (long Num\+Point, double xpt, double ypt, double ros, double fli, double rct)
+\item 
+void \mbox{\hyperlink{class_x_utilities_a185c0193ca802b9f45266284869efae6}{Swap\+Tranz}} (long writefire, long nump)
+\item 
+void \mbox{\hyperlink{class_x_utilities_ababd1b593a83a3a29fc76b2fba4c083b}{tranz}} (long count, long nump)
+\item 
+void \mbox{\hyperlink{class_x_utilities_af3a199e9e61a9913b551bbcfd1c1d738}{rediscretize}} (long \texorpdfstring{$\ast$}{*}count, bool Reorder)
+\item 
+void \mbox{\hyperlink{class_x_utilities_aeee430576a52ea8fd1069ff760f6253e}{Re\+Position\+Fire}} (long \texorpdfstring{$\ast$}{*}firenum)
+\item 
+void \mbox{\hyperlink{class_x_utilities_ab3d1d0ae44956dba5d372ceada9f849c}{Restore\+Dead\+Points}} (long firenum)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_a_polygon}{APolygon}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_polygon_a320e19d2cfe15f78aab1017f0555a791}{APolygon}} ()
+\item 
+\mbox{\hyperlink{class_a_polygon_ae4a66eb1be50042c3f42475fbc47af28}{\texorpdfstring{$\sim$}{\string~}\+APolygon}} ()
+\item 
+long \mbox{\hyperlink{class_a_polygon_ad1602b8422835faf6e26bb6faf77654d}{Overlap}} (long count)
+\item 
+double \mbox{\hyperlink{class_a_polygon_a3dc18b77e4ff5f2bffcc3bd94d96dfb9}{direction}} (double xpt1, double ypt1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_compare_rect}{Compare\+Rect}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_compare_rect_a08bb72e0dddfed0b97955cda91e496b9}{Compare\+Rect}} ()
+\item 
+\mbox{\hyperlink{class_compare_rect_a442f10125a32f18ce5f693a313ece4a2}{\texorpdfstring{$\sim$}{\string~}\+Compare\+Rect}} ()
+\item 
+void \mbox{\hyperlink{class_compare_rect_ac1d692869dde0a91ab55858a006761e1}{Init\+Rect}} (long Fire\+Num)
+\item 
+void \mbox{\hyperlink{class_compare_rect_a5c32b7d90e436efb90a25d88de9a9947}{Write\+Hi\+Lo}} (long Fire\+Num)
+\item 
+void \mbox{\hyperlink{class_compare_rect_a4d36c56e54bc20a5682ea09bb7dccb18}{Exchange\+Rect}} (long Fire\+Num)
+\item 
+bool \mbox{\hyperlink{class_compare_rect_a58894ac353d3fa06ec5ae8c97b246b6c}{XOverlap}} ()
+\item 
+bool \mbox{\hyperlink{class_compare_rect_ae931c2754e2bcc887181609911510c64}{YOverlap}} ()
+\item 
+bool \mbox{\hyperlink{class_compare_rect_aeac55ced44eddd634fff868fe32d0e6d}{Bound\+Cross}} (long Fire1, long Fire2)
+\item 
+void \mbox{\hyperlink{class_compare_rect_a0338f318b7d0b5a3114d95011bb15de8}{Determine\+Hi\+Lo}} (double xpt, double ypt)
+\item 
+bool \mbox{\hyperlink{class_compare_rect_a86c233d5a02a8f08d6ca7a020d74c6cd}{Merge\+In\+And\+Out\+OK1}} (long Fire1, long Fire2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_standardize_polygon}{Standardize\+Polygon}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_standardize_polygon_acf4e735064f9335e3e8177fbf0061dc5}{Standardize\+Polygon}} ()
+\item 
+\mbox{\hyperlink{class_standardize_polygon_a277cf44681c34ec83f0a8a84a3ef5c9c}{\texorpdfstring{$\sim$}{\string~}\+Standardize\+Polygon}} ()
+\item 
+long \mbox{\hyperlink{class_standardize_polygon_a0c739e898d98ff15507be8fa17028d86}{Find\+External\+Point}} (long Current\+Fire, long type)
+\item 
+void \mbox{\hyperlink{class_standardize_polygon_a96a8463f9e976d59c46b4a9bfc29230c}{Reorder\+Perimeter}} (long Current\+Fire, long New\+Beginning)
+\item 
+void \mbox{\hyperlink{class_standardize_polygon_a7f140988bf1751782195cd25777e0be1}{Find\+Outer\+Fire\+Perimeter}} (long Current\+Fire)
+\item 
+bool \mbox{\hyperlink{class_standardize_polygon_a61c0c55a7b5d4539e02df40bd8d66bec}{Cross}} (double xpt1, double ypt1, double xpt2, double ypt2, double xpt1n, double ypt1n, double xpt2n, double ypt2n, double \texorpdfstring{$\ast$}{*}newx, double \texorpdfstring{$\ast$}{*}newy, long \texorpdfstring{$\ast$}{*}dup1, long \texorpdfstring{$\ast$}{*}dup2)
+\item 
+void \mbox{\hyperlink{class_standardize_polygon_a02df9bc4a3b93c107487c0de31217e44}{Density\+Control}} (long Current\+Fire)
+\item 
+void \mbox{\hyperlink{class_standardize_polygon_a7a5f986a99277b0ba78780be4f4b2aca}{Remove\+Duplicate\+Points}} (long Current\+Fire)
+\item 
+void \mbox{\hyperlink{class_standardize_polygon_a92c26f52694f85b44d5ac6f3fcd0bdc3}{Remove\+Identical\+Points}} (long Fire\+Num)
+\item 
+void \mbox{\hyperlink{class_standardize_polygon_a84bfd800dc81c62b324d865999974755}{Bounding\+Box}} (long Current\+Fire)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_post_frontal}{Post\+Frontal}} \mbox{\hyperlink{class_intersections_a04c2498d412745da8f951f7aab7ce3de}{post}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_x_utilities}{XUtilities}}}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{class_x_utilities_a4bc4e04bea17af2a20bc95233412964d}{Ex\+Num\+Pts}}
+\item 
+long \mbox{\hyperlink{class_x_utilities_a3c7aee189dec493c677b90509aa153ce}{Old\+Num\+Points}}
+\item 
+double \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_x_utilities_afc5509b7e1e94941ef6d17af2eb7b4a5}{swapperim}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_a_polygon}{APolygon}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_a_polygon_aaac708d12252d711b51f726d910cdc15}{startx}}
+\item 
+double \mbox{\hyperlink{class_a_polygon_ad3ebb74db66103027823b53e20f1b772}{starty}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_compare_rect}{Compare\+Rect}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_compare_rect_ad4274d1562ab402ca62ac444291b57e6}{XLO}}
+\item 
+double \mbox{\hyperlink{class_compare_rect_aa40a06ea33d87273264818b0e81a806d}{XHI}}
+\item 
+double \mbox{\hyperlink{class_compare_rect_a472f3802816ec0b8148b0a2360731a66}{YLO}}
+\item 
+double \mbox{\hyperlink{class_compare_rect_aea75125607ff495aba4530f1c625952c}{YHI}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00219}{219}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_intersections_a74fe953a5f2aefbc4801175842008c8d}\label{class_intersections_a74fe953a5f2aefbc4801175842008c8d} 
+\index{Intersections@{Intersections}!Intersections@{Intersections}}
+\index{Intersections@{Intersections}!Intersections@{Intersections}}
+\doxysubsubsection{\texorpdfstring{Intersections()}{Intersections()}}
+{\footnotesize\ttfamily Intersections\+::\+Intersections (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwutil_8cpp_source_l00436}{436}} of file \mbox{\hyperlink{fsxwutil_8cpp_source}{fsxwutil.\+cpp}}.
+
+\Hypertarget{class_intersections_a06e433acfa236177ce793f2caf2e924c}\label{class_intersections_a06e433acfa236177ce793f2caf2e924c} 
+\index{Intersections@{Intersections}!````~Intersections@{\texorpdfstring{$\sim$}{\string~}Intersections}}
+\index{````~Intersections@{\texorpdfstring{$\sim$}{\string~}Intersections}!Intersections@{Intersections}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Intersections()}{\string~Intersections()}}
+{\footnotesize\ttfamily Intersections\+::\texorpdfstring{$\sim$}{\string~}\+Intersections (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwutil_8cpp_source_l00457}{457}} of file \mbox{\hyperlink{fsxwutil_8cpp_source}{fsxwutil.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_intersections_a94595e00363e281d189a77e538e66057}\label{class_intersections_a94595e00363e281d189a77e538e66057} 
+\index{Intersections@{Intersections}!arp@{arp}}
+\index{arp@{arp}!Intersections@{Intersections}}
+\doxysubsubsection{\texorpdfstring{arp()}{arp()}}
+{\footnotesize\ttfamily double Intersections\+::arp (\begin{DoxyParamCaption}\item[{int}]{Perim\+Num,  }\item[{long}]{count }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwutil_8cpp_source_l03819}{3819}} of file \mbox{\hyperlink{fsxwutil_8cpp_source}{fsxwutil.\+cpp}}.
+
+\Hypertarget{class_intersections_a3bfe1d46e96bc4f788850d725e605e23}\label{class_intersections_a3bfe1d46e96bc4f788850d725e605e23} 
+\index{Intersections@{Intersections}!CleanPerimeter@{CleanPerimeter}}
+\index{CleanPerimeter@{CleanPerimeter}!Intersections@{Intersections}}
+\doxysubsubsection{\texorpdfstring{CleanPerimeter()}{CleanPerimeter()}}
+{\footnotesize\ttfamily void Intersections\+::\+Clean\+Perimeter (\begin{DoxyParamCaption}\item[{long}]{Current\+Fire }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{newclip_8cpp_source_l00229}{229}} of file \mbox{\hyperlink{newclip_8cpp_source}{newclip.\+cpp}}.
+
+\Hypertarget{class_intersections_a2883b9c14a8052213bd2bb249f55d500}\label{class_intersections_a2883b9c14a8052213bd2bb249f55d500} 
+\index{Intersections@{Intersections}!CloseCrossThreads@{CloseCrossThreads}}
+\index{CloseCrossThreads@{CloseCrossThreads}!Intersections@{Intersections}}
+\doxysubsubsection{\texorpdfstring{CloseCrossThreads()}{CloseCrossThreads()}}
+{\footnotesize\ttfamily void Intersections\+::\+Close\+Cross\+Threads (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwutil_8cpp_source_l01361}{1361}} of file \mbox{\hyperlink{fsxwutil_8cpp_source}{fsxwutil.\+cpp}}.
+
+\Hypertarget{class_intersections_a62ee2f5bb56a429d11dd7357d7bead2b}\label{class_intersections_a62ee2f5bb56a429d11dd7357d7bead2b} 
+\index{Intersections@{Intersections}!CrossesWithBarriers@{CrossesWithBarriers}}
+\index{CrossesWithBarriers@{CrossesWithBarriers}!Intersections@{Intersections}}
+\doxysubsubsection{\texorpdfstring{CrossesWithBarriers()}{CrossesWithBarriers()}}
+{\footnotesize\ttfamily void Intersections\+::\+Crosses\+With\+Barriers (\begin{DoxyParamCaption}\item[{long}]{Fire\+Num }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwutil_8cpp_source_l01088}{1088}} of file \mbox{\hyperlink{fsxwutil_8cpp_source}{fsxwutil.\+cpp}}.
+
+\Hypertarget{class_intersections_aa7b6b066eb348519821020e019062d89}\label{class_intersections_aa7b6b066eb348519821020e019062d89} 
+\index{Intersections@{Intersections}!CrossFires@{CrossFires}}
+\index{CrossFires@{CrossFires}!Intersections@{Intersections}}
+\doxysubsubsection{\texorpdfstring{CrossFires()}{CrossFires()}}
+{\footnotesize\ttfamily void Intersections\+::\+Cross\+Fires (\begin{DoxyParamCaption}\item[{int}]{check,  }\item[{long \texorpdfstring{$\ast$}{*}}]{firenum }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwutil_8cpp_source_l01111}{1111}} of file \mbox{\hyperlink{fsxwutil_8cpp_source}{fsxwutil.\+cpp}}.
+
+\Hypertarget{class_intersections_af80e6d723da9334e13bda4d31195abf3}\label{class_intersections_af80e6d723da9334e13bda4d31195abf3} 
+\index{Intersections@{Intersections}!ResetIntersectionArrays@{ResetIntersectionArrays}}
+\index{ResetIntersectionArrays@{ResetIntersectionArrays}!Intersections@{Intersections}}
+\doxysubsubsection{\texorpdfstring{ResetIntersectionArrays()}{ResetIntersectionArrays()}}
+{\footnotesize\ttfamily void Intersections\+::\+Reset\+Intersection\+Arrays (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwutil_8cpp_source_l00467}{467}} of file \mbox{\hyperlink{fsxwutil_8cpp_source}{fsxwutil.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_intersections_a04c2498d412745da8f951f7aab7ce3de}\label{class_intersections_a04c2498d412745da8f951f7aab7ce3de} 
+\index{Intersections@{Intersections}!post@{post}}
+\index{post@{post}!Intersections@{Intersections}}
+\doxysubsubsection{\texorpdfstring{post}{post}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_post_frontal}{Post\+Frontal}} Intersections\+::post}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00284}{284}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsx4_8hpp}{fsx4.\+hpp}}\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsxwutil_8cpp}{fsxwutil.\+cpp}}\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{newclip_8cpp}{newclip.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,103 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/nonlin.h File Reference}
+\hypertarget{nonlin_8h}{}\label{nonlin_8h}\index{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/nonlin.h@{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/nonlin.h}}
+{\ttfamily \#include "{}nrutil.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{nonlin_8h_af1264880bf4b0941f3855bd7d5cbf1aa}{pow2}} (double input)
+\item 
+void \mbox{\hyperlink{nonlin_8h_a95c7e68b698b882c3c821ce61ed25298}{mrqmin}} (double x\mbox{[}$\,$\mbox{]}, double y\mbox{[}$\,$\mbox{]}, double sig\mbox{[}$\,$\mbox{]}, long ndata, double a\mbox{[}$\,$\mbox{]}, long ia\mbox{[}$\,$\mbox{]}, long ma, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}covar, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}alpha, double \texorpdfstring{$\ast$}{*}chisq, void(\texorpdfstring{$\ast$}{*}funcs)(double, double\mbox{[}$\,$\mbox{]}, double \texorpdfstring{$\ast$}{*}, double\mbox{[}$\,$\mbox{]}, long), double \texorpdfstring{$\ast$}{*}alamda)
+\item 
+void \mbox{\hyperlink{nonlin_8h_a89c01d1751679bc8cabf2dbf0148f33e}{covsrt}} (double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}covar, long ma, long ia\mbox{[}$\,$\mbox{]}, long mfit)
+\item 
+void \mbox{\hyperlink{nonlin_8h_aa7acf9a06c4bc1a588d481b143a38f4a}{gaussj}} (double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}a, long n, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}b, long m)
+\item 
+void \mbox{\hyperlink{nonlin_8h_a03f19f663e7fe06be478ed663bde1efa}{mrqcof}} (double x\mbox{[}$\,$\mbox{]}, double y\mbox{[}$\,$\mbox{]}, double sig\mbox{[}$\,$\mbox{]}, long ndata, double a\mbox{[}$\,$\mbox{]}, long ia\mbox{[}$\,$\mbox{]}, long ma, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}alpha, double beta\mbox{[}$\,$\mbox{]}, double \texorpdfstring{$\ast$}{*}chisq, void(\texorpdfstring{$\ast$}{*}funcs)(double, double\mbox{[}$\,$\mbox{]}, double \texorpdfstring{$\ast$}{*}, double\mbox{[}$\,$\mbox{]}, long))
+\item 
+void \mbox{\hyperlink{nonlin_8h_acd869ee2b64f0e9b30d6b6bac11ca6b8}{lfit}} (double x\mbox{[}$\,$\mbox{]}, double y\mbox{[}$\,$\mbox{]}, double sig\mbox{[}$\,$\mbox{]}, long ndat, double a\mbox{[}$\,$\mbox{]}, long ia\mbox{[}$\,$\mbox{]}, long ma, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}covar, double \texorpdfstring{$\ast$}{*}chisq, void(\texorpdfstring{$\ast$}{*}funcs)(double, double\mbox{[}$\,$\mbox{]}, long))
+\item 
+void \mbox{\hyperlink{nonlin_8h_a5b752620e7f7d7884d489a979723ea00}{svdfit}} (double x\mbox{[}$\,$\mbox{]}, double y\mbox{[}$\,$\mbox{]}, double sig\mbox{[}$\,$\mbox{]}, long ndata, double a\mbox{[}$\,$\mbox{]}, long ma, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}u, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}v, double w\mbox{[}$\,$\mbox{]}, double \texorpdfstring{$\ast$}{*}chisq, void(\texorpdfstring{$\ast$}{*}funcs)(double, double\mbox{[}$\,$\mbox{]}, long))
+\item 
+void \mbox{\hyperlink{nonlin_8h_a10d615fcb6fb42e3ee4d7765b435f147}{svdar}} (double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}v, long ma, double w\mbox{[}$\,$\mbox{]}, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}cvm)
+\item 
+void \mbox{\hyperlink{nonlin_8h_acc3c418ba811ebf0af1a68e9542e18c7}{svbksb}} (double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}u, double w\mbox{[}$\,$\mbox{]}, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}v, long m, long n, double b\mbox{[}$\,$\mbox{]}, double x\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{nonlin_8h_a63108a3000f2d6d3a126397b0802076d}{svdcmp}} (double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}a, long m, long n, double w\mbox{[}$\,$\mbox{]}, double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}v)
+\item 
+double \mbox{\hyperlink{nonlin_8h_a7f43e2c062f2de6dbd14da6799d78030}{pythag}} (double a, double b)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{nonlin_8h_a89c01d1751679bc8cabf2dbf0148f33e}\label{nonlin_8h_a89c01d1751679bc8cabf2dbf0148f33e} 
+\index{nonlin.h@{nonlin.h}!covsrt@{covsrt}}
+\index{covsrt@{covsrt}!nonlin.h@{nonlin.h}}
+\doxysubsubsection{\texorpdfstring{covsrt()}{covsrt()}}
+{\footnotesize\ttfamily void covsrt (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{covar,  }\item[{long}]{ma,  }\item[{long}]{ia\mbox{[}$\,$\mbox{]},  }\item[{long}]{mfit }\end{DoxyParamCaption})}
+
+\Hypertarget{nonlin_8h_aa7acf9a06c4bc1a588d481b143a38f4a}\label{nonlin_8h_aa7acf9a06c4bc1a588d481b143a38f4a} 
+\index{nonlin.h@{nonlin.h}!gaussj@{gaussj}}
+\index{gaussj@{gaussj}!nonlin.h@{nonlin.h}}
+\doxysubsubsection{\texorpdfstring{gaussj()}{gaussj()}}
+{\footnotesize\ttfamily void gaussj (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{a,  }\item[{long}]{n,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{b,  }\item[{long}]{m }\end{DoxyParamCaption})}
+
+\Hypertarget{nonlin_8h_acd869ee2b64f0e9b30d6b6bac11ca6b8}\label{nonlin_8h_acd869ee2b64f0e9b30d6b6bac11ca6b8} 
+\index{nonlin.h@{nonlin.h}!lfit@{lfit}}
+\index{lfit@{lfit}!nonlin.h@{nonlin.h}}
+\doxysubsubsection{\texorpdfstring{lfit()}{lfit()}}
+{\footnotesize\ttfamily void lfit (\begin{DoxyParamCaption}\item[{double}]{x\mbox{[}$\,$\mbox{]},  }\item[{double}]{y\mbox{[}$\,$\mbox{]},  }\item[{double}]{sig\mbox{[}$\,$\mbox{]},  }\item[{long}]{ndat,  }\item[{double}]{a\mbox{[}$\,$\mbox{]},  }\item[{long}]{ia\mbox{[}$\,$\mbox{]},  }\item[{long}]{ma,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{covar,  }\item[{double \texorpdfstring{$\ast$}{*}}]{chisq,  }\item[{void(\texorpdfstring{$\ast$}{*})(double, double\mbox{[}$\,$\mbox{]}, long)}]{funcs }\end{DoxyParamCaption})}
+
+\Hypertarget{nonlin_8h_a03f19f663e7fe06be478ed663bde1efa}\label{nonlin_8h_a03f19f663e7fe06be478ed663bde1efa} 
+\index{nonlin.h@{nonlin.h}!mrqcof@{mrqcof}}
+\index{mrqcof@{mrqcof}!nonlin.h@{nonlin.h}}
+\doxysubsubsection{\texorpdfstring{mrqcof()}{mrqcof()}}
+{\footnotesize\ttfamily void mrqcof (\begin{DoxyParamCaption}\item[{double}]{x\mbox{[}$\,$\mbox{]},  }\item[{double}]{y\mbox{[}$\,$\mbox{]},  }\item[{double}]{sig\mbox{[}$\,$\mbox{]},  }\item[{long}]{ndata,  }\item[{double}]{a\mbox{[}$\,$\mbox{]},  }\item[{long}]{ia\mbox{[}$\,$\mbox{]},  }\item[{long}]{ma,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{alpha,  }\item[{double}]{beta\mbox{[}$\,$\mbox{]},  }\item[{double \texorpdfstring{$\ast$}{*}}]{chisq,  }\item[{void(\texorpdfstring{$\ast$}{*})(double, double\mbox{[}$\,$\mbox{]}, double \texorpdfstring{$\ast$}{*}, double\mbox{[}$\,$\mbox{]}, long)}]{funcs }\end{DoxyParamCaption})}
+
+\Hypertarget{nonlin_8h_a95c7e68b698b882c3c821ce61ed25298}\label{nonlin_8h_a95c7e68b698b882c3c821ce61ed25298} 
+\index{nonlin.h@{nonlin.h}!mrqmin@{mrqmin}}
+\index{mrqmin@{mrqmin}!nonlin.h@{nonlin.h}}
+\doxysubsubsection{\texorpdfstring{mrqmin()}{mrqmin()}}
+{\footnotesize\ttfamily void mrqmin (\begin{DoxyParamCaption}\item[{double}]{x\mbox{[}$\,$\mbox{]},  }\item[{double}]{y\mbox{[}$\,$\mbox{]},  }\item[{double}]{sig\mbox{[}$\,$\mbox{]},  }\item[{long}]{ndata,  }\item[{double}]{a\mbox{[}$\,$\mbox{]},  }\item[{long}]{ia\mbox{[}$\,$\mbox{]},  }\item[{long}]{ma,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{covar,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{alpha,  }\item[{double \texorpdfstring{$\ast$}{*}}]{chisq,  }\item[{void(\texorpdfstring{$\ast$}{*})(double, double\mbox{[}$\,$\mbox{]}, double \texorpdfstring{$\ast$}{*}, double\mbox{[}$\,$\mbox{]}, long)}]{funcs,  }\item[{double \texorpdfstring{$\ast$}{*}}]{alamda }\end{DoxyParamCaption})}
+
+\Hypertarget{nonlin_8h_af1264880bf4b0941f3855bd7d5cbf1aa}\label{nonlin_8h_af1264880bf4b0941f3855bd7d5cbf1aa} 
+\index{nonlin.h@{nonlin.h}!pow2@{pow2}}
+\index{pow2@{pow2}!nonlin.h@{nonlin.h}}
+\doxysubsubsection{\texorpdfstring{pow2()}{pow2()}}
+{\footnotesize\ttfamily double pow2 (\begin{DoxyParamCaption}\item[{double}]{input }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsglbvar_8cpp_source_l00708}{708}} of file \mbox{\hyperlink{fsglbvar_8cpp_source}{fsglbvar.\+cpp}}.
+
+\Hypertarget{nonlin_8h_a7f43e2c062f2de6dbd14da6799d78030}\label{nonlin_8h_a7f43e2c062f2de6dbd14da6799d78030} 
+\index{nonlin.h@{nonlin.h}!pythag@{pythag}}
+\index{pythag@{pythag}!nonlin.h@{nonlin.h}}
+\doxysubsubsection{\texorpdfstring{pythag()}{pythag()}}
+{\footnotesize\ttfamily double pythag (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{double}]{b }\end{DoxyParamCaption})}
+
+\Hypertarget{nonlin_8h_acc3c418ba811ebf0af1a68e9542e18c7}\label{nonlin_8h_acc3c418ba811ebf0af1a68e9542e18c7} 
+\index{nonlin.h@{nonlin.h}!svbksb@{svbksb}}
+\index{svbksb@{svbksb}!nonlin.h@{nonlin.h}}
+\doxysubsubsection{\texorpdfstring{svbksb()}{svbksb()}}
+{\footnotesize\ttfamily void svbksb (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{u,  }\item[{double}]{w\mbox{[}$\,$\mbox{]},  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{v,  }\item[{long}]{m,  }\item[{long}]{n,  }\item[{double}]{b\mbox{[}$\,$\mbox{]},  }\item[{double}]{x\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\Hypertarget{nonlin_8h_a10d615fcb6fb42e3ee4d7765b435f147}\label{nonlin_8h_a10d615fcb6fb42e3ee4d7765b435f147} 
+\index{nonlin.h@{nonlin.h}!svdar@{svdar}}
+\index{svdar@{svdar}!nonlin.h@{nonlin.h}}
+\doxysubsubsection{\texorpdfstring{svdar()}{svdar()}}
+{\footnotesize\ttfamily void svdar (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{v,  }\item[{long}]{ma,  }\item[{double}]{w\mbox{[}$\,$\mbox{]},  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{cvm }\end{DoxyParamCaption})}
+
+\Hypertarget{nonlin_8h_a63108a3000f2d6d3a126397b0802076d}\label{nonlin_8h_a63108a3000f2d6d3a126397b0802076d} 
+\index{nonlin.h@{nonlin.h}!svdcmp@{svdcmp}}
+\index{svdcmp@{svdcmp}!nonlin.h@{nonlin.h}}
+\doxysubsubsection{\texorpdfstring{svdcmp()}{svdcmp()}}
+{\footnotesize\ttfamily void svdcmp (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{a,  }\item[{long}]{m,  }\item[{long}]{n,  }\item[{double}]{w\mbox{[}$\,$\mbox{]},  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{nonlin_8h_a5b752620e7f7d7884d489a979723ea00}\label{nonlin_8h_a5b752620e7f7d7884d489a979723ea00} 
+\index{nonlin.h@{nonlin.h}!svdfit@{svdfit}}
+\index{svdfit@{svdfit}!nonlin.h@{nonlin.h}}
+\doxysubsubsection{\texorpdfstring{svdfit()}{svdfit()}}
+{\footnotesize\ttfamily void svdfit (\begin{DoxyParamCaption}\item[{double}]{x\mbox{[}$\,$\mbox{]},  }\item[{double}]{y\mbox{[}$\,$\mbox{]},  }\item[{double}]{sig\mbox{[}$\,$\mbox{]},  }\item[{long}]{ndata,  }\item[{double}]{a\mbox{[}$\,$\mbox{]},  }\item[{long}]{ma,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{u,  }\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{v,  }\item[{double}]{w\mbox{[}$\,$\mbox{]},  }\item[{double \texorpdfstring{$\ast$}{*}}]{chisq,  }\item[{void(\texorpdfstring{$\ast$}{*})(double, double\mbox{[}$\,$\mbox{]}, long)}]{funcs }\end{DoxyParamCaption})}
+

@@ -1,0 +1,76 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\+Time\+Counter.cpp}
+\hypertarget{_time_counter_8cpp_source}{}\label{_time_counter_8cpp_source}\mbox{\hyperlink{_time_counter_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_time_counter_8hpp}{TimeCounter.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00003}00003\ \ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00005}00005\ \textcolor{comment}{//\ Global\ static\ pointer\ used\ to\ ensure\ a\ single\ instance\ of\ the\ class.}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00007}00007\ \mbox{\hyperlink{class_time_counter}{TimeCounter}}*\ TimeCounter::m\_pInstance\ =\ NULL;\ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00009}00009\ \ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00021}\mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{00021}}\ \mbox{\hyperlink{class_time_counter}{TimeCounter}}*\ \mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00024}00024\ \ \ \ \textcolor{keywordflow}{if}\ (!m\_pInstance)\{\ \ \ \textcolor{comment}{//\ Only\ allow\ one\ instance\ of\ class\ to\ be\ generated.}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00025}00025\ \ \ \ \ \ \ m\_pInstance\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_time_counter}{TimeCounter}};}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00026}00026\ \ \ \ \ \ \ m\_pInstance-\/>\mbox{\hyperlink{class_time_counter_aa6d1c4ff98b904ffa820797bc831a56f}{AccTime\_sec}}=0;}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00027}00027\ \ \ \ \ \ \ m\_pInstance-\/>\mbox{\hyperlink{class_time_counter_a601eee1da0d1dc986d6f920cc72d8607}{AccTime\_nsec}}=0;}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00028}00028\ \textcolor{comment}{//\ \ \ \ \ \ m\_pInstance-\/>t0=0.0f;}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00029}00029\ \textcolor{comment}{//\ \ \ \ \ \ m\_pInstance-\/>t1=0.0f;}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00030}00030\ \ \ \ \ \ \ m\_pInstance-\/>\mbox{\hyperlink{class_time_counter_ad3614ef587e56ca4230dc4d74ff94551}{AccTimeS\_sec}}=0;}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00031}00031\ \ \ \ \ \ \ m\_pInstance-\/>\mbox{\hyperlink{class_time_counter_a5af6af9cc0a66338a117062200d7bd7f}{AccTimeS\_nsec}}=0;}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00032}00032\ \textcolor{comment}{//\ \ \ \ \ \ m\_pInstance-\/>st0=0.0f;}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00033}00033\ \textcolor{comment}{//\ \ \ \ \ \ m\_pInstance-\/>st1=0.0f;}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00034}00034\ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00036}00036\ \ \ \ \textcolor{keywordflow}{return}\ m\_pInstance;}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00038}00038\ \}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00041}\mbox{\hyperlink{class_time_counter_a67cf3d43895234c8dda19bff82e8006e}{00041}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_time_counter_a67cf3d43895234c8dda19bff82e8006e}{TimeCounter::getTime}}()\{}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{return}\ ((\textcolor{keywordtype}{float})\mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>\mbox{\hyperlink{class_time_counter_aa6d1c4ff98b904ffa820797bc831a56f}{AccTime\_sec}}+\ (\textcolor{keywordtype}{float})\mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>\mbox{\hyperlink{class_time_counter_a601eee1da0d1dc986d6f920cc72d8607}{AccTime\_nsec}}/1000000000);}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00044}\mbox{\hyperlink{class_time_counter_adf06fb0fbb78f5da642dda21bd4bc932}{00044}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_time_counter_adf06fb0fbb78f5da642dda21bd4bc932}{TimeCounter::getTimeS}}()\{}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{return}\ ((\textcolor{keywordtype}{float})\mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>\mbox{\hyperlink{class_time_counter_ad3614ef587e56ca4230dc4d74ff94551}{AccTimeS\_sec}}+\ (\textcolor{keywordtype}{float})\mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>\mbox{\hyperlink{class_time_counter_a5af6af9cc0a66338a117062200d7bd7f}{AccTimeS\_nsec}}/1000000000);}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00047}\mbox{\hyperlink{class_time_counter_ad4f9c70a9135c7ecb2461aeaf79b6981}{00047}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_time_counter_ad4f9c70a9135c7ecb2461aeaf79b6981}{TimeCounter::startTS}}()}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00048}00048\ \{}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keyword}{struct\ }timespec\ temp;}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00050}00050\ \ \ \ \ clock\_gettime(CLOCK\_REALTIME,\ \&temp);}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00051}00051\ \ \ \ \ \mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>st0.tv\_sec=temp.tv\_sec;}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00052}00052\ \ \ \ \ \mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>st0.tv\_nsec=temp.tv\_nsec;}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00053}00053\ \}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00054}\mbox{\hyperlink{class_time_counter_a46af457e65a732bc668e014a4a3f8810}{00054}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_time_counter_a46af457e65a732bc668e014a4a3f8810}{TimeCounter::stopTS}}()}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keyword}{struct\ }timespec\ temp;}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00057}00057\ \ \ \ \ clock\_gettime(CLOCK\_REALTIME,\ \&temp);}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00058}00058\ \ \ \ \ \mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>\mbox{\hyperlink{class_time_counter_ad3614ef587e56ca4230dc4d74ff94551}{AccTimeS\_sec}}\ +=\ (temp.tv\_sec-\/\mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>st0.tv\_sec);}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>\mbox{\hyperlink{class_time_counter_a5af6af9cc0a66338a117062200d7bd7f}{AccTimeS\_nsec}}\ +=\ (temp.tv\_nsec-\/\mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>st0.tv\_nsec);}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00060}00060\ \textcolor{comment}{//\ \ TimeCounter::Instance()-\/>AccTimeS\ +=\ (\ ((float)temp.tv\_sec\ +\ (float)temp.tv\_nsec/1000000000)\ -\/\ ((float)TimeCounter::Instance()-\/>st0.tv\_sec\ +\ (float)TimeCounter::Instance()-\/>st0.tv\_nsec/1000000000));}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00063}\mbox{\hyperlink{class_time_counter_a7288ccbcfce8200eea58074e8ae7f3df}{00063}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_time_counter_a7288ccbcfce8200eea58074e8ae7f3df}{TimeCounter::startT}}()}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00064}00064\ \{}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{keyword}{struct\ }timespec\ temp;}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00066}00066\ \ \ \ \ clock\_gettime(CLOCK\_REALTIME,\ \&temp);}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00067}00067\ \ \ \ \ \mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>t0.tv\_sec=temp.tv\_sec;}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00068}00068\ \ \ \ \ \mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>t0.tv\_nsec=temp.tv\_nsec;}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00070}00070\ \ \ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00071}\mbox{\hyperlink{class_time_counter_a5b5161b03ed40c9b162dd2a323e3d182}{00071}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_time_counter_a5b5161b03ed40c9b162dd2a323e3d182}{TimeCounter::stopT}}()}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00072}00072\ \{}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{keyword}{struct\ }timespec\ temp;}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00074}00074\ \ \ \ \ clock\_gettime(CLOCK\_REALTIME,\ \&temp);}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00075}00075\ \ \ \ \ \mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>\mbox{\hyperlink{class_time_counter_aa6d1c4ff98b904ffa820797bc831a56f}{AccTime\_sec}}\ +=\ (temp.tv\_sec-\/\mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>t0.tv\_sec);}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>\mbox{\hyperlink{class_time_counter_a601eee1da0d1dc986d6f920cc72d8607}{AccTime\_nsec}}\ +=\ (temp.tv\_nsec-\/\mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>t0.tv\_nsec);}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00077}00077\ \textcolor{comment}{//\ \ TimeCounter::Instance()-\/>AccTime\ +=\ (\ ((float)temp.tv\_sec\ +\ (float)temp.tv\_nsec/1000000000)\ -\/\ ((float)TimeCounter::Instance()-\/>t0.tv\_sec\ +\ (float)TimeCounter::Instance()-\/>t0.tv\_nsec/1000000000));}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_time_counter_8cpp_source_l00081}00081\ \ }
+
+\end{DoxyCode}

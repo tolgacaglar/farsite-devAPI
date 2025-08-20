@@ -1,0 +1,229 @@
+\doxysection{Ignition\+File Class Reference}
+\hypertarget{class_ignition_file}{}\label{class_ignition_file}\index{IgnitionFile@{IgnitionFile}}
+
+
+{\ttfamily \#include $<$fsxwignt.\+h$>$}
+
+Inheritance diagram for Ignition\+File\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_ignition_file}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ignition_file_a8d775e003a3b26f2a1656a0b837e4fb3}{Ignition\+File}} ()
+\item 
+\mbox{\hyperlink{class_ignition_file_af57e9415df321edd877f9ba1dae1f2d4}{\texorpdfstring{$\sim$}{\string~}\+Ignition\+File}} ()
+\item 
+void \mbox{\hyperlink{class_ignition_file_a22e67097940ad776108dbe0f0ff6a6d8}{Select\+File\+Input}} ()
+\item 
+bool \mbox{\hyperlink{class_ignition_file_a56a12f5055c6a190a0003aa54b4347b4}{Grass\+File}} ()
+\item 
+bool \mbox{\hyperlink{class_ignition_file_a0806ab9619366671da6ac98ea07f6f60}{Arc\+Line}} ()
+\item 
+bool \mbox{\hyperlink{class_ignition_file_aaa1bdfa73e85d3c8a7c8ea9422fbf560}{Arc\+Poly}} ()
+\item 
+bool \mbox{\hyperlink{class_ignition_file_aebbc3eadda6c37ea7cfad65dec661cd8}{Arc\+Point}} ()
+\item 
+bool \mbox{\hyperlink{class_ignition_file_a327e1383ec23ebdd491aedb79be0eb10}{Shape\+Input}} ()
+\item 
+void \mbox{\hyperlink{class_ignition_file_a97bc048ffee42238e3c7963f9d29343a}{Select\+File\+Input\+CmdL}} (int type)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_ignition_correct}{Ignition\+Correct}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ignition_correct_a3ea5ccb338fe47c456861b17acf9ba31}{Ignition\+Correct}} ()
+\item 
+\mbox{\hyperlink{class_ignition_correct_ab9dda7a046e86db92fd8802f55ce1b5f}{\texorpdfstring{$\sim$}{\string~}\+Ignition\+Correct}} ()
+\item 
+void \mbox{\hyperlink{class_ignition_correct_adb8ca09807d6678fc84378013dfcde75}{Reverse\+Points}} (long type)
+\item 
+double \mbox{\hyperlink{class_ignition_correct_ac26d4f63fdc1588d4f00d75562ca7aa9}{arp}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_a_polygon}{APolygon}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_polygon_a320e19d2cfe15f78aab1017f0555a791}{APolygon}} ()
+\item 
+\mbox{\hyperlink{class_a_polygon_ae4a66eb1be50042c3f42475fbc47af28}{\texorpdfstring{$\sim$}{\string~}\+APolygon}} ()
+\item 
+long \mbox{\hyperlink{class_a_polygon_ad1602b8422835faf6e26bb6faf77654d}{Overlap}} (long count)
+\item 
+double \mbox{\hyperlink{class_a_polygon_a3dc18b77e4ff5f2bffcc3bd94d96dfb9}{direction}} (double xpt1, double ypt1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_standardize_polygon}{Standardize\+Polygon}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_standardize_polygon_acf4e735064f9335e3e8177fbf0061dc5}{Standardize\+Polygon}} ()
+\item 
+\mbox{\hyperlink{class_standardize_polygon_a277cf44681c34ec83f0a8a84a3ef5c9c}{\texorpdfstring{$\sim$}{\string~}\+Standardize\+Polygon}} ()
+\item 
+long \mbox{\hyperlink{class_standardize_polygon_a0c739e898d98ff15507be8fa17028d86}{Find\+External\+Point}} (long Current\+Fire, long type)
+\item 
+void \mbox{\hyperlink{class_standardize_polygon_a96a8463f9e976d59c46b4a9bfc29230c}{Reorder\+Perimeter}} (long Current\+Fire, long New\+Beginning)
+\item 
+void \mbox{\hyperlink{class_standardize_polygon_a7f140988bf1751782195cd25777e0be1}{Find\+Outer\+Fire\+Perimeter}} (long Current\+Fire)
+\item 
+bool \mbox{\hyperlink{class_standardize_polygon_a61c0c55a7b5d4539e02df40bd8d66bec}{Cross}} (double xpt1, double ypt1, double xpt2, double ypt2, double xpt1n, double ypt1n, double xpt2n, double ypt2n, double \texorpdfstring{$\ast$}{*}newx, double \texorpdfstring{$\ast$}{*}newy, long \texorpdfstring{$\ast$}{*}dup1, long \texorpdfstring{$\ast$}{*}dup2)
+\item 
+void \mbox{\hyperlink{class_standardize_polygon_a02df9bc4a3b93c107487c0de31217e44}{Density\+Control}} (long Current\+Fire)
+\item 
+void \mbox{\hyperlink{class_standardize_polygon_a7a5f986a99277b0ba78780be4f4b2aca}{Remove\+Duplicate\+Points}} (long Current\+Fire)
+\item 
+void \mbox{\hyperlink{class_standardize_polygon_a92c26f52694f85b44d5ac6f3fcd0bdc3}{Remove\+Identical\+Points}} (long Fire\+Num)
+\item 
+void \mbox{\hyperlink{class_standardize_polygon_a84bfd800dc81c62b324d865999974755}{Bounding\+Box}} (long Current\+Fire)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{class_ignition_file_a0df3c36013960770e95a3df337dc164f}{Test\+End}} \mbox{[}30\mbox{]}
+\item 
+char \mbox{\hyperlink{class_ignition_file_a19adfe08e814c3b242fd0bbae6ca7d62}{ifile}} \mbox{[}256\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_a_polygon}{APolygon}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_a_polygon_aaac708d12252d711b51f726d910cdc15}{startx}}
+\item 
+double \mbox{\hyperlink{class_a_polygon_ad3ebb74db66103027823b53e20f1b772}{starty}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{fsxwignt_8h_source_l00031}{31}} of file \mbox{\hyperlink{fsxwignt_8h_source}{fsxwignt.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_ignition_file_a8d775e003a3b26f2a1656a0b837e4fb3}\label{class_ignition_file_a8d775e003a3b26f2a1656a0b837e4fb3} 
+\index{IgnitionFile@{IgnitionFile}!IgnitionFile@{IgnitionFile}}
+\index{IgnitionFile@{IgnitionFile}!IgnitionFile@{IgnitionFile}}
+\doxysubsubsection{\texorpdfstring{IgnitionFile()}{IgnitionFile()}}
+{\footnotesize\ttfamily Ignition\+File\+::\+Ignition\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwignt_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{fsxwignt_8cpp_source}{fsxwignt.\+cpp}}.
+
+\Hypertarget{class_ignition_file_af57e9415df321edd877f9ba1dae1f2d4}\label{class_ignition_file_af57e9415df321edd877f9ba1dae1f2d4} 
+\index{IgnitionFile@{IgnitionFile}!````~IgnitionFile@{\texorpdfstring{$\sim$}{\string~}IgnitionFile}}
+\index{````~IgnitionFile@{\texorpdfstring{$\sim$}{\string~}IgnitionFile}!IgnitionFile@{IgnitionFile}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}IgnitionFile()}{\string~IgnitionFile()}}
+{\footnotesize\ttfamily Ignition\+File\+::\texorpdfstring{$\sim$}{\string~}\+Ignition\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwignt_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{fsxwignt_8cpp_source}{fsxwignt.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_ignition_file_a0806ab9619366671da6ac98ea07f6f60}\label{class_ignition_file_a0806ab9619366671da6ac98ea07f6f60} 
+\index{IgnitionFile@{IgnitionFile}!ArcLine@{ArcLine}}
+\index{ArcLine@{ArcLine}!IgnitionFile@{IgnitionFile}}
+\doxysubsubsection{\texorpdfstring{ArcLine()}{ArcLine()}}
+{\footnotesize\ttfamily bool Ignition\+File\+::\+Arc\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwignt_8cpp_source_l00383}{383}} of file \mbox{\hyperlink{fsxwignt_8cpp_source}{fsxwignt.\+cpp}}.
+
+\Hypertarget{class_ignition_file_aebbc3eadda6c37ea7cfad65dec661cd8}\label{class_ignition_file_aebbc3eadda6c37ea7cfad65dec661cd8} 
+\index{IgnitionFile@{IgnitionFile}!ArcPoint@{ArcPoint}}
+\index{ArcPoint@{ArcPoint}!IgnitionFile@{IgnitionFile}}
+\doxysubsubsection{\texorpdfstring{ArcPoint()}{ArcPoint()}}
+{\footnotesize\ttfamily bool Ignition\+File\+::\+Arc\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwignt_8cpp_source_l00546}{546}} of file \mbox{\hyperlink{fsxwignt_8cpp_source}{fsxwignt.\+cpp}}.
+
+\Hypertarget{class_ignition_file_aaa1bdfa73e85d3c8a7c8ea9422fbf560}\label{class_ignition_file_aaa1bdfa73e85d3c8a7c8ea9422fbf560} 
+\index{IgnitionFile@{IgnitionFile}!ArcPoly@{ArcPoly}}
+\index{ArcPoly@{ArcPoly}!IgnitionFile@{IgnitionFile}}
+\doxysubsubsection{\texorpdfstring{ArcPoly()}{ArcPoly()}}
+{\footnotesize\ttfamily bool Ignition\+File\+::\+Arc\+Poly (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwignt_8cpp_source_l00485}{485}} of file \mbox{\hyperlink{fsxwignt_8cpp_source}{fsxwignt.\+cpp}}.
+
+\Hypertarget{class_ignition_file_a56a12f5055c6a190a0003aa54b4347b4}\label{class_ignition_file_a56a12f5055c6a190a0003aa54b4347b4} 
+\index{IgnitionFile@{IgnitionFile}!GrassFile@{GrassFile}}
+\index{GrassFile@{GrassFile}!IgnitionFile@{IgnitionFile}}
+\doxysubsubsection{\texorpdfstring{GrassFile()}{GrassFile()}}
+{\footnotesize\ttfamily bool Ignition\+File\+::\+Grass\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwignt_8cpp_source_l00268}{268}} of file \mbox{\hyperlink{fsxwignt_8cpp_source}{fsxwignt.\+cpp}}.
+
+\Hypertarget{class_ignition_file_a22e67097940ad776108dbe0f0ff6a6d8}\label{class_ignition_file_a22e67097940ad776108dbe0f0ff6a6d8} 
+\index{IgnitionFile@{IgnitionFile}!SelectFileInput@{SelectFileInput}}
+\index{SelectFileInput@{SelectFileInput}!IgnitionFile@{IgnitionFile}}
+\doxysubsubsection{\texorpdfstring{SelectFileInput()}{SelectFileInput()}}
+{\footnotesize\ttfamily void Ignition\+File\+::\+Select\+File\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwignt_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{fsxwignt_8cpp_source}{fsxwignt.\+cpp}}.
+
+\Hypertarget{class_ignition_file_a97bc048ffee42238e3c7963f9d29343a}\label{class_ignition_file_a97bc048ffee42238e3c7963f9d29343a} 
+\index{IgnitionFile@{IgnitionFile}!SelectFileInputCmdL@{SelectFileInputCmdL}}
+\index{SelectFileInputCmdL@{SelectFileInputCmdL}!IgnitionFile@{IgnitionFile}}
+\doxysubsubsection{\texorpdfstring{SelectFileInputCmdL()}{SelectFileInputCmdL()}}
+{\footnotesize\ttfamily void Ignition\+File\+::\+Select\+File\+Input\+CmdL (\begin{DoxyParamCaption}\item[{int}]{type }\end{DoxyParamCaption})}
+
+this is processed from the Cmd\+Line for right now
+\begin{DoxyItemize}
+\item 1 is Arc\+Poly
+\item 2 is Arc\+Line
+\item 3 is Arc\+Point 
+\end{DoxyItemize}
+
+Definition at line \mbox{\hyperlink{fsxwignt_8cpp_source_l00783}{783}} of file \mbox{\hyperlink{fsxwignt_8cpp_source}{fsxwignt.\+cpp}}.
+
+\Hypertarget{class_ignition_file_a327e1383ec23ebdd491aedb79be0eb10}\label{class_ignition_file_a327e1383ec23ebdd491aedb79be0eb10} 
+\index{IgnitionFile@{IgnitionFile}!ShapeInput@{ShapeInput}}
+\index{ShapeInput@{ShapeInput}!IgnitionFile@{IgnitionFile}}
+\doxysubsubsection{\texorpdfstring{ShapeInput()}{ShapeInput()}}
+{\footnotesize\ttfamily bool Ignition\+File\+::\+Shape\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwignt_8cpp_source_l00085}{85}} of file \mbox{\hyperlink{fsxwignt_8cpp_source}{fsxwignt.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_ignition_file_a19adfe08e814c3b242fd0bbae6ca7d62}\label{class_ignition_file_a19adfe08e814c3b242fd0bbae6ca7d62} 
+\index{IgnitionFile@{IgnitionFile}!ifile@{ifile}}
+\index{ifile@{ifile}!IgnitionFile@{IgnitionFile}}
+\doxysubsubsection{\texorpdfstring{ifile}{ifile}}
+{\footnotesize\ttfamily char Ignition\+File\+::ifile\mbox{[}256\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwignt_8h_source_l00041}{41}} of file \mbox{\hyperlink{fsxwignt_8h_source}{fsxwignt.\+h}}.
+
+\Hypertarget{class_ignition_file_a0df3c36013960770e95a3df337dc164f}\label{class_ignition_file_a0df3c36013960770e95a3df337dc164f} 
+\index{IgnitionFile@{IgnitionFile}!TestEnd@{TestEnd}}
+\index{TestEnd@{TestEnd}!IgnitionFile@{IgnitionFile}}
+\doxysubsubsection{\texorpdfstring{TestEnd}{TestEnd}}
+{\footnotesize\ttfamily char Ignition\+File\+::\+Test\+End\mbox{[}30\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwignt_8h_source_l00040}{40}} of file \mbox{\hyperlink{fsxwignt_8h_source}{fsxwignt.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsxwignt_8h}{fsxwignt.\+h}}\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsxwignt_8cpp}{fsxwignt.\+cpp}}\end{DoxyCompactItemize}

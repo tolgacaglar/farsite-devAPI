@@ -1,0 +1,94 @@
+.TH "ShapeFileUtils" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ShapeFileUtils
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsxwshap\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBShapeFileUtils\fP ()"
+.br
+.ti -1c
+.RI "\fB~ShapeFileUtils\fP ()"
+.br
+.ti -1c
+.RI "void \fBResetShape\fP ()"
+.br
+.ti -1c
+.RI "char * \fBGetShapeFileName\fP ()"
+.br
+.ti -1c
+.RI "bool \fBShapeData\fP (long CurrentFire, double SimTime)"
+.br
+.ti -1c
+.RI "void \fBInitializeShapeExport\fP (char *FileName, long poly)"
+.br
+.ti -1c
+.RI "long \fBImportShapeData\fP (const char *FileName, long PolygonType)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "long \fBVisOnly\fP"
+.br
+.ti -1c
+.RI "bool \fBNewFile\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB26\fP of file \fBfsxwshap\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ShapeFileUtils::ShapeFileUtils ()"
+
+.PP
+Definition at line \fB34\fP of file \fBfsxwshap\&.cpp\fP\&.
+.SS "ShapeFileUtils::~ShapeFileUtils ()"
+
+.PP
+Definition at line \fB46\fP of file \fBfsxwshap\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "char * ShapeFileUtils::GetShapeFileName ()"
+
+.PP
+Definition at line \fB209\fP of file \fBfsxwshap\&.cpp\fP\&.
+.SS "long ShapeFileUtils::ImportShapeData (const char * FileName, long PolygonType)"
+
+.PP
+Definition at line \fB118\fP of file \fBfsxwshap\&.cpp\fP\&.
+.SS "void ShapeFileUtils::InitializeShapeExport (char * FileName, long poly)"
+
+.PP
+Definition at line \fB72\fP of file \fBfsxwshap\&.cpp\fP\&.
+.SS "void ShapeFileUtils::ResetShape ()"
+
+.PP
+Definition at line \fB56\fP of file \fBfsxwshap\&.cpp\fP\&.
+.SS "bool ShapeFileUtils::ShapeData (long CurrentFire, double SimTime)"
+
+.PP
+Definition at line \fB262\fP of file \fBfsxwshap\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "bool ShapeFileUtils::NewFile"
+
+.PP
+Definition at line \fB41\fP of file \fBfsxwshap\&.h\fP\&.
+.SS "long ShapeFileUtils::VisOnly"
+
+.PP
+Definition at line \fB40\fP of file \fBfsxwshap\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

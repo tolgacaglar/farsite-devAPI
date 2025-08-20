@@ -1,0 +1,422 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/shpopen.cpp File Reference}
+\hypertarget{shpopen_8cpp}{}\label{shpopen_8cpp}\index{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/shpopen.cpp@{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/shpopen.cpp}}
+{\ttfamily \#include "{}shapefil.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{shpopen_8cpp_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}~0
+\item 
+\#define \mbox{\hyperlink{shpopen_8cpp_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}~1
+\item 
+\#define \mbox{\hyperlink{shpopen_8cpp_ad30f9fd5225057bf40dec9bbc92c13e9}{Byte\+Copy}}(a,  b,  c)~\mbox{\hyperlink{dbfopen_8cpp_afce3d3186cbb509149c67821252cd883}{memcpy}}( b, a, c )
+\item 
+\#define \mbox{\hyperlink{shpopen_8cpp_a3acffbd305ee72dcd4593c0d8af64a4f}{MIN}}(a,  b)~((a$<$b) ? a \+: b)
+\item 
+\#define \mbox{\hyperlink{shpopen_8cpp_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{MAX}}(a,  b)~((a$>$b) ? a \+: b)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned char \mbox{\hyperlink{shpopen_8cpp_a65f85814a8290f9797005d3b28e7e5fc}{uchar}}
+\item 
+typedef int \mbox{\hyperlink{shpopen_8cpp_a56f1a81c92849566ae864511088eb7e8}{int32}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{shapefil_8h_a8229e480d0e24f3765848bede0846a0b}{SHPHandle}} \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{shpopen_8cpp_a0835d5326cf13157fc5302fe2e315c53}{SHPOpen}} (const char \texorpdfstring{$\ast$}{*}psz\+Layer, const char \texorpdfstring{$\ast$}{*}psz\+Access)
+\item 
+void \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{shpopen_8cpp_a827c26f028d427953ee6e81e6401b80b}{SHPClose}} (\mbox{\hyperlink{shapefil_8h_a8229e480d0e24f3765848bede0846a0b}{SHPHandle}} ps\+SHP)
+\item 
+void \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{shpopen_8cpp_a82dee0a3e23cf84f1983ec75666486cf}{SHPGet\+Info}} (\mbox{\hyperlink{shapefil_8h_a8229e480d0e24f3765848bede0846a0b}{SHPHandle}} ps\+SHP, int \texorpdfstring{$\ast$}{*}pn\+Entities, int \texorpdfstring{$\ast$}{*}pn\+Shape\+Type, double \texorpdfstring{$\ast$}{*}padf\+Min\+Bound, double \texorpdfstring{$\ast$}{*}padf\+Max\+Bound)
+\item 
+\mbox{\hyperlink{shapefil_8h_a8229e480d0e24f3765848bede0846a0b}{SHPHandle}} \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{shpopen_8cpp_a36b0158c2c29e3dd4f93fb149fa9fba1}{SHPCreate}} (const char \texorpdfstring{$\ast$}{*}psz\+Layer, int n\+Shape\+Type)
+\item 
+void \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{shpopen_8cpp_a650af9c65bd96a6ffa0ad3e12a628709}{SHPCompute\+Extents}} (\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}} \texorpdfstring{$\ast$}{*}ps\+Object)
+\item 
+\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}} \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\+\_\+\+CALL1}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{shpopen_8cpp_a062be59f0e093bc50e942f4207b43a0f}{SHPCreate\+Object}} (int \mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}, int \mbox{\hyperlink{shpopen_8cpp_a1aabb01565f76897278f9b2abe939fd4}{n\+Shape\+Id}}, int n\+Parts, int \texorpdfstring{$\ast$}{*}pan\+Part\+Start, int \texorpdfstring{$\ast$}{*}pan\+Part\+Type, int \mbox{\hyperlink{shpopen_8cpp_a23aae61e35b5d148c9b26420899b1178}{n\+Vertices}}, double \texorpdfstring{$\ast$}{*}padfX, double \texorpdfstring{$\ast$}{*}padfY, double \texorpdfstring{$\ast$}{*}padfZ, double \texorpdfstring{$\ast$}{*}padfM)\{\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}} \texorpdfstring{$\ast$}{*}ps\+Object;int i, b\+HasM, \mbox{\hyperlink{shpopen_8cpp_a969de80b6c27b21db66aa966baa5ec2b}{b\+HasZ}};ps\+Object=(\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}} \texorpdfstring{$\ast$}{*}) calloc(1, sizeof(\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}})
+\item 
+\mbox{\hyperlink{shpopen_8cpp_a6e3530eaac4b63648dd0589bb34fa82d}{if}} (\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}==\mbox{\hyperlink{shapefil_8h_a2325dc5cb450566659ef120c6af5c781}{SHPT\+\_\+\+ARCM}}\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}==\mbox{\hyperlink{shapefil_8h_abf6b2f75e24c10aa1fb4ba97f59f268e}{SHPT\+\_\+\+POINTM}}\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}==\mbox{\hyperlink{shapefil_8h_a2d0a059c816bd657517f8aef4a736cc1}{SHPT\+\_\+\+POLYGONM}}\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}==\mbox{\hyperlink{shapefil_8h_abcac52f1ead709b77fc2007e22f4e793}{SHPT\+\_\+\+MULTIPOINTM}})
+\item 
+\mbox{\hyperlink{shpopen_8cpp_afb947df769cd695ef32b1ca3e73ecb7d}{if}} (\mbox{\hyperlink{shpopen_8cpp_a23aae61e35b5d148c9b26420899b1178}{n\+Vertices}} $>$ 0)
+\item 
+\mbox{\hyperlink{shpopen_8cpp_af08d78fae86347817211afea984f16a2}{SHPCompute\+Extents}} (ps\+Object)
+\item 
+\mbox{\hyperlink{shpopen_8cpp_ae66e2777b52e9165c42d60fb6d46a25f}{return}} (ps\+Object)
+\item 
+\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}} \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\+\_\+\+CALL1}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{shpopen_8cpp_acabece806123224625bf110716d480f8}{SHPCreate\+Simple\+Object}} (int \mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}, int \mbox{\hyperlink{shpopen_8cpp_a23aae61e35b5d148c9b26420899b1178}{n\+Vertices}}, double \texorpdfstring{$\ast$}{*}padfX, double \texorpdfstring{$\ast$}{*}padfY, double \texorpdfstring{$\ast$}{*}padfZ)\{\mbox{\hyperlink{dbfopen_8cpp_aa00699348db8c73844e5dcc504328eb2}{return}}(\mbox{\hyperlink{shapefil_8h_aecaca6ba4b386b57a4eb6c37e018e89d}{SHPCreate\+Object}}(\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}, -\/1, 0, NULL, NULL, \mbox{\hyperlink{shpopen_8cpp_a23aae61e35b5d148c9b26420899b1178}{n\+Vertices}}, padfX, padfY, padfZ, NULL)
+\item 
+int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{shpopen_8cpp_ac93d390ab226586dcab7b6bc939d505b}{SHPWrite\+Object}} (\mbox{\hyperlink{shapefil_8h_a8229e480d0e24f3765848bede0846a0b}{SHPHandle}} ps\+SHP, int \mbox{\hyperlink{shpopen_8cpp_a1aabb01565f76897278f9b2abe939fd4}{n\+Shape\+Id}}, \mbox{\hyperlink{struct_s_h_p_object}{SHPObject}} \texorpdfstring{$\ast$}{*}ps\+Object)
+\item 
+\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}} \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\+\_\+\+CALL1}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{shpopen_8cpp_ab44960edcd8580104e5d99dcf82263c9}{SHPRead\+Object}} (\mbox{\hyperlink{shapefil_8h_a8229e480d0e24f3765848bede0846a0b}{SHPHandle}} ps\+SHP, int h\+Entity)\{\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}};\mbox{\hyperlink{dbfopen_8cpp_a10ce366c99d2411d4f9532c862df3940}{if}}(h\+Entity$<$ 0\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}h\+Entity $>$=ps\+SHP-\/$>$n\+Records) \mbox{\hyperlink{dbfopen_8cpp_aa00699348db8c73844e5dcc504328eb2}{return}}(NULL
+\item 
+\mbox{\hyperlink{shpopen_8cpp_a02fcc5ae0bc924d19a715b67c2ecf6b9}{if}} (ps\+SHP-\/$>$pan\+Rec\+Size\mbox{[}h\+Entity\mbox{]}+8 $>$ n\+Buf\+Size)
+\item 
+\mbox{\hyperlink{shpopen_8cpp_a8e6aca366e11f5afdcfae93543d83443}{fseek}} (ps\+SHP-\/$>$fp\+SHP, ps\+SHP-\/$>$pan\+Rec\+Offset\mbox{[}h\+Entity\mbox{]}, 0)
+\item 
+\mbox{\hyperlink{shpopen_8cpp_aecb8a3696a2526fd9c4b525acb965ae1}{fread}} (\mbox{\hyperlink{dbfopen_8cpp_ae4554962d38fe13cd3829d09a91fa970}{paby\+Rec}}, ps\+SHP-\/$>$pan\+Rec\+Size\mbox{[}h\+Entity\mbox{]}+8, 1, ps\+SHP-\/$>$fp\+SHP)
+\item 
+\mbox{\hyperlink{shpopen_8cpp_a9c65cee21f5ec6a924b66a9b68e07211}{if}} (b\+Big\+Endian) Swap\+Word(4
+\item 
+\mbox{\hyperlink{shpopen_8cpp_a6bcb2f81664e3aba6d2710c75921b644}{if}} (\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}}-\/$>$\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}==\mbox{\hyperlink{shapefil_8h_a556463e3133ebb0f2f9ba3ec048a5336}{SHPT\+\_\+\+POLYGON}}\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}}-\/$>$\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}==\mbox{\hyperlink{shapefil_8h_a3ca5e794a3b30cba2010f298ba900269}{SHPT\+\_\+\+ARC}}\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}}-\/$>$\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}==\mbox{\hyperlink{shapefil_8h_acdd259d31ff2bc2c64eb75647359e598}{SHPT\+\_\+\+POLYGONZ}}\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}}-\/$>$\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}==\mbox{\hyperlink{shapefil_8h_a2d0a059c816bd657517f8aef4a736cc1}{SHPT\+\_\+\+POLYGONM}}\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}}-\/$>$\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}==\mbox{\hyperlink{shapefil_8h_a01314c37707da5efc96663dfa7d45ee7}{SHPT\+\_\+\+ARCZ}}\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}}-\/$>$\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}==\mbox{\hyperlink{shapefil_8h_a2325dc5cb450566659ef120c6af5c781}{SHPT\+\_\+\+ARCM}}\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}}-\/$>$\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}==\mbox{\hyperlink{shapefil_8h_a129d8b889be8f1bd2ec1f2c40c2411f4}{SHPT\+\_\+\+MULTIPATCH}})
+\item 
+\mbox{\hyperlink{shpopen_8cpp_a454fa07aa3ede729257712737b6c7534}{return}} (\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}})
+\item 
+const char \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\+\_\+\+CALL1}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{shpopen_8cpp_a0c1a1f4d994d3cb33fd0041340fbf32d}{SHPType\+Name}} (int \mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}})\{switch(\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}
+\item 
+const char \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\+\_\+\+CALL1}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{shpopen_8cpp_a62135bd523899ceb049bf7fb7b14cc06}{SHPPart\+Type\+Name}} (int n\+Part\+Type)\{switch(n\+Part\+Type
+\item 
+void \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} \mbox{\hyperlink{shpopen_8cpp_abb02ecd4a27b67aaf6ed21d3447207f4}{SHPDestroy\+Object}} (\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ps\+Object \mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}} = n\+SHPType
+\item 
+ps\+Object \mbox{\hyperlink{shpopen_8cpp_a1aabb01565f76897278f9b2abe939fd4}{n\+Shape\+Id}} = n\+Shape\+Id
+\item 
+\mbox{\hyperlink{shpopen_8cpp_a0544c3fe466e421738dae463968b70ba}{else}}
+\item 
+\mbox{\hyperlink{shpopen_8cpp_a969de80b6c27b21db66aa966baa5ec2b}{b\+HasZ}} = \mbox{\hyperlink{dbfopen_8cpp_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}
+\item 
+ps\+Object \mbox{\hyperlink{shpopen_8cpp_a23aae61e35b5d148c9b26420899b1178}{n\+Vertices}} = n\+Vertices
+\item 
+\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}} = (\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}}\texorpdfstring{$\ast$}{*}) calloc(1, sizeof(\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}}))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{shpopen_8cpp_ad30f9fd5225057bf40dec9bbc92c13e9}\label{shpopen_8cpp_ad30f9fd5225057bf40dec9bbc92c13e9} 
+\index{shpopen.cpp@{shpopen.cpp}!ByteCopy@{ByteCopy}}
+\index{ByteCopy@{ByteCopy}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{ByteCopy}{ByteCopy}}
+{\footnotesize\ttfamily \#define Byte\+Copy(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c }\end{DoxyParamCaption})~\mbox{\hyperlink{dbfopen_8cpp_afce3d3186cbb509149c67821252cd883}{memcpy}}( b, a, c )}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00188}{188}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_aa93f0eb578d23995850d61f7d61c55c1}\label{shpopen_8cpp_aa93f0eb578d23995850d61f7d61c55c1} 
+\index{shpopen.cpp@{shpopen.cpp}!FALSE@{FALSE}}
+\index{FALSE@{FALSE}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{FALSE}{FALSE}}
+{\footnotesize\ttfamily \#define FALSE~0}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00184}{184}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_afa99ec4acc4ecb2dc3c2d05da15d0e3f}\label{shpopen_8cpp_afa99ec4acc4ecb2dc3c2d05da15d0e3f} 
+\index{shpopen.cpp@{shpopen.cpp}!MAX@{MAX}}
+\index{MAX@{MAX}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX}{MAX}}
+{\footnotesize\ttfamily \#define MAX(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~((a$>$b) ? a \+: b)}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00191}{191}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_a3acffbd305ee72dcd4593c0d8af64a4f}\label{shpopen_8cpp_a3acffbd305ee72dcd4593c0d8af64a4f} 
+\index{shpopen.cpp@{shpopen.cpp}!MIN@{MIN}}
+\index{MIN@{MIN}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{MIN}{MIN}}
+{\footnotesize\ttfamily \#define MIN(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~((a$<$b) ? a \+: b)}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00190}{190}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_aa8cecfc5c5c054d2875c03e77b7be15d}\label{shpopen_8cpp_aa8cecfc5c5c054d2875c03e77b7be15d} 
+\index{shpopen.cpp@{shpopen.cpp}!TRUE@{TRUE}}
+\index{TRUE@{TRUE}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{TRUE}{TRUE}}
+{\footnotesize\ttfamily \#define TRUE~1}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00185}{185}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{shpopen_8cpp_a56f1a81c92849566ae864511088eb7e8}\label{shpopen_8cpp_a56f1a81c92849566ae864511088eb7e8} 
+\index{shpopen.cpp@{shpopen.cpp}!int32@{int32}}
+\index{int32@{int32}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{int32}{int32}}
+{\footnotesize\ttfamily typedef int \mbox{\hyperlink{shpopen_8cpp_a56f1a81c92849566ae864511088eb7e8}{int32}}}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00180}{180}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_a65f85814a8290f9797005d3b28e7e5fc}\label{shpopen_8cpp_a65f85814a8290f9797005d3b28e7e5fc} 
+\index{shpopen.cpp@{shpopen.cpp}!uchar@{uchar}}
+\index{uchar@{uchar}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{uchar}{uchar}}
+{\footnotesize\ttfamily typedef unsigned char \mbox{\hyperlink{shpopen_8cpp_a65f85814a8290f9797005d3b28e7e5fc}{uchar}}}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00175}{175}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{shpopen_8cpp_aecb8a3696a2526fd9c4b525acb965ae1}\label{shpopen_8cpp_aecb8a3696a2526fd9c4b525acb965ae1} 
+\index{shpopen.cpp@{shpopen.cpp}!fread@{fread}}
+\index{fread@{fread}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{fread()}{fread()}}
+{\footnotesize\ttfamily fread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{dbfopen_8cpp_ae4554962d38fe13cd3829d09a91fa970}{paby\+Rec}}}]{,  }\item[{ps\+SHP-\/$>$pan\+Rec\+Size+}]{8\mbox{[}h\+Entity\mbox{]},  }\item[{1}]{,  }\item[{ps\+SHP-\/$>$}]{fp\+SHP }\end{DoxyParamCaption})}
+
+\Hypertarget{shpopen_8cpp_a8e6aca366e11f5afdcfae93543d83443}\label{shpopen_8cpp_a8e6aca366e11f5afdcfae93543d83443} 
+\index{shpopen.cpp@{shpopen.cpp}!fseek@{fseek}}
+\index{fseek@{fseek}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{fseek()}{fseek()}}
+{\footnotesize\ttfamily fseek (\begin{DoxyParamCaption}\item[{ps\+SHP-\/$>$}]{fp\+SHP,  }\item[{ps\+SHP-\/$>$}]{pan\+Rec\+Offset\mbox{[}h\+Entity\mbox{]},  }\item[{0}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{shpopen_8cpp_a9c65cee21f5ec6a924b66a9b68e07211}\label{shpopen_8cpp_a9c65cee21f5ec6a924b66a9b68e07211} 
+\index{shpopen.cpp@{shpopen.cpp}!if@{if}}
+\index{if@{if}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily if (\begin{DoxyParamCaption}\item[{b\+Big\+Endian}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{shpopen_8cpp_a6e3530eaac4b63648dd0589bb34fa82d}\label{shpopen_8cpp_a6e3530eaac4b63648dd0589bb34fa82d} 
+\index{shpopen.cpp@{shpopen.cpp}!if@{if}}
+\index{if@{if}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily if (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}}]{ = {\ttfamily =~\mbox{\hyperlink{shapefil_8h_a2325dc5cb450566659ef120c6af5c781}{SHPT\+\_\+\+ARCM}}~\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}~\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}~==~\mbox{\hyperlink{shapefil_8h_abf6b2f75e24c10aa1fb4ba97f59f268e}{SHPT\+\_\+\+POINTM}}~\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}~\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}~==~\mbox{\hyperlink{shapefil_8h_a2d0a059c816bd657517f8aef4a736cc1}{SHPT\+\_\+\+POLYGONM}}~\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}~\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}~==~\mbox{\hyperlink{shapefil_8h_abcac52f1ead709b77fc2007e22f4e793}{SHPT\+\_\+\+MULTIPOINTM}}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00838}{838}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_afb947df769cd695ef32b1ca3e73ecb7d}\label{shpopen_8cpp_afb947df769cd695ef32b1ca3e73ecb7d} 
+\index{shpopen.cpp@{shpopen.cpp}!if@{if}}
+\index{if@{if}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily if (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shpopen_8cpp_a23aae61e35b5d148c9b26420899b1178}{n\+Vertices}}}]{,  }\item[{0}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00895}{895}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_a6bcb2f81664e3aba6d2710c75921b644}\label{shpopen_8cpp_a6bcb2f81664e3aba6d2710c75921b644} 
+\index{shpopen.cpp@{shpopen.cpp}!if@{if}}
+\index{if@{if}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{shpopen_8cpp_a0544c3fe466e421738dae463968b70ba}{else}} if (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}}-\/$>$}]{n\+SHPType = {\ttfamily =~\mbox{\hyperlink{shapefil_8h_a556463e3133ebb0f2f9ba3ec048a5336}{SHPT\+\_\+\+POLYGON}}~\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}~\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}}-\/$>$\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}~==~\mbox{\hyperlink{shapefil_8h_a3ca5e794a3b30cba2010f298ba900269}{SHPT\+\_\+\+ARC}}~\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}~\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}}-\/$>$\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}~==~\mbox{\hyperlink{shapefil_8h_acdd259d31ff2bc2c64eb75647359e598}{SHPT\+\_\+\+POLYGONZ}}~\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}~\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}}-\/$>$\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}~==~\mbox{\hyperlink{shapefil_8h_a2d0a059c816bd657517f8aef4a736cc1}{SHPT\+\_\+\+POLYGONM}}~\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}~\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}}-\/$>$\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}~==~\mbox{\hyperlink{shapefil_8h_a01314c37707da5efc96663dfa7d45ee7}{SHPT\+\_\+\+ARCZ}}~\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}~\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}}-\/$>$\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}~==~\mbox{\hyperlink{shapefil_8h_a2325dc5cb450566659ef120c6af5c781}{SHPT\+\_\+\+ARCM}}~\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}~\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}}-\/$>$\mbox{\hyperlink{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}{n\+SHPType}}~==~\mbox{\hyperlink{shapefil_8h_a129d8b889be8f1bd2ec1f2c40c2411f4}{SHPT\+\_\+\+MULTIPATCH}}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l01376}{1376}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_a02fcc5ae0bc924d19a715b67c2ecf6b9}\label{shpopen_8cpp_a02fcc5ae0bc924d19a715b67c2ecf6b9} 
+\index{shpopen.cpp@{shpopen.cpp}!if@{if}}
+\index{if@{if}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily if (\begin{DoxyParamCaption}\item[{ps\+SHP-\/$>$pan\+Rec\+Size+}]{8\mbox{[}h\+Entity\mbox{]},  }\item[{n\+Buf\+Size}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l01351}{1351}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_ae66e2777b52e9165c42d60fb6d46a25f}\label{shpopen_8cpp_ae66e2777b52e9165c42d60fb6d46a25f} 
+\index{shpopen.cpp@{shpopen.cpp}!return@{return}}
+\index{return@{return}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{return()}{return()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily return (\begin{DoxyParamCaption}\item[{ps\+Object}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{shpopen_8cpp_a454fa07aa3ede729257712737b6c7534}\label{shpopen_8cpp_a454fa07aa3ede729257712737b6c7534} 
+\index{shpopen.cpp@{shpopen.cpp}!return@{return}}
+\index{return@{return}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{return()}{return()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily return (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{shpopen_8cpp_a827c26f028d427953ee6e81e6401b80b}\label{shpopen_8cpp_a827c26f028d427953ee6e81e6401b80b} 
+\index{shpopen.cpp@{shpopen.cpp}!SHPClose@{SHPClose}}
+\index{SHPClose@{SHPClose}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{SHPClose()}{SHPClose()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} SHPClose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a8229e480d0e24f3765848bede0846a0b}{SHPHandle}}}]{ps\+SHP }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00587}{587}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_af08d78fae86347817211afea984f16a2}\label{shpopen_8cpp_af08d78fae86347817211afea984f16a2} 
+\index{shpopen.cpp@{shpopen.cpp}!SHPComputeExtents@{SHPComputeExtents}}
+\index{SHPComputeExtents@{SHPComputeExtents}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{SHPComputeExtents()}{SHPComputeExtents()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SHPCompute\+Extents (\begin{DoxyParamCaption}\item[{ps\+Object}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{shpopen_8cpp_a650af9c65bd96a6ffa0ad3e12a628709}\label{shpopen_8cpp_a650af9c65bd96a6ffa0ad3e12a628709} 
+\index{shpopen.cpp@{shpopen.cpp}!SHPComputeExtents@{SHPComputeExtents}}
+\index{SHPComputeExtents@{SHPComputeExtents}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{SHPComputeExtents()}{SHPComputeExtents()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} SHPCompute\+Extents (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}} \texorpdfstring{$\ast$}{*}}]{ps\+Object }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00786}{786}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_a36b0158c2c29e3dd4f93fb149fa9fba1}\label{shpopen_8cpp_a36b0158c2c29e3dd4f93fb149fa9fba1} 
+\index{shpopen.cpp@{shpopen.cpp}!SHPCreate@{SHPCreate}}
+\index{SHPCreate@{SHPCreate}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{SHPCreate()}{SHPCreate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{shapefil_8h_a8229e480d0e24f3765848bede0846a0b}{SHPHandle}} \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} SHPCreate (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{psz\+Layer,  }\item[{int}]{n\+Shape\+Type }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00649}{649}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_a062be59f0e093bc50e942f4207b43a0f}\label{shpopen_8cpp_a062be59f0e093bc50e942f4207b43a0f} 
+\index{shpopen.cpp@{shpopen.cpp}!SHPCreateObject@{SHPCreateObject}}
+\index{SHPCreateObject@{SHPCreateObject}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{SHPCreateObject()}{SHPCreateObject()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_s_h_p_object}{SHPObject}} \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\+\_\+\+CALL1}} \texorpdfstring{$\ast$}{*} SHPCreate\+Object (\begin{DoxyParamCaption}\item[{int}]{n\+SHPType,  }\item[{int}]{n\+Shape\+Id,  }\item[{int}]{n\+Parts,  }\item[{int \texorpdfstring{$\ast$}{*}}]{pan\+Part\+Start,  }\item[{int \texorpdfstring{$\ast$}{*}}]{pan\+Part\+Type,  }\item[{int}]{n\+Vertices,  }\item[{double \texorpdfstring{$\ast$}{*}}]{padfX,  }\item[{double \texorpdfstring{$\ast$}{*}}]{padfY,  }\item[{double \texorpdfstring{$\ast$}{*}}]{padfZ,  }\item[{double \texorpdfstring{$\ast$}{*}}]{padfM }\end{DoxyParamCaption})}
+
+\Hypertarget{shpopen_8cpp_acabece806123224625bf110716d480f8}\label{shpopen_8cpp_acabece806123224625bf110716d480f8} 
+\index{shpopen.cpp@{shpopen.cpp}!SHPCreateSimpleObject@{SHPCreateSimpleObject}}
+\index{SHPCreateSimpleObject@{SHPCreateSimpleObject}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{SHPCreateSimpleObject()}{SHPCreateSimpleObject()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_s_h_p_object}{SHPObject}} \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\+\_\+\+CALL1}} \texorpdfstring{$\ast$}{*} SHPCreate\+Simple\+Object (\begin{DoxyParamCaption}\item[{int}]{n\+SHPType,  }\item[{int}]{n\+Vertices,  }\item[{double \texorpdfstring{$\ast$}{*}}]{padfX,  }\item[{double \texorpdfstring{$\ast$}{*}}]{padfY,  }\item[{double \texorpdfstring{$\ast$}{*}}]{padfZ }\end{DoxyParamCaption})}
+
+\Hypertarget{shpopen_8cpp_abb02ecd4a27b67aaf6ed21d3447207f4}\label{shpopen_8cpp_abb02ecd4a27b67aaf6ed21d3447207f4} 
+\index{shpopen.cpp@{shpopen.cpp}!SHPDestroyObject@{SHPDestroyObject}}
+\index{SHPDestroyObject@{SHPDestroyObject}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{SHPDestroyObject()}{SHPDestroyObject()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} SHPDestroy\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}} \texorpdfstring{$\ast$}{*}}]{ps\+Shape }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l01760}{1760}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_a82dee0a3e23cf84f1983ec75666486cf}\label{shpopen_8cpp_a82dee0a3e23cf84f1983ec75666486cf} 
+\index{shpopen.cpp@{shpopen.cpp}!SHPGetInfo@{SHPGetInfo}}
+\index{SHPGetInfo@{SHPGetInfo}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{SHPGetInfo()}{SHPGetInfo()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} SHPGet\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a8229e480d0e24f3765848bede0846a0b}{SHPHandle}}}]{ps\+SHP,  }\item[{int \texorpdfstring{$\ast$}{*}}]{pn\+Entities,  }\item[{int \texorpdfstring{$\ast$}{*}}]{pn\+Shape\+Type,  }\item[{double \texorpdfstring{$\ast$}{*}}]{padf\+Min\+Bound,  }\item[{double \texorpdfstring{$\ast$}{*}}]{padf\+Max\+Bound }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00622}{622}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_a0835d5326cf13157fc5302fe2e315c53}\label{shpopen_8cpp_a0835d5326cf13157fc5302fe2e315c53} 
+\index{shpopen.cpp@{shpopen.cpp}!SHPOpen@{SHPOpen}}
+\index{SHPOpen@{SHPOpen}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{SHPOpen()}{SHPOpen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{shapefil_8h_a8229e480d0e24f3765848bede0846a0b}{SHPHandle}} \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} SHPOpen (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{psz\+Layer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{psz\+Access }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00356}{356}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_a62135bd523899ceb049bf7fb7b14cc06}\label{shpopen_8cpp_a62135bd523899ceb049bf7fb7b14cc06} 
+\index{shpopen.cpp@{shpopen.cpp}!SHPPartTypeName@{SHPPartTypeName}}
+\index{SHPPartTypeName@{SHPPartTypeName}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{SHPPartTypeName()}{SHPPartTypeName()}}
+{\footnotesize\ttfamily const char \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\+\_\+\+CALL1}} \texorpdfstring{$\ast$}{*} SHPPart\+Type\+Name (\begin{DoxyParamCaption}\item[{int}]{n\+Part\+Type }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l01733}{1733}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_ab44960edcd8580104e5d99dcf82263c9}\label{shpopen_8cpp_ab44960edcd8580104e5d99dcf82263c9} 
+\index{shpopen.cpp@{shpopen.cpp}!SHPReadObject@{SHPReadObject}}
+\index{SHPReadObject@{SHPReadObject}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{SHPReadObject()}{SHPReadObject()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_s_h_p_object}{SHPObject}} \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\+\_\+\+CALL1}} \texorpdfstring{$\ast$}{*} SHPRead\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a8229e480d0e24f3765848bede0846a0b}{SHPHandle}}}]{ps\+SHP,  }\item[{int}]{h\+Entity }\end{DoxyParamCaption}) -\/$>$ n\+Records) \mbox{\hyperlink{dbfopen_8cpp_aa00699348db8c73844e5dcc504328eb2}{return}}(NULL}
+
+\Hypertarget{shpopen_8cpp_a0c1a1f4d994d3cb33fd0041340fbf32d}\label{shpopen_8cpp_a0c1a1f4d994d3cb33fd0041340fbf32d} 
+\index{shpopen.cpp@{shpopen.cpp}!SHPTypeName@{SHPTypeName}}
+\index{SHPTypeName@{SHPTypeName}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{SHPTypeName()}{SHPTypeName()}}
+{\footnotesize\ttfamily const char \mbox{\hyperlink{shapefil_8h_aac2ad3f2bfae0600537f105a0717f6e9}{SHPAPI\+\_\+\+CALL1}} \texorpdfstring{$\ast$}{*} SHPType\+Name (\begin{DoxyParamCaption}\item[{int}]{n\+SHPType }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l01690}{1690}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_ac93d390ab226586dcab7b6bc939d505b}\label{shpopen_8cpp_ac93d390ab226586dcab7b6bc939d505b} 
+\index{shpopen.cpp@{shpopen.cpp}!SHPWriteObject@{SHPWriteObject}}
+\index{SHPWriteObject@{SHPWriteObject}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{SHPWriteObject()}{SHPWriteObject()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{shapefil_8h_a9daf84eaa3111cc6c02e0153be492db6}{SHPAPI\+\_\+\+CALL}} SHPWrite\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{shapefil_8h_a8229e480d0e24f3765848bede0846a0b}{SHPHandle}}}]{ps\+SHP,  }\item[{int}]{n\+Shape\+Id,  }\item[{\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}} \texorpdfstring{$\ast$}{*}}]{ps\+Object }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00948}{948}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{shpopen_8cpp_a969de80b6c27b21db66aa966baa5ec2b}\label{shpopen_8cpp_a969de80b6c27b21db66aa966baa5ec2b} 
+\index{shpopen.cpp@{shpopen.cpp}!bHasZ@{bHasZ}}
+\index{bHasZ@{bHasZ}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{bHasZ}{bHasZ}}
+{\footnotesize\ttfamily b\+HasZ = \mbox{\hyperlink{dbfopen_8cpp_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00858}{858}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_a0544c3fe466e421738dae463968b70ba}\label{shpopen_8cpp_a0544c3fe466e421738dae463968b70ba} 
+\index{shpopen.cpp@{shpopen.cpp}!else@{else}}
+\index{else@{else}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily else}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ bHasM\ =\ \mbox{\hyperlink{shpopen_8cpp_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00855}{855}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_a1aabb01565f76897278f9b2abe939fd4}\label{shpopen_8cpp_a1aabb01565f76897278f9b2abe939fd4} 
+\index{shpopen.cpp@{shpopen.cpp}!nShapeId@{nShapeId}}
+\index{nShapeId@{nShapeId}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{nShapeId}{nShapeId}}
+{\footnotesize\ttfamily \mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}} n\+Shape\+Id = n\+Shape\+Id}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00833}{833}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc}\label{shpopen_8cpp_adc0a415fac5f42996e804a73624db3fc} 
+\index{shpopen.cpp@{shpopen.cpp}!nSHPType@{nSHPType}}
+\index{nSHPType@{nSHPType}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{nSHPType}{nSHPType}}
+{\footnotesize\ttfamily \&\mbox{\hyperlink{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}{ps\+Shape}} n\+SHPType = n\+SHPType}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00832}{832}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_a23aae61e35b5d148c9b26420899b1178}\label{shpopen_8cpp_a23aae61e35b5d148c9b26420899b1178} 
+\index{shpopen.cpp@{shpopen.cpp}!nVertices@{nVertices}}
+\index{nVertices@{nVertices}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{nVertices}{nVertices}}
+{\footnotesize\ttfamily ps\+Object n\+Vertices = n\+Vertices}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l00919}{919}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+
+\Hypertarget{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4}\label{shpopen_8cpp_a7dd3de6d71ea1af2c6f933d9763c97a4} 
+\index{shpopen.cpp@{shpopen.cpp}!psShape@{psShape}}
+\index{psShape@{psShape}!shpopen.cpp@{shpopen.cpp}}
+\doxysubsubsection{\texorpdfstring{psShape}{psShape}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dbfopen_8cpp_afce3d3186cbb509149c67821252cd883}{memcpy}} \& ps\+Shape = (\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}}\texorpdfstring{$\ast$}{*}) calloc(1, sizeof(\mbox{\hyperlink{struct_s_h_p_object}{SHPObject}}))}
+
+
+
+Definition at line \mbox{\hyperlink{shpopen_8cpp_source_l01366}{1366}} of file \mbox{\hyperlink{shpopen_8cpp_source}{shpopen.\+cpp}}.
+

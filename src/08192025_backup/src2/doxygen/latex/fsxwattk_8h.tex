@@ -1,0 +1,428 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fsxwattk.h File Reference}
+\hypertarget{fsxwattk_8h}{}\label{fsxwattk_8h}\index{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/fsxwattk.h@{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/fsxwattk.h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}fsxwbar.\+h"{}}\newline
+{\ttfamily \#include "{}fsxlandt.\+h"{}}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$sys/timeb.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_crew}{Crew}}
+\item 
+struct \mbox{\hyperlink{struct_compound_crew}{Compound\+Crew}}
+\item 
+struct \mbox{\hyperlink{struct_attack_data}{Attack\+Data}}
+\item 
+class \mbox{\hyperlink{class_attack}{Attack}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fsxwattk_8h_a2c26296a2ba0333d9cbe69dd7e05d820}{COMPOUNDINC}}~20
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{fsxwattk_8h_a0716e59b409f86ad4609913fc2f8f17d}{Setup\+Indirect\+Attack}} (long Crew\+Num, double \texorpdfstring{$\ast$}{*}startpt, long numpts)
+\item 
+long \mbox{\hyperlink{fsxwattk_8h_ae17b54006458c750c1698d781866428b}{Reset\+Indirect\+Attack}} (\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}atk, double \texorpdfstring{$\ast$}{*}coords, long numpts)
+\item 
+long \mbox{\hyperlink{fsxwattk_8h_a31409ceab02a014fac6f6757f4b98e8e}{Setup\+Direct\+Attack}} (long Crew\+Num, long Fire\+Num, double \texorpdfstring{$\ast$}{*}coords)
+\item 
+long \mbox{\hyperlink{fsxwattk_8h_ad7171578165fcd882fcbd9e1569e7b2d}{Reset\+Direct\+Attack}} (\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}atk, long Fire\+Num, double \texorpdfstring{$\ast$}{*}coords)
+\item 
+long \mbox{\hyperlink{fsxwattk_8h_a7897a9b9923213fc1a674a67d68c0098}{Get\+Num\+Attacks}} ()
+\item 
+long \mbox{\hyperlink{fsxwattk_8h_adb0176cf94e4c6ab971459361b453fa2}{Get\+Fire\+Number\+For\+Attack}} (long Attack\+Counter)
+\item 
+\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsxwattk_8h_abff6654c0ca71d98a420538d8b0fbe0b}{Get\+Attack\+For\+Fire\+Number}} (long Num\+Fire, long start, long \texorpdfstring{$\ast$}{*}Last\+Attack\+Number)
+\item 
+void \mbox{\hyperlink{fsxwattk_8h_a21b96089d364d4fe9f1c528c1a266be6}{Set\+New\+Fire\+Number\+For\+Attack}} (long oldnumfire, long newnumfire)
+\item 
+long \mbox{\hyperlink{fsxwattk_8h_ac6a4059243d91ed02e691b9fbe7069a9}{Get\+Num\+Crews}} ()
+\item 
+\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsxwattk_8h_a1e3619709e0ebdf50dd7ac4c3fe5e73b}{Get\+Reassigned\+Attack}} ()
+\item 
+void \mbox{\hyperlink{fsxwattk_8h_a2d2d855ac07766d9f8281b4f84641efb}{Reassign\+Attack}} (\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}atk)
+\item 
+\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsxwattk_8h_a00c71c73994f324446c1e763e76916bf}{Get\+Attack}} (long Attack\+Counter)
+\item 
+\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsxwattk_8h_a612c71b649401d8f2d4b6885458b5acf}{Get\+Attack\+By\+Order}} (long Ordinal\+Attack\+Num, bool Indirect\+Only)
+\item 
+void \mbox{\hyperlink{fsxwattk_8h_a77b08575422e8a68b75c7385ea071c0d}{Load\+Attacks}} (\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} attackdata)
+\item 
+void \mbox{\hyperlink{fsxwattk_8h_aa8c4bf0b6397fb4d065cf9ed24440012}{Cancel\+Attack}} (long Attack\+Counter)
+\item 
+void \mbox{\hyperlink{fsxwattk_8h_a1e21e8c47ce82f2b9535433bb7ca1c32}{Free\+All\+Attacks}} ()
+\item 
+void \mbox{\hyperlink{fsxwattk_8h_aa69f8000382141fb4720fa6c8896a444}{Write\+Attack\+Log}} (\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}atk, long Type, long Var1, long Var2)
+\item 
+bool \mbox{\hyperlink{fsxwattk_8h_a9491639f042dd60333d93662ea4dd5b1}{Load\+Crews}} (char \texorpdfstring{$\ast$}{*}File\+Name, bool Append\+List)
+\item 
+\mbox{\hyperlink{struct_crew}{Crew}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsxwattk_8h_a21421ec99083e49595769bd06b8aac94}{Get\+Crew}} (long Crew\+Number)
+\item 
+long \mbox{\hyperlink{fsxwattk_8h_a755230f65f2f0c1d648d7c97d85f414a}{Set\+Crew}} (long Crew\+Number)
+\item 
+long \mbox{\hyperlink{fsxwattk_8h_a6298bbb16efdfcaa373cb9726098e54f}{Set\+New\+Crew}} ()
+\item 
+void \mbox{\hyperlink{fsxwattk_8h_abd13ba64e2df136603a9a0cad625fae4}{Free\+Crew}} (long Crew\+Number)
+\item 
+void \mbox{\hyperlink{fsxwattk_8h_a271344bbb00d5535669ba4f0a520cf3f}{Free\+All\+Crews}} ()
+\item 
+long \mbox{\hyperlink{fsxwattk_8h_a4e51ba40a1300ed166c4fb7b1accd874}{Get\+Num\+Compound\+Crews}} ()
+\item 
+long \mbox{\hyperlink{fsxwattk_8h_a44c80f8794a5adcddcc1d24cd92e1d10}{Set\+Compound\+Crew}} (long Group\+Number, char \texorpdfstring{$\ast$}{*}Crew\+Name, long Existing\+Crew\+Number)
+\item 
+\mbox{\hyperlink{struct_compound_crew}{Compound\+Crew}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fsxwattk_8h_a5d22bb8ee41d76c49ea05ce75cf4edd9}{Get\+Compound\+Crew}} (long Crew\+Number)
+\item 
+void \mbox{\hyperlink{fsxwattk_8h_ae4974f4451aa27216b85c53d3b147b95}{Free\+Compound\+Crew}} (long Crew\+Number)
+\item 
+void \mbox{\hyperlink{fsxwattk_8h_a6eadeed7e89852065e2b2bfd0592c514}{Remove\+From\+Compound\+Crew}} (long Comp\+Number, long Crew\+Number)
+\item 
+void \mbox{\hyperlink{fsxwattk_8h_aa9a3ecbde05252dcd40a3b21e11e54dd}{Free\+All\+Compound\+Crews}} ()
+\item 
+bool \mbox{\hyperlink{fsxwattk_8h_a101ebf665b8de0e1039861ee8f23c117}{Load\+Compound\+Crews}} (char \texorpdfstring{$\ast$}{*}File\+Name)
+\item 
+bool \mbox{\hyperlink{fsxwattk_8h_acd671e7b359f8e1a2b2693f93e35913c}{Add\+To\+Compound\+Crew}} (long Crew\+Number, long New\+Crew, double Mult)
+\item 
+void \mbox{\hyperlink{fsxwattk_8h_ab39b15d639b3c7b486da13401424d697}{Calculate\+Compound\+Rates}} (long Crew\+Number)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fsxwattk_8h_a2c26296a2ba0333d9cbe69dd7e05d820}\label{fsxwattk_8h_a2c26296a2ba0333d9cbe69dd7e05d820} 
+\index{fsxwattk.h@{fsxwattk.h}!COMPOUNDINC@{COMPOUNDINC}}
+\index{COMPOUNDINC@{COMPOUNDINC}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{COMPOUNDINC}{COMPOUNDINC}}
+{\footnotesize\ttfamily \#define COMPOUNDINC~20}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8h_source_l00063}{63}} of file \mbox{\hyperlink{fsxwattk_8h_source}{fsxwattk.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fsxwattk_8h_acd671e7b359f8e1a2b2693f93e35913c}\label{fsxwattk_8h_acd671e7b359f8e1a2b2693f93e35913c} 
+\index{fsxwattk.h@{fsxwattk.h}!AddToCompoundCrew@{AddToCompoundCrew}}
+\index{AddToCompoundCrew@{AddToCompoundCrew}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{AddToCompoundCrew()}{AddToCompoundCrew()}}
+{\footnotesize\ttfamily bool Add\+To\+Compound\+Crew (\begin{DoxyParamCaption}\item[{long}]{Crew\+Number,  }\item[{long}]{New\+Crew,  }\item[{double}]{Mult }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03786}{3786}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_ab39b15d639b3c7b486da13401424d697}\label{fsxwattk_8h_ab39b15d639b3c7b486da13401424d697} 
+\index{fsxwattk.h@{fsxwattk.h}!CalculateCompoundRates@{CalculateCompoundRates}}
+\index{CalculateCompoundRates@{CalculateCompoundRates}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{CalculateCompoundRates()}{CalculateCompoundRates()}}
+{\footnotesize\ttfamily void Calculate\+Compound\+Rates (\begin{DoxyParamCaption}\item[{long}]{Crew\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03821}{3821}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_aa8c4bf0b6397fb4d065cf9ed24440012}\label{fsxwattk_8h_aa8c4bf0b6397fb4d065cf9ed24440012} 
+\index{fsxwattk.h@{fsxwattk.h}!CancelAttack@{CancelAttack}}
+\index{CancelAttack@{CancelAttack}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{CancelAttack()}{CancelAttack()}}
+{\footnotesize\ttfamily void Cancel\+Attack (\begin{DoxyParamCaption}\item[{long}]{Attack\+Counter }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03342}{3342}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a1e21e8c47ce82f2b9535433bb7ca1c32}\label{fsxwattk_8h_a1e21e8c47ce82f2b9535433bb7ca1c32} 
+\index{fsxwattk.h@{fsxwattk.h}!FreeAllAttacks@{FreeAllAttacks}}
+\index{FreeAllAttacks@{FreeAllAttacks}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{FreeAllAttacks()}{FreeAllAttacks()}}
+{\footnotesize\ttfamily void Free\+All\+Attacks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03392}{3392}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_aa9a3ecbde05252dcd40a3b21e11e54dd}\label{fsxwattk_8h_aa9a3ecbde05252dcd40a3b21e11e54dd} 
+\index{fsxwattk.h@{fsxwattk.h}!FreeAllCompoundCrews@{FreeAllCompoundCrews}}
+\index{FreeAllCompoundCrews@{FreeAllCompoundCrews}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{FreeAllCompoundCrews()}{FreeAllCompoundCrews()}}
+{\footnotesize\ttfamily void Free\+All\+Compound\+Crews (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03899}{3899}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a271344bbb00d5535669ba4f0a520cf3f}\label{fsxwattk_8h_a271344bbb00d5535669ba4f0a520cf3f} 
+\index{fsxwattk.h@{fsxwattk.h}!FreeAllCrews@{FreeAllCrews}}
+\index{FreeAllCrews@{FreeAllCrews}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{FreeAllCrews()}{FreeAllCrews()}}
+{\footnotesize\ttfamily void Free\+All\+Crews (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03687}{3687}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_ae4974f4451aa27216b85c53d3b147b95}\label{fsxwattk_8h_ae4974f4451aa27216b85c53d3b147b95} 
+\index{fsxwattk.h@{fsxwattk.h}!FreeCompoundCrew@{FreeCompoundCrew}}
+\index{FreeCompoundCrew@{FreeCompoundCrew}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{FreeCompoundCrew()}{FreeCompoundCrew()}}
+{\footnotesize\ttfamily void Free\+Compound\+Crew (\begin{DoxyParamCaption}\item[{long}]{Crew\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03855}{3855}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_abd13ba64e2df136603a9a0cad625fae4}\label{fsxwattk_8h_abd13ba64e2df136603a9a0cad625fae4} 
+\index{fsxwattk.h@{fsxwattk.h}!FreeCrew@{FreeCrew}}
+\index{FreeCrew@{FreeCrew}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{FreeCrew()}{FreeCrew()}}
+{\footnotesize\ttfamily void Free\+Crew (\begin{DoxyParamCaption}\item[{long}]{Crew\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03697}{3697}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a00c71c73994f324446c1e763e76916bf}\label{fsxwattk_8h_a00c71c73994f324446c1e763e76916bf} 
+\index{fsxwattk.h@{fsxwattk.h}!GetAttack@{GetAttack}}
+\index{GetAttack@{GetAttack}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{GetAttack()}{GetAttack()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*} Get\+Attack (\begin{DoxyParamCaption}\item[{long}]{Attack\+Counter }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03319}{3319}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a612c71b649401d8f2d4b6885458b5acf}\label{fsxwattk_8h_a612c71b649401d8f2d4b6885458b5acf} 
+\index{fsxwattk.h@{fsxwattk.h}!GetAttackByOrder@{GetAttackByOrder}}
+\index{GetAttackByOrder@{GetAttackByOrder}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{GetAttackByOrder()}{GetAttackByOrder()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*} Get\+Attack\+By\+Order (\begin{DoxyParamCaption}\item[{long}]{Ordinal\+Attack\+Num,  }\item[{bool}]{Indirect\+Only }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03291}{3291}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_abff6654c0ca71d98a420538d8b0fbe0b}\label{fsxwattk_8h_abff6654c0ca71d98a420538d8b0fbe0b} 
+\index{fsxwattk.h@{fsxwattk.h}!GetAttackForFireNumber@{GetAttackForFireNumber}}
+\index{GetAttackForFireNumber@{GetAttackForFireNumber}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{GetAttackForFireNumber()}{GetAttackForFireNumber()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*} Get\+Attack\+For\+Fire\+Number (\begin{DoxyParamCaption}\item[{long}]{Num\+Fire,  }\item[{long}]{start,  }\item[{long \texorpdfstring{$\ast$}{*}}]{Last\+Attack\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03230}{3230}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a5d22bb8ee41d76c49ea05ce75cf4edd9}\label{fsxwattk_8h_a5d22bb8ee41d76c49ea05ce75cf4edd9} 
+\index{fsxwattk.h@{fsxwattk.h}!GetCompoundCrew@{GetCompoundCrew}}
+\index{GetCompoundCrew@{GetCompoundCrew}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{GetCompoundCrew()}{GetCompoundCrew()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_compound_crew}{Compound\+Crew}} \texorpdfstring{$\ast$}{*} Get\+Compound\+Crew (\begin{DoxyParamCaption}\item[{long}]{Crew\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03850}{3850}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a21421ec99083e49595769bd06b8aac94}\label{fsxwattk_8h_a21421ec99083e49595769bd06b8aac94} 
+\index{fsxwattk.h@{fsxwattk.h}!GetCrew@{GetCrew}}
+\index{GetCrew@{GetCrew}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{GetCrew()}{GetCrew()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_crew}{Crew}} \texorpdfstring{$\ast$}{*} Get\+Crew (\begin{DoxyParamCaption}\item[{long}]{Crew\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03659}{3659}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_adb0176cf94e4c6ab971459361b453fa2}\label{fsxwattk_8h_adb0176cf94e4c6ab971459361b453fa2} 
+\index{fsxwattk.h@{fsxwattk.h}!GetFireNumberForAttack@{GetFireNumberForAttack}}
+\index{GetFireNumberForAttack@{GetFireNumberForAttack}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{GetFireNumberForAttack()}{GetFireNumberForAttack()}}
+{\footnotesize\ttfamily long Get\+Fire\+Number\+For\+Attack (\begin{DoxyParamCaption}\item[{long}]{Attack\+Counter }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03213}{3213}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a7897a9b9923213fc1a674a67d68c0098}\label{fsxwattk_8h_a7897a9b9923213fc1a674a67d68c0098} 
+\index{fsxwattk.h@{fsxwattk.h}!GetNumAttacks@{GetNumAttacks}}
+\index{GetNumAttacks@{GetNumAttacks}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{GetNumAttacks()}{GetNumAttacks()}}
+{\footnotesize\ttfamily long Get\+Num\+Attacks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03207}{3207}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a4e51ba40a1300ed166c4fb7b1accd874}\label{fsxwattk_8h_a4e51ba40a1300ed166c4fb7b1accd874} 
+\index{fsxwattk.h@{fsxwattk.h}!GetNumCompoundCrews@{GetNumCompoundCrews}}
+\index{GetNumCompoundCrews@{GetNumCompoundCrews}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{GetNumCompoundCrews()}{GetNumCompoundCrews()}}
+{\footnotesize\ttfamily long Get\+Num\+Compound\+Crews (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03719}{3719}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_ac6a4059243d91ed02e691b9fbe7069a9}\label{fsxwattk_8h_ac6a4059243d91ed02e691b9fbe7069a9} 
+\index{fsxwattk.h@{fsxwattk.h}!GetNumCrews@{GetNumCrews}}
+\index{GetNumCrews@{GetNumCrews}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{GetNumCrews()}{GetNumCrews()}}
+{\footnotesize\ttfamily long Get\+Num\+Crews (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03282}{3282}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a1e3619709e0ebdf50dd7ac4c3fe5e73b}\label{fsxwattk_8h_a1e3619709e0ebdf50dd7ac4c3fe5e73b} 
+\index{fsxwattk.h@{fsxwattk.h}!GetReassignedAttack@{GetReassignedAttack}}
+\index{GetReassignedAttack@{GetReassignedAttack}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{GetReassignedAttack()}{GetReassignedAttack()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*} Get\+Reassigned\+Attack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03381}{3381}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a77b08575422e8a68b75c7385ea071c0d}\label{fsxwattk_8h_a77b08575422e8a68b75c7385ea071c0d} 
+\index{fsxwattk.h@{fsxwattk.h}!LoadAttacks@{LoadAttacks}}
+\index{LoadAttacks@{LoadAttacks}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{LoadAttacks()}{LoadAttacks()}}
+{\footnotesize\ttfamily void Load\+Attacks (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_attack_data}{Attack\+Data}}}]{attackdata }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l02890}{2890}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a101ebf665b8de0e1039861ee8f23c117}\label{fsxwattk_8h_a101ebf665b8de0e1039861ee8f23c117} 
+\index{fsxwattk.h@{fsxwattk.h}!LoadCompoundCrews@{LoadCompoundCrews}}
+\index{LoadCompoundCrews@{LoadCompoundCrews}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{LoadCompoundCrews()}{LoadCompoundCrews()}}
+{\footnotesize\ttfamily bool Load\+Compound\+Crews (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{File\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03916}{3916}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a9491639f042dd60333d93662ea4dd5b1}\label{fsxwattk_8h_a9491639f042dd60333d93662ea4dd5b1} 
+\index{fsxwattk.h@{fsxwattk.h}!LoadCrews@{LoadCrews}}
+\index{LoadCrews@{LoadCrews}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{LoadCrews()}{LoadCrews()}}
+{\footnotesize\ttfamily bool Load\+Crews (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{File\+Name,  }\item[{bool}]{Append\+List }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03488}{3488}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a2d2d855ac07766d9f8281b4f84641efb}\label{fsxwattk_8h_a2d2d855ac07766d9f8281b4f84641efb} 
+\index{fsxwattk.h@{fsxwattk.h}!ReassignAttack@{ReassignAttack}}
+\index{ReassignAttack@{ReassignAttack}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{ReassignAttack()}{ReassignAttack()}}
+{\footnotesize\ttfamily void Reassign\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}}]{atk }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03386}{3386}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a6eadeed7e89852065e2b2bfd0592c514}\label{fsxwattk_8h_a6eadeed7e89852065e2b2bfd0592c514} 
+\index{fsxwattk.h@{fsxwattk.h}!RemoveFromCompoundCrew@{RemoveFromCompoundCrew}}
+\index{RemoveFromCompoundCrew@{RemoveFromCompoundCrew}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{RemoveFromCompoundCrew()}{RemoveFromCompoundCrew()}}
+{\footnotesize\ttfamily void Remove\+From\+Compound\+Crew (\begin{DoxyParamCaption}\item[{long}]{Comp\+Number,  }\item[{long}]{Crew\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03956}{3956}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_ad7171578165fcd882fcbd9e1569e7b2d}\label{fsxwattk_8h_ad7171578165fcd882fcbd9e1569e7b2d} 
+\index{fsxwattk.h@{fsxwattk.h}!ResetDirectAttack@{ResetDirectAttack}}
+\index{ResetDirectAttack@{ResetDirectAttack}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{ResetDirectAttack()}{ResetDirectAttack()}}
+{\footnotesize\ttfamily long Reset\+Direct\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}}]{atk,  }\item[{long}]{Fire\+Num,  }\item[{double \texorpdfstring{$\ast$}{*}}]{coords }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03066}{3066}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_ae17b54006458c750c1698d781866428b}\label{fsxwattk_8h_ae17b54006458c750c1698d781866428b} 
+\index{fsxwattk.h@{fsxwattk.h}!ResetIndirectAttack@{ResetIndirectAttack}}
+\index{ResetIndirectAttack@{ResetIndirectAttack}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{ResetIndirectAttack()}{ResetIndirectAttack()}}
+{\footnotesize\ttfamily long Reset\+Indirect\+Attack (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}}]{atk,  }\item[{double \texorpdfstring{$\ast$}{*}}]{coords,  }\item[{long}]{numpts }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l02968}{2968}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a44c80f8794a5adcddcc1d24cd92e1d10}\label{fsxwattk_8h_a44c80f8794a5adcddcc1d24cd92e1d10} 
+\index{fsxwattk.h@{fsxwattk.h}!SetCompoundCrew@{SetCompoundCrew}}
+\index{SetCompoundCrew@{SetCompoundCrew}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{SetCompoundCrew()}{SetCompoundCrew()}}
+{\footnotesize\ttfamily long Set\+Compound\+Crew (\begin{DoxyParamCaption}\item[{long}]{Group\+Number,  }\item[{char \texorpdfstring{$\ast$}{*}}]{Crew\+Name,  }\item[{long}]{Existing\+Crew\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03749}{3749}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a755230f65f2f0c1d648d7c97d85f414a}\label{fsxwattk_8h_a755230f65f2f0c1d648d7c97d85f414a} 
+\index{fsxwattk.h@{fsxwattk.h}!SetCrew@{SetCrew}}
+\index{SetCrew@{SetCrew}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{SetCrew()}{SetCrew()}}
+{\footnotesize\ttfamily long Set\+Crew (\begin{DoxyParamCaption}\item[{long}]{Crew\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03677}{3677}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a6298bbb16efdfcaa373cb9726098e54f}\label{fsxwattk_8h_a6298bbb16efdfcaa373cb9726098e54f} 
+\index{fsxwattk.h@{fsxwattk.h}!SetNewCrew@{SetNewCrew}}
+\index{SetNewCrew@{SetNewCrew}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{SetNewCrew()}{SetNewCrew()}}
+{\footnotesize\ttfamily long Set\+New\+Crew (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03668}{3668}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a21b96089d364d4fe9f1c528c1a266be6}\label{fsxwattk_8h_a21b96089d364d4fe9f1c528c1a266be6} 
+\index{fsxwattk.h@{fsxwattk.h}!SetNewFireNumberForAttack@{SetNewFireNumberForAttack}}
+\index{SetNewFireNumberForAttack@{SetNewFireNumberForAttack}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{SetNewFireNumberForAttack()}{SetNewFireNumberForAttack()}}
+{\footnotesize\ttfamily void Set\+New\+Fire\+Number\+For\+Attack (\begin{DoxyParamCaption}\item[{long}]{oldnumfire,  }\item[{long}]{newnumfire }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03253}{3253}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a31409ceab02a014fac6f6757f4b98e8e}\label{fsxwattk_8h_a31409ceab02a014fac6f6757f4b98e8e} 
+\index{fsxwattk.h@{fsxwattk.h}!SetupDirectAttack@{SetupDirectAttack}}
+\index{SetupDirectAttack@{SetupDirectAttack}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{SetupDirectAttack()}{SetupDirectAttack()}}
+{\footnotesize\ttfamily long Setup\+Direct\+Attack (\begin{DoxyParamCaption}\item[{long}]{Crew\+Num,  }\item[{long}]{Fire\+Num,  }\item[{double \texorpdfstring{$\ast$}{*}}]{coords }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03003}{3003}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_a0716e59b409f86ad4609913fc2f8f17d}\label{fsxwattk_8h_a0716e59b409f86ad4609913fc2f8f17d} 
+\index{fsxwattk.h@{fsxwattk.h}!SetupIndirectAttack@{SetupIndirectAttack}}
+\index{SetupIndirectAttack@{SetupIndirectAttack}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{SetupIndirectAttack()}{SetupIndirectAttack()}}
+{\footnotesize\ttfamily long Setup\+Indirect\+Attack (\begin{DoxyParamCaption}\item[{long}]{Crew\+Num,  }\item[{double \texorpdfstring{$\ast$}{*}}]{startpt,  }\item[{long}]{numpts }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l02909}{2909}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+
+\Hypertarget{fsxwattk_8h_aa69f8000382141fb4720fa6c8896a444}\label{fsxwattk_8h_aa69f8000382141fb4720fa6c8896a444} 
+\index{fsxwattk.h@{fsxwattk.h}!WriteAttackLog@{WriteAttackLog}}
+\index{WriteAttackLog@{WriteAttackLog}!fsxwattk.h@{fsxwattk.h}}
+\doxysubsubsection{\texorpdfstring{WriteAttackLog()}{WriteAttackLog()}}
+{\footnotesize\ttfamily void Write\+Attack\+Log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_attack_data}{Attack\+Data}} \texorpdfstring{$\ast$}{*}}]{atk,  }\item[{long}]{Type,  }\item[{long}]{Var1,  }\item[{long}]{Var2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwattk_8cpp_source_l03421}{3421}} of file \mbox{\hyperlink{fsxwattk_8cpp_source}{fsxwattk.\+cpp}}.
+

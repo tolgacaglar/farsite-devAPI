@@ -1,9 +1,9 @@
 Farsite $Rev: 2395 $
 Number of parallel threads = 4 (omp_get_num_procs = 64).
 Loading lcp file for Farsite #1: /home/tcaglar/farsite-devAPI/inputs/landscapes/Bridge2021.lcp
-Loading inputs file for Farsite #1: /home/tcaglar/farsite-devAPI/data/tmp/20240924/Bridge2021_config_d31900136d0147f883ed6e87ab734271.cfg
-Loading ignition file for Farsite #1: /home/tcaglar/farsite-devAPI/data/tmp/20240924/Bridge2021_ignite_d31900136d0147f883ed6e87ab734271.shp
+Loading inputs file for Farsite #1: /home/tcaglar/farsite-devAPI/data/tmp/20250819/Bridge2021_config_a107a7f695844c058869e5df95ba1615.cfg
+Loading ignition file for Farsite #1: /home/tcaglar/farsite-devAPI/data/tmp/20250819/Bridge2021_ignite_a107a7f695844c058869e5df95ba1615.shp
 Loading barrier file for Farsite #1: /home/tcaglar/farsite-devAPI/inputs/barriers/NoBarrier/NoBarrier.shp
 Launching Farsite #1
 Starting time step 0.000000 (maximum = 15)
-Writing outputs for Farsite #1 to /home/tcaglar/farsite-devAPI/data/tmp/20240924/Bridge2021_out_d31900136d0147f883ed6e87ab734271
+Writing outputs for Farsite #1 to /home/tcaglar/farsite-devAPI/data/tmp/20250819/Bridge2021_out_a107a7f695844c058869e5df95ba1615

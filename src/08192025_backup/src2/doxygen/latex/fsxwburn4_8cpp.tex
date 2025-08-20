@@ -1,0 +1,173 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/fsxwburn4.cpp File Reference}
+\hypertarget{fsxwburn4_8cpp}{}\label{fsxwburn4_8cpp}\index{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/fsxwburn4.cpp@{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/fsxwburn4.cpp}}
+{\ttfamily \#include "{}fsx4.\+hpp"{}}\newline
+{\ttfamily \#include "{}fsxwattk.\+h"{}}\newline
+{\ttfamily \#include "{}fsairatk.\+h"{}}\newline
+{\ttfamily \#include "{}fsxpfront.\+h"{}}\newline
+{\ttfamily \#include "{}fsglbvar.\+h"{}}\newline
+{\ttfamily \#include "{}fsxsync.\+h"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$ncurses.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fsxwburn4_8cpp_af47e6c6f4d7a93c66deb80525c6c7bfe}{BURN\+\_\+\+THREAD}}~0
+\item 
+\#define \mbox{\hyperlink{fsxwburn4_8cpp_a0d46d4d86fa5e4b6905626d3c32d8581}{SPOT\+\_\+\+THREAD}}~1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fsxwburn4_8cpp_a4c824d80e0fa734b965a6204bc5f2edc}{end\+Curses}} ()
+\item 
+void \mbox{\hyperlink{fsxwburn4_8cpp_a88f4e3665e1fbc6bde73efccbabe0c74}{start\+Curses}} ()
+\item 
+void \mbox{\hyperlink{fsxwburn4_8cpp_a9a969fed16666ddff8d8f46638f008e1}{draw\+Frame}} (int, int, int, int)
+\item 
+int \mbox{\hyperlink{fsxwburn4_8cpp_ae4ce82ae5e67d6afa0923ab76c483fcc}{mygetch}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char \mbox{\hyperlink{fsxwburn4_8cpp_a0546e6f1d831a4891b049cf9e132a490}{CTRL\+\_\+B}} = 2
+\item 
+const char \mbox{\hyperlink{fsxwburn4_8cpp_aa359606aaedbf4169796e9a0a8d66cf7}{CTRL\+\_\+R}} = 18
+\item 
+const char \mbox{\hyperlink{fsxwburn4_8cpp_a3f0e071c34aa911a4dbdb899fa673896}{CTRL\+\_\+U}} = 21
+\item 
+const char \mbox{\hyperlink{fsxwburn4_8cpp_a1ec3f407c740dbd8c8fc36a3790cfbb9}{CTRL\+\_\+X}} = 24
+\item 
+const char \mbox{\hyperlink{fsxwburn4_8cpp_a316d15a3492713978813b33562f8826d}{CTRL\+\_\+N}} = 14
+\item 
+bool \mbox{\hyperlink{fsxwburn4_8cpp_a958423c30615cd7cdbc70eb3d2ecad17}{curses\+\_\+started}} = \mbox{\hyperlink{newfms_8h_a65e9886d74aaee76545e83dd09011727}{false}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fsxwburn4_8cpp_af47e6c6f4d7a93c66deb80525c6c7bfe}\label{fsxwburn4_8cpp_af47e6c6f4d7a93c66deb80525c6c7bfe} 
+\index{fsxwburn4.cpp@{fsxwburn4.cpp}!BURN\_THREAD@{BURN\_THREAD}}
+\index{BURN\_THREAD@{BURN\_THREAD}!fsxwburn4.cpp@{fsxwburn4.cpp}}
+\doxysubsubsection{\texorpdfstring{BURN\_THREAD}{BURN\_THREAD}}
+{\footnotesize\ttfamily \#define BURN\+\_\+\+THREAD~0}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwburn4_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{fsxwburn4_8cpp_source}{fsxwburn4.\+cpp}}.
+
+\Hypertarget{fsxwburn4_8cpp_a0d46d4d86fa5e4b6905626d3c32d8581}\label{fsxwburn4_8cpp_a0d46d4d86fa5e4b6905626d3c32d8581} 
+\index{fsxwburn4.cpp@{fsxwburn4.cpp}!SPOT\_THREAD@{SPOT\_THREAD}}
+\index{SPOT\_THREAD@{SPOT\_THREAD}!fsxwburn4.cpp@{fsxwburn4.cpp}}
+\doxysubsubsection{\texorpdfstring{SPOT\_THREAD}{SPOT\_THREAD}}
+{\footnotesize\ttfamily \#define SPOT\+\_\+\+THREAD~1}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwburn4_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{fsxwburn4_8cpp_source}{fsxwburn4.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fsxwburn4_8cpp_a9a969fed16666ddff8d8f46638f008e1}\label{fsxwburn4_8cpp_a9a969fed16666ddff8d8f46638f008e1} 
+\index{fsxwburn4.cpp@{fsxwburn4.cpp}!drawFrame@{drawFrame}}
+\index{drawFrame@{drawFrame}!fsxwburn4.cpp@{fsxwburn4.cpp}}
+\doxysubsubsection{\texorpdfstring{drawFrame()}{drawFrame()}}
+{\footnotesize\ttfamily void draw\+Frame (\begin{DoxyParamCaption}\item[{int}]{startrow,  }\item[{int}]{startcol,  }\item[{int}]{endrow,  }\item[{int}]{endcol }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwburn4_8cpp_source_l00243}{243}} of file \mbox{\hyperlink{fsxwburn4_8cpp_source}{fsxwburn4.\+cpp}}.
+
+\Hypertarget{fsxwburn4_8cpp_a4c824d80e0fa734b965a6204bc5f2edc}\label{fsxwburn4_8cpp_a4c824d80e0fa734b965a6204bc5f2edc} 
+\index{fsxwburn4.cpp@{fsxwburn4.cpp}!endCurses@{endCurses}}
+\index{endCurses@{endCurses}!fsxwburn4.cpp@{fsxwburn4.cpp}}
+\doxysubsubsection{\texorpdfstring{endCurses()}{endCurses()}}
+{\footnotesize\ttfamily void end\+Curses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwburn4_8cpp_source_l00204}{204}} of file \mbox{\hyperlink{fsxwburn4_8cpp_source}{fsxwburn4.\+cpp}}.
+
+\Hypertarget{fsxwburn4_8cpp_ae4ce82ae5e67d6afa0923ab76c483fcc}\label{fsxwburn4_8cpp_ae4ce82ae5e67d6afa0923ab76c483fcc} 
+\index{fsxwburn4.cpp@{fsxwburn4.cpp}!mygetch@{mygetch}}
+\index{mygetch@{mygetch}!fsxwburn4.cpp@{fsxwburn4.cpp}}
+\doxysubsubsection{\texorpdfstring{mygetch()}{mygetch()}}
+{\footnotesize\ttfamily int mygetch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwburn4_8cpp_source_l00063}{63}} of file \mbox{\hyperlink{fsxwburn4_8cpp_source}{fsxwburn4.\+cpp}}.
+
+\Hypertarget{fsxwburn4_8cpp_a88f4e3665e1fbc6bde73efccbabe0c74}\label{fsxwburn4_8cpp_a88f4e3665e1fbc6bde73efccbabe0c74} 
+\index{fsxwburn4.cpp@{fsxwburn4.cpp}!startCurses@{startCurses}}
+\index{startCurses@{startCurses}!fsxwburn4.cpp@{fsxwburn4.cpp}}
+\doxysubsubsection{\texorpdfstring{startCurses()}{startCurses()}}
+{\footnotesize\ttfamily void start\+Curses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwburn4_8cpp_source_l00215}{215}} of file \mbox{\hyperlink{fsxwburn4_8cpp_source}{fsxwburn4.\+cpp}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{fsxwburn4_8cpp_a0546e6f1d831a4891b049cf9e132a490}\label{fsxwburn4_8cpp_a0546e6f1d831a4891b049cf9e132a490} 
+\index{fsxwburn4.cpp@{fsxwburn4.cpp}!CTRL\_B@{CTRL\_B}}
+\index{CTRL\_B@{CTRL\_B}!fsxwburn4.cpp@{fsxwburn4.cpp}}
+\doxysubsubsection{\texorpdfstring{CTRL\_B}{CTRL\_B}}
+{\footnotesize\ttfamily const char CTRL\+\_\+B = 2}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwburn4_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{fsxwburn4_8cpp_source}{fsxwburn4.\+cpp}}.
+
+\Hypertarget{fsxwburn4_8cpp_a316d15a3492713978813b33562f8826d}\label{fsxwburn4_8cpp_a316d15a3492713978813b33562f8826d} 
+\index{fsxwburn4.cpp@{fsxwburn4.cpp}!CTRL\_N@{CTRL\_N}}
+\index{CTRL\_N@{CTRL\_N}!fsxwburn4.cpp@{fsxwburn4.cpp}}
+\doxysubsubsection{\texorpdfstring{CTRL\_N}{CTRL\_N}}
+{\footnotesize\ttfamily const char CTRL\+\_\+N = 14}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwburn4_8cpp_source_l00050}{50}} of file \mbox{\hyperlink{fsxwburn4_8cpp_source}{fsxwburn4.\+cpp}}.
+
+\Hypertarget{fsxwburn4_8cpp_aa359606aaedbf4169796e9a0a8d66cf7}\label{fsxwburn4_8cpp_aa359606aaedbf4169796e9a0a8d66cf7} 
+\index{fsxwburn4.cpp@{fsxwburn4.cpp}!CTRL\_R@{CTRL\_R}}
+\index{CTRL\_R@{CTRL\_R}!fsxwburn4.cpp@{fsxwburn4.cpp}}
+\doxysubsubsection{\texorpdfstring{CTRL\_R}{CTRL\_R}}
+{\footnotesize\ttfamily const char CTRL\+\_\+R = 18}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwburn4_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{fsxwburn4_8cpp_source}{fsxwburn4.\+cpp}}.
+
+\Hypertarget{fsxwburn4_8cpp_a3f0e071c34aa911a4dbdb899fa673896}\label{fsxwburn4_8cpp_a3f0e071c34aa911a4dbdb899fa673896} 
+\index{fsxwburn4.cpp@{fsxwburn4.cpp}!CTRL\_U@{CTRL\_U}}
+\index{CTRL\_U@{CTRL\_U}!fsxwburn4.cpp@{fsxwburn4.cpp}}
+\doxysubsubsection{\texorpdfstring{CTRL\_U}{CTRL\_U}}
+{\footnotesize\ttfamily const char CTRL\+\_\+U = 21}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwburn4_8cpp_source_l00048}{48}} of file \mbox{\hyperlink{fsxwburn4_8cpp_source}{fsxwburn4.\+cpp}}.
+
+\Hypertarget{fsxwburn4_8cpp_a1ec3f407c740dbd8c8fc36a3790cfbb9}\label{fsxwburn4_8cpp_a1ec3f407c740dbd8c8fc36a3790cfbb9} 
+\index{fsxwburn4.cpp@{fsxwburn4.cpp}!CTRL\_X@{CTRL\_X}}
+\index{CTRL\_X@{CTRL\_X}!fsxwburn4.cpp@{fsxwburn4.cpp}}
+\doxysubsubsection{\texorpdfstring{CTRL\_X}{CTRL\_X}}
+{\footnotesize\ttfamily const char CTRL\+\_\+X = 24}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwburn4_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{fsxwburn4_8cpp_source}{fsxwburn4.\+cpp}}.
+
+\Hypertarget{fsxwburn4_8cpp_a958423c30615cd7cdbc70eb3d2ecad17}\label{fsxwburn4_8cpp_a958423c30615cd7cdbc70eb3d2ecad17} 
+\index{fsxwburn4.cpp@{fsxwburn4.cpp}!curses\_started@{curses\_started}}
+\index{curses\_started@{curses\_started}!fsxwburn4.cpp@{fsxwburn4.cpp}}
+\doxysubsubsection{\texorpdfstring{curses\_started}{curses\_started}}
+{\footnotesize\ttfamily bool curses\+\_\+started = \mbox{\hyperlink{newfms_8h_a65e9886d74aaee76545e83dd09011727}{false}}}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwburn4_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{fsxwburn4_8cpp_source}{fsxwburn4.\+cpp}}.
+

@@ -1,0 +1,122 @@
+.TH "Atmosphere" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Atmosphere
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsxwatm\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAtmosphere\fP ()"
+.br
+.ti -1c
+.RI "\fB~Atmosphere\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetHeaderInfo\fP (double north, double south, double east, double west, double resolutionx, double resolutiony)"
+.br
+.ti -1c
+.RI "bool \fBGetHeaderInfo\fP (double *north, double *south, double *east, double *west, double *resolutionx, double *resolutiony)"
+.br
+.ti -1c
+.RI "void \fBGetResolution\fP (double *resolutionx, double *resolutiony)"
+.br
+.ti -1c
+.RI "bool \fBCompareHeader\fP (double north, double south, double east, double west, double resolutionx, double resolutiony)"
+.br
+.ti -1c
+.RI "bool \fBAllocAtmGrid\fP (long timeintervals)"
+.br
+.ti -1c
+.RI "bool \fBFreeAtmGrid\fP ()"
+.br
+.ti -1c
+.RI "bool \fBGetAtmValue\fP (double xpt, double ypt, long time, short *value)"
+.br
+.ti -1c
+.RI "bool \fBSetAtmValue\fP (long number, long time, short value)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "long \fBXNumber\fP"
+.br
+.ti -1c
+.RI "long \fBYNumber\fP"
+.br
+.ti -1c
+.RI "long \fBNumCellsPerGrid\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB36\fP of file \fBfsxwatm\&.h\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Atmosphere::Atmosphere ()"
+
+.PP
+Definition at line \fB565\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "Atmosphere::~Atmosphere ()"
+
+.PP
+Definition at line \fB577\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "bool Atmosphere::AllocAtmGrid (long timeintervals)"
+
+.PP
+Definition at line \fB639\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "bool Atmosphere::CompareHeader (double north, double south, double east, double west, double resolutionx, double resolutiony)"
+
+.PP
+Definition at line \fB618\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "bool Atmosphere::FreeAtmGrid ()"
+
+.PP
+Definition at line \fB653\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "bool Atmosphere::GetAtmValue (double xpt, double ypt, long time, short * value)"
+
+.PP
+Definition at line \fB666\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "bool Atmosphere::GetHeaderInfo (double * north, double * south, double * east, double * west, double * resolutionx, double * resolutiony)"
+
+.PP
+Definition at line \fB597\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "void Atmosphere::GetResolution (double * resolutionx, double * resolutiony)"
+
+.PP
+Definition at line \fB611\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "bool Atmosphere::SetAtmValue (long number, long time, short value)"
+
+.PP
+Definition at line \fB680\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SS "void Atmosphere::SetHeaderInfo (double north, double south, double east, double west, double resolutionx, double resolutiony)"
+
+.PP
+Definition at line \fB582\fP of file \fBfsxwatm\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "long Atmosphere::NumCellsPerGrid"
+
+.PP
+Definition at line \fB52\fP of file \fBfsxwatm\&.h\fP\&.
+.SS "long Atmosphere::XNumber"
+
+.PP
+Definition at line \fB50\fP of file \fBfsxwatm\&.h\fP\&.
+.SS "long Atmosphere::YNumber"
+
+.PP
+Definition at line \fB51\fP of file \fBfsxwatm\&.h\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

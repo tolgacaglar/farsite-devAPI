@@ -1,0 +1,235 @@
+.TH "Vectorize" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Vectorize
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsx4\&.hpp>\fP
+.PP
+Inherits \fBOutputFile\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBVectorize\fP ()"
+.br
+.ti -1c
+.RI "\fB~Vectorize\fP ()"
+.br
+.ti -1c
+.RI "void \fBVectData\fP (long CurrentFire, double SimTime)"
+.br
+.ti -1c
+.RI "void \fBArcFileFormat\fP ()"
+.br
+.ti -1c
+.RI "void \fBOptionalFileFormat\fP ()"
+.br
+.ti -1c
+.RI "void \fBGetXY\fP ()"
+.br
+.ti -1c
+.RI "void \fBGetRF\fP ()"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBOutputFile\fP
+.in +1c
+.ti -1c
+.RI "\fBOutputFile\fP ()"
+.br
+.ti -1c
+.RI "\fB~OutputFile\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetHeaderType\fP (long type)"
+.br
+.ti -1c
+.RI "void \fBSelectOutputs\fP (long Type)"
+.br
+.ti -1c
+.RI "void \fBSelectMemOutputs\fP (long Type)"
+.br
+.ti -1c
+.RI "void \fBOptionalOutput\fP (bool FromMemory)"
+.br
+.ti -1c
+.RI "void \fBConvF\fP ()"
+.br
+.ti -1c
+.RI "void \fBInitRasterFiles\fP (long \fBHeaderType\fP)"
+.br
+.ti -1c
+.RI "void \fBGetRasterExtent\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Types inherited from \fBOutputFile\fP
+.in +1c
+.ti -1c
+.RI "enum \fBCalcType\fP { \fBFLAME_LENGTH\fP, \fBHEAT_PER_AREA\fP, \fBFL_AND_HPA\fP, \fBCROWNFIRE\fP, \fBFIRELINE_INTENSITY\fP, \fBREACTION_INTENSITY\fP }"
+.br
+.ti -1c
+.RI "typedef std::pair< long, long > \fBcoordinate\fP"
+.br
+.ti -1c
+.RI "typedef std::map< \fBcoordinate\fP, \fBRastData\fP > \fBRasterMap\fP"
+.br
+.in -1c
+
+Protected Member Functions inherited from \fBOutputFile\fP
+.in +1c
+.ti -1c
+.RI "void \fBCalcs\fP (\fBCalcType\fP TYPE)"
+.br
+.ti -1c
+.RI "void \fBFreeRastData\fP ()"
+.br
+.ti -1c
+.RI "bool \fBSetRastData\fP (double xpt, double ypt, double time, double fli, double ros, double rcx, long dir)"
+.br
+.RI "Aggregates the provided set of fire behavior characteristics onto the raster\&. 
+.br
+ "
+.ti -1c
+.RI "void \fBWriteOptionalFile\fP ()"
+.br
+.RI "Writes a single value to the already opened, already positioned output file\&. 
+.br
+ "
+.ti -1c
+.RI "void \fBWriteRastMemFiles\fP ()"
+.br
+.ti -1c
+.RI "bool \fBRastMemFile\fP (long Type)"
+.br
+.ti -1c
+.RI "void \fBWriteFile\fP (long Type)"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBOutputFile\fP
+.in +1c
+.ti -1c
+.RI "FILE * \fBotpfile\fP"
+.br
+.ti -1c
+.RI "double \fBx\fP"
+.br
+.ti -1c
+.RI "double \fBy\fP"
+.br
+.ti -1c
+.RI "double \fBt\fP"
+.br
+.ti -1c
+.RI "double \fBf\fP"
+.br
+.ti -1c
+.RI "double \fBl\fP"
+.br
+.ti -1c
+.RI "double \fBr\fP"
+.br
+.ti -1c
+.RI "double \fBh\fP"
+.br
+.ti -1c
+.RI "double \fBrx\fP"
+.br
+.ti -1c
+.RI "double \fBNorth\fP"
+.br
+.ti -1c
+.RI "double \fBSouth\fP"
+.br
+.ti -1c
+.RI "double \fBEast\fP"
+.br
+.ti -1c
+.RI "double \fBWest\fP"
+.br
+.ti -1c
+.RI "long \fBc\fP"
+.br
+.ti -1c
+.RI "long \fBd\fP"
+.br
+.ti -1c
+.RI "double \fBconvf1\fP"
+.br
+.ti -1c
+.RI "double \fBconvf2\fP"
+.br
+.ti -1c
+.RI "double \fBconvf3\fP"
+.br
+.ti -1c
+.RI "long \fBfilepos\fP"
+.br
+.ti -1c
+.RI "long \fBFileOutput\fP"
+.br
+.ti -1c
+.RI "long \fBnumrows\fP"
+.br
+.ti -1c
+.RI "long \fBnumcols\fP"
+.br
+.ti -1c
+.RI "long \fBNumRastAlloc\fP"
+.br
+.ti -1c
+.RI "long \fBNumRastData\fP"
+.br
+.ti -1c
+.RI "long \fBHeaderType\fP"
+.br
+.ti -1c
+.RI "\fBRasterMap\fP \fBrd\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB387\fP of file \fBfsx4\&.hpp\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Vectorize::Vectorize ()"
+
+.PP
+Definition at line \fB29\fP of file \fBfsxwvect\&.cpp\fP\&.
+.SS "Vectorize::~Vectorize ()"
+
+.PP
+Definition at line \fB34\fP of file \fBfsxwvect\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Vectorize::ArcFileFormat ()"
+
+.PP
+Definition at line \fB50\fP of file \fBfsxwvect\&.cpp\fP\&.
+.SS "void Vectorize::GetRF ()"
+
+.PP
+Definition at line \fB140\fP of file \fBfsxwvect\&.cpp\fP\&.
+.SS "void Vectorize::GetXY ()"
+
+.PP
+Definition at line \fB109\fP of file \fBfsxwvect\&.cpp\fP\&.
+.SS "void Vectorize::OptionalFileFormat ()"
+
+.PP
+Definition at line \fB94\fP of file \fBfsxwvect\&.cpp\fP\&.
+.SS "void Vectorize::VectData (long CurrentFire, double SimTime)"
+
+.PP
+Definition at line \fB38\fP of file \fBfsxwvect\&.cpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

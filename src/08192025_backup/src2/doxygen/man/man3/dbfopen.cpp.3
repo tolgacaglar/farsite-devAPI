@@ -1,0 +1,221 @@
+.TH "C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/dbfopen.cpp" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-devAPI/src2/dbfopen.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'shapefil\&.h'\fP
+.br
+\fR#include <math\&.h>\fP
+.br
+\fR#include <stdlib\&.h>\fP
+.br
+\fR#include <ctype\&.h>\fP
+.br
+\fR#include <string\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFALSE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTRUE\fP   1"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDBFHandle\fP \fBSHPAPI_CALL\fP \fBDBFOpen\fP (const char *pszFilename, const char *pszAccess)"
+.br
+.ti -1c
+.RI "void \fBSHPAPI_CALL\fP \fBDBFClose\fP (\fBDBFHandle\fP psDBF)"
+.br
+.ti -1c
+.RI "\fBDBFHandle\fP \fBSHPAPI_CALL\fP \fBDBFCreate\fP (const char *pszFilename)"
+.br
+.ti -1c
+.RI "int \fBSHPAPI_CALL\fP \fBDBFAddField\fP (\fBDBFHandle\fP psDBF, const char *pszFieldName, \fBDBFFieldType\fP eType, int nWidth, int nDecimals)"
+.br
+.ti -1c
+.RI "int \fBSHPAPI_CALL\fP \fBDBFReadIntegerAttribute\fP (\fBDBFHandle\fP psDBF, int iRecord, int iField)"
+.br
+.ti -1c
+.RI "double \fBSHPAPI_CALL\fP \fBDBFReadDoubleAttribute\fP (\fBDBFHandle\fP psDBF, int iRecord, int iField)"
+.br
+.ti -1c
+.RI "const char \fBSHPAPI_CALL1\fP * \fBDBFReadStringAttribute\fP (\fBDBFHandle\fP psDBF, int iRecord, int iField){\fBreturn\fP((const char *) DBFReadAttribute(psDBF, iRecord, iField, 'C')"
+.br
+.ti -1c
+.RI "int \fBSHPAPI_CALL\fP \fBDBFIsAttributeNULL\fP (\fBDBFHandle\fP psDBF, int iRecord, int iField)"
+.br
+.ti -1c
+.RI "int \fBSHPAPI_CALL\fP \fBDBFGetFieldCount\fP (\fBDBFHandle\fP psDBF)"
+.br
+.ti -1c
+.RI "int \fBSHPAPI_CALL\fP \fBDBFGetRecordCount\fP (\fBDBFHandle\fP psDBF)"
+.br
+.ti -1c
+.RI "\fBDBFFieldType\fP \fBSHPAPI_CALL\fP \fBDBFGetFieldInfo\fP (\fBDBFHandle\fP psDBF, int iField, char *pszFieldName, int *pnWidth, int *pnDecimals)"
+.br
+.ti -1c
+.RI "int \fBSHPAPI_CALL\fP \fBDBFWriteDoubleAttribute\fP (\fBDBFHandle\fP psDBF, int iRecord, int iField, double dValue)"
+.br
+.ti -1c
+.RI "int \fBSHPAPI_CALL\fP \fBDBFWriteIntegerAttribute\fP (\fBDBFHandle\fP psDBF, int iRecord, int iField, int nValue)"
+.br
+.ti -1c
+.RI "int \fBSHPAPI_CALL\fP \fBDBFWriteStringAttribute\fP (\fBDBFHandle\fP psDBF, int iRecord, int iField, const char *pszValue)"
+.br
+.ti -1c
+.RI "int \fBSHPAPI_CALL\fP \fBDBFWriteNULLAttribute\fP (\fBDBFHandle\fP psDBF, int iRecord, int iField)"
+.br
+.ti -1c
+.RI "int \fBSHPAPI_CALL\fP \fBDBFWriteTuple\fP (\fBDBFHandle\fP psDBF, int hEntity, void *pRawTuple)"
+.br
+.ti -1c
+.RI "const char \fBSHPAPI_CALL1\fP * \fBDBFReadTuple\fP (\fBDBFHandle\fP psDBF, int hEntity){int nRecordOffset;unsigned char *\fBpabyRec\fP;static char *pReturnTuple=NULL;static int nTupleLen=0;\fBif\fP(hEntity< 0||hEntity >=psDBF\->nRecords) \fBreturn\fP(NULL"
+.br
+.ti -1c
+.RI "\fBif\fP (psDBF\->nCurrentRecord !=hEntity)"
+.br
+.ti -1c
+.RI "\fBif\fP (nTupleLen< psDBF\->nRecordLength)"
+.br
+.ti -1c
+.RI "\fBmemcpy\fP (pReturnTuple, \fBpabyRec\fP, psDBF\->nRecordLength)"
+.br
+.ti -1c
+.RI "\fBreturn\fP (pReturnTuple)"
+.br
+.ti -1c
+.RI "\fBDBFHandle\fP \fBSHPAPI_CALL\fP \fBDBFCloneEmpty\fP (\fBDBFHandle\fP psDBF, const char *pszFilename)"
+.br
+.ti -1c
+.RI "char \fBSHPAPI_CALL\fP \fBDBFGetNativeFieldType\fP (\fBDBFHandle\fP psDBF, int iField)"
+.br
+.ti -1c
+.RI "int \fBSHPAPI_CALL\fP \fBDBFGetFieldIndex\fP (\fBDBFHandle\fP psDBF, const char *pszFieldName)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBpabyRec\fP = (unsigned char*) psDBF\->pszCurrentRecord"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define FALSE   0"
+
+.PP
+Definition at line \fB184\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "#define TRUE   1"
+
+.PP
+Definition at line \fB185\fP of file \fBdbfopen\&.cpp\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "int \fBSHPAPI_CALL\fP DBFAddField (\fBDBFHandle\fP psDBF, const char * pszFieldName, \fBDBFFieldType\fP eType, int nWidth, int nDecimals)"
+
+.PP
+Definition at line \fB572\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "\fBDBFHandle\fP \fBSHPAPI_CALL\fP DBFCloneEmpty (\fBDBFHandle\fP psDBF, const char * pszFilename)"
+
+.PP
+Definition at line \fB1233\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "void \fBSHPAPI_CALL\fP DBFClose (\fBDBFHandle\fP psDBF)"
+
+.PP
+Definition at line \fB428\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "\fBDBFHandle\fP \fBSHPAPI_CALL\fP DBFCreate (const char * pszFilename)"
+
+.PP
+Definition at line \fB494\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "int \fBSHPAPI_CALL\fP DBFGetFieldCount (\fBDBFHandle\fP psDBF)"
+
+.PP
+Definition at line \fB860\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "int \fBSHPAPI_CALL\fP DBFGetFieldIndex (\fBDBFHandle\fP psDBF, const char * pszFieldName)"
+
+.PP
+Definition at line \fB1346\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "\fBDBFFieldType\fP \fBSHPAPI_CALL\fP DBFGetFieldInfo (\fBDBFHandle\fP psDBF, int iField, char * pszFieldName, int * pnWidth, int * pnDecimals)"
+
+.PP
+Definition at line \fB882\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "char \fBSHPAPI_CALL\fP DBFGetNativeFieldType (\fBDBFHandle\fP psDBF, int iField)"
+
+.PP
+Definition at line \fB1314\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "int \fBSHPAPI_CALL\fP DBFGetRecordCount (\fBDBFHandle\fP psDBF)"
+
+.PP
+Definition at line \fB871\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "int \fBSHPAPI_CALL\fP DBFIsAttributeNULL (\fBDBFHandle\fP psDBF, int iRecord, int iField)"
+
+.PP
+Definition at line \fB826\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "\fBDBFHandle\fP \fBSHPAPI_CALL\fP DBFOpen (const char * pszFilename, const char * pszAccess)"
+
+.PP
+Definition at line \fB289\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "double \fBSHPAPI_CALL\fP DBFReadDoubleAttribute (\fBDBFHandle\fP psDBF, int iRecord, int iField)"
+
+.PP
+Definition at line \fB792\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "int \fBSHPAPI_CALL\fP DBFReadIntegerAttribute (\fBDBFHandle\fP psDBF, int iRecord, int iField)"
+
+.PP
+Definition at line \fB773\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "const char \fBSHPAPI_CALL1\fP * DBFReadStringAttribute (\fBDBFHandle\fP psDBF, int iRecord, int iField) const"
+
+.SS "const char \fBSHPAPI_CALL1\fP * DBFReadTuple (\fBDBFHandle\fP psDBF, int hEntity) \-> nRecords) \fBreturn\fP(NULL"
+
+.SS "int \fBSHPAPI_CALL\fP DBFWriteDoubleAttribute (\fBDBFHandle\fP psDBF, int iRecord, int iField, double dValue)"
+
+.PP
+Definition at line \fB1077\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "int \fBSHPAPI_CALL\fP DBFWriteIntegerAttribute (\fBDBFHandle\fP psDBF, int iRecord, int iField, int nValue)"
+
+.PP
+Definition at line \fB1089\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "int \fBSHPAPI_CALL\fP DBFWriteNULLAttribute (\fBDBFHandle\fP psDBF, int iRecord, int iField)"
+
+.PP
+Definition at line \fB1115\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "int \fBSHPAPI_CALL\fP DBFWriteStringAttribute (\fBDBFHandle\fP psDBF, int iRecord, int iField, const char * pszValue)"
+
+.PP
+Definition at line \fB1103\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "int \fBSHPAPI_CALL\fP DBFWriteTuple (\fBDBFHandle\fP psDBF, int hEntity, void * pRawTuple)"
+
+.PP
+Definition at line \fB1126\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "if (nTupleLen< psDBF\-> nRecordLength)"
+
+.PP
+Definition at line \fB1216\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "if (psDBF\->nCurrentRecord ! = \fRhEntity\fP)"
+
+.PP
+Definition at line \fB1202\fP of file \fBdbfopen\&.cpp\fP\&.
+.SS "memcpy (pReturnTuple, \fBpabyRec\fP, psDBF\-> nRecordLength)"
+
+.SS "return (pReturnTuple)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "pabyRec = (unsigned char*) psDBF\->pszCurrentRecord"
+
+.PP
+Definition at line \fB1214\fP of file \fBdbfopen\&.cpp\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

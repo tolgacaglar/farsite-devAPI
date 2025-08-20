@@ -1,0 +1,11 @@
+.TH "bug" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+bug \- Bug List 
+.PP
+
+.IP "\fBMember \fBCDT_JulianDate\fP (int year, int month, int day, int hour, int minute, int second, int millisecond)\fP" 1c
+ While all authors agree that the Julian Date starts at zero at 12:00 \fInoon\fP of 4713 B\&.C\&. January 1, the Duffett-Smith and Meeus algorithms actually yields a JD of 1\&.0 for this date and time! The function here correctly reproduces all the examples in their texts, but yield a JD of 1\&.0 for -4712 Jan 1 12:00\&.  While this certainly deviates from the formal definition of JD, I will continue to use this algorithm since I also use their other algorithms for Julian-to-calendar conversions and astronomical date derivations\&.
+.PP
+

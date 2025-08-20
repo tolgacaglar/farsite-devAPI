@@ -1,0 +1,152 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/generate\+Map\+Valle.c File Reference}
+\hypertarget{generate_map_valle_8c}{}\label{generate_map_valle_8c}\index{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/generateMapValle.c@{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/generateMapValle.c}}
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{generate_map_valle_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{generate_map_valle_8c_acfa8c359b43425056688f72ba5b54d59}{elevfile}}
+\item 
+FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{generate_map_valle_8c_a8e6dd133a730ba09091d15afdfd8533d}{slopefile}}
+\item 
+FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{generate_map_valle_8c_aecc6f2dee3dd845d7f513575a6360141}{aspectfile}}
+\item 
+FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{generate_map_valle_8c_abe3f1764703a315e4347173bb1349163}{fuelfile}}
+\item 
+FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{generate_map_valle_8c_abcaa1eb2b5e50ceca029a8b85af808e4}{canopyfile}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{generate_map_valle_8c_a4403e87828b27877e5ddc92f5cef57b9}{elevfilename}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{generate_map_valle_8c_ad1a5454c8c5c5469761327ea9db45d8f}{slopefilename}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{generate_map_valle_8c_a6cfe86d7b2bd2196d95c12ac8d4833ee}{aspectfilename}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{generate_map_valle_8c_ae4479cc66040babed8d782baa55d22cd}{fuelfilename}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{generate_map_valle_8c_a7fc8fb21a0044dfe920d5c1d378a2091}{canopyfilename}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{generate_map_valle_8c_a3c04138a5bfe5d72780bb7e82a18e627}\label{generate_map_valle_8c_a3c04138a5bfe5d72780bb7e82a18e627} 
+\index{generateMapValle.c@{generateMapValle.c}!main@{main}}
+\index{main@{main}!generateMapValle.c@{generateMapValle.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{generate_map_valle_8c_source_l00033}{33}} of file \mbox{\hyperlink{generate_map_valle_8c_source}{generate\+Map\+Valle.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{generate_map_valle_8c_aecc6f2dee3dd845d7f513575a6360141}\label{generate_map_valle_8c_aecc6f2dee3dd845d7f513575a6360141} 
+\index{generateMapValle.c@{generateMapValle.c}!aspectfile@{aspectfile}}
+\index{aspectfile@{aspectfile}!generateMapValle.c@{generateMapValle.c}}
+\doxysubsubsection{\texorpdfstring{aspectfile}{aspectfile}}
+{\footnotesize\ttfamily FILE\texorpdfstring{$\ast$}{*} aspectfile}
+
+
+
+Definition at line \mbox{\hyperlink{generate_map_valle_8c_source_l00021}{21}} of file \mbox{\hyperlink{generate_map_valle_8c_source}{generate\+Map\+Valle.\+c}}.
+
+\Hypertarget{generate_map_valle_8c_a6cfe86d7b2bd2196d95c12ac8d4833ee}\label{generate_map_valle_8c_a6cfe86d7b2bd2196d95c12ac8d4833ee} 
+\index{generateMapValle.c@{generateMapValle.c}!aspectfilename@{aspectfilename}}
+\index{aspectfilename@{aspectfilename}!generateMapValle.c@{generateMapValle.c}}
+\doxysubsubsection{\texorpdfstring{aspectfilename}{aspectfilename}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} aspectfilename}
+
+
+
+Definition at line \mbox{\hyperlink{generate_map_valle_8c_source_l00027}{27}} of file \mbox{\hyperlink{generate_map_valle_8c_source}{generate\+Map\+Valle.\+c}}.
+
+\Hypertarget{generate_map_valle_8c_abcaa1eb2b5e50ceca029a8b85af808e4}\label{generate_map_valle_8c_abcaa1eb2b5e50ceca029a8b85af808e4} 
+\index{generateMapValle.c@{generateMapValle.c}!canopyfile@{canopyfile}}
+\index{canopyfile@{canopyfile}!generateMapValle.c@{generateMapValle.c}}
+\doxysubsubsection{\texorpdfstring{canopyfile}{canopyfile}}
+{\footnotesize\ttfamily FILE\texorpdfstring{$\ast$}{*} canopyfile}
+
+
+
+Definition at line \mbox{\hyperlink{generate_map_valle_8c_source_l00023}{23}} of file \mbox{\hyperlink{generate_map_valle_8c_source}{generate\+Map\+Valle.\+c}}.
+
+\Hypertarget{generate_map_valle_8c_a7fc8fb21a0044dfe920d5c1d378a2091}\label{generate_map_valle_8c_a7fc8fb21a0044dfe920d5c1d378a2091} 
+\index{generateMapValle.c@{generateMapValle.c}!canopyfilename@{canopyfilename}}
+\index{canopyfilename@{canopyfilename}!generateMapValle.c@{generateMapValle.c}}
+\doxysubsubsection{\texorpdfstring{canopyfilename}{canopyfilename}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} canopyfilename}
+
+
+
+Definition at line \mbox{\hyperlink{generate_map_valle_8c_source_l00029}{29}} of file \mbox{\hyperlink{generate_map_valle_8c_source}{generate\+Map\+Valle.\+c}}.
+
+\Hypertarget{generate_map_valle_8c_acfa8c359b43425056688f72ba5b54d59}\label{generate_map_valle_8c_acfa8c359b43425056688f72ba5b54d59} 
+\index{generateMapValle.c@{generateMapValle.c}!elevfile@{elevfile}}
+\index{elevfile@{elevfile}!generateMapValle.c@{generateMapValle.c}}
+\doxysubsubsection{\texorpdfstring{elevfile}{elevfile}}
+{\footnotesize\ttfamily FILE\texorpdfstring{$\ast$}{*} elevfile}
+
+
+
+Definition at line \mbox{\hyperlink{generate_map_valle_8c_source_l00019}{19}} of file \mbox{\hyperlink{generate_map_valle_8c_source}{generate\+Map\+Valle.\+c}}.
+
+\Hypertarget{generate_map_valle_8c_a4403e87828b27877e5ddc92f5cef57b9}\label{generate_map_valle_8c_a4403e87828b27877e5ddc92f5cef57b9} 
+\index{generateMapValle.c@{generateMapValle.c}!elevfilename@{elevfilename}}
+\index{elevfilename@{elevfilename}!generateMapValle.c@{generateMapValle.c}}
+\doxysubsubsection{\texorpdfstring{elevfilename}{elevfilename}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} elevfilename}
+
+
+
+Definition at line \mbox{\hyperlink{generate_map_valle_8c_source_l00025}{25}} of file \mbox{\hyperlink{generate_map_valle_8c_source}{generate\+Map\+Valle.\+c}}.
+
+\Hypertarget{generate_map_valle_8c_abe3f1764703a315e4347173bb1349163}\label{generate_map_valle_8c_abe3f1764703a315e4347173bb1349163} 
+\index{generateMapValle.c@{generateMapValle.c}!fuelfile@{fuelfile}}
+\index{fuelfile@{fuelfile}!generateMapValle.c@{generateMapValle.c}}
+\doxysubsubsection{\texorpdfstring{fuelfile}{fuelfile}}
+{\footnotesize\ttfamily FILE\texorpdfstring{$\ast$}{*} fuelfile}
+
+
+
+Definition at line \mbox{\hyperlink{generate_map_valle_8c_source_l00022}{22}} of file \mbox{\hyperlink{generate_map_valle_8c_source}{generate\+Map\+Valle.\+c}}.
+
+\Hypertarget{generate_map_valle_8c_ae4479cc66040babed8d782baa55d22cd}\label{generate_map_valle_8c_ae4479cc66040babed8d782baa55d22cd} 
+\index{generateMapValle.c@{generateMapValle.c}!fuelfilename@{fuelfilename}}
+\index{fuelfilename@{fuelfilename}!generateMapValle.c@{generateMapValle.c}}
+\doxysubsubsection{\texorpdfstring{fuelfilename}{fuelfilename}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} fuelfilename}
+
+
+
+Definition at line \mbox{\hyperlink{generate_map_valle_8c_source_l00028}{28}} of file \mbox{\hyperlink{generate_map_valle_8c_source}{generate\+Map\+Valle.\+c}}.
+
+\Hypertarget{generate_map_valle_8c_a8e6dd133a730ba09091d15afdfd8533d}\label{generate_map_valle_8c_a8e6dd133a730ba09091d15afdfd8533d} 
+\index{generateMapValle.c@{generateMapValle.c}!slopefile@{slopefile}}
+\index{slopefile@{slopefile}!generateMapValle.c@{generateMapValle.c}}
+\doxysubsubsection{\texorpdfstring{slopefile}{slopefile}}
+{\footnotesize\ttfamily FILE\texorpdfstring{$\ast$}{*} slopefile}
+
+
+
+Definition at line \mbox{\hyperlink{generate_map_valle_8c_source_l00020}{20}} of file \mbox{\hyperlink{generate_map_valle_8c_source}{generate\+Map\+Valle.\+c}}.
+
+\Hypertarget{generate_map_valle_8c_ad1a5454c8c5c5469761327ea9db45d8f}\label{generate_map_valle_8c_ad1a5454c8c5c5469761327ea9db45d8f} 
+\index{generateMapValle.c@{generateMapValle.c}!slopefilename@{slopefilename}}
+\index{slopefilename@{slopefilename}!generateMapValle.c@{generateMapValle.c}}
+\doxysubsubsection{\texorpdfstring{slopefilename}{slopefilename}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} slopefilename}
+
+
+
+Definition at line \mbox{\hyperlink{generate_map_valle_8c_source_l00026}{26}} of file \mbox{\hyperlink{generate_map_valle_8c_source}{generate\+Map\+Valle.\+c}}.
+

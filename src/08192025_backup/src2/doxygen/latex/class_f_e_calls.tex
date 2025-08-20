@@ -1,0 +1,291 @@
+\doxysection{FECalls Class Reference}
+\hypertarget{class_f_e_calls}{}\label{class_f_e_calls}\index{FECalls@{FECalls}}
+
+
+{\ttfamily \#include $<$fsx4.\+hpp$>$}
+
+Inheritance diagram for FECalls\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_f_e_calls}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_e_calls_a99606adec5e09573979d4efdb6a8261d}{FECalls}} ()
+\item 
+\mbox{\hyperlink{class_f_e_calls_ae627ec2b1a1dd182cc3a3fafe51a614c}{\texorpdfstring{$\sim$}{\string~}\+FECalls}} ()
+\item 
+long \mbox{\hyperlink{class_f_e_calls_acf46f845f5020eed108a5cf142704bb8}{Get\+Landscape\+Data}} (double xpt, double ypt, \mbox{\hyperlink{struct_landscape_struct}{Landscape\+Struct}} \&ls)
+\item 
+void \mbox{\hyperlink{class_f_e_calls_ad8b5399d55fe20deb55b24667ec8c542}{Get\+Fire\+Environment}} (double SIMTIME, int type, long Read\+New\+Data, long Point\+Num)
+\item 
+void \mbox{\hyperlink{class_f_e_calls_a71ca4a7191b5badef2becfe41c8c3d97}{globaldata}} (long Read\+New\+Data, long Num\+Points)
+\item 
+void \mbox{\hyperlink{class_f_e_calls_ad846d053beb04e86c2ea222df64041a7}{localdata}} ()
+\item 
+long \mbox{\hyperlink{class_f_e_calls_a50868e303d4d7354ad950978e4b9eaac}{Alloc\+Fire\+MW}} (long Num\+Points)
+\item 
+void \mbox{\hyperlink{class_f_e_calls_af8a9556f8cf3ec389e34f945f616c421}{Free\+Fire\+MW}} ()
+\item 
+void \mbox{\hyperlink{class_f_e_calls_a0caf0b7a8f0720a8c712685525f7de05}{No\+Moisture\+Data}} (int type)
+\item 
+double \mbox{\hyperlink{class_f_e_calls_ac0b84b2078390966e157f2325ef720df}{PIgnite}} ()
+\item 
+void \mbox{\hyperlink{class_f_e_calls_a4cc731bbacac3a9fc6904b1839060d61}{Reset\+Data}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_fire_environment}{Fire\+Environment}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fire_environment_a4b3f4192b08149479bdc2b45037ff235}{Fire\+Environment}} ()
+\item 
+\mbox{\hyperlink{class_fire_environment_a32169e0067b7caa55915c810ec869529}{\texorpdfstring{$\sim$}{\string~}\+Fire\+Environment}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_landscape_data}{Landscape\+Data}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_landscape_data_a4810cb61dd45421d183cf005efc0170f}{Elev\+Convert}} (short)
+\item 
+void \mbox{\hyperlink{class_landscape_data_a140cad5da0829328f4796cef2de3134f}{Slope\+Convert}} (short)
+\item 
+void \mbox{\hyperlink{class_landscape_data_aa0c5257fe2fb37c458a22eaf930f7f9d}{Aspect\+Convert}} (short)
+\item 
+void \mbox{\hyperlink{class_landscape_data_ab92002130026f8b1d0e6b399ead06aaf}{Fuel\+Convert}} (short)
+\item 
+void \mbox{\hyperlink{class_landscape_data_a3bff4d3e2eff430524fe7d9c52bb8d80}{Cover\+Convert}} (short)
+\item 
+void \mbox{\hyperlink{class_landscape_data_af808b2a28be28d4b04cb8f706c5456df}{Height\+Convert}} (short)
+\item 
+void \mbox{\hyperlink{class_landscape_data_abec07a0e806efbb02997a10a5b210b26}{Base\+Convert}} (short)
+\item 
+void \mbox{\hyperlink{class_landscape_data_acc4164a3a266d6fe9c1d4fe0b4d5aa79}{Density\+Convert}} (short)
+\item 
+void \mbox{\hyperlink{class_landscape_data_a0fa13e93da9d2e825db4e7fd2beda908}{Duff\+Convert}} (short)
+\item 
+void \mbox{\hyperlink{class_landscape_data_a21cd97f591aa6a3b70b7295894846128}{Woody\+Convert}} (short)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_environment_data}{Environment\+Data}} \mbox{\hyperlink{class_f_e_calls_a27a0641ac9f95038c1aa932da5de51d2}{gmw}}
+\item 
+\mbox{\hyperlink{struct_environment_data}{Environment\+Data}} \mbox{\hyperlink{class_f_e_calls_ab33bc537e28ea427d0eecefe862c18bd}{lmw}}
+\item 
+\mbox{\hyperlink{struct_environment_data}{Environment\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_f_e_calls_adb992fb52a4c2cb147ccebe76a74739f}{Fire\+MW}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_fire_environment}{Fire\+Environment}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_fire_environment_a1b6a9b531eb95da6990813c7eb4f4c96}{Foliar\+MC}}
+\item 
+double \mbox{\hyperlink{class_fire_environment_aa960fdd5fea0a82e3978e5db2c7772a8}{Air\+Temp}}
+\item 
+double \mbox{\hyperlink{class_fire_environment_a8eaccd73567783b210934a080cb56047}{Air\+Humid}}
+\item 
+double \mbox{\hyperlink{class_fire_environment_aca8da5bbfb60c64f37c5478b3eb6a6d2}{Pt\+Temperature}}
+\item 
+double \mbox{\hyperlink{class_fire_environment_a677b85355131f60e1012db430899196f}{Pt\+Humidity}}
+\item 
+double \mbox{\hyperlink{class_fire_environment_ac1fb4a318928637e50a84767fa31dca0}{XLocation}}
+\item 
+double \mbox{\hyperlink{class_fire_environment_ab565291318cf121c5397c7302754de55}{YLocation}}
+\item 
+long \mbox{\hyperlink{class_fire_environment_aae3c7ff6a8c9dd8d742a07efa3ada0fc}{Station\+Number}}
+\item 
+long \mbox{\hyperlink{class_fire_environment_af926499a2745c9236752f6b4f5f9ad20}{posit}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_landscape_data}{Landscape\+Data}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_landscape_struct}{Landscape\+Struct}} \mbox{\hyperlink{class_landscape_data_ac653316fee32929a750d6f79c266c9ef}{ld}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_fire_environment}{Fire\+Environment}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fire_environment_a8008f4dd72a36b9bd8f6a9cf5b1e12a0}{envt}} (double SIMTIME)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_fire_environment}{Fire\+Environment}}}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{class_fire_environment_a193f3034737cbf5c23f724aa539a3da5}{LW}}
+\item 
+long \mbox{\hyperlink{class_fire_environment_aed148e763921da64b60ac4f18163dbfc}{LH}}
+\item 
+double \mbox{\hyperlink{class_fire_environment_a40f4568dcc1c931f2889254fd503941e}{ohmc}}
+\item 
+double \mbox{\hyperlink{class_fire_environment_a44fc1b9a8bd948c945b3adfddbe4ab2a}{thmc}}
+\item 
+double \mbox{\hyperlink{class_fire_environment_a75f191654d3e01d41c1e8f9a43ac8ba2}{hhmc}}
+\item 
+double \mbox{\hyperlink{class_fire_environment_a93bcd901dd2907d8b7f754cead6266ad}{mwindspd}}
+\item 
+double \mbox{\hyperlink{class_fire_environment_a2c9663dceebae66cfc8c22f0a722f9b5}{twindspd}}
+\item 
+double \mbox{\hyperlink{class_fire_environment_ab0cbfdb96bdfaf977641b9979f86f52b}{wwinddir}}
+\item 
+double \mbox{\hyperlink{class_fire_environment_ab44b6eed54629286b9b0f494f2c1206b}{Fuel\+Temp}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00579}{579}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_f_e_calls_a99606adec5e09573979d4efdb6a8261d}\label{class_f_e_calls_a99606adec5e09573979d4efdb6a8261d} 
+\index{FECalls@{FECalls}!FECalls@{FECalls}}
+\index{FECalls@{FECalls}!FECalls@{FECalls}}
+\doxysubsubsection{\texorpdfstring{FECalls()}{FECalls()}}
+{\footnotesize\ttfamily FECalls\+::\+FECalls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwenvt2_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{fsxwenvt2_8cpp_source}{fsxwenvt2.\+cpp}}.
+
+\Hypertarget{class_f_e_calls_ae627ec2b1a1dd182cc3a3fafe51a614c}\label{class_f_e_calls_ae627ec2b1a1dd182cc3a3fafe51a614c} 
+\index{FECalls@{FECalls}!````~FECalls@{\texorpdfstring{$\sim$}{\string~}FECalls}}
+\index{````~FECalls@{\texorpdfstring{$\sim$}{\string~}FECalls}!FECalls@{FECalls}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FECalls()}{\string~FECalls()}}
+{\footnotesize\ttfamily FECalls\+::\texorpdfstring{$\sim$}{\string~}\+FECalls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwenvt2_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{fsxwenvt2_8cpp_source}{fsxwenvt2.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_f_e_calls_a50868e303d4d7354ad950978e4b9eaac}\label{class_f_e_calls_a50868e303d4d7354ad950978e4b9eaac} 
+\index{FECalls@{FECalls}!AllocFireMW@{AllocFireMW}}
+\index{AllocFireMW@{AllocFireMW}!FECalls@{FECalls}}
+\doxysubsubsection{\texorpdfstring{AllocFireMW()}{AllocFireMW()}}
+{\footnotesize\ttfamily long FECalls\+::\+Alloc\+Fire\+MW (\begin{DoxyParamCaption}\item[{long}]{Num\+Points }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwenvt2_8cpp_source_l00346}{346}} of file \mbox{\hyperlink{fsxwenvt2_8cpp_source}{fsxwenvt2.\+cpp}}.
+
+\Hypertarget{class_f_e_calls_af8a9556f8cf3ec389e34f945f616c421}\label{class_f_e_calls_af8a9556f8cf3ec389e34f945f616c421} 
+\index{FECalls@{FECalls}!FreeFireMW@{FreeFireMW}}
+\index{FreeFireMW@{FreeFireMW}!FECalls@{FECalls}}
+\doxysubsubsection{\texorpdfstring{FreeFireMW()}{FreeFireMW()}}
+{\footnotesize\ttfamily void FECalls\+::\+Free\+Fire\+MW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwenvt2_8cpp_source_l00360}{360}} of file \mbox{\hyperlink{fsxwenvt2_8cpp_source}{fsxwenvt2.\+cpp}}.
+
+\Hypertarget{class_f_e_calls_ad8b5399d55fe20deb55b24667ec8c542}\label{class_f_e_calls_ad8b5399d55fe20deb55b24667ec8c542} 
+\index{FECalls@{FECalls}!GetFireEnvironment@{GetFireEnvironment}}
+\index{GetFireEnvironment@{GetFireEnvironment}!FECalls@{FECalls}}
+\doxysubsubsection{\texorpdfstring{GetFireEnvironment()}{GetFireEnvironment()}}
+{\footnotesize\ttfamily void FECalls\+::\+Get\+Fire\+Environment (\begin{DoxyParamCaption}\item[{double}]{SIMTIME,  }\item[{int}]{type,  }\item[{long}]{Read\+New\+Data,  }\item[{long}]{Point\+Num }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwenvt2_8cpp_source_l00296}{296}} of file \mbox{\hyperlink{fsxwenvt2_8cpp_source}{fsxwenvt2.\+cpp}}.
+
+\Hypertarget{class_f_e_calls_acf46f845f5020eed108a5cf142704bb8}\label{class_f_e_calls_acf46f845f5020eed108a5cf142704bb8} 
+\index{FECalls@{FECalls}!GetLandscapeData@{GetLandscapeData}}
+\index{GetLandscapeData@{GetLandscapeData}!FECalls@{FECalls}}
+\doxysubsubsection{\texorpdfstring{GetLandscapeData()}{GetLandscapeData()}}
+{\footnotesize\ttfamily long FECalls\+::\+Get\+Landscape\+Data (\begin{DoxyParamCaption}\item[{double}]{xpt,  }\item[{double}]{ypt,  }\item[{\mbox{\hyperlink{struct_landscape_struct}{Landscape\+Struct}} \&}]{ls }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwenvt2_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{fsxwenvt2_8cpp_source}{fsxwenvt2.\+cpp}}.
+
+\Hypertarget{class_f_e_calls_a71ca4a7191b5badef2becfe41c8c3d97}\label{class_f_e_calls_a71ca4a7191b5badef2becfe41c8c3d97} 
+\index{FECalls@{FECalls}!globaldata@{globaldata}}
+\index{globaldata@{globaldata}!FECalls@{FECalls}}
+\doxysubsubsection{\texorpdfstring{globaldata()}{globaldata()}}
+{\footnotesize\ttfamily void FECalls\+::globaldata (\begin{DoxyParamCaption}\item[{long}]{Read\+New\+Data,  }\item[{long}]{Num\+Points }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwenvt2_8cpp_source_l00321}{321}} of file \mbox{\hyperlink{fsxwenvt2_8cpp_source}{fsxwenvt2.\+cpp}}.
+
+\Hypertarget{class_f_e_calls_ad846d053beb04e86c2ea222df64041a7}\label{class_f_e_calls_ad846d053beb04e86c2ea222df64041a7} 
+\index{FECalls@{FECalls}!localdata@{localdata}}
+\index{localdata@{localdata}!FECalls@{FECalls}}
+\doxysubsubsection{\texorpdfstring{localdata()}{localdata()}}
+{\footnotesize\ttfamily void FECalls\+::localdata (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwenvt2_8cpp_source_l00369}{369}} of file \mbox{\hyperlink{fsxwenvt2_8cpp_source}{fsxwenvt2.\+cpp}}.
+
+\Hypertarget{class_f_e_calls_a0caf0b7a8f0720a8c712685525f7de05}\label{class_f_e_calls_a0caf0b7a8f0720a8c712685525f7de05} 
+\index{FECalls@{FECalls}!NoMoistureData@{NoMoistureData}}
+\index{NoMoistureData@{NoMoistureData}!FECalls@{FECalls}}
+\doxysubsubsection{\texorpdfstring{NoMoistureData()}{NoMoistureData()}}
+{\footnotesize\ttfamily void FECalls\+::\+No\+Moisture\+Data (\begin{DoxyParamCaption}\item[{int}]{type }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwenvt2_8cpp_source_l00382}{382}} of file \mbox{\hyperlink{fsxwenvt2_8cpp_source}{fsxwenvt2.\+cpp}}.
+
+\Hypertarget{class_f_e_calls_ac0b84b2078390966e157f2325ef720df}\label{class_f_e_calls_ac0b84b2078390966e157f2325ef720df} 
+\index{FECalls@{FECalls}!PIgnite@{PIgnite}}
+\index{PIgnite@{PIgnite}!FECalls@{FECalls}}
+\doxysubsubsection{\texorpdfstring{PIgnite()}{PIgnite()}}
+{\footnotesize\ttfamily double FECalls\+::\+PIgnite (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwenvt2_8cpp_source_l00409}{409}} of file \mbox{\hyperlink{fsxwenvt2_8cpp_source}{fsxwenvt2.\+cpp}}.
+
+\Hypertarget{class_f_e_calls_a4cc731bbacac3a9fc6904b1839060d61}\label{class_f_e_calls_a4cc731bbacac3a9fc6904b1839060d61} 
+\index{FECalls@{FECalls}!ResetData@{ResetData}}
+\index{ResetData@{ResetData}!FECalls@{FECalls}}
+\doxysubsubsection{\texorpdfstring{ResetData()}{ResetData()}}
+{\footnotesize\ttfamily void FECalls\+::\+Reset\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fsxwenvt2_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{fsxwenvt2_8cpp_source}{fsxwenvt2.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_f_e_calls_adb992fb52a4c2cb147ccebe76a74739f}\label{class_f_e_calls_adb992fb52a4c2cb147ccebe76a74739f} 
+\index{FECalls@{FECalls}!FireMW@{FireMW}}
+\index{FireMW@{FireMW}!FECalls@{FECalls}}
+\doxysubsubsection{\texorpdfstring{FireMW}{FireMW}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_environment_data}{Environment\+Data}} \texorpdfstring{$\ast$}{*} FECalls\+::\+Fire\+MW}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00582}{582}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_f_e_calls_a27a0641ac9f95038c1aa932da5de51d2}\label{class_f_e_calls_a27a0641ac9f95038c1aa932da5de51d2} 
+\index{FECalls@{FECalls}!gmw@{gmw}}
+\index{gmw@{gmw}!FECalls@{FECalls}}
+\doxysubsubsection{\texorpdfstring{gmw}{gmw}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_environment_data}{Environment\+Data}} FECalls\+::gmw}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00582}{582}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+\Hypertarget{class_f_e_calls_ab33bc537e28ea427d0eecefe862c18bd}\label{class_f_e_calls_ab33bc537e28ea427d0eecefe862c18bd} 
+\index{FECalls@{FECalls}!lmw@{lmw}}
+\index{lmw@{lmw}!FECalls@{FECalls}}
+\doxysubsubsection{\texorpdfstring{lmw}{lmw}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_environment_data}{Environment\+Data}} FECalls\+::lmw}
+
+
+
+Definition at line \mbox{\hyperlink{fsx4_8hpp_source_l00582}{582}} of file \mbox{\hyperlink{fsx4_8hpp_source}{fsx4.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsx4_8hpp}{fsx4.\+hpp}}\item 
+C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\mbox{\hyperlink{fsxwenvt2_8cpp}{fsxwenvt2.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,199 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/\+Sample\+Papi\+MT.c File Reference}
+\hypertarget{_sample_papi_m_t_8c}{}\label{_sample_papi_m_t_8c}\index{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/SamplePapiMT.c@{C:/Users/tolk1/Dropbox/SDSC/WiFire/farsite-\/devAPI/src2/SamplePapiMT.c}}
+{\ttfamily \#include $<$sched.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$papi.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_proc___i_n_f_o}{Proc\+\_\+\+INFO}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_sample_papi_m_t_8c_a369266c24eacffb87046522897a570d5}{\+\_\+\+GNU\+\_\+\+SOURCE}}
+\item 
+\#define \mbox{\hyperlink{_sample_papi_m_t_8c_a0e92bfcd9e51ca39bbebc3dfb9c16014}{MAX\+\_\+\+PROCS}}~32
+\item 
+\#define \mbox{\hyperlink{_sample_papi_m_t_8c_a66393135817d17f7e0e4de93f6b01a4f}{ERROR\+\_\+\+RETURN}}(retval)~\{ fprintf(stderr, "{}Error \%d \%s\+:line \%d\+: \textbackslash{}n"{}, retval,\+\_\+\+\_\+\+FILE\+\_\+\+\_\+,\+\_\+\+\_\+\+LINE\+\_\+\+\_\+);  exit(retval); \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_sample_papi_m_t_8c_a17f81baac64e28d5a3ab2e65ab4c4156}{proc\+\_\+get\+\_\+num\+\_\+cpus}} (void)
+\item 
+void \mbox{\hyperlink{_sample_papi_m_t_8c_abf8dfb76a067cbc9ea8626d61fd7ea94}{Sample\+\_\+\+Set\+CPU}} (int cpu\+\_\+id)
+\item 
+void \mbox{\hyperlink{_sample_papi_m_t_8c_a716d94162f83708b9a9f87c3569d5162}{Sample\+\_\+\+ON}} (int i)
+\item 
+void \mbox{\hyperlink{_sample_papi_m_t_8c_a974e17d8c2035fa37d51b6bdf0a5f192}{Sample\+\_\+\+OFF}} (int i)
+\item 
+void \mbox{\hyperlink{_sample_papi_m_t_8c_a05decbf0aec8402dd1f0aba1d96dd5b4}{Sample\+\_\+\+Value}} (int i, long long V)
+\item 
+void \mbox{\hyperlink{_sample_papi_m_t_8c_a7055b2e2db4280db0761d59ddfaefa87}{Sample\+\_\+\+Value\+Diff}} (int i, long long V)
+\item 
+void \mbox{\hyperlink{_sample_papi_m_t_8c_a2916d158d3cf1bad177ac672d259f295}{read\+\_\+events}} ()
+\item 
+void \mbox{\hyperlink{_sample_papi_m_t_8c_a09f39a5c4c427dadc639de01c5a64aea}{Sample\+\_\+\+Init}} ()
+\item 
+void \mbox{\hyperlink{_sample_papi_m_t_8c_a2f9d0fe7e9d856bc7977f6eef731cdf4}{Sample\+\_\+\+End}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_proc___i_n_f_o}{Proc\+\_\+\+INFO}} \mbox{\hyperlink{_sample_papi_m_t_8c_aaeb92272f608bd49c9c425643c985d17}{Sample\+\_\+\+INFO}} \mbox{[}\mbox{\hyperlink{_sample_papi_m_t_8c_a0e92bfcd9e51ca39bbebc3dfb9c16014}{MAX\+\_\+\+PROCS}}\mbox{]}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_sample_papi_m_t_8c_a088bf01f70a3edd0b19c0439e35de415}{Event\+Str}} \mbox{[}4\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_sample_papi_m_t_8c_a369266c24eacffb87046522897a570d5}\label{_sample_papi_m_t_8c_a369266c24eacffb87046522897a570d5} 
+\index{SamplePapiMT.c@{SamplePapiMT.c}!\_GNU\_SOURCE@{\_GNU\_SOURCE}}
+\index{\_GNU\_SOURCE@{\_GNU\_SOURCE}!SamplePapiMT.c@{SamplePapiMT.c}}
+\doxysubsubsection{\texorpdfstring{\_GNU\_SOURCE}{\_GNU\_SOURCE}}
+{\footnotesize\ttfamily \#define \+\_\+\+GNU\+\_\+\+SOURCE}
+
+
+
+Definition at line \mbox{\hyperlink{_sample_papi_m_t_8c_source_l00001}{1}} of file \mbox{\hyperlink{_sample_papi_m_t_8c_source}{Sample\+Papi\+MT.\+c}}.
+
+\Hypertarget{_sample_papi_m_t_8c_a66393135817d17f7e0e4de93f6b01a4f}\label{_sample_papi_m_t_8c_a66393135817d17f7e0e4de93f6b01a4f} 
+\index{SamplePapiMT.c@{SamplePapiMT.c}!ERROR\_RETURN@{ERROR\_RETURN}}
+\index{ERROR\_RETURN@{ERROR\_RETURN}!SamplePapiMT.c@{SamplePapiMT.c}}
+\doxysubsubsection{\texorpdfstring{ERROR\_RETURN}{ERROR\_RETURN}}
+{\footnotesize\ttfamily \#define ERROR\+\_\+\+RETURN(\begin{DoxyParamCaption}\item[{}]{retval }\end{DoxyParamCaption})~\{ fprintf(stderr, "{}Error \%d \%s\+:line \%d\+: \textbackslash{}n"{}, retval,\+\_\+\+\_\+\+FILE\+\_\+\+\_\+,\+\_\+\+\_\+\+LINE\+\_\+\+\_\+);  exit(retval); \}}
+
+
+
+Definition at line \mbox{\hyperlink{_sample_papi_m_t_8c_source_l00029}{29}} of file \mbox{\hyperlink{_sample_papi_m_t_8c_source}{Sample\+Papi\+MT.\+c}}.
+
+\Hypertarget{_sample_papi_m_t_8c_a0e92bfcd9e51ca39bbebc3dfb9c16014}\label{_sample_papi_m_t_8c_a0e92bfcd9e51ca39bbebc3dfb9c16014} 
+\index{SamplePapiMT.c@{SamplePapiMT.c}!MAX\_PROCS@{MAX\_PROCS}}
+\index{MAX\_PROCS@{MAX\_PROCS}!SamplePapiMT.c@{SamplePapiMT.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_PROCS}{MAX\_PROCS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+PROCS~32}
+
+
+
+Definition at line \mbox{\hyperlink{_sample_papi_m_t_8c_source_l00015}{15}} of file \mbox{\hyperlink{_sample_papi_m_t_8c_source}{Sample\+Papi\+MT.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_sample_papi_m_t_8c_a17f81baac64e28d5a3ab2e65ab4c4156}\label{_sample_papi_m_t_8c_a17f81baac64e28d5a3ab2e65ab4c4156} 
+\index{SamplePapiMT.c@{SamplePapiMT.c}!proc\_get\_num\_cpus@{proc\_get\_num\_cpus}}
+\index{proc\_get\_num\_cpus@{proc\_get\_num\_cpus}!SamplePapiMT.c@{SamplePapiMT.c}}
+\doxysubsubsection{\texorpdfstring{proc\_get\_num\_cpus()}{proc\_get\_num\_cpus()}}
+{\footnotesize\ttfamily int proc\+\_\+get\+\_\+num\+\_\+cpus (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sample_papi_m_t_8c_source_l00038}{38}} of file \mbox{\hyperlink{_sample_papi_m_t_8c_source}{Sample\+Papi\+MT.\+c}}.
+
+\Hypertarget{_sample_papi_m_t_8c_a2916d158d3cf1bad177ac672d259f295}\label{_sample_papi_m_t_8c_a2916d158d3cf1bad177ac672d259f295} 
+\index{SamplePapiMT.c@{SamplePapiMT.c}!read\_events@{read\_events}}
+\index{read\_events@{read\_events}!SamplePapiMT.c@{SamplePapiMT.c}}
+\doxysubsubsection{\texorpdfstring{read\_events()}{read\_events()}}
+{\footnotesize\ttfamily void read\+\_\+events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sample_papi_m_t_8c_source_l00137}{137}} of file \mbox{\hyperlink{_sample_papi_m_t_8c_source}{Sample\+Papi\+MT.\+c}}.
+
+\Hypertarget{_sample_papi_m_t_8c_a2f9d0fe7e9d856bc7977f6eef731cdf4}\label{_sample_papi_m_t_8c_a2f9d0fe7e9d856bc7977f6eef731cdf4} 
+\index{SamplePapiMT.c@{SamplePapiMT.c}!Sample\_End@{Sample\_End}}
+\index{Sample\_End@{Sample\_End}!SamplePapiMT.c@{SamplePapiMT.c}}
+\doxysubsubsection{\texorpdfstring{Sample\_End()}{Sample\_End()}}
+{\footnotesize\ttfamily void Sample\+\_\+\+End (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sample_papi_m_t_8c_source_l00201}{201}} of file \mbox{\hyperlink{_sample_papi_m_t_8c_source}{Sample\+Papi\+MT.\+c}}.
+
+\Hypertarget{_sample_papi_m_t_8c_a09f39a5c4c427dadc639de01c5a64aea}\label{_sample_papi_m_t_8c_a09f39a5c4c427dadc639de01c5a64aea} 
+\index{SamplePapiMT.c@{SamplePapiMT.c}!Sample\_Init@{Sample\_Init}}
+\index{Sample\_Init@{Sample\_Init}!SamplePapiMT.c@{SamplePapiMT.c}}
+\doxysubsubsection{\texorpdfstring{Sample\_Init()}{Sample\_Init()}}
+{\footnotesize\ttfamily void Sample\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sample_papi_m_t_8c_source_l00172}{172}} of file \mbox{\hyperlink{_sample_papi_m_t_8c_source}{Sample\+Papi\+MT.\+c}}.
+
+\Hypertarget{_sample_papi_m_t_8c_a974e17d8c2035fa37d51b6bdf0a5f192}\label{_sample_papi_m_t_8c_a974e17d8c2035fa37d51b6bdf0a5f192} 
+\index{SamplePapiMT.c@{SamplePapiMT.c}!Sample\_OFF@{Sample\_OFF}}
+\index{Sample\_OFF@{Sample\_OFF}!SamplePapiMT.c@{SamplePapiMT.c}}
+\doxysubsubsection{\texorpdfstring{Sample\_OFF()}{Sample\_OFF()}}
+{\footnotesize\ttfamily void Sample\+\_\+\+OFF (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sample_papi_m_t_8c_source_l00065}{65}} of file \mbox{\hyperlink{_sample_papi_m_t_8c_source}{Sample\+Papi\+MT.\+c}}.
+
+\Hypertarget{_sample_papi_m_t_8c_a716d94162f83708b9a9f87c3569d5162}\label{_sample_papi_m_t_8c_a716d94162f83708b9a9f87c3569d5162} 
+\index{SamplePapiMT.c@{SamplePapiMT.c}!Sample\_ON@{Sample\_ON}}
+\index{Sample\_ON@{Sample\_ON}!SamplePapiMT.c@{SamplePapiMT.c}}
+\doxysubsubsection{\texorpdfstring{Sample\_ON()}{Sample\_ON()}}
+{\footnotesize\ttfamily void Sample\+\_\+\+ON (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sample_papi_m_t_8c_source_l00051}{51}} of file \mbox{\hyperlink{_sample_papi_m_t_8c_source}{Sample\+Papi\+MT.\+c}}.
+
+\Hypertarget{_sample_papi_m_t_8c_abf8dfb76a067cbc9ea8626d61fd7ea94}\label{_sample_papi_m_t_8c_abf8dfb76a067cbc9ea8626d61fd7ea94} 
+\index{SamplePapiMT.c@{SamplePapiMT.c}!Sample\_SetCPU@{Sample\_SetCPU}}
+\index{Sample\_SetCPU@{Sample\_SetCPU}!SamplePapiMT.c@{SamplePapiMT.c}}
+\doxysubsubsection{\texorpdfstring{Sample\_SetCPU()}{Sample\_SetCPU()}}
+{\footnotesize\ttfamily void Sample\+\_\+\+Set\+CPU (\begin{DoxyParamCaption}\item[{int}]{cpu\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sample_papi_m_t_8c_source_l00042}{42}} of file \mbox{\hyperlink{_sample_papi_m_t_8c_source}{Sample\+Papi\+MT.\+c}}.
+
+\Hypertarget{_sample_papi_m_t_8c_a05decbf0aec8402dd1f0aba1d96dd5b4}\label{_sample_papi_m_t_8c_a05decbf0aec8402dd1f0aba1d96dd5b4} 
+\index{SamplePapiMT.c@{SamplePapiMT.c}!Sample\_Value@{Sample\_Value}}
+\index{Sample\_Value@{Sample\_Value}!SamplePapiMT.c@{SamplePapiMT.c}}
+\doxysubsubsection{\texorpdfstring{Sample\_Value()}{Sample\_Value()}}
+{\footnotesize\ttfamily void Sample\+\_\+\+Value (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{long long}]{V }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sample_papi_m_t_8c_source_l00077}{77}} of file \mbox{\hyperlink{_sample_papi_m_t_8c_source}{Sample\+Papi\+MT.\+c}}.
+
+\Hypertarget{_sample_papi_m_t_8c_a7055b2e2db4280db0761d59ddfaefa87}\label{_sample_papi_m_t_8c_a7055b2e2db4280db0761d59ddfaefa87} 
+\index{SamplePapiMT.c@{SamplePapiMT.c}!Sample\_ValueDiff@{Sample\_ValueDiff}}
+\index{Sample\_ValueDiff@{Sample\_ValueDiff}!SamplePapiMT.c@{SamplePapiMT.c}}
+\doxysubsubsection{\texorpdfstring{Sample\_ValueDiff()}{Sample\_ValueDiff()}}
+{\footnotesize\ttfamily void Sample\+\_\+\+Value\+Diff (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{long long}]{V }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_sample_papi_m_t_8c_source_l00102}{102}} of file \mbox{\hyperlink{_sample_papi_m_t_8c_source}{Sample\+Papi\+MT.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_sample_papi_m_t_8c_a088bf01f70a3edd0b19c0439e35de415}\label{_sample_papi_m_t_8c_a088bf01f70a3edd0b19c0439e35de415} 
+\index{SamplePapiMT.c@{SamplePapiMT.c}!EventStr@{EventStr}}
+\index{EventStr@{EventStr}!SamplePapiMT.c@{SamplePapiMT.c}}
+\doxysubsubsection{\texorpdfstring{EventStr}{EventStr}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} Event\+Str\mbox{[}4\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_sample_papi_m_t_8c_source_l00027}{27}} of file \mbox{\hyperlink{_sample_papi_m_t_8c_source}{Sample\+Papi\+MT.\+c}}.
+
+\Hypertarget{_sample_papi_m_t_8c_aaeb92272f608bd49c9c425643c985d17}\label{_sample_papi_m_t_8c_aaeb92272f608bd49c9c425643c985d17} 
+\index{SamplePapiMT.c@{SamplePapiMT.c}!Sample\_INFO@{Sample\_INFO}}
+\index{Sample\_INFO@{Sample\_INFO}!SamplePapiMT.c@{SamplePapiMT.c}}
+\doxysubsubsection{\texorpdfstring{Sample\_INFO}{Sample\_INFO}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_proc___i_n_f_o}{Proc\+\_\+\+INFO}} Sample\+\_\+\+INFO\mbox{[}\mbox{\hyperlink{_sample_papi_m_t_8c_a0e92bfcd9e51ca39bbebc3dfb9c16014}{MAX\+\_\+\+PROCS}}\mbox{]}}
+

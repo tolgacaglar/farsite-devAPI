@@ -1,0 +1,496 @@
+.TH "Mechanix" 3 "farsite4P" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Mechanix
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <fsx4\&.hpp>\fP
+.PP
+Inherited by \fBMechCalls\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMechanix\fP ()"
+.br
+.ti -1c
+.RI "\fB~Mechanix\fP ()"
+.br
+.ti -1c
+.RI "void \fBlimgrow\fP (void)"
+.br
+.ti -1c
+.RI "void \fBgrow\fP (double ivecdir)"
+.br
+.ti -1c
+.RI "void \fBdistchek\fP (long CurrentFire)"
+.br
+.ti -1c
+.RI "void \fBellipse\fP (double iros, double wspeed)"
+.br
+.ti -1c
+.RI "void \fBscorrect\fP (long slope, double aspectf)"
+.br
+.ti -1c
+.RI "double \fBspreadrate\fP (long slope, double windspd, int fuel)"
+.br
+.ti -1c
+.RI "void \fBGetEquationTerms\fP (double *\fBphiw\fP, double *\fBphis\fP, double *b, double *part1)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBxpt\fP"
+.br
+.ti -1c
+.RI "double \fBypt\fP"
+.br
+.ti -1c
+.RI "double \fBmidx\fP"
+.br
+.ti -1c
+.RI "double \fBmidy\fP"
+.br
+.ti -1c
+.RI "double \fBxt\fP"
+.br
+.ti -1c
+.RI "double \fByt\fP"
+.br
+.ti -1c
+.RI "double \fBxptn\fP"
+.br
+.ti -1c
+.RI "double \fByptn\fP"
+.br
+.ti -1c
+.RI "double \fBxptl\fP"
+.br
+.ti -1c
+.RI "double \fByptl\fP"
+.br
+.ti -1c
+.RI "double \fBxdiff\fP"
+.br
+.ti -1c
+.RI "double \fBydiff\fP"
+.br
+.ti -1c
+.RI "double \fBvecspeed\fP"
+.br
+.ti -1c
+.RI "double \fBivecspeed\fP"
+.br
+.ti -1c
+.RI "double \fBvecdir\fP"
+.br
+.ti -1c
+.RI "double \fBm_windspd\fP"
+.br
+.ti -1c
+.RI "double \fBm_winddir\fP"
+.br
+.ti -1c
+.RI "double \fBm_twindspd\fP"
+.br
+.ti -1c
+.RI "double \fBActualSurfaceSpread\fP"
+.br
+.ti -1c
+.RI "double \fBHorizSpread\fP"
+.br
+.ti -1c
+.RI "double \fBavgros\fP"
+.br
+.ti -1c
+.RI "double \fBcros\fP"
+.br
+.ti -1c
+.RI "double \fBfros\fP"
+.br
+.ti -1c
+.RI "double \fBvecros\fP"
+.br
+.ti -1c
+.RI "double \fBRosT1\fP"
+.br
+.ti -1c
+.RI "double \fBRosT\fP"
+.br
+.ti -1c
+.RI "double \fBR10\fP"
+.br
+.ti -1c
+.RI "double \fBfli\fP"
+.br
+.ti -1c
+.RI "double \fBFliFinal\fP"
+.br
+.ti -1c
+.RI "double \fBExpansionRate\fP"
+.br
+.ti -1c
+.RI "double \fBtimerem\fP"
+.br
+.ti -1c
+.RI "double \fBreact\fP"
+.br
+.ti -1c
+.RI "double \fBsavx\fP"
+.br
+.ti -1c
+.RI "double \fBcosslope\fP"
+.br
+.ti -1c
+.RI "double \fBCurrentTime\fP"
+.br
+.ti -1c
+.RI "double \fBFlameLength\fP"
+.br
+.ti -1c
+.RI "double \fBCrownLoadingBurned\fP"
+.br
+.ti -1c
+.RI "double \fBCrownFractionBurned\fP"
+.br
+.ti -1c
+.RI "double \fBhead\fP"
+.br
+.ti -1c
+.RI "double \fBback\fP"
+.br
+.ti -1c
+.RI "double \fBflank\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBaccel\fP (double RosE, double \fBRosT\fP, double \fBA\fP, double *\fBavgros\fP, double *\fBcosslope\fP)"
+.br
+.ti -1c
+.RI "void \fBTransformWindDir\fP (long slope, double aspectf)"
+.br
+.ti -1c
+.RI "double \fBvectordir\fP (double aspectf)"
+.br
+.ti -1c
+.RI "double \fBvectorspd\fP (double *VWindSpeed, double aspectf, long FireType)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBm_ones\fP"
+.br
+.ti -1c
+.RI "double \fBm_tens\fP"
+.br
+.ti -1c
+.RI "double \fBm_hundreds\fP"
+.br
+.ti -1c
+.RI "double \fBm_livew\fP"
+.br
+.ti -1c
+.RI "double \fBm_liveh\fP"
+.br
+.ti -1c
+.RI "double \fBphiw\fP"
+.br
+.ti -1c
+.RI "double \fBphis\fP"
+.br
+.ti -1c
+.RI "double \fBphiew\fP"
+.br
+.ti -1c
+.RI "double \fBLocalWindDir\fP"
+.br
+.ti -1c
+.RI "double \fBFirePerimeterDist\fP"
+.br
+.ti -1c
+.RI "double \fBslopespd\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB464\fP of file \fBfsx4\&.hpp\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Mechanix::Mechanix ()"
+
+.PP
+Definition at line \fB517\fP of file \fBfsxwmech\&.cpp\fP\&.
+.SS "Mechanix::~Mechanix ()"
+
+.PP
+Definition at line \fB522\fP of file \fBfsxwmech\&.cpp\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "double Mechanix::accel (double RosE, double RosT, double A, double * avgros, double * cosslope)\fR [protected]\fP"
+
+.PP
+Definition at line \fB661\fP of file \fBfsxwmech\&.cpp\fP\&.
+.SS "void Mechanix::distchek (long CurrentFire)"
+
+.PP
+Definition at line \fB527\fP of file \fBfsxwmech\&.cpp\fP\&.
+.SS "void Mechanix::ellipse (double iros, double wspeed)"
+
+.PP
+Definition at line \fB1372\fP of file \fBfsxwmech\&.cpp\fP\&.
+.SS "void Mechanix::GetEquationTerms (double * phiw, double * phis, double * b, double * part1)"
+
+.PP
+Definition at line \fB1116\fP of file \fBfsxwmech\&.cpp\fP\&.
+.SS "void Mechanix::grow (double ivecdir)"
+
+.PP
+Definition at line \fB586\fP of file \fBfsxwmech\&.cpp\fP\&.
+.SS "void Mechanix::limgrow (void)"
+
+.PP
+Definition at line \fB618\fP of file \fBfsxwmech\&.cpp\fP\&.
+.SS "void Mechanix::scorrect (long slope, double aspectf)"
+
+.PP
+Definition at line \fB715\fP of file \fBfsxwmech\&.cpp\fP\&.
+.SS "double Mechanix::spreadrate (long slope, double windspd, int fuel)"
+
+.PP
+Definition at line \fB779\fP of file \fBfsxwmech\&.cpp\fP\&.
+.SS "void Mechanix::TransformWindDir (long slope, double aspectf)\fR [protected]\fP"
+
+.PP
+Definition at line \fB1399\fP of file \fBfsxwmech\&.cpp\fP\&.
+.SS "double Mechanix::vectordir (double aspectf)\fR [protected]\fP"
+
+.PP
+Definition at line \fB1472\fP of file \fBfsxwmech\&.cpp\fP\&.
+.SS "double Mechanix::vectorspd (double * VWindSpeed, double aspectf, long FireType)\fR [protected]\fP"
+
+.PP
+Definition at line \fB1435\fP of file \fBfsxwmech\&.cpp\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "double Mechanix::ActualSurfaceSpread"
+
+.PP
+Definition at line \fB486\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::avgros"
+
+.PP
+Definition at line \fB486\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::back"
+
+.PP
+Definition at line \fB491\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::cosslope"
+
+.PP
+Definition at line \fB489\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::cros"
+
+.PP
+Definition at line \fB486\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::CrownFractionBurned"
+
+.PP
+Definition at line \fB490\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::CrownLoadingBurned"
+
+.PP
+Definition at line \fB490\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::CurrentTime"
+
+.PP
+Definition at line \fB490\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::ExpansionRate"
+
+.PP
+Definition at line \fB488\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::FirePerimeterDist\fR [protected]\fP"
+
+.PP
+Definition at line \fB475\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::FlameLength"
+
+.PP
+Definition at line \fB490\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::flank"
+
+.PP
+Definition at line \fB491\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::fli"
+
+.PP
+Definition at line \fB488\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::FliFinal"
+
+.PP
+Definition at line \fB488\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::fros"
+
+.PP
+Definition at line \fB486\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::head"
+
+.PP
+Definition at line \fB491\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::HorizSpread"
+
+.PP
+Definition at line \fB486\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::ivecspeed"
+
+.PP
+Definition at line \fB485\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::LocalWindDir\fR [protected]\fP"
+
+.PP
+Definition at line \fB474\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::m_hundreds\fR [protected]\fP"
+
+.PP
+Definition at line \fB473\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::m_liveh\fR [protected]\fP"
+
+.PP
+Definition at line \fB473\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::m_livew\fR [protected]\fP"
+
+.PP
+Definition at line \fB473\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::m_ones\fR [protected]\fP"
+
+.PP
+Definition at line \fB473\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::m_tens\fR [protected]\fP"
+
+.PP
+Definition at line \fB473\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::m_twindspd"
+
+.PP
+Definition at line \fB485\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::m_winddir"
+
+.PP
+Definition at line \fB485\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::m_windspd"
+
+.PP
+Definition at line \fB485\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::midx"
+
+.PP
+Definition at line \fB484\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::midy"
+
+.PP
+Definition at line \fB484\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::phiew\fR [protected]\fP"
+
+.PP
+Definition at line \fB474\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::phis\fR [protected]\fP"
+
+.PP
+Definition at line \fB474\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::phiw\fR [protected]\fP"
+
+.PP
+Definition at line \fB474\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::R10"
+
+.PP
+Definition at line \fB487\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::react"
+
+.PP
+Definition at line \fB489\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::RosT"
+
+.PP
+Definition at line \fB487\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::RosT1"
+
+.PP
+Definition at line \fB487\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::savx"
+
+.PP
+Definition at line \fB489\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::slopespd\fR [protected]\fP"
+
+.PP
+Definition at line \fB475\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::timerem"
+
+.PP
+Definition at line \fB489\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::vecdir"
+
+.PP
+Definition at line \fB485\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::vecros"
+
+.PP
+Definition at line \fB486\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::vecspeed"
+
+.PP
+Definition at line \fB485\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::xdiff"
+
+.PP
+Definition at line \fB484\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::xpt"
+
+.PP
+Definition at line \fB484\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::xptl"
+
+.PP
+Definition at line \fB484\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::xptn"
+
+.PP
+Definition at line \fB484\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::xt"
+
+.PP
+Definition at line \fB484\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::ydiff"
+
+.PP
+Definition at line \fB484\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::ypt"
+
+.PP
+Definition at line \fB484\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::yptl"
+
+.PP
+Definition at line \fB484\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::yptn"
+
+.PP
+Definition at line \fB484\fP of file \fBfsx4\&.hpp\fP\&.
+.SS "double Mechanix::yt"
+
+.PP
+Definition at line \fB484\fP of file \fBfsx4\&.hpp\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for farsite4P from the source code\&.

@@ -1,0 +1,215 @@
+\doxysection{C\+:/\+Users/tolk1/\+Dropbox/\+SDSC/\+Wi\+Fire/farsite-\/dev\+API/src2/batch.cpp}
+\hypertarget{batch_8cpp_source}{}\label{batch_8cpp_source}\mbox{\hyperlink{batch_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ NOTICE\ OF\ RELEASE\ TO\ THE\ PUBLIC\ DOMAIN}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00004}00004\ \textcolor{comment}{\ *\ This\ work\ was\ created\ using\ public\ funds\ by\ employees\ of\ the\ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ USDA\ Forest\ Service's\ Fire\ Science\ Lab\ and\ Systems\ for\ Environmental\ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00006}00006\ \textcolor{comment}{\ *\ Management.\ \ It\ is\ therefore\ ineligible\ for\ copyright\ under\ title\ 17,\ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00007}00007\ \textcolor{comment}{\ *\ section\ 105\ of\ the\ United\ States\ Code.\ \ You\ may\ treat\ it\ as\ you\ would\ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00008}00008\ \textcolor{comment}{\ *\ treat\ any\ public\ domain\ work:\ it\ may\ be\ used,\ changed,\ copied,\ or\ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00009}00009\ \textcolor{comment}{\ *\ redistributed,\ with\ or\ without\ permission\ of\ the\ authors,\ for\ free\ or\ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00010}00010\ \textcolor{comment}{\ *\ for\ compensation.\ \ You\ may\ not\ claim\ exclusive\ ownership\ of\ this\ code\ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00011}00011\ \textcolor{comment}{\ *\ because\ it\ is\ already\ owned\ by\ everyone.\ \ Use\ this\ software\ entirely\ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00012}00012\ \textcolor{comment}{\ *\ at\ your\ own\ risk.\ \ No\ warranty\ of\ any\ kind\ is\ given.}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00014}00014\ \textcolor{comment}{\ *\ FARSITE\ is\ a\ trademark\ owned\ by\ Mark\ Finney.\ \ You\ may\ not\ call\ derived\ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00015}00015\ \textcolor{comment}{\ *\ works\ by\ the\ name\ FARSITE\ without\ explicit\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00017}00017\ \textcolor{comment}{\ *\ A\ copy\ of\ 17-\/USC-\/105\ should\ have\ accompanied\ this\ distribution\ in\ the\ file\ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00018}00018\ \textcolor{comment}{\ *\ 17USC105.html.\ \ If\ not,\ you\ may\ access\ the\ law\ via\ the\ US\ Government's\ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00019}00019\ \textcolor{comment}{\ *\ public\ websites:\ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00020}00020\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.copyright.gov/title17/92chap1.html\#105}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00021}00021\ \textcolor{comment}{\ *\ \ \ -\/\ http://www.gpoaccess.gov/uscode/\ \ (enter\ "{}17USC105"{}\ in\ the\ search\ box.)}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00030}00030\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{farsite4_8h}{farsite4.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00033}00033\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{portablestrings_8h}{portablestrings.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00034}00034\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sample_m_t_8h}{sampleMT.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00035}00035\ \textcolor{preprocessor}{\#include\ <omp.h>}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00036}00036\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_time_counter_8hpp}{TimeCounter.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00037}00037\ \textcolor{preprocessor}{\#include\ <sys/time.h>}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00038}00038\ \textcolor{preprocessor}{\#include\ <sys/resource.h>}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00040}00040\ \textcolor{comment}{//\#include\ <dir.h>}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00041}00041\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00042}00042\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PrintHelp();}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00044}\mbox{\hyperlink{batch_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{00044}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{batch_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00045}00045\ \{}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{char}\ BookMarkArg[256]\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{char}\ FarsiteDirectory[256]\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{char}\ pathdiv[]\ =\ \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)"{}};\ \textcolor{comment}{//\ search\ for\ path}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{long}\ len;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *settingsfile=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{char}\ *resumeFile=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordtype}{char}\ *SaveFileName=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{char}\ *TimeFileName=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{char}\ *resolution=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{int}\ resumeL=0;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{int}\ resumeS=0;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordtype}{int}\ startTime=0;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{char}\ o;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordtype}{int}\ timeCounter=0;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00060}00060\ \textcolor{comment}{//\ \ printf("{}Farsite\ modified\ version\ execution!\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00061}00061\ \ \ \ \ FILE\ *TimeFile;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keyword}{struct\ }rlimit\ rl;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{keyword}{struct\ }rlimit\ lc;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00064}00064\ \ \ \ \ getrlimit\ (RLIMIT\_CPU,\ \&rl);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00065}00065\ \ \ \ \ getrlimit\ (RLIMIT\_CORE,\&lc);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordtype}{int}\ cores=0;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{int}\ generation=0;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{int}\ n=0;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ worker=0;\ \ \ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{int}\ setLimit=0;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00071}00071\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00072}00072\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ >=2)\{}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00073}00073\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((o\ =\ getopt\ (argc,\ argv,\ \textcolor{stringliteral}{"{}i:r:s:t:l:f:g:n:w:p:"{}}))\ !=\ -\/1)}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00074}00074\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{switch}\ (o)}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00076}00076\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00077}00077\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'i'}:}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ settingsfile\ =\ optarg;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00080}00080\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'p'}:}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ resolution\ =\ optarg;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00083}00083\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'r'}:}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ resumeL=1;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ resumeFile\ =\ optarg;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00087}00087\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'s'}:}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ resumeS=1;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ SaveFileName\ =\ optarg;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00091}00091\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'t'}\ :}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ timeCounter\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ TimeFileName\ =\ optarg;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00095}00095\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'l'}\ :}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ setLimit=1;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ rl.rlim\_cur=atoi(optarg);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00099}00099\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'f'}:}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ cores=atoi(optarg);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00102}00102\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'g'}:}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ generation=atoi(optarg);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00105}00105\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'n'}:}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ n=atoi(optarg);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00108}00108\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'w'}:}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ worker=atoi(optarg);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00111}00111\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ PrintHelp();}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00114}00114\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00115}00115\ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00116}00116\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00117}00117\ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00118}00118\ \ \ \ \ PrintHelp();}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00120}00120\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00121}00121\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \#ifdef\ \_OPENMP}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00122}00122\ \ \ \ \ \textcolor{keywordflow}{if}\ (cores==0)\{}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00123}00123\ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}No\ number\ of\ cores\ specified,\ using\ max\ available.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ cores=omp\_get\_max\_threads();}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00125}00125\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ omp\_set\_num\_threads(cores);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00127}00127\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00128}00128\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00129}00129\ \ \ \ \ \ \textcolor{comment}{//\ printf("{}Using\ \%d\ threads\(\backslash\)n"{},threads);}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00130}00130\ \ \ \ \ \ \ \textcolor{comment}{//Check\ files\ from\ input}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00131}00131\ \ \ \ \ \ \textcolor{comment}{//\ printf("{}/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\//\(\backslash\)nChecking\ files...\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00132}00132\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!(access(settingsfile,F\_OK)==0))\{}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00133}00133\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Non\ existent\ setting\ file\ or\ no\ access.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00135}00135\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00136}00136\ \ \ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00137}00137\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(resumeL\ \&\&\ !(access(resumeFile,F\_OK)==0))\{}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00138}00138\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Non\ existent\ resume\ file\ or\ no\ access.\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00139}00139\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00140}00140\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00141}00141\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00142}00142\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00144}00144\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strlen(argv[0])\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00145}00145\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00146}00146\ \ \ \ \ strcpy(FarsiteDirectory,\ argv[0]);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00147}00147\ \ \ \ \ strrev(FarsiteDirectory);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00148}00148\ \ \ \ \ len\ =\ strcspn(FarsiteDirectory,\ pathdiv);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00149}00149\ \ \ \ \ memset(FarsiteDirectory,\ 0x0,\ 256\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00150}00150\ \ \ \ \ strncpy(FarsiteDirectory,\ argv[0],\ strlen(argv[0])\ -\/\ len);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00151}00151\ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00152}00152\ \ \ \ \ getcwd(FarsiteDirectory,512);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00153}00153\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00154}00154\ \ \ \ \ \textcolor{comment}{//\ \ TFarsiteInterface\ farsite=TFarsiteInterface("{}FARSITE\ 4.0"{},\ FarsiteDirectory,\ BookMarkArg).InitMainWindow();}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00155}00155\ \ \ \ \ \mbox{\hyperlink{class_t_farsite_interface}{TFarsiteInterface}}\ farsite\ =\ \mbox{\hyperlink{class_t_farsite_interface}{TFarsiteInterface}}(\textcolor{stringliteral}{"{}FARSITE\ 4.0"{}},FarsiteDirectory,\ BookMarkArg);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ if(argc>=2)\{}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00157}00157\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if(!(access(argv[1],04)==0))\{}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00158}00158\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf("{}non\ existent\ settings\ file\ or\ no\ access\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00159}00159\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ 0;}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00160}00160\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00161}00161\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ farsite.SetInputsFromFile(argv[1]);}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00162}00162\ \textcolor{comment}{//\ \ \ \ \ \ printf("{}\%s\(\backslash\)n"{},argv[1]);}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00163}00163\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}else\{*/}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00164}00164\ \ \ \ \ farsite.\mbox{\hyperlink{class_t_farsite_interface_a9035a8d6f987ec8d8381cdb3351b9d07}{SetInputsFromFile}}(settingsfile);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00165}00165\ \textcolor{comment}{//\ \ long\ tID;}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00166}00166\ \textcolor{comment}{//\ \ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00167}00167\ \textcolor{comment}{//\ \ Sample\_Init();}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00168}00168\ \ \ \ \ \textcolor{comment}{//tID=1;}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00169}00169\ \textcolor{comment}{//\ \ Sample\_SetCPU(tID);}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00170}00170\ \textcolor{comment}{//\ \ Sample\_ON(tID);}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00171}00171\ \textcolor{comment}{//\ \ printf("{}Setting\ file:\%s\(\backslash\)n"{},settingsfile);}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00172}00172\ \ \ \ \ \textcolor{keywordflow}{if}(resumeL)\ printf(\textcolor{stringliteral}{"{}Resume\ file\ input:\%s\(\backslash\)n"{}},resumeFile);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00173}00173\ \ \ \ \ \textcolor{keywordflow}{if}(resumeS)\ printf(\textcolor{stringliteral}{"{}Resume\ file\ output:\%s\(\backslash\)n"{}},SaveFileName);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00174}00174\ \ \ \ \ \textcolor{comment}{//printf("{}OK!\(\backslash\)n/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\//\(\backslash\)n"{});}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00175}00175\ \ \ \ \ lc.rlim\_cur\ =\ lc.rlim\_max\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00176}00176\ \ \ \ \ setrlimit(RLIMIT\_CORE,\&lc);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00177}00177\ \ \ \ \ \textcolor{keywordflow}{if}\ (setLimit)\{setrlimit\ (RLIMIT\_CPU,\ \&rl);\}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00178}00178\ \ \ \ \ \mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>\mbox{\hyperlink{class_time_counter_ad4f9c70a9135c7ecb2461aeaf79b6981}{startTS}}();}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00179}00179\ \ \ \ \ farsite.\mbox{\hyperlink{class_t_farsite_interface_af730835dda36cc8e9c16c7357105bf2e}{SetResume}}(resumeL,resumeS,resumeFile,SaveFileName);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00180}00180\ \ \ \ \ farsite.\mbox{\hyperlink{class_t_farsite_interface_a84210ea6a7e0db6e101de529b363d1dc}{InitMainWindow}}();}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00181}00181\ \ \ \ \ farsite.\mbox{\hyperlink{class_t_farsite_interface_affdf08c077bd1344823b032dd1da0427}{Terminate}}();}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00182}00182\ \ \ \ \ \mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>\mbox{\hyperlink{class_time_counter_a46af457e65a732bc668e014a4a3f8810}{stopTS}}();}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00183}00183\ \textcolor{comment}{//\ \ Sample\_OFF(tID);}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00184}00184\ \textcolor{comment}{//\ \ Sample\_End();}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00185}00185\ \ \ \ \ \textcolor{comment}{//farsite.sIgn();}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00186}00186\ \ \ \ \ fflush(stdout);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00189}00189\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00190}00190\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00191}00191\ \textcolor{comment}{//\ \ TimeCounter::Instance()-\/>startT();}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00192}00192\ \textcolor{comment}{//\ \ sleep(4);}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00193}00193\ \textcolor{comment}{//\ \ TimeCounter::Instance()-\/>stopT();}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00194}00194\ \ \ \ \ \textcolor{keywordflow}{if}(\ timeCounter\ )\{}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00195}00195\ \textcolor{comment}{/*\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00196}00196\ \textcolor{comment}{\ \ \ \ \ \ if((\ TimeFile\ =\ fopen(\ TimeFileName,\ "{}w+"{}))\ ==\ NULL)\ \{}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00197}00197\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ puts("{}Error\ creating\ time\ counter\ file."{});}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00198}00198\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ exit(\ 0\ );}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00199}00199\ \textcolor{comment}{\ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00200}00200\ \textcolor{comment}{*/}\ \ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00201}00201\ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}FARSITE:\%d\_\%d\_\%d\_\%f\_\%f\_\%d\_\%s\(\backslash\)n"{}},generation,n,cores,\mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>getTimeS(),\mbox{\hyperlink{class_time_counter_a21c78a6663f11cd5d2263b94cc103ca5}{TimeCounter::Instance}}()-\/>getTime(),worker,resolution);}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00202}00202\ \textcolor{comment}{//\ \ \ \ fprintf(TimeFile,\ "{}\%d"{},TimeCounter::Instance()-\/>getTime());}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00203}00203\ \textcolor{comment}{//\ \ \ \ printf("{}Parallel\ time:\ \%d\(\backslash\)n"{},TimeCounter::Instance()-\/>getTime());}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00204}00204\ \textcolor{comment}{//\ \ \ \ printf("{}Serial\ time:\ \%d\(\backslash\)n"{},(time(NULL)-\/startTime)-\/(TimeCounter::Instance()-\/>getTime()));}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00205}00205\ \textcolor{comment}{//\ \ \ \ printf("{}Execution\ time:\%d\(\backslash\)n"{},time(NULL)-\/startTime);}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00206}00206\ \textcolor{comment}{//\ \ \ \ fclose(TimeFile);}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00207}00207\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00208}00208\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00209}00209\ \}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00211}00211\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ PrintHelp()}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00212}00212\ \{}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00213}00213\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Help:\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00214}00214\ \ \ \ \ printf(\textcolor{stringliteral}{"{}farsite4\ -\/i\ SettingsFileName\ -\/r\ ResumeFileInput\ -\/s\ ResumeFileOutput\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00215}00215\ \}}
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{batch_8cpp_source_l00217}00217\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+
+\end{DoxyCode}
